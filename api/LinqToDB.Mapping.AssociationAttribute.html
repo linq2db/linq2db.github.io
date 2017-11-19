@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class AssociationAttribute
    | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.22.2.0">
+    <meta name="generator" content="docfx 2.27.0.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
+    
     <meta property="docfx:rel" content="../">
     
   </head>
@@ -80,13 +81,29 @@
   
   <h1 id="LinqToDB_Mapping_AssociationAttribute" data-uid="LinqToDB.Mapping.AssociationAttribute" class="text-break">Class AssociationAttribute
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Defines relation between tables or views.
+Could be applied to:</p>
+<ul>
+<li>instance properties and fields;</li>
+<li>instance and static methods.</li>
+</ul>
+<p>For associations, defined using static methods, <code>this</code> mapping side defined by type of first parameter.
+Also, optionally, you can pass data context object as extra method parameter.</p>
+<p>Based on association type - to one or to multiple records - result type should be target record&apos;s mapping type or
+<span class="xref">System.IEquatable&lt;T&gt;</span> collection.</p>
+<p>By default associations are used only for joins generation in LINQ queries and will have <code>null</code> value for loaded
+records. To load data into association, you should explicitly specify it in your query using <a class="xref" href="LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_LoadWith__1_LinqToDB_ITable___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___">LoadWith&lt;T&gt;(ITable&lt;T&gt;, Expression&lt;Func&lt;T, Object&gt;&gt;)</a> method.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">System.Attribute</span></div>
     <div class="level2"><span class="xref">AssociationAttribute</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Runtime.InteropServices._Attribute</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.Mapping.html">LinqToDB.Mapping</a></h6>
   <h6><strong>Assembly</strong>: linq2db.dll</h6>
@@ -99,14 +116,15 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute__ctor.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute__ctor.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/Mapping/AssociationAttribute.cs/#L11">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/Mapping/AssociationAttribute.cs/#L29">View Source</a>
   </span>
   <a id="LinqToDB_Mapping_AssociationAttribute__ctor_" data-uid="LinqToDB.Mapping.AssociationAttribute.#ctor*"></a>
   <h4 id="LinqToDB_Mapping_AssociationAttribute__ctor" data-uid="LinqToDB.Mapping.AssociationAttribute.#ctor">AssociationAttribute()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates attribute instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -116,14 +134,15 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_BackReferenceName.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.BackReferenceName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_BackReferenceName.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.BackReferenceName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/Mapping/AssociationAttribute.cs/#L23">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/Mapping/AssociationAttribute.cs/#L86">View Source</a>
   </span>
   <a id="LinqToDB_Mapping_AssociationAttribute_BackReferenceName_" data-uid="LinqToDB.Mapping.AssociationAttribute.BackReferenceName*"></a>
   <h4 id="LinqToDB_Mapping_AssociationAttribute_BackReferenceName" data-uid="LinqToDB.Mapping.AssociationAttribute.BackReferenceName">BackReferenceName</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>This property is not used by linq2db.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -146,14 +165,20 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_CanBeNull.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.CanBeNull%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_CanBeNull.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.CanBeNull%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/Mapping/AssociationAttribute.cs/#L21">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/Mapping/AssociationAttribute.cs/#L74">View Source</a>
   </span>
   <a id="LinqToDB_Mapping_AssociationAttribute_CanBeNull_" data-uid="LinqToDB.Mapping.AssociationAttribute.CanBeNull*"></a>
   <h4 id="LinqToDB_Mapping_AssociationAttribute_CanBeNull" data-uid="LinqToDB.Mapping.AssociationAttribute.CanBeNull">CanBeNull</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Defines type of join:</p>
+<ul>
+<li>inner join for <code>CanBeNull = false</code>;</li>
+<li>left join for <code>CanBeNull = true</code>.
+Default value: <code>true</code>.</li>
+</ul>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -176,14 +201,17 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_Configuration.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.Configuration%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_Configuration.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.Configuration%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/Mapping/AssociationAttribute.cs/#L16">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/Mapping/AssociationAttribute.cs/#L39">View Source</a>
   </span>
   <a id="LinqToDB_Mapping_AssociationAttribute_Configuration_" data-uid="LinqToDB.Mapping.AssociationAttribute.Configuration*"></a>
   <h4 id="LinqToDB_Mapping_AssociationAttribute_Configuration" data-uid="LinqToDB.Mapping.AssociationAttribute.Configuration">Configuration</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets mapping schema configuration name, for which this attribute should be taken into account.
+<a class="xref" href="LinqToDB.ProviderName.html">ProviderName</a> for standard names.
+Attributes with <code>null</code> or empty string <a class="xref" href="LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_Configuration">Configuration</a> value applied to all configurations (if no attribute found for current configuration).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -206,14 +234,17 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_ExpressionPredicate.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.ExpressionPredicate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_ExpressionPredicate.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.ExpressionPredicate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/Mapping/AssociationAttribute.cs/#L19">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/Mapping/AssociationAttribute.cs/#L60">View Source</a>
   </span>
   <a id="LinqToDB_Mapping_AssociationAttribute_ExpressionPredicate_" data-uid="LinqToDB.Mapping.AssociationAttribute.ExpressionPredicate*"></a>
   <h4 id="LinqToDB_Mapping_AssociationAttribute_ExpressionPredicate" data-uid="LinqToDB.Mapping.AssociationAttribute.ExpressionPredicate">ExpressionPredicate</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Specifies static property or method without parameters, that returns join predicate expression. This predicate will be used together with
+<a class="xref" href="LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_ThisKey">ThisKey</a>/<a class="xref" href="LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_OtherKey">OtherKey</a> join keys, if they are specified.
+Predicate expression lambda function takes two parameters: this record and other record and returns boolean result.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -236,14 +267,15 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_IsBackReference.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.IsBackReference%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_IsBackReference.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.IsBackReference%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/Mapping/AssociationAttribute.cs/#L24">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/Mapping/AssociationAttribute.cs/#L92">View Source</a>
   </span>
   <a id="LinqToDB_Mapping_AssociationAttribute_IsBackReference_" data-uid="LinqToDB.Mapping.AssociationAttribute.IsBackReference*"></a>
   <h4 id="LinqToDB_Mapping_AssociationAttribute_IsBackReference" data-uid="LinqToDB.Mapping.AssociationAttribute.IsBackReference">IsBackReference</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>This property is not used by linq2db.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -266,14 +298,15 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_KeyName.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.KeyName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_KeyName.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.KeyName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/Mapping/AssociationAttribute.cs/#L22">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/Mapping/AssociationAttribute.cs/#L80">View Source</a>
   </span>
   <a id="LinqToDB_Mapping_AssociationAttribute_KeyName_" data-uid="LinqToDB.Mapping.AssociationAttribute.KeyName*"></a>
   <h4 id="LinqToDB_Mapping_AssociationAttribute_KeyName" data-uid="LinqToDB.Mapping.AssociationAttribute.KeyName">KeyName</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>This property is not used by linq2db.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -296,14 +329,17 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_OtherKey.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.OtherKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_OtherKey.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.OtherKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/Mapping/AssociationAttribute.cs/#L18">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/Mapping/AssociationAttribute.cs/#L53">View Source</a>
   </span>
   <a id="LinqToDB_Mapping_AssociationAttribute_OtherKey_" data-uid="LinqToDB.Mapping.AssociationAttribute.OtherKey*"></a>
   <h4 id="LinqToDB_Mapping_AssociationAttribute_OtherKey" data-uid="LinqToDB.Mapping.AssociationAttribute.OtherKey">OtherKey</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets comma-separated list of association key members on another side of association.
+Those keys will be used for join predicate generation and must be compatible with <a class="xref" href="LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_ThisKey">ThisKey</a> keys.
+You must specify keys it you do not use custom predicate (see <a class="xref" href="LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_ExpressionPredicate">ExpressionPredicate</a>).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -326,14 +362,15 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_Relationship.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.Relationship%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_Relationship.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.Relationship%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/Mapping/AssociationAttribute.cs/#L25">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/Mapping/AssociationAttribute.cs/#L98">View Source</a>
   </span>
   <a id="LinqToDB_Mapping_AssociationAttribute_Relationship_" data-uid="LinqToDB.Mapping.AssociationAttribute.Relationship*"></a>
   <h4 id="LinqToDB_Mapping_AssociationAttribute_Relationship" data-uid="LinqToDB.Mapping.AssociationAttribute.Relationship">Relationship</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>This property is not used by linq2db.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -356,14 +393,16 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_Storage.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.Storage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_Storage.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.Storage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/Mapping/AssociationAttribute.cs/#L20">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/Mapping/AssociationAttribute.cs/#L66">View Source</a>
   </span>
   <a id="LinqToDB_Mapping_AssociationAttribute_Storage_" data-uid="LinqToDB.Mapping.AssociationAttribute.Storage*"></a>
   <h4 id="LinqToDB_Mapping_AssociationAttribute_Storage" data-uid="LinqToDB.Mapping.AssociationAttribute.Storage">Storage</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Specify name of property or field to store association value, loaded using <a class="xref" href="LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_LoadWith__1_LinqToDB_ITable___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___">LoadWith&lt;T&gt;(ITable&lt;T&gt;, Expression&lt;Func&lt;T, Object&gt;&gt;)</a> method.
+When not specified, current association memeber will be used.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -386,14 +425,17 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_ThisKey.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.ThisKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_ThisKey.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.ThisKey%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/Mapping/AssociationAttribute.cs/#L17">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/Mapping/AssociationAttribute.cs/#L46">View Source</a>
   </span>
   <a id="LinqToDB_Mapping_AssociationAttribute_ThisKey_" data-uid="LinqToDB.Mapping.AssociationAttribute.ThisKey*"></a>
   <h4 id="LinqToDB_Mapping_AssociationAttribute_ThisKey" data-uid="LinqToDB.Mapping.AssociationAttribute.ThisKey">ThisKey</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets comma-separated list of association key members on this side of association.
+Those keys will be used for join predicate generation and must be compatible with <a class="xref" href="LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_OtherKey">OtherKey</a> keys.
+You must specify keys it you do not use custom predicate (see <a class="xref" href="LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_ExpressionPredicate">ExpressionPredicate</a>).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -418,14 +460,15 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_GetOtherKeys.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.GetOtherKeys%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_GetOtherKeys.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.GetOtherKeys%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/Mapping/AssociationAttribute.cs/#L28">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/Mapping/AssociationAttribute.cs/#L110">View Source</a>
   </span>
   <a id="LinqToDB_Mapping_AssociationAttribute_GetOtherKeys_" data-uid="LinqToDB.Mapping.AssociationAttribute.GetOtherKeys*"></a>
   <h4 id="LinqToDB_Mapping_AssociationAttribute_GetOtherKeys" data-uid="LinqToDB.Mapping.AssociationAttribute.GetOtherKeys">GetOtherKeys()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns <a class="xref" href="LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_OtherKey">OtherKey</a> value as a list of key member names.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -442,20 +485,22 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
     <tbody>
       <tr>
         <td><span class="xref">System.String</span>[]</td>
-        <td></td>
+        <td><p>List of key members.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_GetThisKeys.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.GetThisKeys%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute_GetThisKeys.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute.GetThisKeys%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/Mapping/AssociationAttribute.cs/#L27">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/Mapping/AssociationAttribute.cs/#L104">View Source</a>
   </span>
   <a id="LinqToDB_Mapping_AssociationAttribute_GetThisKeys_" data-uid="LinqToDB.Mapping.AssociationAttribute.GetThisKeys*"></a>
   <h4 id="LinqToDB_Mapping_AssociationAttribute_GetThisKeys" data-uid="LinqToDB.Mapping.AssociationAttribute.GetThisKeys">GetThisKeys()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns <a class="xref" href="LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_ThisKey">ThisKey</a> value as a list of key member names.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -472,10 +517,15 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
     <tbody>
       <tr>
         <td><span class="xref">System.String</span>[]</td>
-        <td></td>
+        <td><p>List of key members.</p>
+</td>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Runtime.InteropServices._Attribute</span>
+  </div>
 </article>
           </div>
           
@@ -484,10 +534,10 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_AssociationAttribute.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.AssociationAttribute%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/Mapping/AssociationAttribute.cs/#L7" class="contribution-link">View Source</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/Mapping/AssociationAttribute.cs/#L22" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ExpressionMethodAttribute
    | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.22.2.0">
+    <meta name="generator" content="docfx 2.27.0.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
+    
     <meta property="docfx:rel" content="../">
     
   </head>
@@ -80,13 +81,40 @@
   
   <h1 id="LinqToDB_ExpressionMethodAttribute" data-uid="LinqToDB.ExpressionMethodAttribute" class="text-break">Class ExpressionMethodAttribute
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>When applied to method or property, tells linq2db to replace them in queryable LINQ expression with another expression,
+returned by method, specified in this attribute.</p>
+<p>Requirements to expression method:
+<p>
+<ul>
+<li>expression method should be in the same class and replaced property of method;</li>
+<li>method could be private.
+<p>
+<p>
+When applied to property, expression:</li>
+<li>method should return function expression with the same return type as property type;</li>
+<li>expression method could take up to two parameters in any order - current object parameter and database connection context object.
+<p>
+<p>
+When applied to method:</li>
+<li>expression method should return function expression with the same return type as method return type;</li>
+<li>method cannot have void return type;</li>
+<li>parameters in expression method should go in the same order as in substituted method;</li>
+<li>expression could take method instance object as first parameter;</li>
+<li>expression could take database connection context object as last parameter;</li>
+<li>last method parameters could be ommited from expression method, but only if you don&apos;t add database connection context parameter.
+<p></li>
+</ul>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">System.Attribute</span></div>
     <div class="level2"><span class="xref">ExpressionMethodAttribute</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Runtime.InteropServices._Attribute</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.html">LinqToDB</a></h6>
   <h6><strong>Assembly</strong>: linq2db.dll</h6>
@@ -99,14 +127,15 @@ public class ExpressionMethodAttribute : Attribute, _Attribute</code></pre>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_ExpressionMethodAttribute__ctor_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.ExpressionMethodAttribute.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_ExpressionMethodAttribute__ctor_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.ExpressionMethodAttribute.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/ExpressionMethodAttribute.cs/#L8">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/ExpressionMethodAttribute.cs/#L36">View Source</a>
   </span>
   <a id="LinqToDB_ExpressionMethodAttribute__ctor_" data-uid="LinqToDB.ExpressionMethodAttribute.#ctor*"></a>
   <h4 id="LinqToDB_ExpressionMethodAttribute__ctor_System_String_" data-uid="LinqToDB.ExpressionMethodAttribute.#ctor(System.String)">ExpressionMethodAttribute(String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates instance of attribute.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -125,20 +154,22 @@ public class ExpressionMethodAttribute : Attribute, _Attribute</code></pre>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">methodName</span></td>
-        <td></td>
+        <td><p>Name of method in the same class that returns substitution expression.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_ExpressionMethodAttribute__ctor_System_String_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.ExpressionMethodAttribute.%23ctor(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_ExpressionMethodAttribute__ctor_System_String_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.ExpressionMethodAttribute.%23ctor(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/ExpressionMethodAttribute.cs/#L13">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/ExpressionMethodAttribute.cs/#L46">View Source</a>
   </span>
   <a id="LinqToDB_ExpressionMethodAttribute__ctor_" data-uid="LinqToDB.ExpressionMethodAttribute.#ctor*"></a>
   <h4 id="LinqToDB_ExpressionMethodAttribute__ctor_System_String_System_String_" data-uid="LinqToDB.ExpressionMethodAttribute.#ctor(System.String,System.String)">ExpressionMethodAttribute(String, String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates instance of attribute.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -157,12 +188,14 @@ public class ExpressionMethodAttribute : Attribute, _Attribute</code></pre>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">configuration</span></td>
-        <td></td>
+        <td><p>Connection configuration, for which this attribute should be taken into account.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">methodName</span></td>
-        <td></td>
+        <td><p>Name of method in the same class that returns substitution expression.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -170,14 +203,17 @@ public class ExpressionMethodAttribute : Attribute, _Attribute</code></pre>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_ExpressionMethodAttribute_Configuration.md&amp;value=---%0Auid%3A%20LinqToDB.ExpressionMethodAttribute.Configuration%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_ExpressionMethodAttribute_Configuration.md&amp;value=---%0Auid%3A%20LinqToDB.ExpressionMethodAttribute.Configuration%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/ExpressionMethodAttribute.cs/#L19">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/ExpressionMethodAttribute.cs/#L57">View Source</a>
   </span>
   <a id="LinqToDB_ExpressionMethodAttribute_Configuration_" data-uid="LinqToDB.ExpressionMethodAttribute.Configuration*"></a>
   <h4 id="LinqToDB_ExpressionMethodAttribute_Configuration" data-uid="LinqToDB.ExpressionMethodAttribute.Configuration">Configuration</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Mapping schema configuration name, for which this attribute should be taken into account.
+<a class="xref" href="LinqToDB.ProviderName.html">ProviderName</a> for standard names.
+Attributes with <code>null</code> or empty string <a class="xref" href="LinqToDB.ExpressionMethodAttribute.html#LinqToDB_ExpressionMethodAttribute_Configuration">Configuration</a> value applied to all configurations (if no attribute found for current configuration).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -200,14 +236,15 @@ public class ExpressionMethodAttribute : Attribute, _Attribute</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_ExpressionMethodAttribute_MethodName.md&amp;value=---%0Auid%3A%20LinqToDB.ExpressionMethodAttribute.MethodName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_ExpressionMethodAttribute_MethodName.md&amp;value=---%0Auid%3A%20LinqToDB.ExpressionMethodAttribute.MethodName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/ExpressionMethodAttribute.cs/#L20">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/ExpressionMethodAttribute.cs/#L62">View Source</a>
   </span>
   <a id="LinqToDB_ExpressionMethodAttribute_MethodName_" data-uid="LinqToDB.ExpressionMethodAttribute.MethodName*"></a>
   <h4 id="LinqToDB_ExpressionMethodAttribute_MethodName" data-uid="LinqToDB.ExpressionMethodAttribute.MethodName">MethodName</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Name of method in the same class that returns substitution expression.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -228,6 +265,10 @@ public class ExpressionMethodAttribute : Attribute, _Attribute</code></pre>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Runtime.InteropServices._Attribute</span>
+  </div>
 </article>
           </div>
           
@@ -236,10 +277,10 @@ public class ExpressionMethodAttribute : Attribute, _Attribute</code></pre>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/new/docfx/apiSpec/new?filename=LinqToDB_ExpressionMethodAttribute.md&amp;value=---%0Auid%3A%20LinqToDB.ExpressionMethodAttribute%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_ExpressionMethodAttribute.md&amp;value=---%0Auid%3A%20LinqToDB.ExpressionMethodAttribute%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/docfx/Source/ExpressionMethodAttribute.cs/#L5" class="contribution-link">View Source</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/ExpressionMethodAttribute.cs/#L29" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
