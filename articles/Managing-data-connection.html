@@ -77,7 +77,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="managing-data-connection">Managing data connection</h1>
 
-<p>.NET database providers use connection pooling to work with database connections, where they take connection from pool, use it, and then release connection back to connection pool so it could be reused. When connection is not released correctly after use, connection pool will consider it still used, which will lead to two consequesnces:</p>
+<p>.NET database providers use connection pooling to work with database connections, where they take connection from pool, use it, and then release connection back to connection pool so it could be reused. When connection is not released correctly after use, connection pool will consider it still used, which will lead to two consequences:</p>
 <ul>
 <li>your application will create more and more connections to database, because there are no <em>free</em> connections to reuse from connection pool manager point of view</li>
 <li>at some point your application will fail to obtain connection from pool, because pool size limit reached</li>
@@ -89,10 +89,8 @@
 <li>query should be executed <strong>before</strong> <code>DataConnection</code> object is disposed. From version 1.8.0 we have introduced protection from wrong usage, and you will get <code>ObjectDisposedException</code> trying to perform query on disposed <code>DataConnection</code> instance.</li>
 </ul>
 </li>
-<li>using <code>DataContext</code> class. <code>DataContext</code> opens and closes physical connection for <strong>each</strong> query! <ul>
+<li>using <code>DataContext</code> class. <code>DataContext</code> opens and closes physical connection for <strong>each</strong> query!</li>
 <li>Be careful with <code>DataContext.KeepConnectionAlive</code> property, if you set it <code>true</code>, it would work the same way as <code>DataConnection</code>! So we do not recommend you to set this property to <code>true</code>.</li>
-</ul>
-</li>
 </ul>
 <h2 id="done-right">Done right</h2>
 <pre><code class="lang-cs">using (var db = new DataConnection())
@@ -166,7 +164,7 @@ var persons = await GetPersons();
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/version2/Doc/articles/Managing-data-connection.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/version1/doc/articles/Managing-data-connection.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

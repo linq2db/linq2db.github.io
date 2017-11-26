@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>INNER JOIN On Single Column | Linq To DB (aka linq2db) </title>
+    <title>Joins | Linq To DB (aka linq2db) </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="INNER JOIN On Single Column | Linq To DB (aka linq2db) ">
+    <meta name="title" content="Joins | Linq To DB (aka linq2db) ">
     <meta name="generator" content="docfx 2.27.0.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
@@ -74,22 +74,30 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="joins">
-<h1 id="inner-join-on-single-column">INNER JOIN On Single Column</h1>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="joins">Joins</h1>
 
-<p>C#</p>
-<pre><code class="lang-c#">using (var db = new NorthwindDB())
-{
-    var query =
-        from c in db.Category
-        join p in db.Product on c.CategoryID equals p.CategoryID
-        where !p.Discontinued
-        select c;
-
-    foreach (var category in query)
-        Console.WriteLine(category.CategoryID);
-}
-</code></pre><p>SQL</p>
+<p>Linq2DB supports full set of joins: INNER, LEFT, FULL, RIGHT, CROSS JOIN.</p>
+<h2 id="inner-join">INNER JOIN</h2>
+<h3 id="join-operator-on-single-column">Join operator on single column</h3>
+<pre><code class="lang-c#">var query =
+    from c in db.Category
+    join p in db.Product on c.CategoryID equals p.CategoryID
+    where !p.Discontinued
+    select c;
+</code></pre><h3 id="using-where-condition">Using &quot;Where&quot; condition</h3>
+<pre><code class="lang-c#">var query =
+    from c in db.Category
+    from p in db.Product.Where(pr =&gt; pr.CategoryID == c.CategoryID)
+    where !p.Discontinued
+    select c;
+</code></pre><h3 id="using-innerjoin-function">Using &quot;InnerJoin&quot; function</h3>
+<pre><code class="lang-c#">var query =
+    from c in db.Category
+    from p in db.Product.InnerJoin(pr =&gt; pr.CategoryID == c.CategoryID)
+    where !p.Discontinued
+    select c;
+</code></pre><h3 id="result-sql">Result SQL</h3>
 <pre><code class="lang-sql">SELECT
     [c].[CategoryID],
     [c].[CategoryName],
@@ -100,27 +108,20 @@ FROM
         INNER JOIN [Products] [p] ON [c].[CategoryID] = [p].[CategoryID]
 WHERE
     [p].[Discontinued] &lt;&gt; 1
-</code></pre><h1 id="inner-join-on-multiple-columns">INNER JOIN On Multiple Columns</h1>
-<p>C#</p>
-<pre><code class="lang-c#">using (var db = new NorthwindDB())
-{
-    var query =
-        from p in db.Product
-        from o in db.Order
-        join d in db.OrderDetail
-            on     new { p.ProductID, o.OrderID }
-            equals new { d.ProductID, d.OrderID }
-        where !p.Discontinued
-        select new
-        {
-            p.ProductID,
-            o.OrderID,
-        };
-
-    foreach (var item in query)
-        Console.WriteLine(item);
-}
-</code></pre><p>SQL</p>
+</code></pre><h3 id="join-operator-on-multiple-columns">Join operator on multiple columns</h3>
+<pre><code class="lang-cs">var query =
+    from p in db.Product
+    from o in db.Order
+    join d in db.OrderDetail
+        on     new { p.ProductID, o.OrderID }
+        equals new { d.ProductID, d.OrderID }
+    where !p.Discontinued
+    select new
+    {
+        p.ProductID,
+        o.OrderID,
+    };
+</code></pre><h3 id="result-sql-1">Result SQL</h3>
 <pre><code class="lang-sql">SELECT
     [t3].[ProductID] as [ProductID1],
     [t3].[OrderID] as [OrderID1]
@@ -137,6 +138,101 @@ FROM
         INNER JOIN [Order Details] [d] ON [t3].[ProductID] = [d].[ProductID] AND [t3].[OrderID] = [d].[OrderID]
 WHERE
     [t3].[Discontinued] &lt;&gt; 1
+</code></pre><h2 id="left-join">LEFT JOIN</h2>
+<h3 id="join-operator-on-single-column-1">Join operator on single column</h3>
+<pre><code class="lang-cs">var query =
+    from c in db.Category
+    join p in db.Product on c.CategoryID equals p.CategoryID into lj
+    from lp in lj.DefaultIfEmpty()
+    where !lp.Discontinued
+    select c;
+</code></pre><h3 id="using-where-condition-1">Using &quot;Where&quot; condition</h3>
+<pre><code class="lang-cs">var query =
+    from c in db.Category
+    from lp in db.Product.Where(p =&gt; p.CategoryID == c.CategoryID).DefaultIfEmpty()
+    where !lp.Discontinued
+    select c;
+</code></pre><h3 id="using-leftjoin-function">Using &quot;LeftJoin&quot; function</h3>
+<pre><code class="lang-cs">var query =
+    from c in db.Category
+    from p in db.Product.LeftJoin(pr =&gt; pr.CategoryID == c.CategoryID)
+    where !p.Discontinued
+    select c;
+</code></pre><h3 id="result-sql-2">Result SQL</h3>
+<pre><code class="lang-sql">SELECT
+    [c1].[CategoryID],
+    [c1].[CategoryName],
+    [c1].[Description],
+    [c1].[Picture]
+FROM
+    [Categories] [c1]
+        LEFT JOIN [Products] [lj] ON [c1].[CategoryID] = [lj].[CategoryID]
+WHERE
+    1 &lt;&gt; [lj].[Discontinued]
+</code></pre><h2 id="right-join">RIGHT JOIN</h2>
+<h3 id="using-rightjoin-function">Using &quot;RightJoin&quot; function</h3>
+<pre><code class="lang-cs">var query =
+    from c in db.Category
+    from p in db.Product.RightJoin(pr =&gt; pr.CategoryID == c.CategoryID)
+    where !p.Discontinued
+    select c;
+</code></pre><h3 id="result-sql-3">Result SQL</h3>
+<pre><code class="lang-sql">SELECT
+    [t2].[CategoryID],
+    [t2].[CategoryName],
+    [t2].[Description],
+    [t2].[Picture]
+FROM
+    [Categories] [t2]
+        RIGHT JOIN [Products] [t1] ON [t1].[CategoryID] = [t2].[CategoryID]
+WHERE
+    1 &lt;&gt; [t1].[Discontinued]
+</code></pre><h2 id="full-join">FULL JOIN</h2>
+<h3 id="using-fulljoin-function">Using &quot;FullJoin&quot; function</h3>
+<pre><code class="lang-cs">var query =
+    from c in db.Category
+    from p in db.Product.FullJoin(pr =&gt; pr.CategoryID == c.CategoryID)
+    where !p.Discontinued
+    select c;
+</code></pre><h3 id="result-sql-4">Result SQL</h3>
+<pre><code class="lang-sql">SELECT
+    [t2].[CategoryID],
+    [t2].[CategoryName],
+    [t2].[Description],
+    [t2].[Picture]
+FROM
+    [Categories] [t2]
+        FULL JOIN [Products] [t1] ON [t1].[CategoryID] = [t2].[CategoryID]
+WHERE
+    1 &lt;&gt; [t1].[Discontinued]
+</code></pre><h2 id="cross-join">CROSS JOIN</h2>
+<h3 id="using-selectmany">Using SelectMany</h3>
+<pre><code class="lang-cs">var query =
+    from c in db.Category
+    from p in db.Product
+    where !p.Discontinued
+    select new {c, p};
+</code></pre><h3 id="result-sql-5">Result SQL</h3>
+<pre><code class="lang-sql">SELECT
+    [t1].[CategoryID],
+    [t1].[CategoryName],
+    [t1].[Description],
+    [t1].[Picture],
+    [t2].[ProductID],
+    [t2].[ProductName],
+    [t2].[SupplierID],
+    [t2].[CategoryID] as [CategoryID1],
+    [t2].[QuantityPerUnit],
+    [t2].[UnitPrice],
+    [t2].[UnitsInStock],
+    [t2].[UnitsOnOrder],
+    [t2].[ReorderLevel],
+    [t2].[Discontinued]
+FROM
+    [Categories] [t1],
+    [Products] [t2]
+WHERE
+    1 &lt;&gt; [t2].[Discontinued]
 </code></pre></article>
           </div>
           
@@ -145,7 +241,7 @@ WHERE
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/version2/Doc/articles/Join-Operators.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/version1/doc/articles/Join-Operators.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

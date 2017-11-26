@@ -91,29 +91,105 @@
 .\Tests\Linq // All unit tests
 .\Tests\Model // Models for tests
 .\Tests\TestApp // Test application
-.\Tests\Tests.NetCore // Obsolete, needed due to some VS2015 problems with building and running Core tests
+.\Tests\Utils // Test helper and utilities application
 .\Tests\VisualBasic //Visual Basic models and tests
 </code></pre><p>Solutions:</p>
 <ul>
-<li><code>.\linq2db.4.5.sln</code> - VS2015/2017 solution, .Net 4.5 (NO SL and WS projects)</li>
-<li><code>.\linq2db.sln</code> - VS2015 solution, .Net 4.5, SL, WS projects</li>
-<li><code>.\linq2db.core.sln</code> - VS2015 solution, .Net Core projects</li>
+<li><code>.\linq2db.sln</code> - VS2017 solution</li>
 </ul>
 <p>Projects:</p>
-<ul>
-<li><code>.\Source\LinqToDB.csproj</code> - .Net 4.5 </li>
-<li><code>.\Source\LinqToDB.Silverlight.4.csproj</code> - SL 4</li>
-<li><code>.\Source\LinqToDB.Silverlight.5.csproj</code> - SL 5</li>
-<li><code>.\Source\LinqToDB.WindowsStore.csproj</code> - WS 8</li>
-<li><code>.\Source\LinqToDB.xproj</code> and <code>.\Source\project.json</code> - VS2015 .Net Core project</li>
-</ul>
-<h1 id="building">Building</h1>
+<table>
+<thead>
+<tr>
+<th>Project</th>
+<th style="text-align:center">.NET 4.0</th>
+<th style="text-align:center">4.5</th>
+<th style="text-align:center">4.51</th>
+<th style="text-align:center">4.52</th>
+<th style="text-align:center">.NET Standard 1.6</th>
+<th style="text-align:center">2.0</th>
+<th style="text-align:center">.NET Core 1.0</th>
+<th style="text-align:center">2.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.\Source\LinqToDB\LinqToDB.csproj</code></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td><code>.\Tests\Linq\Tests.csproj</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td><code>.\Tests\FSharp\Tests.FSharp.fsproj</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><code>.\Tests\Model\Tests.Model.csproj</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td><code>.\Tests\Utils\Tests.Utils.csproj</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td><code>.\Tests\VisualBasic\Tests.VisualBasic.vbproj</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="building">Building</h2>
 <p>You can use any solution for building and running tests. But you also should care about other supported platforms. To check if your changes have not affected other projects you can:</p>
 <ul>
 <li>run <code>.\Source\compile.cmd</code> - builds .Net 4, .Net 4.5, .Net WS</li>
-<li>run <code>dotnet build</code> - in Root folder to build .Net Core 
-## Different platforms support
-Because of compiling for different platforms we do use:</li>
+<li>run <code>dotnet build</code> - in Root folder to build .Net Core </li>
+</ul>
+<h3 id="different-platforms-support">Different platforms support</h3>
+<p>Because of compiling for different platforms we do use:</p>
+<ul>
 <li>Conditional compilation. Different projects and configurations define compilation symbols:<ul>
 <li>FW4 - .Net 4.0 compatibility level</li>
 <li>SILVERLIGHT - Silverlight compatibility level</li>
@@ -124,107 +200,117 @@ Because of compiling for different platforms we do use:</li>
 </ul>
 </li>
 <li>Exclude files from build - some files are excluded from build in projects, corresponding to target framework</li>
-<li>Implementing missing classes and enums. There are some under <code>.\Source\Compatibility</code> folder.
-## Run tests
-NUnit3 is used as unit testing framework. Most tests are run for all supported databases, and written in same pattern:
-```cs
-[TestFixture]
+<li>Implementing missing classes and enums. There are some under <code>.\Source\Compatibility</code> folder.</li>
+</ul>
+<h2 id="run-tests">Run tests</h2>
+<p>NUnit3 is used as unit testing framework. Most tests are run for all supported databases, and written in same pattern:</p>
+<pre><code class="lang-cs">[TestFixture]
 public class Test: TestBase // TestBase - base class, provides base methods and object data sources
 {
-  // DataContextSourceAttribute - implements Nunit ITestBuilder and provides context values to test
-  [DataContextSource]
-  public void Test(string context)
-  {
-      // TestBase.GetDataContext - creates new IDataContext, supports creating WCF client and server
-      using(var db = GetDataContext(context))
-      {
-          // Here is the most interesting
-          // this.Person - list of persons, corresponding Person table in database (derived from TestBase)
-          // db.Person - database table
-          // So test checks that LINQ to Objects query produces the same result as executed database query
-          AreEqual(this.Person.Where(<em> =&gt; </em>.Name == &quot;John&quot;), db.Person.Where(<em> =&gt; </em>.Name == &quot;John&quot;));
-      }
-  }</li>
+    // DataContextSourceAttribute - implements Nunit ITestBuilder and provides context values to test
+    [DataContextSource]
+    public void Test(string context)
+    {
+        // TestBase.GetDataContext - creates new IDataContext, supports creating WCF client and server
+        using(var db = GetDataContext(context))
+        {
+            // Here is the most interesting
+            // this.Person - list of persons, corresponding Person table in database (derived from TestBase)
+            // db.Person - database table
+            // So test checks that LINQ to Objects query produces the same result as executed database query
+            AreEqual(this.Person.Where(_ =&gt; _.Name == &quot;John&quot;), db.Person.Where(_ =&gt; _.Name == &quot;John&quot;));
+        }
+    }
+
+}
+</code></pre><h3 id="configure-data-providers-for-tests">Configure data providers for tests</h3>
+<p><code>DataContextSourceAttribute</code> generates tests for each configured data provider, configuration is taken:</p>
+<ol>
+<li>From <code>.\Tests\Linq\UserDataProviders.txt</code> (if any) (UserDataProviders.Core.txt for .Net Core)</li>
+<li>From <code>.\Tests\Linq\DefaultDataProviders.txt</code> (DefaultDataProviders.Core.txt for .Net Core)</li>
+</ol>
+<p>All default connection strings are stored in <code>.\Tests\Linq\app.config</code>
+<code>DataProviders.txt</code> structure is:
+<code>[!]ConfigurationName[* ConnectionString][* DataProviderName]</code></p>
+<ul>
+<li><code>[]</code> - optional parts</li>
+<li><code>*</code> - is used as field delimiter</li>
+<li><code>--</code> - is used to comment line</li>
 </ul>
-<p>}</p>
-<pre><code>### Configure data providers for tests 
-`DataContextSourceAttribute` generates tests for each configured data provider, configuration is taken: 
-1. From `.\Tests\Linq\UserDataProviders.txt` (if any) (UserDataProviders.Core.txt for .Net Core)
-1. From `.\Tests\Linq\DefaultDataProviders.txt` (DefaultDataProviders.Core.txt for .Net Core)
-All default connection strings are stored in `.\Tests\Linq\app.config` 
-`DataProviders.txt` structure is:
-`[!]ConfigurationName[* ConnectionString][* DataProviderName]`
-* `[]` - optional parts
-* `*` - is used as field delimiter
-* `--` - is used to comment line
-Parts:
-* `!` - means that this configuration is used as `DataConnection.DefaultConfiguration`
-* `ConfigurationName` - configuration name (passed to test as `context` parameter)
-* ConnectionString - used to override default connection string from `app.config`
-* DataProviderName - used to define DataProvider for configuration
-
-**UserDataProviders.txt example**
-</code></pre><p>-- this is comment line and would be ignored
+<p>Parts:</p>
+<ul>
+<li><code>!</code> - means that this configuration is used as <code>DataConnection.DefaultConfiguration</code></li>
+<li><code>ConfigurationName</code> - configuration name (passed to test as <code>context</code> parameter)</li>
+<li>ConnectionString - used to override default connection string from <code>app.config</code></li>
+<li>DataProviderName - used to define DataProvider for configuration</li>
+</ul>
+<p><strong>UserDataProviders.txt example</strong></p>
+<pre><code>-- this is comment line and would be ignored
 Access
-!SQLiteMs       * Data Source=Database\TestData.sqlite      * SQLite</p>
-<pre><code>this does mean:
-* Run tests for `Access` configuration with default settings
-* Run tests for `SQLiteMs` configuration. This configuration is used as default, with connection string `Data Source=Database\TestData.sqlite` and `SQLite` data provider.
-
-More examples are below in CI section.
-
-So tests are done only for providers defined in `DataProviders.txt`, defaults are in `DefaultDataProviders.txt` (they are Access, SQL CE, SQLite - all file server databases). To define your own configurations **DO NOT EDIT** `DefaultDataProviders.txt` - create `.\Tests\Linq\UserDataProviders.txt` and define needed configurations. 
-
-When all tests are executed, first `_CreateData` tests will be run - those execute SQL scripts and insert default data to database, so if you are going to run one test be sure to run `_CreateData` before it manually.
-
-Also - if your test changes database data, be sure to revert those changes (!) to avoid side effects for other tests.
-
-# Continuous Integration
-We do run builds and tests with:
-* [AppVeyor](https://ci.appveyor.com/project/igor-tkachev/linq2db) (Windows) [appveyor.yml](https://github.com/linq2db/linq2db/blob/master/appveyor.yml). Makes build and runs tests for:
-  * .Net 4.5: [AppveyorDataProviders.txt](https://github.com/linq2db/linq2db/blob/master/Tests/Linq/AppveyorDataProviders.txt)
-  * .Net Core: [AppveyorDataProviders.Core.txt](https://github.com/linq2db/linq2db/blob/master/Tests/Linq/AppveyorDataProviders.Core.txt)
-* [Travis](https://travis-ci.org/linq2db/linq2db) (Linux) [.travis.yml](https://github.com/linq2db/linq2db/blob/master/.travis.yml). Makes build and runs tests for:
-  * Mono: [TravisDataProviders.txt](https://github.com/linq2db/linq2db/blob/master/Tests/Linq/TravisDataProviders.txt)
-  * .Net Core: [TravisDataProviders.Core.txt](https://github.com/linq2db/linq2db/blob/master/Tests/Linq/TravisDataProviders.Core.txt)
-
-`xxxDataproviders` files are renamed by CI to `UserDataProviders` before running tests.
-
-## Skip CI build
-If you want to skip building commit by CI (for example you have changed *.md files only) begin commit comment with `[ci skip]`.
-
-## Publishing packages
-* **Release candidate** packages are published by AppVeyor to [MyGet.org](https://github.com/linq2db/linq2db#feeds) for each successful build of **master** branch. 
-* **Release** packages are published by AppVeyor to [NuGet.org](https://github.com/linq2db/linq2db#feeds) for each successful build of **release** branch. 
-
-## Building releases
-1. Update `.\NuGet\Readme.txt` file (append release notes)
-1. Create PR from `master` to `release` branch, in comments add [@testers](https://github.com/linq2db/linq2db/wiki/How-can-i-help#testing-how-to) to notify all testers that we are ready to release
-1. Wait few days for feedback from testers and approval from contributors
-1. Merge PR
-1. [Tag release](https://github.com/linq2db/linq2db/releases)
-1. Update versions in `master` branch (this will lead to publish all next `master` builds as new version RC):
-   * in [.\appveyor.yml](https://github.com/linq2db/linq2db/blob/master/appveyor.yml) set `packageVersion` parameter
-   * in [.\Source\project.json](https://github.com/linq2db/linq2db/blob/master/Source/project.json) set new `version` parameter
-   * in [.\Source\Properties\LinqToDBConstants.cs](https://github.com/linq2db/linq2db/blob/master/Source/Properties/LinqToDBConstants.cs) set `FullVersionString` constant.
-
-# Process
-In general you should follow simple rules:
-* Development rules and regulations, code style
-* Do not add new features without tests
-* Avoid direct pushes to `master` and `release` branches
-* To fix some issue or implement new feature create new branch and make pull request after you are ready to merge. Merge your PR only after contributor&#39;s review.
-* If you are going to implement any big feature you may want other contributors to participate (coding, code review, feature discuss and so on), so to do it:
-    * Create new PR with **[WIP]** prefix (Work In Process)
-    * After you are ready to merge remove the prefix &amp; assign contributors as reviewers
-* If you wo have wright access, it is recommended to use central repository (not forks). Why - simple, it would allow other teammates to help you in developing (if needed). Certainly you are free to use fork if it is more convenient to you
-* Please avoid adding new public classes, properties, methods without XML doc
-* Read issues and help users
-* Do not EF :)
-
-
-
-</code></pre><h1 id="see-also">See also</h1>
+!SQLiteMs       * Data Source=Database\TestData.sqlite      * SQLite
+</code></pre><p>this does mean:</p>
+<ul>
+<li>Run tests for <code>Access</code> configuration with default settings</li>
+<li>Run tests for <code>SQLiteMs</code> configuration. This configuration is used as default, with connection string <code>Data Source=Database\TestData.sqlite</code> and <code>SQLite</code> data provider.</li>
+</ul>
+<p>More examples are below in CI section.</p>
+<p>So tests are done only for providers defined in <code>DataProviders.txt</code>, defaults are in <code>DefaultDataProviders.txt</code> (they are Access, SQL CE, SQLite - all file server databases). To define your own configurations <strong>DO NOT EDIT</strong> <code>DefaultDataProviders.txt</code> - create <code>.\Tests\Linq\UserDataProviders.txt</code> and define needed configurations. </p>
+<p>When all tests are executed, first <code>_CreateData</code> tests will be run - those execute SQL scripts and insert default data to database, so if you are going to run one test be sure to run <code>_CreateData</code> before it manually.</p>
+<p>Also - if your test changes database data, be sure to revert those changes (!) to avoid side effects for other tests.</p>
+<h2 id="continuous-integration">Continuous Integration</h2>
+<p>We do run builds and tests with:</p>
+<ul>
+<li><a href="https://ci.appveyor.com/project/igor-tkachev/linq2db">AppVeyor</a> (Windows) <a href="https://github.com/linq2db/linq2db/blob/master/appveyor.yml">appveyor.yml</a>. Makes build and runs tests for:<ul>
+<li>.Net 4.5: <a href="https://github.com/linq2db/linq2db/blob/master/Tests/Linq/AppveyorDataProviders.txt">AppveyorDataProviders.txt</a></li>
+<li>.Net Core: <a href="https://github.com/linq2db/linq2db/blob/master/Tests/Linq/AppveyorDataProviders.Core.txt">AppveyorDataProviders.Core.txt</a></li>
+</ul>
+</li>
+<li><a href="https://travis-ci.org/linq2db/linq2db">Travis</a> (Linux) <a href="https://github.com/linq2db/linq2db/blob/master/.travis.yml">.travis.yml</a>. Makes build and runs tests for:<ul>
+<li>Mono: <a href="https://github.com/linq2db/linq2db/blob/master/Tests/Linq/TravisDataProviders.txt">TravisDataProviders.txt</a></li>
+<li>.Net Core: <a href="https://github.com/linq2db/linq2db/blob/master/Tests/Linq/TravisDataProviders.Core.txt">TravisDataProviders.Core.txt</a></li>
+</ul>
+</li>
+</ul>
+<p><code>xxxDataproviders</code> files are renamed by CI to <code>UserDataProviders</code> before running tests.</p>
+<h3 id="skip-ci-build">Skip CI build</h3>
+<p>If you want to skip building commit by CI (for example you have changed *.md files only) begin commit comment with <code>[ci skip]</code>.</p>
+<h3 id="publishing-packages">Publishing packages</h3>
+<ul>
+<li><strong>Release candidate</strong> packages are published by AppVeyor to <a href="https://github.com/linq2db/linq2db#feeds">MyGet.org</a> for each successful build of <strong>master</strong> branch. </li>
+<li><strong>Release</strong> packages are published by AppVeyor to <a href="https://github.com/linq2db/linq2db#feeds">NuGet.org</a> for each successful build of <strong>release</strong> branch. </li>
+</ul>
+<h2 id="building-releases">Building releases</h2>
+<ol>
+<li>Update <code>.\NuGet\Readme.txt</code> file (append release notes)</li>
+<li>Create PR from <code>master</code> to <code>release</code> branch, in comments add <a href="https://github.com/linq2db/linq2db/wiki/How-can-i-help#testing-how-to">@testers</a> to notify all testers that we are ready to release</li>
+<li>Wait few days for feedback from testers and approval from contributors</li>
+<li>Merge PR</li>
+<li><a href="https://github.com/linq2db/linq2db/releases">Tag release</a></li>
+<li>Update versions in <code>master</code> branch (this will lead to publish all next <code>master</code> builds as new version RC):<ul>
+<li>in <a href="https://github.com/linq2db/linq2db/blob/master/appveyor.yml">.\appveyor.yml</a> set <code>packageVersion</code> parameter</li>
+<li>in <a href="https://github.com/linq2db/linq2db/blob/master/Source/project.json">.\Source\project.json</a> set new <code>version</code> parameter</li>
+<li>in <a href="https://github.com/linq2db/linq2db/blob/master/Source/Properties/LinqToDBConstants.cs">.\Source\Properties\LinqToDBConstants.cs</a> set <code>FullVersionString</code> constant.</li>
+</ul>
+</li>
+</ol>
+<h2 id="process">Process</h2>
+<p>In general you should follow simple rules:</p>
+<ul>
+<li>Development rules and regulations, code style</li>
+<li>Do not add new features without tests</li>
+<li>Avoid direct pushes to <code>master</code> and <code>release</code> branches</li>
+<li>To fix some issue or implement new feature create new branch and make pull request after you are ready to merge. Merge your PR only after contributor&#39;s review.</li>
+<li>If you are going to implement any big feature you may want other contributors to participate (coding, code review, feature discuss and so on), so to do it:<ul>
+<li>Create new PR with <strong>[WIP]</strong> prefix (Work In Process)</li>
+<li>After you are ready to merge remove the prefix &amp; assign contributors as reviewers</li>
+</ul>
+</li>
+<li>If you wo have wright access, it is recommended to use central repository (not forks). Why - simple, it would allow other teammates to help you in developing (if needed). Certainly you are free to use fork if it is more convenient to you</li>
+<li>Please avoid adding new public classes, properties, methods without XML doc</li>
+<li>Read issues and help users</li>
+<li>Do not EF :)</li>
+</ul>
+<h1 id="see-also">See also</h1>
 <ul>
 <li><a class="xref" href="Issue-reporting.html">Issue reporting</a></li>
 </ul>
@@ -236,7 +322,7 @@ In general you should follow simple rules:
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/version2/Doc/articles/contrib.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/master/doc/articles/contrib.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

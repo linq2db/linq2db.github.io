@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>LINQ to DB   | Linq To DB (aka linq2db) </title>
+    <title>LINQ to DB | Linq To DB (aka linq2db) </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="LINQ to DB   | Linq To DB (aka linq2db) ">
+    <meta name="title" content="LINQ to DB | Linq To DB (aka linq2db) ">
     <meta name="generator" content="docfx 2.27.0.0">
     
     <link rel="shortcut icon" href="images/icon.ico">
@@ -68,7 +68,7 @@
         <div class="article row grid">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="linq-to-db-build-statushttpsciappveyorcomapiprojectsstatusgithublinq2dblinq2dbhttpsciappveyorcomprojectigor-tkachevlinq2db-build-statushttpstravis-ciorglinq2dblinq2dbsvgbranchmasterhttpstravis-ciorglinq2dblinq2db">LINQ to DB <a href="https://ci.appveyor.com/project/igor-tkachev/linq2db"><img src="https://ci.appveyor.com/api/projects/status/github/linq2db/linq2db" alt="build status"></a> <a href="https://travis-ci.org/linq2db/linq2db"><img src="https://travis-ci.org/linq2db/linq2db.svg?branch=master" alt="Build Status"></a></h1>
+<h1 id="linq-to-db">LINQ to DB</h1>
 
 <p>LINQ to DB is the fastest LINQ database access library offering a simple, light, fast, and type-safe layer between your POCO objects and your database. </p>
 <p>Architecturally it is one step above micro-ORMs like Dapper, Massive, or PetaPoco, in that you work with LINQ expressions, not with magic strings, while maintaining a thin abstraction layer between your code and the database. Your queries are checked by the C# compiler and allow for easy refactoring.</p>
@@ -76,9 +76,9 @@
 <p>In other words <strong>LINQ to DB is type-safe SQL</strong>.</p>
 <p>Visit our <a href="http://blog.linq2db.com/">blog</a> and see <a href="https://github.com/linq2db/linq2db/wiki">Wiki</a> for more details.</p>
 <p>Code examples and demos can be found <a href="https://github.com/linq2db/examples">here</a>.</p>
-<h1 id="how-to-help-the-project">How to help the project</h1>
+<h2 id="how-to-help-the-project">How to help the project</h2>
 <p>No, this is not the donate link. We do need something really more valuable - your <strong>time</strong>. If you really want to help us please read this <a href="https://github.com/linq2db/linq2db/wiki/How-can-i-help">post</a>.</p>
-<h1 id="project-build-status">Project Build Status</h1>
+<h2 id="project-build-status">Project Build Status</h2>
 <hr>
 <table>
 <thead>
@@ -101,7 +101,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="feeds">Feeds</h1>
+<h2 id="feeds">Feeds</h2>
 <ul>
 <li>NuGet <a href="https://www.nuget.org/packages?q=linq2db"><img src="https://img.shields.io/nuget/v/linq2db.svg" alt="NuGet"></a></li>
 <li>MyGet <a href="https://www.myget.org/gallery/linq2db"><img src="https://img.shields.io/myget/linq2db/vpre/linq2db.svg" alt="MyGet"></a><ul>
@@ -110,8 +110,8 @@
 </ul>
 </li>
 </ul>
-<h1 id="lets-get-started">Let&#39;s get started</h1>
-<p>From <strong>NuGet</strong>: </p>
+<h2 id="lets-get-started">Let&#39;s get started</h2>
+<p>From <strong>NuGet</strong>:</p>
 <ul>
 <li><code>Install-Package linq2db</code> - .Net</li>
 <li><code>Install-Package linq2db.core</code> - .Net Core</li>
@@ -161,7 +161,7 @@ public class MySettings : ILinqToDBSettings
 </code></pre><p>And later just set:</p>
 <pre><code class="lang-cs">DataConnection.DefaultSettings = new MySettings();
 </code></pre><p>You can also use same for regular .Net</p>
-<h2 id="now-lets-create-a-poco-class">Now let&#39;s create a <strong>POCO</strong> class:</h2>
+<h2 id="now-lets-create-a-poco-class">Now let&#39;s create a <strong>POCO</strong> class</h2>
 <pre><code class="lang-c#">using System;
 using LinqToDB.Mapping;
 
@@ -280,7 +280,8 @@ select new Product
   Name = p.Name,
   Category = c
 };
-</code></pre><h2 id="creating-your-pocos">Creating your POCOs</h2>
+</code></pre><p><a href="https://linq2db.github.io/articles/Join-Operators.html">More samples are here</a></p>
+<h2 id="creating-your-pocos">Creating your POCOs</h2>
 <p>In the previous example we assign an entire <code>Category</code> object to our product, but what if we want all the fields in our <code>Product</code> class, but we don&#39;t want to specify every field by hand? Unfortunately, we <strong>cannot</strong> write this:</p>
 <pre><code class="lang-c#">from p in db.Product
 from c in db.Category.Where(q =&gt; q.CategoryID == p.CategoryID).DefaultIfEmpty()
@@ -374,7 +375,7 @@ select Product.Build(p, c);
     .Delete();
 }
 </code></pre><h2 id="bulk-copy">Bulk Copy</h2>
-<p>Bulk copy feature supports the transfer of large amounts of data into a table from another data source. For faster data inserting DO NOT use a transaction. If you use a transaction an adhoc implementation of the bulk copy feature has been added in order to insert multiple lines at once. You get faster results then inserting lines one by one, but it&#39;s still slower than the database provider bulk copy. So, DO NOT use transactions whenever you can (Take care of unicity constraints, primary keys, etc. since bulk copy ignores them at insertion)</p>
+<p>Bulk copy feature supports the transfer of large amounts of data into a table from another data source. For faster data inserting DO NOT use a transaction. If you use a transaction an adhoc implementation of the bulk copy feature has been added in order to insert multiple lines at once. You get faster results then inserting lines one by one, but it&#39;s still slower than the database provider bulk copy. So, DO NOT use transactions whenever you can (Take care of unique constraints, primary keys, etc. since bulk copy ignores them at insertion)</p>
 <pre><code class="lang-c#">[Table(Name = &quot;ProductsTemp&quot;)]
 public class ProductTemp
 {
@@ -411,7 +412,7 @@ using (var db = new DbNorthwind())
 }
 </code></pre><p>Also, you can use .NET built-in TransactionScope class:</p>
 <pre><code class="lang-c#">// don&#39;t forget isolation level is serializable by default
-using (var transaction = new TransactionScope()) 
+using (var transaction = new TransactionScope())
 {
   using (var db = new DbNorthwind())
   {
@@ -419,7 +420,11 @@ using (var transaction = new TransactionScope())
   }
   transaction.Complete();
 }
-</code></pre><h2 id="miniprofiler">MiniProfiler</h2>
+</code></pre><h2 id="merge">Merge</h2>
+<p><a href="https://linq2db.github.io/articles/Merge-API.html">Here</a> you can read about MERGE support.</p>
+<h2 id="window-analytic-functions">Window (Analytic) Functions</h2>
+<p><a href="https://linq2db.github.io/articles/Window-Functions-%28Analytic-Functions%29.html">Here</a> you can read about Window (Analytic) Functions support.</p>
+<h2 id="miniprofiler">MiniProfiler</h2>
 <p>If you would like to use MiniProfiler from StackExchange you&#39;d need to wrap ProfiledDbConnection around our regular DataConnection.</p>
 <pre><code class="lang-c#">public class DbDataContext : DataConnection
 {
@@ -447,17 +452,7 @@ using (var transaction = new TransactionScope())
 {
   return new LinqToDB.DataProvider.MySql.MySqlDataProvider();
 }
-</code></pre><p><a href="https://ci.appveyor.com/project/igor-tkachev/linq2db"><img src="https://ci.appveyor.com/api/projects/status/4au5v7xm5gi19o8m?svg=true" alt="Build status"></a></p>
-<h1 id="links">Links</h1>
-<ul>
-<li><a href='http://blog.linq2db.com'>Blog</a></li>
-<li><a href='http://www.nuget.org/packages?q=linq2db'>LINQ to DB NuGets</a></li>
-<li><a href='https://www.myget.org/gallery/linq2db'>LINQ to DB pre release NuGets</a></li>
-<li><a href='https://github.com/linq2db'>LINQ to DB on GitHub</a></li>
-<li><a href='https://github.com/linq2db/linq2db'>Source Code</a></li>
-<li><a href='https://github.com/linq2db/examples'>Code Examples</a></li>
-</ul>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -465,7 +460,7 @@ using (var transaction = new TransactionScope())
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/version2/Doc/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/master/doc/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

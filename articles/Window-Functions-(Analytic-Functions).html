@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title> | Linq To DB (aka linq2db) </title>
+    <title>Window (Analytic) Functions | Linq To DB (aka linq2db) </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content=" | Linq To DB (aka linq2db) ">
+    <meta name="title" content="Window (Analytic) Functions | Linq To DB (aka linq2db) ">
     <meta name="generator" content="docfx 2.27.0.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
@@ -75,15 +75,16 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
+<h1 id="window-analytic-functions">Window (Analytic) Functions</h1>
 
 <p>Starting from version 1.8.0, linq2db supports Window Functions also known as Analytic Functions.
-Implementation is based on <a href="https://docs.oracle.com/cd/E11882_01/server.112/e41084/functions004.htm">Oracle&#39;s Documentation</a> and all mentioned functions are supported. </p>
+Implementation is based on <a href="https://docs.oracle.com/cd/E11882_01/server.112/e41084/functions004.htm">Oracle&#39;s Documentation</a> and all mentioned functions are supported.</p>
 <p>Window functions are implemented as extension methods for static Sql.Ext property. For defining Partitioning and Ordering fluent syntax is used and it is closest as possible to original SQL syntax.</p>
-<h4 id="c-syntax">C# Syntax:</h4>
-<p><code>Sql.Ext.[Function]([Parameters]).Over().[PartitionPart].[OrderByPart].[WindowingPart].ToValue()</code></p>
-<p>Last function in method chain <strong>must</strong> be function <code>ToValue()</code> - it is a mark that method chain is finished and provides correct DataType for resulting columns.</p>
-<h4 id="example">Example:</h4>
-<pre><code class="lang-c#">var q = 
+<h2 id="c-syntax">C# Syntax</h2>
+<pre><code class="lang-cs">Sql.Ext.[Function]([Parameters]).Over().[PartitionPart].[OrderByPart].[WindowingPart].ToValue()
+</code></pre><p>Last function in method chain <strong>must</strong> be function <code>ToValue()</code> - it is a mark that method chain is finished and provides correct DataType for resulting columns.</p>
+<h3 id="example">Example</h3>
+<pre><code class="lang-c#">var q =
     from p in db.Parent
     join c in db.Child on p.ParentID equals c.ParentID 
     select new
@@ -100,7 +101,7 @@ Implementation is based on <a href="https://docs.oracle.com/cd/E11882_01/server.
                     .OrderBy(p.Value1).Range.Between.UnboundedPreceding.And.CurrentRow.ToValue(),
     };
 var res = q.ToArray();
-</code></pre><h4 id="resulting-sql">Resulting SQL:</h4>
+</code></pre><h3 id="resulting-sql">Resulting SQL</h3>
 <pre><code class="lang-sql">SELECT
     RANK() OVER(PARTITION BY [p].[Value1], [c7].[ChildID] ORDER BY [p].[Value1], [c7].[ChildID], [c7].[ParentID]) as [c1],
     ROW_NUMBER() OVER(PARTITION BY [p].[Value1], [c7].[ChildID] ORDER BY [p].[Value1] DESC, [c7].[ChildID], [c7].[ParentID] DESC) as [c2],
@@ -113,7 +114,7 @@ FROM
         INNER JOIN [Child] [c7] ON [p].[ParentID] = [c7].[ParentID]
 </code></pre><blockquote><p><strong>Note</strong> There is no limitation in window functions usage. Linq2db will create SQL and run query, if function is not supported or some part of function is limited in particular Database - error will be thrown on database side.</p>
 </blockquote>
-<h4 id="functions-mapping">Functions mapping</h4>
+<h2 id="functions-mapping">Functions mapping</h2>
 <p>The following table contains list of supported Window Functions and linq2db representation of these functions. Some functions have overloads for supporting full Window Functions syntax.</p>
 <table>
 <thead>
@@ -293,20 +294,22 @@ FROM
 </tr>
 </tbody>
 </table>
-<blockquote><p>If you have found that your database supports function that is not listed in table above, you can easily create your extension. Code samples is located in <a href="https://github.com/linq2db/linq2db/blob/master/Source/Sql/Sql.Analytic.cs#L399">Sql.Analytic.cs</a></p>
+<blockquote><p>If you have found that your database supports function that is not listed in table above, you can easily create your own extension. Code samples are located in <a href="https://github.com/linq2db/linq2db/blob/master/Source/Sql/Sql.Analytic.cs#L399">Sql.Analytic.cs</a></p>
 </blockquote>
-<h4 id="engines-that-support-window-functions">Engines that support Window Functions</h4>
-<p><a href="https://docs.oracle.com/cd/E11882_01/server.112/e41084/functions004.htm">Oracle</a>,
-<a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql">MSSQL</a>,
-<a href="https://www.postgresql.org/docs/current/static/tutorial-window.html">Postresql</a>,
-<a href="https://mariadb.com/kb/en/mariadb/window-functions">MariaDB</a>,
-<a href="https://www.ibm.com/support/knowledgecenter/en/SSEPEK_12.0.0/sqlref/src/tpc/db2z_olapspecification.html">DB2 z/OS</a>,
-<a href="https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.sql.ref.doc/doc/r0023461.html">DB2 LUW</a>,
-<a href="https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/sqlp/rbafyolap.htm">DB2 iSeries</a>,
-<a href="https://www.ibm.com/support/knowledgecenter/en/SSGU8G_12.1.0/com.ibm.sqls.doc/ids_sqs_2584.htm">Informix</a>,
-<a href="http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/20/a353327519101495dfd0a87060a0d3/content.htm">SAP HANA</a>,
-<a href="http://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc38151.1602/doc/html/san1278452950084.html">SAP ASE</a>,
-<a href="https://www.firebirdsql.org/file/documentation/release_notes/html/en/3_0/rnfb30-dml-windowfuncs.html">Firebird 3</a></p>
+<h2 id="engines-that-support-window-functions">Engines that support Window Functions</h2>
+<ul>
+<li><a href="https://docs.oracle.com/cd/E11882_01/server.112/e41084/functions004.htm">Oracle</a>,</li>
+<li><a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql">MSSQL</a>,</li>
+<li><a href="https://www.postgresql.org/docs/current/static/tutorial-window.html">Postresql</a>,</li>
+<li><a href="https://mariadb.com/kb/en/mariadb/window-functions">MariaDB</a>,</li>
+<li><a href="https://www.ibm.com/support/knowledgecenter/en/SSEPEK_12.0.0/sqlref/src/tpc/db2z_olapspecification.html">DB2 z/OS</a>,</li>
+<li><a href="https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.sql.ref.doc/doc/r0023461.html">DB2 LUW</a>,</li>
+<li><a href="https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/sqlp/rbafyolap.htm">DB2 iSeries</a>,</li>
+<li><a href="https://www.ibm.com/support/knowledgecenter/en/SSGU8G_12.1.0/com.ibm.sqls.doc/ids_sqs_2584.htm">Informix</a>,</li>
+<li><a href="http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/20/a353327519101495dfd0a87060a0d3/content.htm">SAP HANA</a>,</li>
+<li><a href="http://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc38151.1602/doc/html/san1278452950084.html">SAP ASE</a>,</li>
+<li><a href="https://www.firebirdsql.org/file/documentation/release_notes/html/en/3_0/rnfb30-dml-windowfuncs.html">Firebird 3</a></li>
+</ul>
 </article>
           </div>
           
@@ -315,7 +318,7 @@ FROM
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/version2/Doc/articles/Window-Functions-(Analytic-Functions).md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/version1/doc/articles/Window-Functions-(Analytic-Functions).md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
