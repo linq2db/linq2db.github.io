@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Development rules and regulations, code style | Linq To DB (aka linq2db) </title>
+    <title>Contributing guide | Linq To DB (aka linq2db) </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Development rules and regulations, code style | Linq To DB (aka linq2db) ">
+    <meta name="title" content="Contributing guide | Linq To DB (aka linq2db) ">
     <meta name="generator" content="docfx 2.27.0.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
@@ -75,25 +75,103 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="contrib">
-<h1 id="development-rules-and-regulations-code-style">Development rules and regulations, code style</h1>
+<h1 id="contributing-guide">Contributing guide</h1>
 
+<h2 id="development-rules-and-regulations-code-style">Development rules and regulations, code style</h2>
 <p>Follow this <a href="https://github.com/linq2db/linq2db/files/1056002/Development.rules.and.regulations.docx">document</a></p>
-<h1 id="project-structure-description">Project structure description</h1>
-<h2 id="linq2db">linq2db</h2>
+<h2 id="project-structure-description">Project structure description</h2>
 <p>Solution and folder structure</p>
-<pre><code>.\ //Root folder
-.\Data // Contains fileserver databases and scripts for creating and initializing test databases
-.\NuGet // Stuff for nuget package, readme.txt
-.\Redist // Redistributable binaries unavailable in nugget
-.\Source // Source
-.\Tests // Unit tests stuff
-.\Tests\FSharp // F# models and tests
-.\Tests\Linq // All unit tests
-.\Tests\Model // Models for tests
-.\Tests\TestApp // Test application
-.\Tests\Utils // Test helper and utilities application
-.\Tests\VisualBasic //Visual Basic models and tests
-</code></pre><p>Solutions:</p>
+<table>
+<thead>
+<tr>
+<th>Folder</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.\</td>
+<td>Root folder</td>
+</tr>
+<tr>
+<td>.\Build</td>
+<td>Various files for AppVeyor builds and common project settings</td>
+</tr>
+<tr>
+<td>.\Data</td>
+<td>Contains test databases creation scripts and database files</td>
+</tr>
+<tr>
+<td>.\Doc</td>
+<td>DocFX documentation files</td>
+</tr>
+<tr>
+<td>.\NuGet</td>
+<td>LINQ to DB NuGet packages build files, readme.txt</td>
+</tr>
+<tr>
+<td>.\Redist</td>
+<td>Redistributable binaries for providers unavailable officially at NuGet</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB</td>
+<td>LINQ to DB source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Templates</td>
+<td>LINQ to DB t4models source code</td>
+</tr>
+<tr>
+<td>.\Tests</td>
+<td>Unit tests</td>
+</tr>
+<tr>
+<td>.\Tests\Base</td>
+<td>LINQ to DB testing framework</td>
+</tr>
+<tr>
+<td>.\Tests\FSharp</td>
+<td>F# models and tests</td>
+</tr>
+<tr>
+<td>.\Tests\IBM.Core</td>
+<td>Tests for IBM.Data.DB2.Core provider</td>
+</tr>
+<tr>
+<td>.\Tests\Linq</td>
+<td>Main project for LINQ to DB unit tests</td>
+</tr>
+<tr>
+<td>.\Tests\Model</td>
+<td>Model classes for tests</td>
+</tr>
+<tr>
+<td>.\Tests\T4.Linq</td>
+<td>Models for test databases, generated using t4models</td>
+</tr>
+<tr>
+<td>.\Tests\T4.Model</td>
+<td>T4Models tests</td>
+</tr>
+<tr>
+<td>.\Tests\T4.Wpf</td>
+<td>T4Models NotifyPropertyChanged template test project</td>
+</tr>
+<tr>
+<td>.\Tests\TestApp</td>
+<td>SQL Server spatial types test application</td>
+</tr>
+<tr>
+<td>.\Tests\Tests.Benchmark</td>
+<td>Benchmark tests</td>
+</tr>
+<tr>
+<td>.\Tests\VisualBasic</td>
+<td>Visual Basic models and tests</td>
+</tr>
+</tbody>
+</table>
+<p>Solutions:</p>
 <ul>
 <li><code>.\linq2db.sln</code> - VS2017 solution</li>
 </ul>
@@ -101,77 +179,143 @@
 <table>
 <thead>
 <tr>
-<th>Project</th>
-<th style="text-align:center">.NET 4.0</th>
-<th style="text-align:center">4.5</th>
-<th style="text-align:center">4.51</th>
-<th style="text-align:center">4.52</th>
+<th style="text-align:right">Project</th>
+<th style="text-align:center">.NET 4.5</th>
+<th style="text-align:center">.NET 4.5.2</th>
+<th style="text-align:center">.NET 4.6</th>
+<th style="text-align:center">.NET 4.6.2</th>
 <th style="text-align:center">.NET Standard 1.6</th>
-<th style="text-align:center">2.0</th>
+<th style="text-align:center">.NET Standard 2.0</th>
 <th style="text-align:center">.NET Core 1.0</th>
-<th style="text-align:center">2.0</th>
+<th style="text-align:center">.NET Core 2.0</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>.\Source\LinqToDB\LinqToDB.csproj</code></td>
+<td style="text-align:right"><code>.\Source\LinqToDB\LinqToDB.csproj</code></td>
 <td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 <td style="text-align:center"></td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center"></td>
-<td style="text-align:center">√</td>
-</tr>
-<tr>
-<td><code>.\Tests\Linq\Tests.csproj</code></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">√</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 </tr>
 <tr>
-<td><code>.\Tests\FSharp\Tests.FSharp.fsproj</code></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:right"><code>.\Tests\Linq\Tests.Base.csproj</code></td>
 <td style="text-align:center">√</td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td><code>.\Tests\Model\Tests.Model.csproj</code></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">√</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">√</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td><code>.\Tests\Utils\Tests.Utils.csproj</code></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">√</td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 </tr>
 <tr>
-<td><code>.\Tests\VisualBasic\Tests.VisualBasic.vbproj</code></td>
+<td style="text-align:right"><code>.\Tests\IBM.Core\Tests.IBM.Core.csproj</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 <td style="text-align:center"></td>
 <td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>.\Tests\Linq\Tests.csproj</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>.\Tests\FSharp\Tests.FSharp.fsproj</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>.\Tests\Model\Tests.Model.csproj</code></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>.\Tests\T4.Linq\Tests.T4.Linq.csproj</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>.\Tests\T4.Model\Tests.T4.Model.csproj</code></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>.\Tests\T4.Wpf\Tests.T4.Wpf.csproj</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>.\Tests\TestApp\TestApp.csproj</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>.\Tests\Tests.Benchmark\Tests.Benchmark.csproj</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>.\Tests\VisualBasic\Tests.VisualBasic.vbproj</code></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
 <td style="text-align:center">√</td>
@@ -182,33 +326,37 @@
 </tbody>
 </table>
 <h2 id="building">Building</h2>
-<p>You can use any solution for building and running tests. But you also should care about other supported platforms. To check if your changes have not affected other projects you can:</p>
+<p>You can use the solution to build and run tests. Also you can build whole solution or library using the following batch files:</p>
 <ul>
-<li>run <code>.\Source\compile.cmd</code> - builds .Net 4, .Net 4.5, .Net WS</li>
-<li>run <code>dotnet build</code> - in Root folder to build .Net Core </li>
+<li>run <code>.\Build.cmd</code> - builds all the projects in the solution for Debug, Release, and AppVeyor configurations</li>
+<li>run <code>.\Source\LinqToDB\Compile.cmd</code> - builds LinqToDB projects for Debug and Release configurations</li>
 </ul>
 <h3 id="different-platforms-support">Different platforms support</h3>
 <p>Because of compiling for different platforms we do use:</p>
 <ul>
 <li>Conditional compilation. Different projects and configurations define compilation symbols:<ul>
-<li>FW4 - .Net 4.0 compatibility level</li>
-<li>SILVERLIGHT - Silverlight compatibility level</li>
-<li>NETFX_CORE - Windows Store 8 compatibility level</li>
-<li>NOASYNC - async is not supported </li>
-<li>NETSTANDARD - .Net Core (netstandard1.6) compatibility level</li>
-<li>NOFSHARP - used by .Net Core test project to avoid compiling code dependent on F#</li>
+<li>NET45 - .NET 4.5 compatibility level</li>
+<li>NETSTANDARD1_6 - .NET Standard 1.6 compatibility level</li>
+<li>NETSTANDARD2_0 - .NET Standard 2.0 compatibility level</li>
 </ul>
 </li>
-<li>Exclude files from build - some files are excluded from build in projects, corresponding to target framework</li>
-<li>Implementing missing classes and enums. There are some under <code>.\Source\Compatibility</code> folder.</li>
+<li>Implementing missing classes and enums. There are some under <code>.\Source\LinqToDB\Compatibility</code> folder.</li>
+</ul>
+<h2 id="branches">Branches</h2>
+<ul>
+<li><code>master</code> - current stable branch</li>
+<li><code>release</code> - branch with the latest release</li>
+<li><code>release1</code> - branch for critical fixes for version 1.xx.yy</li>
+<li><code>version1</code> - stable branch for version 1.xx.yy</li>
 </ul>
 <h2 id="run-tests">Run tests</h2>
 <p>NUnit3 is used as unit testing framework. Most tests are run for all supported databases, and written in same pattern:</p>
 <pre><code class="lang-cs">[TestFixture]
 public class Test: TestBase // TestBase - base class, provides base methods and object data sources
 {
-    // DataContextSourceAttribute - implements Nunit ITestBuilder and provides context values to test
-    [DataContextSource]
+    // DataContextSourceAttribute - implements NUnit ITestBuilder and provides context values to test
+    // TestAttribute - not required for nunit test runner, but needed for Resharper test runner
+    [Test, DataContextSource]
     public void Test(string context)
     {
         // TestBase.GetDataContext - creates new IDataContext, supports creating WCF client and server
@@ -224,60 +372,153 @@ public class Test: TestBase // TestBase - base class, provides base methods and 
 
 }
 </code></pre><h3 id="configure-data-providers-for-tests">Configure data providers for tests</h3>
-<p><code>DataContextSourceAttribute</code> generates tests for each configured data provider, configuration is taken:</p>
-<ol>
-<li>From <code>.\Tests\Linq\UserDataProviders.txt</code> (if any) (UserDataProviders.Core.txt for .Net Core)</li>
-<li>From <code>.\Tests\Linq\DefaultDataProviders.txt</code> (DefaultDataProviders.Core.txt for .Net Core)</li>
-</ol>
-<p>All default connection strings are stored in <code>.\Tests\Linq\app.config</code>
-<code>DataProviders.txt</code> structure is:
-<code>[!]ConfigurationName[* ConnectionString][* DataProviderName]</code></p>
-<ul>
-<li><code>[]</code> - optional parts</li>
-<li><code>*</code> - is used as field delimiter</li>
-<li><code>--</code> - is used to comment line</li>
-</ul>
-<p>Parts:</p>
-<ul>
-<li><code>!</code> - means that this configuration is used as <code>DataConnection.DefaultConfiguration</code></li>
-<li><code>ConfigurationName</code> - configuration name (passed to test as <code>context</code> parameter)</li>
-<li>ConnectionString - used to override default connection string from <code>app.config</code></li>
-<li>DataProviderName - used to define DataProvider for configuration</li>
-</ul>
-<p><strong>UserDataProviders.txt example</strong></p>
-<pre><code>-- this is comment line and would be ignored
-Access
-!SQLiteMs       * Data Source=Database\TestData.sqlite      * SQLite
-</code></pre><p>this does mean:</p>
-<ul>
-<li>Run tests for <code>Access</code> configuration with default settings</li>
-<li>Run tests for <code>SQLiteMs</code> configuration. This configuration is used as default, with connection string <code>Data Source=Database\TestData.sqlite</code> and <code>SQLite</code> data provider.</li>
-</ul>
-<p>More examples are below in CI section.</p>
-<p>So tests are done only for providers defined in <code>DataProviders.txt</code>, defaults are in <code>DefaultDataProviders.txt</code> (they are Access, SQL CE, SQLite - all file server databases). To define your own configurations <strong>DO NOT EDIT</strong> <code>DefaultDataProviders.txt</code> - create <code>.\Tests\Linq\UserDataProviders.txt</code> and define needed configurations. </p>
-<p>When all tests are executed, first <code>_CreateData</code> tests will be run - those execute SQL scripts and insert default data to database, so if you are going to run one test be sure to run <code>_CreateData</code> before it manually.</p>
+<p><code>DataContextSourceAttribute</code> generates tests for each configured data provider, configuration is taken
+from <code>.\Tests\Linq\DataProviders.json</code> and <code>.\Tests\Linq\UserDataProviders.json</code> if it exists.
+<code>Linq\UserDataProviders.json</code> is used to specify user-specific settings such as connections strings to test databases and
+list of tested providers.</p>
+<p>The <code>[User]DataProviders.json</code> is a regular JSON file:</p>
+<h4 id="userdataprovidersjson-example-with-description">UserDataProviders.json example (with description)</h4>
+<pre><code class="lang-js">{
+    // .net framework 4.5 test configuration
+    &quot;NET45&quot; :
+    {
+        // base configuration to inherit settings from
+        // Inheritance rules:
+        // - DefaultConfiguration, TraceLevel, Providers - use value from base configuration only if it is not defined in current configuration
+        // - Connections - merge current and base connection strings
+        &quot;BasedOn&quot;              : &quot;LocalConnectionStrings&quot;,
+
+        // default provider, used as a source of reference data
+        // LINQ to DB uses SQLite for it and you hardly need to change it
+        &quot;DefaultConfiguration&quot; : &quot;SQLite.Classic&quot;,
+
+        // logging level
+        // Supported values: Off, Error, Warning, Info, Verbose
+        // Default level: Info
+        &quot;TraceLevel&quot;           : &quot;Error&quot;,
+
+        // list of database providers, enabled for current test configuration
+        &quot;Providers&quot;            :
+        [
+            &quot;Access&quot;,
+            &quot;SqlCe&quot;,
+            &quot;SQLite.Classic&quot;,
+            &quot;SQLite.MS&quot;,
+            &quot;Northwind.SQLite&quot;,
+            &quot;Northwind.SQLite.MS&quot;,
+            &quot;SqlServer&quot;,
+            &quot;SqlServer.2014&quot;,
+            &quot;SqlServer.2012&quot;, &quot;SqlServer.2012.1&quot;,
+            &quot;SqlServer.2008&quot;, &quot;SqlServer.2008.1&quot;,
+            &quot;SqlServer.2005&quot;, &quot;SqlServer.2005.1&quot;,
+            &quot;SqlAzure.2012&quot;,
+            &quot;DB2&quot;,
+            &quot;Firebird&quot;,
+            &quot;Informix&quot;,
+            &quot;MySql&quot;,
+            &quot;MariaDB&quot;,
+            &quot;Oracle.Native&quot;,
+            &quot;Oracle.Managed&quot;,
+            &quot;PostgreSQL&quot;,
+            &quot;Sybase&quot;,
+            &quot;Northwind&quot;,
+            &quot;TestNoopProvider&quot;
+        ]
+    },
+
+    // .net core 1.0 test configuration
+    &quot;CORE1&quot; :
+    {
+        &quot;BasedOn&quot;              : &quot;LocalConnectionStrings&quot;,
+        &quot;Providers&quot;            :
+        [
+            &quot;SQLite.MS&quot;,
+            &quot;Northwind.SQLite.MS&quot;,
+            &quot;SqlServer&quot;,
+            &quot;SqlServer.2014&quot;,
+            &quot;SqlServer.2012&quot;, &quot;SqlServer.2012.1&quot;,
+            &quot;SqlServer.2008&quot;, &quot;SqlServer.2008.1&quot;,
+            &quot;SqlServer.2005&quot;, &quot;SqlServer.2005.1&quot;,
+            &quot;SqlAzure.2012&quot;,
+            &quot;Firebird&quot;,
+            &quot;MySql&quot;,
+            &quot;MariaDB&quot;,
+            &quot;PostgreSQL&quot;,
+            &quot;Northwind&quot;,
+            &quot;TestNoopProvider&quot;
+        ]
+    },
+
+    // .net core 2.0 test configuration
+    &quot;CORE2&quot; :
+    {
+        &quot;BasedOn&quot;              : &quot;LocalConnectionStrings&quot;,
+        &quot;Providers&quot;            :
+        [
+            &quot;SQLite.MS&quot;,
+            &quot;Northwind.SQLite.MS&quot;,
+            &quot;SqlServer&quot;,
+            &quot;SqlServer.2014&quot;,
+            &quot;SqlServer.2012&quot;, &quot;SqlServer.2012.1&quot;,
+            &quot;SqlServer.2008&quot;, &quot;SqlServer.2008.1&quot;,
+            &quot;SqlServer.2005&quot;, &quot;SqlServer.2005.1&quot;,
+            &quot;SqlAzure.2012&quot;,
+            &quot;Firebird&quot;,
+            &quot;MySql&quot;,
+            &quot;MariaDB&quot;,
+            &quot;PostgreSQL&quot;,
+            &quot;Northwind&quot;,
+            &quot;TestNoopProvider&quot;
+        ]
+    },
+
+    // list of connection strings for all providers
+    &quot;LocalConnectionStrings&quot;:
+    {
+        &quot;BasedOn&quot;           : &quot;CommonConnectionStrings&quot;,
+        &quot;Connections&quot;       :
+        {
+            // override connection string for SqlAzure.2012 provider
+            // all other providers will use default inherited connection strings from CommonConnectionStrings configuration
+            &quot;SqlAzure.2012&quot; :
+            {
+                 &quot;Provider&quot;         : &quot;System.Data.SqlClient&quot;,
+                 &quot;ConnectionString&quot; : &quot;Server=tcp:xxxxxxxxx.database.windows.net,1433;Database=TestData;User ID=TestUser@zzzzzzzzz;Password=TestPassword;Trusted_Connection=False;Encrypt=True;&quot;
+            }
+        }
+    }
+}
+</code></pre><p>To define your own configurations <strong>DO NOT EDIT</strong> <code>DataProviders.json</code> - create <code>.\Tests\Linq\UserDataProviders.json</code> and define needed configurations.</p>
+<p>Right now tests execution depends on <code>_CreateData.*</code> tests executed first. Those tests recreate test databases and populate them with test data, so if you are going to run one test be sure to run <code>_CreateData</code> before it manually.</p>
 <p>Also - if your test changes database data, be sure to revert those changes (!) to avoid side effects for other tests.</p>
 <h2 id="continuous-integration">Continuous Integration</h2>
 <p>We do run builds and tests with:</p>
 <ul>
 <li><a href="https://ci.appveyor.com/project/igor-tkachev/linq2db">AppVeyor</a> (Windows) <a href="https://github.com/linq2db/linq2db/blob/master/appveyor.yml">appveyor.yml</a>. Makes build and runs tests for:<ul>
-<li>.Net 4.5: <a href="https://github.com/linq2db/linq2db/blob/master/Tests/Linq/AppveyorDataProviders.txt">AppveyorDataProviders.txt</a></li>
-<li>.Net Core: <a href="https://github.com/linq2db/linq2db/blob/master/Tests/Linq/AppveyorDataProviders.Core.txt">AppveyorDataProviders.Core.txt</a></li>
+<li>.Net 4.5.2: <a href="https://github.com/linq2db/linq2db/blob/master/Tests/Linq/DataProviders.json">NET45.AppVeyor configuration</a>. Full set of tests are done.</li>
+<li>.Net Core 1.0: <a href="https://github.com/linq2db/linq2db/blob/master/Tests/Linq/DataProviders.json">CORE1.AppVeyor configuration</a>. Only <code>_Create</code> tests are done (smoke testing).</li>
+<li>.Net Core 2.0: <a href="https://github.com/linq2db/linq2db/blob/master/Tests/Linq/DataProviders.json">CORE2.AppVeyor configuration</a>. Only <code>_Create</code> tests are done (smoke testing).</li>
+<li>DocFx - to build <a href="https://linq2db.github.io">documentation</a>. Deploy is done only for <code>release</code> branch.</li>
 </ul>
 </li>
 <li><a href="https://travis-ci.org/linq2db/linq2db">Travis</a> (Linux) <a href="https://github.com/linq2db/linq2db/blob/master/.travis.yml">.travis.yml</a>. Makes build and runs tests for:<ul>
-<li>Mono: <a href="https://github.com/linq2db/linq2db/blob/master/Tests/Linq/TravisDataProviders.txt">TravisDataProviders.txt</a></li>
-<li>.Net Core: <a href="https://github.com/linq2db/linq2db/blob/master/Tests/Linq/TravisDataProviders.Core.txt">TravisDataProviders.Core.txt</a></li>
+<li>.Net Core 2.0: <a href="https://github.com/linq2db/linq2db/blob/master/Tests/Linq/DataProviders.json">CORE2.Travis configuration</a>. Full set of tests are done.</li>
 </ul>
 </li>
 </ul>
-<p><code>xxxDataproviders</code> files are renamed by CI to <code>UserDataProviders</code> before running tests.</p>
+<p>CI builds are done only for next branches:</p>
+<ul>
+<li><code>master</code></li>
+<li><code>/version.*/</code> (regex)</li>
+<li><code>/release.*/</code> (regex)</li>
+<li><code>/dev.*/</code> (regex)</li>
+</ul>
 <h3 id="skip-ci-build">Skip CI build</h3>
 <p>If you want to skip building commit by CI (for example you have changed *.md files only) begin commit comment with <code>[ci skip]</code>.</p>
 <h3 id="publishing-packages">Publishing packages</h3>
 <ul>
-<li><strong>Release candidate</strong> packages are published by AppVeyor to <a href="https://github.com/linq2db/linq2db#feeds">MyGet.org</a> for each successful build of <strong>master</strong> branch. </li>
-<li><strong>Release</strong> packages are published by AppVeyor to <a href="https://github.com/linq2db/linq2db#feeds">NuGet.org</a> for each successful build of <strong>release</strong> branch. </li>
+<li><strong>Release candidate</strong> packages are published by AppVeyor to <a href="https://github.com/linq2db/linq2db#feeds">MyGet.org</a> for each successful build of <strong>master</strong> branch.</li>
+<li><strong>Release</strong> packages are published by AppVeyor to <a href="https://github.com/linq2db/linq2db#feeds">NuGet.org</a> for each successful build of <strong>release</strong> and <strong>release1</strong> branch.</li>
 </ul>
 <h2 id="building-releases">Building releases</h2>
 <ol>
@@ -287,9 +528,7 @@ Access
 <li>Merge PR</li>
 <li><a href="https://github.com/linq2db/linq2db/releases">Tag release</a></li>
 <li>Update versions in <code>master</code> branch (this will lead to publish all next <code>master</code> builds as new version RC):<ul>
-<li>in <a href="https://github.com/linq2db/linq2db/blob/master/appveyor.yml">.\appveyor.yml</a> set <code>packageVersion</code> parameter</li>
-<li>in <a href="https://github.com/linq2db/linq2db/blob/master/Source/project.json">.\Source\project.json</a> set new <code>version</code> parameter</li>
-<li>in <a href="https://github.com/linq2db/linq2db/blob/master/Source/Properties/LinqToDBConstants.cs">.\Source\Properties\LinqToDBConstants.cs</a> set <code>FullVersionString</code> constant.</li>
+<li>in <a href="https://github.com/linq2db/linq2db/blob/master/appveyor.yml">.\appveyor.yml</a> set <code>assemblyVersion</code> parameter</li>
 </ul>
 </li>
 </ol>
@@ -305,7 +544,7 @@ Access
 <li>After you are ready to merge remove the prefix &amp; assign contributors as reviewers</li>
 </ul>
 </li>
-<li>If you wo have wright access, it is recommended to use central repository (not forks). Why - simple, it would allow other teammates to help you in developing (if needed). Certainly you are free to use fork if it is more convenient to you</li>
+<li>If you do have write access, it is recommended to use central repository (not forks). Why - simple, it would allow other teammates to help you in developing (if needed). Certainly you are free to use fork if it is more convenient to you</li>
 <li>Please avoid adding new public classes, properties, methods without XML doc</li>
 <li>Read issues and help users</li>
 <li>Do not EF :)</li>
@@ -322,7 +561,7 @@ Access
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/doc/articles/contrib.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/docfx/Doc/articles/contrib.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -79,12 +79,14 @@
 
 <p>LINQ to DB is the fastest LINQ database access library offering a simple, light, fast, and type-safe layer between your POCO objects and your database. </p>
 <p>Architecturally it is one step above micro-ORMs like Dapper, Massive, or PetaPoco, in that you work with LINQ expressions, not with magic strings, while maintaining a thin abstraction layer between your code and the database. Your queries are checked by the C# compiler and allow for easy refactoring.</p>
-<p>However, it&#39;s not as heavy as LINQ to SQL or Entity Framework. There is no change-tracking, so you have to manage that yourself, but on the plus side you get more control and faster access to your data.</p>
+<p>However, it&#39;s not as heavy as LINQ to SQL or Entity Framework. There is no change-tracking, so you have to manage that yourself, but on the positive side you get more control and faster access to your data.</p>
 <p>In other words <strong>LINQ to DB is type-safe SQL</strong>.</p>
-<p>Visit our <a href="http://blog.linq2db.com/">blog</a> and see <a href="https://github.com/linq2db/linq2db/wiki">Wiki</a> for more details.</p>
-<p>Code examples and demos can be found <a href="https://github.com/linq2db/examples">here</a>.</p>
+<p>Visit our <a href="http://blog.linq2db.com/">blog</a> and see <a href="https://linq2db.github.io/index.html">Github.io documentation</a> for more details.</p>
+<p>Code examples and demos can be found <a href="https://github.com/linq2db/examples">here</a> or in <a href="https://github.com/linq2db/linq2db/tree/master/Tests/Linq">tests</a>.</p>
+<p>T4 model generation help is <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Templates/README.md">here</a>.</p>
+<p><a href="https://github.com/linq2db/linq2db/wiki/Releases-and-Roadmap">Releases and Roadmap</a>.</p>
 <h2 id="how-to-help-the-project">How to help the project</h2>
-<p>No, this is not the donate link. We do need something really more valuable - your <strong>time</strong>. If you really want to help us please read this <a href="https://github.com/linq2db/linq2db/wiki/How-can-i-help">post</a>.</p>
+<p>No, this is not the donate link. We do need something really more valuable - your <strong>time</strong>. If you really want to help us please read this <a href="https://linq2db.github.io/articles/How-can-i-help.html">post</a>.</p>
 <h2 id="project-build-status">Project Build Status</h2>
 <hr>
 <table>
@@ -110,7 +112,7 @@
 </table>
 <h2 id="feeds">Feeds</h2>
 <ul>
-<li>NuGet <a href="https://www.nuget.org/packages?q=linq2db"><img src="https://img.shields.io/nuget/v/linq2db.svg" alt="NuGet"></a></li>
+<li>NuGet <a href="https://www.nuget.org/profiles/LinqToDB"><img src="https://img.shields.io/nuget/vpre/linq2db.svg" alt="NuGet"></a></li>
 <li>MyGet <a href="https://www.myget.org/gallery/linq2db"><img src="https://img.shields.io/myget/linq2db/vpre/linq2db.svg" alt="MyGet"></a><ul>
 <li>V2 <code>https://www.myget.org/F/linq2db/api/v2</code></li>
 <li>V3 <code>https://www.myget.org/F/linq2db/api/v3/index.json</code></li>
@@ -120,18 +122,17 @@
 <h2 id="lets-get-started">Let&#39;s get started</h2>
 <p>From <strong>NuGet</strong>:</p>
 <ul>
-<li><code>Install-Package linq2db</code> - .Net</li>
-<li><code>Install-Package linq2db.core</code> - .Net Core</li>
+<li><code>Install-Package linq2db</code> - .NET &amp; .NET Core</li>
 </ul>
 <h2 id="configuring-connection-strings">Configuring connection strings</h2>
-<h3 id="net">.Net</h3>
-<p>In your <code>web.config</code> or <code>app.config</code> make sure you have a connection string:</p>
+<h3 id="net">.NET</h3>
+<p>In your <code>web.config</code> or <code>app.config</code> make sure you have a connection string (check <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/ProviderName.cs">this file</a> for supported providers):</p>
 <pre><code class="lang-xml">&lt;connectionStrings&gt;
   &lt;add name=&quot;Northwind&quot; 
     connectionString = &quot;Server=.\;Database=Northwind;Trusted_Connection=True;Enlist=False;&quot; 
     providerName     = &quot;SqlServer&quot; /&gt;
 &lt;/connectionStrings&gt;
-</code></pre><h3 id="net-core">.Net Core</h3>
+</code></pre><h3 id="net-core">.NET Core</h3>
 <p>.Net Core does not support <code>System.Configuration</code> so to configure connection strings you should implement <code>ILinqToDBSettings</code>, for example:</p>
 <pre><code class="lang-cs">public class ConnectionStringSettings : IConnectionStringSettings
 {
@@ -143,10 +144,7 @@
 
 public class MySettings : ILinqToDBSettings
 {
-    public IEnumerable&lt;IDataProviderSettings&gt; DataProviders
-    {
-        get { yield break; }
-    }
+    public IEnumerable&lt;IDataProviderSettings&gt; DataProviders =&gt; Enumerable.Empty&lt;IDataProviderSettings&gt;();
 
     public string DefaultConfiguration =&gt; &quot;SqlServer&quot;;
     public string DefaultDataProvider =&gt; &quot;SqlServer&quot;;
@@ -165,10 +163,11 @@ public class MySettings : ILinqToDBSettings
         }
     }
 }
-</code></pre><p>And later just set:</p>
+</code></pre><p>And later just set on program startup before the first query is done (Startup.cs for example):</p>
 <pre><code class="lang-cs">DataConnection.DefaultSettings = new MySettings();
-</code></pre><p>You can also use same for regular .Net</p>
+</code></pre><p>You can also use same for regular .NET.</p>
 <h2 id="now-lets-create-a-poco-class">Now let&#39;s create a <strong>POCO</strong> class</h2>
+<p>Important: you also can generate those classes from your database using <a href="https://github.com/linq2db/linq2db/tree/master/Source/LinqToDB.Templates#t4-models">T4 templates</a>. Demonstration video could be found <a href="https://github.com/linq2db/linq2db/wiki">here</a>.</p>
 <pre><code class="lang-c#">using System;
 using LinqToDB.Mapping;
 
@@ -188,12 +187,12 @@ public class Product
 {
   public DbNorthwind() : base(&quot;Northwind&quot;) { }
 
-  public ITable&lt;Product&gt; Product { get { return GetTable&lt;Product&gt;(); } }
-  public ITable&lt;Category&gt; Category { get { return GetTable&lt;Category&gt;(); } }
+  public ITable&lt;Product&gt; Product =&gt; GetTable&lt;Product&gt;();
+  public ITable&lt;Category&gt; Category =&gt; GetTable&lt;Category&gt;();
 
   // ... other tables ...
 }
-</code></pre><p>We call the base constructor with the &quot;Northwind&quot; parameter. This parameter has to match the name=&quot;Northwind&quot; we defined above in our connection string. We also have to register our <code>Product</code> class we defined above to allows us to write LINQ queries.</p>
+</code></pre><p>We call the base constructor with the &quot;Northwind&quot; parameter. This parameter (called <code>configuration name</code>) has to match the name=&quot;Northwind&quot; we defined above in our connection string. We also have to register our <code>Product</code> class we defined above to allow us to write LINQ queries.</p>
 <p>And now let&#39;s get some data:</p>
 <pre><code class="lang-c#">using LinqToDB;
 using LinqToDB.Common;
@@ -209,7 +208,7 @@ public static List&lt;Product&gt; All()
     return query.ToList();
   }
 }
-</code></pre><p>Make sure you <strong>always</strong> wrap your <code>DataConnection</code> class (in our case <code>DbNorthwind</code>) in a <code>using</code> statement. This is required for proper resource management, like releasing the database connections back into the pool. <a href="https://github.com/linq2db/linq2db/wiki/Managing-data-connection">Details</a></p>
+</code></pre><p>Make sure you <strong>always</strong> wrap your <code>DataConnection</code> class (in our case <code>DbNorthwind</code>) in a <code>using</code> statement. This is required for proper resource management, like releasing the database connections back into the pool. <a href="https://linq2db.github.io/articles/Managing-data-connection.html">More details</a></p>
 <h2 id="selecting-columns">Selecting Columns</h2>
 <p>Most times we get the entire row from the database:</p>
 <pre><code class="lang-c#">from p in db.Product
@@ -313,12 +312,12 @@ select Product.Build(p, c);
 {
   db.Insert(product);
 }
-</code></pre><p>This inserts all the columns from our Product class, but without retrieving the generated identity value. To do that we can use <code>InsertWithIdentity</code>, like this:</p>
+</code></pre><p>This inserts all the columns from our Product class, but without retrieving the generated identity value. To do that we can use <code>InsertWith*Identity</code> methods, like this:</p>
 <pre><code class="lang-c#">using (var db = new DbNorthwind())
 {
-  product.ProductID = Convert.ToInt32(db.InsertWithIdentity(product));
+  product.ProductID = db.InsertWithInt32Identity(product);
 }
-</code></pre><p>We need to convert the returned value to an integer since an identity field could be something other than an integer, like a GUID for example. There is also <code>InsertOrReplace</code> that updates a database record if found or adds it otherwise.</p>
+</code></pre><p>There is also <code>InsertOrReplace</code> that updates a database record if it was found by primary key or adds it otherwise.</p>
 <p>If you need to insert only certain fields, or use values generated by the database, you could write:</p>
 <pre><code class="lang-c#">using (var db = new DbNorthwind())
 {
@@ -328,7 +327,7 @@ select Product.Build(p, c);
     .Value(p =&gt; p.Added, () =&gt; Sql.CurrentTimestamp)
     .Insert();
 }
-</code></pre><p>Using this method also allows us to build insert statements like this:</p>
+</code></pre><p>Use of this method also allows us to build insert statements like this:</p>
 <pre><code class="lang-c#">using (var db = new DbNorthwind())
 {
   var statement = db.Product
@@ -340,7 +339,7 @@ select Product.Build(p, c);
   statement.Insert();
 }
 </code></pre><h2 id="update">Update</h2>
-<p>Updating records follows a similar pattern to Insert. We have an extension method that updates all the columns in the database:</p>
+<p>Updating records follows similar pattern to Insert. We have an extension method that updates all the columns in the database:</p>
 <pre><code class="lang-c#">using (var db = new DbNorthwind())
 {
   db.Update(product);
@@ -365,7 +364,7 @@ select Product.Build(p, c);
 
   statement.Update();
 }
-</code></pre><p>You&#39;re not limited to updating a single field. For example, we could discontinue all the products that are no longer in stock:</p>
+</code></pre><p>You&#39;re not limited to updating a single record. For example, we could discontinue all the products that are no longer in stock:</p>
 <pre><code class="lang-c#">using (var db = new DbNorthwind())
 {
   db.Product
@@ -382,7 +381,7 @@ select Product.Build(p, c);
     .Delete();
 }
 </code></pre><h2 id="bulk-copy">Bulk Copy</h2>
-<p>Bulk copy feature supports the transfer of large amounts of data into a table from another data source. For faster data inserting DO NOT use a transaction. If you use a transaction an adhoc implementation of the bulk copy feature has been added in order to insert multiple lines at once. You get faster results then inserting lines one by one, but it&#39;s still slower than the database provider bulk copy. So, DO NOT use transactions whenever you can (Take care of unique constraints, primary keys, etc. since bulk copy ignores them at insertion)</p>
+<p>Bulk copy feature supports the transfer of large amounts of data into a table from another data source. For faster data inserting DO NOT use a transaction. If you use a transaction an adhoc implementation of the bulk copy feature has been added in order to insert multiple lines at once. You get faster results then inserting lines one by one, but it&#39;s still slower than the database provider bulk copy. So, DO NOT use transactions whenever you can (Take care of unique constraints, primary keys, etc. since bulk copy ignores them at insertion).</p>
 <pre><code class="lang-c#">[Table(Name = &quot;ProductsTemp&quot;)]
 public class ProductTemp
 {
@@ -418,7 +417,7 @@ using (var db = new DbNorthwind())
   }
 }
 </code></pre><p>Also, you can use .NET built-in TransactionScope class:</p>
-<pre><code class="lang-c#">// don&#39;t forget isolation level is serializable by default
+<pre><code class="lang-c#">// don&#39;t forget that isolation level is serializable by default
 using (var transaction = new TransactionScope())
 {
   using (var db = new DbNorthwind())
@@ -442,19 +441,21 @@ using (var transaction = new TransactionScope())
 
   private static IDataProvider GetDataProvider()
   {
+    // you can move this line to other place, but it should be
+    // allways set before LINQ to DB provider instance creation
+    LinqToDB.Common.Configuration.AvoidSpecificDataProviderAPI = true;
+
     return new SqlServerDataProvider(&quot;&quot;, SqlServerVersion.v2012);
   }
 
   private static IDbConnection GetConnection()
   {
-    LinqToDB.Common.Configuration.AvoidSpecificDataProviderAPI = true;
-
     var dbConnection = new SqlConnection(@&quot;Server=.\SQL;Database=Northwind;Trusted_Connection=True;Enlist=False;&quot;);
     return new StackExchange.Profiling.Data.ProfiledDbConnection(dbConnection, MiniProfiler.Current);
   }
 #endif
 }
-</code></pre><p>This assumes that you only want to use MiniProfiler while in DEBUG mode and that you are using SQL Server for your database. If you&#39;re using a different database you would need to change GetDataProvider() to return the appropriate IDataProvider. For example, if using MySql you would use:</p>
+</code></pre><p>This assumes that you only want to use MiniProfiler while in DEBUG mode and that you are using SQL Server for your database. If you&#39;re using a different database you would need to change GetDataProvider() to return the appropriate IDataProvider. For example for MySql you would use:</p>
 <pre><code class="lang-c#">private static IDataProvider GetDataProvider()
 {
   return new LinqToDB.DataProvider.MySql.MySqlDataProvider();
@@ -467,7 +468,7 @@ using (var transaction = new TransactionScope())
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/docfx/README.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
