@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Namespace LinqToDB.Mapping
    | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.27.0.0">
+    <meta name="generator" content="docfx 2.36.0.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -22,7 +22,7 @@
     <meta property="docfx:rel" content="../">
     
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -62,7 +62,9 @@
         
         <div id="search-results">
           <div class="search-list"></div>
-          <div class="sr-items"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
           <ul id="pagination"></ul>
         </div>
       </div>
@@ -95,7 +97,7 @@ Could be applied to:</p>
 <p>For associations, defined using static methods, <code>this</code> mapping side defined by type of first parameter.
 Also, optionally, you can pass data context object as extra method parameter.</p>
 <p>Based on association type - to one or to multiple records - result type should be target record&apos;s mapping type or
-<span class="xref">System.IEquatable&lt;T&gt;</span> collection.</p>
+<a class="xref" href="https://msdn.microsoft.com/en-us/library/ms131187(v=vs.110).aspx">IEquatable&lt;T&gt;</a> collection.</p>
 <p>By default associations are used only for joins generation in LINQ queries and will have <code>null</code> value for loaded
 records. To load data into association, you should explicitly specify it in your query using <a class="xref" href="LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_LoadWith__1_LinqToDB_ITable___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___">LoadWith&lt;T&gt;(ITable&lt;T&gt;, Expression&lt;Func&lt;T, Object&gt;&gt;)</a> method.</p>
 </section>
@@ -124,6 +126,12 @@ In latter case you should specify member name using <a class="xref" href="LinqTo
 Also see <a class="xref" href="LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_DataType">DataType</a> and <a class="xref" href="LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_DbType">DbType</a>.
 Applying this attribute to class or interface will have no effect.</p>
 </section>
+      <h4><a class="xref" href="LinqToDB.Mapping.DynamicColumnInfo.html">DynamicColumnInfo</a></h4>
+      <section><p>Represents a dynamic column, which doesn&apos;t have a backing field in it&apos;s declaring type.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.DynamicColumnsStoreAttribute.html">DynamicColumnsStoreAttribute</a></h4>
+      <section><p>Marks target member as dynamic columns store.</p>
+</section>
       <h4><a class="xref" href="LinqToDB.Mapping.EntityDescriptor.html">EntityDescriptor</a></h4>
       <section><p>Stores mapping entity descriptor.</p>
 </section>
@@ -137,7 +145,7 @@ Applying this attribute to class or interface will have no effect.</p>
       <section><p>Marks target column as identity column with value, generated on database side during insert operations.
 Identity columns will be ignored for insert and update operations with implicit column list like 
 <a class="xref" href="LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_Insert__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_">Insert&lt;T&gt;(IDataContext, T, String, String, String)</a> or
-<a class="xref" href="LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_Update__1_LinqToDB_IDataContext___0_">Update&lt;T&gt;(IDataContext, T)</a> methods.</p>
+<a class="xref" href="LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_Update__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_">Update&lt;T&gt;(IDataContext, T, String, String, String)</a> methods.</p>
 </section>
       <h4><a class="xref" href="LinqToDB.Mapping.InheritanceMapping.html">InheritanceMapping</a></h4>
       <section><p>Stores inheritance mapping information for single discriminator value.</p>
@@ -204,7 +212,8 @@ that type and data parameter using <a class="xref" href="LinqToDB.Mapping.Mappin
 Currently it supported only for:</p>
 <ul>
 <li>Firebird generators;</li>
-<li>Oracle sequences.</li>
+<li>Oracle sequences;</li>
+<li>PostgreSQL serial pseudotypes/sequences;</li>
 </ul>
 </section>
       <h4><a class="xref" href="LinqToDB.Mapping.StoredProcedure.html">StoredProcedure</a></h4>
@@ -215,6 +224,14 @@ Currently it supported only for:</p>
 You can apply it to any class including non-public, nester or abstract classes.
 Applying it to interfaces will allow you to perform queries against target table, but you need to specify
 projection in your query explicitly, if you want to select data from such mapping.</p>
+</section>
+    <h3 id="interfaces">Interfaces
+  </h3>
+      <h4><a class="xref" href="LinqToDB.Mapping.IColumnChangeDescriptor.html">IColumnChangeDescriptor</a></h4>
+      <section><p>Mapping entity column descriptor change interface.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.IEntityChangeDescriptor.html">IEntityChangeDescriptor</a></h4>
+      <section><p>Mapping entity descriptor change interface.</p>
 </section>
     <h3 id="enums">Enums
   </h3>
@@ -246,7 +263,7 @@ See <a class="xref" href="LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Ma
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2015-2017 linq2db.com
+            Copyright © 2011-2018 linq2db.com<br><br>Generated by <strong>DocFX</strong>
             
           </div>
         </div>

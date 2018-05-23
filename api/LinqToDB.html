@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Namespace LinqToDB
    | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.27.0.0">
+    <meta name="generator" content="docfx 2.36.0.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -22,7 +22,7 @@
     <meta property="docfx:rel" content="../">
     
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -62,7 +62,9 @@
         
         <div id="search-results">
           <div class="search-list"></div>
-          <div class="sr-items"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
           <ul id="pagination"></ul>
         </div>
       </div>
@@ -101,6 +103,9 @@
 </section>
       <h4><a class="xref" href="LinqToDB.DataExtensions.html">DataExtensions</a></h4>
       <section><p>Data context extension methods.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.EntityCreatedEventArgs.html">EntityCreatedEventArgs</a></h4>
+      <section><p>Provides data for the <a class="xref" href="LinqToDB.IEntityServices.html#LinqToDB_IEntityServices_OnEntityCreated">OnEntityCreated</a> event.</p>
 </section>
       <h4><a class="xref" href="LinqToDB.ExpressionMethodAttribute.html">ExpressionMethodAttribute</a></h4>
       <section><p>When applied to method or property, tells linq2db to replace them in queryable LINQ expression with another expression,
@@ -143,6 +148,13 @@ See <a class="xref" href="LinqToDB.DataContext.html#LinqToDB_DataContext_KeepCon
       <h4><a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a></h4>
       <section><p>Defines the base class for the namespace exceptions.</p>
 </section>
+      <h4><a class="xref" href="LinqToDB.MergeDefinition-2.html">MergeDefinition&lt;TTarget, TSource&gt;</a></h4>
+      <section></section>
+      <h4><a class="xref" href="LinqToDB.MergeDefinition-2.Operation.html">MergeDefinition&lt;TTarget, TSource&gt;.Operation</a></h4>
+      <section></section>
+      <h4><a class="xref" href="LinqToDB.MergeExtensions.html">MergeExtensions</a></h4>
+      <section><p>Contains extension methods for merge API.</p>
+</section>
       <h4><a class="xref" href="LinqToDB.ProviderName.html">ProviderName</a></h4>
       <section><p>Default names for providers.</p>
 </section>
@@ -174,10 +186,35 @@ See <a class="xref" href="LinqToDB.DataContext.html#LinqToDB_DataContext_KeepCon
       <section></section>
       <h4><a class="xref" href="LinqToDB.Sql.TableFunctionAttribute.html">Sql.TableFunctionAttribute</a></h4>
       <section></section>
+      <h4><a class="xref" href="LinqToDB.TempTable-1.html">TempTable&lt;T&gt;</a></h4>
+      <section><p>Temporary table. Temporary table is a table, created when you create instance of this class and deleted when
+you dispose it. It uses regular tables even if underlying database supports temporary tables concept.</p>
+</section>
     <h3 id="interfaces">Interfaces
   </h3>
       <h4><a class="xref" href="LinqToDB.IDataContext.html">IDataContext</a></h4>
       <section><p>Database connection abstraction interface.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.IEntityServices.html">IEntityServices</a></h4>
+      <section></section>
+      <h4><a class="xref" href="LinqToDB.IExtensionsAdapter.html">IExtensionsAdapter</a></h4>
+      <section><p>Interface to override default implementation of LINQ To DB async operations.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.IMergeable-2.html">IMergeable&lt;TTarget, TSource&gt;</a></h4>
+      <section><p>Merge command builder that have target table, source, match (ON) condition and at least one operation configured.
+You can add more operations to this type of builder or execute command.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.IMergeableOn-2.html">IMergeableOn&lt;TTarget, TSource&gt;</a></h4>
+      <section><p>Merge command builder that have only target table and source configured.
+Only operation available for this type of builder is match (ON) condition configuration.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.IMergeableSource-2.html">IMergeableSource&lt;TTarget, TSource&gt;</a></h4>
+      <section><p>Merge command builder that have target table, source and match (ON) condition configured.
+You can only add operations to this type of builder.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.IMergeableUsing-1.html">IMergeableUsing&lt;TTarget&gt;</a></h4>
+      <section><p>Merge command builder that have only target table configured.
+Only operation available for this type of builder is source configuration.</p>
 </section>
       <h4><a class="xref" href="LinqToDB.ITable-1.html">ITable&lt;T&gt;</a></h4>
       <section><p>Table-like queryable source, e.g. table, view or table-valued function.</p>
@@ -195,6 +232,8 @@ See <a class="xref" href="LinqToDB.DataContext.html#LinqToDB_DataContext_KeepCon
 Provider-level support depends on database capabilities and current implementation
 support level and could vary for different providers.</p>
 </section>
+      <h4><a class="xref" href="LinqToDB.MergeOperationType.html">MergeOperationType</a></h4>
+      <section></section>
       <h4><a class="xref" href="LinqToDB.Sql.AggregateModifier.html">Sql.AggregateModifier</a></h4>
       <section></section>
       <h4><a class="xref" href="LinqToDB.Sql.DateParts.html">Sql.DateParts</a></h4>
@@ -239,7 +278,7 @@ support level and could vary for different providers.</p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2015-2017 linq2db.com
+            Copyright © 2011-2018 linq2db.com<br><br>Generated by <strong>DocFX</strong>
             
           </div>
         </div>

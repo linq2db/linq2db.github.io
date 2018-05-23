@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Enum FirebirdIdentifierQuoteMode
    | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.27.0.0">
+    <meta name="generator" content="docfx 2.36.0.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -22,7 +22,7 @@
     <meta property="docfx:rel" content="../">
     
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -62,7 +62,9 @@
         
         <div id="search-results">
           <div class="search-list"></div>
-          <div class="sr-items"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
           <ul id="pagination"></ul>
         </div>
       </div>
@@ -81,7 +83,8 @@
   
   <h1 id="LinqToDB_DataProvider_Firebird_FirebirdIdentifierQuoteMode" data-uid="LinqToDB.DataProvider.Firebird.FirebirdIdentifierQuoteMode" class="text-break">Enum FirebirdIdentifierQuoteMode
   </h1>
-  <div class="markdown level0 summary"><p>Possible modes for Firebird identifier quotes.</p>
+  <div class="markdown level0 summary"><p>Possible modes for Firebird identifier quotes. This enumeration covers only identifier quotation logic
+and don&apos;t handle identifier length limits.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.DataProvider.Firebird.html">LinqToDB.DataProvider.Firebird</a></h6>
@@ -102,17 +105,33 @@
     <tbody>
       <tr>
         <td id="LinqToDB_DataProvider_Firebird_FirebirdIdentifierQuoteMode_Auto">Auto</td>
-        <td><p>quote identifiers if needed.</p>
+        <td><p>Quote identifiers if needed.
+LINQ To DB will quote identifiers, if they are not valid without quotation.
+This includes:</p>
+<ul>
+<li>use of reserved words;</li>
+<li>use of any characters except latin letters, digits, _ and $;</li>
+<li>use digit, _ or $ as first character.
+This is default mode.
+Note that if you need to preserve casing of identifiers, you should use <a class="xref" href="LinqToDB.DataProvider.Firebird.FirebirdIdentifierQuoteMode.html#LinqToDB_DataProvider_Firebird_FirebirdIdentifierQuoteMode_Quote">Quote</a> mode.
+Quoted identifiers not supported by SQL Dialect &lt; 3.</li>
+</ul>
 </td>
       </tr>
       <tr>
         <td id="LinqToDB_DataProvider_Firebird_FirebirdIdentifierQuoteMode_None">None</td>
-        <td><p>Do not quote identifiers.</p>
+        <td><p>Do not quote identifiers.
+LINQ To DB will not check identifiers for validity (spaces, reserved words) is this mode.
+This mode should be used only for SQL Dialect &lt; 3 and it is developer&apos;s responsibility to
+ensure that there is no identifiers in use that require quotation.</p>
 </td>
       </tr>
       <tr>
         <td id="LinqToDB_DataProvider_Firebird_FirebirdIdentifierQuoteMode_Quote">Quote</td>
-        <td><p>Always quote identifiers.</p>
+        <td><p>Always quote identifiers.
+LINQ To DB will quote all identifiers, even if it is not required.
+Select this mode, if you need to preserve identifiers casing.
+Quoted identifiers not supported by SQL Dialect &lt; 3.</p>
 </td>
       </tr>
     </tbody>
@@ -124,6 +143,36 @@
   <div>
       <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_NotBetween__1___0___0___0_">Sql.NotBetween&lt;FirebirdIdentifierQuoteMode&gt;(FirebirdIdentifierQuoteMode, FirebirdIdentifierQuoteMode)</a>
   </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;FirebirdIdentifierQuoteMode&gt;(IEnumerable&lt;FirebirdIdentifierQuoteMode&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;FirebirdIdentifierQuoteMode&gt;(IQueryable&lt;FirebirdIdentifierQuoteMode&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;FirebirdIdentifierQuoteMode&gt;(FirebirdIdentifierQuoteMode[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;FirebirdIdentifierQuoteMode&gt;(FirebirdIdentifierQuoteMode, FirebirdIdentifierQuoteMode)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;FirebirdIdentifierQuoteMode&gt;(FirebirdIdentifierQuoteMode, FirebirdIdentifierQuoteMode, FirebirdIdentifierQuoteMode)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;FirebirdIdentifierQuoteMode&gt;(IEnumerable&lt;FirebirdIdentifierQuoteMode&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;FirebirdIdentifierQuoteMode&gt;(IQueryable&lt;FirebirdIdentifierQuoteMode&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;FirebirdIdentifierQuoteMode&gt;(FirebirdIdentifierQuoteMode[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;FirebirdIdentifierQuoteMode&gt;(FirebirdIdentifierQuoteMode, FirebirdIdentifierQuoteMode)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;FirebirdIdentifierQuoteMode&gt;(FirebirdIdentifierQuoteMode, FirebirdIdentifierQuoteMode, FirebirdIdentifierQuoteMode)</a>
+  </div>
 </article>
           </div>
           
@@ -132,10 +181,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/new/version1/apiSpec/new?filename=LinqToDB_DataProvider_Firebird_FirebirdIdentifierQuoteMode.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.Firebird.FirebirdIdentifierQuoteMode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_Firebird_FirebirdIdentifierQuoteMode.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.Firebird.FirebirdIdentifierQuoteMode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/version1/Source/DataProvider/Firebird/FirebirdIdentifierQuoteMode.cs/#L8" class="contribution-link">View Source</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdIdentifierQuoteMode.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -154,7 +203,7 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2015-2017 linq2db.com
+            Copyright © 2011-2018 linq2db.com<br><br>Generated by <strong>DocFX</strong>
             
           </div>
         </div>
