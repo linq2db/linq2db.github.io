@@ -1,0 +1,546 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>v2.0.0 Release notes | Linq To DB (aka linq2db) </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="v2.0.0 Release notes | Linq To DB (aka linq2db) ">
+    <meta name="generator" content="docfx 2.27.0.0">
+    
+    <link rel="shortcut icon" href="../../images/icon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../images/icon.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items"></div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="v200-release-notes">v2.0.0 Release notes</h1>
+
+<ul>
+<li><a href="#general-changes">General Changes</a><ul>
+<li><a href="#breaking-changes">Breaking Changes</a></li>
+<li><a href="#cte-support">CTE Support</a></li>
+<li><a href="#mapping">Mapping</a><ul>
+<li><a href="#mappingschemaentitydescriptorcreatedcallback">MappingSchema.EntityDescriptorCreatedCallback</a></li>
+<li><a href="#fluent-mapping">Fluent Mapping</a></li>
+<li><a href="#dynamic-columns">Dynamic Columns</a></li>
+<li><a href="#calculated-columns">Calculated Columns</a></li>
+<li><a href="#inheritance-mapping">Inheritance Mapping</a></li>
+<li><a href="#other-changes-and-fixes-1">Other Changes and Fixes</a></li>
+</ul>
+</li>
+<li><a href="#sql-generation">SQL Generation</a></li>
+<li><a href="#extensions">Extensions</a></li>
+<li><a href="#temp-tables-api">Temp Tables API</a></li>
+<li><a href="#bulk-copy">Bulk Copy</a></li>
+<li><a href="#merge">Merge</a></li>
+<li><a href="#schema-provider">Schema Provider</a></li>
+<li><a href="#other-changes-and-fixes-4">Other Changes and Fixes</a></li>
+</ul>
+</li>
+<li><a href="#provider-specific-changes">Provider-specific changes</a><ul>
+<li><a href="#access">Access</a></li>
+<li><a href="#db2">DB2</a></li>
+<li><a href="#firebird">Firebird</a></li>
+<li><a href="#informix">Informix</a></li>
+<li><a href="#mysql-and-mariadb">MySQL and MariaDB</a></li>
+<li><a href="#oracle">Oracle</a></li>
+<li><a href="#postgresql">PostgreSQL</a></li>
+<li><a href="#sap-hana">SAP HANA</a></li>
+<li><a href="#sql-ce">SQL CE</a></li>
+<li><a href="#sybase">Sybase/SAP ASE</a></li>
+<li><a href="#sqlite">SQLite</a></li>
+<li><a href="#sql-server">SQL Server</a></li>
+</ul>
+</li>
+<li><a href="#changes-for-developers">Changes for developers</a></li>
+<li><a href="#i-use-entity-framework-feelsbadman">I Use Entity Framework</a></li>
+</ul>
+<h2 id="general-changes">General changes</h2>
+<p>Also check provider-specific changes for your provider as this section contains only provider-independent changes.</p>
+<h2 id="breaking-changes">Breaking Changes</h2>
+<h3 id="changes-to-target-frameworks">Changes to target frameworks</h3>
+<p>Version 2.0 drops support for legacy frameworks: net4.0, silverlight, windows8 store.
+List of supported targets now includes:</p>
+<ul>
+<li>net45</li>
+<li>netstandard1.6</li>
+<li>netstandard2.0</li>
+<li>netcoreapp2.0</li>
+</ul>
+<p>Also you can notice that now linq2db nuget package supports all those targets and you don&#39;t need to use linq2db.core package if you want to target .net core projects. This package is now deprecated and will not be updated anymore.</p>
+<p>Who will be affected by this change:</p>
+<ul>
+<li>People that used deprecated frameworks. They should continue use 1.x version or migrate their projects.</li>
+<li>Users of linq2db.core package. They should update their nuget references to use linq2db package.</li>
+</ul>
+<h3 id="default-enumeration-mapping-behavior-changes-for-text-columns">Default enumeration mapping behavior changes for text columns</h3>
+<p>Starting from version 2.0, LINQ To DB will use ToString() method to create database value for enums, mapped to text column (<a href="https://github.com/linq2db/linq2db/issues/1006">1006</a>, <a href="https://github.com/linq2db/linq2db/issues/1071">1071</a>). Prior versions used numeric representation of enumeration value, converted to string.</p>
+<p>How to find out if I&#39;m affected by this change?</p>
+<p>You are affected if you have text columns mapped to enumeration without explicit mappings specified for fields.</p>
+<p>See following example:</p>
+<pre><code class="lang-cs">// enums like that are not affected, because they
+// have explicit mappings from enum fields to database values
+public enum GoodEnum
+{
+    [MapValue(&quot;1&quot;)]
+    First,
+    [MapValue(&quot;Second&quot;)]
+    Second
+}
+
+// enums like that will change their behavior
+public enum BadEnum
+{
+    // v1.x: &quot;0&quot; used as a database value
+    // v2: &quot;First&quot; used as a database value
+    First,
+    // v1.x: &quot;1&quot; used as a database value
+    // v2: &quot;Second&quot; used as a database value
+    Second
+}
+</code></pre><p>We want to say that it is generally bad idea to have no explicit enumeration field mappings as you depend on library behavior, which could change, and changes to enumeration (adding/removing/reordering fields) could lead to mapped value change.</p>
+<h4 id="im-affected-what-should-i-do">I&#39;m affected. What should I do?</h4>
+<p>First of all you can re-enable old behavior using following configuration flag:</p>
+<pre><code class="lang-cs">Configuration.UseEnumValueNameForStringColumns = false;
+</code></pre><p>But we recommend to add explicit mappings to your enumeration.</p>
+<h2 id="cte-support">CTE Support</h2>
+<p>This release adds native support for common table expressions, including recursive CTE (<a href="https://github.com/linq2db/linq2db/issues/534">534</a>, <a href="https://github.com/linq2db/linq2db/issues/890">890</a>). You can read more about this feature <a class="xref" href="../sql/CTE.html">here</a>.</p>
+<h2 id="mapping">Mapping</h2>
+<h3 id="mappingschemaentitydescriptorcreatedcallback"><code>MappingSchema.EntityDescriptorCreatedCallback</code></h3>
+<p>This new callback could be used to modify entity mapping descriptor after creation <a href="https://github.com/linq2db/linq2db/issues/1074">(1074)</a>.</p>
+<p>E.g. you can use it to change columns name notation to snake-case.</p>
+<pre><code class="lang-cs">ms.EntityDescriptorCreatedCallback = (mappingSchema, entityDescriptor) =&gt;
+{
+    // let&#39;s imagine we have ToSnakeCase string
+    // extension method somewhere in our project
+    entityDescriptor.TableName = entityDescriptor.TableName.ToSnakeCase();
+    foreach (var entityDescriptorColumn in entityDescriptor.Columns)
+    {
+        entityDescriptorColumn.ColumnName
+            = entityDescriptorColumn.ColumnName.ToSnakeCase();
+    }
+};
+</code></pre><h3 id="fluent-mapping">Fluent Mapping</h3>
+<h4 id="custom-join-predicate-exression-support-for-associations">Custom join predicate exression support for associations</h4>
+<p><a href="https://github.com/linq2db/linq2db/issues/961">961</a></p>
+<pre><code class="lang-cs">fluentBuilder
+    .Entity&lt;Entity&gt;()
+    .Association(
+        e =&gt; e.AssociationProperty,
+        (thisSide, otherSide) =&gt; thisSide.Id == otherSide.ID1);
+</code></pre><h4 id="other-changes-and-fixes">Other Changes and Fixes</h4>
+<ul>
+<li>complex types mapping fixed <a href="https://github.com/linq2db/linq2db/issues/1005">(1005)</a></li>
+</ul>
+<h3 id="dynamic-columns">Dynamic Columns</h3>
+<p>This new feature will allow you to use dynamic columns in your queries (<a href="https://github.com/linq2db/linq2db/issues/507">507</a>, <a href="https://github.com/linq2db/linq2db/issues/744">744</a>, <a href="https://github.com/linq2db/linq2db/issues/964">964</a>,<a href="https://github.com/linq2db/linq2db/issues/1083">1083</a>). Check <a href="https://github.com/linq2db/linq2db/pull/964">this</a> PR for more details.</p>
+<h3 id="calculated-columns">Calculated Columns</h3>
+<p>You can use expressions to define calculated columns using <code>IsColumn</code> property of <code>ExpressionMethodAttribute</code> attribute <a href="https://github.com/linq2db/linq2db/issues/1004">(1004)</a>.</p>
+<pre><code class="lang-cs">[Table]
+public class Entity
+{
+    // normal read/write columns
+    [Column] public string FirstName { get; set; }
+    [Column] public string LastName  { get; set; }
+
+    // read-only expression-based property
+    [ExpressionMethod(nameof(FullNameExpr), IsColumn = true)]
+    public string FullName { get; set; }
+
+    private static Expression&lt;Fun&lt;Entity, string&gt;&gt; FullNameExpr()
+    {
+        return e =&gt; e.LastName + &quot;, &quot; + e,FirstName;
+    }
+}
+</code></pre><h3 id="inheritance-mapping">Inheritance Mapping</h3>
+<ul>
+<li>fixed incorrect query filter generation for left join associations for entities with inheritance mapping <a href="https://github.com/linq2db/linq2db/issues/956">(956)</a></li>
+<li>fixed exception when inherited entity selected into property of base type <a href="https://github.com/linq2db/linq2db/issues/1046">(1046)</a></li>
+<li><code>Update</code>/<code>Delete</code>/<code>Insert</code>/<code>InsertOrReplace</code> extensions will properly recognize inherited values when passed as parameter of base type. Important: entities without inheritance mapping not affected by this change and query generation will use parameter type as before <a href="https://github.com/linq2db/linq2db/issues/1017">(1017)</a></li>
+<li><code>LoadWith</code> fixed to properly load derived entities <a href="https://github.com/linq2db/linq2db/issues/994">(994)</a></li>
+<li>fixed several issues with type conversion in expressions between base and derived types (<a href="https://github.com/linq2db/linq2db/issues/1057">1057</a>, <a href="https://github.com/linq2db/linq2db/issues/1065">1065</a>)</li>
+<li>fixed exception when <code>LoadWith</code> called for nullable reference to entity with inheritance mapping <a href="https://github.com/linq2db/linq2db/issues/996">(996)</a></li>
+</ul>
+<h3 id="other-changes-and-fixes-1">Other Changes and Fixes</h3>
+<ul>
+<li>fixed <code>MappingSchema</code> converters were ignored for enums <a href="https://github.com/linq2db/linq2db/issues/1006">(1006)</a></li>
+<li>fixed issue when adding new metadata reader to <code>MappingSchema.Default</code> could result in previously added readers being ignored <a href="https://github.com/linq2db/linq2db/issues/1066">(1066)</a></li>
+<li>default <code>char</code> mapping will now use <code>Length = 1</code> <a href="https://github.com/linq2db/linq2db/issues/1091">(1091)</a></li>
+<li>improved support of interfaces <a href="https://github.com/linq2db/linq2db/issues/1099">(1099)</a></li>
+</ul>
+<h2 id="sql-generation">SQL Generation</h2>
+<h4 id="crossouter-apply-support"><code>CROSS/OUTER APPLY</code> support</h4>
+<p>For databases that support <code>APPLY</code> joins you can disable this functionality using following flag:</p>
+<pre><code class="lang-cs">// set to true by default
+// v2.0-beta5 has typo in property name : PrefereApply
+Configuration.PreferApply = false;
+</code></pre><h4 id="other-changes-and-fixes-2">Other Changes and Fixes</h4>
+<ul>
+<li>fixed exception generated for some cases when joins optimization enabled and table hints used <a href="https://github.com/linq2db/linq2db/issues/949">(949)</a></li>
+<li>fixed SQL generation regression for some complex subqueries <a href="https://github.com/linq2db/linq2db/issues/928">(928)</a></li>
+<li>fixed invalid SQL generated for empty select combined with <code>Take</code>/<code>Skip</code> <a href="https://github.com/linq2db/linq2db/issues/817">(817)</a></li>
+<li>fixed issue when joined subquery condition were moved to outer query condition <a href="https://github.com/linq2db/linq2db/issues/922">(922)</a></li>
+</ul>
+<h2 id="extensions">Extensions</h2>
+<h4 id="new-innotin-extension-methods">New <code>In</code>/<code>NotIn</code> extension methods</h4>
+<p><code>SqlExtensions</code> class contains new extension methods <code>In</code>/<code>NotIn</code>, applied to a value. In general it is just a reverse <code>Contains</code> methods to better mimic SQL.</p>
+<pre><code>// filter table by id
+// old reverse logic approach
+db.Table.Where(r =&gt; ids.Contains(r.Id));
+
+// now it could be written like you do it in raw SQL
+db.Table.Where(r =&gt; r.Id.In(ids));
+</code></pre><h3 id="new-join-extension-methods-1076httpsgithubcomlinq2dblinq2dbissues1076-1088httpsgithubcomlinq2dblinq2dbissues1088">New *Join extension methods (<a href="https://github.com/linq2db/linq2db/issues/1076">1076</a>, <a href="https://github.com/linq2db/linq2db/issues/1088">1088</a>)</h3>
+<p>Additional extension methods added to define join using two queryable sources, join predicate expression and result selector.
+Following methods added: <code>InnerJoin</code>, <code>LeftJoin</code>, <code>RightJoin</code>, <code>FullJoin</code> and <code>CrossJoin</code>.</p>
+<pre><code class="lang-cs">// left outer join
+db.Parent.LeftJoin(
+    db.Child,
+    (p, c) =&gt; p.ParentID == c.ParentID,
+    (p, c) =&gt; new { ParentID = p.ParentID, ChildID = (int?)c.ChildID });
+
+// cross join - note that join condition is not applicable here
+db.Parent.CrossJoin(
+    db.Child,
+    (p, c) =&gt; new { ParentID = (int?)p.ParentID, ChildID = (int?)c.ChildID });
+</code></pre><h3 id="added-missing-support-for-table-schemaowner-and-database-name-parameters-in-some-methods">Added missing support for table, schema/owner and database name parameters in some methods</h3>
+<p>Those optional parameters now available also for following IDataContext extension methods:</p>
+<ul>
+<li><code>InsertOrReplace*</code></li>
+<li><code>InsertWith*Identity*</code></li>
+<li><code>Update*</code></li>
+<li><code>Delete*</code></li>
+</ul>
+<h3 id="parameters-creation-in-extension-builders">Parameters creation in extension builders</h3>
+<p>You can add new query parameters from extension builders <a href="https://github.com/linq2db/linq2db/issues/973">(973)</a>.</p>
+<pre><code class="lang-cs">class InWithParametersBuilder : Sql.IExtensionCallBuilder
+{
+    public void Build(Sql.ISqExtensionBuilder builder)
+    {
+        // get extension parameter
+        var values = builder.GetValue&lt;System.Collections.IEnumerable&gt;(&quot;values&quot;);
+        // tell linq2db that query uses non-static parameters
+        builder.Query.IsParameterDependent = true;
+
+        foreach (var value in values)
+        {
+            // create query parameter
+            var param = new SqlParameter(value?.GetType() ?? typeof(object), &quot;p&quot;, value);
+            // add parameter (note that we can add multiple parameters for one placeholder)
+            builder.AddParameter(&quot;values&quot;, param);
+        }
+    }
+}
+
+public static class Extensions
+{
+    // note that for values we specify comma as parameters delimiter
+    [Sql.Extension(&quot;{field} IN ({values, &#39;, &#39;})&quot;, IsPredicate = true, BuilderType = typeof(InWithParametersBuilder))]
+    public static bool In&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T field, params T[] values)
+    {
+        throw new NotImplementedException();
+    }
+}
+</code></pre><h3 id="new-extensibility-points">New extensibility points</h3>
+<h4 id="linqextensionsprocesssourcequeryable-delegate"><code>LinqExtensions.ProcessSourceQueryable</code> delegate</h4>
+<p>You can use it to preprocess IQueryable sources, passed to other APIs <a href="https://github.com/linq2db/linq2db/issues/1116">(1116)</a>.</p>
+<p>E.g. it is used by our other project <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore">https://github.com/linq2db/linq2db.EntityFrameworkCore</a> to replace <code>EntityFramework</code> queryable provider with <code>LINQ To DB</code> provider.</p>
+<h4 id="linqextensionsextensionsadapter-interface"><code>LinqExtensions.ExtensionsAdapter</code> interface</h4>
+<p>You can override implementation of <code>LINQ To DB</code> async methods using this interface. Note that right now it is all-or-nothing interface, so you need to implement all methods you use, even if you want to change behavior of only one method. In this case you need to call original <code>LINQ To DB</code> method for others.</p>
+<h4 id="ientityservicesonentitycreated-delegate"><code>IEntityServices.OnEntityCreated</code> delegate</h4>
+<p>This delegate will be called after entity instantiation for contexts that implement <code>IEntityServices</code> interface <a href="https://github.com/linq2db/linq2db/issues/1112">(1112)</a>. It allows you to pre-process or even replace created entity. <code>LINQ To DB</code> already implements this interface for default contexts: <code>DataContext</code>, <code>DataConnection</code> and <code>RemoteDataContextBase</code> classes.</p>
+<pre><code class="lang-cs">using (var db = new DataConnection())
+{
+    var cnt = 0;
+
+    // just count how many User entities were instantiated
+    db.OnEntityCreated += e =&gt;
+    {
+        if (e.Entity is User)
+            cnt++;
+    }
+
+   // do some queries
+}
+</code></pre><h4 id="datacontextontraceconnection-callback"><code>DataContext.OnTraceConnection</code> callback</h4>
+<p>Added trace callback for <code>DataContext</code> class similar to one that already exist on <code>DataConnection</code> class <a href="https://github.com/linq2db/linq2db/issues/1131">(1131)</a>.</p>
+<h2 id="temp-tables-api">Temp Tables API</h2>
+<p>New API to create temporary tables added to IDataContext as a set of <code>CreateTempTable()</code> extension methods.</p>
+<p>Using this API you can create queryable table, populate it with data, perform queries and then delete by disposing it.</p>
+<p>Example below shows you how can you use merge with client-side source in more effective way by adding those records into temp table and merge them into main table.</p>
+<pre><code class="lang-cs">public void MergePersons(this IDataContext db, IEnumerable&lt;Person&gt; persons)
+{
+    // create new table for existing Person mapping and populate it using bulk copy
+    using (var tmp = db.CreateTempTable&lt;Person&gt;(persons, tableName: &quot;PersonTemp&quot;))
+    {
+        db.Persons // target table
+            .Merge()
+            .Using(tmp) // use data from temp table
+            .OnTargetKey()
+            .InsertWhenNotMatched() // insert new records
+            .UpdateWhenMatched() // update known records
+            .DeleteWhenNotMatchedBySource() // delete others
+            .Merge();
+
+    } // here dispose will delete temp table
+}
+</code></pre><p>API allows you:</p>
+<ul>
+<li>specify new table, owner/schema, database name using corresponding parameters</li>
+<li>populate table using data from IQueryable source parameter</li>
+<li>populate table using bulk copy from IEnumerable source parameter and <code>BulkCopyOptions</code></li>
+<li>adjust entity mapping for temporary table using fluent mapping delegate using <code>setTable</code> parameter</li>
+<li>call some action on created table before populating it with data using <code>action</code> parameter</li>
+</ul>
+<h2 id="bulk-copy">Bulk Copy</h2>
+<h3 id="documentation">Documentation</h3>
+<p>New <a class="xref" href="../sql/Bulk-Copy.html">article</a> created for <code>BulkCopy</code> API. It still miss documentation on some options, but most important information is already here. It will be improved in next releases.</p>
+<h3 id="keepidentity-option">KeepIdentity option</h3>
+<p><code>KeepIdentity</code> option were documented and existing implementations tested/fixed to follow it <a href="https://github.com/linq2db/linq2db/issues/1037">(1037)</a>.</p>
+<p>Setting this option to <code>true</code> for <code>RowByRow</code> copy mode was never supported and if you have it set to true - starting from version 2.0 it will start throwing exception instead of silently ignore it. Check copy mode support table to see what mode actually used for your provider, as <code>BulkCopy</code> will downgrade copy mode, if requested one is not supported by provider.</p>
+<h2 id="merge">Merge</h2>
+<h3 id="partial-projections-in-source-query-improvements">Partial projections in source query improvements</h3>
+<p>Now merge will properly detect and throw exception when source query element type contains more fields than query returns.</p>
+<pre><code class="lang-cs">class Person
+{
+    [PrimaryKey, Column, Identity] public int Id { get; set; }
+    [Column] public string FirstName { get; set; }
+    [Column] public string LastName { get; set; }
+    [Column] public string Title { get; set; }
+}
+
+// bad query
+db.Persons.Merge()
+    // note that Id and Title columns is not selected by query
+    .Using(db.NewPersons.Select(p =&gt; new Person()
+        {
+            FirstName = p.LastName,
+            LastName = p.FirstName
+        }))
+    // will throw exception that Id key field missing in source
+    .OnTargetKey()
+    // will throw exception that Title field missing in source
+    .InsertWhenNotMatched(s =&gt; new Person() { Title = s.Title })
+    .Merge();
+</code></pre><h3 id="other-changes-and-fixes-3">Other Changes and Fixes</h3>
+<ul>
+<li><code>CROSS JOIN</code> and <code>SelectMany</code> support in source query <a href="https://github.com/linq2db/linq2db/issues/896">(896)</a></li>
+<li><code>Merge</code> call will not be available anymore if you didn&#39;t specified any operations yet</li>
+<li>fixed exception of empty local source with source type != target type <a href="https://github.com/linq2db/linq2db/issues/1153">(1153)</a></li>
+</ul>
+<h2 id="schema-provider">Schema Provider</h2>
+<p>Requesting schema for procedures and functions will wrap it internally in transaction with rollback, when called without transaction. This is done to avoid situations when some providers execute (sic!) procedures instead of just returning their schema. Taking into account such bugs it is recommended to never wrap schema provider calls into transaction and let <code>LINQ To DB</code> handle it.</p>
+<h2 id="other-changes-and-fixes-4">Other Changes and Fixes</h2>
+<ul>
+<li>errors during mapping of data from database to mapping class field on selects will now be wrapped into <code>LinqToDBException</code> with details what field failed with original error in <code>InnerException</code> <a href="https://github.com/linq2db/linq2db/issues/1065">(1065)</a></li>
+<li>fixed issue when selected of <code>NULL</code> value using <code>SelectMany</code> method could have resulted in <code>default(T)</code> value for value types even with cast to T? <a href="https://github.com/linq2db/linq2db/issues/1012">(1012)</a></li>
+<li>fixed exception passing binary data over WCF <a href="https://github.com/linq2db/linq2db/issues/925">(925)</a></li>
+<li>spelling error fixed for <code>SchemaProvider.ForeignKeyInfo</code> <a href="https://github.com/linq2db/linq2db/issues/941">(941)</a></li>
+<li>enforce server-side evaluation of <code>Sql.Lower</code>/<code>Sql.Upper</code> functions <a href="https://github.com/linq2db/linq2db/issues/819">(819)</a></li>
+<li>fixed case when async code could be blocked on synchronous <code>Connection.Open</code> call <a href="https://github.com/linq2db/linq2db/issues/1023">(1023)</a></li>
+<li>fixed support for type casts in <code>LoadWith</code> expression <a href="https://github.com/linq2db/linq2db/issues/1069">(1069)</a></li>
+<li>fixed issue when insert query with sub-query data source will fail on next calls if it has nullable parameter and first call uses <code>null</code> for parameter value <a href="https://github.com/linq2db/linq2db/issues/1098">(1098)</a></li>
+<li>T4.Models repository was obsolete project and moved to linq2db repo</li>
+<li>removed use of database object <code>owner</code> name from many APIs to reduce confusion with having <code>owner</code> and <code>schema</code> overrides at the same time, meaning the same concept</li>
+<li>T4 templates support in .NET Core projects <a href="https://github.com/linq2db/linq2db/issues/1067">(1067)</a></li>
+<li>new <code>DataConnection.GetRegisteredProviders</code> method to return list of all registered data providers</li>
+</ul>
+<h2 id="provider-specific-changes">Provider-specific changes</h2>
+<h3 id="access">Access</h3>
+<ul>
+<li>handle exceptions from OleDb provider on schema read calls when ACE provider used <a href="https://github.com/linq2db/linq2db.LINQPad/issues/10">(10)</a></li>
+<li>schema provider will now return system tables too (<code>TableInfo.IsProviderSpecific == true</code>) <a href="https://github.com/linq2db/linq2db/issues/1119">(1119)</a></li>
+</ul>
+<h3 id="db2">DB2</h3>
+<ul>
+<li><code>IBM.Data.DB2.Core</code> provider support - .NET Core DB2 provider support was added.</li>
+<li>schema provider doesn&#39;t return procedures and functions if <code>GetTables = false</code> specified <a href="https://github.com/linq2db/linq2db/issues/1068">(1068)</a></li>
+</ul>
+<h3 id="firebird">Firebird</h3>
+<h4 id="default-identifier-quotation-mode-change">Default identifier quotation mode change</h4>
+<p>Default identifier quotation mode changed from <code>FirebirdIdentifierQuoteMode.None</code> to <code>FirebirdIdentifierQuoteMode.Auto</code> <a href="https://github.com/linq2db/linq2db/issues/1120">(1120)</a>.</p>
+<p>Normally it shouldn&#39;t affect anybody, as <code>Auto</code> mode will quote only invalid and reserved identifiers and they will not work anyway in <code>None</code> mode.</p>
+<p>Still, technically it could be a case for people who used quoted identifier in mappings. This is not something you should do, as mapping should contain raw identifers and quotation should be handled by LINQ To DB. If you did that we want to hear why you need to do it and how we can improve LINQ To DB in this area.</p>
+<p>If you are affected by this change, just restore old quotation mode using following code:</p>
+<pre><code class="lang-cs">FirebirdSqlBuilder.IdentifierQuoteMode = FirebirdIdentifierQuoteMode.None;
+</code></pre><h4 id="other-changes-and-fixes-5">Other changes and fixes</h4>
+<ul>
+<li><code>BulkCopy</code> will throw exception if <code>KeepIdentity = true</code> option specified as this option is not supported for Firebird <a href="https://github.com/linq2db/linq2db/issues/1037">(1037)</a>. Check <a href="https://github.com/linq2db/linq2db/wiki/Bulk-Copy">BulkCopy</a> documentation for more details</li>
+<li><code>DropTable</code> API will check if dropped objects exist before dropping them <a href="https://github.com/linq2db/linq2db/issues/1120">(1120)</a></li>
+<li>fixed support of seconds and milliseconds by <code>Sql.DatePart</code> function <a href="https://github.com/linq2db/linq2db/issues/967">(967)</a></li>
+<li>detect and escape identifiers that use reserved words in <code>FirebirdIdentifierQuoteMode.Auto</code> mode (<a href="https://github.com/linq2db/linq2db/issues/1095">1095</a>, <a href="https://github.com/linq2db/linq2db/issues/1110">1110</a>)</li>
+<li><code>CreateTable</code>/<code>DropTable</code>/<code>TruncateTable</code> will respect identifier quotation mode during query generation <a href="https://github.com/linq2db/linq2db/issues/1120">(1120)</a></li>
+<li><code>FirebirdDataProvider</code> and <code>FirebirdSqlOptimizer</code> classes made public to help users override default implementation <a href="https://github.com/linq2db/linq2db/issues/1000">(1000)</a></li>
+</ul>
+<h3 id="informix">Informix</h3>
+<ul>
+<li>Added delimited identifiers support</li>
+</ul>
+<h3 id="mysql-and-mariadb">MySQL and MariaDB</h3>
+<h4 id="procedures-and-functions-support-by-schema-provider">Procedures and functions support by schema provider</h4>
+<p>Schema provider for MySQL/MariaDB was updated to return procedures and functions <a href="https://github.com/linq2db/linq2db/issues/991">(991)</a>. Requesting procedures and functions from transaction will throw exception because schema provider need to wrap it internally into transaction to avoid procedure execution due to bug in provider <a href="https://github.com/linq2db/linq2db/issues/792">(792)</a></p>
+<h3 id="oracle">Oracle</h3>
+<h4 id="net-core-provider-support">.NET Core provider support</h4>
+<p>Support for <a href="http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html">beta</a> version of .NET Core provider added.</p>
+<h4 id="other-changes-and-fixes-6">Other changes and fixes</h4>
+<ul>
+<li><code>date</code> literal generation fixes <a href="https://github.com/linq2db/linq2db/issues/969">(969)</a></li>
+<li>schema provider doesn&#39;t return procedures and functions if <code>GetTables = false</code> specified <a href="https://github.com/linq2db/linq2db/issues/1068">(1068)</a></li>
+<li>detect and escape identifiers that use reserved words (<a href="https://github.com/linq2db/linq2db/issues/1095">1095</a>, <a href="https://github.com/linq2db/linq2db/issues/1110">1110</a>)</li>
+</ul>
+<h3 id="postgresql">PostgreSQL</h3>
+<h4 id="native-bulk-copy-support">Native bulk copy support</h4>
+<p>Version 2.0 adds support for native bulk copy method <a href="https://github.com/linq2db/linq2db/issues/935">(935)</a>. It is available through existing <code>BulkCopy</code> LINQ To DB API by specifying <code>BulkCopyOptions.BulkCopyType = BulkCopyType.ProviderSpecific</code>.
+It is a high-level wrapper over <a href="https://www.postgresql.org/docs/current/static/sql-copy.html"><code>COPY</code></a> command.</p>
+<p>Note that if you already used this mode for your bulk copy operations it could be a breaking change because now it will use COPY instead of silent fallback to <code>BulkCopyType.MultipleRows</code> in previous versions.</p>
+<p>Why it could be a breaking change? Because <code>COPY</code> command (we use <code>BINARY</code> mode) demands that proper column types specified and will fail if types doesn&#39;t match. You will need to add type information to your mappings or switch to other copy method.</p>
+<p>You can read about type requirements more in out new article about <code>BulkCopy</code> API <a href="https://github.com/linq2db/linq2db/wiki/Bulk-Copy#postgresql-provider-specific-bulk-copy">here</a>.</p>
+<p>Implementation supports <code>COPY</code> API from both npgsql 3.x and npgsql 4.x (4.0 brings breaking changes to API).</p>
+<h4 id="upsert-support">Upsert support</h4>
+<p><code>InsertOrUpdate</code> API will use <code>INSERT ON CONFLICT UPDATE</code> statement for PostgreSQL 9.5+ instead of several statements on previous versions <a href="https://github.com/linq2db/linq2db/issues/948">(948)</a>.</p>
+<p>You will need to use <code>PostgreSQLVersion.v95</code> provider version if you don&#39;t use version autodetect.</p>
+<h4 id="other-changes-and-fixes-7">Other changes and fixes</h4>
+<ul>
+<li>improved support for some database types as a part of <code>BulkCopy</code> improvements <a href="https://github.com/linq2db/linq2db/issues/1091">(1091)</a></li>
+<li>fixed support for following types in <code>CreateTable</code> API: <code>Int16</code>/<code>Int64</code> identity columns, <code>System.Linq.Binary</code>, <code>DataType.VarBinary</code>, <code>DataType.NChar(1)</code>, <code>char</code> <a href="https://github.com/linq2db/linq2db/issues/1091">(1091)</a></li>
+<li>support for interval type mapping to both <code>NpgsqlTimeSpan</code> and <code>NpgsqlInterval</code> types <a href="https://github.com/linq2db/linq2db/issues/1091">(1091)</a></li>
+</ul>
+<h3 id="sap-hana">SAP HANA</h3>
+<h4 id="bulkcopy-keepidentity-option-support"><code>BulkCopy</code> <code>KeepIdentity</code> option support</h4>
+<p>As a part of <code>KeepIdentity</code> option review, support for it added to SAP HANA provider. Check <a href="https://github.com/linq2db/linq2db/wiki/Bulk-Copy#keepidentity-option-default--false">documentation</a> for more details <a href="https://github.com/linq2db/linq2db/issues/1037">(1037)</a>.</p>
+<p>Note that this option requires support from provider, so make sure you use recent provider version with <code>enum HanaBulkCopyOptions</code> having <code>KeepIdentity</code> field and not all versions had it. Otherwise <code>BulkCopy</code> will throw exception.</p>
+<h3 id="sql-ce">SQL CE</h3>
+<h4 id="bulkcopy-keepidentity-option-support-1"><code>BulkCopy</code> <code>KeepIdentity</code> option support</h4>
+<p>As a part of <code>KeepIdentity</code> option review, support for it added to SQL CE provider. Check <a href="https://github.com/linq2db/linq2db/wiki/Bulk-Copy#keepidentity-option-default--false">documentation</a> for more details <a href="https://github.com/linq2db/linq2db/issues/1037">(1037)</a>.</p>
+<h3 id="sybase">Sybase</h3>
+<ul>
+<li><code>MERGE</code> insert operation will respect <code>SkipOnInsert</code> on identity fields when <code>InsertWhenNotMatched()</code> without custom setter used and allow database to generate field&#39;s value <a href="https://github.com/linq2db/linq2db/issues/914">(914)</a></li>
+<li>requesting procedures and functions from schema provider will throw exception if called from transaction to avoid database corruction due to bug in provider <a href="https://github.com/linq2db/linq2db/issues/792">(792)</a></li>
+</ul>
+<h3 id="sqlite">SQLite</h3>
+<ul>
+<li><code>DateTime.AddDays()</code> method to <code>SQL</code> conversion fixed <a href="https://github.com/linq2db/linq2db/issues/998">(998)</a></li>
+</ul>
+<h3 id="sql-server">SQL Server</h3>
+<ul>
+<li><code>varchar</code>/<code>nvarchar</code> parameters will use 8000/4000 as length to improve query plans caching <a href="https://github.com/linq2db/linq2db/issues/989">(989)</a></li>
+<li><code>MERGE</code> will use parameters instead of literals for binary data in client-side (IEnumerable) source</li>
+<li><code>MERGE</code> insert operation will respect <code>SkipOnInsert</code> on identity fields when <code>InsertWhenNotMatched()</code> without custom setter used and allow database to generate field&#39;s value <a href="https://github.com/linq2db/linq2db/issues/914">(914)</a></li>
+<li>legacy <code>MERGE</code> API will not try to update identity columns anymore on update operation anymore <a href="https://github.com/linq2db/linq2db/issues/1007">(1007)</a></li>
+<li>fixed <code>DropTable</code> method not dropping table in another database <a href="https://github.com/linq2db/linq2db/issues/1030">(1030)</a></li>
+<li>fixed DateTime literal generation <a href="https://github.com/linq2db/linq2db/issues/1107">(1107)</a></li>
+<li>fixed incompatibility between <code>BulkCopy</code> and <code>RetryingDbConnection</code> <a href="https://github.com/linq2db/linq2db/issues/1135">(1135)</a></li>
+</ul>
+<h2 id="changes-for-developers">Changes for developers</h2>
+<ul>
+<li>Query AST was refactored. See <code>SelectQuery</code> class (<a href="https://github.com/linq2db/linq2db/issues/936">936</a>, <a href="https://github.com/linq2db/linq2db/issues/938">938</a>)</li>
+<li>Tests configuration changed format and use *DataProviders.json files instead of *DataPRoviders.txt. <a href="https://github.com/linq2db/linq2db/blob/master/CONTRIBUTING.md#configure-data-providers-for-tests">More details</a></li>
+<li>Project migrated to support latest C# version</li>
+<li>You can use new <code>ActiveIssueAttribute</code> to mark tests for non-fixed issues. This will allow to merge test-only PRs immediately</li>
+<li><code>SchemaProviderBase</code> methods <code>ToTypeName</code> and <code>ToValidName</code> made public (<a href="https://github.com/linq2db/linq2db/issues/944">944</a>, <a href="https://github.com/linq2db/linq2db/issues/963">963</a>)</li>
+<li><code>SqlProviderFlags.CustomFlags</code> list added to allow store custom provider flags <a href="https://github.com/linq2db/linq2db/issues/1154">(1154)</a></li>
+<li>expose <code>SqlExtensions</code> class for provider developers</li>
+</ul>
+<h2 id="i-use-entity-framework-feelsbadman">I Use Entity Framework (:feelsbadman:)</h2>
+<p>Don&#39;t worry, check this <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore">new project</a> we created recently. It is still an early prototype so don&#39;t expect it to work flawlessly. We will appreciate your feedback!</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/linq2db/linq2db/blob/docfx/Doc/articles/releasenotes/2.0.0.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2015-2017 linq2db.com
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
