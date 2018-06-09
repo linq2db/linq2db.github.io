@@ -162,7 +162,7 @@ public class MySettings : ILinqToDBSettings
 <pre><code class="lang-cs">DataConnection.DefaultSettings = new MySettings();
 </code></pre><p>You can also use same for regular .NET.</p>
 <h2 id="now-lets-create-a-poco-class">Now let&#39;s create a <strong>POCO</strong> class</h2>
-<p>Important: you also can generate those classes from your database using <a href="https://github.com/linq2db/linq2db/tree/master/Source/LinqToDB.Templates#t4-models">T4 templates</a>. Demonstration video could be found <a href="https://github.com/linq2db/linq2db/wiki">here</a>.</p>
+<p>Important: you also can generate those classes from your database using <a href="https://github.com/linq2db/linq2db/tree/master/Source/LinqToDB.Templates#t4-models">T4 templates</a>. Demonstration video could be found <a href="https://linq2db.github.io/articles/general/Video.html">here</a>.</p>
 <pre><code class="lang-c#">using System;
 using LinqToDB.Mapping;
 
@@ -203,7 +203,7 @@ public static List&lt;Product&gt; All()
     return query.ToList();
   }
 }
-</code></pre><p>Make sure you <strong>always</strong> wrap your <code>DataConnection</code> class (in our case <code>DbNorthwind</code>) in a <code>using</code> statement. This is required for proper resource management, like releasing the database connections back into the pool. <a href="https://linq2db.github.io/articles/Managing-data-connection.html">More details</a></p>
+</code></pre><p>Make sure you <strong>always</strong> wrap your <code>DataConnection</code> class (in our case <code>DbNorthwind</code>) in a <code>using</code> statement. This is required for proper resource management, like releasing the database connections back into the pool. <a href="https://linq2db.github.io/articles/general/Managing-data-connection.html">More details</a></p>
 <h2 id="selecting-columns">Selecting Columns</h2>
 <p>Most times we get the entire row from the database:</p>
 <pre><code class="lang-c#">from p in db.Product
@@ -281,7 +281,7 @@ select new Product
   Name = p.Name,
   Category = c
 };
-</code></pre><p><a href="https://linq2db.github.io/articles/Join-Operators.html">More samples are here</a></p>
+</code></pre><p><a href="https://linq2db.github.io/articles/sql/Join-Operators.html">More samples are here</a></p>
 <h2 id="creating-your-pocos">Creating your POCOs</h2>
 <p>In the previous example we assign an entire <code>Category</code> object to our product, but what if we want all the fields in our <code>Product</code> class, but we don&#39;t want to specify every field by hand? Unfortunately, we <strong>cannot</strong> write this:</p>
 <pre><code class="lang-c#">from p in db.Product
@@ -422,9 +422,9 @@ using (var transaction = new TransactionScope())
   transaction.Complete();
 }
 </code></pre><h2 id="merge">Merge</h2>
-<p><a href="https://linq2db.github.io/articles/Merge-API.html">Here</a> you can read about MERGE support.</p>
+<p><a href="https://linq2db.github.io/articles/sql/merge/Merge-API.html">Here</a> you can read about MERGE support.</p>
 <h2 id="window-analytic-functions">Window (Analytic) Functions</h2>
-<p><a href="https://linq2db.github.io/articles/Window-Functions-%28Analytic-Functions%29.html">Here</a> you can read about Window (Analytic) Functions support.</p>
+<p><a href="https://linq2db.github.io/articles/sql/Window-Functions-%28Analytic-Functions%29.html">Here</a> you can read about Window (Analytic) Functions support.</p>
 <h2 id="miniprofiler">MiniProfiler</h2>
 <p>If you would like to use MiniProfiler from StackExchange you&#39;d need to wrap ProfiledDbConnection around our regular DataConnection.</p>
 <pre><code class="lang-c#">public class DbDataContext : DataConnection
