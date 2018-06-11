@@ -107,17 +107,17 @@ Parameter with this attribute will be evaluated on client side before generating
       <section><p>Generic conversions provider.
 Implementation class must be generic, as type parameters will be used for conversion initialization in
 <a class="xref" href="LinqToDB.Expressions.IGenericInfoProvider.html#LinqToDB_Expressions_IGenericInfoProvider_SetInfo_LinqToDB_Mapping_MappingSchema_">SetInfo(MappingSchema)</a> method.
-<example>
-// this conversion provider adds conversion from IEnumerable<code>T to ImmutableList</code>T for specific T type parameter
-class EnumerableToImmutableListConvertProvider&lt;T&gt; : IGenericInfoProvider
+<example><p>
+<pre><code>// this conversion provider adds conversion from IEnumerable`T to ImmutableList`T for specific T type parameter
+class EnumerableToImmutableListConvertProvider&lt;T> : IGenericInfoProvider
 {
     public void SetInfo(MappingSchema mappingSchema)
     {
-        mappingSchema.SetConvertExpression&lt;IEnumerable&lt;T&gt;,ImmutableList&lt;T&gt;&gt;(
-            t =&gt; ImmutableList.Create(t.ToArray()));
+        mappingSchema.SetConvertExpression&lt;IEnumerable&lt;T>,ImmutableList&lt;T>>(
+            t => ImmutableList.Create(t.ToArray()));
     }
-}
-</example>
+}</code></pre>
+<p></example>
 <a class="xref" href="LinqToDB.Mapping.MappingSchema.html#LinqToDB_Mapping_MappingSchema_SetGenericConvertProvider_System_Type_">SetGenericConvertProvider(Type)</a> for more details.</p>
 </section>
 </article>
