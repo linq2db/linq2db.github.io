@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace LinqToDB.Mapping
+   | Linq To DB (aka linq2db) </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace LinqToDB.Mapping
+   | Linq To DB (aka linq2db) ">
+    <meta name="generator" content="docfx 2.37.0.0">
+    
+    <link rel="shortcut icon" href="../images/icon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/icon.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="LinqToDB.Mapping">
+  
+  <h1 id="LinqToDB_Mapping" data-uid="LinqToDB.Mapping" class="text-break">Namespace LinqToDB.Mapping
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="LinqToDB.Mapping.AssociationAttribute.html">AssociationAttribute</a></h4>
+      <section><p>Defines relation between tables or views.
+Could be applied to:</p>
+<ul>
+<li>instance properties and fields;</li>
+<li>instance and static methods.</li>
+</ul>
+<p>For associations, defined using static methods, <code>this</code> mapping side defined by type of first parameter.
+Also, optionally, you can pass data context object as extra method parameter.</p>
+<p>Based on association type - to one or to multiple records - result type should be target record&apos;s mapping type or
+<a class="xref" href="https://msdn.microsoft.com/en-us/library/ms131187(v=vs.110).aspx">IEquatable&lt;T&gt;</a> collection.</p>
+<p>By default associations are used only for joins generation in LINQ queries and will have <code>null</code> value for loaded
+records. To load data into association, you should explicitly specify it in your query using <a class="xref" href="LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_LoadWith__1_LinqToDB_ITable___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___">LoadWith&lt;T&gt;(ITable&lt;T&gt;, Expression&lt;Func&lt;T, Object&gt;&gt;)</a> method.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.AssociationDescriptor.html">AssociationDescriptor</a></h4>
+      <section><p>Stores association descriptor.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.ColumnAliasAttribute.html">ColumnAliasAttribute</a></h4>
+      <section><p>Specifies that current field or property is just an alias to another property or field.
+Currently this attribute has several issues:</p>
+<ul>
+<li>you can apply it to class or interface - such attribute will be ignored by linq2db;</li>
+<li>it is possible to define attribute without setting  <a class="xref" href="LinqToDB.Mapping.ColumnAliasAttribute.html#LinqToDB_Mapping_ColumnAliasAttribute_MemberName">MemberName</a> value;</li>
+<li>you can define alias to another alias property or field and potentially create loop.</li>
+</ul>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.ColumnAttribute.html">ColumnAttribute</a></h4>
+      <section><p>Configures mapping of mapping class member to database column.
+Could be applied directly to a property or field or to mapping class/interface.
+In latter case you should specify member name using <a class="xref" href="LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_MemberName">MemberName</a> property.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.ColumnDescriptor.html">ColumnDescriptor</a></h4>
+      <section><p>Stores mapping entity column descriptor.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.DataTypeAttribute.html">DataTypeAttribute</a></h4>
+      <section><p>This attribute allows to override default types, defined in mapping schema, for current column.
+Also see <a class="xref" href="LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_DataType">DataType</a> and <a class="xref" href="LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_DbType">DbType</a>.
+Applying this attribute to class or interface will have no effect.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.DynamicColumnInfo.html">DynamicColumnInfo</a></h4>
+      <section><p>Represents a dynamic column, which doesn&apos;t have a backing field in it&apos;s declaring type.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.DynamicColumnsStoreAttribute.html">DynamicColumnsStoreAttribute</a></h4>
+      <section><p>Marks target member as dynamic columns store.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.EntityDescriptor.html">EntityDescriptor</a></h4>
+      <section><p>Stores mapping entity descriptor.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.EntityMappingBuilder-1.html">EntityMappingBuilder&lt;T&gt;</a></h4>
+      <section><p>Fluent mapping entity builder.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.FluentMappingBuilder.html">FluentMappingBuilder</a></h4>
+      <section><p>Fluent mapping builder.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.IdentityAttribute.html">IdentityAttribute</a></h4>
+      <section><p>Marks target column as identity column with value, generated on database side during insert operations.
+Identity columns will be ignored for insert and update operations with implicit column list like 
+<a class="xref" href="LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_Insert__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_">Insert&lt;T&gt;(IDataContext, T, String, String, String)</a> or
+<a class="xref" href="LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_Update__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_">Update&lt;T&gt;(IDataContext, T, String, String, String)</a> methods.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.InheritanceMapping.html">InheritanceMapping</a></h4>
+      <section><p>Stores inheritance mapping information for single discriminator value.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.InheritanceMappingAttribute.html">InheritanceMappingAttribute</a></h4>
+      <section><p>Defines to which type linq2db should map record based on discriminator value. You can apply this attribute to
+a base class or insterface, implemented by all child classes.
+Don&apos;t forget to define discriminator value storage column using <a class="xref" href="LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_IsDiscriminator">IsDiscriminator</a>.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></h4>
+      <section><p>Mapping schema.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.MapValue.html">MapValue</a></h4>
+      <section><p>Stores enum mapping information for single enum value.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.MapValueAttribute.html">MapValueAttribute</a></h4>
+      <section><p>
+Defines bidirectional mapping between enum field value, used on client and database value, stored in database and
+used in queries.
+Enumeration field could have multiple <a class="xref" href="LinqToDB.Mapping.MapValueAttribute.html">MapValueAttribute</a> attributes.
+</p>
+<p>
+Mapping from database value to enumeration performed when you load data from database. Linq2db will search for
+enumeration field with <a class="xref" href="LinqToDB.Mapping.MapValueAttribute.html">MapValueAttribute</a> with required value. If attribute with such value is not
+found, you will receive <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> error. If you cannot specify all possible values using
+<a class="xref" href="LinqToDB.Mapping.MapValueAttribute.html">MapValueAttribute</a>, you can specify custom mapping using methods like
+<a class="xref" href="LinqToDB.Mapping.MappingSchema.html#LinqToDB_Mapping_MappingSchema_SetConvertExpression__2_System_Linq_Expressions_Expression_System_Func___0___1___System_Boolean_">SetConvertExpression&lt;TFrom, TTo&gt;(Expression&lt;Func&lt;TFrom, TTo&gt;&gt;, Boolean)</a>.
+</p>
+<p>
+Mapping from enumeration value performed when you save it to database or use in query. If your enum field has
+multiple <a class="xref" href="LinqToDB.Mapping.MapValueAttribute.html">MapValueAttribute</a> attributes, you should mark one of them as default using <a class="xref" href="LinqToDB.Mapping.MapValueAttribute.html#LinqToDB_Mapping_MapValueAttribute_IsDefault">IsDefault</a> property.
+</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.NotColumnAttribute.html">NotColumnAttribute</a></h4>
+      <section><p>Marks current property or column to be ignored for mapping when explicit column mapping disabled.
+See <a class="xref" href="LinqToDB.Mapping.TableAttribute.html#LinqToDB_Mapping_TableAttribute_IsColumnAttributeRequired">IsColumnAttributeRequired</a>.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.NotNullAttribute.html">NotNullAttribute</a></h4>
+      <section><p>Sets nullability flag for current column to <code>false</code>.
+See <a class="xref" href="LinqToDB.Mapping.NullableAttribute.html">NullableAttribute</a> for more details.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.NullableAttribute.html">NullableAttribute</a></h4>
+      <section><p>Explicitly specifies that associated column could contain <code>NULL</code> values.
+Overrides default nullability flag from current mapping schema for property/field type.
+Has lower priority over <a class="xref" href="LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_CanBeNull">CanBeNull</a>.
+Using this attribute, you can allow <code>NULL</code> values for identity columns.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.PrimaryKeyAttribute.html">PrimaryKeyAttribute</a></h4>
+      <section><p>Marks property or field as a member of primary key for current mapping type.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.PropertyMappingBuilder-1.html">PropertyMappingBuilder&lt;T&gt;</a></h4>
+      <section><p>Column or association fluent mapping builder.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.ScalarTypeAttribute.html">ScalarTypeAttribute</a></h4>
+      <section><p>Overrides default scalar detection for target class or structure.
+By default linq2db treats primitives and structs as scalar types.
+This attribute allows you to mark class or struct as scalar type or mark struct as non-scalar type.
+Also see <a class="xref" href="LinqToDB.Common.Configuration.html#LinqToDB_Common_Configuration_IsStructIsScalarType">IsStructIsScalarType</a>.
+Note that if you marks some type as scalar, you will need to define custom mapping logic between object of
+that type and data parameter using <a class="xref" href="LinqToDB.Mapping.MappingSchema.html#LinqToDB_Mapping_MappingSchema_SetConvertExpression_System_Type_System_Type_System_Linq_Expressions_LambdaExpression_System_Boolean_">SetConvertExpression(Type, Type, LambdaExpression, Boolean)</a> methods.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.SequenceNameAttribute.html">SequenceNameAttribute</a></h4>
+      <section><p>Specifies value generation sequence for mapped property of field.
+Currently it supported only for:</p>
+<ul>
+<li>Firebird generators;</li>
+<li>Oracle sequences;</li>
+<li>PostgreSQL serial pseudotypes/sequences;</li>
+</ul>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.StoredProcedure.html">StoredProcedure</a></h4>
+      <section><p>This attribute is not used by linq2db and will be ignored.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.TableAttribute.html">TableAttribute</a></h4>
+      <section><p>Maps databse table or view to a class or interface.
+You can apply it to any class including non-public, nester or abstract classes.
+Applying it to interfaces will allow you to perform queries against target table, but you need to specify
+projection in your query explicitly, if you want to select data from such mapping.</p>
+</section>
+    <h3 id="interfaces">Interfaces
+  </h3>
+      <h4><a class="xref" href="LinqToDB.Mapping.IColumnChangeDescriptor.html">IColumnChangeDescriptor</a></h4>
+      <section><p>Mapping entity column descriptor change interface.</p>
+</section>
+      <h4><a class="xref" href="LinqToDB.Mapping.IEntityChangeDescriptor.html">IEntityChangeDescriptor</a></h4>
+      <section><p>Mapping entity descriptor change interface.</p>
+</section>
+    <h3 id="enums">Enums
+  </h3>
+      <h4><a class="xref" href="LinqToDB.Mapping.Relationship.html">Relationship</a></h4>
+      <section><p>Defines relationship types for associations.
+See <a class="xref" href="LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_Relationship">Relationship</a> for more details.</p>
+</section>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2011-2018 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
