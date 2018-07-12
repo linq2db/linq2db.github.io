@@ -146,15 +146,44 @@ can be executed using Microsoft SQL Server Management Studio</p>
 <li>Open <em>App.config</em></li>
 <li>Replace the contents of the file with the following XML (correct connection string based on your server location and credentials)</li>
 </ul>
-<!-- Code absolute path: https://github.com/linq2db/examples/blob/master/SqlServer/GetStarted/App.config is not supported in file articles/get-started/full-dotnet/existing-db.md -->
-<ul>
+<!-- [!code-xml[Config](https://github.com/linq2db/examples/blob/master/SqlServer/GetStarted/App.config)] -->
+<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+
+&lt;configuration&gt;
+  &lt;connectionStrings&gt;
+    &lt;add name=&quot;MyDatabase&quot; providerName=&quot;System.Data.SqlClient&quot;
+         connectionString=&quot;Data Source=.;Database=Northwind;Integrated Security=SSPI;&quot; /&gt;
+  &lt;/connectionStrings&gt;
+&lt;/configuration&gt;
+</code></pre><ul>
 <li><p>Open <em>Program.cs</em></p>
 </li>
 <li><p>Replace the contents of the file with the following code</p>
 </li>
 </ul>
-<!-- Code absolute path: https://github.com/linq2db/examples/blob/master/SqlServer/GetStarted/Program.cs is not supported in file articles/get-started/full-dotnet/existing-db.md -->
-<ul>
+<!-- [!code-csharp[Main](https://github.com/linq2db/examples/blob/master/SqlServer/GetStarted/Program.cs)] -->
+<pre><code class="lang-csharp">using System;
+using System.Linq;
+
+namespace GetStarted
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            using (var db = new DataModel.NorthwindDB())
+            {
+                var q =
+                    from c in db.Customers
+                    select c;
+
+                foreach (var c in q)
+                    Console.WriteLine(c.ContactName);
+            }
+        }
+    }
+}
+</code></pre><ul>
 <li>Debug &gt; Start Without Debugging</li>
 </ul>
 <p>You will see list of Contact names.</p>
