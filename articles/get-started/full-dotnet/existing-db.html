@@ -144,44 +144,17 @@ can be executed using Microsoft SQL Server Management Studio</p>
 <p>You can now use your model to perform data access.</p>
 <ul>
 <li>Open <em>App.config</em></li>
-<li>Replace the contents of the file with the following XML (correct connection string based on your server location and credentials)
-``` xml
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</li>
+<li>Replace the contents of the file with the following XML (correct connection string based on your server location and credentials)</li>
 </ul>
-<p><configuration>
-  <connectionstrings>
-    <add name="MyDatabase" providername="System.Data.SqlClient" connectionstring="Data Source=.;Database=Northwind;Integrated Security=SSPI;"></add>
-  </connectionstrings>
-</configuration></p>
-<pre><code>
-* Open *Program.cs*
-
-* Replace the contents of the file with the following code
-
-&lt;!-- [!code-csharp[Main](samples/core/GetStarted/FullNet/ConsoleApp.NewDb/Program.cs)] --&gt;
-``` csharp
-using System;
-using System.Linq;
-
-namespace GetStarted
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            using (var db = new DataModel.NorthwindDB())
-            {
-                var q =
-                    from c in db.Customers
-                    select c;
-
-                foreach (var c in q)
-                    Console.WriteLine(c.ContactName);
-            }
-        }
-    }
-}
-</code></pre><ul>
+<!-- Code absolute path: https://github.com/linq2db/examples/blob/master/SqlServer/GetStarted/App.config is not supported in file articles/get-started/full-dotnet/existing-db.md -->
+<ul>
+<li><p>Open <em>Program.cs</em></p>
+</li>
+<li><p>Replace the contents of the file with the following code</p>
+</li>
+</ul>
+<!-- Code absolute path: https://github.com/linq2db/examples/blob/master/SqlServer/GetStarted/Program.cs is not supported in file articles/get-started/full-dotnet/existing-db.md -->
+<ul>
 <li>Debug &gt; Start Without Debugging</li>
 </ul>
 <p>You will see list of Contact names.</p>
