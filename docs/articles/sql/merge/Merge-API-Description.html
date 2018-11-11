@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Merge API Description | Linq To DB (aka linq2db) </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Merge API Description | Linq To DB (aka linq2db) ">
+    <meta name="generator" content="docfx 2.40.1.0">
+    
+    <link rel="shortcut icon" href="../../../images/icon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../images/icon.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Merge-API-Description">
+<h1 id="merge-api-description">Merge API Description</h1>
+
+<p>Merge API contains four groups of methods:</p>
+<ul>
+<li><code>Merge</code>, <code>MergeInto</code>, <code>Using</code>, <code>UsingTarget</code> methods to configure merge command&#39;s source and target</li>
+<li><code>On</code>, <code>OnTargetKey</code> methods to configure merge command&#39;s match condition</li>
+<li><code>InsertWhenNotMatched*</code>, <code>UpdateWhenMatched*</code>, <code>DeleteWhenMatched*</code>, <code>UpdateWhenNotMatchedBySource*</code>, <code>DeleteWhenNotMatchedBySource*</code>, <code>UpdateWhenMatched*ThenDelete</code> methods to add operations to merge command</li>
+<li><code>Merge</code> and <code>MergeAsync</code> methods to execute command against database</li>
+</ul>
+<p>To create and execute merge command you should first configure target, source and match conditions. Then you must add at least one operation to merge builder. After that you should call <code>Merge</code> method to execute command.
+Note that all operation methods returns new merge builder, so code like that:</p>
+<pre><code class="lang-cs">// WRONG
+var db.Table.Merge().UsingTarget().OnTargetKey().DeleteWhenMatched();
+// wrong, it will not modify merge object, but will create new one
+merge.InsertWhenNotMatched();
+// execute merge with only one command - Delete
+merge.Merge();
+
+// CORRECT
+db.Table.Merge().UsingTarget().OnTargetKey().DeleteWhenMatched().InsertWhenNotMatched().Merge();
+</code></pre><h2 id="general-notes-on-api">General notes on API</h2>
+<p>All API parameters are required and cannot be null. If you what to skip some parameter, check for a method without it. If there is no such method - this parameter cannot be ommited.</p>
+<h2 id="validation">Validation</h2>
+<p>Before command execution, linq2db will try to validate your command and throw <code>LinqToDBException</code> if it detects use of feature, unsupported by provider or general misconfiguration. It will not detect all issues, but will greatly reduce number of errors from user side. Also validation error contains message that points to error in your command. Database engine errors sometimes require research to understand what they mean in current specific context.</p>
+<h2 id="operations-api">Operations API</h2>
+<p>Merge operations will be added to generated query in the same order as they were called on command builder, because it is possible to specify several operations that could match the same record using operation conditions. In such cases database engine choose first matching operation as a winner.
+Also dont forget to check what your database engine could [[support|Merge-API-:-Background-Information-and-Providers-Support]] to understand what API you can use.</p>
+<h2 id="methods">Methods</h2>
+<p><a href="#target-and-source-configuration-methods">Target and Source Configuration Methods</a></p>
+<p><a href="#match-configuration-methods">Match Configuration Methods</a></p>
+<p><a href="#insertwhennotmatched">InsertWhenNotMatched*</a></p>
+<p><a href="#updatewhenmatched">UpdateWhenMatched*</a></p>
+<p><a href="#deletewhenmatched">DeleteWhenMatched*</a></p>
+<p><a href="#updatewhennotmatchedbysource">UpdateWhenNotMatchedBySource*</a></p>
+<p><a href="#deletewhennotmatchedbysource">DeleteWhenNotMatchedBySource*</a></p>
+<p><a href="#updatewhenmatchedthendelete">UpdateWhenMatched*ThenDelete</a></p>
+<p><a href="#merge-6">Merge and MergeAsync</a></p>
+<h2 id="target-and-source-configuration-methods">Target and Source Configuration Methods</h2>
+<pre><code class="lang-cs">// starts merge command and use table parameter as target
+IMergeableUsing&lt;TTarget&gt; Merge&lt;TTarget&gt;(this ITable&lt;TTarget&gt; target);
+
+// adds source query to merge, started by Merge() method
+IMergeableOn&lt;TTarget, TSource&gt; Using&lt;TTarget, TSource&gt;(this IMergeableUsing&lt;TTarget&gt; merge, IQueryable&lt;TSource&gt; source);
+
+// adds source collection to merge, started by Merge() method
+IMergeableOn&lt;TTarget, TSource&gt; Using&lt;TTarget, TSource&gt;(this IMergeableUsing&lt;TTarget&gt; merge, IEnumerable&lt;TSource&gt; source);
+
+// adds target as source to merge, started by Merge() method
+IMergeableOn&lt;TTarget, TTarget&gt; UsingTarget&lt;TTarget&gt;(this IMergeableUsing&lt;TTarget&gt; merge);
+
+// starts merge command using source query and target table
+IMergeableOn&lt;TTarget, TSource&gt; MergeInto&lt;TTarget, TSource&gt;(this IQueryable&lt;TSource&gt; source, ITable&lt;TTarget&gt; target);
+</code></pre><p>Those methods allow you to create merge builder and specify source and target.
+To do it you can use:</p>
+<ul>
+<li><code>MergeInto</code> method, which setups both source and target</li>
+<li><code>Merge</code> + <code>Using</code>`UsingTarget` method sequence, where target and source specified by separate method.</li>
+</ul>
+<p>Methods could accept following parameters:</p>
+<h3 id="target"><code>target</code></h3>
+<p>Target table, that should be modified by merge command.</p>
+<h3 id="source"><code>source</code></h3>
+<p>Source data set, that should be merged into target table. Could be a client-side collection, table or query.</p>
+<h2 id="match-configuration-methods">Match Configuration Methods</h2>
+<pre><code class="lang-cs">// adds match condition using specified key from target and source record
+// Examples:
+// merge.On(target =&gt; new { target.Field1, target.Field2 }, source =&gt; new { source.Field1, source.Field2 })
+// merge.On(target =&gt; target.Id, source =&gt; source.Id)
+IMergeable&lt;TTarget, TSource&gt; On&lt;TTarget, TSource, TKey&gt;(this IMergeableOn&lt;TTarget, TSource&gt; merge, Expression&lt;Func&lt;TTarget, TKey&gt;&gt; targetKey, Expression&lt;Func&lt;TSource, TKey&gt;&gt; sourceKey);
+
+// add match condition using boolean expression over target and source record
+IMergeable&lt;TTarget, TSource&gt; On&lt;TTarget, TSource&gt;(this IMergeableOn&lt;TTarget, TSource&gt; merge, Expression&lt;Func&lt;TTarget, TSource, bool&gt;&gt; matchCondition);
+
+// adds match condition using primary key columns
+IMergeable&lt;TTarget, TTarget&gt; OnTargetKey&lt;TTarget&gt;(this IMergeableOn&lt;TTarget, TTarget&gt; merge);
+</code></pre><p><code>On</code>`OnTargetKey` adds match condition to merge command builder.</p>
+<h3 id="notes">Notes</h3>
+<ul>
+<li><code>matchCondition</code> should be used only for rows matching. Any source filters must be applied to source directly to avoid database engine-specific side-effects (e.g. see Oracle limitations).</li>
+<li><code>matchCondition</code> or match using keys shouldn&#39;t match more than one source record to one target record.</li>
+</ul>
+<h2 id="insertwhennotmatched">InsertWhenNotMatched</h2>
+<pre><code class="lang-cs">IMergeable&lt;TTarget, TTarget&gt; InsertWhenNotMatched&lt;TTarget&gt;(this IMergeableSource&lt;TTarget, TTarget&gt; merge);
+
+IMergeable&lt;TTarget, TTarget&gt; InsertWhenNotMatchedAnd&lt;TTarget&gt;(this IMergeableSource&lt;TTarget, TTarget&gt; merge, Expression&lt;Func&lt;TTarget, bool&gt;&gt; searchCondition);
+</code></pre><pre><code class="lang-cs">IMergeable&lt;TTarget, TSource&gt; InsertWhenNotMatched&lt;TTarget, TSource&gt;(this IMergeableSource&lt;TTarget, TSource&gt; merge, Expression&lt;Func&lt;TSource, TTarget&gt;&gt; setter);
+
+IMergeable&lt;TTarget, TSource&gt; InsertWhenNotMatchedAnd&lt;TTarget, TSource&gt;(this IMergeableSource&lt;TTarget, TSource&gt; merge, Expression&lt;Func&lt;TSource, bool&gt;&gt; searchCondition, Expression&lt;Func&lt;TSource, TTarget&gt;&gt; setter)
+</code></pre><p><code>InsertWhenNotMatched</code> takes insert operation options and returns new merge command builder with new operation. <code>InsertWhenNotMatchedAnd</code> method additionally takes operation condition expression.</p>
+<h3 id="merge"><code>merge</code></h3>
+<p>Merge command builder. Method will return new builder with new insert operation. It will not modify original object.</p>
+<h3 id="searchcondition"><code>searchCondition</code></h3>
+<p>Operation execution condition. Operation without condition will be applied to all matching records.<br>If there are multiple operations within same group - only last one allowed to have no condition. <code>WhenNotMatched</code> match group could contain only <code>Insert</code> operations.</p>
+<h3 id="setter"><code>setter</code></h3>
+<p>Record creation expression. Defines set ex<code>InsertWhenNotMatched</code> takes insert operation options and returns new merge command builder with new operation. <code>InsertWhenNotMatchedAnd</code> method additionally takes operation condition expression.
+pressions for values in new record. For methods without this parameters source record inserted into target (except fields marked with <code>SkipOnInsert</code> attribute or <code>IsIdentity</code> for provider without identity insert support).</p>
+<pre><code class="lang-cs">db.Table
+    .Merge()
+    .Using(source)
+    .OnTargetKey()
+    .InsertWhenNotMatched(source =&gt; new TargetRecord()
+    {
+        Field1 = 10,
+        Field2 = source.Field2,
+        Field3 = source.Field1 + source.Field2
+    })
+    .Merge();
+</code></pre><h2 id="updatewhenmatched">UpdateWhenMatched</h2>
+<pre><code class="lang-cs">IMergeable&lt;TTarget, TTarget&gt; UpdateWhenMatched&lt;TTarget&gt;(this IMergeableSource&lt;TTarget, TTarget&gt; merge);
+
+IMergeable&lt;TTarget, TTarget&gt; UpdateWhenMatchedAnd&lt;TTarget&gt;(this IMergeableSource&lt;TTarget, TTarget&gt; merge, Expression&lt;Func&lt;TTarget, TTarget, bool&gt;&gt; searchCondition)
+</code></pre><pre><code class="lang-cs">IMergeable&lt;TTarget, TSource&gt; UpdateWhenMatched&lt;TTarget, TSource&gt;(this IMergeableSource&lt;TTarget, TSource&gt; merge, Expression&lt;Func&lt;TTarget, TSource, TTarget&gt;&gt; setter);
+
+IMergeable&lt;TTarget, TSource&gt; UpdateWhenMatchedAnd&lt;TTarget, TSource&gt;(this IMergeableSource&lt;TTarget, TSource&gt; merge, Expression&lt;Func&lt;TTarget, TSource, bool&gt;&gt; searchCondition, Expression&lt;Func&lt;TTarget, TSource, TTarget&gt;&gt; setter);
+</code></pre><p><code>UpdateWhenMatched</code> takes update operation options and returns new merge command builder with new operation. <code>UpdateWhenMatchedAnd</code> method additionally takes operation condition expression.</p>
+<h3 id="merge-1"><code>merge</code></h3>
+<p>Merge command builder. <code>UpdateWhenMatched</code> method will return new builder with new update operation. It will not modify original object.</p>
+<h3 id="searchcondition-1"><code>searchCondition</code></h3>
+<p>Operation execution condition. Operation without condition will be applied to all matching records.<br>If there are multiple operations within same group - only last one could omit condition. <code>WhenMatched</code> match group could contain only <code>Update</code> and <code>Delete</code> operations.</p>
+<h3 id="setter-1"><code>setter</code></h3>
+<p>Record update expression. Defines update expressions for values in target record. When not specified, source record values used to update target record (except fields marked with <code>SkipOnUpdate</code> or <code>IsIdentity</code> attributes).</p>
+<pre><code class="lang-cs">db.Table
+    .Merge()
+    .Using(source)
+    .OnTargetKey()
+    .UpdateWhenMatched((target, source) =&gt; new TargetRecord()
+    {
+        Field1 = target.Field10,
+        Field2 = source.Field2,
+        Field3 = source.Field1 + target.Field2
+    })
+    .Merge();
+</code></pre><h2 id="deletewhenmatched">DeleteWhenMatched</h2>
+<pre><code class="lang-cs">IMergeable&lt;TTarget, TSource&gt; DeleteWhenMatched&lt;TTarget, TSource&gt;(this IMergeableSource&lt;TTarget, TSource&gt; merge);
+
+IMergeable&lt;TTarget, TSource&gt; DeleteWhenMatchedAnd&lt;TTarget, TSource&gt;(this IMergeableSource&lt;TTarget, TSource&gt; merge, Expression&lt;Func&lt;TTarget, TSource, bool&gt;&gt; searchCondition);
+</code></pre><p><code>DeleteWhenMatched</code> takes delete operation options and returns new merge command builder with new operation.</p>
+<h3 id="merge-2"><code>merge</code></h3>
+<p>Merge command builder. <code>DeleteWhenMatched</code> method will return new builder with new delete operation. It will not modify original object.</p>
+<h3 id="searchcondition-2"><code>searchCondition</code></h3>
+<p>Operation execution condition. Operation without condition will be applied to all matching records.<br>If there are multiple operations within same match group - only last one could omit condition. <code>WhenMatched</code> match group could contain only <code>Update</code> and <code>Delete</code> operations.</p>
+<h2 id="updatewhennotmatchedbysource">UpdateWhenNotMatchedBySource</h2>
+<pre><code class="lang-cs">IMergeable&lt;TTarget, TSource&gt; UpdateWhenNotMatchedBySource&lt;TTarget, TSource&gt;(this IMergeableSource&lt;TTarget, TSource&gt; merge, Expression&lt;Func&lt;TTarget, TTarget&gt;&gt; setter);
+
+IMergeable&lt;TTarget, TSource&gt; UpdateWhenNotMatchedBySourceAnd&lt;TTarget, TSource&gt;(this IMergeableSource&lt;TTarget, TSource&gt; merge, Expression&lt;Func&lt;TTarget, bool&gt;&gt; searchCondition, Expression&lt;Func&lt;TTarget, TTarget&gt;&gt; setter);
+</code></pre><p>IMPORTANT: This method could be used only with SQL Server.</p>
+<p><code>UpdateWhenNotMatchedBySource</code> takes update operation options and returns new merge command builder with new operation.</p>
+<h3 id="merge-3"><code>merge</code></h3>
+<p>Merge command builder. <code>UpdateWhenNotMatchedBySource</code> method will return new builder with new update operation. It will not modify original object.</p>
+<h3 id="searchcondition-3"><code>searchCondition</code></h3>
+<p>Operation execution condition. Operation without condition will be applied to all matching records.<br>If there are multiple operations within same group - only last one could omit condition. <code>WhenNotMatchedBySource</code> match group could contain only <code>UpdateWhenNotMatchedBySource</code> and <code>DeleteWhenNotMatchedBySource</code> operations. But due to SQL Server limitations you can use only one <code>UpdateWhenNotMatchedBySource</code> and <code>DeleteWhenNotMatchedBySource</code> operation in single command.</p>
+<h3 id="setter-2"><code>setter</code></h3>
+<p>Record update expression. Defines update expressions for values in target record.</p>
+<pre><code class="lang-cs">db.Table
+    .Merge()
+    .Using(source)
+    .OnTargetKey()
+    .UpdateWhenNotMatchedBySource(target =&gt; new TargetRecord()
+    {
+        Field1 = target.Field10,
+        Field2 = target.Field2,
+        Field3 = target.Field3 + 10
+    })
+    .Merge();
+</code></pre><h2 id="deletewhennotmatchedbysource">DeleteWhenNotMatchedBySource</h2>
+<pre><code class="lang-cs">IMergeable&lt;TTarget, TSource&gt; DeleteWhenNotMatchedBySource&lt;TTarget, TSource&gt;(this IMergeableSource&lt;TTarget, TSource&gt; merge);
+
+IMergeable&lt;TTarget, TSource&gt; DeleteWhenNotMatchedBySourceAnd&lt;TTarget, TSource&gt;(this IMergeableSource&lt;TTarget, TSource&gt; merge, Expression&lt;Func&lt;TTarget, bool&gt;&gt; searchCondition);
+</code></pre><p>IMPORTANT: This method could be used only with SQL Server.</p>
+<p><code>DeleteWhenNotMatchedBySource</code> takes delete operation options and returns new merge command builder with new operation.</p>
+<h3 id="merge-4"><code>merge</code></h3>
+<p>Merge command builder. <code>DeleteWhenNotMatchedBySource</code> method will return new builder with new delete operation. It will not modify original object.</p>
+<h3 id="searchcondition-4"><code>searchCondition</code></h3>
+<p>Operation execution condition. Operation without condition will be applied to all matching records.<br>If there are multiple operations within same group - only last one could omit condition. <code>WhenNotMatchedBySource</code> match group could contain only <code>UpdateWhenNotMatchedBySource</code> and <code>DeleteWhenNotMatchedBySource</code> operations. But due to SQL Server limitations you can use only one <code>UpdateWhenNotMatchedBySource</code> and <code>DeleteWhenNotMatchedBySource</code> operation in single command.</p>
+<h2 id="updatewhenmatchedthendelete">UpdateWhenMatchedThenDelete</h2>
+<pre><code class="lang-cs">IMergeable&lt;TTarget, TTarget&gt; UpdateWhenMatchedThenDelete&lt;TTarget&gt;(this IMergeableSource&lt;TTarget, TTarget&gt; merge, Expression&lt;Func&lt;TTarget, TTarget, bool&gt;&gt; deleteCondition);
+
+IMergeable&lt;TTarget, TTarget&gt; UpdateWhenMatchedAndThenDelete&lt;TTarget&gt;(this IMergeableSource&lt;TTarget, TTarget&gt; merge, Expression&lt;Func&lt;TTarget, TTarget, bool&gt;&gt; searchCondition, Expression&lt;Func&lt;TTarget, TTarget, bool&gt;&gt; deleteCondition);
+</code></pre><pre><code class="lang-cs">IMergeable&lt;TTarget, TSource&gt; UpdateWhenMatchedThenDelete&lt;TTarget, TSource&gt;(this IMergeableSource&lt;TTarget, TSource&gt; merge, Expression&lt;Func&lt;TTarget, TSource, TTarget&gt;&gt; setter, Expression&lt;Func&lt;TTarget, TSource, bool&gt;&gt; deleteCondition);
+
+IMergeable&lt;TTarget, TSource&gt; UpdateWhenMatchedAndThenDelete&lt;TTarget, TSource&gt;(this IMergeableSource&lt;TTarget, TSource&gt; merge, Expression&lt;Func&lt;TTarget, TSource, bool&gt;&gt; searchCondition, Expression&lt;Func&lt;TTarget, TSource, TTarget&gt;&gt; setter, Expression&lt;Func&lt;TTarget, TSource, bool&gt;&gt; deleteCondition);
+</code></pre><p>IMPORTANT: This method could be used only with Oracle Database.</p>
+<p><code>UpdateWhenMatchedThenDelete</code> method takes update and delete operation options and returns new merge command builder with new operation.</p>
+<h3 id="merge-5"><code>merge</code></h3>
+<p>Merge command builder. <code>UpdateWhenMatchedThenDelete</code> method will return new builder with new update with delete operation. It will not modify original object.</p>
+<h3 id="searchcondition-5"><code>searchCondition</code></h3>
+<p>Update operation execution condition. Operation without condition will be applied to all matching records. Oracle doesn&#39;t support multiple commands in current match group. You can use only <code>UpdateWhenMatchedThenDelete</code> or <code>UpdateWhenMatched</code> in single command.</p>
+<h3 id="setter-3"><code>setter</code></h3>
+<p>Record update expression. Optional. Defines update expressions for values in target record.</p>
+<pre><code class="lang-cs">db.Table
+    .Merge()
+    .From(source)
+    .OnTargetKey()
+    .UpdateWhenMatchedThenDelete((target, source) =&gt; new TargetRecord()
+    {
+        Field1 = target.Field10,
+        Field2 = source.Field2,
+        Field3 = source.Field1 + target.Field2
+    }, (updatedTarget, source) =&gt; updatedTarget.Field3 &gt; 100)
+    .Merge();
+</code></pre><h3 id="deletecondition"><code>deleteCondition</code></h3>
+<p>Delete operation execution condition. Identifies <strong>updated</strong> records that should be deleted. Note that this condition applied to updated target record with new field values.</p>
+<h2 id="merge-6">Merge</h2>
+<pre><code class="lang-cs">int Merge&lt;TTarget, TSource&gt;(this IMergeable&lt;TTarget, TSource&gt; merge);
+Task&lt;int&gt; MergeAsync&lt;TTarget, TSource&gt;(this IMergeable&lt;TTarget, TSource&gt; merge, CancellationToken token = default);
+</code></pre><p><code>Merge</code> method builds and executes merge command against database and returns number of affected records. <code>MergeAsync</code> does the same job asynchronously.</p>
+<h3 id="merge-7"><code>merge</code></h3>
+<p>Merge command builder.</p>
+<h3 id="notes-1">Notes</h3>
+<p><code>Merge</code> returns number of affected records. Consult your database documentation for more details, but in general except SAP/Sybase ASE it is the same for all databases.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/linq2db/linq2db/blob/master/Doc/articles/sql/merge/Merge-API-Description.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2011-2018 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

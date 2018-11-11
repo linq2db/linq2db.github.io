@@ -1,0 +1,777 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class SapHanaOdbcDataProvider
+   | Linq To DB (aka linq2db) </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class SapHanaOdbcDataProvider
+   | Linq To DB (aka linq2db) ">
+    <meta name="generator" content="docfx 2.40.1.0">
+    
+    <link rel="shortcut icon" href="../images/icon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/icon.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider">
+  
+  
+  <h1 id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider" class="text-break">Class SapHanaOdbcDataProvider
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.object(v=vs.110).aspx">Object</a></div>
+    <div class="level1"><a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html">DataProviderBase</a></div>
+    <div class="level2"><span class="xref">SapHanaOdbcDataProvider</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_DefaultMaxRetryCount">DataProviderBase.DefaultMaxRetryCount</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_MaxRetryCount">DataProviderBase.MaxRetryCount</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_Name">DataProviderBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_MappingSchema">DataProviderBase.MappingSchema</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_SqlProviderFlags">DataProviderBase.SqlProviderFlags</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_OnConnectionCreated">DataProviderBase.OnConnectionCreated</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_CreateConnection_System_String_">DataProviderBase.CreateConnection(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_DisposeCommand_LinqToDB_Data_DataConnection_">DataProviderBase.DisposeCommand(DataConnection)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_GetConnectionInfo_LinqToDB_Data_DataConnection_System_String_">DataProviderBase.GetConnectionInfo(DataConnection, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_GetCommandBehavior_System_Data_CommandBehavior_">DataProviderBase.GetCommandBehavior(CommandBehavior)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_ExecuteScope">DataProviderBase.ExecuteScope()</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_ReaderExpressions">DataProviderBase.ReaderExpressions</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_SetCharField_System_String_System_Linq_Expressions_Expression_System_Func_System_Data_IDataReader_System_Int32_System_String___">DataProviderBase.SetCharField(String, Expression&lt;Func&lt;IDataReader, Int32, String&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_SetCharFieldToType__1_System_String_System_Linq_Expressions_Expression_System_Func_System_Data_IDataReader_System_Int32_System_String___">DataProviderBase.SetCharFieldToType&lt;T&gt;(String, Expression&lt;Func&lt;IDataReader, Int32, String&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_SetField__2_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___">DataProviderBase.SetField&lt;TP, T&gt;(Expression&lt;Func&lt;TP, Int32, T&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_SetField__2_System_String_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___">DataProviderBase.SetField&lt;TP, T&gt;(String, Expression&lt;Func&lt;TP, Int32, T&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_SetProviderField__2_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___">DataProviderBase.SetProviderField&lt;TP, T&gt;(Expression&lt;Func&lt;TP, Int32, T&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_SetProviderField__3_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___">DataProviderBase.SetProviderField&lt;TP, T, TS&gt;(Expression&lt;Func&lt;TP, Int32, T&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_SetToType__3_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___">DataProviderBase.SetToType&lt;TP, T, TF&gt;(Expression&lt;Func&lt;TP, Int32, T&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_NormalizeTypeName_System_String_">DataProviderBase.NormalizeTypeName(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_GetReaderExpression_LinqToDB_Mapping_MappingSchema_System_Data_IDataReader_System_Int32_System_Linq_Expressions_Expression_System_Type_">DataProviderBase.GetReaderExpression(MappingSchema, IDataReader, Int32, Expression, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_FindExpression_LinqToDB_DataProvider_ReaderInfo_System_Linq_Expressions_Expression__">DataProviderBase.FindExpression(ReaderInfo, Expression)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_IsDBNullAllowed_System_Data_IDataReader_System_Int32_">DataProviderBase.IsDBNullAllowed(IDataReader, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_BulkCopy__1_LinqToDB_Data_DataConnection_LinqToDB_Data_BulkCopyOptions_System_Collections_Generic_IEnumerable___0__">DataProviderBase.BulkCopy&lt;T&gt;(DataConnection, BulkCopyOptions, IEnumerable&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_Merge__1_LinqToDB_Data_DataConnection_System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Boolean_System_Collections_Generic_IEnumerable___0__System_String_System_String_System_String_">DataProviderBase.Merge&lt;T&gt;(DataConnection, Expression&lt;Func&lt;T, Boolean&gt;&gt;, Boolean, IEnumerable&lt;T&gt;, String, String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_MergeAsync__1_LinqToDB_Data_DataConnection_System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Boolean_System_Collections_Generic_IEnumerable___0__System_String_System_String_System_String_System_Threading_CancellationToken_">DataProviderBase.MergeAsync&lt;T&gt;(DataConnection, Expression&lt;Func&lt;T, Boolean&gt;&gt;, Boolean, IEnumerable&lt;T&gt;, String, String, String, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_Merge__2_LinqToDB_Data_DataConnection_LinqToDB_IMergeable___0___1__">DataProviderBase.Merge&lt;TTarget, TSource&gt;(DataConnection, IMergeable&lt;TTarget, TSource&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_MergeAsync__2_LinqToDB_Data_DataConnection_LinqToDB_IMergeable___0___1__System_Threading_CancellationToken_">DataProviderBase.MergeAsync&lt;TTarget, TSource&gt;(DataConnection, IMergeable&lt;TTarget, TSource&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_GetMergeBuilder__2_LinqToDB_Data_DataConnection_LinqToDB_IMergeable___0___1__">DataProviderBase.GetMergeBuilder&lt;TTarget, TSource&gt;(DataConnection, IMergeable&lt;TTarget, TSource&gt;)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.DataProvider.SapHana.html">LinqToDB.DataProvider.SapHana</a></h6>
+  <h6><strong>Assembly</strong>: linq2db.dll</h6>
+  <h5 id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SapHanaOdbcDataProvider : DataProviderBase, IDataProvider</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider__ctor.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SapHana/SapHanaOdbcDataProvider.cs/#L17">View Source</a>
+  </span>
+  <a id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider__ctor_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.#ctor*"></a>
+  <h4 id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider__ctor" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.#ctor">SapHanaOdbcDataProvider()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SapHanaOdbcDataProvider()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider__ctor_System_String_LinqToDB_Mapping_MappingSchema_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.%23ctor(System.String%2CLinqToDB.Mapping.MappingSchema)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SapHana/SapHanaOdbcDataProvider.cs/#L22">View Source</a>
+  </span>
+  <a id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider__ctor_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.#ctor*"></a>
+  <h4 id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider__ctor_System_String_LinqToDB_Mapping_MappingSchema_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.#ctor(System.String,LinqToDB.Mapping.MappingSchema)">SapHanaOdbcDataProvider(String, MappingSchema)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SapHanaOdbcDataProvider(string name, MappingSchema mappingSchema)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></td>
+        <td><span class="parametername">mappingSchema</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_ConnectionNamespace.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.ConnectionNamespace%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SapHana/SapHanaOdbcDataProvider.cs/#L46">View Source</a>
+  </span>
+  <a id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_ConnectionNamespace_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.ConnectionNamespace*"></a>
+  <h4 id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_ConnectionNamespace" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.ConnectionNamespace">ConnectionNamespace</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ConnectionNamespace { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_ConnectionNamespace">DataProviderBase.ConnectionNamespace</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_DataReaderType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.DataReaderType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SapHana/SapHanaOdbcDataProvider.cs/#L47">View Source</a>
+  </span>
+  <a id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_DataReaderType_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.DataReaderType*"></a>
+  <h4 id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_DataReaderType" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.DataReaderType">DataReaderType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Type DataReaderType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.type(v=vs.110).aspx">Type</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_DataReaderType">DataProviderBase.DataReaderType</a></div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_ConvertParameterType_System_Type_LinqToDB_DataType_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.ConvertParameterType(System.Type%2CLinqToDB.DataType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SapHana/SapHanaOdbcDataProvider.cs/#L87">View Source</a>
+  </span>
+  <a id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_ConvertParameterType_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.ConvertParameterType*"></a>
+  <h4 id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_ConvertParameterType_System_Type_LinqToDB_DataType_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.ConvertParameterType(System.Type,LinqToDB.DataType)">ConvertParameterType(Type, DataType)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Type ConvertParameterType(Type type, DataType dataType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.type(v=vs.110).aspx">Type</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="LinqToDB.DataType.html">DataType</a></td>
+        <td><span class="parametername">dataType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.type(v=vs.110).aspx">Type</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_ConvertParameterType_System_Type_LinqToDB_DataType_">DataProviderBase.ConvertParameterType(Type, DataType)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_CreateConnectionInternal_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.CreateConnectionInternal(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SapHana/SapHanaOdbcDataProvider.cs/#L54">View Source</a>
+  </span>
+  <a id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_CreateConnectionInternal_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.CreateConnectionInternal*"></a>
+  <h4 id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_CreateConnectionInternal_System_String_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.CreateConnectionInternal(System.String)">CreateConnectionInternal(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IDbConnection CreateConnectionInternal(string connectionString)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><span class="parametername">connectionString</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.data.idbconnection(v=vs.110).aspx">IDbConnection</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_CreateConnectionInternal_System_String_">DataProviderBase.CreateConnectionInternal(String)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_CreateSqlBuilder.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.CreateSqlBuilder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SapHana/SapHanaOdbcDataProvider.cs/#L75">View Source</a>
+  </span>
+  <a id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_CreateSqlBuilder_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.CreateSqlBuilder*"></a>
+  <h4 id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_CreateSqlBuilder" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.CreateSqlBuilder">CreateSqlBuilder()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ISqlBuilder CreateSqlBuilder()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.SqlProvider.ISqlBuilder.html">ISqlBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_CreateSqlBuilder">DataProviderBase.CreateSqlBuilder()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_GetSchemaProvider.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.GetSchemaProvider%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SapHana/SapHanaOdbcDataProvider.cs/#L59">View Source</a>
+  </span>
+  <a id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_GetSchemaProvider_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.GetSchemaProvider*"></a>
+  <h4 id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_GetSchemaProvider" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.GetSchemaProvider">GetSchemaProvider()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ISchemaProvider GetSchemaProvider()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.SchemaProvider.ISchemaProvider.html">ISchemaProvider</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_GetSchemaProvider">DataProviderBase.GetSchemaProvider()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_GetSqlOptimizer.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.GetSqlOptimizer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SapHana/SapHanaOdbcDataProvider.cs/#L82">View Source</a>
+  </span>
+  <a id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_GetSqlOptimizer_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.GetSqlOptimizer*"></a>
+  <h4 id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_GetSqlOptimizer" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.GetSqlOptimizer">GetSqlOptimizer()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ISqlOptimizer GetSqlOptimizer()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.SqlProvider.ISqlOptimizer.html">ISqlOptimizer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_GetSqlOptimizer">DataProviderBase.GetSqlOptimizer()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_InitCommand_LinqToDB_Data_DataConnection_System_Data_CommandType_System_String_LinqToDB_Data_DataParameter___.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.InitCommand(LinqToDB.Data.DataConnection%2CSystem.Data.CommandType%2CSystem.String%2CLinqToDB.Data.DataParameter%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SapHana/SapHanaOdbcDataProvider.cs/#L64">View Source</a>
+  </span>
+  <a id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_InitCommand_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.InitCommand*"></a>
+  <h4 id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_InitCommand_LinqToDB_Data_DataConnection_System_Data_CommandType_System_String_LinqToDB_Data_DataParameter___" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.InitCommand(LinqToDB.Data.DataConnection,System.Data.CommandType,System.String,LinqToDB.Data.DataParameter[])">InitCommand(DataConnection, CommandType, String, DataParameter[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void InitCommand(DataConnection dataConnection, CommandType commandType, string commandText, DataParameter[] parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a></td>
+        <td><span class="parametername">dataConnection</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.data.commandtype(v=vs.110).aspx">CommandType</a></td>
+        <td><span class="parametername">commandType</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><span class="parametername">commandText</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="LinqToDB.Data.DataParameter.html">DataParameter</a>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_InitCommand_LinqToDB_Data_DataConnection_System_Data_CommandType_System_String_LinqToDB_Data_DataParameter___">DataProviderBase.InitCommand(DataConnection, CommandType, String, DataParameter[])</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_IsCompatibleConnection_System_Data_IDbConnection_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.IsCompatibleConnection(System.Data.IDbConnection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SapHana/SapHanaOdbcDataProvider.cs/#L49">View Source</a>
+  </span>
+  <a id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_IsCompatibleConnection_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.IsCompatibleConnection*"></a>
+  <h4 id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_IsCompatibleConnection_System_Data_IDbConnection_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.IsCompatibleConnection(System.Data.IDbConnection)">IsCompatibleConnection(IDbConnection)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsCompatibleConnection(IDbConnection connection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.data.idbconnection(v=vs.110).aspx">IDbConnection</a></td>
+        <td><span class="parametername">connection</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_IsCompatibleConnection_System_Data_IDbConnection_">DataProviderBase.IsCompatibleConnection(IDbConnection)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_SetParameter_System_Data_IDbDataParameter_System_String_LinqToDB_DataType_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.SetParameter(System.Data.IDbDataParameter%2CSystem.String%2CLinqToDB.DataType%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SapHana/SapHanaOdbcDataProvider.cs/#L101">View Source</a>
+  </span>
+  <a id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_SetParameter_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.SetParameter*"></a>
+  <h4 id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_SetParameter_System_Data_IDbDataParameter_System_String_LinqToDB_DataType_System_Object_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.SetParameter(System.Data.IDbDataParameter,System.String,LinqToDB.DataType,System.Object)">SetParameter(IDbDataParameter, String, DataType, Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void SetParameter(IDbDataParameter parameter, string name, DataType dataType, object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.data.idbdataparameter(v=vs.110).aspx">IDbDataParameter</a></td>
+        <td><span class="parametername">parameter</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="LinqToDB.DataType.html">DataType</a></td>
+        <td><span class="parametername">dataType</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.object(v=vs.110).aspx">Object</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_SetParameter_System_Data_IDbDataParameter_System_String_LinqToDB_DataType_System_Object_">DataProviderBase.SetParameter(IDbDataParameter, String, DataType, Object)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_SetParameterType_System_Data_IDbDataParameter_LinqToDB_DataType_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.SetParameterType(System.Data.IDbDataParameter%2CLinqToDB.DataType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SapHana/SapHanaOdbcDataProvider.cs/#L121">View Source</a>
+  </span>
+  <a id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_SetParameterType_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.SetParameterType*"></a>
+  <h4 id="LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider_SetParameterType_System_Data_IDbDataParameter_LinqToDB_DataType_" data-uid="LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider.SetParameterType(System.Data.IDbDataParameter,LinqToDB.DataType)">SetParameterType(IDbDataParameter, DataType)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void SetParameterType(IDbDataParameter parameter, DataType dataType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.data.idbdataparameter(v=vs.110).aspx">IDbDataParameter</a></td>
+        <td><span class="parametername">parameter</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="LinqToDB.DataType.html">DataType</a></td>
+        <td><span class="parametername">dataType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="LinqToDB.DataProvider.DataProviderBase.html#LinqToDB_DataProvider_DataProviderBase_SetParameterType_System_Data_IDbDataParameter_LinqToDB_DataType_">DataProviderBase.SetParameterType(IDbDataParameter, DataType)</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SapHana_SapHanaOdbcDataProvider.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SapHana.SapHanaOdbcDataProvider%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SapHana/SapHanaOdbcDataProvider.cs/#L15" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2011-2018 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

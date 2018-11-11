@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Bulk Copy (Bulk Insert) | Linq To DB (aka linq2db) </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Bulk Copy (Bulk Insert) | Linq To DB (aka linq2db) ">
+    <meta name="generator" content="docfx 2.40.1.0">
+    
+    <link rel="shortcut icon" href="../../images/icon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../images/icon.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Bulk-Copy">
+<h1 id="bulk-copy-bulk-insert">Bulk Copy (Bulk Insert)</h1>
+
+<p>Some database servers provide functionality to quickly insert large amount of data into table. Downside of this method is that each server has it&#39;s own view on how this functionality should work and there is no standard interface to it.</p>
+<h2 id="overview">Overview</h2>
+<p>To leverage complexity of work with this operation, <code>LINQ To DB</code> provides <code>BulkCopy</code> method. There are several overrides of it, but all they do the same - take data and operation options, perform insert and return operation status. How insert operation performed internally depends on provider support level and provided options.</p>
+<pre><code class="lang-cs">// DataConnectionExtensions.cs
+BulkCopyRowsCopied BulkCopy&lt;T&gt;(this DataConnection dataConnection, BulkCopyOptions options, IEnumerable&lt;T&gt; source)
+BulkCopyRowsCopied BulkCopy&lt;T&gt;(this DataConnection dataConnection, int maxBatchSize, IEnumerable&lt;T&gt; source)
+BulkCopyRowsCopied BulkCopy&lt;T&gt;(this DataConnection dataConnection, IEnumerable&lt;T&gt; source)
+
+BulkCopyRowsCopied BulkCopy&lt;T&gt;(this ITable&lt;T&gt; table, BulkCopyOptions options, IEnumerable&lt;T&gt; source)
+BulkCopyRowsCopied BulkCopy&lt;T&gt;(this ITable&lt;T&gt; table, int maxBatchSize, IEnumerable&lt;T&gt; source)
+BulkCopyRowsCopied BulkCopy&lt;T&gt;(this ITable&lt;T&gt; table, IEnumerable&lt;T&gt; source)
+</code></pre><h2 id="insert-methods-and-support-by-providers">Insert methods and support by providers</h2>
+<p><code>LINQ To DB</code> allows you to specify one of four insert methods (or three, as Default is not an actual method):</p>
+<ul>
+<li><code>Default</code>. <code>LINQ To DB</code> will choose method automatically, based on used provider. Which method to use for specific provider could be overriden using <code>&lt;PROVIDER_NAME&gt;Tools.DefaultBulkCopyType</code> property.</li>
+<li><code>RowByRow</code>. This method just iterate over provided collection and insert each record using separate SQL <code>INSERT</code> command. Least effective method, but some providers support only this one.</li>
+<li><code>MultipleRows</code>. Similar to <code>RowByRow</code>. Inserts multiple records at once using SQL <code>INSERT FROM SELECT</code> or similar batch insert command. This one is faster than <code>RowByRow</code>, but available only for providers that support such <code>INSERT</code> operation. If method is not supported, LINQ To DB silently fallback to <code>RowByRow</code> implementation.</li>
+<li><code>ProviderSpecific</code>. Most effective method, available only for few providers. Uses provider specific functionality, usually not based on <code>SQL</code> and could have provider-specific limitations, like transactions support. If method is not supported, LINQ To DB silently fallback to <code>MultipleRows</code> implementation.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>RowByRow</th>
+<th>MultipleRows</th>
+<th>ProviderSpecific</th>
+<th>Default</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microsoft Access</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>MultipleRows</td>
+<td>AccessTools.DefaultBulkCopyType</td>
+</tr>
+<tr>
+<td>IBM DB2 (LUW, zOS)</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes (will fallback to <code>MultipleRows</code> if called in transaction)</td>
+<td>MultipleRows</td>
+<td>DB2Tools.DefaultBulkCopyType</td>
+</tr>
+<tr>
+<td>Firebird</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>MultipleRows</td>
+<td>FirebirdTools.DefaultBulkCopyType</td>
+</tr>
+<tr>
+<td>IBM Informix</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>MultipleRows</td>
+<td>InformixTools.DefaultBulkCopyType</td>
+</tr>
+<tr>
+<td>MySql / MariaDB</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>MultipleRows</td>
+<td>MySqlTools.DefaultBulkCopyType</td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes (will fallback to <code>MultipleRows</code> if called in transaction)</td>
+<td>MultipleRows</td>
+<td>OracleTools.DefaultBulkCopyType</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes (read important notes below)</td>
+<td>MultipleRows</td>
+<td>PostgreSQLTools.DefaultBulkCopyType</td>
+</tr>
+<tr>
+<td>SAP HANA</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>MultipleRows</td>
+<td>SapHanaTools.DefaultBulkCopyType</td>
+</tr>
+<tr>
+<td>Microsoft SQL CE</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>MultipleRows</td>
+<td>SqlCeTools.DefaultBulkCopyType</td>
+</tr>
+<tr>
+<td>SQLite</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>MultipleRows</td>
+<td>SQLiteTools.DefaultBulkCopyType</td>
+</tr>
+<tr>
+<td>Microsoft SQL Server</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>ProviderSpecific</td>
+<td>SqlServerTools.DefaultBulkCopyType</td>
+</tr>
+<tr>
+<td>Sybase ASE</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>MultipleRows</td>
+<td>SybaseTools.DefaultBulkCopyType</td>
+</tr>
+</tbody>
+</table>
+<h3 id="postgresql-provider-specific-bulk-copy">PostgreSQL provider-specific bulk copy</h3>
+<p>For PostgreSQL <code>BulkCopy</code> use <code>BINARY COPY</code> operation when <code>ProviderSpecific</code> method specified. This operation is very sensitive to what types are used. You must always use proper type that match type in target table, or you will receive error from server (e.g. <code>&quot;22P03: incorrect binary data format&quot;</code>).</p>
+<p>Below is a list of types, that could result in error without explicit type specification:</p>
+<ul>
+<li><code>decimal</code>/<code>numeric</code> vs <code>money</code>. Those are two different types, mapped to <code>System.Decimal</code>. Default mappings will use <code>numeric</code> type, so if your column has <code>money</code> type, you should type it in mapping using <code>DataType = DataType.Money</code> or <code>DbType = &quot;money&quot;</code> hints.</li>
+<li><code>time</code> vs <code>interval</code>. Those are two different types, mapped to <code>System.TimeSpan</code>. Default mappings will use <code>time</code> type, so if your column has <code>interval</code> type, you should type it in mapping using <code>DbType = &quot;interval&quot;</code> hint. Or use <code>NpgsqlTimeSpan</code> type for intervals.</li>
+<li>any text types/<code>json</code> vs <code>jsonb</code>. All those types mapped to <code>System.String</code> (except <code>character</code> which is mapped to <code>System.Char</code>). Default mappings will not work for <code>jsonb</code> column and you should type it in mapping using <code>DataType = DataType.BinaryJson</code> or <code>DbType = &quot;jsonb&quot;</code> hint.</li>
+<li><code>inet</code> vs <code>cidr</code>. If you use <code>NpgsqlInet</code> type for mapping column, it could be mapped to both <code>inet</code> and &#39;cidr&#39; types. There is no default mapping for this type, so you should explicitly specify it using <code>DbType = &quot;inet&quot;</code> or <code>DbType = &quot;cidr&quot;</code> hint. Also for <code>inet</code> you can use <code>IPAddress</code> which will be mapped to <code>inet</code> type.</li>
+<li><code>macaddr</code> vs <code>macaddr8</code>. Both types could be mapped to the same <code>PhysicalAddress</code>/<code>String</code> types, so you should explicitly specify column type using <code>DbType = &quot;macaddr&quot;</code> or <code>DbType = &quot;macaddr8&quot;</code> hints. Even if you use provider version without <code>macaddr8</code> support, you should specify hint or it will break after provider update to newer version.</li>
+<li><code>date</code> type. You should use <code>NpgsqlDate</code> type in mapping or specify <code>DataType = DataType.Date</code> or <code>DbType = &quot;date&quot;</code> hints.</li>
+<li><code>time with time zone</code> type needs <code>DbType = &quot;time with time zone&quot;</code> hint.</li>
+</ul>
+<p>If you have issues with other types, feel free to create an issue.</p>
+<h2 id="options">Options</h2>
+<p>See <a class="xref" href="../../api/LinqToDB.Data.BulkCopyOptions.html">BulkCopyOptions</a> properties and support per-provider</p>
+<h2 id="keepidentity-option-default--false"><code>KeepIdentity</code> option (default : <code>false</code>)</h2>
+<p>This option allows to insert provided values into identity column. It is supported by limited set of providers and is not compatible with <code>RowByRow</code> mode. Latter means that if provider doesn&#39;t support any other insert mode, <code>KeepIdentity</code> option is not supported too.</p>
+<p>This option is not supported for <code>RowByRow</code> because corresponding functionality is not implemented by <code>LINQ To DB</code> and could be added on request.</p>
+<p>If you will set this option to <code>true</code> for unsupported mode or provider, you will get <code>LinqToDBException</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microsoft Access</td>
+<td>No</td>
+</tr>
+<tr>
+<td>IBM DB2 (LUW, zOS)</td>
+<td>Only for GENERATED BY DEFAULT columns</td>
+</tr>
+<tr>
+<td>Firebird</td>
+<td>No (you need to disable triggers manually, if you use generators in triggers)</td>
+</tr>
+<tr>
+<td>IBM Informix</td>
+<td>No</td>
+</tr>
+<tr>
+<td>MySql / MariaDB</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>Partial. Starting from version 12c it will work for GENERATED BY DEFAULT columns (as DB2), for earlier versions you need to disable triggers with generators (as Firebird). Note that for versions prior to 12c, no exception will be thrown if you will try to use it with <code>KeepIdentity</code> set to <code>true</code> and generated values will be used silently as <code>LINQ To DB</code> don&#39;t have Oracle version detection right now. This could be changed in future.</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SAP HANA</td>
+<td>Depends on provider version (HANA 2 only?)</td>
+</tr>
+<tr>
+<td>Microsoft SQL CE</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SQLite</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Microsoft SQL Server</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Sybase ASE</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See Also</h2>
+<p>As an alternative to <code>BulkCopy</code>, <a class="xref" href="merge/Merge-API.html">Merge</a> operation could be used. It allows more flexibility but not available for some providers and will be always slower than <code>BulkCopy</code> with native provider support.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/linq2db/linq2db/blob/master/Doc/articles/sql/Bulk-Copy.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2011-2018 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
