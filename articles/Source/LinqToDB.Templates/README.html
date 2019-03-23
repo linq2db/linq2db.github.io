@@ -8,7 +8,7 @@
     <title>T4 Models | Linq To DB (aka linq2db) </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="T4 Models | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.40.1.0">
+    <meta name="generator" content="docfx 2.40.12.0">
     
     <link rel="shortcut icon" href="../../../images/icon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -107,84 +107,213 @@
 <li>Customizing generation process (read below)</li>
 <li>Calling <code>GenerateModel()</code> - this will run model generation </li>
 </ol>
-<h2 id="configuring-generation-process">Configuring generation process</h2>
+<h2 id="configuring-schema-load-process">Configuring schema load process</h2>
 <p>Use the following initialization <strong>before</strong> you call the <code>LoadMetadata()</code> method.</p>
-<pre><code class="lang-c#">NamespaceName                 = &quot;DataModels&quot;;       // Namespace of the generated classes.
+<p>All schema load functionality configured using <code>GetSchemaOptions</code> property of <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SchemaProvider/GetSchemaOptions.cs"><code>LinqToDB.SchemaProvider.GetSchemaOptions</code></a> type. Check this class for all available options.</p>
+<p>All loaded schema information is used for mappings generation, so if you want to limit generated mappings, it is the best place to do it.</p>
+<pre><code class="lang-cs">// Enables loading of tables and views information
+GetSchemaOptions.GetTables             = true;
+// Enables loading of functions and procedures information
+GetSchemaOptions.GetProcedures         = true;
+// Enables use of System.Char type in generated model for text types
+// with length 1 instead of System.String
+GetSchemaOptions.GenerateChar1AsString = false;
 
-DataContextName               = null;               // DataContext class name. If null - database name + &quot;DB&quot;.
-BaseDataContextClass          = null;               // Base DataContext class name. If null - LinqToDB.Data.DataConnection.
+// (string[]) List of schemas to select.
+// Option applied only if is is not empty
+GetSchemaOptions.IncludedSchemas = null;
+// (string[]) List of schemas to exclude from select.
+// Option applied only if is is not empty
+GetSchemaOptions.ExcludedSchemas = null;
+
+// Option makes sense only for providers that return schema for several databases
+// (string[]) List of databases/catalogs to select.
+// Option applied only if is is not empty
+GetSchemaOptions.IncludedCatalogs = null;
+// Option makes sense only for providers that return schema for several databases
+// (string[]) List of databases/catalogs to exclude from select.
+// Option applied only if is is not empty
+GetSchemaOptions.ExcludedCatalogs = null;
+
+// Comparer, used for IncludedSchemas/ExcludedSchemas/IncludedCatalogs/ExcludedCatalogs lookups
+StringComparer                    = StringComparer.OrdinalIgnoreCase;
+
+// Custom filter for procedure/function result schema loader.
+// Can be used to exclude schema load for functions, that generate error during schema load
+// Also check GenerateProcedureErrors option below
+// ProcedureSchema type:
+// https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SchemaProvider/ProcedureSchema.cs
+GetSchemaOptions.LoadProcedure     = (ProcedureSchema p) =&gt; true;
+
+// type: Func&lt;ForeignKeySchema, string&gt;
+// Defines custom association naming logic
+// https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SchemaProvider/ForeignKeySchema.cs
+GetSchemaOptions.GetAssociationMemberName = null;
+
+// Procedures load progress reporting callback
+// Not applicable for T4 templates
+GetSchemaOptions.ProcedureLoadingProgress = (int total, int current) =&gt; {};
+</code></pre><h2 id="configuring-generation-process">Configuring generation process</h2>
+<p>Use the following initialization <strong>before</strong> you call the <code>LoadMetadata()</code> method.</p>
+<pre><code class="lang-cs">/* Global/generic options */
+// Namespace to use for generated model
+NamespaceName                  = &quot;DataModels&quot;;
+
+/* Data context configuration */
+// (string) Name of base class for generated data context class.
+// Default: LinqToDB.Data.DataConnection.
+BaseDataContextClass           = null;
+// (string) Name of data context class.
+// Default: &lt;DATABASE_NAME&gt; + &quot;DB&quot;
+DataContextName                = null;
+// Enables generation of constructors for data context class.
+// Disabling could be usefull if you need to have custom implementation
+// of constructors in partial class
 GenerateConstructors          = true;               // Enforce generating DataContext constructors.
-DefaultConfiguration          = null;               // Defines default configuration for default DataContext constructor.
+// (string) Defines name of default configuration to use with default data context constructor
+DefaultConfiguration          = null;
 
-BaseEntityClass               = null;               // Base Entity class name. If null - none.
-DatabaseName                  = null;               // Table database name - [Table(Database=&quot;DatabaseName&quot;)].
-GenerateDatabaseName          = false;              // Always generate table database name, even though DatabaseName is null.
-IncludeDefaultSchema          = true;               // Default schema name is generated - [Table(Database=&quot;Northwind&quot;, Schema=&quot;dbo&quot;, Name=&quot;Customers&quot;)]
+/* Schemas configuration */
+// Enables generation of mappings for each schema in separate type
+GenerateSchemaAsType            = false;
+// Contains mapping of schema name to corresponding schema class name
+// By default is empty and class name generated from schema name
+// Requires GenerateSchemaAsType=true set
+SchemaNameMapping               = Dictionary&lt;string,string&gt;();
+// Suffix, added to schema class name
+// Requires GenerateSchemaAsType=true set
+SchemaNameSuffix                = &quot;Schema&quot;
+// Name of data context class for schema.
+// Requires GenerateSchemaAsType=true set
+SchemaDataContextTypeName       = &quot;DataContext&quot;
 
-OneToManyAssociationType      = &quot;IEnumerable&lt;{0}&gt;&quot;; // One To Many association type (for members only). Change it to &quot;List&lt;{0}&gt;&quot; if needed.
-GenerateAssociations          = true;               // Enforce generating associations as type members.
-GenerateBackReferences        = true;               // Enforce generating backreference associations (affects both members and extensions).
-GenerateAssociationExtensions = false;              // Enforce generating associations as extension methods. NB: this option does not affect GenerateAssociations. This will require linq2db 1.9.0 and above
+/* Table mappings configuration */
+// (string) Specify base class (or comma-separated list of class and/or interfaces) for table mappings
+BaseEntityClass               = null;
+// Enables generation of TableAttribute.Database property using database name, returned by schema loader
+GenerateDatabaseName          = false;
+// Enables generation of TableAttribute.Database property with provided name value.
+// (string) If set, overrides GenerateDatabaseName behavior
+DatabaseName                  = null;
+// Enables generation of TableAttribute.Schema property for default schema
+IncludeDefaultSchema          = true;
+// Enables generation of mappings for views
+GenerateViews                 = true;
+// Enables prefixing mapping classes for tables in non-default schema with schema name
+// E.g. MySchema.MyTable -&gt; MySchema_MyTable
+// Applicable only if GenerateSchemaAsType = false
+PrefixTableMappingWithSchema  = true;
 
-ReplaceSimilarTables          = true;               // Replaces stored procedure result class names with similar to existing table class names.
-GenerateFindExtensions        = true;               // Generates find extension methods based on PKs information.
-IsCompactColumns              = true;               // If true, column compact view.
+/* Columns comfiguration */
+// Enables compact generation of column properties
+IsCompactColumns              = true;
+// Enables compact generation of aliased column properties
+IsCompactColumnAliases              = true;
+// Enables generation of DataType, Length, Precision and Scale properties of ColumnAttribute.
+// Could be overriden (except DataType) by options below
+GenerateDataTypes                   = false;
+// (boolean) Enables or disables generation of ColumnAttribute.Length property.
+// If null, GenerateDataTypes value is used
+GenerateLengthProperty              = null;
+// (boolean) Enables or disables generation of ColumnAttribute.Precision property.
+// If null, GenerateDataTypes value is used
+GeneratePrecisionProperty           = null;
+// (boolean) Enables or disables generation of ColumnAttribute.Scale property.
+// If null, GenerateDataTypes value is used
+GenerateScaleProperty               = null;
+// Enables generation of ColumnAttribute.DbType property.
+GenerateDbTypes                     = false;
+// Enables generation of ObsoleteAttribute for column aliases
+GenerateObsoleteAttributeForAliases = false;
 
-PluralizeClassNames                 = false;   // If true, pluralizes table class names.
-SingularizeClassNames               = true;    // If true, singularizes table class names.
-PluralizeDataContextPropertyNames   = true;    // If true, pluralizes DataContext property names.
-SingularizeDataContextPropertyNames = false;   // If true, singularizes DataContex pProperty names.
+/* Associations configuration */
+// Defines type template for one-to-many association, when it is generated as a member of table mapping.
+// Some other options: &quot;{0}[]&quot;, &quot;List&lt;{0}&gt;&quot;.
+OneToManyAssociationType      = &quot;IEnumerable&lt;{0}&gt;&quot;;
+// Enables generation of associations in table mappings
+GenerateAssociations          = true;
+// Enables generation of back side of association. Applies to both table mapping members and extension
+// associations
+GenerateBackReferences        = true;
+// Enables generation of associations as extension methods for related table mapping classes
+GenerateAssociationExtensions = false;
+// Defines method to generate name for &quot;one&quot; side of association
+Func&lt;ForeignKey, string&gt; GetAssociationExtensionSinglularName
+    = GetAssociationExtensionSinglularNameDefault;
+// Defines method to generate name for &quot;many&quot; side of association
+Func&lt;ForeignKey, string&gt; GetAssociationExtensionPluralName
+    = GetAssociationExtensionPluralNameDefault;
 
-GenerateDataTypes                   = false;   // If true, generates the DataType/Length/Precision/Scale properties of the Column attribute (unless overriden by the properties below).
-GenerateDataTypeProperty            = null;    // If true, generates the DataType property of the Column attribute. If false, excludes generation on the DataType property even if GenerateDataTypes == true.
-GenerateLengthProperty              = null;    // If true, generates the Length property of the Column attribute. If false, excludes generation on the Length property even if GenerateDataTypes == true.
-GeneratePrecisionProperty           = null;    // If true, generates the Precision property of the Column attribute. If false, excludes generation on the Precision property even if GenerateDataTypes == true.
-GenerateScaleProperty               = null;    // If true, generates the Scale property of the Column attribute. If false, excludes generation on the Scale property even if GenerateDataTypes == true.
-GenerateDbTypes                     = false;   // If true, generates the DbType property of the Column attribute.
+/* Procedures and functions configuration */
+// Enables use of existing table mappings for procedures and functions that return same results as
+// defined by mapping
+ReplaceSimilarTables          = true;
+// If enabled, procedure schema load error will be generated as #error directive and fail build
+// of output file. Useful for initial generation to highlight places, that require review or
+// additional hints for schema loader
+// Also check GetSchemaOptions.LoadProcedure option above
+GenerateProcedureErrors       = true;
+// If enabled, methods for procedures that return table will be generated with List&lt;T&gt; return type and
+// IMPORTANT: this will lead to load of all procedure results into list and could lead
+// to performance issues on big results
+GenerateProcedureResultAsList = false;
 
-GenerateObsoleteAttributeForAliases = false;   // If true, generates [Obsolete] attribute for aliases.
-IsCompactColumnAliases              = true;    // If true, column alias compact view.
+/* Other generated functionality */
+// Enables generation of Find(pk fields) extension methods for record selection by primary key value
+GenerateFindExtensions        = true;
 
-NormalizeNames                      = false;   // convert some_name to SomeName for types and members
+/* Pluralization services */
+// Enables pluralization of table mapping classes
+PluralizeClassNames                 = false;
+// Enables singularization of table mapping classes
+SingularizeClassNames               = true;
+// Enables pluralization of ITable&lt;&gt; properties in data context
+PluralizeDataContextPropertyNames   = true;
+// Enables singularization of ITable&lt;&gt; properties in data context
+SingularizeDataContextPropertyNames = false;
 
-GetSchemaOptions.GetTables     = true; // Enables generation of table mappings
-GetSchemaOptions.GetProcedures = true; // Enables generation of procedures and functions mappings
-
-GetSchemaOptions.ExcludedSchemas = new[] { &quot;TestUser&quot;, &quot;SYSSTAT&quot; }; // Defines excluded schemas.
-GetSchemaOptions.IncludedSchemas = new[] { &quot;TestUser&quot;, &quot;SYS&quot; };     // Defines only included schemas.
-
-GetSchemaOptions.ExcludedCatalogs = new[] { &quot;TestUser&quot;, &quot;SYSSTAT&quot; }; // Defines excluded catalogs.
-GetSchemaOptions.IncludedCatalogs = new[] { &quot;TestUser&quot;, &quot;SYS&quot; };     // Defines only included catalogs.
-
-GetSchemaOptions.GetAssociationMemberName = key =&gt; &quot;Association_&quot; + key.MemberName;     // Defines custom naming logic for generated associations.
-
-GetSchemaOptions.LoadProcedure = p =&gt; true; // Procedure/function load filter. By default all procedures/functions loaded
-
-// check GetSchemaOptions class for more options
-
-Func&lt;string, bool, string&gt; ToValidName         = ToValidNameDefault;          // Defines function to convert names to valid (My_Table to MyTable) 
-Func&lt;string, bool, string&gt; ConvertToCompilable = ConvertToCompilableDefault;  // Converts name to c# compatible. By default removes uncompatible symbols and converts result with ToValidName
-
-Func&lt;ForeignKey, string&gt; GetAssociationExtensionSinglularName = GetAssociationExtensionSinglularNameDefault; // Gets singular method extension method name for association 
-Func&lt;ForeignKey, string&gt; GetAssociationExtensionPluralName    = GetAssociationExtensionPluralNameDefault;    // Gets plural method extension method name for association 
-</code></pre><h2 id="provider-specific-configurations">Provider specific configurations</h2>
+/* Naming configuration */
+// Enables normalization of of type and member names.
+// Default normalization removes underscores and capitalize first letter.
+// Could be overriden using ToValidName option below.
+NormalizeNames                                 = false;
+// Defines logic to convert type/member name, derived from database object name, to C# identifier.
+Func&lt;string, bool, string&gt; ToValidName         = ToValidNameDefault;
+// Makes C# identifier valid by removing unsupported symbols and calling ToValidName
+Func&lt;string, bool, string&gt; ConvertToCompilable = ConvertToCompilableDefault;
+</code></pre><h2 id="provider-specific-options">Provider specific options</h2>
 <h3 id="sql-server">SQL Server</h3>
-<pre><code class="lang-cs">bool GenerateSqlServerFreeText = true; // Defines wheather to generate extensions for Free Text search, or not
+<pre><code class="lang-cs">// Enables generation of extensions for Free Text Search
+bool GenerateSqlServerFreeText = true;
 </code></pre><h3 id="postgresql">PostgreSQL</h3>
-<pre><code class="lang-cs">bool GenerateCaseSensitiveNames = false; // Defines whether to generate case sensitive or insensitive names 
+<pre><code class="lang-cs">// Enables generation of case-sensitive names of database objects
+bool GenerateCaseSensitiveNames = false;
 </code></pre><h3 id="sybase">Sybase</h3>
-<pre><code class="lang-cs">bool GenerateSybaseSystemTables = false; // Defines whether to generate Sybase sysobjects tables or not
-</code></pre><h2 id="customizing-generation-process">Customizing generation process</h2>
+<pre><code class="lang-cs">// Enables generation of Sybase sysobjects tables
+bool GenerateSybaseSystemTables = false;
+</code></pre><h2 id="example-of-generation-process-customization">Example of generation process customization</h2>
 <p>Use the following code to modify your model <strong>before</strong> you call the <code>GenerateModel()</code> method.</p>
-<pre><code class="lang-c#">GetTable(&quot;Person&quot;).TypeName  = &quot;MyName&quot;;                                            // Replaces table name.
-GetTable(&quot;Person&quot;).BaseClass = &quot;PersonBase, IId&quot;;                                   // Set base class &amp; interface for type, null to reset 
+<pre><code class="lang-c#">// Replaces table mapping class name
+GetTable(&quot;Person&quot;).TypeName  = &quot;MyName&quot;;
+// Sets base class &amp; interface for mapping class
+GetTable(&quot;Person&quot;).BaseClass = &quot;PersonBase, IId&quot;;
 
-GetColumn(&quot;Person&quot;, &quot;PersonID&quot;)    .MemberName   = &quot;ID&quot;;                            // Replaces column PersonID of Person table with ID.
-GetColumn(&quot;Person&quot;, &quot;PasswordHash&quot;).SkipOnUpdate = true;                            // Set [Column(SkipOnUpdate=true)], same for other column options
-GetColumn(&quot;Person&quot;, &quot;Gender&quot;)      .Type         = &quot;global::Model.Gender&quot;;          // Change column type
+// Replaces property name for column PersonID of Person table with ID.
+GetColumn(&quot;Person&quot;, &quot;PersonID&quot;)    .MemberName   = &quot;ID&quot;;
+// Sets [Column(SkipOnUpdate=true)].
+// Same logic can be used for other column options
+GetColumn(&quot;Person&quot;, &quot;PasswordHash&quot;).SkipOnUpdate = true;
+// Change column property type
+GetColumn(&quot;Person&quot;, &quot;Gender&quot;)      .Type               = &quot;global::Model.Gender&quot;;
+// or
+// TypeBuilder usually used when type name depends on name from model and could change before
+// code generation
+GetColumn(&quot;Person&quot;, &quot;Gender&quot;)      .TypeBuilder        = () =&gt; &quot;global::Model.Gender&quot;;
 
-GetFK(&quot;Orders&quot;, &quot;FK_Orders_Customers&quot;).MemberName      = &quot;Customers&quot;;               // Replaces association name.
-GetFK(&quot;Orders&quot;, &quot;FK_Orders_Customers&quot;).AssociationType = AssociationType.OneToMany; // Changes association type.
+// Replaces association property name
+GetFK(&quot;Orders&quot;, &quot;FK_Orders_Customers&quot;).MemberName      = &quot;Customers&quot;;
+// Changes association type
+GetFK(&quot;Orders&quot;, &quot;FK_Orders_Customers&quot;).AssociationType = AssociationType.OneToMany;
 
 SetTable(string tableName,
     string TypeName = null,
@@ -194,9 +323,10 @@ SetTable(string tableName,
     .FK    (string fkName,     string MemberName = null, AssociationType? AssociationType = null)
     ;
 
-Model.Usings.Add(&quot;MyNamespace&quot;); // Adds using of namespace.
+// Adds extra namespace to usings
+Model.Usings.Add(&quot;MyNamespace&quot;);
 
-// Replaces all the columns where name is &#39;TableName&#39; + &#39;ID&#39; with &#39;ID&#39;.
+// Replaces all property names for columns where name is &#39;&lt;TableName&gt;&#39; + &#39;ID&#39; with &#39;ID&#39;.
 foreach (var t in Tables.Values)
     foreach (var c in t.Columns.Values)
         if (c.IsPrimaryKey &amp;&amp; c.MemberName == t.TypeName + &quot;ID&quot;)

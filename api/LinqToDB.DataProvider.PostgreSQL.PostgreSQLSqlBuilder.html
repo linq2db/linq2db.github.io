@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class PostgreSQLSqlBuilder
    | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.40.1.0">
+    <meta name="generator" content="docfx 2.40.12.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -131,10 +131,19 @@
       <a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_WrapJoinCondition">BasicSqlBuilder.WrapJoinCondition</a>
     </div>
     <div>
+      <a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_CommandCount_LinqToDB_SqlQuery_SqlStatement_">BasicSqlBuilder.CommandCount(SqlStatement)</a>
+    </div>
+    <div>
       <a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_BuildSql_System_Int32_LinqToDB_SqlQuery_SqlStatement_System_Text_StringBuilder_System_Int32_">BasicSqlBuilder.BuildSql(Int32, SqlStatement, StringBuilder, Int32)</a>
     </div>
     <div>
+      <a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_CanSkipRootAliases_LinqToDB_SqlQuery_SqlStatement_">BasicSqlBuilder.CanSkipRootAliases(SqlStatement)</a>
+    </div>
+    <div>
       <a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_BuildSql_System_Int32_LinqToDB_SqlQuery_SqlStatement_System_Text_StringBuilder_System_Int32_System_Boolean_">BasicSqlBuilder.BuildSql(Int32, SqlStatement, StringBuilder, Int32, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_BuildCommand_LinqToDB_SqlQuery_SqlStatement_System_Int32_">BasicSqlBuilder.BuildCommand(SqlStatement, Int32)</a>
     </div>
     <div>
       <a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_BuildSqlBuilder_LinqToDB_SqlQuery_SelectQuery_System_Int32_System_Boolean_">BasicSqlBuilder.BuildSqlBuilder(SelectQuery, Int32, Boolean)</a>
@@ -218,9 +227,6 @@
       <a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_BuildInsertClause_LinqToDB_SqlQuery_SqlStatement_LinqToDB_SqlQuery_SqlInsertClause_System_String_System_Boolean_System_Boolean_">BasicSqlBuilder.BuildInsertClause(SqlStatement, SqlInsertClause, String, Boolean, Boolean)</a>
     </div>
     <div>
-      <a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_BuildGetIdentity_LinqToDB_SqlQuery_SqlInsertClause_">BasicSqlBuilder.BuildGetIdentity(SqlInsertClause)</a>
-    </div>
-    <div>
       <a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_BuildInsertOrUpdateQueryAsMerge_LinqToDB_SqlQuery_SqlInsertOrUpdateStatement_System_String_">BasicSqlBuilder.BuildInsertOrUpdateQueryAsMerge(SqlInsertOrUpdateStatement, String)</a>
     </div>
     <div>
@@ -236,7 +242,7 @@
       <a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_BuildTruncateTable_LinqToDB_SqlQuery_SqlTruncateTableStatement_">BasicSqlBuilder.BuildTruncateTable(SqlTruncateTableStatement)</a>
     </div>
     <div>
-      <a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_BuildDropTableStatement_LinqToDB_SqlQuery_SqlDropTableStatement_">BasicSqlBuilder.BuildDropTableStatement(SqlDropTableStatement)</a>
+      <a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_BuildDropTableStatementIfExists_LinqToDB_SqlQuery_SqlDropTableStatement_">BasicSqlBuilder.BuildDropTableStatementIfExists(SqlDropTableStatement)</a>
     </div>
     <div>
       <a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_BuildStartCreateTableStatement_LinqToDB_SqlQuery_SqlCreateTableStatement_">BasicSqlBuilder.BuildStartCreateTableStatement(SqlCreateTableStatement)</a>
@@ -538,7 +544,7 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_IdentifierQuoteMode.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.IdentifierQuoteMode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L160">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L136">View Source</a>
   </span>
   <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_IdentifierQuoteMode" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.IdentifierQuoteMode">IdentifierQuoteMode</h4>
   <div class="markdown level1 summary"></div>
@@ -600,49 +606,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildCommand_LinqToDB_SqlQuery_SqlStatement_System_Int32_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildCommand(LinqToDB.SqlQuery.SqlStatement%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L38">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildCommand_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildCommand*"></a>
-  <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildCommand_LinqToDB_SqlQuery_SqlStatement_System_Int32_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildCommand(LinqToDB.SqlQuery.SqlStatement,System.Int32)">BuildCommand(SqlStatement, Int32)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void BuildCommand(SqlStatement statement, int commandNumber)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.SqlQuery.SqlStatement.html">SqlStatement</a></td>
-        <td><span class="parametername">statement</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.int32(v=vs.110).aspx">Int32</a></td>
-        <td><span class="parametername">commandNumber</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_BuildCommand_LinqToDB_SqlQuery_SqlStatement_System_Int32_">BasicSqlBuilder.BuildCommand(SqlStatement, Int32)</a></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildCreateTableFieldType_LinqToDB_SqlQuery_SqlField_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildCreateTableFieldType(LinqToDB.SqlQuery.SqlField)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L277">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L257">View Source</a>
   </span>
   <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildCreateTableFieldType_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildCreateTableFieldType*"></a>
   <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildCreateTableFieldType_LinqToDB_SqlQuery_SqlField_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildCreateTableFieldType(LinqToDB.SqlQuery.SqlField)">BuildCreateTableFieldType(SqlField)</h4>
@@ -676,7 +643,7 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildDataType_LinqToDB_SqlQuery_SqlDataType_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildDataType(LinqToDB.SqlQuery.SqlDataType%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L81">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L61">View Source</a>
   </span>
   <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildDataType_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildDataType*"></a>
   <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildDataType_LinqToDB_SqlQuery_SqlDataType_System_Boolean_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildDataType(LinqToDB.SqlQuery.SqlDataType,System.Boolean)">BuildDataType(SqlDataType, Boolean)</h4>
@@ -712,10 +679,44 @@
   <div><a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_BuildDataType_LinqToDB_SqlQuery_SqlDataType_System_Boolean_">BasicSqlBuilder.BuildDataType(SqlDataType, Boolean)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildDropTableStatement_LinqToDB_SqlQuery_SqlDropTableStatement_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildDropTableStatement(LinqToDB.SqlQuery.SqlDropTableStatement)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L332">View Source</a>
+  </span>
+  <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildDropTableStatement_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildDropTableStatement*"></a>
+  <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildDropTableStatement_LinqToDB_SqlQuery_SqlDropTableStatement_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildDropTableStatement(LinqToDB.SqlQuery.SqlDropTableStatement)">BuildDropTableStatement(SqlDropTableStatement)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void BuildDropTableStatement(SqlDropTableStatement dropTable)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.SqlQuery.SqlDropTableStatement.html">SqlDropTableStatement</a></td>
+        <td><span class="parametername">dropTable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_BuildDropTableStatement_LinqToDB_SqlQuery_SqlDropTableStatement_">BasicSqlBuilder.BuildDropTableStatement(SqlDropTableStatement)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildFromClause_LinqToDB_SqlQuery_SqlStatement_LinqToDB_SqlQuery_SelectQuery_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildFromClause(LinqToDB.SqlQuery.SqlStatement%2CLinqToDB.SqlQuery.SelectQuery)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L149">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L125">View Source</a>
   </span>
   <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildFromClause_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildFromClause*"></a>
   <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildFromClause_LinqToDB_SqlQuery_SqlStatement_LinqToDB_SqlQuery_SelectQuery_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildFromClause(LinqToDB.SqlQuery.SqlStatement,LinqToDB.SqlQuery.SelectQuery)">BuildFromClause(SqlStatement, SelectQuery)</h4>
@@ -751,10 +752,44 @@
   <div><a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_BuildFromClause_LinqToDB_SqlQuery_SqlStatement_LinqToDB_SqlQuery_SelectQuery_">BasicSqlBuilder.BuildFromClause(SqlStatement, SelectQuery)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildGetIdentity_LinqToDB_SqlQuery_SqlInsertClause_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildGetIdentity(LinqToDB.SqlQuery.SqlInsertClause)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L33">View Source</a>
+  </span>
+  <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildGetIdentity_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildGetIdentity*"></a>
+  <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildGetIdentity_LinqToDB_SqlQuery_SqlInsertClause_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildGetIdentity(LinqToDB.SqlQuery.SqlInsertClause)">BuildGetIdentity(SqlInsertClause)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void BuildGetIdentity(SqlInsertClause insertClause)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.SqlQuery.SqlInsertClause.html">SqlInsertClause</a></td>
+        <td><span class="parametername">insertClause</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_BuildGetIdentity_LinqToDB_SqlQuery_SqlInsertClause_">BasicSqlBuilder.BuildGetIdentity(SqlInsertClause)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildInsertOrUpdateQuery_LinqToDB_SqlQuery_SqlInsertOrUpdateStatement_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildInsertOrUpdateQuery(LinqToDB.SqlQuery.SqlInsertOrUpdateStatement)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L209">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L185">View Source</a>
   </span>
   <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildInsertOrUpdateQuery_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildInsertOrUpdateQuery*"></a>
   <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildInsertOrUpdateQuery_LinqToDB_SqlQuery_SqlInsertOrUpdateStatement_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildInsertOrUpdateQuery(LinqToDB.SqlQuery.SqlInsertOrUpdateStatement)">BuildInsertOrUpdateQuery(SqlInsertOrUpdateStatement)</h4>
@@ -788,7 +823,7 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildJoinType_LinqToDB_SqlQuery_SqlJoinedTable_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildJoinType(LinqToDB.SqlQuery.SqlJoinedTable)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L303">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L283">View Source</a>
   </span>
   <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildJoinType_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildJoinType*"></a>
   <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildJoinType_LinqToDB_SqlQuery_SqlJoinedTable_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildJoinType(LinqToDB.SqlQuery.SqlJoinedTable)">BuildJoinType(SqlJoinedTable)</h4>
@@ -837,7 +872,7 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildTableName_System_Text_StringBuilder_System_String_System_String_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildTableName(System.Text.StringBuilder%2CSystem.String%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L314">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L294">View Source</a>
   </span>
   <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildTableName_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildTableName*"></a>
   <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildTableName_System_Text_StringBuilder_System_String_System_String_System_String_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildTableName(System.Text.StringBuilder,System.String,System.String,System.String)">BuildTableName(StringBuilder, String, String, String)</h4>
@@ -901,7 +936,7 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildTruncateTableStatement_LinqToDB_SqlQuery_SqlTruncateTableStatement_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildTruncateTableStatement(LinqToDB.SqlQuery.SqlTruncateTableStatement)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L333">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L313">View Source</a>
   </span>
   <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildTruncateTableStatement_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildTruncateTableStatement*"></a>
   <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_BuildTruncateTableStatement_LinqToDB_SqlQuery_SqlTruncateTableStatement_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.BuildTruncateTableStatement(LinqToDB.SqlQuery.SqlTruncateTableStatement)">BuildTruncateTableStatement(SqlTruncateTableStatement)</h4>
@@ -932,59 +967,10 @@
   <div><a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_BuildTruncateTableStatement_LinqToDB_SqlQuery_SqlTruncateTableStatement_">BasicSqlBuilder.BuildTruncateTableStatement(SqlTruncateTableStatement)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_CommandCount_LinqToDB_SqlQuery_SqlStatement_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.CommandCount(LinqToDB.SqlQuery.SqlStatement)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L33">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_CommandCount_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.CommandCount*"></a>
-  <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_CommandCount_LinqToDB_SqlQuery_SqlStatement_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.CommandCount(LinqToDB.SqlQuery.SqlStatement)">CommandCount(SqlStatement)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override int CommandCount(SqlStatement statement)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.SqlQuery.SqlStatement.html">SqlStatement</a></td>
-        <td><span class="parametername">statement</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.int32(v=vs.110).aspx">Int32</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="LinqToDB.SqlProvider.BasicSqlBuilder.html#LinqToDB_SqlProvider_BasicSqlBuilder_CommandCount_LinqToDB_SqlQuery_SqlStatement_">BasicSqlBuilder.CommandCount(SqlStatement)</a></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_Convert_System_Object_LinqToDB_SqlProvider_ConvertType_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.Convert(System.Object%2CLinqToDB.SqlProvider.ConvertType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L162">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L138">View Source</a>
   </span>
   <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_Convert_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.Convert*"></a>
   <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_Convert_System_Object_LinqToDB_SqlProvider_ConvertType_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.Convert(System.Object,LinqToDB.SqlProvider.ConvertType)">Convert(Object, ConvertType)</h4>
@@ -1038,7 +1024,7 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_CreateSqlBuilder.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.CreateSqlBuilder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L66">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L46">View Source</a>
   </span>
   <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_CreateSqlBuilder_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.CreateSqlBuilder*"></a>
   <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_CreateSqlBuilder" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.CreateSqlBuilder">CreateSqlBuilder()</h4>
@@ -1070,7 +1056,7 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_GetIdentityExpression_LinqToDB_SqlQuery_SqlTable_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.GetIdentityExpression(LinqToDB.SqlQuery.SqlTable)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L256">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L232">View Source</a>
   </span>
   <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_GetIdentityExpression_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.GetIdentityExpression*"></a>
   <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_GetIdentityExpression_LinqToDB_SqlQuery_SqlTable_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.GetIdentityExpression(LinqToDB.SqlQuery.SqlTable)">GetIdentityExpression(SqlTable)</h4>
@@ -1119,7 +1105,7 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_GetProviderTypeName_System_Data_IDbDataParameter_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.GetProviderTypeName(System.Data.IDbDataParameter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L327">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L307">View Source</a>
   </span>
   <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_GetProviderTypeName_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.GetProviderTypeName*"></a>
   <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_GetProviderTypeName_System_Data_IDbDataParameter_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.GetProviderTypeName(System.Data.IDbDataParameter)">GetProviderTypeName(IDbDataParameter)</h4>
@@ -1168,7 +1154,7 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_IsReserved_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.IsReserved(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L155">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L131">View Source</a>
   </span>
   <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_IsReserved_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.IsReserved*"></a>
   <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_IsReserved_System_String_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.IsReserved(System.String)">IsReserved(String)</h4>
@@ -1217,7 +1203,7 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_LimitFormat_LinqToDB_SqlQuery_SelectQuery_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.LimitFormat(LinqToDB.SqlQuery.SelectQuery)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L71">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L51">View Source</a>
   </span>
   <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_LimitFormat_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.LimitFormat*"></a>
   <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_LimitFormat_LinqToDB_SqlQuery_SelectQuery_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.LimitFormat(LinqToDB.SqlQuery.SelectQuery)">LimitFormat(SelectQuery)</h4>
@@ -1266,7 +1252,7 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_OffsetFormat_LinqToDB_SqlQuery_SelectQuery_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.OffsetFormat(LinqToDB.SqlQuery.SelectQuery)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L76">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/PostgreSQL/PostgreSQLSqlBuilder.cs/#L56">View Source</a>
   </span>
   <a id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_OffsetFormat_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.OffsetFormat*"></a>
   <h4 id="LinqToDB_DataProvider_PostgreSQL_PostgreSQLSqlBuilder_OffsetFormat_LinqToDB_SqlQuery_SelectQuery_" data-uid="LinqToDB.DataProvider.PostgreSQL.PostgreSQLSqlBuilder.OffsetFormat(LinqToDB.SqlQuery.SelectQuery)">OffsetFormat(SelectQuery)</h4>
@@ -1315,6 +1301,9 @@
       <a class="xref" href="LinqToDB.SqlProvider.ISqlBuilder.html">ISqlBuilder</a>
   </div>
   <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.Mapper.Map.html#LinqToDB_Tools_Mapper_Map_DeepCopy__1___0_">Map.DeepCopy&lt;T&gt;(T)</a>
+  </div>
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
   </div>

@@ -8,7 +8,7 @@
     <title>Common Table Expression (CTE) | Linq To DB (aka linq2db) </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Common Table Expression (CTE) | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.40.1.0">
+    <meta name="generator" content="docfx 2.40.12.0">
     
     <link rel="shortcut icon" href="../../images/icon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -81,13 +81,13 @@
 
 <p>Common Table Expression (CTE) support introduced for supporting advanced SQL techniques in <code>LINQ To DB</code>.
 See documentation for Transact SQL: <a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-2017">WITH common_table_expression</a></p>
-<h2 id="when-it-is-useful">When it is useful</h2>
+<h2 id="when-ctes-are-useful">When CTEs are useful</h2>
 <ul>
-<li>Reusing same SQL part in complex query</li>
+<li>Reusing the same SQL part in complex query</li>
 <li>Recursive table processing</li>
 </ul>
 <h2 id="defining-simple-cte">Defining simple CTE</h2>
-<p>CTE in <code>LINQ To DB</code> is also <code>IQueryable</code>. Any <code>IQueryable</code> can be converted to CTE by extension method <code>AsCte(&quot;optional_name&quot;)</code>.</p>
+<p>CTE in <code>LINQ To DB</code> also implements <code>IQueryable</code>. Any <code>IQueryable</code> can be converted to CTE with the extension method <code>AsCte(&quot;optional_name&quot;)</code>.</p>
 <pre><code class="lang-cs">var employeeSubordinatesReport  =
    from e in db.Employee
    select new
@@ -103,7 +103,7 @@ See documentation for Transact SQL: <a href="https://docs.microsoft.com/en-us/sq
 
 var employeeSubordinatesReportCte = employeeSubordinatesReport
                                      .AsCte(&quot;EmployeeSubordinatesReport&quot;);
-</code></pre><p>Variable <code>employeeSubordinatesReportCte</code> can be reused in other parts of linq query.</p>
+</code></pre><p>The variable <code>employeeSubordinatesReportCte</code> can now be reused in other parts of linq query.</p>
 <pre><code class="lang-cs">var result =
    from employee in employeeSubordinatesReportCte
    from manager in employeeSubordinatesReportCte
@@ -117,7 +117,7 @@ var employeeSubordinatesReportCte = employeeSubordinatesReport
       ManagerFirstName = manager.FirstName,
       ManagerNumberOfSubordinates = manager.NumberOfSubordinates
    };
-</code></pre><p>You are not limited in defining as many CTEs as you need and they can reference each other. <code>LINQ To DB</code> will put them in correct order and generate SQL with one limitation - <strong>there should be no circular references between CTEs</strong>.</p>
+</code></pre><p>You are not limited in the number of  CTEs defined in a query, and they may reference each other. <code>LINQ To DB</code> will put them in the correct order and generate SQL with one limitation - <strong>there should be no circular references between CTEs</strong>.</p>
 <pre><code class="lang-sql">WITH [EmployeeSubordinatesReport]
 (
    [ReportsTo],
@@ -158,11 +158,11 @@ FROM
       LEFT JOIN [EmployeeSubordinatesReport] [manager]
            ON [t3].[ReportsTo] = [manager].[EmployeeID]
 </code></pre><h2 id="defining-recursive-cte">Defining recursive CTE</h2>
-<blockquote><p>Recursive CTEs are special in the sense they are allowed to reference themselves! Because of this special ability, you can use recursive CTEs to solve problems other queries cannot. Recursive CTEs are really good at working with hierarchical data such as org charts for bill of materials. <a href="https://www.essentialsql.com/recursive-ctes-explained/">Recursive CTEs Explained</a></p>
+<blockquote><p>Recursive CTEs are special because they are allowed to reference themselves! Because of this special ability, you can use recursive CTEs to solve problems other queries cannot. As an example, recursive CTEs are really good at working with hierarchical data such as org charts for bill of materials. (Further reading: <a href="https://www.essentialsql.com/recursive-ctes-explained/">Recursive CTEs Explained</a>)</p>
 </blockquote>
 <p>CTEs have limitations that are not handled by <code>LINQ To DB</code>, so you have to be aware of them before start of usage - <a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-2017#guidelines-for-defining-and-using-recursive-common-table-expressions">Guidelines for Defining and Using Recursive Common Table Expressions</a></p>
-<p>Since in C# language we can not use variable&#39;s reference in it&#39;s own initialization part, we have created function that helps in defining such queries <code>GetCte&lt;TCteProjection&gt;(cte =&gt; ...)</code>. <code>TCteProjection</code> is required generic parameter that is needed for resolving type of lambda parameter.
-The following example shows how to define CTE for calculation of employee hierarchy level</p>
+<p>Since in the C# language we can not use a variable&#39;s reference in its own initialization expression, we have created a function that helps in defining such queries: <code>GetCte&lt;TCteProjection&gt;(cte =&gt; ...)</code>. <code>TCteProjection</code> is a required generic parameter that is needed for resolving the type of the lambda parameter.
+The following example shows how to define a CTE to calculate the employee level in the hierarchy:</p>
 <pre><code class="lang-cs">// defining class for representing Recursive CTE
 class EmployeeHierarchyCTE
 {
@@ -299,7 +299,7 @@ ORDER BY
 </table>
 <h2 id="known-limitations">Known limitations</h2>
 <ul>
-<li>Oracle and Firebird DML operations that use CTE is not completely implemented.</li>
+<li>Oracle and Firebird DML operations that use CTE are not completely implemented.</li>
 <li><em>TBD</em></li>
 </ul>
 </article>
