@@ -81,32 +81,29 @@
 
 <p>T4 models are used to generate POCO&#39;s C# code using your database structure.</p>
 <h2 id="installation">Installation</h2>
-<p>Firstly you should install one of tools packages into your project:</p>
-<p><code>Install-Package linq2db.XXX</code></p>
-<p>Where XXX is one of supported databases, for example:</p>
+<p>First you should install one of packages with T4 templates into your project:</p>
+<p><code>Install-Package linq2db.&lt;PROVIDER_NAME&gt;</code></p>
+<p>Where <code>&lt;PROVIDER_NAME&gt;</code> is one of supported databases, for example:</p>
 <p><code>Install-Package linq2db.SqlServer</code></p>
-<p>This also will install needed linq2db packages:</p>
+<p>This also will install:</p>
 <ul>
-<li>linq2db.t4models</li>
-<li>linq2db </li>
-</ul>
-<p>But <strong>not</strong> data provider packages (install them only if needed to compile your project, T4 models ships it&#39;s own data provider assemblies).</p>
-<h3 id="net-core-specific">.Net Core specific</h3>
-<p>Because of .Net Core projects do not support NuGet content files all stuff is not copied into project&#39;s folder, so to run T4 templates you&#39;ll need:</p>
-<ul>
-<li>open <code>$(SolutionDir).tools\linq2db.t4models</code> in Explorer </li>
-<li>copy <code>CopyMe.XXX.Core.tt.txt</code> to your project&#39;s folder or subfolder, then you should use it instead of <code>CopyMe.XXX.tt.txt</code></li>
+<li><code>linq2db</code> package</li>
+<li>T4 templates</li>
+<li>Example of model generation T4 template (<code>CopyMe.&lt;DB_NAME&gt;.tt.txt</code>)</li>
+<li>provider package (if it is available on nuget).</li>
 </ul>
 <h2 id="running">Running</h2>
-<p>After package installing you will see new <code>LinqToDB.Templates</code> folder in your project, this folder contains all needed T4 stuff to generate your model. Also would be created new folder in tour solution: <code>$(SolutionDir).tools\linq2db.t4models</code>, it is used to store and link assemblies, needed for generation (linq2db.dll and data provider assemblies).</p>
-<p>To create a data model template take a look at one of the CopyMe.XXX.tt.txt file in your LinqToDB.Templates project folder. Copy this file to needed project location and rename it, like <code>MyModel.tt</code></p>
-<p>There are few main steps in this file:</p>
+<p>After package installing you will see new <code>LinqToDB.Templates</code> folder in your project, this folder contains all needed T4 stuff to generate your model.</p>
+<p>To create a data model template copy CopyMe.&lt;DB_NAME&gt;.tt.txt file from LinqToDB.Templates project folder to desired location and rename it to file with <code>.tt</code> extension, e.g. <code>MyModel.tt</code>. For SDK projects see important notes below.</p>
+<p>Next you need to edit content of your tt file. It contains following main sections:</p>
 <ol>
-<li>Configuring generation process (read below)</li>
-<li>Loading metadata - this is a call to <code>LoadMatadata()</code> function - it connects to your database and fetches all needed metadata (table structure, views, and so on)</li>
-<li>Customizing generation process (read below)</li>
-<li>Calling <code>GenerateModel()</code> - this will run model generation </li>
+<li>Configuration of database structure load process (<code>GetSchemaOptions</code> object properties, read more about it below)</li>
+<li>Database structure load call - this is a call to <code>LoadMatadata()</code> function - it connects to your database and fetches all needed metadata (table structure, views, procedures and so on)</li>
+<li>Customization of model generation process (read below)</li>
+<li>Call to <code>GenerateModel()</code> method to generate c# file with data model classes</li>
 </ol>
+<h4 id="sdk-project-specific">SDK project specific</h4>
+<p>Because SDK projects install nuget content files as references to files in Nuget cache instead of copying them into project&#39;s folder, to run T4 templates you&#39;ll need create empty <code>&lt;choose_your_name&gt;.tt</code> file manually and paste content of <code>CopyMe.&lt;DB_NAME&gt;.tt.txt</code> to it. Also it is not recommended to alter <code>*.ttinclude</code> files directly as you will alter nuget cache content, which will affect any other SDK projects that use that package.</p>
 <h2 id="configuring-schema-load-process">Configuring schema load process</h2>
 <p>Use the following initialization <strong>before</strong> you call the <code>LoadMetadata()</code> method.</p>
 <p>All schema load functionality configured using <code>GetSchemaOptions</code> property of <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SchemaProvider/GetSchemaOptions.cs"><code>LinqToDB.SchemaProvider.GetSchemaOptions</code></a> type. Check this class for all available options.</p>
