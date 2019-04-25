@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class AnalyticFunctions
    | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.42.0.0">
+    <meta name="generator" content="docfx 2.42.1.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -252,7 +252,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Average
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;AVG({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;AVG({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
 public static double Average&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -329,7 +329,7 @@ public static double Average&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;AVG({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;AVG({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
 public static double Average&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -665,7 +665,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;long&gt; Coun
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Count_LinqToDB_Sql_ISqlExtension_System_Object_LinqToDB_Sql_AggregateModifier_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Count(LinqToDB.Sql.ISqlExtension%2CSystem.Object%2CLinqToDB.Sql.AggregateModifier)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L526">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L527">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Count_" data-uid="LinqToDB.AnalyticFunctions.Count*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Count_LinqToDB_Sql_ISqlExtension_System_Object_LinqToDB_Sql_AggregateModifier_" data-uid="LinqToDB.AnalyticFunctions.Count(LinqToDB.Sql.ISqlExtension,System.Object,LinqToDB.Sql.AggregateModifier)">Count(Sql.ISqlExtension, Object, Sql.AggregateModifier)</h4>
@@ -723,7 +723,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;long&gt; Coun
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Count__1_LinqToDB_Sql_ISqlExtension___0_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Count%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L520">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L521">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Count_" data-uid="LinqToDB.AnalyticFunctions.Count*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Count__1_LinqToDB_Sql_ISqlExtension___0_" data-uid="LinqToDB.AnalyticFunctions.Count``1(LinqToDB.Sql.ISqlExtension,``0)">Count&lt;T&gt;(Sql.ISqlExtension, T)</h4>
@@ -799,7 +799,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Count&l
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({expr})&quot;, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
 public static long CountExt&lt;TEntity&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, object&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -867,7 +867,7 @@ public static long CountExt&lt;TEntity&gt;(this IEnumerable&lt;TEntity&gt; sourc
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
 public static long CountExt&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -944,7 +944,7 @@ public static long CountExt&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; s
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
 public static long CountExt&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr, Sql.AggregateModifier modifier = Sql.AggregateModifier.None)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1013,7 +1013,7 @@ public static long CountExt&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; so
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_CovarPop__1_LinqToDB_Sql_ISqlExtension___0___0_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.CovarPop%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L562">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L563">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_CovarPop_" data-uid="LinqToDB.AnalyticFunctions.CovarPop*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_CovarPop__1_LinqToDB_Sql_ISqlExtension___0___0_" data-uid="LinqToDB.AnalyticFunctions.CovarPop``1(LinqToDB.Sql.ISqlExtension,``0,``0)">CovarPop&lt;T&gt;(Sql.ISqlExtension, T, T)</h4>
@@ -1086,7 +1086,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; CovarPo
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_CovarPop__1_System_Collections_Generic_IEnumerable___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___System_Linq_Expressions_Expression_System_Func___0_System_Object___.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.CovarPop%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Object%7D%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Object%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L536">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L537">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_CovarPop_" data-uid="LinqToDB.AnalyticFunctions.CovarPop*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_CovarPop__1_System_Collections_Generic_IEnumerable___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___System_Linq_Expressions_Expression_System_Func___0_System_Object___" data-uid="LinqToDB.AnalyticFunctions.CovarPop``1(System.Collections.Generic.IEnumerable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">CovarPop&lt;T&gt;(IEnumerable&lt;T&gt;, Expression&lt;Func&lt;T, Object&gt;&gt;, Expression&lt;Func&lt;T, Object&gt;&gt;)</h4>
@@ -1159,7 +1159,7 @@ public static decimal CovarPop&lt;T&gt;(this IEnumerable&lt;T&gt; source, [ExprP
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_CovarPop__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___System_Linq_Expressions_Expression_System_Func___0_System_Object___.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.CovarPop%60%601(System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Object%7D%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Object%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L542">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L543">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_CovarPop_" data-uid="LinqToDB.AnalyticFunctions.CovarPop*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_CovarPop__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___System_Linq_Expressions_Expression_System_Func___0_System_Object___" data-uid="LinqToDB.AnalyticFunctions.CovarPop``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">CovarPop&lt;TEntity&gt;(IQueryable&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, Object&gt;&gt;, Expression&lt;Func&lt;TEntity, Object&gt;&gt;)</h4>
@@ -1232,7 +1232,7 @@ public static decimal CovarPop&lt;TEntity&gt;(this IQueryable&lt;TEntity&gt; sou
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_CovarSamp__1_LinqToDB_Sql_ISqlExtension___0___0_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.CovarSamp%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L598">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L599">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_CovarSamp_" data-uid="LinqToDB.AnalyticFunctions.CovarSamp*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_CovarSamp__1_LinqToDB_Sql_ISqlExtension___0___0_" data-uid="LinqToDB.AnalyticFunctions.CovarSamp``1(LinqToDB.Sql.ISqlExtension,``0,``0)">CovarSamp&lt;T&gt;(Sql.ISqlExtension, T, T)</h4>
@@ -1305,7 +1305,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; CovarSa
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_CovarSamp__1_System_Collections_Generic_IEnumerable___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___System_Linq_Expressions_Expression_System_Func___0_System_Object___.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.CovarSamp%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Object%7D%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Object%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L572">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L573">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_CovarSamp_" data-uid="LinqToDB.AnalyticFunctions.CovarSamp*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_CovarSamp__1_System_Collections_Generic_IEnumerable___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___System_Linq_Expressions_Expression_System_Func___0_System_Object___" data-uid="LinqToDB.AnalyticFunctions.CovarSamp``1(System.Collections.Generic.IEnumerable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">CovarSamp&lt;T&gt;(IEnumerable&lt;T&gt;, Expression&lt;Func&lt;T, Object&gt;&gt;, Expression&lt;Func&lt;T, Object&gt;&gt;)</h4>
@@ -1378,7 +1378,7 @@ public static decimal CovarSamp&lt;T&gt;(this IEnumerable&lt;T&gt; source, [Expr
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_CovarSamp__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___System_Linq_Expressions_Expression_System_Func___0_System_Object___.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.CovarSamp%60%601(System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Object%7D%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Object%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L578">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L579">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_CovarSamp_" data-uid="LinqToDB.AnalyticFunctions.CovarSamp*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_CovarSamp__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Object___System_Linq_Expressions_Expression_System_Func___0_System_Object___" data-uid="LinqToDB.AnalyticFunctions.CovarSamp``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">CovarSamp&lt;TEntity&gt;(IQueryable&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, Object&gt;&gt;, Expression&lt;Func&lt;TEntity, Object&gt;&gt;)</h4>
@@ -1451,7 +1451,7 @@ public static decimal CovarSamp&lt;TEntity&gt;(this IQueryable&lt;TEntity&gt; so
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_CumeDist__1_LinqToDB_Sql_ISqlExtension_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.CumeDist%60%601(LinqToDB.Sql.ISqlExtension)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L612">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L613">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_CumeDist_" data-uid="LinqToDB.AnalyticFunctions.CumeDist*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_CumeDist__1_LinqToDB_Sql_ISqlExtension_" data-uid="LinqToDB.AnalyticFunctions.CumeDist``1(LinqToDB.Sql.ISqlExtension)">CumeDist&lt;TR&gt;(Sql.ISqlExtension)</h4>
@@ -1514,7 +1514,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;TR&gt; CumeDis
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_CumeDist__1_LinqToDB_Sql_ISqlExtension_System_Object___.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.CumeDist%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L606">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L607">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_CumeDist_" data-uid="LinqToDB.AnalyticFunctions.CumeDist*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_CumeDist__1_LinqToDB_Sql_ISqlExtension_System_Object___" data-uid="LinqToDB.AnalyticFunctions.CumeDist``1(LinqToDB.Sql.ISqlExtension,System.Object[])">CumeDist&lt;TR&gt;(Sql.ISqlExtension, Object[])</h4>
@@ -1582,7 +1582,7 @@ public static AnalyticFunctions.INeedsWithinGroupWithOrderOnly&lt;TR&gt; CumeDis
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_DenseRank_LinqToDB_Sql_ISqlExtension_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.DenseRank(LinqToDB.Sql.ISqlExtension)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L624">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L625">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_DenseRank_" data-uid="LinqToDB.AnalyticFunctions.DenseRank*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_DenseRank_LinqToDB_Sql_ISqlExtension_" data-uid="LinqToDB.AnalyticFunctions.DenseRank(LinqToDB.Sql.ISqlExtension)">DenseRank(Sql.ISqlExtension)</h4>
@@ -1630,7 +1630,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;long&gt; Dense
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_DenseRank_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.DenseRank(LinqToDB.Sql.ISqlExtension%2CSystem.Object%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L618">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L619">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_DenseRank_" data-uid="LinqToDB.AnalyticFunctions.DenseRank*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_DenseRank_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_" data-uid="LinqToDB.AnalyticFunctions.DenseRank(LinqToDB.Sql.ISqlExtension,System.Object,System.Object)">DenseRank(Sql.ISqlExtension, Object, Object)</h4>
@@ -1688,7 +1688,7 @@ public static AnalyticFunctions.INeedsWithinGroupWithOrderOnly&lt;long&gt; Dense
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_FirstValue__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_Nulls_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.FirstValue%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600%2CLinqToDB.Sql.Nulls)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L630">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L631">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_FirstValue_" data-uid="LinqToDB.AnalyticFunctions.FirstValue*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_FirstValue__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_Nulls_" data-uid="LinqToDB.AnalyticFunctions.FirstValue``1(LinqToDB.Sql.ISqlExtension,``0,LinqToDB.Sql.Nulls)">FirstValue&lt;T&gt;(Sql.ISqlExtension, T, Sql.Nulls)</h4>
@@ -1761,7 +1761,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; FirstVa
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_KeepFirst__1_LinqToDB_AnalyticFunctions_IAggregateFunction___0__.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.KeepFirst%60%601(LinqToDB.AnalyticFunctions.IAggregateFunction%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1146">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1148">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_KeepFirst_" data-uid="LinqToDB.AnalyticFunctions.KeepFirst*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_KeepFirst__1_LinqToDB_AnalyticFunctions_IAggregateFunction___0__" data-uid="LinqToDB.AnalyticFunctions.KeepFirst``1(LinqToDB.AnalyticFunctions.IAggregateFunction{``0})">KeepFirst&lt;TR&gt;(AnalyticFunctions.IAggregateFunction&lt;TR&gt;)</h4>
@@ -1824,7 +1824,7 @@ public static AnalyticFunctions.INeedOrderByAndMaybeOverWithPartition&lt;TR&gt; 
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_KeepLast__1_LinqToDB_AnalyticFunctions_IAggregateFunction___0__.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.KeepLast%60%601(LinqToDB.AnalyticFunctions.IAggregateFunction%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1152">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1154">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_KeepLast_" data-uid="LinqToDB.AnalyticFunctions.KeepLast*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_KeepLast__1_LinqToDB_AnalyticFunctions_IAggregateFunction___0__" data-uid="LinqToDB.AnalyticFunctions.KeepLast``1(LinqToDB.AnalyticFunctions.IAggregateFunction{``0})">KeepLast&lt;TR&gt;(AnalyticFunctions.IAggregateFunction&lt;TR&gt;)</h4>
@@ -1887,7 +1887,7 @@ public static AnalyticFunctions.INeedOrderByAndMaybeOverWithPartition&lt;TR&gt; 
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Lag__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_Nulls_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Lag%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600%2CLinqToDB.Sql.Nulls)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L636">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L637">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Lag_" data-uid="LinqToDB.AnalyticFunctions.Lag*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Lag__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_Nulls_" data-uid="LinqToDB.AnalyticFunctions.Lag``1(LinqToDB.Sql.ISqlExtension,``0,LinqToDB.Sql.Nulls)">Lag&lt;T&gt;(Sql.ISqlExtension, T, Sql.Nulls)</h4>
@@ -1960,7 +1960,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; Lag&lt;T
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Lag__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_Nulls_System_Int32_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Lag%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600%2CLinqToDB.Sql.Nulls%2CSystem.Int32%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L642">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L643">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Lag_" data-uid="LinqToDB.AnalyticFunctions.Lag*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Lag__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_Nulls_System_Int32_System_Nullable_System_Int32__" data-uid="LinqToDB.AnalyticFunctions.Lag``1(LinqToDB.Sql.ISqlExtension,``0,LinqToDB.Sql.Nulls,System.Int32,System.Nullable{System.Int32})">Lag&lt;T&gt;(Sql.ISqlExtension, T, Sql.Nulls, Int32, Nullable&lt;Int32&gt;)</h4>
@@ -2043,7 +2043,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; Lag&lt;T
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_LastValue__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_Nulls_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.LastValue%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600%2CLinqToDB.Sql.Nulls)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L648">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L649">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_LastValue_" data-uid="LinqToDB.AnalyticFunctions.LastValue*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_LastValue__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_Nulls_" data-uid="LinqToDB.AnalyticFunctions.LastValue``1(LinqToDB.Sql.ISqlExtension,``0,LinqToDB.Sql.Nulls)">LastValue&lt;T&gt;(Sql.ISqlExtension, T, Sql.Nulls)</h4>
@@ -2116,7 +2116,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; LastVal
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Lead__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_Nulls_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Lead%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600%2CLinqToDB.Sql.Nulls)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L654">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L655">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Lead_" data-uid="LinqToDB.AnalyticFunctions.Lead*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Lead__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_Nulls_" data-uid="LinqToDB.AnalyticFunctions.Lead``1(LinqToDB.Sql.ISqlExtension,``0,LinqToDB.Sql.Nulls)">Lead&lt;T&gt;(Sql.ISqlExtension, T, Sql.Nulls)</h4>
@@ -2189,7 +2189,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; Lead&lt;
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Lead__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_Nulls_System_Int32_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Lead%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600%2CLinqToDB.Sql.Nulls%2CSystem.Int32%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L660">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L661">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Lead_" data-uid="LinqToDB.AnalyticFunctions.Lead*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Lead__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_Nulls_System_Int32_System_Nullable_System_Int32__" data-uid="LinqToDB.AnalyticFunctions.Lead``1(LinqToDB.Sql.ISqlExtension,``0,LinqToDB.Sql.Nulls,System.Int32,System.Nullable{System.Int32})">Lead&lt;T&gt;(Sql.ISqlExtension, T, Sql.Nulls, Int32, Nullable&lt;Int32&gt;)</h4>
@@ -2272,7 +2272,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; Lead&lt;
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_ListAgg__1_LinqToDB_Sql_ISqlExtension___0_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.ListAgg%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L666">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L667">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_ListAgg_" data-uid="LinqToDB.AnalyticFunctions.ListAgg*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_ListAgg__1_LinqToDB_Sql_ISqlExtension___0_" data-uid="LinqToDB.AnalyticFunctions.ListAgg``1(LinqToDB.Sql.ISqlExtension,``0)">ListAgg&lt;T&gt;(Sql.ISqlExtension, T)</h4>
@@ -2340,7 +2340,7 @@ public static AnalyticFunctions.INeedsWithinGroupWithOrderAndMaybePartition&lt;s
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_ListAgg__1_LinqToDB_Sql_ISqlExtension___0_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.ListAgg%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L671">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L673">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_ListAgg_" data-uid="LinqToDB.AnalyticFunctions.ListAgg*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_ListAgg__1_LinqToDB_Sql_ISqlExtension___0_System_String_" data-uid="LinqToDB.AnalyticFunctions.ListAgg``1(LinqToDB.Sql.ISqlExtension,``0,System.String)">ListAgg&lt;T&gt;(Sql.ISqlExtension, T, String)</h4>
@@ -2413,7 +2413,7 @@ public static AnalyticFunctions.INeedsWithinGroupWithOrderAndMaybePartition&lt;s
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Max__1_LinqToDB_Sql_ISqlExtension___0_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Max%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L701">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L703">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Max_" data-uid="LinqToDB.AnalyticFunctions.Max*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Max__1_LinqToDB_Sql_ISqlExtension___0_" data-uid="LinqToDB.AnalyticFunctions.Max``1(LinqToDB.Sql.ISqlExtension,``0)">Max&lt;T&gt;(Sql.ISqlExtension, T)</h4>
@@ -2481,7 +2481,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Max&lt;
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Max__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_AggregateModifier_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Max%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600%2CLinqToDB.Sql.AggregateModifier)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L707">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L709">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Max_" data-uid="LinqToDB.AnalyticFunctions.Max*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Max__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_AggregateModifier_" data-uid="LinqToDB.AnalyticFunctions.Max``1(LinqToDB.Sql.ISqlExtension,``0,LinqToDB.Sql.AggregateModifier)">Max&lt;T&gt;(Sql.ISqlExtension, T, Sql.AggregateModifier)</h4>
@@ -2554,7 +2554,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Max&lt;
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Max__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__LinqToDB_Sql_AggregateModifier_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Max%60%602(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Func%7B%60%600%2C%60%601%7D%2CLinqToDB.Sql.AggregateModifier)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L679">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L681">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Max_" data-uid="LinqToDB.AnalyticFunctions.Max*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Max__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__LinqToDB_Sql_AggregateModifier_" data-uid="LinqToDB.AnalyticFunctions.Max``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},LinqToDB.Sql.AggregateModifier)">Max&lt;TEntity, TV&gt;(IEnumerable&lt;TEntity&gt;, Func&lt;TEntity, TV&gt;, Sql.AggregateModifier)</h4>
@@ -2562,7 +2562,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Max&lt;
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MAX({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MAX({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
 public static TV Max&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -2631,7 +2631,7 @@ public static TV Max&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, 
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Max__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___LinqToDB_Sql_AggregateModifier_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Max%60%602(System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%7D%7D%2CLinqToDB.Sql.AggregateModifier)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L685">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L687">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Max_" data-uid="LinqToDB.AnalyticFunctions.Max*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Max__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___LinqToDB_Sql_AggregateModifier_" data-uid="LinqToDB.AnalyticFunctions.Max``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},LinqToDB.Sql.AggregateModifier)">Max&lt;TEntity, TV&gt;(IQueryable&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TV&gt;&gt;, Sql.AggregateModifier)</h4>
@@ -2639,7 +2639,7 @@ public static TV Max&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MAX({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MAX({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
 public static TV Max&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -2708,7 +2708,7 @@ public static TV Max&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Median__1_LinqToDB_Sql_ISqlExtension___0_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Median%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L739">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L741">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Median_" data-uid="LinqToDB.AnalyticFunctions.Median*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Median__1_LinqToDB_Sql_ISqlExtension___0_" data-uid="LinqToDB.AnalyticFunctions.Median``1(LinqToDB.Sql.ISqlExtension,``0)">Median&lt;T&gt;(Sql.ISqlExtension, T)</h4>
@@ -2776,7 +2776,7 @@ public static AnalyticFunctions.IReadyToFunctionOrOverWithPartition&lt;T&gt; Med
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Median__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Median%60%602(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Func%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L717">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L719">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Median_" data-uid="LinqToDB.AnalyticFunctions.Median*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Median__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__" data-uid="LinqToDB.AnalyticFunctions.Median``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">Median&lt;TEntity, T&gt;(IEnumerable&lt;TEntity&gt;, Func&lt;TEntity, T&gt;)</h4>
@@ -2848,7 +2848,7 @@ public static long Median&lt;TEntity, T&gt;(this IEnumerable&lt;TEntity&gt; sour
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Median__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Median%60%602(System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L723">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L725">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Median_" data-uid="LinqToDB.AnalyticFunctions.Median*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Median__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___" data-uid="LinqToDB.AnalyticFunctions.Median``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">Median&lt;TEntity, TV&gt;(IQueryable&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TV&gt;&gt;)</h4>
@@ -2920,7 +2920,7 @@ public static long Median&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; sour
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Min__1_LinqToDB_Sql_ISqlExtension___0_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Min%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L771">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L773">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Min_" data-uid="LinqToDB.AnalyticFunctions.Min*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Min__1_LinqToDB_Sql_ISqlExtension___0_" data-uid="LinqToDB.AnalyticFunctions.Min``1(LinqToDB.Sql.ISqlExtension,``0)">Min&lt;T&gt;(Sql.ISqlExtension, T)</h4>
@@ -2988,7 +2988,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Min&lt;
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Min__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_AggregateModifier_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Min%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600%2CLinqToDB.Sql.AggregateModifier)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L777">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L779">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Min_" data-uid="LinqToDB.AnalyticFunctions.Min*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Min__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_AggregateModifier_" data-uid="LinqToDB.AnalyticFunctions.Min``1(LinqToDB.Sql.ISqlExtension,``0,LinqToDB.Sql.AggregateModifier)">Min&lt;T&gt;(Sql.ISqlExtension, T, Sql.AggregateModifier)</h4>
@@ -3061,7 +3061,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Min&lt;
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Min__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__LinqToDB_Sql_AggregateModifier_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Min%60%602(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Func%7B%60%600%2C%60%601%7D%2CLinqToDB.Sql.AggregateModifier)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L749">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L751">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Min_" data-uid="LinqToDB.AnalyticFunctions.Min*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Min__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__LinqToDB_Sql_AggregateModifier_" data-uid="LinqToDB.AnalyticFunctions.Min``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},LinqToDB.Sql.AggregateModifier)">Min&lt;TEntity, TV&gt;(IEnumerable&lt;TEntity&gt;, Func&lt;TEntity, TV&gt;, Sql.AggregateModifier)</h4>
@@ -3069,7 +3069,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Min&lt;
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MIN({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MIN({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
 public static TV Min&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -3138,7 +3138,7 @@ public static TV Min&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, 
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Min__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___LinqToDB_Sql_AggregateModifier_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Min%60%602(System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%7D%7D%2CLinqToDB.Sql.AggregateModifier)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L755">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L757">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Min_" data-uid="LinqToDB.AnalyticFunctions.Min*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Min__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___LinqToDB_Sql_AggregateModifier_" data-uid="LinqToDB.AnalyticFunctions.Min``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},LinqToDB.Sql.AggregateModifier)">Min&lt;TEntity, TV&gt;(IQueryable&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TV&gt;&gt;, Sql.AggregateModifier)</h4>
@@ -3146,7 +3146,7 @@ public static TV Min&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MIN({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MIN({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
 public static TV Min&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -3215,7 +3215,7 @@ public static TV Min&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_NthValue__1_LinqToDB_Sql_ISqlExtension___0_System_Int64_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.NthValue%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600%2CSystem.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L785">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L787">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_NthValue_" data-uid="LinqToDB.AnalyticFunctions.NthValue*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_NthValue__1_LinqToDB_Sql_ISqlExtension___0_System_Int64_" data-uid="LinqToDB.AnalyticFunctions.NthValue``1(LinqToDB.Sql.ISqlExtension,``0,System.Int64)">NthValue&lt;T&gt;(Sql.ISqlExtension, T, Int64)</h4>
@@ -3288,7 +3288,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; NthValu
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_NthValue__1_LinqToDB_Sql_ISqlExtension___0_System_Int64_LinqToDB_Sql_From_LinqToDB_Sql_Nulls_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.NthValue%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600%2CSystem.Int64%2CLinqToDB.Sql.From%2CLinqToDB.Sql.Nulls)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L791">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L793">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_NthValue_" data-uid="LinqToDB.AnalyticFunctions.NthValue*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_NthValue__1_LinqToDB_Sql_ISqlExtension___0_System_Int64_LinqToDB_Sql_From_LinqToDB_Sql_Nulls_" data-uid="LinqToDB.AnalyticFunctions.NthValue``1(LinqToDB.Sql.ISqlExtension,``0,System.Int64,LinqToDB.Sql.From,LinqToDB.Sql.Nulls)">NthValue&lt;T&gt;(Sql.ISqlExtension, T, Int64, Sql.From, Sql.Nulls)</h4>
@@ -3371,7 +3371,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; NthValu
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_NTile__1_LinqToDB_Sql_ISqlExtension___0_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.NTile%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L797">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L799">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_NTile_" data-uid="LinqToDB.AnalyticFunctions.NTile*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_NTile__1_LinqToDB_Sql_ISqlExtension___0_" data-uid="LinqToDB.AnalyticFunctions.NTile``1(LinqToDB.Sql.ISqlExtension,``0)">NTile&lt;T&gt;(Sql.ISqlExtension, T)</h4>
@@ -3439,7 +3439,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; NTile&lt
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_PercentileCont__1_LinqToDB_Sql_ISqlExtension_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.PercentileCont%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L815">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L817">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_PercentileCont_" data-uid="LinqToDB.AnalyticFunctions.PercentileCont*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_PercentileCont__1_LinqToDB_Sql_ISqlExtension_System_Object_" data-uid="LinqToDB.AnalyticFunctions.PercentileCont``1(LinqToDB.Sql.ISqlExtension,System.Object)">PercentileCont&lt;T&gt;(Sql.ISqlExtension, Object)</h4>
@@ -3507,7 +3507,7 @@ public static AnalyticFunctions.INeedsWithinGroupWithSingleOrderAndMaybePartitio
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_PercentileDisc__1_LinqToDB_Sql_ISqlExtension_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.PercentileDisc%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L822">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L824">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_PercentileDisc_" data-uid="LinqToDB.AnalyticFunctions.PercentileDisc*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_PercentileDisc__1_LinqToDB_Sql_ISqlExtension_System_Object_" data-uid="LinqToDB.AnalyticFunctions.PercentileDisc``1(LinqToDB.Sql.ISqlExtension,System.Object)">PercentileDisc&lt;T&gt;(Sql.ISqlExtension, Object)</h4>
@@ -3575,7 +3575,7 @@ public static AnalyticFunctions.INeedsWithinGroupWithSingleOrderAndMaybePartitio
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_PercentRank__1_LinqToDB_Sql_ISqlExtension_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.PercentRank%60%601(LinqToDB.Sql.ISqlExtension)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L809">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L811">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_PercentRank_" data-uid="LinqToDB.AnalyticFunctions.PercentRank*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_PercentRank__1_LinqToDB_Sql_ISqlExtension_" data-uid="LinqToDB.AnalyticFunctions.PercentRank``1(LinqToDB.Sql.ISqlExtension)">PercentRank&lt;T&gt;(Sql.ISqlExtension)</h4>
@@ -3638,7 +3638,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; PercentR
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_PercentRank__1_LinqToDB_Sql_ISqlExtension_System_Object___.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.PercentRank%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L803">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L805">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_PercentRank_" data-uid="LinqToDB.AnalyticFunctions.PercentRank*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_PercentRank__1_LinqToDB_Sql_ISqlExtension_System_Object___" data-uid="LinqToDB.AnalyticFunctions.PercentRank``1(LinqToDB.Sql.ISqlExtension,System.Object[])">PercentRank&lt;T&gt;(Sql.ISqlExtension, Object[])</h4>
@@ -3706,7 +3706,7 @@ public static AnalyticFunctions.INeedsWithinGroupWithOrderOnly&lt;T&gt; PercentR
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Rank_LinqToDB_Sql_ISqlExtension_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Rank(LinqToDB.Sql.ISqlExtension)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L834">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L836">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Rank_" data-uid="LinqToDB.AnalyticFunctions.Rank*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Rank_LinqToDB_Sql_ISqlExtension_" data-uid="LinqToDB.AnalyticFunctions.Rank(LinqToDB.Sql.ISqlExtension)">Rank(Sql.ISqlExtension)</h4>
@@ -3754,7 +3754,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;long&gt; Rank(
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Rank_LinqToDB_Sql_ISqlExtension_System_Object___.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Rank(LinqToDB.Sql.ISqlExtension%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L828">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L830">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Rank_" data-uid="LinqToDB.AnalyticFunctions.Rank*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Rank_LinqToDB_Sql_ISqlExtension_System_Object___" data-uid="LinqToDB.AnalyticFunctions.Rank(LinqToDB.Sql.ISqlExtension,System.Object[])">Rank(Sql.ISqlExtension, Object[])</h4>
@@ -3807,7 +3807,7 @@ public static AnalyticFunctions.INeedsWithinGroupWithOrderOnly&lt;long&gt; Rank(
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_RatioToReport__1_LinqToDB_Sql_ISqlExtension_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.RatioToReport%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L840">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L842">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_RatioToReport_" data-uid="LinqToDB.AnalyticFunctions.RatioToReport*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_RatioToReport__1_LinqToDB_Sql_ISqlExtension_System_Object_" data-uid="LinqToDB.AnalyticFunctions.RatioToReport``1(LinqToDB.Sql.ISqlExtension,System.Object)">RatioToReport&lt;TR&gt;(Sql.ISqlExtension, Object)</h4>
@@ -3875,7 +3875,7 @@ public static AnalyticFunctions.IOverWithPartitionNeeded&lt;TR&gt; RatioToReport
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_RegrAvgX__1_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.RegrAvgX%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L872">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L874">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_RegrAvgX_" data-uid="LinqToDB.AnalyticFunctions.RegrAvgX*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_RegrAvgX__1_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_" data-uid="LinqToDB.AnalyticFunctions.RegrAvgX``1(LinqToDB.Sql.ISqlExtension,System.Object,System.Object)">RegrAvgX&lt;T&gt;(Sql.ISqlExtension, Object, Object)</h4>
@@ -3948,7 +3948,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrAvg
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_RegrAvgY__1_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.RegrAvgY%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L878">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L880">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_RegrAvgY_" data-uid="LinqToDB.AnalyticFunctions.RegrAvgY*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_RegrAvgY__1_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_" data-uid="LinqToDB.AnalyticFunctions.RegrAvgY``1(LinqToDB.Sql.ISqlExtension,System.Object,System.Object)">RegrAvgY&lt;T&gt;(Sql.ISqlExtension, Object, Object)</h4>
@@ -4021,7 +4021,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrAvg
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_RegrCount_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.RegrCount(LinqToDB.Sql.ISqlExtension%2CSystem.Object%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L860">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L862">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_RegrCount_" data-uid="LinqToDB.AnalyticFunctions.RegrCount*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_RegrCount_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_" data-uid="LinqToDB.AnalyticFunctions.RegrCount(LinqToDB.Sql.ISqlExtension,System.Object,System.Object)">RegrCount(Sql.ISqlExtension, Object, Object)</h4>
@@ -4079,7 +4079,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;long&gt; Regr
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_RegrIntercept__1_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.RegrIntercept%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L854">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L856">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_RegrIntercept_" data-uid="LinqToDB.AnalyticFunctions.RegrIntercept*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_RegrIntercept__1_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_" data-uid="LinqToDB.AnalyticFunctions.RegrIntercept``1(LinqToDB.Sql.ISqlExtension,System.Object,System.Object)">RegrIntercept&lt;T&gt;(Sql.ISqlExtension, Object, Object)</h4>
@@ -4152,7 +4152,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrInt
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_RegrR2__1_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.RegrR2%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L866">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L868">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_RegrR2_" data-uid="LinqToDB.AnalyticFunctions.RegrR2*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_RegrR2__1_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_" data-uid="LinqToDB.AnalyticFunctions.RegrR2``1(LinqToDB.Sql.ISqlExtension,System.Object,System.Object)">RegrR2&lt;T&gt;(Sql.ISqlExtension, Object, Object)</h4>
@@ -4225,7 +4225,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrR2&
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_RegrSlope__1_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.RegrSlope%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L848">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L850">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_RegrSlope_" data-uid="LinqToDB.AnalyticFunctions.RegrSlope*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_RegrSlope__1_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_" data-uid="LinqToDB.AnalyticFunctions.RegrSlope``1(LinqToDB.Sql.ISqlExtension,System.Object,System.Object)">RegrSlope&lt;T&gt;(Sql.ISqlExtension, Object, Object)</h4>
@@ -4298,7 +4298,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrSlo
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_RegrSXX__1_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.RegrSXX%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L885">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L887">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_RegrSXX_" data-uid="LinqToDB.AnalyticFunctions.RegrSXX*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_RegrSXX__1_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_" data-uid="LinqToDB.AnalyticFunctions.RegrSXX``1(LinqToDB.Sql.ISqlExtension,System.Object,System.Object)">RegrSXX&lt;T&gt;(Sql.ISqlExtension, Object, Object)</h4>
@@ -4371,7 +4371,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrSXX
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_RegrSXY__1_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.RegrSXY%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L899">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L901">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_RegrSXY_" data-uid="LinqToDB.AnalyticFunctions.RegrSXY*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_RegrSXY__1_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_" data-uid="LinqToDB.AnalyticFunctions.RegrSXY``1(LinqToDB.Sql.ISqlExtension,System.Object,System.Object)">RegrSXY&lt;T&gt;(Sql.ISqlExtension, Object, Object)</h4>
@@ -4444,7 +4444,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrSXY
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_RegrSYY__1_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.RegrSYY%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L892">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L894">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_RegrSYY_" data-uid="LinqToDB.AnalyticFunctions.RegrSYY*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_RegrSYY__1_LinqToDB_Sql_ISqlExtension_System_Object_System_Object_" data-uid="LinqToDB.AnalyticFunctions.RegrSYY``1(LinqToDB.Sql.ISqlExtension,System.Object,System.Object)">RegrSYY&lt;T&gt;(Sql.ISqlExtension, Object, Object)</h4>
@@ -4517,7 +4517,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrSYY
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_RowNumber_LinqToDB_Sql_ISqlExtension_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.RowNumber(LinqToDB.Sql.ISqlExtension)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L907">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L909">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_RowNumber_" data-uid="LinqToDB.AnalyticFunctions.RowNumber*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_RowNumber_LinqToDB_Sql_ISqlExtension_" data-uid="LinqToDB.AnalyticFunctions.RowNumber(LinqToDB.Sql.ISqlExtension)">RowNumber(Sql.ISqlExtension)</h4>
@@ -4565,7 +4565,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;long&gt; RowNu
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_StdDev__1_LinqToDB_Sql_ISqlExtension_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.StdDev%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L946">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L948">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_StdDev_" data-uid="LinqToDB.AnalyticFunctions.StdDev*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_StdDev__1_LinqToDB_Sql_ISqlExtension_System_Object_" data-uid="LinqToDB.AnalyticFunctions.StdDev``1(LinqToDB.Sql.ISqlExtension,System.Object)">StdDev&lt;T&gt;(Sql.ISqlExtension, Object)</h4>
@@ -4634,7 +4634,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; StdDev&
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_StdDev__1_LinqToDB_Sql_ISqlExtension_System_Object_LinqToDB_Sql_AggregateModifier_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.StdDev%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object%2CLinqToDB.Sql.AggregateModifier)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L953">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L955">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_StdDev_" data-uid="LinqToDB.AnalyticFunctions.StdDev*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_StdDev__1_LinqToDB_Sql_ISqlExtension_System_Object_LinqToDB_Sql_AggregateModifier_" data-uid="LinqToDB.AnalyticFunctions.StdDev``1(LinqToDB.Sql.ISqlExtension,System.Object,LinqToDB.Sql.AggregateModifier)">StdDev&lt;T&gt;(Sql.ISqlExtension, Object, Sql.AggregateModifier)</h4>
@@ -4708,7 +4708,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; StdDev&
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_StdDev__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.StdDev%60%602(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Func%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L915">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L917">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_StdDev_" data-uid="LinqToDB.AnalyticFunctions.StdDev*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_StdDev__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__" data-uid="LinqToDB.AnalyticFunctions.StdDev``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">StdDev&lt;TEntity, TV&gt;(IEnumerable&lt;TEntity&gt;, Func&lt;TEntity, TV&gt;)</h4>
@@ -4716,8 +4716,8 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; StdDev&
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDEV({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
-[Sql.Extension(&quot;Oracle&quot;, &quot;STDDEV({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDEV({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 0, IsAggregate = true)]
+[Sql.Extension(&quot;Oracle&quot;, &quot;STDDEV({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 0, IsAggregate = true)]
 public static double StdDev&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4781,7 +4781,7 @@ public static double StdDev&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; s
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_StdDev__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__LinqToDB_Sql_AggregateModifier_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.StdDev%60%602(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Func%7B%60%600%2C%60%601%7D%2CLinqToDB.Sql.AggregateModifier)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L922">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L924">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_StdDev_" data-uid="LinqToDB.AnalyticFunctions.StdDev*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_StdDev__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__LinqToDB_Sql_AggregateModifier_" data-uid="LinqToDB.AnalyticFunctions.StdDev``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},LinqToDB.Sql.AggregateModifier)">StdDev&lt;TEntity, TV&gt;(IEnumerable&lt;TEntity&gt;, Func&lt;TEntity, TV&gt;, Sql.AggregateModifier)</h4>
@@ -4789,8 +4789,8 @@ public static double StdDev&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; s
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 1, IsAggregate = true)]
-[Sql.Extension(&quot;Oracle&quot;, &quot;STDDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 0, IsAggregate = true)]
+[Sql.Extension(&quot;Oracle&quot;, &quot;STDDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 0, IsAggregate = true)]
 public static double StdDev&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4859,7 +4859,7 @@ public static double StdDev&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; s
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_StdDev__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___LinqToDB_Sql_AggregateModifier_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.StdDev%60%602(System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%7D%7D%2CLinqToDB.Sql.AggregateModifier)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L929">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L931">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_StdDev_" data-uid="LinqToDB.AnalyticFunctions.StdDev*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_StdDev__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___LinqToDB_Sql_AggregateModifier_" data-uid="LinqToDB.AnalyticFunctions.StdDev``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},LinqToDB.Sql.AggregateModifier)">StdDev&lt;TEntity, TV&gt;(IQueryable&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TV&gt;&gt;, Sql.AggregateModifier)</h4>
@@ -4867,8 +4867,8 @@ public static double StdDev&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; s
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 1, IsAggregate = true)]
-[Sql.Extension(&quot;Oracle&quot;, &quot;STDDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 0, IsAggregate = true)]
+[Sql.Extension(&quot;Oracle&quot;, &quot;STDDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 0, IsAggregate = true)]
 public static double StdDev&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr, Sql.AggregateModifier modifier = Sql.AggregateModifier.None)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4937,7 +4937,7 @@ public static double StdDev&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; so
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_StdDevPop__1_LinqToDB_Sql_ISqlExtension_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.StdDevPop%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L986">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L988">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_StdDevPop_" data-uid="LinqToDB.AnalyticFunctions.StdDevPop*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_StdDevPop__1_LinqToDB_Sql_ISqlExtension_System_Object_" data-uid="LinqToDB.AnalyticFunctions.StdDevPop``1(LinqToDB.Sql.ISqlExtension,System.Object)">StdDevPop&lt;T&gt;(Sql.ISqlExtension, Object)</h4>
@@ -5005,7 +5005,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; StdDevP
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_StdDevPop__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.StdDevPop%60%602(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Func%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L964">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L966">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_StdDevPop_" data-uid="LinqToDB.AnalyticFunctions.StdDevPop*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_StdDevPop__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__" data-uid="LinqToDB.AnalyticFunctions.StdDevPop``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">StdDevPop&lt;TEntity, TV&gt;(IEnumerable&lt;TEntity&gt;, Func&lt;TEntity, TV&gt;)</h4>
@@ -5013,7 +5013,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; StdDevP
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_POP({expr})&quot;, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_POP({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
 public static decimal StdDevPop&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5077,7 +5077,7 @@ public static decimal StdDevPop&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&g
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_StdDevPop__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.StdDevPop%60%602(System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L970">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L972">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_StdDevPop_" data-uid="LinqToDB.AnalyticFunctions.StdDevPop*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_StdDevPop__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___" data-uid="LinqToDB.AnalyticFunctions.StdDevPop``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">StdDevPop&lt;TEntity, TV&gt;(IQueryable&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TV&gt;&gt;)</h4>
@@ -5085,7 +5085,7 @@ public static decimal StdDevPop&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&g
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_POP({expr})&quot;, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_POP({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
 public static decimal StdDevPop&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5149,7 +5149,7 @@ public static decimal StdDevPop&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_StdDevSamp__1_LinqToDB_Sql_ISqlExtension_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.StdDevSamp%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1018">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1020">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_StdDevSamp_" data-uid="LinqToDB.AnalyticFunctions.StdDevSamp*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_StdDevSamp__1_LinqToDB_Sql_ISqlExtension_System_Object_" data-uid="LinqToDB.AnalyticFunctions.StdDevSamp``1(LinqToDB.Sql.ISqlExtension,System.Object)">StdDevSamp&lt;T&gt;(Sql.ISqlExtension, Object)</h4>
@@ -5217,7 +5217,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; StdDevS
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_StdDevSamp__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.StdDevSamp%60%602(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Func%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L996">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L998">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_StdDevSamp_" data-uid="LinqToDB.AnalyticFunctions.StdDevSamp*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_StdDevSamp__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__" data-uid="LinqToDB.AnalyticFunctions.StdDevSamp``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">StdDevSamp&lt;TEntity, TV&gt;(IEnumerable&lt;TEntity&gt;, Func&lt;TEntity, TV&gt;)</h4>
@@ -5225,7 +5225,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; StdDevS
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_SAMP({expr})&quot;, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_SAMP({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
 public static decimal StdDevSamp&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5289,7 +5289,7 @@ public static decimal StdDevSamp&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_StdDevSamp__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.StdDevSamp%60%602(System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1002">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1004">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_StdDevSamp_" data-uid="LinqToDB.AnalyticFunctions.StdDevSamp*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_StdDevSamp__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___" data-uid="LinqToDB.AnalyticFunctions.StdDevSamp``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">StdDevSamp&lt;TEntity, TV&gt;(IQueryable&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TV&gt;&gt;)</h4>
@@ -5297,7 +5297,7 @@ public static decimal StdDevSamp&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_SAMP({expr})&quot;, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_SAMP({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
 public static decimal StdDevSamp&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5361,7 +5361,7 @@ public static decimal StdDevSamp&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&g
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Sum__1_LinqToDB_Sql_ISqlExtension___0_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Sum%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1026">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1028">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Sum_" data-uid="LinqToDB.AnalyticFunctions.Sum*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Sum__1_LinqToDB_Sql_ISqlExtension___0_" data-uid="LinqToDB.AnalyticFunctions.Sum``1(LinqToDB.Sql.ISqlExtension,``0)">Sum&lt;T&gt;(Sql.ISqlExtension, T)</h4>
@@ -5429,7 +5429,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Sum&lt;
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Sum__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_AggregateModifier_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Sum%60%601(LinqToDB.Sql.ISqlExtension%2C%60%600%2CLinqToDB.Sql.AggregateModifier)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1032">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1034">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Sum_" data-uid="LinqToDB.AnalyticFunctions.Sum*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Sum__1_LinqToDB_Sql_ISqlExtension___0_LinqToDB_Sql_AggregateModifier_" data-uid="LinqToDB.AnalyticFunctions.Sum``1(LinqToDB.Sql.ISqlExtension,``0,LinqToDB.Sql.AggregateModifier)">Sum&lt;T&gt;(Sql.ISqlExtension, T, Sql.AggregateModifier)</h4>
@@ -5502,7 +5502,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Sum&lt;
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Variance__1_LinqToDB_Sql_ISqlExtension_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Variance%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1132">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1134">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Variance_" data-uid="LinqToDB.AnalyticFunctions.Variance*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Variance__1_LinqToDB_Sql_ISqlExtension_System_Object_" data-uid="LinqToDB.AnalyticFunctions.Variance``1(LinqToDB.Sql.ISqlExtension,System.Object)">Variance&lt;T&gt;(Sql.ISqlExtension, Object)</h4>
@@ -5570,7 +5570,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Varianc
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Variance__1_LinqToDB_Sql_ISqlExtension_System_Object_LinqToDB_Sql_AggregateModifier_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Variance%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object%2CLinqToDB.Sql.AggregateModifier)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1138">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1140">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Variance_" data-uid="LinqToDB.AnalyticFunctions.Variance*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Variance__1_LinqToDB_Sql_ISqlExtension_System_Object_LinqToDB_Sql_AggregateModifier_" data-uid="LinqToDB.AnalyticFunctions.Variance``1(LinqToDB.Sql.ISqlExtension,System.Object,LinqToDB.Sql.AggregateModifier)">Variance&lt;T&gt;(Sql.ISqlExtension, Object, Sql.AggregateModifier)</h4>
@@ -5643,7 +5643,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Varianc
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Variance__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Variance%60%602(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Func%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1104">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1106">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Variance_" data-uid="LinqToDB.AnalyticFunctions.Variance*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Variance__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__" data-uid="LinqToDB.AnalyticFunctions.Variance``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">Variance&lt;TEntity, TV&gt;(IEnumerable&lt;TEntity&gt;, Func&lt;TEntity, TV&gt;)</h4>
@@ -5651,7 +5651,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Varianc
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VARIANCE({expr})&quot;, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VARIANCE({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
 public static TV Variance&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5715,7 +5715,7 @@ public static TV Variance&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; sou
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Variance__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__LinqToDB_Sql_AggregateModifier_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Variance%60%602(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Func%7B%60%600%2C%60%601%7D%2CLinqToDB.Sql.AggregateModifier)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1110">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1112">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Variance_" data-uid="LinqToDB.AnalyticFunctions.Variance*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Variance__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__LinqToDB_Sql_AggregateModifier_" data-uid="LinqToDB.AnalyticFunctions.Variance``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},LinqToDB.Sql.AggregateModifier)">Variance&lt;TEntity, TV&gt;(IEnumerable&lt;TEntity&gt;, Func&lt;TEntity, TV&gt;, Sql.AggregateModifier)</h4>
@@ -5723,7 +5723,7 @@ public static TV Variance&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; sou
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VARIANCE({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VARIANCE({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
 public static TV Variance&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5792,7 +5792,7 @@ public static TV Variance&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; sou
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_Variance__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___LinqToDB_Sql_AggregateModifier_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.Variance%60%602(System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%7D%7D%2CLinqToDB.Sql.AggregateModifier)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1116">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1118">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_Variance_" data-uid="LinqToDB.AnalyticFunctions.Variance*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_Variance__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___LinqToDB_Sql_AggregateModifier_" data-uid="LinqToDB.AnalyticFunctions.Variance``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},LinqToDB.Sql.AggregateModifier)">Variance&lt;TEntity, TV&gt;(IQueryable&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TV&gt;&gt;, Sql.AggregateModifier)</h4>
@@ -5800,7 +5800,7 @@ public static TV Variance&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; sou
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VARIANCE({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VARIANCE({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
 public static TV Variance&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr, Sql.AggregateModifier modifier = Sql.AggregateModifier.None)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5869,7 +5869,7 @@ public static TV Variance&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; sour
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_VarPop__1_LinqToDB_Sql_ISqlExtension_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.VarPop%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1062">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1064">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_VarPop_" data-uid="LinqToDB.AnalyticFunctions.VarPop*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_VarPop__1_LinqToDB_Sql_ISqlExtension_System_Object_" data-uid="LinqToDB.AnalyticFunctions.VarPop``1(LinqToDB.Sql.ISqlExtension,System.Object)">VarPop&lt;T&gt;(Sql.ISqlExtension, Object)</h4>
@@ -5937,7 +5937,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; VarPop&
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_VarPop__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.VarPop%60%602(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Func%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1040">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1042">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_VarPop_" data-uid="LinqToDB.AnalyticFunctions.VarPop*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_VarPop__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__" data-uid="LinqToDB.AnalyticFunctions.VarPop``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">VarPop&lt;TEntity, TV&gt;(IEnumerable&lt;TEntity&gt;, Func&lt;TEntity, TV&gt;)</h4>
@@ -5945,7 +5945,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; VarPop&
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_POP({expr})&quot;, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_POP({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
 public static decimal VarPop&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -6009,7 +6009,7 @@ public static decimal VarPop&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; 
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_VarPop__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.VarPop%60%602(System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1046">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1048">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_VarPop_" data-uid="LinqToDB.AnalyticFunctions.VarPop*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_VarPop__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___" data-uid="LinqToDB.AnalyticFunctions.VarPop``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">VarPop&lt;TEntity, TV&gt;(IQueryable&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TV&gt;&gt;)</h4>
@@ -6017,7 +6017,7 @@ public static decimal VarPop&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_POP({expr})&quot;, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_POP({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
 public static decimal VarPop&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -6081,7 +6081,7 @@ public static decimal VarPop&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; s
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_VarSamp__1_LinqToDB_Sql_ISqlExtension_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.VarSamp%60%601(LinqToDB.Sql.ISqlExtension%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1094">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1096">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_VarSamp_" data-uid="LinqToDB.AnalyticFunctions.VarSamp*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_VarSamp__1_LinqToDB_Sql_ISqlExtension_System_Object_" data-uid="LinqToDB.AnalyticFunctions.VarSamp``1(LinqToDB.Sql.ISqlExtension,System.Object)">VarSamp&lt;T&gt;(Sql.ISqlExtension, Object)</h4>
@@ -6149,7 +6149,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; VarSamp
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_VarSamp__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.VarSamp%60%602(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Func%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1072">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1074">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_VarSamp_" data-uid="LinqToDB.AnalyticFunctions.VarSamp*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_VarSamp__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__" data-uid="LinqToDB.AnalyticFunctions.VarSamp``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">VarSamp&lt;TEntity, TV&gt;(IEnumerable&lt;TEntity&gt;, Func&lt;TEntity, TV&gt;)</h4>
@@ -6157,7 +6157,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; VarSamp
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_SAMP({expr})&quot;, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_SAMP({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
 public static decimal VarSamp&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -6221,7 +6221,7 @@ public static decimal VarSamp&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt;
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AnalyticFunctions_VarSamp__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___.md&amp;value=---%0Auid%3A%20LinqToDB.AnalyticFunctions.VarSamp%60%602(System.Linq.IQueryable%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1078">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs/#L1080">View Source</a>
   </span>
   <a id="LinqToDB_AnalyticFunctions_VarSamp_" data-uid="LinqToDB.AnalyticFunctions.VarSamp*"></a>
   <h4 id="LinqToDB_AnalyticFunctions_VarSamp__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___" data-uid="LinqToDB.AnalyticFunctions.VarSamp``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">VarSamp&lt;TEntity, TV&gt;(IQueryable&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TV&gt;&gt;)</h4>
@@ -6229,7 +6229,7 @@ public static decimal VarSamp&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt;
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_SAMP({expr})&quot;, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_SAMP({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
 public static decimal VarSamp&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
