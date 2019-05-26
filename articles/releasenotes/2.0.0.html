@@ -119,11 +119,11 @@
 <li><a href="#changes-for-developers">Changes for developers</a></li>
 <li><a href="#i-use-entity-framework-feelsbadman">I Use Entity Framework</a></li>
 </ul>
-<h2 id="general-changes">General changes</h2>
-<p>Also check provider-specific changes for your provider as this section contains only provider-independent changes.</p>
+<h2 id="general-changes">General Changes</h2>
+<p>Please check the provider-specific change log as this section contains only provider-independent changes.</p>
 <h2 id="breaking-changes">Breaking Changes</h2>
 <h3 id="changes-to-target-frameworks">Changes to target frameworks</h3>
-<p>Version 2.0 drops support for legacy frameworks: net4.0, silverlight, windows8 store.
+<p>Version 2.0 drops support for legacy frameworks: net4.0, Silverlight, and the Windows 8 Store.
 List of supported targets now includes:</p>
 <ul>
 <li>net45</li>
@@ -131,19 +131,19 @@ List of supported targets now includes:</p>
 <li>netstandard2.0</li>
 <li>netcoreapp2.0</li>
 </ul>
-<p>Also you can notice that now linq2db nuget package supports all those targets and you don&#39;t need to use linq2db.core package if you want to target .net core projects. This package is now deprecated and will not be updated anymore.</p>
-<p>Who will be affected by this change:</p>
+<p>The <code>linq2db</code> nuget package supports all of these targets. If you want to target .NET Core you don&#39;t need to use the the <code>linq2db.core</code> package. This package is now deprecated and will not be updated anymore.</p>
+<p>Who would be affected by this change:</p>
 <ul>
-<li>People that used deprecated frameworks. They should continue use 1.x version or migrate their projects.</li>
-<li>Users of linq2db.core package. They should update their nuget references to use linq2db package.</li>
+<li>People who use one of the deprecated frameworks. They should continue to use version 1.x or migrate their projects to 2.0.</li>
+<li>Users of the <code>linq2db.core</code> package. They should update their Nuget references to use the <code>linq2db</code> package.</li>
 </ul>
 <h3 id="default-enumeration-mapping-behavior-changes-for-text-columns">Default enumeration mapping behavior changes for text columns</h3>
-<p>Starting from version 2.0, LINQ To DB will use ToString() method to create database value for enums, mapped to text column (<a href="https://github.com/linq2db/linq2db/issues/1006">1006</a>, <a href="https://github.com/linq2db/linq2db/issues/1071">1071</a>). Prior versions used numeric representation of enumeration value, converted to string.</p>
-<p>How to find out if I&#39;m affected by this change?</p>
-<p>You are affected if you have text columns mapped to enumeration without explicit mappings specified for fields.</p>
-<p>See following example:</p>
-<pre><code class="lang-cs">// enums like that are not affected, because they
-// have explicit mappings from enum fields to database values
+<p>Starting with version 2.0, LINQ To DB uses the ToString() method to create database values for <code>enums</code> and it is mapping them to text columns (<a href="https://github.com/linq2db/linq2db/issues/1006">1006</a>, <a href="https://github.com/linq2db/linq2db/issues/1071">1071</a>). Prior versions used numeric representation of enumeration value, converted to string.</p>
+<p>How would I know if I&#39;m affected by this change?</p>
+<p>You are affected if you have text columns mapped to enumeration without explicit field mappings.</p>
+<p>See the following example:</p>
+<pre><code class="lang-cs">// enums used like this are not affected because they have 
+// explicit mappings from enum fields to database values
 public enum GoodEnum
 {
     [MapValue(&quot;1&quot;)]
@@ -152,7 +152,7 @@ public enum GoodEnum
     Second
 }
 
-// enums like that will change their behavior
+// enums used like this would behave differently in version 2.0
 public enum BadEnum
 {
     // v1.x: &quot;0&quot; used as a database value
@@ -162,7 +162,7 @@ public enum BadEnum
     // v2: &quot;Second&quot; used as a database value
     Second
 }
-</code></pre><p>We want to say that it is generally bad idea to have no explicit enumeration field mappings as you depend on library behavior, which could change, and changes to enumeration (adding/removing/reordering fields) could lead to mapped value change.</p>
+</code></pre><p>We would like to stress that it is generally a bad idea to not have explicit enumeration field mappings as you depend on implicit library behavior. Non-explicit behavior is subject to change in future versions.</p>
 <h4 id="im-affected-what-should-i-do">I&#39;m affected. What should I do?</h4>
 <p>First of all you can re-enable old behavior using following configuration flag:</p>
 <pre><code class="lang-cs">Configuration.UseEnumValueNameForStringColumns = false;
@@ -185,7 +185,7 @@ public enum BadEnum
     }
 };
 </code></pre><h3 id="fluent-mapping">Fluent Mapping</h3>
-<h4 id="custom-join-predicate-exression-support-for-associations">Custom join predicate exression support for associations</h4>
+<h4 id="custom-join-predicate-expression-support-for-associations">Custom join predicate expression support for associations</h4>
 <p><a href="https://github.com/linq2db/linq2db/issues/961">961</a></p>
 <pre><code class="lang-cs">fluentBuilder
     .Entity&lt;Entity&gt;()
@@ -361,7 +361,7 @@ public static class Extensions
 <p>New <a class="xref" href="../sql/Bulk-Copy.html">article</a> created for <code>BulkCopy</code> API. It still miss documentation on some options, but most important information is already here. It will be improved in next releases.</p>
 <h3 id="keepidentity-option">KeepIdentity option</h3>
 <p><code>KeepIdentity</code> option were documented and existing implementations tested/fixed to follow it <a href="https://github.com/linq2db/linq2db/issues/1037">(1037)</a>.</p>
-<p>Setting this option to <code>true</code> for <code>RowByRow</code> copy mode was never supported and if you have it set to true - starting from version 2.0 it will start throwing exception instead of silently ignore it. Check copy mode support table to see what mode actually used for your provider, as <code>BulkCopy</code> will downgrade copy mode, if requested one is not supported by provider.</p>
+<p>Setting this option to <code>true</code> for <code>RowByRow</code> copy mode was never supported and if you have it set to true - starting from version 2.0 it will start throwing exception instead of silently ignoring it. Check copy mode support table to see what mode actually used for your provider, as <code>BulkCopy</code> will downgrade copy mode, if requested one is not supported by provider.</p>
 <h2 id="merge">Merge</h2>
 <h3 id="partial-projections-in-source-query-improvements">Partial projections in source query improvements</h3>
 <p>Now merge will properly detect and throw exception when source query element type contains more fields than query returns.</p>
