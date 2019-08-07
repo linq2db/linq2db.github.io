@@ -8,7 +8,7 @@
     <title>Mapping | Linq To DB (aka linq2db) </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Mapping | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.43.2.0">
+    <meta name="generator" content="docfx 2.44.0.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -98,6 +98,61 @@
 {
     [Column(SkipOnInsert = true, SkipOnUpdate = true)]
     public int CalculatedField { get; set; }
+}
+</code></pre><h2 id="how-can-i-use-sql-server-spatial-types">How can I use SQL Server spatial types</h2>
+<p>Spatial types for SQL Server provided by:</p>
+<ul>
+<li><a href="https://www.nuget.org/packages/Microsoft.SqlServer.Types/"><code>Microsoft.SqlServer.Types</code></a> assembly from Microsoft for .NET Framework</li>
+<li><a href="https://www.nuget.org/packages/dotMorten.Microsoft.SqlServer.Types/"><code>dotMorten.Microsoft.SqlServer.Types</code></a> assembly from <a href="https://github.com/dotMorten">Morten Nielsen</a> for .NET Core</li>
+</ul>
+<p>For .net core we recommend to use at least linq2db 2.9.0 as it contains several important fixes in this area for .net core projects.</p>
+<p>First of all it is recommended to register types assembly in linq2db using following call:</p>
+<pre><code class="lang-cs">SqlServerTools.ResolveSqlTypes(typeof(SqlGeography).Assembly);
+</code></pre><p>Main problem that people hit with SQL Server spatial types is following error on select queries: <code>Can&#39;t create &#39;&lt;DB_NAME&gt;.sys.&lt;SPATIAL_TYPE_NAME&gt;&#39; type or &#39;&#39; specific type for &lt;COLUMN_NAME&gt;.</code></p>
+<p>This happens due to different versions of <code>Microsoft.SqlServer.Types</code> assembly, requested by SqlClient, and assembly, referenced by your project.</p>
+<h4 id="how-to-fix-it">How to fix it</h4>
+<p>For .NET Framework you just need to add assembly bindings redirect to your configuration file to redirect all assembly load requests to your version (make sure that <code>newVersion</code> contains proper version of assembly you have):</p>
+<pre><code class="lang-xml">&lt;runtime&gt;
+  &lt;assemblyBinding xmlns=&quot;urn:schemas-microsoft-com:asm.v1&quot;&gt;
+    &lt;dependentAssembly&gt;
+      &lt;assemblyIdentity name=&quot;Microsoft.SqlServer.Types&quot; publicKeyToken=&quot;89845dcd8080cc91&quot; culture=&quot;neutral&quot;/&gt;
+      &lt;bindingRedirect oldVersion=&quot;0.0.0.0-14.0.0.0&quot; newVersion=&quot;14.0.0.0&quot; /&gt;
+    &lt;/dependentAssembly&gt;
+  &lt;/assemblyBinding&gt;
+&lt;/runtime&gt;
+</code></pre><p>For .NET Core it is a bit tricky because:</p>
+<ul>
+<li>.NET Core doesn&#39;t support binding redirects</li>
+<li>You need to use 3rd-party assembly with non-Microsoft public key and binding redirects doesn&#39;t allow such redirects anyway</li>
+</ul>
+<p>To workaround it you need to add custom assembly resolver to your code:</p>
+<pre><code class="lang-cs">// subscribe to assembly load request event somewhere in your init code
+AssemblyLoadContext.Default.Resolving += OnAssemblyResolve;
+
+Assembly OnAssemblyResolve(AssemblyLoadContext assemblyLoadContext, AssemblyName assemblyName)
+{
+  try
+  {
+    // you need to unsubscribe here to avoid StackOverflowException,
+    // as LoadFromAssemblyName will go in recursion here otherwise
+    AssemblyLoadContext.Default.Resolving -= OnAssemblyResolve;
+    // return resolved assembly for cases when it can be resolved
+    return assemblyLoadContext.LoadFromAssemblyName(assemblyName);
+  }
+  catch
+  {
+    // on failue - check if it failed to load our types assembly
+    // and explicitly return it
+    if (assemblyName.Name == &quot;Microsoft.SqlServer.Types&quot;)
+      return typeof(SqlGeography).Assembly;
+    // if it failed to load some other assembly - just pass exception as-is
+    throw;
+  }
+  finally
+  {
+    // don&#39;t forget to restore our load handler
+    AssemblyLoadContext.Default.Resolving += OnAssemblyResolve;
+  }
 }
 </code></pre></article>
           </div>
