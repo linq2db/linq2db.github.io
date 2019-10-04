@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Sql.ExtensionAttribute
    | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.44.0.0">
+    <meta name="generator" content="docfx 2.45.1.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -136,6 +136,9 @@
     </div>
     <div>
       <a class="xref" href="LinqToDB.Sql.ExpressionAttribute.html#LinqToDB_Sql_ExpressionAttribute_GetCanBeNull_LinqToDB_SqlQuery_ISqlExpression___">Sql.ExpressionAttribute.GetCanBeNull(ISqlExpression[])</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Sql.ExpressionAttribute.html#LinqToDB_Sql_ExpressionAttribute_CalcCanBeNull_LinqToDB_Sql_IsNullableType_System_Collections_Generic_IEnumerable_System_Boolean__">Sql.ExpressionAttribute.CalcCanBeNull(Sql.IsNullableType, IEnumerable&lt;Boolean&gt;)</a>
     </div>
     <div>
       <a class="xref" href="LinqToDB.Sql.ExpressionAttribute.html#LinqToDB_Sql_ExpressionAttribute_ConvertArgs_System_Reflection_MemberInfo_LinqToDB_SqlQuery_ISqlExpression___">Sql.ExpressionAttribute.ConvertArgs(MemberInfo, ISqlExpression[])</a>
@@ -446,18 +449,18 @@ public class ExtensionAttribute : Sql.ExpressionAttribute, _Attribute</code></pr
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Sql_ExtensionAttribute_BuildSqlExpression_LinqToDB_Sql_SqlExtension_System_Type_System_Int32_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.Sql.ExtensionAttribute.BuildSqlExpression(LinqToDB.Sql.SqlExtension%2CSystem.Type%2CSystem.Int32%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Sql_ExtensionAttribute_BuildSqlExpression_LinqToDB_Sql_SqlExtension_System_Type_System_Int32_System_Boolean_System_Nullable_System_Boolean__LinqToDB_Sql_IsNullableType_.md&amp;value=---%0Auid%3A%20LinqToDB.Sql.ExtensionAttribute.BuildSqlExpression(LinqToDB.Sql.SqlExtension%2CSystem.Type%2CSystem.Int32%2CSystem.Boolean%2CSystem.Nullable%7BSystem.Boolean%7D%2CLinqToDB.Sql.IsNullableType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.ExtensionAttribute.cs/#L693">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.ExtensionAttribute.cs/#L697">View Source</a>
   </span>
   <a id="LinqToDB_Sql_ExtensionAttribute_BuildSqlExpression_" data-uid="LinqToDB.Sql.ExtensionAttribute.BuildSqlExpression*"></a>
-  <h4 id="LinqToDB_Sql_ExtensionAttribute_BuildSqlExpression_LinqToDB_Sql_SqlExtension_System_Type_System_Int32_System_Boolean_System_Boolean_" data-uid="LinqToDB.Sql.ExtensionAttribute.BuildSqlExpression(LinqToDB.Sql.SqlExtension,System.Type,System.Int32,System.Boolean,System.Boolean)">BuildSqlExpression(Sql.SqlExtension, Type, Int32, Boolean, Boolean)</h4>
+  <h4 id="LinqToDB_Sql_ExtensionAttribute_BuildSqlExpression_LinqToDB_Sql_SqlExtension_System_Type_System_Int32_System_Boolean_System_Nullable_System_Boolean__LinqToDB_Sql_IsNullableType_" data-uid="LinqToDB.Sql.ExtensionAttribute.BuildSqlExpression(LinqToDB.Sql.SqlExtension,System.Type,System.Int32,System.Boolean,System.Nullable{System.Boolean},LinqToDB.Sql.IsNullableType)">BuildSqlExpression(Sql.SqlExtension, Type, Int32, Boolean, Nullable&lt;Boolean&gt;, Sql.IsNullableType)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlExpression BuildSqlExpression(Sql.SqlExtension root, Type systemType, int precedence, bool isAggregate, bool canBeNull)</code></pre>
+    <pre><code class="lang-csharp hljs">public static SqlExpression BuildSqlExpression(Sql.SqlExtension root, Type systemType, int precedence, bool isAggregate, bool? canBeNull, Sql.IsNullableType isNullable)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -490,8 +493,13 @@ public class ExtensionAttribute : Sql.ExpressionAttribute, _Attribute</code></pr
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a>&gt;</td>
         <td><span class="parametername">canBeNull</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="LinqToDB.Sql.IsNullableType.html">Sql.IsNullableType</a></td>
+        <td><span class="parametername">isNullable</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -568,7 +576,7 @@ public class ExtensionAttribute : Sql.ExpressionAttribute, _Attribute</code></pr
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Sql_ExtensionAttribute_GetExpression_LinqToDB_IDataContext_LinqToDB_SqlQuery_SelectQuery_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_LinqToDB_SqlQuery_ISqlExpression__.md&amp;value=---%0Auid%3A%20LinqToDB.Sql.ExtensionAttribute.GetExpression(LinqToDB.IDataContext%2CLinqToDB.SqlQuery.SelectQuery%2CSystem.Linq.Expressions.Expression%2CSystem.Func%7BSystem.Linq.Expressions.Expression%2CLinqToDB.SqlQuery.ISqlExpression%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.ExtensionAttribute.cs/#L762">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.ExtensionAttribute.cs/#L774">View Source</a>
   </span>
   <a id="LinqToDB_Sql_ExtensionAttribute_GetExpression_" data-uid="LinqToDB.Sql.ExtensionAttribute.GetExpression*"></a>
   <h4 id="LinqToDB_Sql_ExtensionAttribute_GetExpression_LinqToDB_IDataContext_LinqToDB_SqlQuery_SelectQuery_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_LinqToDB_SqlQuery_ISqlExpression__" data-uid="LinqToDB.Sql.ExtensionAttribute.GetExpression(LinqToDB.IDataContext,LinqToDB.SqlQuery.SelectQuery,System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,LinqToDB.SqlQuery.ISqlExpression})">GetExpression(IDataContext, SelectQuery, Expression, Func&lt;Expression, ISqlExpression&gt;)</h4>
