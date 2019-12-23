@@ -8,7 +8,7 @@
     <title>Managing Data Connection | Linq To DB (aka linq2db) </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Managing Data Connection | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.46.0.0">
+    <meta name="generator" content="docfx 2.48.0.0">
     
     <link rel="shortcut icon" href="../../images/icon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -85,7 +85,7 @@
 <li>Your application would create more and more connections to the database. This is because from connection pool&#39;s point of view there are no <em>available</em> connections to reuse.</li>
 <li>When the pool size limit is reached then your application would fail to obtain a new connection.</li>
 </ul>
-<p>To avoid connection leaks you should pay attention to how you are creating and disposing connections. There are to ways to query a database with linq2db:</p>
+<p>To avoid connection leaks you should pay attention to how you are creating and disposing connections. There are two ways to query a database with linq2db:</p>
 <ol>
 <li>Using the <code>DataConnection</code> class you can make several queries using a single database connection. This way you do not have the overhead of opening and closing database connections for each query. You should follow these simple rules:<ul>
 <li><strong>Always</strong> dispose the <code>DataConnection</code> instance. We recommend the C#&#39;s <code>using</code> block. (Please see below for an example.)</li>
@@ -100,7 +100,7 @@
 <h2 id="done-right">Done Right</h2>
 <pre><code class="lang-cs">using (var db = new DataConnection())
 {
-// your code here
+    // your code here
 }
 
 public IEnumerable&lt;Person&gt; GetPersons()
