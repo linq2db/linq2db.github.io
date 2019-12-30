@@ -81,8 +81,8 @@
 
 <h2 id="development-rules-and-regulations-code-style">Development rules and regulations, code style</h2>
 <p>Follow this <a href="https://github.com/linq2db/linq2db/files/1056002/Development.rules.and.regulations.docx">document</a></p>
-<h2 id="project-structure">Project structure</h2>
-<h4 id="solution-and-folder-structure">Solution and folder structure</h4>
+<h2 id="project-structure-description">Project structure description</h2>
+<p>Solution and folder structure</p>
 <table>
 <thead>
 <tr>
@@ -92,28 +92,32 @@
 </thead>
 <tbody>
 <tr>
+<td>.\</td>
+<td>Root folder</td>
+</tr>
+<tr>
 <td>.\Build</td>
-<td>Build and CI files, check readme.md in that folder</td>
+<td>Various files for AppVeyor builds and common project settings</td>
 </tr>
 <tr>
 <td>.\Data</td>
-<td>Databases and database creation scripts for tests</td>
+<td>Contains test databases creation scripts and database files</td>
+</tr>
+<tr>
+<td>.\Doc</td>
+<td>DocFX documentation files</td>
 </tr>
 <tr>
 <td>.\NuGet</td>
-<td>LINQ to DB NuGet packages build files</td>
+<td>LINQ to DB NuGet packages build files, readme.txt</td>
 </tr>
 <tr>
 <td>.\Redist</td>
-<td>Binaries,unavailable officially at NuGet, used by tests and nugets</td>
+<td>Redistributable binaries for providers unavailable officially at NuGet</td>
 </tr>
 <tr>
 <td>.\Source\LinqToDB</td>
 <td>LINQ to DB source code</td>
-</tr>
-<tr>
-<td>.\Source\LinqToDB.Tools</td>
-<td>LINQ to DB Tools source code</td>
 </tr>
 <tr>
 <td>.\Source\LinqToDB.Templates</td>
@@ -121,7 +125,7 @@
 </tr>
 <tr>
 <td>.\Tests</td>
-<td>Unit test projects folder</td>
+<td>Unit tests</td>
 </tr>
 <tr>
 <td>.\Tests\Base</td>
@@ -144,196 +148,220 @@
 <td>Model classes for tests</td>
 </tr>
 <tr>
-<td>.\Tests\Tests.T4</td>
-<td>T4 templates test project</td>
+<td>.\Tests\T4.Linq</td>
+<td>Models for test databases, generated using t4models</td>
 </tr>
 <tr>
-<td>.\Tests\Tests.Android</td>
-<td>Xamarin Forms for Android test project</td>
+<td>.\Tests\T4.Model</td>
+<td>T4Models tests</td>
+</tr>
+<tr>
+<td>.\Tests\T4.Wpf</td>
+<td>T4Models NotifyPropertyChanged template test project</td>
+</tr>
+<tr>
+<td>.\Tests\TestApp</td>
+<td>SQL Server spatial types test application</td>
 </tr>
 <tr>
 <td>.\Tests\Tests.Benchmark</td>
 <td>Benchmark tests</td>
 </tr>
 <tr>
-<td>.\Tests\Tests.PLayground</td>
-<td>Test project for use with linq2db.playground.sln lite test solution<br>Used for work on specific test without full solution load</td>
-</tr>
-<tr>
 <td>.\Tests\VisualBasic</td>
-<td>Visual Basic models and tests support</td>
+<td>Visual Basic models and tests</td>
 </tr>
 </tbody>
 </table>
 <p>Solutions:</p>
 <ul>
-<li><code>.\linq2db.sln</code> - full linq2db VS2019 solution</li>
-<li><code>.\linq2db.playground.sln</code> - ligthweight linq2db VS2019 test solution. Used to work on specific test without loading of all payload of full solution</li>
+<li><code>.\linq2db.sln</code> - VS2017 solution</li>
 </ul>
-<h4 id="source-projects">Source projects</h4>
+<p>Projects:</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:right">Project \ Target</th>
+<th style="text-align:right">Project</th>
 <th style="text-align:center">.NET 4.5</th>
+<th style="text-align:center">.NET 4.5.2</th>
 <th style="text-align:center">.NET 4.6</th>
+<th style="text-align:center">.NET 4.6.2</th>
+<th style="text-align:center">.NET Standard 1.6</th>
 <th style="text-align:center">.NET Standard 2.0</th>
-<th style="text-align:center">.NET Core 2.1</th>
+<th style="text-align:center">.NET Core 1.0</th>
+<th style="text-align:center">.NET Core 2.0</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:right"><code>.\Source\LinqToDB\LinqToDB.csproj</code></td>
 <td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
+<td style="text-align:center"></td>
 <td style="text-align:center">√</td>
 </tr>
 <tr>
-<td style="text-align:right"><code>.\Source\LinqToDB\LinqToDB.Tools.csproj</code></td>
-<td style="text-align:center">√</td>
+<td style="text-align:right"><code>.\Tests\Linq\Tests.Base.csproj</code></td>
 <td style="text-align:center"></td>
 <td style="text-align:center">√</td>
 <td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
-<p>Allowed target defines:</p>
-<ul>
-<li><code>NETSTANDARD2_0</code> - <code>netstandard2.0</code> target ifdef</li>
-<li><code>NETCOREAPP2_1</code> - <code>netcoreapp2.1</code> target ifdef</li>
-<li><code>NET45</code> - <code>net45</code> target ifdef</li>
-<li><code>NET46</code> - <code>net46</code> target ifdef</li>
-</ul>
-<p>Allowed debugging defines:</p>
-<ul>
-<li><code>TRACK_BUILD</code></li>
-<li><code>DEBUG</code> - for debug code in debug build. To disable debug code use <code>DEBUG1</code> rename</li>
-<li><code>OVERRIDETOSTRING</code> - enables ToString()<code>overrides for AST model (must be enabled in LinqToDB.csproj by renaming existing</code>OVERRIDETOSTRING1` define)</li>
-</ul>
-<h4 id="test-projects">Test projects</h4>
-<table>
-<thead>
-<tr>
-<th style="text-align:right">Project \ Target</th>
-<th style="text-align:center">.NET 4.6</th>
-<th style="text-align:center">.NET 4.6.2</th>
-<th style="text-align:center">.NET Core 2.1</th>
-<th style="text-align:center">Xamarin.Forms Android v8.1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right"><code>.\Tests\Base\Tests.Base.csproj</code></td>
-<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 <td style="text-align:center"></td>
 <td style="text-align:center">√</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:right"><code>.\Tests\FSharp\Tests.FSharp.fsproj</code></td>
 <td style="text-align:center">√</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">√</td>
-<td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:right"><code>.\Tests\IBM.Core\Tests.IBM.Core.csproj</code></td>
 <td style="text-align:center"></td>
-<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 <td style="text-align:center">√</td>
 <td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
 </tr>
 <tr>
 <td style="text-align:right"><code>.\Tests\Linq\Tests.csproj</code></td>
-<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
 <td style="text-align:center"></td>
 <td style="text-align:center">√</td>
 <td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>.\Tests\FSharp\Tests.FSharp.fsproj</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
 </tr>
 <tr>
 <td style="text-align:right"><code>.\Tests\Model\Tests.Model.csproj</code></td>
 <td style="text-align:center">√</td>
 <td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 <td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:right"><code>.\Tests\Tests.Android\Tests.Android.csproj</code></td>
+<td style="text-align:right"><code>.\Tests\T4.Linq\Tests.T4.Linq.csproj</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
 <td style="text-align:center">√</td>
 </tr>
 <tr>
-<td style="text-align:right"><code>.\Tests\Tests.Benchmarks\Tests.Benchmarks.csproj</code></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">√</td>
+<td style="text-align:right"><code>.\Tests\T4.Model\Tests.T4.Model.csproj</code></td>
 <td style="text-align:center">√</td>
 <td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:right"><code>.\Tests\Tests.Playground\Tests.Playground.csproj</code></td>
-<td style="text-align:center">√</td>
 <td style="text-align:center"></td>
-<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:right"><code>.\Tests\Tests.T4\Tests.T4.csproj</code></td>
-<td style="text-align:center">√</td>
+<td style="text-align:right"><code>.\Tests\T4.Wpf\Tests.T4.Wpf.csproj</code></td>
 <td style="text-align:center"></td>
 <td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>.\Tests\TestApp\TestApp.csproj</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>.\Tests\Tests.Benchmark\Tests.Benchmark.csproj</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:right"><code>.\Tests\VisualBasic\Tests.VisualBasic.vbproj</code></td>
 <td style="text-align:center">√</td>
 <td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 <td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 <td style="text-align:center"></td>
 </tr>
 </tbody>
 </table>
-<p>Allowed target defines:</p>
-<ul>
-<li><code>NETCOREAPP2_1</code> - <code>netcoreapp2.1</code> target ifdef</li>
-<li><code>NET46</code> - <code>net46</code> target ifdef</li>
-<li><code>AZURE</code> - for Azure Pipelines CI builds</li>
-</ul>
 <h2 id="building">Building</h2>
 <p>You can use the solution to build and run tests. Also you can build whole solution or library using the following batch files:</p>
 <ul>
-<li><code>.\Build.cmd</code> - builds all the projects in the solution for Debug, Release and Azure configurations</li>
-<li><code>.\Compile.cmd</code> - builds LinqToDB project for Debug and Release configurations</li>
-<li><code>.\Clean.cmd</code> - cleanups solution projects for Debug, Release and Azure configurations</li>
-<li><code>.\Test.cmd</code> - build <code>Debug</code> configuration and run tests for <code>net46</code> and <code>netcoreapp2.1</code> targets. You can set other configuration by passing it as first paramenter, disable test targets by passing 0 to second(for <code>net46</code>) or third (for <code>netcoreapp2.1</code>) parameter and format (default:html) as 4th parameter.</li>
+<li>run <code>.\Build.cmd</code> - builds all the projects in the solution for Debug, Release, and AppVeyor configurations</li>
+<li>run <code>.\Source\LinqToDB\Compile.cmd</code> - builds LinqToDB projects for Debug and Release configurations</li>
 </ul>
-<p>Example of running Release build tests for <code>netcoreapp2.1</code> only with trx as output:</p>
-<pre><code>test.cmd Release 0 1 trx
-</code></pre><h3 id="different-platforms-support">Different platforms support</h3>
+<h3 id="different-platforms-support">Different platforms support</h3>
 <p>Because of compiling for different platforms we do use:</p>
 <ul>
-<li>Conditional compilation. See supported defines above</li>
-<li>Implementing missing classes and enums. There are some under <code>.\Source\LinqToDB\Compatibility</code> folder</li>
+<li>Conditional compilation. Different projects and configurations define compilation symbols:<ul>
+<li>NET45 - .NET 4.5 compatibility level</li>
+<li>NETSTANDARD1_6 - .NET Standard 1.6 compatibility level</li>
+<li>NETSTANDARD2_0 - .NET Standard 2.0 compatibility level</li>
+</ul>
+</li>
+<li>Implementing missing classes and enums. There are some under <code>.\Source\LinqToDB\Compatibility</code> folder.</li>
 </ul>
 <h2 id="branches">Branches</h2>
 <ul>
-<li><code>master</code> - current development branch for next release</li>
+<li><code>master</code> - current stable branch</li>
 <li><code>release</code> - branch with the latest release</li>
+<li><code>release1</code> - branch for critical fixes for version 1.xx.yy</li>
+<li><code>version1</code> - stable branch for version 1.xx.yy</li>
 </ul>
 <h2 id="run-tests">Run tests</h2>
-<p>NUnit3 is used as unit testing framework. Most of tests are run for all supported databases, and written in same pattern:</p>
+<p>NUnit3 is used as unit testing framework. Most tests are run for all supported databases, and written in same pattern:</p>
 <pre><code class="lang-cs">[TestFixture]
 public class Test: TestBase // TestBase - base class, provides base methods and object data sources
 {
-    // DataSourcesAttribute - implements NUnit IParameterDataSource to provide testcases for enabled database providers
-    [Test]
-    public void Test([DataSources] string context)
+    // DataContextSourceAttribute - implements NUnit ITestBuilder and provides context values to test
+    // TestAttribute - not required for nunit test runner, but needed for Resharper test runner
+    [Test, DataContextSource]
+    public void Test(string context)
     {
-        // TestBase.GetDataContext - creates new IDataContext
-        // also supports creation of remote client and server
-        // for remote contexts
+        // TestBase.GetDataContext - creates new IDataContext, supports creating WCF client and server
         using(var db = GetDataContext(context))
         {
             // Here is the most interesting
@@ -346,15 +374,15 @@ public class Test: TestBase // TestBase - base class, provides base methods and 
 
 }
 </code></pre><h3 id="configure-data-providers-for-tests">Configure data providers for tests</h3>
-<p><code>DataSourcesAttribute</code> generates tests for each enabled data provider. Configuration is taken
-from <code>.\Tests\Linq\DataProviders.json</code> and <code>.\Tests\Linq\UserDataProviders.json</code> (used first, if exists).</p>
-<p>Configuration file is used to specify user-specific settings such as connection strings to test databases and
-list of providers to test.</p>
+<p><code>DataContextSourceAttribute</code> generates tests for each configured data provider, configuration is taken
+from <code>.\Tests\Linq\DataProviders.json</code> and <code>.\Tests\Linq\UserDataProviders.json</code> if it exists.
+<code>Linq\UserDataProviders.json</code> is used to specify user-specific settings such as connections strings to test databases and
+list of tested providers.</p>
 <p>The <code>[User]DataProviders.json</code> is a regular JSON file:</p>
 <h4 id="userdataprovidersjson-example-with-description">UserDataProviders.json example (with description)</h4>
 <pre><code class="lang-js">{
-    // .net framework 4.6 test configuration
-    &quot;NET46&quot; :
+    // .net framework 4.5 test configuration
+    &quot;NET45&quot; :
     {
         // base configuration to inherit settings from
         // Inheritance rules:
@@ -408,8 +436,31 @@ list of providers to test.</p>
 
     },
 
-    // .net core 2.1 test configuration
-    &quot;CORE21&quot; :
+    // .net core 1.0 test configuration
+    &quot;CORE1&quot; :
+    {
+        &quot;BasedOn&quot;              : &quot;LocalConnectionStrings&quot;,
+        &quot;Providers&quot;            :
+        [
+            &quot;SQLite.MS&quot;,
+            &quot;Northwind.SQLite.MS&quot;,
+            &quot;SqlServer&quot;,
+            &quot;SqlServer.2014&quot;,
+            &quot;SqlServer.2012&quot;, &quot;SqlServer.2012.1&quot;,
+            &quot;SqlServer.2008&quot;, &quot;SqlServer.2008.1&quot;,
+            &quot;SqlServer.2005&quot;, &quot;SqlServer.2005.1&quot;,
+            &quot;SqlAzure.2012&quot;,
+            &quot;Firebird&quot;,
+            &quot;MySql&quot;,
+            &quot;MariaDB&quot;,
+            &quot;PostgreSQL&quot;,
+            &quot;Northwind&quot;,
+            &quot;TestNoopProvider&quot;
+        ]
+    },
+
+    // .net core 2.0 test configuration
+    &quot;CORE2&quot; :
     {
         &quot;BasedOn&quot;              : &quot;LocalConnectionStrings&quot;,
         &quot;Providers&quot;            :
@@ -448,31 +499,36 @@ list of providers to test.</p>
     }
 }
 </code></pre><p>To define your own configurations <strong>DO NOT EDIT</strong> <code>DataProviders.json</code> - create <code>.\Tests\Linq\UserDataProviders.json</code> and define needed configurations.</p>
-<p>Tests execution depends on <code>_CreateData.*</code> tests executed first. Those tests recreate test databases and populate them with test data, so if you are going to run one test be sure to run <code>_CreateData</code> before it manually.</p>
+<p>Right now tests execution depends on <code>_CreateData.*</code> tests executed first. Those tests recreate test databases and populate them with test data, so if you are going to run one test be sure to run <code>_CreateData</code> before it manually.</p>
 <p>Also - if your test changes database data, be sure to revert those changes (!) to avoid side effects for other tests.</p>
 <h2 id="continuous-integration">Continuous Integration</h2>
 <p>We do run builds and tests with:</p>
 <ul>
-<li><a href="https://dev.azure.com/linq2db/linq2db/_build?definitionId=1">Azure Pipelines</a> <a href="https://github.com/linq2db/linq2db/blob/master/azure-pipelines.yml">azure-pipelines.yml</a>.
-It builds solution, generate and publish nugets and runs tests for:<ul>
-<li>.Net 4.6</li>
-<li>.Net Core 2.1 (Windows/Linux and MacOS)
-For more details check <a href="https://github.com/linq2db/linq2db/blob/master/Build/Azure/README.md">readme</a></li>
+<li><a href="https://ci.appveyor.com/project/igor-tkachev/linq2db">AppVeyor</a> (Windows) <a href="https://github.com/linq2db/linq2db/blob/master/appveyor.yml">appveyor.yml</a>. Makes build and runs tests for:<ul>
+<li>.Net 4.5.2: <a href="https://github.com/linq2db/linq2db/blob/master/Tests/Linq/DataProviders.json">NET45.AppVeyor configuration</a>. Full set of tests are done.</li>
+<li>.Net Core 1.0: <a href="https://github.com/linq2db/linq2db/blob/master/Tests/Linq/DataProviders.json">CORE1.AppVeyor configuration</a>. Only <code>_Create</code> tests are done (smoke testing).</li>
+<li>.Net Core 2.0: <a href="https://github.com/linq2db/linq2db/blob/master/Tests/Linq/DataProviders.json">CORE2.AppVeyor configuration</a>. Only <code>_Create</code> tests are done (smoke testing).</li>
+<li>DocFx - to build <a href="https://linq2db.github.io">documentation</a>. Deploy is done only for <code>release</code> branch.</li>
+</ul>
+</li>
+<li><a href="https://travis-ci.org/linq2db/linq2db">Travis</a> (Linux) <a href="https://github.com/linq2db/linq2db/blob/master/.travis.yml">.travis.yml</a>. Makes build and runs tests for:<ul>
+<li>.Net Core 2.0: <a href="https://github.com/linq2db/linq2db/blob/master/Tests/Linq/DataProviders.json">CORE2.Travis configuration</a>. Full set of tests are done.</li>
 </ul>
 </li>
 </ul>
-<p>CI builds are done for all branches and PRs.</p>
+<p>CI builds are done only for next branches:</p>
 <ul>
-<li>Tests run for all branches and PRs except <code>release</code> branch</li>
-<li>Nugets publishing to <a href="https://dev.azure.com/linq2db/linq2db/_packaging?_a=feed&amp;feed=linq2db">Azure feeds</a> enabled only for <code>branch</code></li>
-<li>Nugets publishing to <a href="https://www.nuget.org/profiles/LinqToDB">Nuget.org</a> enabled only for <code>release</code> branch</li>
+<li><code>master</code></li>
+<li><code>/version.*/</code> (regex)</li>
+<li><code>/release.*/</code> (regex)</li>
+<li><code>/dev.*/</code> (regex)</li>
 </ul>
 <h3 id="skip-ci-build">Skip CI build</h3>
-<p>If you want to skip building commit by CI (for example you have changed *.md files only) check this <a href="https://developercommunity.visualstudio.com/comments/503497/view.html">message</a>.</p>
+<p>If you want to skip building commit by CI (for example you have changed *.md files only) begin commit comment with <code>[ci skip]</code>.</p>
 <h3 id="publishing-packages">Publishing packages</h3>
 <ul>
-<li><strong>&quot;Nightly&quot; builds</strong> packages are published to <a href="https://dev.azure.com/linq2db/linq2db/_packaging?_a=feed&amp;feed=linq2db">Azure feeds</a> for each successful build of <strong>master</strong> branch.</li>
-<li><strong>Release</strong> packages are published to <a href="https://www.nuget.org/profiles/LinqToDB">Nuget.org</a> for each successful build of <strong>release</strong> branch.</li>
+<li><strong>Release candidate</strong> packages are published by AppVeyor to <a href="https://github.com/linq2db/linq2db#feeds">MyGet.org</a> for each successful build of <strong>master</strong> branch.</li>
+<li><strong>Release</strong> packages are published by AppVeyor to <a href="https://github.com/linq2db/linq2db#feeds">NuGet.org</a> for each successful build of <strong>release</strong> and <strong>release1</strong> branch.</li>
 </ul>
 <h2 id="building-releases">Building releases</h2>
 <ol>
@@ -482,7 +538,9 @@ For more details check <a href="https://github.com/linq2db/linq2db/blob/master/B
 <li>Merge PR</li>
 <li><a href="https://github.com/linq2db/linq2db/releases">Tag release</a></li>
 <li>Update versions in <code>master</code> branch (this will lead to publish all next <code>master</code> builds as new version RC):<ul>
-<li>in <a href="https://github.com/linq2db/linq2db/blob/master/azure-pipelines.yml">.\azure-pipelines.yml</a> set <code>assemblyVersion</code> and <code>nugetVersion</code> parameters to next version. Always use next minor version and change it to major only before release, if it should be new major version release</li>
+<li>in <a href="https://github.com/linq2db/linq2db/blob/master/appveyor.yml">.\appveyor.yml</a> set <code>assemblyVersion</code> and <code>packageVersion</code> parameters to next version</li>
+<li>in NuGet\PackLocal.cmd file update linq2db version to next version</li>
+<li>in issue template update default linq2db version to released version</li>
 </ul>
 </li>
 </ol>
@@ -492,9 +550,14 @@ For more details check <a href="https://github.com/linq2db/linq2db/blob/master/B
 <li>Development rules and regulations, code style</li>
 <li>Do not add new features without tests</li>
 <li>Avoid direct pushes to <code>master</code> and <code>release</code> branches</li>
-<li>To fix some issue or implement new feature create new branch and make pull request after you are ready to merge or create pull request as <code>work-in-progress</code> pull request. Merge your PR only after contributors&#39; review.</li>
-<li>If you do have repository write access, it is recommended to use central repository instead of fork</li>
-<li>Do not add new public classes, properties, methods without XML documentation on them</li>
+<li>To fix some issue or implement new feature create new branch and make pull request after you are ready to merge. Merge your PR only after contributor&#39;s review.</li>
+<li>If you are going to implement any big feature you may want other contributors to participate (coding, code review, feature discuss and so on), so to do it:<ul>
+<li>Create new PR with <strong>[WIP]</strong> prefix (Work In Process)</li>
+<li>After you are ready to merge remove the prefix &amp; assign contributors as reviewers</li>
+</ul>
+</li>
+<li>If you do have write access, it is recommended to use central repository (not forks). Why - simple, it would allow other teammates to help you in developing (if needed). Certainly you are free to use fork if it is more convenient to you</li>
+<li>Please avoid adding new public classes, properties, methods without XML doc</li>
 <li>Read issues and help users</li>
 <li>Do not EF :)</li>
 </ul>
