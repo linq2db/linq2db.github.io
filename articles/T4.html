@@ -111,6 +111,8 @@
 <p>All loaded schema information is used for mappings generation, so if you want to limit generated mappings, it is the best place to do it.</p>
 <pre><code class="lang-cs">// Enables loading of tables and views information
 GetSchemaOptions.GetTables             = true;
+// Enables loading of foreign key relations for associations
+GetSchemaOptions.GetForeignKeys        = true;
 // Enables loading of functions and procedures information
 GetSchemaOptions.GetProcedures         = true;
 // Enables use of System.Char type in generated model for text types
@@ -132,6 +134,16 @@ GetSchemaOptions.IncludedCatalogs = null;
 // (string[]) List of databases/catalogs to exclude from select.
 // Option applied only if is is not empty
 GetSchemaOptions.ExcludedCatalogs = null;
+
+// Custom filter for table/view schema load
+// Can be used to exclude views or tables from generation based in their descriptor.
+// This filter especially usefull, when you wan&#39;t to exclude table, referenced by other generated
+// tables using associations, or by procedures using excluded table as result. Doing it in filter
+// will automatically prevent associations generation and will trigger generation of procedure-specific
+// result classes.
+// LoadTableData type:
+// https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SchemaProvider/LoadTableData.cs
+Func&lt;LoadTableData, bool&gt; GetSchemaOptions.LoadTable = null;
 
 // Comparer, used for IncludedSchemas/ExcludedSchemas/IncludedCatalogs/ExcludedCatalogs lookups
 StringComparer                    = StringComparer.OrdinalIgnoreCase;
@@ -156,6 +168,27 @@ GetSchemaOptions.ProcedureLoadingProgress = (int total, int current) =&gt; {};
 <pre><code class="lang-cs">/* Global/generic options */
 // Namespace to use for generated model
 NamespaceName                  = &quot;DataModels&quot;;
+// Generate #nullable pragma:
+// &quot;#nullable enable&quot; if EnableNullableReferenceTypes is true
+// &quot;#nullable disable&quot; if EnableNullableReferenceTypes is false
+AddNullablePragma              = false;
+// Enables generation of nullable reference type annotations
+EnableNullableReferenceTypes   = false;
+// Disable CS8618 for uninitialized model columns and references of non-nullable reference type
+EnforceModelNullability        = true;
+// Defines method to distinguish value types from reference types by type name
+// used by nullable reference types feature to detect reference types, when only type name available
+// If EnableNullableReferenceTypes enabled, but value type not recognized properly
+// you must provide your own resolver for unresolved types
+// IsValueType = typeName =&gt; {
+//    switch (typeName)
+//    {
+//        case &quot;unresolved type name&quot;: return true; // or false for reference type
+//        default: return IsValueTypeDefault(typeName);
+//    }
+// };
+// by default resolve unknown types, ending with ? as value types and other types as reference types
+Func&lt;string, boolean&gt; IsValueType = IsValueTypeDefault;
 
 /* Data context configuration */
 // (string) Name of base class for generated data context class.
@@ -170,6 +203,8 @@ DataContextName                = null;
 GenerateConstructors          = true;               // Enforce generating DataContext constructors.
 // (string) Defines name of default configuration to use with default data context constructor
 DefaultConfiguration          = null;
+// Enables generation of data context comment with database name, data source and database version
+GenerateDatabaseInfo          = true;
 
 /* Schemas configuration */
 // Enables generation of mappings for each schema in separate type
@@ -201,6 +236,10 @@ GenerateViews                 = true;
 // E.g. MySchema.MyTable -&gt; MySchema_MyTable
 // Applicable only if GenerateSchemaAsType = false
 PrefixTableMappingWithSchema  = true;
+// Enables prefixing mapping classes for tables in default schema with schema name
+// E.g. dbo.MyTable -&gt; dbo_MyTable
+// Applicable only if IncludeDefaultSchema = true &amp;&amp; GenerateSchemaAsType = false &amp;&amp; PrefixTableMappingWithSchema = true
+PrefixTableMappingForDefaultSchema = false;
 
 /* Columns comfiguration */
 // Enables compact generation of column properties
@@ -255,6 +294,8 @@ GenerateProcedureErrors       = true;
 // IMPORTANT: this will lead to load of all procedure results into list and could lead
 // to performance issues on big results
 GenerateProcedureResultAsList = false;
+// Enables stored procedure methods to accept generated context object or DataConnection type
+GenerateProceduresOnTypedContext = true;
 
 /* Other generated functionality */
 // Enables generation of Find(pk fields) extension methods for record selection by primary key value
@@ -274,7 +315,11 @@ SingularizeDataContextPropertyNames = false;
 // Enables normalization of of type and member names.
 // Default normalization removes underscores and capitalize first letter.
 // Could be overriden using ToValidName option below.
-NormalizeNames                                 = false;
+// By default doesn&#39;t normalize names without underscores.
+// see NormalizeNamesWithoutUnderscores setting
+NormalizeNames                                 = true;
+// enables normalization of names without underscores.
+NormalizeNamesWithoutUnderscores               = false;
 // Defines logic to convert type/member name, derived from database object name, to C# identifier.
 Func&lt;string, bool, string&gt; ToValidName         = ToValidNameDefault;
 // Makes C# identifier valid by removing unsupported symbols and calling ToValidName
@@ -286,6 +331,12 @@ Func&lt;string, bool, string&gt; ConvertToCompilable = ConvertToCompilableDefaul
 // NOTE: this option is not needed anymore, as it generates old-style FTS support code and not recommeded for use
 // use new extesions from this PR: https://github.com/linq2db/linq2db/pull/1649
 bool GenerateSqlServerFreeText = false;
+
+// Enables return value parameter generation for procedure.
+// By default generation of this parameter is disabled, because it is not possible to say (except examining
+// procedure code) if procedure uses this parameter or it always returns default value (0).
+// Usefull for procedures, that use &quot;RETURN code&quot; statements to returns integer values from procedure.
+void AddReturnParameter(string procedureName, string parameterName = &quot;@return&quot;);
 </code></pre><h3 id="postgresql">PostgreSQL</h3>
 <pre><code class="lang-cs">// Enables generation of case-sensitive names of database objects
 bool GenerateCaseSensitiveNames = false;
@@ -420,6 +471,31 @@ public class Parameter
     public string   ParameterType;
     public Type     SystemType;
     public string   DataType;
+}
+</code></pre><h2 id="iequatable-interface-implementation-equatablettinclude">IEquatable interface implementation (Equatable.ttinclude)</h2>
+<p>There is <code>Equatable.ttinclude</code> template that could be used to implement <code>IEquatable&lt;T&gt;</code> interface.</p>
+<p>This template has following options:</p>
+<pre><code class="lang-c#">partial class Class
+{
+    // Determines whether need to implement IEquatable interface for this class
+    public bool IsEquatable = DefaultEquatable;
+}
+
+// Default value for Class.IsEquatable property
+bool DefaultEquatable = true;
+
+// Default field name for equality comparer implementation
+string EqualityComparerFieldName = &quot;_comparer&quot;;
+
+// Properties filter option to select equality members
+Func&lt;Class, Property, bool&gt; EqualityPropertiesFilter = EqualityPropertiesFilterDefault;
+
+// Default implementation of the EqualityPropertiesFilter option
+static bool EqualityPropertiesFilterDefault(Class cl, Property prop)
+{
+    // Don&#39;t generate equality for non-table classes (e.g. data manager class) and associations
+    // Compare only by primary keys
+    return cl is Table &amp;&amp; prop is Column col &amp;&amp; col.IsPrimaryKey;
 }
 </code></pre></article>
           </div>
