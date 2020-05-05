@@ -82,57 +82,6 @@
 <p><a href="https://www.myget.org/gallery/linq2db"><img src="https://img.shields.io/myget/linq2db/vpre/linq2db.svg" alt="MyGet"></a></p>
 <h1 id="will-be-included-into-next-post-20-release">Will be included into next post-2.0 release</h1>
 <p>none yet</p>
-<h2 id="aspnet-core-support">ASP.NET Core support</h2>
-<p>LINQ To DB now has support for ASP.NET Dependancy injection. Here&#39;s a simple example of how to add it to dependancy injection</p>
-<pre><code class="lang-C#">public class Startup
-{
-    public IConfiguration Configuration { get; }
-
-    public void ConfigureServices(IServiceCollection services)
-    {
-        //...
-        //using LinqToDB.AspNet
-        services.AddLinqToDbContext&lt;AppDataConnection&gt;((provider, options) =&gt; {
-            options
-            //will configure the AppDataConnection to use
-            //SqlServer with the provided connection string
-            //there are methods for each supported database
-            .UseSqlServer(Configuration.GetConnectionString(&quot;Default&quot;))
-
-            //default logging will log everything using
-            //an ILoggerFactory configured in the provider
-            .UseDefaultLogging(provider);
-        });
-        //...
-    }
-}
-</code></pre><p>In addition to these configuration options the following are also supported</p>
-<ul>
-<li><code>UseOracle(string connectionString)</code></li>
-<li><code>UsePostgreSQL(string connectionString)</code></li>
-<li><code>UseMySql(string connectionString)</code></li>
-<li><code>UseSQLite(string connectionString)</code></li>
-<li><code>UseConnectionString(string providerName, string connectionString)</code></li>
-<li><code>UseConnectionString(IDataProvider dataProvider, string connectionString)</code></li>
-<li><code>UseConfigurationString(string configurationString)</code></li>
-<li><code>UseConnectionFactory(IDataProvider dataProvider, Func&lt;IDbConnection&gt; connectionFactory)</code></li>
-<li><code>UseConnection(IDataProvider dataProvider, IDbConnection connection, bool disposeConnection = false)</code></li>
-<li><code>UseTransaction(IDataProvider dataProvider, IDbTransaction transaction)</code></li>
-</ul>
-<p>We&#39;ve done our best job to allow any existing use case to be migrated to using the new configuration options, please create an issue if something isn&#39;t supported.
-There&#39;s also some methods to setup tracing and mapping schema.</p>
-<p>You&#39;ll need to update your data connection to accept the new options class too.</p>
-<pre><code class="lang-C#">public class AppDataConnection: DataConnection
-{
-    public AppDataConnection(LinqToDbConnectionOptions&lt;AppDataConnection&gt; options)
-        :base(options)
-    {
-
-    }
-}
-</code></pre><p><code>DataConnection</code> will used the options passed into the base constructor to setup the connection. </p>
-<div class="NOTE"><h5>Note</h5><p><code>DataConnection</code> supports <code>LinqToDbConnectionOptions</code>. However <code>DataContext</code> is not yet supported.</p>
-</div>
 </article>
           </div>
           
