@@ -5,12 +5,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class QueryFilterAttribute
+    <title>Interface IValueConverter
    | Linq To DB (aka linq2db) </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class QueryFilterAttribute
+    <meta name="title" content="Interface IValueConverter
    | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.54.0.0">
+    <meta name="generator" content="docfx 2.55.0.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -78,48 +78,38 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="LinqToDB.QueryFilterAttribute">
+            <article class="content wrap" id="_content" data-uid="LinqToDB.Common.IValueConverter">
   
   
-  <h1 id="LinqToDB_QueryFilterAttribute" data-uid="LinqToDB.QueryFilterAttribute" class="text-break">Class QueryFilterAttribute
+  <h1 id="LinqToDB_Common_IValueConverter" data-uid="LinqToDB.Common.IValueConverter" class="text-break">Interface IValueConverter
   </h1>
-  <div class="markdown level0 summary"><p>Contains reference to filter function defined by <a class="xref" href="LinqToDB.Mapping.EntityMappingBuilder-1.html#LinqToDB_Mapping_EntityMappingBuilder_1_HasQueryFilter_System_Func_System_Linq_IQueryable__0__LinqToDB_IDataContext_System_Linq_IQueryable__0___">HasQueryFilter(Func&lt;IQueryable&lt;T&gt;, IDataContext, IQueryable&lt;T&gt;&gt;)</a></p>
+  <div class="markdown level0 summary"><p>Defines conversions from an object of one type in a model to an object of the same or
+different type in the database.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.object(v=vs.110).aspx">Object</a></div>
-    <div class="level1"><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.attribute(v=vs.110).aspx">Attribute</a></div>
-    <div class="level2"><span class="xref">QueryFilterAttribute</span></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="https://msdn.microsoft.com/en-us/library/ms146214(v=vs.110).aspx">_Attribute</a></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.html">LinqToDB</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.Common.html">LinqToDB.Common</a></h6>
   <h6><strong>Assembly</strong>: linq2db.dll</h6>
-  <h5 id="LinqToDB_QueryFilterAttribute_syntax">Syntax</h5>
+  <h5 id="LinqToDB_Common_IValueConverter_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface)]
-public class QueryFilterAttribute : Attribute, _Attribute</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IValueConverter</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_QueryFilterAttribute_FilterFunc.md&amp;value=---%0Auid%3A%20LinqToDB.QueryFilterAttribute.FilterFunc%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/merge/apiSpec/new?filename=LinqToDB_Common_IValueConverter_FromProviderExpression.md&amp;value=---%0Auid%3A%20LinqToDB.Common.IValueConverter.FromProviderExpression%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/QueryFilterAttribute.cs/#L17">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/merge/Source/LinqToDB/Common/IValueConverter.cs/#L19">View Source</a>
   </span>
-  <a id="LinqToDB_QueryFilterAttribute_FilterFunc_" data-uid="LinqToDB.QueryFilterAttribute.FilterFunc*"></a>
-  <h4 id="LinqToDB_QueryFilterAttribute_FilterFunc" data-uid="LinqToDB.QueryFilterAttribute.FilterFunc">FilterFunc</h4>
-  <div class="markdown level1 summary"><p>Filter function of type <see cref="!:System.Func&lt;System.Linq.IQueryable&lt;T>,LinqToDB.IDataContext,System.Linq.IQueryable&lt;T>>"></see>.</p>
+  <a id="LinqToDB_Common_IValueConverter_FromProviderExpression_" data-uid="LinqToDB.Common.IValueConverter.FromProviderExpression*"></a>
+  <h4 id="LinqToDB_Common_IValueConverter_FromProviderExpression" data-uid="LinqToDB.Common.IValueConverter.FromProviderExpression">FromProviderExpression</h4>
+  <div class="markdown level1 summary"><p>Gets the expression to convert objects when reading data from the database.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Delegate FilterFunc { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">LambdaExpression FromProviderExpression { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -131,15 +121,73 @@ public class QueryFilterAttribute : Attribute, _Attribute</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.delegate(v=vs.110).aspx">Delegate</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.linq.expressions.lambdaexpression(v=vs.110).aspx">LambdaExpression</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="https://msdn.microsoft.com/en-us/library/ms146214(v=vs.110).aspx">_Attribute</a>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/merge/apiSpec/new?filename=LinqToDB_Common_IValueConverter_HandlesNulls.md&amp;value=---%0Auid%3A%20LinqToDB.Common.IValueConverter.HandlesNulls%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/merge/Source/LinqToDB/Common/IValueConverter.cs/#L14">View Source</a>
+  </span>
+  <a id="LinqToDB_Common_IValueConverter_HandlesNulls_" data-uid="LinqToDB.Common.IValueConverter.HandlesNulls*"></a>
+  <h4 id="LinqToDB_Common_IValueConverter_HandlesNulls" data-uid="LinqToDB.Common.IValueConverter.HandlesNulls">HandlesNulls</h4>
+  <div class="markdown level1 summary"><p>Identifies that convert expressions can handle null values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool HandlesNulls { get; }</code></pre>
   </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/merge/apiSpec/new?filename=LinqToDB_Common_IValueConverter_ToProviderExpression.md&amp;value=---%0Auid%3A%20LinqToDB.Common.IValueConverter.ToProviderExpression%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/merge/Source/LinqToDB/Common/IValueConverter.cs/#L24">View Source</a>
+  </span>
+  <a id="LinqToDB_Common_IValueConverter_ToProviderExpression_" data-uid="LinqToDB.Common.IValueConverter.ToProviderExpression*"></a>
+  <h4 id="LinqToDB_Common_IValueConverter_ToProviderExpression" data-uid="LinqToDB.Common.IValueConverter.ToProviderExpression">ToProviderExpression</h4>
+  <div class="markdown level1 summary"><p>Gets the expression to convert objects when writing data to the database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">LambdaExpression ToProviderExpression { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.linq.expressions.lambdaexpression(v=vs.110).aspx">LambdaExpression</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="LinqToDB.Tools.Mapper.Map.html#LinqToDB_Tools_Mapper_Map_DeepCopy__1___0_">Map.DeepCopy&lt;T&gt;(T)</a>
@@ -182,10 +230,10 @@ public class QueryFilterAttribute : Attribute, _Attribute</code></pre>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_QueryFilterAttribute.md&amp;value=---%0Auid%3A%20LinqToDB.QueryFilterAttribute%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/linq2db/linq2db/new/merge/apiSpec/new?filename=LinqToDB_Common_IValueConverter.md&amp;value=---%0Auid%3A%20LinqToDB.Common.IValueConverter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/QueryFilterAttribute.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/merge/Source/LinqToDB/Common/IValueConverter.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
