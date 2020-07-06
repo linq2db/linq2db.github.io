@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class StringAggregateExtensions
    | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.55.0.0">
+    <meta name="generator" content="docfx 2.56.1.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -100,13 +100,13 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_StringAggregateExtensions_OrderBy_LinqToDB_Sql_IStringAggregateNotOrdered_System_String__.md&amp;value=---%0Auid%3A%20LinqToDB.StringAggregateExtensions.OrderBy(LinqToDB.Sql.IStringAggregateNotOrdered%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_StringAggregateExtensions_OrderBy__2_LinqToDB_Sql_IAggregateFunctionNotOrdered___0___1__.md&amp;value=---%0Auid%3A%20LinqToDB.StringAggregateExtensions.OrderBy%60%602(LinqToDB.Sql.IAggregateFunctionNotOrdered%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L36">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Aggregate.cs/#L32">View Source</a>
   </span>
   <a id="LinqToDB_StringAggregateExtensions_OrderBy_" data-uid="LinqToDB.StringAggregateExtensions.OrderBy*"></a>
-  <h4 id="LinqToDB_StringAggregateExtensions_OrderBy_LinqToDB_Sql_IStringAggregateNotOrdered_System_String__" data-uid="LinqToDB.StringAggregateExtensions.OrderBy(LinqToDB.Sql.IStringAggregateNotOrdered{System.String})">OrderBy(Sql.IStringAggregateNotOrdered&lt;String&gt;)</h4>
+  <h4 id="LinqToDB_StringAggregateExtensions_OrderBy__2_LinqToDB_Sql_IAggregateFunctionNotOrdered___0___1__" data-uid="LinqToDB.StringAggregateExtensions.OrderBy``2(LinqToDB.Sql.IAggregateFunctionNotOrdered{``0,``1})">OrderBy&lt;T, TR&gt;(Sql.IAggregateFunctionNotOrdered&lt;T, TR&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -114,7 +114,7 @@
     <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;WITHIN GROUP ({order_by_clause})&quot;, TokenName = &quot;aggregation_ordering&quot;, ChainPrecedence = 2)]
 [Sql.Extension(&quot;ORDER BY {order_item, ', '}&quot;, TokenName = &quot;order_by_clause&quot;)]
 [Sql.Extension(&quot;{aggregate}&quot;, TokenName = &quot;order_item&quot;)]
-public static Sql.IStringAggregate&lt;string&gt; OrderBy([ExprParameter] this Sql.IStringAggregateNotOrdered&lt;string&gt; aggregate)</code></pre>
+public static Sql.IAggregateFunction&lt;T, TR&gt; OrderBy&lt;T, TR&gt;([ExprParameter] this Sql.IAggregateFunctionNotOrdered&lt;T, TR&gt; aggregate)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -127,7 +127,7 @@ public static Sql.IStringAggregate&lt;string&gt; OrderBy([ExprParameter] this Sq
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Sql.IStringAggregateNotOrdered-1.html">Sql.IStringAggregateNotOrdered</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
+        <td><a class="xref" href="LinqToDB.Sql.IAggregateFunctionNotOrdered-2.html">Sql.IAggregateFunctionNotOrdered</a>&lt;T, TR&gt;</td>
         <td><span class="parametername">aggregate</span></td>
         <td></td>
       </tr>
@@ -143,20 +143,39 @@ public static Sql.IStringAggregate&lt;string&gt; OrderBy([ExprParameter] this Sq
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Sql.IStringAggregate-1.html">Sql.IStringAggregate</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
+        <td><a class="xref" href="LinqToDB.Sql.IAggregateFunction-2.html">Sql.IAggregateFunction</a>&lt;T, TR&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TR</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_StringAggregateExtensions_OrderBy__2_LinqToDB_Sql_IStringAggregateNotOrdered___0__System_Linq_Expressions_Expression_System_Func___0___1___.md&amp;value=---%0Auid%3A%20LinqToDB.StringAggregateExtensions.OrderBy%60%602(LinqToDB.Sql.IStringAggregateNotOrdered%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_StringAggregateExtensions_OrderBy__3_LinqToDB_Sql_IAggregateFunctionNotOrdered___0___1__System_Linq_Expressions_Expression_System_Func___0___2___.md&amp;value=---%0Auid%3A%20LinqToDB.StringAggregateExtensions.OrderBy%60%603(LinqToDB.Sql.IAggregateFunctionNotOrdered%7B%60%600%2C%60%601%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%602%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L17">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Aggregate.cs/#L13">View Source</a>
   </span>
   <a id="LinqToDB_StringAggregateExtensions_OrderBy_" data-uid="LinqToDB.StringAggregateExtensions.OrderBy*"></a>
-  <h4 id="LinqToDB_StringAggregateExtensions_OrderBy__2_LinqToDB_Sql_IStringAggregateNotOrdered___0__System_Linq_Expressions_Expression_System_Func___0___1___" data-uid="LinqToDB.StringAggregateExtensions.OrderBy``2(LinqToDB.Sql.IStringAggregateNotOrdered{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">OrderBy&lt;T, TKey&gt;(Sql.IStringAggregateNotOrdered&lt;T&gt;, Expression&lt;Func&lt;T, TKey&gt;&gt;)</h4>
+  <h4 id="LinqToDB_StringAggregateExtensions_OrderBy__3_LinqToDB_Sql_IAggregateFunctionNotOrdered___0___1__System_Linq_Expressions_Expression_System_Func___0___2___" data-uid="LinqToDB.StringAggregateExtensions.OrderBy``3(LinqToDB.Sql.IAggregateFunctionNotOrdered{``0,``1},System.Linq.Expressions.Expression{System.Func{``0,``2}})">OrderBy&lt;T, TR, TKey&gt;(Sql.IAggregateFunctionNotOrdered&lt;T, TR&gt;, Expression&lt;Func&lt;T, TKey&gt;&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -164,7 +183,7 @@ public static Sql.IStringAggregate&lt;string&gt; OrderBy([ExprParameter] this Sq
     <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;WITHIN GROUP ({order_by_clause})&quot;, TokenName = &quot;aggregation_ordering&quot;, ChainPrecedence = 2)]
 [Sql.Extension(&quot;ORDER BY {order_item, ', '}&quot;, TokenName = &quot;order_by_clause&quot;)]
 [Sql.Extension(&quot;{expr}&quot;, TokenName = &quot;order_item&quot;)]
-public static Sql.IStringAggregateOrdered&lt;T&gt; OrderBy&lt;T, TKey&gt;(this Sql.IStringAggregateNotOrdered&lt;T&gt; aggregate, [ExprParameter] Expression&lt;Func&lt;T, TKey&gt;&gt; expr)</code></pre>
+public static Sql.IAggregateFunctionOrdered&lt;T, TR&gt; OrderBy&lt;T, TR, TKey&gt;(this Sql.IAggregateFunctionNotOrdered&lt;T, TR&gt; aggregate, [ExprParameter] Expression&lt;Func&lt;T, TKey&gt;&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -177,7 +196,7 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; OrderBy&lt;T, TKey&gt;(this S
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Sql.IStringAggregateNotOrdered-1.html">Sql.IStringAggregateNotOrdered</a>&lt;T&gt;</td>
+        <td><a class="xref" href="LinqToDB.Sql.IAggregateFunctionNotOrdered-2.html">Sql.IAggregateFunctionNotOrdered</a>&lt;T, TR&gt;</td>
         <td><span class="parametername">aggregate</span></td>
         <td></td>
       </tr>
@@ -198,7 +217,7 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; OrderBy&lt;T, TKey&gt;(this S
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Sql.IStringAggregateOrdered-1.html">Sql.IStringAggregateOrdered</a>&lt;T&gt;</td>
+        <td><a class="xref" href="LinqToDB.Sql.IAggregateFunctionOrdered-2.html">Sql.IAggregateFunctionOrdered</a>&lt;T, TR&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -217,6 +236,10 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; OrderBy&lt;T, TKey&gt;(this S
         <td></td>
       </tr>
       <tr>
+        <td><span class="parametername">TR</span></td>
+        <td></td>
+      </tr>
+      <tr>
         <td><span class="parametername">TKey</span></td>
         <td></td>
       </tr>
@@ -224,13 +247,13 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; OrderBy&lt;T, TKey&gt;(this S
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_StringAggregateExtensions_OrderByDescending_LinqToDB_Sql_IStringAggregateNotOrdered_System_String__.md&amp;value=---%0Auid%3A%20LinqToDB.StringAggregateExtensions.OrderByDescending(LinqToDB.Sql.IStringAggregateNotOrdered%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_StringAggregateExtensions_OrderByDescending__2_LinqToDB_Sql_IAggregateFunctionNotOrdered___0___1__.md&amp;value=---%0Auid%3A%20LinqToDB.StringAggregateExtensions.OrderByDescending%60%602(LinqToDB.Sql.IAggregateFunctionNotOrdered%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L72">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Aggregate.cs/#L68">View Source</a>
   </span>
   <a id="LinqToDB_StringAggregateExtensions_OrderByDescending_" data-uid="LinqToDB.StringAggregateExtensions.OrderByDescending*"></a>
-  <h4 id="LinqToDB_StringAggregateExtensions_OrderByDescending_LinqToDB_Sql_IStringAggregateNotOrdered_System_String__" data-uid="LinqToDB.StringAggregateExtensions.OrderByDescending(LinqToDB.Sql.IStringAggregateNotOrdered{System.String})">OrderByDescending(Sql.IStringAggregateNotOrdered&lt;String&gt;)</h4>
+  <h4 id="LinqToDB_StringAggregateExtensions_OrderByDescending__2_LinqToDB_Sql_IAggregateFunctionNotOrdered___0___1__" data-uid="LinqToDB.StringAggregateExtensions.OrderByDescending``2(LinqToDB.Sql.IAggregateFunctionNotOrdered{``0,``1})">OrderByDescending&lt;T, TR&gt;(Sql.IAggregateFunctionNotOrdered&lt;T, TR&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -238,7 +261,7 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; OrderBy&lt;T, TKey&gt;(this S
     <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;WITHIN GROUP ({order_by_clause})&quot;, TokenName = &quot;aggregation_ordering&quot;, ChainPrecedence = 2)]
 [Sql.Extension(&quot;ORDER BY {order_item, ', '}&quot;, TokenName = &quot;order_by_clause&quot;)]
 [Sql.Extension(&quot;{aggregate} DESC&quot;, TokenName = &quot;order_item&quot;)]
-public static Sql.IStringAggregate&lt;string&gt; OrderByDescending([ExprParameter] this Sql.IStringAggregateNotOrdered&lt;string&gt; aggregate)</code></pre>
+public static Sql.IAggregateFunction&lt;T, TR&gt; OrderByDescending&lt;T, TR&gt;([ExprParameter] this Sql.IAggregateFunctionNotOrdered&lt;T, TR&gt; aggregate)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -251,7 +274,7 @@ public static Sql.IStringAggregate&lt;string&gt; OrderByDescending([ExprParamete
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Sql.IStringAggregateNotOrdered-1.html">Sql.IStringAggregateNotOrdered</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
+        <td><a class="xref" href="LinqToDB.Sql.IAggregateFunctionNotOrdered-2.html">Sql.IAggregateFunctionNotOrdered</a>&lt;T, TR&gt;</td>
         <td><span class="parametername">aggregate</span></td>
         <td></td>
       </tr>
@@ -267,20 +290,39 @@ public static Sql.IStringAggregate&lt;string&gt; OrderByDescending([ExprParamete
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Sql.IStringAggregate-1.html">Sql.IStringAggregate</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
+        <td><a class="xref" href="LinqToDB.Sql.IAggregateFunction-2.html">Sql.IAggregateFunction</a>&lt;T, TR&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TR</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_StringAggregateExtensions_OrderByDescending__2_LinqToDB_Sql_IStringAggregateNotOrdered___0__System_Linq_Expressions_Expression_System_Func___0___1___.md&amp;value=---%0Auid%3A%20LinqToDB.StringAggregateExtensions.OrderByDescending%60%602(LinqToDB.Sql.IStringAggregateNotOrdered%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_StringAggregateExtensions_OrderByDescending__3_LinqToDB_Sql_IAggregateFunctionNotOrdered___0___1__System_Linq_Expressions_Expression_System_Func___0___2___.md&amp;value=---%0Auid%3A%20LinqToDB.StringAggregateExtensions.OrderByDescending%60%603(LinqToDB.Sql.IAggregateFunctionNotOrdered%7B%60%600%2C%60%601%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%602%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L53">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Aggregate.cs/#L49">View Source</a>
   </span>
   <a id="LinqToDB_StringAggregateExtensions_OrderByDescending_" data-uid="LinqToDB.StringAggregateExtensions.OrderByDescending*"></a>
-  <h4 id="LinqToDB_StringAggregateExtensions_OrderByDescending__2_LinqToDB_Sql_IStringAggregateNotOrdered___0__System_Linq_Expressions_Expression_System_Func___0___1___" data-uid="LinqToDB.StringAggregateExtensions.OrderByDescending``2(LinqToDB.Sql.IStringAggregateNotOrdered{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">OrderByDescending&lt;T, TKey&gt;(Sql.IStringAggregateNotOrdered&lt;T&gt;, Expression&lt;Func&lt;T, TKey&gt;&gt;)</h4>
+  <h4 id="LinqToDB_StringAggregateExtensions_OrderByDescending__3_LinqToDB_Sql_IAggregateFunctionNotOrdered___0___1__System_Linq_Expressions_Expression_System_Func___0___2___" data-uid="LinqToDB.StringAggregateExtensions.OrderByDescending``3(LinqToDB.Sql.IAggregateFunctionNotOrdered{``0,``1},System.Linq.Expressions.Expression{System.Func{``0,``2}})">OrderByDescending&lt;T, TR, TKey&gt;(Sql.IAggregateFunctionNotOrdered&lt;T, TR&gt;, Expression&lt;Func&lt;T, TKey&gt;&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -288,7 +330,7 @@ public static Sql.IStringAggregate&lt;string&gt; OrderByDescending([ExprParamete
     <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;WITHIN GROUP ({order_by_clause})&quot;, TokenName = &quot;aggregation_ordering&quot;, ChainPrecedence = 2)]
 [Sql.Extension(&quot;ORDER BY {order_item, ', '}&quot;, TokenName = &quot;order_by_clause&quot;)]
 [Sql.Extension(&quot;{expr} DESC&quot;, TokenName = &quot;order_item&quot;)]
-public static Sql.IStringAggregateOrdered&lt;T&gt; OrderByDescending&lt;T, TKey&gt;(this Sql.IStringAggregateNotOrdered&lt;T&gt; aggregate, [ExprParameter] Expression&lt;Func&lt;T, TKey&gt;&gt; expr)</code></pre>
+public static Sql.IAggregateFunctionOrdered&lt;T, TR&gt; OrderByDescending&lt;T, TR, TKey&gt;(this Sql.IAggregateFunctionNotOrdered&lt;T, TR&gt; aggregate, [ExprParameter] Expression&lt;Func&lt;T, TKey&gt;&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -301,7 +343,7 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; OrderByDescending&lt;T, TKey&
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Sql.IStringAggregateNotOrdered-1.html">Sql.IStringAggregateNotOrdered</a>&lt;T&gt;</td>
+        <td><a class="xref" href="LinqToDB.Sql.IAggregateFunctionNotOrdered-2.html">Sql.IAggregateFunctionNotOrdered</a>&lt;T, TR&gt;</td>
         <td><span class="parametername">aggregate</span></td>
         <td></td>
       </tr>
@@ -322,7 +364,7 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; OrderByDescending&lt;T, TKey&
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Sql.IStringAggregateOrdered-1.html">Sql.IStringAggregateOrdered</a>&lt;T&gt;</td>
+        <td><a class="xref" href="LinqToDB.Sql.IAggregateFunctionOrdered-2.html">Sql.IAggregateFunctionOrdered</a>&lt;T, TR&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -341,6 +383,10 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; OrderByDescending&lt;T, TKey&
         <td></td>
       </tr>
       <tr>
+        <td><span class="parametername">TR</span></td>
+        <td></td>
+      </tr>
+      <tr>
         <td><span class="parametername">TKey</span></td>
         <td></td>
       </tr>
@@ -348,19 +394,19 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; OrderByDescending&lt;T, TKey&
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_StringAggregateExtensions_ThenBy__2_LinqToDB_Sql_IStringAggregateOrdered___0__System_Linq_Expressions_Expression_System_Func___0___1___.md&amp;value=---%0Auid%3A%20LinqToDB.StringAggregateExtensions.ThenBy%60%602(LinqToDB.Sql.IStringAggregateOrdered%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_StringAggregateExtensions_ThenBy__3_LinqToDB_Sql_IAggregateFunctionOrdered___0___1__System_Linq_Expressions_Expression_System_Func___0___2___.md&amp;value=---%0Auid%3A%20LinqToDB.StringAggregateExtensions.ThenBy%60%603(LinqToDB.Sql.IAggregateFunctionOrdered%7B%60%600%2C%60%601%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%602%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L90">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Aggregate.cs/#L86">View Source</a>
   </span>
   <a id="LinqToDB_StringAggregateExtensions_ThenBy_" data-uid="LinqToDB.StringAggregateExtensions.ThenBy*"></a>
-  <h4 id="LinqToDB_StringAggregateExtensions_ThenBy__2_LinqToDB_Sql_IStringAggregateOrdered___0__System_Linq_Expressions_Expression_System_Func___0___1___" data-uid="LinqToDB.StringAggregateExtensions.ThenBy``2(LinqToDB.Sql.IStringAggregateOrdered{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">ThenBy&lt;T, TKey&gt;(Sql.IStringAggregateOrdered&lt;T&gt;, Expression&lt;Func&lt;T, TKey&gt;&gt;)</h4>
+  <h4 id="LinqToDB_StringAggregateExtensions_ThenBy__3_LinqToDB_Sql_IAggregateFunctionOrdered___0___1__System_Linq_Expressions_Expression_System_Func___0___2___" data-uid="LinqToDB.StringAggregateExtensions.ThenBy``3(LinqToDB.Sql.IAggregateFunctionOrdered{``0,``1},System.Linq.Expressions.Expression{System.Func{``0,``2}})">ThenBy&lt;T, TR, TKey&gt;(Sql.IAggregateFunctionOrdered&lt;T, TR&gt;, Expression&lt;Func&lt;T, TKey&gt;&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;{expr}&quot;, TokenName = &quot;order_item&quot;)]
-public static Sql.IStringAggregateOrdered&lt;T&gt; ThenBy&lt;T, TKey&gt;(this Sql.IStringAggregateOrdered&lt;T&gt; aggregate, [ExprParameter] Expression&lt;Func&lt;T, TKey&gt;&gt; expr)</code></pre>
+public static Sql.IAggregateFunctionOrdered&lt;T, TR&gt; ThenBy&lt;T, TR, TKey&gt;(this Sql.IAggregateFunctionOrdered&lt;T, TR&gt; aggregate, [ExprParameter] Expression&lt;Func&lt;T, TKey&gt;&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -373,7 +419,7 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; ThenBy&lt;T, TKey&gt;(this Sq
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Sql.IStringAggregateOrdered-1.html">Sql.IStringAggregateOrdered</a>&lt;T&gt;</td>
+        <td><a class="xref" href="LinqToDB.Sql.IAggregateFunctionOrdered-2.html">Sql.IAggregateFunctionOrdered</a>&lt;T, TR&gt;</td>
         <td><span class="parametername">aggregate</span></td>
         <td></td>
       </tr>
@@ -394,7 +440,7 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; ThenBy&lt;T, TKey&gt;(this Sq
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Sql.IStringAggregateOrdered-1.html">Sql.IStringAggregateOrdered</a>&lt;T&gt;</td>
+        <td><a class="xref" href="LinqToDB.Sql.IAggregateFunctionOrdered-2.html">Sql.IAggregateFunctionOrdered</a>&lt;T, TR&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -413,6 +459,10 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; ThenBy&lt;T, TKey&gt;(this Sq
         <td></td>
       </tr>
       <tr>
+        <td><span class="parametername">TR</span></td>
+        <td></td>
+      </tr>
+      <tr>
         <td><span class="parametername">TKey</span></td>
         <td></td>
       </tr>
@@ -420,19 +470,19 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; ThenBy&lt;T, TKey&gt;(this Sq
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_StringAggregateExtensions_ThenByDescending__2_LinqToDB_Sql_IStringAggregateOrdered___0__System_Linq_Expressions_Expression_System_Func___0___1___.md&amp;value=---%0Auid%3A%20LinqToDB.StringAggregateExtensions.ThenByDescending%60%602(LinqToDB.Sql.IStringAggregateOrdered%7B%60%600%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%601%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_StringAggregateExtensions_ThenByDescending__3_LinqToDB_Sql_IAggregateFunctionOrdered___0___1__System_Linq_Expressions_Expression_System_Func___0___2___.md&amp;value=---%0Auid%3A%20LinqToDB.StringAggregateExtensions.ThenByDescending%60%603(LinqToDB.Sql.IAggregateFunctionOrdered%7B%60%600%2C%60%601%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2C%60%602%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L107">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Aggregate.cs/#L103">View Source</a>
   </span>
   <a id="LinqToDB_StringAggregateExtensions_ThenByDescending_" data-uid="LinqToDB.StringAggregateExtensions.ThenByDescending*"></a>
-  <h4 id="LinqToDB_StringAggregateExtensions_ThenByDescending__2_LinqToDB_Sql_IStringAggregateOrdered___0__System_Linq_Expressions_Expression_System_Func___0___1___" data-uid="LinqToDB.StringAggregateExtensions.ThenByDescending``2(LinqToDB.Sql.IStringAggregateOrdered{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">ThenByDescending&lt;T, TKey&gt;(Sql.IStringAggregateOrdered&lt;T&gt;, Expression&lt;Func&lt;T, TKey&gt;&gt;)</h4>
+  <h4 id="LinqToDB_StringAggregateExtensions_ThenByDescending__3_LinqToDB_Sql_IAggregateFunctionOrdered___0___1__System_Linq_Expressions_Expression_System_Func___0___2___" data-uid="LinqToDB.StringAggregateExtensions.ThenByDescending``3(LinqToDB.Sql.IAggregateFunctionOrdered{``0,``1},System.Linq.Expressions.Expression{System.Func{``0,``2}})">ThenByDescending&lt;T, TR, TKey&gt;(Sql.IAggregateFunctionOrdered&lt;T, TR&gt;, Expression&lt;Func&lt;T, TKey&gt;&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;{expr} DESC&quot;, TokenName = &quot;order_item&quot;)]
-public static Sql.IStringAggregateOrdered&lt;T&gt; ThenByDescending&lt;T, TKey&gt;(this Sql.IStringAggregateOrdered&lt;T&gt; aggregate, [ExprParameter] Expression&lt;Func&lt;T, TKey&gt;&gt; expr)</code></pre>
+public static Sql.IAggregateFunctionOrdered&lt;T, TR&gt; ThenByDescending&lt;T, TR, TKey&gt;(this Sql.IAggregateFunctionOrdered&lt;T, TR&gt; aggregate, [ExprParameter] Expression&lt;Func&lt;T, TKey&gt;&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -445,7 +495,7 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; ThenByDescending&lt;T, TKey&g
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Sql.IStringAggregateOrdered-1.html">Sql.IStringAggregateOrdered</a>&lt;T&gt;</td>
+        <td><a class="xref" href="LinqToDB.Sql.IAggregateFunctionOrdered-2.html">Sql.IAggregateFunctionOrdered</a>&lt;T, TR&gt;</td>
         <td><span class="parametername">aggregate</span></td>
         <td></td>
       </tr>
@@ -466,7 +516,7 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; ThenByDescending&lt;T, TKey&g
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Sql.IStringAggregateOrdered-1.html">Sql.IStringAggregateOrdered</a>&lt;T&gt;</td>
+        <td><a class="xref" href="LinqToDB.Sql.IAggregateFunctionOrdered-2.html">Sql.IAggregateFunctionOrdered</a>&lt;T, TR&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -485,6 +535,10 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; ThenByDescending&lt;T, TKey&g
         <td></td>
       </tr>
       <tr>
+        <td><span class="parametername">TR</span></td>
+        <td></td>
+      </tr>
+      <tr>
         <td><span class="parametername">TKey</span></td>
         <td></td>
       </tr>
@@ -492,13 +546,13 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; ThenByDescending&lt;T, TKey&g
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_StringAggregateExtensions_ToValue__1_LinqToDB_Sql_IStringAggregate___0__.md&amp;value=---%0Auid%3A%20LinqToDB.StringAggregateExtensions.ToValue%60%601(LinqToDB.Sql.IStringAggregate%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_StringAggregateExtensions_ToValue__2_LinqToDB_Sql_IAggregateFunction___0___1__.md&amp;value=---%0Auid%3A%20LinqToDB.StringAggregateExtensions.ToValue%60%602(LinqToDB.Sql.IAggregateFunction%7B%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L125">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Aggregate.cs/#L121">View Source</a>
   </span>
   <a id="LinqToDB_StringAggregateExtensions_ToValue_" data-uid="LinqToDB.StringAggregateExtensions.ToValue*"></a>
-  <h4 id="LinqToDB_StringAggregateExtensions_ToValue__1_LinqToDB_Sql_IStringAggregate___0__" data-uid="LinqToDB.StringAggregateExtensions.ToValue``1(LinqToDB.Sql.IStringAggregate{``0})">ToValue&lt;T&gt;(Sql.IStringAggregate&lt;T&gt;)</h4>
+  <h4 id="LinqToDB_StringAggregateExtensions_ToValue__2_LinqToDB_Sql_IAggregateFunction___0___1__" data-uid="LinqToDB.StringAggregateExtensions.ToValue``2(LinqToDB.Sql.IAggregateFunction{``0,``1})">ToValue&lt;T, TR&gt;(Sql.IAggregateFunction&lt;T, TR&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -506,7 +560,7 @@ public static Sql.IStringAggregateOrdered&lt;T&gt; ThenByDescending&lt;T, TKey&g
     <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;Oracle&quot;, &quot;WITHIN GROUP (ORDER BY ROWNUM)&quot;, TokenName = &quot;aggregation_ordering&quot;, ChainPrecedence = 0, IsAggregate = true)]
 [Sql.Extension(&quot;Oracle.Native&quot;, &quot;WITHIN GROUP (ORDER BY ROWNUM)&quot;, TokenName = &quot;aggregation_ordering&quot;, ChainPrecedence = 0, IsAggregate = true)]
 [Sql.Extension(&quot;&quot;, ChainPrecedence = 0, IsAggregate = true)]
-public static string ToValue&lt;T&gt;(this Sql.IStringAggregate&lt;T&gt; aggregate)</code></pre>
+public static TR ToValue&lt;T, TR&gt;(this Sql.IAggregateFunction&lt;T, TR&gt; aggregate)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -519,7 +573,7 @@ public static string ToValue&lt;T&gt;(this Sql.IStringAggregate&lt;T&gt; aggrega
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Sql.IStringAggregate-1.html">Sql.IStringAggregate</a>&lt;T&gt;</td>
+        <td><a class="xref" href="LinqToDB.Sql.IAggregateFunction-2.html">Sql.IAggregateFunction</a>&lt;T, TR&gt;</td>
         <td><span class="parametername">aggregate</span></td>
         <td></td>
       </tr>
@@ -535,7 +589,7 @@ public static string ToValue&lt;T&gt;(this Sql.IStringAggregate&lt;T&gt; aggrega
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><span class="xref">TR</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -551,6 +605,10 @@ public static string ToValue&lt;T&gt;(this Sql.IStringAggregate&lt;T&gt; aggrega
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TR</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -566,7 +624,7 @@ public static string ToValue&lt;T&gt;(this Sql.IStringAggregate&lt;T&gt; aggrega
                     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_StringAggregateExtensions.md&amp;value=---%0Auid%3A%20LinqToDB.StringAggregateExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L15" class="contribution-link">View Source</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Aggregate.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

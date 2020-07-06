@@ -8,7 +8,7 @@
     <title>LINQ to DB | Linq To DB (aka linq2db) </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="LINQ to DB | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.55.0.0">
+    <meta name="generator" content="docfx 2.56.1.0">
     
     <link rel="shortcut icon" href="images/icon.ico">
     <link rel="stylesheet" href="styles/docfx.vendor.css">
@@ -129,14 +129,36 @@
 <li><code>Install-Package linq2db</code></li>
 </ul>
 <h2 id="configuring-connection-strings">Configuring connection strings</h2>
-<h3 id="net">.NET</h3>
+<h3 id="using-connection-options-builder">Using Connection Options Builder</h3>
+<p>You can configure connection options from code using <a href="https://linq2db.github.io/api/LinqToDB.Configuration.LinqToDbConnectionOptionsBuilder.html"><code>LinqToDbConnectionOptionsBuilder</code></a> class (check class for available options):</p>
+<pre><code class="lang-cs">// create options builder
+var builder = new LinqToDbConnectionOptionsBuilder();
+
+// configure connection string
+builder.UseSqlServer(connectionString);
+
+// or using custom connection factory
+b.UseConnectionFactory(
+    SqlServerTools.GetDataProvider(
+        SqlServerVersion.v2017,
+        SqlServerProvider.MicrosoftDataSqlClient),
+    () =&gt;
+    {
+        var cn = new SqlConnection(connectionString);
+        cn.AccessToken = accessToken;
+        return cn;
+    });
+
+// pass configured options to data connection constructor
+var dc = new DataConnection(builder.Build());
+</code></pre><h3 id="using-config-file-net-framework">Using Config File (.NET Framework)</h3>
 <p>In your <code>web.config</code> or <code>app.config</code> make sure you have a connection string (check <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/ProviderName.cs">this file</a> for supported providers):</p>
 <pre><code class="lang-xml">&lt;connectionStrings&gt;
   &lt;add name=&quot;Northwind&quot; 
     connectionString = &quot;Server=.\;Database=Northwind;Trusted_Connection=True;Enlist=False;&quot; 
     providerName     = &quot;SqlServer&quot; /&gt;
 &lt;/connectionStrings&gt;
-</code></pre><h3 id="net-core">.NET Core</h3>
+</code></pre><h3 id="using-connection-string-settings-provider">Using Connection String Settings Provider</h3>
 <p>.Net Core does not support <code>System.Configuration</code> so to configure connection strings you should implement <code>ILinqToDBSettings</code>, for example:</p>
 <pre><code class="lang-cs">public class ConnectionStringSettings : IConnectionStringSettings
 {
@@ -169,7 +191,8 @@ public class MySettings : ILinqToDBSettings
 }
 </code></pre><p>And later just set on program startup before the first query is done (Startup.cs for example):</p>
 <pre><code class="lang-cs">DataConnection.DefaultSettings = new MySettings();
-</code></pre><p>You can also use same for regular .NET.</p>
+</code></pre><h3 id="aspnet-core">ASP.NET Core</h3>
+<p>See <a href="https://linq2db.github.io/articles/get-started/asp-dotnet-core/index.html">article</a>.</p>
 <h2 id="now-lets-create-a-poco-class">Now let&#39;s create a <strong>POCO</strong> class</h2>
 <p>Important: you also can generate those classes from your database using <a href="https://linq2db.github.io/articles/T4.html">T4 templates</a>. Demonstration video could be found <a href="https://linq2db.github.io/articles/general/Video.html">here</a>.</p>
 <pre><code class="lang-c#">using System;

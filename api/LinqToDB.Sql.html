@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Sql
    | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.55.0.0">
+    <meta name="generator" content="docfx 2.56.1.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -2493,7 +2493,7 @@ public static int? CharIndex(string value, string str, int? startLocation)</code
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Sql_ConcatStrings_System_String_System_String___.md&amp;value=---%0Auid%3A%20LinqToDB.Sql.ConcatStrings(System.String%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L411">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L282">View Source</a>
   </span>
   <a id="LinqToDB_Sql_ConcatStrings_" data-uid="LinqToDB.Sql.ConcatStrings*"></a>
   <h4 id="LinqToDB_Sql_ConcatStrings_System_String_System_String___" data-uid="LinqToDB.Sql.ConcatStrings(System.String,System.String[])">ConcatStrings(String, String[])</h4>
@@ -2506,6 +2506,7 @@ public static int? CharIndex(string value, string str, int? startLocation)</code
 [Sql.Extension(&quot;PostgreSQL&quot;, &quot;CONCAT_WS({separator}, {argument, ', '})&quot;, BuilderType = typeof(Sql.CommonConcatWsArgumentsBuilder), BuilderValue = null)]
 [Sql.Extension(&quot;MySql&quot;, &quot;CONCAT_WS({separator}, {argument, ', '})&quot;, BuilderType = typeof(Sql.CommonConcatWsArgumentsBuilder), BuilderValue = null)]
 [Sql.Extension(&quot;SqlServer&quot;, &quot;&quot;, BuilderType = typeof(Sql.OldSqlServerConcatWsBuilder))]
+[Sql.Extension(&quot;SqlServer.2000&quot;, &quot;&quot;, BuilderType = typeof(Sql.SqlServer2000ConcatWsBuilder))]
 [Sql.Extension(&quot;SQLite&quot;, &quot;&quot;, BuilderType = typeof(Sql.SqliteConcatWsBuilder))]
 public static string ConcatStrings([ExprParameter] string separator, params string[] arguments)</code></pre>
   </div>
@@ -7067,7 +7068,7 @@ public static double? Sqrt(double? value)</code></pre>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Sql_StringAggregate_System_Collections_Generic_IEnumerable_System_String__System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.Sql.StringAggregate(System.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L282">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L132">View Source</a>
   </span>
   <a id="LinqToDB_Sql_StringAggregate_" data-uid="LinqToDB.Sql.StringAggregate*"></a>
   <h4 id="LinqToDB_Sql_StringAggregate_System_Collections_Generic_IEnumerable_System_String__System_String_" data-uid="LinqToDB.Sql.StringAggregate(System.Collections.Generic.IEnumerable{System.String},System.String)">StringAggregate(IEnumerable&lt;String&gt;, String)</h4>
@@ -7086,7 +7087,7 @@ public static double? Sqrt(double? value)</code></pre>
 [Sql.Extension(&quot;DB2.LUW&quot;, &quot;LISTAGG({source}, {separator}){_}{aggregation_ordering?}&quot;, IsAggregate = true, ChainPrecedence = 10)]
 [Sql.Extension(&quot;DB2.z/OS&quot;, &quot;LISTAGG({source}, {separator}){_}{aggregation_ordering?}&quot;, IsAggregate = true, ChainPrecedence = 10)]
 [Sql.Extension(&quot;Firebird&quot;, &quot;LIST({source}, {separator})&quot;, IsAggregate = true, ChainPrecedence = 10)]
-public static Sql.IStringAggregateNotOrdered&lt;string&gt; StringAggregate([ExprParameter] this IEnumerable&lt;string&gt; source, [ExprParameter] string separator)</code></pre>
+public static Sql.IAggregateFunctionNotOrdered&lt;string, string&gt; StringAggregate([ExprParameter] this IEnumerable&lt;string&gt; source, [ExprParameter] string separator)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -7120,7 +7121,7 @@ public static Sql.IStringAggregateNotOrdered&lt;string&gt; StringAggregate([Expr
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Sql.IStringAggregateNotOrdered-1.html">Sql.IStringAggregateNotOrdered</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
+        <td><a class="xref" href="LinqToDB.Sql.IAggregateFunctionNotOrdered-2.html">Sql.IAggregateFunctionNotOrdered</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>, <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -7130,7 +7131,7 @@ public static Sql.IStringAggregateNotOrdered&lt;string&gt; StringAggregate([Expr
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Sql_StringAggregate_System_Linq_IQueryable_System_String__System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.Sql.StringAggregate(System.Linq.IQueryable%7BSystem.String%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L207">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L57">View Source</a>
   </span>
   <a id="LinqToDB_Sql_StringAggregate_" data-uid="LinqToDB.Sql.StringAggregate*"></a>
   <h4 id="LinqToDB_Sql_StringAggregate_System_Linq_IQueryable_System_String__System_String_" data-uid="LinqToDB.Sql.StringAggregate(System.Linq.IQueryable{System.String},System.String)">StringAggregate(IQueryable&lt;String&gt;, String)</h4>
@@ -7149,7 +7150,7 @@ public static Sql.IStringAggregateNotOrdered&lt;string&gt; StringAggregate([Expr
 [Sql.Extension(&quot;DB2.LUW&quot;, &quot;LISTAGG({source}, {separator}){_}{aggregation_ordering?}&quot;, IsAggregate = true, ChainPrecedence = 10)]
 [Sql.Extension(&quot;DB2.z/OS&quot;, &quot;LISTAGG({source}, {separator}){_}{aggregation_ordering?}&quot;, IsAggregate = true, ChainPrecedence = 10)]
 [Sql.Extension(&quot;Firebird&quot;, &quot;LIST({source}, {separator})&quot;, IsAggregate = true, ChainPrecedence = 10)]
-public static Sql.IStringAggregateNotOrdered&lt;string&gt; StringAggregate([ExprParameter] this IQueryable&lt;string&gt; source, [ExprParameter] string separator)</code></pre>
+public static Sql.IAggregateFunctionNotOrdered&lt;string, string&gt; StringAggregate([ExprParameter] this IQueryable&lt;string&gt; source, [ExprParameter] string separator)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -7183,7 +7184,7 @@ public static Sql.IStringAggregateNotOrdered&lt;string&gt; StringAggregate([Expr
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Sql.IStringAggregateNotOrdered-1.html">Sql.IStringAggregateNotOrdered</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
+        <td><a class="xref" href="LinqToDB.Sql.IAggregateFunctionNotOrdered-2.html">Sql.IAggregateFunctionNotOrdered</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>, <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -7193,7 +7194,7 @@ public static Sql.IStringAggregateNotOrdered&lt;string&gt; StringAggregate([Expr
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Sql_StringAggregate__1_System_Collections_Generic_IEnumerable___0__System_String_System_Func___0_System_String__.md&amp;value=---%0Auid%3A%20LinqToDB.Sql.StringAggregate%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.String%2CSystem.Func%7B%60%600%2CSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L234">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L84">View Source</a>
   </span>
   <a id="LinqToDB_Sql_StringAggregate_" data-uid="LinqToDB.Sql.StringAggregate*"></a>
   <h4 id="LinqToDB_Sql_StringAggregate__1_System_Collections_Generic_IEnumerable___0__System_String_System_Func___0_System_String__" data-uid="LinqToDB.Sql.StringAggregate``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.String})">StringAggregate&lt;T&gt;(IEnumerable&lt;T&gt;, String, Func&lt;T, String&gt;)</h4>
@@ -7212,7 +7213,7 @@ public static Sql.IStringAggregateNotOrdered&lt;string&gt; StringAggregate([Expr
 [Sql.Extension(&quot;DB2.LUW&quot;, &quot;LISTAGG({selector}, {separator}){_}{aggregation_ordering?}&quot;, IsAggregate = true, ChainPrecedence = 10)]
 [Sql.Extension(&quot;DB2.z/OS&quot;, &quot;LISTAGG({selector}, {separator}){_}{aggregation_ordering?}&quot;, IsAggregate = true, ChainPrecedence = 10)]
 [Sql.Extension(&quot;Firebird&quot;, &quot;LIST({selector}, {separator})&quot;, IsAggregate = true, ChainPrecedence = 10)]
-public static Sql.IStringAggregateNotOrdered&lt;T&gt; StringAggregate&lt;T&gt;(this IEnumerable&lt;T&gt; source, [ExprParameter] string separator, [ExprParameter] Func&lt;T, string&gt; selector)</code></pre>
+public static Sql.IAggregateFunctionNotOrdered&lt;T, string&gt; StringAggregate&lt;T&gt;(this IEnumerable&lt;T&gt; source, [ExprParameter] string separator, [ExprParameter] Func&lt;T, string&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -7251,7 +7252,7 @@ public static Sql.IStringAggregateNotOrdered&lt;T&gt; StringAggregate&lt;T&gt;(t
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Sql.IStringAggregateNotOrdered-1.html">Sql.IStringAggregateNotOrdered</a>&lt;T&gt;</td>
+        <td><a class="xref" href="LinqToDB.Sql.IAggregateFunctionNotOrdered-2.html">Sql.IAggregateFunctionNotOrdered</a>&lt;T, <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -7276,7 +7277,7 @@ public static Sql.IStringAggregateNotOrdered&lt;T&gt; StringAggregate&lt;T&gt;(t
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Sql_StringAggregate__1_System_Linq_IQueryable___0__System_String_System_Linq_Expressions_Expression_System_Func___0_System_String___.md&amp;value=---%0Auid%3A%20LinqToDB.Sql.StringAggregate%60%601(System.Linq.IQueryable%7B%60%600%7D%2CSystem.String%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.String%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L253">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Strings.cs/#L103">View Source</a>
   </span>
   <a id="LinqToDB_Sql_StringAggregate_" data-uid="LinqToDB.Sql.StringAggregate*"></a>
   <h4 id="LinqToDB_Sql_StringAggregate__1_System_Linq_IQueryable___0__System_String_System_Linq_Expressions_Expression_System_Func___0_System_String___" data-uid="LinqToDB.Sql.StringAggregate``1(System.Linq.IQueryable{``0},System.String,System.Linq.Expressions.Expression{System.Func{``0,System.String}})">StringAggregate&lt;T&gt;(IQueryable&lt;T&gt;, String, Expression&lt;Func&lt;T, String&gt;&gt;)</h4>
@@ -7295,7 +7296,7 @@ public static Sql.IStringAggregateNotOrdered&lt;T&gt; StringAggregate&lt;T&gt;(t
 [Sql.Extension(&quot;DB2.LUW&quot;, &quot;LISTAGG({selector}, {separator}){_}{aggregation_ordering?}&quot;, IsAggregate = true, ChainPrecedence = 10)]
 [Sql.Extension(&quot;DB2.z/OS&quot;, &quot;LISTAGG({selector}, {separator}){_}{aggregation_ordering?}&quot;, IsAggregate = true, ChainPrecedence = 10)]
 [Sql.Extension(&quot;Firebird&quot;, &quot;LIST({selector}, {separator})&quot;, IsAggregate = true, ChainPrecedence = 10)]
-public static Sql.IStringAggregateNotOrdered&lt;T&gt; StringAggregate&lt;T&gt;(this IQueryable&lt;T&gt; source, [ExprParameter] string separator, [ExprParameter] Expression&lt;Func&lt;T, string&gt;&gt; selector)</code></pre>
+public static Sql.IAggregateFunctionNotOrdered&lt;T, string&gt; StringAggregate&lt;T&gt;(this IQueryable&lt;T&gt; source, [ExprParameter] string separator, [ExprParameter] Expression&lt;Func&lt;T, string&gt;&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -7334,7 +7335,7 @@ public static Sql.IStringAggregateNotOrdered&lt;T&gt; StringAggregate&lt;T&gt;(t
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Sql.IStringAggregateNotOrdered-1.html">Sql.IStringAggregateNotOrdered</a>&lt;T&gt;</td>
+        <td><a class="xref" href="LinqToDB.Sql.IAggregateFunctionNotOrdered-2.html">Sql.IAggregateFunctionNotOrdered</a>&lt;T, <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
