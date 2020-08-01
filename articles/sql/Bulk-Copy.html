@@ -8,7 +8,7 @@
     <title>Bulk Copy (Bulk Insert) | Linq To DB (aka linq2db) </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Bulk Copy (Bulk Insert) | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.56.1.0">
+    <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../../images/icon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -79,9 +79,9 @@
             <article class="content wrap" id="_content" data-uid="Bulk-Copy">
 <h1 id="bulk-copy-bulk-insert">Bulk Copy (Bulk Insert)</h1>
 
-<p>Some database servers provide functionality to quickly insert large amount of data into table. Downside of this method is that each server has it&#39;s own view on how this functionality should work and there is no standard interface to it.</p>
+<p>Some database servers provide functionality to quickly insert large amounts of data into a table. The downside of this method is that each server has its own view on how this functionality should work; there is no standard interface for it.</p>
 <h2 id="overview">Overview</h2>
-<p>To leverage complexity of work with this operation, <code>LINQ To DB</code> provides <code>BulkCopy</code> method. There are several overrides of it, but all they do the same - take data and operation options, perform insert and return operation status. How insert operation performed internally depends on provider support level and provided options.</p>
+<p>To leverage the complexity of work with this operation, <code>LINQ To DB</code> provides a <code>BulkCopy</code> method. There are several overrides, but all they do the same thing - take data and operation options, then perform inserts and return operation status. How insert operations are performed internally depends on the level of provider support and the provided options.</p>
 <pre><code class="lang-cs">// DataConnectionExtensions.cs
 BulkCopyRowsCopied BulkCopy&lt;T&gt;(this DataConnection dataConnection, BulkCopyOptions options, IEnumerable&lt;T&gt; source)
 BulkCopyRowsCopied BulkCopy&lt;T&gt;(this DataConnection dataConnection, int maxBatchSize, IEnumerable&lt;T&gt; source)
@@ -90,13 +90,18 @@ BulkCopyRowsCopied BulkCopy&lt;T&gt;(this DataConnection dataConnection, IEnumer
 BulkCopyRowsCopied BulkCopy&lt;T&gt;(this ITable&lt;T&gt; table, BulkCopyOptions options, IEnumerable&lt;T&gt; source)
 BulkCopyRowsCopied BulkCopy&lt;T&gt;(this ITable&lt;T&gt; table, int maxBatchSize, IEnumerable&lt;T&gt; source)
 BulkCopyRowsCopied BulkCopy&lt;T&gt;(this ITable&lt;T&gt; table, IEnumerable&lt;T&gt; source)
+</code></pre><p>In addition, there are two asynchronous methods for each of the methods listed above; one accepting an <code>IEnumerable&lt;T&gt;</code>, and for .Net Standard, one accepting an <code>IAsyncEnumerable&lt;T&gt;</code>. Each method accepts an optional <code>CancellationToken</code> parameter to cancel the bulk copy operation. A few of the asynchronous signatures are listed below:</p>
+<pre><code class="lang-cs">Task&lt;BulkCopyRowsCopied&gt; BulkCopyAsync&lt;T&gt;(this DataConnection dataConnection, BulkCopyOptions options, IEnumerable&lt;T&gt; source, CancellationToken cancellationToken = default)
+Task&lt;BulkCopyRowsCopied&gt; BulkCopyAsync&lt;T&gt;(this DataConnection dataConnection, BulkCopyOptions options, IAsyncEnumerable&lt;T&gt; source, CancellationToken cancellationToken = default) 
+Task&lt;BulkCopyRowsCopied&gt; BulkCopyAsync&lt;T&gt;(this ITable&lt;T&gt; table, IEnumerable&lt;T&gt; source, CancellationToken cancellationToken = default)
+Task&lt;BulkCopyRowsCopied&gt; BulkCopyAsync&lt;T&gt;(this ITable&lt;T&gt; table, IAsyncEnumerable&lt;T&gt; source, CancellationToken cancellationToken = default)
 </code></pre><h2 id="insert-methods-and-support-by-providers">Insert methods and support by providers</h2>
 <p><code>LINQ To DB</code> allows you to specify one of four insert methods (or three, as Default is not an actual method):</p>
 <ul>
-<li><code>Default</code>. <code>LINQ To DB</code> will choose method automatically, based on used provider. Which method to use for specific provider could be overriden using <code>&lt;PROVIDER_NAME&gt;Tools.DefaultBulkCopyType</code> property.</li>
-<li><code>RowByRow</code>. This method just iterate over provided collection and insert each record using separate SQL <code>INSERT</code> command. Least effective method, but some providers support only this one.</li>
-<li><code>MultipleRows</code>. Similar to <code>RowByRow</code>. Inserts multiple records at once using SQL <code>INSERT FROM SELECT</code> or similar batch insert command. This one is faster than <code>RowByRow</code>, but available only for providers that support such <code>INSERT</code> operation. If method is not supported, LINQ To DB silently fallback to <code>RowByRow</code> implementation.</li>
-<li><code>ProviderSpecific</code>. Most effective method, available only for few providers. Uses provider specific functionality, usually not based on <code>SQL</code> and could have provider-specific limitations, like transactions support. If method is not supported, LINQ To DB silently fallback to <code>MultipleRows</code> implementation.</li>
+<li><code>Default</code>. <code>LINQ To DB</code> will choose the method automatically, based on the provider used. Which method to use for a specific provider can be overriden using the <code>&lt;PROVIDER_NAME&gt;Tools.DefaultBulkCopyType</code> property.</li>
+<li><code>RowByRow</code>. This method just iterates over a provided collection and inserts each record using separate SQL <code>INSERT</code> commands. This is the least effective method, but some providers support only this one.</li>
+<li><code>MultipleRows</code>. Similar to <code>RowByRow</code>. Inserts multiple records at once using SQL <code>INSERT FROM SELECT</code> or similar batch insert commands. This one is faster than <code>RowByRow</code>, but is only available for providers that support such <code>INSERT</code> operations. If the method is not supported, LINQ To DB will silently fall back to the <code>RowByRow</code> implementation.</li>
+<li><code>ProviderSpecific</code>. Most effective method, available only for a few providers. Uses provider specific functionality, usually not based on <code>SQL</code> and could have provider-specific limitations, like transactions support. If the method is not supported, LINQ To DB will silently fall back to the <code>MultipleRows</code> implementation.</li>
 </ul>
 <table>
 <thead>
@@ -146,7 +151,7 @@ BulkCopyRowsCopied BulkCopy&lt;T&gt;(this ITable&lt;T&gt; table, IEnumerable&lt;
 <td>MySql / MariaDB</td>
 <td>Yes</td>
 <td>Yes</td>
-<td><a href="https://github.com/linq2db/linq2db/issues/2113">In development</a> (using MySqlConnector provider)</td>
+<td>Yes</td>
 <td>MultipleRows</td>
 <td>MySqlTools.DefaultBulkCopyType</td>
 </tr>
@@ -208,25 +213,26 @@ BulkCopyRowsCopied BulkCopy&lt;T&gt;(this ITable&lt;T&gt; table, IEnumerable&lt;
 </tr>
 </tbody>
 </table>
+<p>Note that when using the provider-specific insert method, only MySql, PostgreSQL, SAP HANA, and Microsoft SQL Server support asynchronous operation; other providers will silently fall back to a synchronous operation.</p>
 <h3 id="postgresql-provider-specific-bulk-copy">PostgreSQL provider-specific bulk copy</h3>
-<p>For PostgreSQL <code>BulkCopy</code> use <code>BINARY COPY</code> operation when <code>ProviderSpecific</code> method specified. This operation is very sensitive to what types are used. You must always use proper type that match type in target table, or you will receive error from server (e.g. <code>&quot;22P03: incorrect binary data format&quot;</code>).</p>
-<p>Below is a list of types, that could result in error without explicit type specification:</p>
+<p>For PostgreSQL, <code>BulkCopy</code> uses the <code>BINARY COPY</code> operation when the <code>ProviderSpecific</code> method specified. This operation is very sensitive to what types are used. You must always use the proper type that matches the type in target table, or you will receive an error from server (e.g. <code>&quot;22P03: incorrect binary data format&quot;</code>).</p>
+<p>Below is a list of types that could result in error without an explicit type specification:</p>
 <ul>
-<li><code>decimal</code>/<code>numeric</code> vs <code>money</code>. Those are two different types, mapped to <code>System.Decimal</code>. Default mappings will use <code>numeric</code> type, so if your column has <code>money</code> type, you should type it in mapping using <code>DataType = DataType.Money</code> or <code>DbType = &quot;money&quot;</code> hints.</li>
-<li><code>time</code> vs <code>interval</code>. Those are two different types, mapped to <code>System.TimeSpan</code>. Default mappings will use <code>time</code> type, so if your column has <code>interval</code> type, you should type it in mapping using <code>DbType = &quot;interval&quot;</code> hint. Or use <code>NpgsqlTimeSpan</code> type for intervals.</li>
-<li>any text types/<code>json</code> vs <code>jsonb</code>. All those types mapped to <code>System.String</code> (except <code>character</code> which is mapped to <code>System.Char</code>). Default mappings will not work for <code>jsonb</code> column and you should type it in mapping using <code>DataType = DataType.BinaryJson</code> or <code>DbType = &quot;jsonb&quot;</code> hint.</li>
-<li><code>inet</code> vs <code>cidr</code>. If you use <code>NpgsqlInet</code> type for mapping column, it could be mapped to both <code>inet</code> and &#39;cidr&#39; types. There is no default mapping for this type, so you should explicitly specify it using <code>DbType = &quot;inet&quot;</code> or <code>DbType = &quot;cidr&quot;</code> hint. Also for <code>inet</code> you can use <code>IPAddress</code> which will be mapped to <code>inet</code> type.</li>
-<li><code>macaddr</code> vs <code>macaddr8</code>. Both types could be mapped to the same <code>PhysicalAddress</code>/<code>String</code> types, so you should explicitly specify column type using <code>DbType = &quot;macaddr&quot;</code> or <code>DbType = &quot;macaddr8&quot;</code> hints. Even if you use provider version without <code>macaddr8</code> support, you should specify hint or it will break after provider update to newer version.</li>
-<li><code>date</code> type. You should use <code>NpgsqlDate</code> type in mapping or specify <code>DataType = DataType.Date</code> or <code>DbType = &quot;date&quot;</code> hints.</li>
-<li><code>time with time zone</code> type needs <code>DbType = &quot;time with time zone&quot;</code> hint.</li>
+<li><code>decimal</code>/<code>numeric</code> vs <code>money</code>. Those are two different types, mapped to <code>System.Decimal</code>. Default mappings will use the <code>numeric</code> type, so if your column is the <code>money</code> type, you should type it in mappings using <code>DataType = DataType.Money</code> or <code>DbType = &quot;money&quot;</code> hints.</li>
+<li><code>time</code> vs <code>interval</code>. Those are two different types, mapped to <code>System.TimeSpan</code>. Default mappings will use the <code>time</code> type, so if your column is the <code>interval</code> type, you should type it in mappings using a <code>DbType = &quot;interval&quot;</code> hint. Or use the <code>NpgsqlTimeSpan</code> type for intervals.</li>
+<li>any text types/<code>json</code> vs <code>jsonb</code>. All those types are mapped to <code>System.String</code> (except <code>character</code> which is mapped to <code>System.Char</code>). Default mappings will not work for <code>jsonb</code> column and you should type it in mappings using <code>DataType = DataType.BinaryJson</code> or <code>DbType = &quot;jsonb&quot;</code> hints.</li>
+<li><code>inet</code> vs <code>cidr</code>. If you use <code>NpgsqlInet</code> type for the mapping column, it could be mapped to both <code>inet</code> and &#39;cidr&#39; types. There is no default mapping for this type, so you should explicitly specify it using <code>DbType = &quot;inet&quot;</code> or <code>DbType = &quot;cidr&quot;</code> hints. Also for <code>inet</code> you can use <code>IPAddress</code> which will be mapped to the <code>inet</code> type.</li>
+<li><code>macaddr</code> vs <code>macaddr8</code>. Both types could be mapped to the same <code>PhysicalAddress</code>/<code>String</code> types, so you should explicitly specify the column type using <code>DbType = &quot;macaddr&quot;</code> or <code>DbType = &quot;macaddr8&quot;</code> hints. Even if you use a provider version without <code>macaddr8</code> support, you should specify the hint or it will break after the provider updates to a newer version.</li>
+<li><code>date</code> type. You should use the <code>NpgsqlDate</code> type in mappings or specify <code>DataType = DataType.Date</code> or <code>DbType = &quot;date&quot;</code> hints.</li>
+<li><code>time with time zone</code> type needs the <code>DbType = &quot;time with time zone&quot;</code> hint.</li>
 </ul>
 <p>If you have issues with other types, feel free to create an issue.</p>
 <h2 id="options">Options</h2>
 <p>See <a class="xref" href="../../api/LinqToDB.Data.BulkCopyOptions.html">BulkCopyOptions</a> properties and support per-provider</p>
 <h2 id="keepidentity-option-default--false"><code>KeepIdentity</code> option (default : <code>false</code>)</h2>
-<p>This option allows to insert provided values into identity column. It is supported by limited set of providers and is not compatible with <code>RowByRow</code> mode. Latter means that if provider doesn&#39;t support any other insert mode, <code>KeepIdentity</code> option is not supported too.</p>
-<p>This option is not supported for <code>RowByRow</code> because corresponding functionality is not implemented by <code>LINQ To DB</code> and could be added on request.</p>
-<p>If you will set this option to <code>true</code> for unsupported mode or provider, you will get <code>LinqToDBException</code>.</p>
+<p>This option allows you to insert provided values into the identity column. It is supported by limited set of providers and is not compatible with <code>RowByRow</code> mode. Hence, if the provider doesn&#39;t support any other insert mode, the <code>KeepIdentity</code> option is not supported.</p>
+<p>This option is not supported for <code>RowByRow</code> because corresponding functionality is not implemented by <code>LINQ To DB</code>; it could be added upon request.</p>
+<p>If you will set this option to <code>true</code> for an unsupported mode or provider, you will get a <code>LinqToDBException</code>.</p>
 <table>
 <thead>
 <tr>
@@ -286,7 +292,7 @@ BulkCopyRowsCopied BulkCopy&lt;T&gt;(this ITable&lt;T&gt; table, IEnumerable&lt;
 </tbody>
 </table>
 <h2 id="see-also">See Also</h2>
-<p>As an alternative to <code>BulkCopy</code>, <a class="xref" href="merge/Merge-API.html">Merge</a> operation could be used. It allows more flexibility but not available for some providers and will be always slower than <code>BulkCopy</code> with native provider support.</p>
+<p>As an alternative to <code>BulkCopy</code>, a <a class="xref" href="merge/Merge-API.html">Merge</a> operation could be used. It allows more flexibility but is not available for some providers and will be always slower than <code>BulkCopy</code> with native provider support.</p>
 </article>
           </div>
           
@@ -295,7 +301,7 @@ BulkCopyRowsCopied BulkCopy&lt;T&gt;(this ITable&lt;T&gt; table, IEnumerable&lt;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/linq2db/docs/blob/master/source/articles/sql/Bulk-Copy.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/linq2db/docs/blob/merge/source/articles/sql/Bulk-Copy.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
