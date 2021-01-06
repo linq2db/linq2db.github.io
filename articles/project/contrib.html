@@ -8,7 +8,7 @@
     <title>Contributing guide | Linq To DB (aka linq2db) </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Contributing guide | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.56.5.0">
+    <meta name="generator" content="docfx 2.56.6.0">
     
     <link rel="shortcut icon" href="../../images/icon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -227,10 +227,10 @@
 <thead>
 <tr>
 <th style="text-align:right">Project \ Target</th>
-<th style="text-align:center">.NET 4.6</th>
-<th style="text-align:center">.NET 4.6.2</th>
+<th style="text-align:center">.NET 4.7.2</th>
 <th style="text-align:center">.NET Core 2.1</th>
 <th style="text-align:center">.NET Core 3.1</th>
+<th style="text-align:center">.NET 5.0</th>
 <th style="text-align:center">Xamarin.Forms Android v8.1</th>
 </tr>
 </thead>
@@ -238,7 +238,7 @@
 <tr>
 <td style="text-align:right"><code>.\Tests\Base\Tests.Base.csproj</code></td>
 <td style="text-align:center">√</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center"></td>
@@ -246,7 +246,7 @@
 <tr>
 <td style="text-align:right"><code>.\Tests\FSharp\Tests.FSharp.fsproj</code></td>
 <td style="text-align:center">√</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center"></td>
@@ -254,7 +254,7 @@
 <tr>
 <td style="text-align:right"><code>.\Tests\Linq\Tests.csproj</code></td>
 <td style="text-align:center">√</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center"></td>
@@ -262,7 +262,7 @@
 <tr>
 <td style="text-align:right"><code>.\Tests\Model\Tests.Model.csproj</code></td>
 <td style="text-align:center">√</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center"></td>
@@ -277,7 +277,7 @@
 </tr>
 <tr>
 <td style="text-align:right"><code>.\Tests\Tests.Benchmarks\Tests.Benchmarks.csproj</code></td>
-<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
@@ -286,7 +286,7 @@
 <tr>
 <td style="text-align:right"><code>.\Tests\Tests.Playground\Tests.Playground.csproj</code></td>
 <td style="text-align:center">√</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center"></td>
@@ -294,7 +294,7 @@
 <tr>
 <td style="text-align:right"><code>.\Tests\Tests.T4\Tests.T4.csproj</code></td>
 <td style="text-align:center">√</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center"></td>
@@ -302,7 +302,7 @@
 <tr>
 <td style="text-align:right"><code>.\Tests\VisualBasic\Tests.VisualBasic.vbproj</code></td>
 <td style="text-align:center">√</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center"></td>
@@ -313,7 +313,8 @@
 <ul>
 <li><code>NETCOREAPP3_1</code> - <code>netcoreapp3.1</code> target ifdef</li>
 <li><code>NETCOREAPP2_1</code> - <code>netcoreapp2.1</code> target ifdef</li>
-<li><code>NET46</code> - <code>net46</code> target ifdef</li>
+<li><code>NET5_0</code> - <code>net5.0</code> target ifdef</li>
+<li><code>NET472</code> - <code>net472</code> target ifdef</li>
 <li><code>AZURE</code> - for Azure Pipelines CI builds</li>
 </ul>
 <h2 id="building">Building</h2>
@@ -322,10 +323,10 @@
 <li><code>.\Build.cmd</code> - builds all the projects in the solution for Debug, Release and Azure configurations</li>
 <li><code>.\Compile.cmd</code> - builds LinqToDB project for Debug and Release configurations</li>
 <li><code>.\Clean.cmd</code> - cleanups solution projects for Debug, Release and Azure configurations</li>
-<li><code>.\Test.cmd</code> - build <code>Debug</code> configuration and run tests for <code>net46</code> and <code>netcoreapp2.1</code> targets. You can set other configuration by passing it as first paramenter, disable test targets by passing 0 to second(for <code>net46</code>) or third (for <code>netcoreapp2.1</code>) parameter and format (default:html) as 4th parameter.</li>
+<li><code>.\Test.cmd</code> - build <code>Debug</code> configuration and run tests for <code>net472</code>,  <code>netcoreapp2.1</code>, <code>netcoreapp3.1</code> and <code>net5.0</code> targets. You can set other configuration by passing it as first parameter, disable test targets by passing 0 to second (for <code>net472</code>),  third (for <code>netcoreapp2.1</code>), fourth (for <code>netcoreapp3.1</code>) or fifth (for <code>net5.0</code>) parameter and format (default:html) as 6th parameter.</li>
 </ul>
 <p>Example of running Release build tests for <code>netcoreapp2.1</code> only with trx as output:</p>
-<pre><code>test.cmd Release 0 1 trx
+<pre><code>test.cmd Release 0 1 0 0 0 trx
 </code></pre><h3 id="different-platforms-support">Different platforms support</h3>
 <p>Because of compiling for different platforms we do use:</p>
 <ul>
@@ -368,8 +369,8 @@ list of providers to test.</p>
 <p>The <code>[User]DataProviders.json</code> is a regular JSON file:</p>
 <h4 id="userdataprovidersjson-example-with-description">UserDataProviders.json example (with description)</h4>
 <pre><code class="lang-js">{
-    // .net framework 4.6 test configuration
-    &quot;NET46&quot; :
+    // .net framework 4.7.2 test configuration
+    &quot;NET472&quot; :
     {
         // base configuration to inherit settings from
         // Inheritance rules:
@@ -380,6 +381,10 @@ list of providers to test.</p>
         // default provider, used as a source of reference data
         // LINQ to DB uses SQLite for it and you hardly need to change it
         &quot;DefaultConfiguration&quot; : &quot;SQLite.Classic&quot;,
+
+        // (optional) contains full or relative (from test assembly location) path to test baselines directory.
+        // When path is set and specified directory exists - enables baselines generation for tests.
+        &quot;BaselinesPath&quot;: &quot;c:\\github\\linq2db.baselines&quot;,
 
         // logging level
         // Supported values: Off, Error, Warning, Info, Verbose
@@ -470,8 +475,10 @@ list of providers to test.</p>
 <ul>
 <li><a href="https://dev.azure.com/linq2db/linq2db/_build?definitionId=1">Azure Pipelines</a> <a href="https://github.com/linq2db/linq2db/blob/master/azure-pipelines.yml">azure-pipelines.yml</a>.
 It builds solution, generate and publish nugets and runs tests for:<ul>
-<li>.Net 4.6</li>
-<li>.Net Core 2.1 (Windows/Linux and MacOS)
+<li>.Net 4.7.2</li>
+<li>.Net Core 2.1 (Windows/Linux and MacOS)</li>
+<li>.Net Core 3.1 (Windows/Linux and MacOS) (currently for limited set of providers to reduce test time)</li>
+<li>.Net 5.0 (Windows/Linux and MacOS) (currently for limited set of providers to reduce test time)
 For more details check <a href="https://github.com/linq2db/linq2db/blob/master/Build/Azure/README.md">readme</a></li>
 </ul>
 </li>
@@ -525,7 +532,7 @@ For more details check <a href="https://github.com/linq2db/linq2db/blob/master/B
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/linq2db/docs/blob/merge/source/articles/project/contrib.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/linq2db/docs/blob/master/source/articles/project/contrib.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
