@@ -8,7 +8,7 @@
     <title>Contributing guide | Linq To DB (aka linq2db) </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Contributing guide | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../images/icon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -116,6 +116,10 @@
 <td>LINQ to DB Tools source code</td>
 </tr>
 <tr>
+<td>.\Source\LinqToDB.AspNet</td>
+<td>LINQ to DB ASP.NET Core integration library source code</td>
+</tr>
+<tr>
 <td>.\Source\LinqToDB.Templates</td>
 <td>LINQ to DB t4models source code</td>
 </tr>
@@ -173,6 +177,7 @@
 <th style="text-align:right">Project \ Target</th>
 <th style="text-align:center">.NET 4.5</th>
 <th style="text-align:center">.NET 4.6</th>
+<th style="text-align:center">.NET 4.7.2</th>
 <th style="text-align:center">.NET Standard 2.0</th>
 <th style="text-align:center">.NET Core 2.1</th>
 <th style="text-align:center">.NET Standard 2.1</th>
@@ -188,10 +193,22 @@
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
 </tr>
 <tr>
 <td style="text-align:right"><code>.\Source\LinqToDB\LinqToDB.Tools.csproj</code></td>
 <td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>.\Source\LinqToDB\LinqToDB.AspNet.csproj</code></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
 <td style="text-align:center"></td>
 <td style="text-align:center">√</td>
 <td style="text-align:center"></td>
@@ -202,10 +219,11 @@
 </table>
 <p>Preferred target defines:</p>
 <ul>
-<li><code>NETFRAMEWORK</code> - <code>net45</code> and <code>net46</code> target ifdef</li>
+<li><code>NETFRAMEWORK</code> - <code>net45</code>, <code>net46</code> and <code>net472</code> target ifdef</li>
 <li><code>!NETFRAMEWORK</code> - <code>netstandard2.0</code> and newer target ifdef</li>
 <li><code>NETCOREAPP</code> - <code>netcoreapp2.1</code> and <code>netcoreapp3.1</code> target ifdef</li>
 <li><code>NETSTANDARD2_1PLUS</code> - <code>netstandard2.1</code> and <code>netcoreapp3.1</code> target ifdef</li>
+<li><code>NATIVE_ASYNC</code> - ifdef with native support for <code>ValueTask</code>, <code>IAsyncEnumerable&lt;T&gt;</code> and <code>IAsyncDisposable</code> types</li>
 </ul>
 <p>Other allowed target defines:</p>
 <ul>
@@ -215,6 +233,7 @@
 <li><code>NETCOREAPP2_1</code> - <code>netcoreapp2.1</code> target ifdef</li>
 <li><code>NET45</code> - <code>net45</code> target ifdef</li>
 <li><code>NET46</code> - <code>net46</code> target ifdef</li>
+<li><code>NET472</code> - <code>net472</code> target ifdef</li>
 </ul>
 <p>Allowed debugging defines:</p>
 <ul>
@@ -231,7 +250,6 @@
 <th style="text-align:center">.NET Core 2.1</th>
 <th style="text-align:center">.NET Core 3.1</th>
 <th style="text-align:center">.NET 5.0</th>
-<th style="text-align:center">Xamarin.Forms Android v8.1</th>
 </tr>
 </thead>
 <tbody>
@@ -241,7 +259,6 @@
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
-<td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:right"><code>.\Tests\FSharp\Tests.FSharp.fsproj</code></td>
@@ -249,7 +266,6 @@
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
-<td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:right"><code>.\Tests\Linq\Tests.csproj</code></td>
@@ -257,22 +273,12 @@
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
-<td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:right"><code>.\Tests\Model\Tests.Model.csproj</code></td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:right"><code>.\Tests\Tests.Android\Tests.Android.csproj</code></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
 <td style="text-align:center">√</td>
 </tr>
 <tr>
@@ -281,7 +287,6 @@
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
-<td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:right"><code>.\Tests\Tests.Playground\Tests.Playground.csproj</code></td>
@@ -289,7 +294,6 @@
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
-<td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:right"><code>.\Tests\Tests.T4\Tests.T4.csproj</code></td>
@@ -297,7 +301,6 @@
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
-<td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:right"><code>.\Tests\VisualBasic\Tests.VisualBasic.vbproj</code></td>
@@ -305,7 +308,6 @@
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
 <td style="text-align:center">√</td>
-<td style="text-align:center"></td>
 </tr>
 </tbody>
 </table>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class AnalyticFunctions
    | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -143,7 +143,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;AVG({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;AVG({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Average&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -211,7 +211,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Average
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;AVG({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;AVG({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Average&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -284,7 +284,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Average
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;AVG({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;AVG({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsWindowFunction = true, ChainPrecedence = 0)]
 public static double Average&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -361,7 +361,7 @@ public static double Average&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;AVG({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;AVG({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsWindowFunction = true, ChainPrecedence = 0)]
 public static double Average&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -438,7 +438,7 @@ public static double Average&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; s
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;CORR({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;CORR({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Corr&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr1, [ExprParameter] object expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -511,7 +511,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Corr&lt
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;CORR({expr1}, {expr2})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;CORR({expr1}, {expr2})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static decimal Corr&lt;T&gt;(this IEnumerable&lt;T&gt; source, [ExprParameter] Expression&lt;Func&lt;T, object&gt;&gt; expr1, [ExprParameter] Expression&lt;Func&lt;T, object&gt;&gt; expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -584,7 +584,7 @@ public static decimal Corr&lt;T&gt;(this IEnumerable&lt;T&gt; source, [ExprParam
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;CORR({expr1}, {expr2})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;CORR({expr1}, {expr2})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static decimal Corr&lt;TEntity&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, object&gt;&gt; expr1, [ExprParameter] Expression&lt;Func&lt;TEntity, object&gt;&gt; expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -657,7 +657,7 @@ public static decimal Corr&lt;TEntity&gt;(this IQueryable&lt;TEntity&gt; source,
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT(*)&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT(*)&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;int&gt; Count(this Sql.ISqlExtension ext)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -705,7 +705,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;int&gt; Count
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;int&gt; Count(this Sql.ISqlExtension ext, [ExprParameter] object expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -763,7 +763,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;int&gt; Count
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;int&gt; Count&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -831,7 +831,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;int&gt; Count
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({expr})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static int CountExt&lt;TEntity&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, object&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -899,7 +899,7 @@ public static int CountExt&lt;TEntity&gt;(this IEnumerable&lt;TEntity&gt; source
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsWindowFunction = true, ChainPrecedence = 0)]
 public static int CountExt&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -976,7 +976,7 @@ public static int CountExt&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; so
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static int CountExt&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1048,7 +1048,7 @@ public static int CountExt&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; sou
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsWindowFunction = true, ChainPrecedence = 0)]
 public static int CountExt&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr, Sql.AggregateModifier modifier = Sql.AggregateModifier.None)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1125,7 +1125,7 @@ public static int CountExt&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; sou
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COVAR_POP({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COVAR_POP({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; CovarPop&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr1, [ExprParameter] T expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1198,7 +1198,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; CovarPo
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COVAR_POP({expr1}, {expr2})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COVAR_POP({expr1}, {expr2})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static decimal CovarPop&lt;T&gt;(this IEnumerable&lt;T&gt; source, [ExprParameter] Expression&lt;Func&lt;T, object&gt;&gt; expr1, [ExprParameter] Expression&lt;Func&lt;T, object&gt;&gt; expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1271,7 +1271,7 @@ public static decimal CovarPop&lt;T&gt;(this IEnumerable&lt;T&gt; source, [ExprP
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COVAR_POP({expr1}, {expr2})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COVAR_POP({expr1}, {expr2})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static decimal CovarPop&lt;TEntity&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, object&gt;&gt; expr1, [ExprParameter] Expression&lt;Func&lt;TEntity, object&gt;&gt; expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1344,7 +1344,7 @@ public static decimal CovarPop&lt;TEntity&gt;(this IQueryable&lt;TEntity&gt; sou
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COVAR_SAMP({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COVAR_SAMP({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; CovarSamp&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr1, [ExprParameter] T expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1417,7 +1417,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; CovarSa
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COVAR_SAMP({expr1}, {expr2})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COVAR_SAMP({expr1}, {expr2})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static decimal CovarSamp&lt;T&gt;(this IEnumerable&lt;T&gt; source, [ExprParameter] Expression&lt;Func&lt;T, object&gt;&gt; expr1, [ExprParameter] Expression&lt;Func&lt;T, object&gt;&gt; expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1490,7 +1490,7 @@ public static decimal CovarSamp&lt;T&gt;(this IEnumerable&lt;T&gt; source, [Expr
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COVAR_SAMP({expr1}, {expr2})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COVAR_SAMP({expr1}, {expr2})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static decimal CovarSamp&lt;TEntity&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, object&gt;&gt; expr1, [ExprParameter] Expression&lt;Func&lt;TEntity, object&gt;&gt; expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1563,7 +1563,7 @@ public static decimal CovarSamp&lt;TEntity&gt;(this IQueryable&lt;TEntity&gt; so
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;CUME_DIST()&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;CUME_DIST()&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;TR&gt; CumeDist&lt;TR&gt;(this Sql.ISqlExtension ext)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1626,7 +1626,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;TR&gt; CumeDis
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;CUME_DIST({expr, ', '}) {within_group}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;CUME_DIST({expr, ', '}) {within_group}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.INeedsWithinGroupWithOrderOnly&lt;TR&gt; CumeDist&lt;TR&gt;(this Sql.ISqlExtension ext, [ExprParameter] params object[] expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1694,7 +1694,7 @@ public static AnalyticFunctions.INeedsWithinGroupWithOrderOnly&lt;TR&gt; CumeDis
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;DENSE_RANK()&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;DENSE_RANK()&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;long&gt; DenseRank(this Sql.ISqlExtension ext)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1742,7 +1742,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;long&gt; Dense
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;DENSE_RANK({expr1}, {expr2}) {within_group}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;DENSE_RANK({expr1}, {expr2}) {within_group}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.INeedsWithinGroupWithOrderOnly&lt;long&gt; DenseRank(this Sql.ISqlExtension ext, [ExprParameter] object expr1, [ExprParameter] object expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1800,7 +1800,7 @@ public static AnalyticFunctions.INeedsWithinGroupWithOrderOnly&lt;long&gt; Dense
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;{function} FILTER (WHERE {filter})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 2, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;{function} FILTER (WHERE {filter})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 2, IsWindowFunction = true)]
 public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; Filter&lt;T&gt;(this AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; func, [ExprParameter] bool filter)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1868,7 +1868,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; Filter&l
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;FIRST_VALUE({expr}{_}{modifier?})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyNullsModifier), ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;FIRST_VALUE({expr}{_}{modifier?})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyNullsModifier), ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; FirstValue&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr, Sql.Nulls nulls)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1941,7 +1941,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; FirstVa
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;{function} KEEP (DENSE_RANK FIRST {order_by_clause}){_}{over?}&quot;, ChainPrecedence = 10, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;{function} KEEP (DENSE_RANK FIRST {order_by_clause}){_}{over?}&quot;, ChainPrecedence = 10, IsWindowFunction = true)]
 public static AnalyticFunctions.INeedOrderByAndMaybeOverWithPartition&lt;TR&gt; KeepFirst&lt;TR&gt;(this AnalyticFunctions.IAggregateFunction&lt;TR&gt; ext)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -2004,7 +2004,7 @@ public static AnalyticFunctions.INeedOrderByAndMaybeOverWithPartition&lt;TR&gt; 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;{function} KEEP (DENSE_RANK LAST {order_by_clause}){_}{over?}&quot;, ChainPrecedence = 10, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;{function} KEEP (DENSE_RANK LAST {order_by_clause}){_}{over?}&quot;, ChainPrecedence = 10, IsWindowFunction = true)]
 public static AnalyticFunctions.INeedOrderByAndMaybeOverWithPartition&lt;TR&gt; KeepLast&lt;TR&gt;(this AnalyticFunctions.IAggregateFunction&lt;TR&gt; ext)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -2067,7 +2067,7 @@ public static AnalyticFunctions.INeedOrderByAndMaybeOverWithPartition&lt;TR&gt; 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;LAG({expr}{_}{modifier?})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyNullsModifier), ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;LAG({expr}{_}{modifier?})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyNullsModifier), ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; Lag&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr, Sql.Nulls nulls)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -2140,7 +2140,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; Lag&lt;T
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;LAG({expr}{_}{modifier?}, {offset}, {default})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyNullsModifier), ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;LAG({expr}{_}{modifier?}, {offset}, {default})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyNullsModifier), ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; Lag&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr, Sql.Nulls nulls, [ExprParameter] int offset, [ExprParameter] int? default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -2223,7 +2223,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; Lag&lt;T
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;LAST_VALUE({expr}{_}{modifier?})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyNullsModifier), ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;LAST_VALUE({expr}{_}{modifier?})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyNullsModifier), ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; LastValue&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr, Sql.Nulls nulls)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -2296,7 +2296,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; LastVal
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;LEAD({expr}{_}{modifier?})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;LEAD({expr}{_}{modifier?})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; Lead&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr, Sql.Nulls nulls)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -2369,7 +2369,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; Lead&lt;
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;LEAD({expr}{_}{modifier?}, {offset}, {default})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyNullsModifier), ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;LEAD({expr}{_}{modifier?}, {offset}, {default})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyNullsModifier), ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; Lead&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr, Sql.Nulls nulls, [ExprParameter] int offset, [ExprParameter] int? default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -2452,7 +2452,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; Lead&lt;
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;LISTAGG({expr}) {within_group}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;LISTAGG({expr}) {within_group}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.INeedsWithinGroupWithOrderAndMaybePartition&lt;string&gt; ListAgg&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -2520,7 +2520,7 @@ public static AnalyticFunctions.INeedsWithinGroupWithOrderAndMaybePartition&lt;s
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;LISTAGG({expr}, {delimiter}) {within_group}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;LISTAGG({expr}, {delimiter}) {within_group}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.INeedsWithinGroupWithOrderAndMaybePartition&lt;string&gt; ListAgg&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr, [ExprParameter] string delimiter)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -2593,7 +2593,7 @@ public static AnalyticFunctions.INeedsWithinGroupWithOrderAndMaybePartition&lt;s
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT(*)&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT(*)&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;long&gt; LongCount(this Sql.ISqlExtension ext)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -2641,7 +2641,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;long&gt; Long
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;long&gt; LongCount(this Sql.ISqlExtension ext, [ExprParameter] object expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -2699,7 +2699,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;long&gt; Long
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;long&gt; LongCount&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -2767,7 +2767,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;long&gt; Long
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({expr})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static long LongCountExt&lt;TEntity&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, object&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -2835,7 +2835,7 @@ public static long LongCountExt&lt;TEntity&gt;(this IEnumerable&lt;TEntity&gt; s
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsWindowFunction = true, ChainPrecedence = 0)]
 public static long LongCountExt&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -2912,7 +2912,7 @@ public static long LongCountExt&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&g
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;COUNT({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsWindowFunction = true, ChainPrecedence = 0)]
 public static long LongCountExt&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr, Sql.AggregateModifier modifier = Sql.AggregateModifier.None)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -2989,7 +2989,7 @@ public static long LongCountExt&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MAX({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MAX({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Max&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -3057,7 +3057,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Max&lt;
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MAX({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MAX({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Max&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -3130,7 +3130,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Max&lt;
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MAX({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MAX({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsWindowFunction = true, ChainPrecedence = 0)]
 public static TV Max&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -3207,7 +3207,7 @@ public static TV Max&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MAX({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MAX({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsWindowFunction = true, ChainPrecedence = 0)]
 public static TV Max&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -3284,7 +3284,7 @@ public static TV Max&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MEDIAN({expr}) {over}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MEDIAN({expr}) {over}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IReadyToFunctionOrOverWithPartition&lt;T&gt; Median&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -3352,7 +3352,7 @@ public static AnalyticFunctions.IReadyToFunctionOrOverWithPartition&lt;T&gt; Med
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MEDIAN({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MEDIAN({expr})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static long Median&lt;TEntity, T&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, T&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -3424,7 +3424,7 @@ public static long Median&lt;TEntity, T&gt;(this IEnumerable&lt;TEntity&gt; sour
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MEDIAN({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MEDIAN({expr})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static long Median&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -3496,7 +3496,7 @@ public static long Median&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; sour
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MIN({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MIN({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Min&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -3564,7 +3564,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Min&lt;
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MIN({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MIN({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Min&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -3637,7 +3637,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Min&lt;
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MIN({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MIN({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsWindowFunction = true, ChainPrecedence = 0)]
 public static TV Min&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -3714,7 +3714,7 @@ public static TV Min&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MIN({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;MIN({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsWindowFunction = true, ChainPrecedence = 0)]
 public static TV Min&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -3791,7 +3791,7 @@ public static TV Min&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;NTH_VALUE({expr}, {n})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;NTH_VALUE({expr}, {n})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; NthValue&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr, [ExprParameter] long n)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -3864,7 +3864,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; NthValu
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;NTH_VALUE({expr}, {n}){_}{from?}{_}{nulls?}&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyFromAndNullsModifier), ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;NTH_VALUE({expr}, {n}){_}{from?}{_}{nulls?}&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyFromAndNullsModifier), ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; NthValue&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr, [ExprParameter] long n, Sql.From from, Sql.Nulls nulls)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -3947,7 +3947,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; NthValu
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;NTILE({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;NTILE({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; NTile&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4015,7 +4015,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; NTile&lt
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;PERCENTILE_CONT({expr}) {within_group}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;PERCENTILE_CONT({expr}) {within_group}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.INeedsWithinGroupWithSingleOrderAndMaybePartition&lt;T&gt; PercentileCont&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4083,7 +4083,7 @@ public static AnalyticFunctions.INeedsWithinGroupWithSingleOrderAndMaybePartitio
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;PERCENTILE_DISC({expr}) {within_group}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;PERCENTILE_DISC({expr}) {within_group}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.INeedsWithinGroupWithSingleOrderAndMaybePartition&lt;T&gt; PercentileDisc&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4151,7 +4151,7 @@ public static AnalyticFunctions.INeedsWithinGroupWithSingleOrderAndMaybePartitio
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;PERCENT_RANK()&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;PERCENT_RANK()&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; PercentRank&lt;T&gt;(this Sql.ISqlExtension ext)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4214,7 +4214,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;T&gt; PercentR
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;PERCENT_RANK({expr, ', '}) {within_group}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;PERCENT_RANK({expr, ', '}) {within_group}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.INeedsWithinGroupWithOrderOnly&lt;T&gt; PercentRank&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] params object[] expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4282,7 +4282,7 @@ public static AnalyticFunctions.INeedsWithinGroupWithOrderOnly&lt;T&gt; PercentR
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;RANK()&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;RANK()&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;long&gt; Rank(this Sql.ISqlExtension ext)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4330,7 +4330,7 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;long&gt; Rank(
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;RANK({expr, ', '}) {within_group}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;RANK({expr, ', '}) {within_group}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.INeedsWithinGroupWithOrderOnly&lt;long&gt; Rank(this Sql.ISqlExtension ext, [ExprParameter] params object[] expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4383,7 +4383,7 @@ public static AnalyticFunctions.INeedsWithinGroupWithOrderOnly&lt;long&gt; Rank(
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;RATIO_TO_REPORT({expr}) {over}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;RATIO_TO_REPORT({expr}) {over}&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IOverWithPartitionNeeded&lt;TR&gt; RatioToReport&lt;TR&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4451,7 +4451,7 @@ public static AnalyticFunctions.IOverWithPartitionNeeded&lt;TR&gt; RatioToReport
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_AVGX({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_AVGX({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrAvgX&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr1, [ExprParameter] object expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4524,7 +4524,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrAvg
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_AVGY({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_AVGY({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrAvgY&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr1, [ExprParameter] object expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4597,7 +4597,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrAvg
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_COUNT({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_COUNT({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;long&gt; RegrCount(this Sql.ISqlExtension ext, [ExprParameter] object expr1, [ExprParameter] object expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4655,7 +4655,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;long&gt; Regr
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_INTERCEPT({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_INTERCEPT({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrIntercept&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr1, [ExprParameter] object expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4728,7 +4728,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrInt
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_R2({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_R2({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrR2&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr1, [ExprParameter] object expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4801,7 +4801,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrR2&
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_SLOPE({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_SLOPE({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrSlope&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr1, [ExprParameter] object expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4874,7 +4874,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrSlo
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_SXX({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_SXX({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrSXX&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr1, [ExprParameter] object expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -4947,7 +4947,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrSXX
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_SXY({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_SXY({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrSXY&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr1, [ExprParameter] object expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5020,7 +5020,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrSXY
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_SYY({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;REGR_SYY({expr1}, {expr2})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrSYY&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr1, [ExprParameter] object expr2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5093,7 +5093,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; RegrSYY
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;ROW_NUMBER()&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;ROW_NUMBER()&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;long&gt; RowNumber(this Sql.ISqlExtension ext)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5141,8 +5141,8 @@ public static AnalyticFunctions.IAnalyticFunctionWithoutWindow&lt;long&gt; RowNu
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDEV({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
-[Sql.Extension(&quot;Oracle&quot;, &quot;STDDEV({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDEV({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
+[Sql.Extension(&quot;Oracle&quot;, &quot;STDDEV({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; StdDev&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5210,8 +5210,8 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; StdDev&
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 1, IsAggregate = true)]
-[Sql.Extension(&quot;Oracle&quot;, &quot;STDDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 1, IsWindowFunction = true)]
+[Sql.Extension(&quot;Oracle&quot;, &quot;STDDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; StdDev&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5284,8 +5284,8 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; StdDev&
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDEV({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 0, IsAggregate = true)]
-[Sql.Extension(&quot;Oracle&quot;, &quot;STDDEV({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 0, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDEV({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 0, IsWindowFunction = true)]
+[Sql.Extension(&quot;Oracle&quot;, &quot;STDDEV({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 0, IsWindowFunction = true)]
 public static double StdDev&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5357,8 +5357,8 @@ public static double StdDev&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; s
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 0, IsAggregate = true)]
-[Sql.Extension(&quot;Oracle&quot;, &quot;STDDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 0, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 0, IsWindowFunction = true)]
+[Sql.Extension(&quot;Oracle&quot;, &quot;STDDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 0, IsWindowFunction = true)]
 public static double StdDev&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5435,8 +5435,8 @@ public static double StdDev&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; s
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 0, IsAggregate = true)]
-[Sql.Extension(&quot;Oracle&quot;, &quot;STDDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 0, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 0, IsWindowFunction = true)]
+[Sql.Extension(&quot;Oracle&quot;, &quot;STDDEV({modifier?}{_}{expr})&quot;, TokenName = &quot;function&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), ChainPrecedence = 0, IsWindowFunction = true)]
 public static double StdDev&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr, Sql.AggregateModifier modifier = Sql.AggregateModifier.None)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5513,7 +5513,7 @@ public static double StdDev&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; so
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_POP({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_POP({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; StdDevPop&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5581,7 +5581,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; StdDevP
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_POP({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_POP({expr})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static decimal StdDevPop&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5653,7 +5653,7 @@ public static decimal StdDevPop&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&g
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_POP({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_POP({expr})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static decimal StdDevPop&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5725,7 +5725,7 @@ public static decimal StdDevPop&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_SAMP({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_SAMP({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; StdDevSamp&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5793,7 +5793,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; StdDevS
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_SAMP({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_SAMP({expr})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static decimal StdDevSamp&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5865,7 +5865,7 @@ public static decimal StdDevSamp&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_SAMP({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;STDDEV_SAMP({expr})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static decimal StdDevSamp&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -5937,7 +5937,7 @@ public static decimal StdDevSamp&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&g
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;SUM({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;SUM({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Sum&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -6005,7 +6005,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Sum&lt;
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;SUM({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;SUM({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Sum&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] T expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -6078,7 +6078,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Sum&lt;
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VARIANCE({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VARIANCE({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Variance&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -6146,7 +6146,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Varianc
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VARIANCE({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VARIANCE({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Variance&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -6219,7 +6219,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; Varianc
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VARIANCE({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VARIANCE({expr})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static TV Variance&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -6291,7 +6291,7 @@ public static TV Variance&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; sou
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VARIANCE({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VARIANCE({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsWindowFunction = true, ChainPrecedence = 0)]
 public static TV Variance&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr, Sql.AggregateModifier modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -6368,7 +6368,7 @@ public static TV Variance&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; sou
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VARIANCE({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VARIANCE({modifier?}{_}{expr})&quot;, BuilderType = typeof(AnalyticFunctions.ApplyAggregateModifier), IsWindowFunction = true, ChainPrecedence = 0)]
 public static TV Variance&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr, Sql.AggregateModifier modifier = Sql.AggregateModifier.None)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -6445,7 +6445,7 @@ public static TV Variance&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; sour
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_POP({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_POP({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; VarPop&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -6513,7 +6513,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; VarPop&
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_POP({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_POP({expr})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static decimal VarPop&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -6585,7 +6585,7 @@ public static decimal VarPop&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_POP({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_POP({expr})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static decimal VarPop&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -6657,7 +6657,7 @@ public static decimal VarPop&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; s
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_SAMP({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsAggregate = true)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_SAMP({expr})&quot;, TokenName = &quot;function&quot;, ChainPrecedence = 1, IsWindowFunction = true)]
 public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; VarSamp&lt;T&gt;(this Sql.ISqlExtension ext, [ExprParameter] object expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -6725,7 +6725,7 @@ public static AnalyticFunctions.IAggregateFunctionSelfContained&lt;T&gt; VarSamp
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_SAMP({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_SAMP({expr})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static decimal VarSamp&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt; source, [ExprParameter] Func&lt;TEntity, TV&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -6797,7 +6797,7 @@ public static decimal VarSamp&lt;TEntity, TV&gt;(this IEnumerable&lt;TEntity&gt;
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_SAMP({expr})&quot;, IsAggregate = true, ChainPrecedence = 0)]
+    <pre><code class="lang-csharp hljs">[Sql.Extension(&quot;VAR_SAMP({expr})&quot;, IsWindowFunction = true, ChainPrecedence = 0)]
 public static decimal VarSamp&lt;TEntity, TV&gt;(this IQueryable&lt;TEntity&gt; source, [ExprParameter] Expression&lt;Func&lt;TEntity, TV&gt;&gt; expr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>

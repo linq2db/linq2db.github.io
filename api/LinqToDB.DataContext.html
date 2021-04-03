@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class DataContext
    | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -95,13 +95,14 @@
     <h5>Implements</h5>
     <div><a class="xref" href="LinqToDB.IDataContext.html">IDataContext</a></div>
     <div><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.idisposable(v=vs.110).aspx">IDisposable</a></div>
+    <div><a class="xref" href="LinqToDB.Async.IAsyncDisposable.html">IAsyncDisposable</a></div>
     <div><a class="xref" href="LinqToDB.IEntityServices.html">IEntityServices</a></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.html">LinqToDB</a></h6>
   <h6><strong>Assembly</strong>: linq2db.dll</h6>
   <h5 id="LinqToDB_DataContext_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DataContext : IDataContext, IDisposable, IEntityServices</code></pre>
+    <pre><code class="lang-csharp hljs">public class DataContext : IDataContext, IDisposable, IAsyncDisposable, IEntityServices</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -729,7 +730,7 @@ from r in db.table select new Entity() { field = r.field };</code></pre>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataContext_BeginTransaction_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.DataContext.BeginTransaction(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L438">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L488">View Source</a>
   </span>
   <a id="LinqToDB_DataContext_BeginTransaction_" data-uid="LinqToDB.DataContext.BeginTransaction*"></a>
   <h4 id="LinqToDB_DataContext_BeginTransaction_System_Boolean_" data-uid="LinqToDB.DataContext.BeginTransaction(System.Boolean)">BeginTransaction(Boolean)</h4>
@@ -780,7 +781,7 @@ If connection already has transaction, it will be rolled back.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataContext_BeginTransaction_System_Data_IsolationLevel_.md&amp;value=---%0Auid%3A%20LinqToDB.DataContext.BeginTransaction(System.Data.IsolationLevel)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L423">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L473">View Source</a>
   </span>
   <a id="LinqToDB_DataContext_BeginTransaction_" data-uid="LinqToDB.DataContext.BeginTransaction*"></a>
   <h4 id="LinqToDB_DataContext_BeginTransaction_System_Data_IsolationLevel_" data-uid="LinqToDB.DataContext.BeginTransaction(System.Data.IsolationLevel)">BeginTransaction(IsolationLevel)</h4>
@@ -831,7 +832,7 @@ If connection already has transaction, it will be rolled back.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataContext_BeginTransactionAsync_System_Boolean_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.DataContext.BeginTransactionAsync(System.Boolean%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L470">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L520">View Source</a>
   </span>
   <a id="LinqToDB_DataContext_BeginTransactionAsync_" data-uid="LinqToDB.DataContext.BeginTransactionAsync*"></a>
   <h4 id="LinqToDB_DataContext_BeginTransactionAsync_System_Boolean_System_Threading_CancellationToken_" data-uid="LinqToDB.DataContext.BeginTransactionAsync(System.Boolean,System.Threading.CancellationToken)">BeginTransactionAsync(Boolean, CancellationToken)</h4>
@@ -888,7 +889,7 @@ If connection already has transaction, it will be rolled back.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataContext_BeginTransactionAsync_System_Data_IsolationLevel_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.DataContext.BeginTransactionAsync(System.Data.IsolationLevel%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L454">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L504">View Source</a>
   </span>
   <a id="LinqToDB_DataContext_BeginTransactionAsync_" data-uid="LinqToDB.DataContext.BeginTransactionAsync*"></a>
   <h4 id="LinqToDB_DataContext_BeginTransactionAsync_System_Data_IsolationLevel_System_Threading_CancellationToken_" data-uid="LinqToDB.DataContext.BeginTransactionAsync(System.Data.IsolationLevel,System.Threading.CancellationToken)">BeginTransactionAsync(IsolationLevel, CancellationToken)</h4>
@@ -1039,6 +1040,87 @@ parameter value provided, otherwise <code data-dev-comment-type="paramref" class
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataContext_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.DataContext.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L398">View Source</a>
+  </span>
+  <a id="LinqToDB_DataContext_Dispose_" data-uid="LinqToDB.DataContext.Dispose*"></a>
+  <h4 id="LinqToDB_DataContext_Dispose_System_Boolean_" data-uid="LinqToDB.DataContext.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Closes underlying connection and fires <a class="xref" href="LinqToDB.DataContext.html#LinqToDB_DataContext_OnClosing">OnClosing</a> event (only if connection existed).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
+        <td><span class="parametername">disposing</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataContext_DisposeAsync_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.DataContext.DisposeAsync(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L420">View Source</a>
+  </span>
+  <a id="LinqToDB_DataContext_DisposeAsync_" data-uid="LinqToDB.DataContext.DisposeAsync*"></a>
+  <h4 id="LinqToDB_DataContext_DisposeAsync_System_Boolean_" data-uid="LinqToDB.DataContext.DisposeAsync(System.Boolean)">DisposeAsync(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Closes underlying connection and fires <a class="xref" href="LinqToDB.DataContext.html#LinqToDB_DataContext_OnClosing">OnClosing</a> event (only if connection existed).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task DisposeAsync(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
+        <td><span class="parametername">disposing</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.task(v=vs.110).aspx">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="events">Events
   </h3>
   <span class="small pull-right mobile-hide">
@@ -1074,6 +1156,36 @@ Not fired, if context doesn&apos;t have active connection (bug?).</p>
   </table>
   <h3 id="eii">Explicit Interface Implementations
   </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataContext_LinqToDB_Async_IAsyncDisposable_DisposeAsync.md&amp;value=---%0Auid%3A%20LinqToDB.DataContext.LinqToDB%23Async%23IAsyncDisposable%23DisposeAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L407">View Source</a>
+  </span>
+  <a id="LinqToDB_DataContext_LinqToDB_Async_IAsyncDisposable_DisposeAsync_" data-uid="LinqToDB.DataContext.LinqToDB#Async#IAsyncDisposable#DisposeAsync*"></a>
+  <h4 id="LinqToDB_DataContext_LinqToDB_Async_IAsyncDisposable_DisposeAsync" data-uid="LinqToDB.DataContext.LinqToDB#Async#IAsyncDisposable#DisposeAsync">IAsyncDisposable.DisposeAsync()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task IAsyncDisposable.DisposeAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.task(v=vs.110).aspx">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataContext_LinqToDB_IDataContext_Clone_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.DataContext.LinqToDB%23IDataContext%23Clone(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -1126,7 +1238,7 @@ Not fired, if context doesn&apos;t have active connection (bug?).</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataContext_LinqToDB_IDataContext_Close.md&amp;value=---%0Auid%3A%20LinqToDB.DataContext.LinqToDB%23IDataContext%23Close%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L412">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L448">View Source</a>
   </span>
   <a id="LinqToDB_DataContext_LinqToDB_IDataContext_Close_" data-uid="LinqToDB.DataContext.LinqToDB#IDataContext#Close*"></a>
   <h4 id="LinqToDB_DataContext_LinqToDB_IDataContext_Close" data-uid="LinqToDB.DataContext.LinqToDB#IDataContext#Close">IDataContext.Close()</h4>
@@ -1136,6 +1248,36 @@ Not fired, if context doesn&apos;t have active connection (bug?).</p>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void IDataContext.Close()</code></pre>
   </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataContext_LinqToDB_IDataContext_CloseAsync.md&amp;value=---%0Auid%3A%20LinqToDB.DataContext.LinqToDB%23IDataContext%23CloseAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L453">View Source</a>
+  </span>
+  <a id="LinqToDB_DataContext_LinqToDB_IDataContext_CloseAsync_" data-uid="LinqToDB.DataContext.LinqToDB#IDataContext#CloseAsync*"></a>
+  <h4 id="LinqToDB_DataContext_LinqToDB_IDataContext_CloseAsync" data-uid="LinqToDB.DataContext.LinqToDB#IDataContext#CloseAsync">IDataContext.CloseAsync()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task IDataContext.CloseAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.threading.tasks.task(v=vs.110).aspx">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataContext_LinqToDB_IDataContext_CreateSqlProvider.md&amp;value=---%0Auid%3A%20LinqToDB.DataContext.LinqToDB%23IDataContext%23CreateSqlProvider%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -1201,7 +1343,7 @@ Not fired, if context doesn&apos;t have active connection (bug?).</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataContext_LinqToDB_IDataContext_GetQueryRunner_LinqToDB_Linq_Query_System_Int32_System_Linq_Expressions_Expression_System_Object___System_Object___.md&amp;value=---%0Auid%3A%20LinqToDB.DataContext.LinqToDB%23IDataContext%23GetQueryRunner(LinqToDB.Linq.Query%2CSystem.Int32%2CSystem.Linq.Expressions.Expression%2CSystem.Object%5B%5D%2CSystem.Object%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L479">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L529">View Source</a>
   </span>
   <a id="LinqToDB_DataContext_LinqToDB_IDataContext_GetQueryRunner_" data-uid="LinqToDB.DataContext.LinqToDB#IDataContext#GetQueryRunner*"></a>
   <h4 id="LinqToDB_DataContext_LinqToDB_IDataContext_GetQueryRunner_LinqToDB_Linq_Query_System_Int32_System_Linq_Expressions_Expression_System_Object___System_Object___" data-uid="LinqToDB.DataContext.LinqToDB#IDataContext#GetQueryRunner(LinqToDB.Linq.Query,System.Int32,System.Linq.Expressions.Expression,System.Object[],System.Object[])">IDataContext.GetQueryRunner(Query, Int32, Expression, Object[], Object[])</h4>
@@ -1488,6 +1630,9 @@ Not fired, if context doesn&apos;t have active connection (bug?).</p>
   </div>
   <div>
       <a class="xref" href="https://msdn.microsoft.com/en-us/library/system.idisposable(v=vs.110).aspx">IDisposable</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Async.IAsyncDisposable.html">IAsyncDisposable</a>
   </div>
   <div>
       <a class="xref" href="LinqToDB.IEntityServices.html">IEntityServices</a>
