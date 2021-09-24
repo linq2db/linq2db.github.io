@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class DataExtensions
    | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.57.2.0">
+    <meta name="generator" content="docfx 2.58.4.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -2514,7 +2514,7 @@ Record to delete identified by match on primary key value from <code data-dev-co
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void DropTable&lt;T&gt;(this IDataContext dataContext, string tableName = null, string databaseName = null, string schemaName = null, bool? throwExceptionIfNotExists = default(bool? ), string serverName = null, TableOptions tableOptions = TableOptions.NotSet)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void DropTable&lt;T&gt;(this IDataContext dataContext, string tableName = null, string databaseName = null, string schemaName = null, bool? throwExceptionIfNotExists = null, string serverName = null, TableOptions tableOptions = TableOptions.NotSet)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2603,7 +2603,7 @@ Default value: <code>true</code>.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void DropTable&lt;T&gt;(this ITable&lt;T&gt; table, string tableName = null, string databaseName = null, string schemaName = null, bool? throwExceptionIfNotExists = default(bool? ), string serverName = null, TableOptions tableOptions = TableOptions.NotSet)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void DropTable&lt;T&gt;(this ITable&lt;T&gt; table, string tableName = null, string databaseName = null, string schemaName = null, bool? throwExceptionIfNotExists = null, string serverName = null, TableOptions tableOptions = TableOptions.NotSet)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2692,7 +2692,7 @@ Default value: <code>true</code>.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task DropTableAsync&lt;T&gt;(this IDataContext dataContext, string tableName = null, string databaseName = null, string schemaName = null, bool? throwExceptionIfNotExists = default(bool? ), string serverName = null, TableOptions tableOptions = TableOptions.NotSet, CancellationToken token = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static async Task DropTableAsync&lt;T&gt;(this IDataContext dataContext, string tableName = null, string databaseName = null, string schemaName = null, bool? throwExceptionIfNotExists = null, string serverName = null, TableOptions tableOptions = TableOptions.NotSet, CancellationToken token = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2803,7 +2803,7 @@ Default value: <code>true</code>.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task DropTableAsync&lt;T&gt;(this ITable&lt;T&gt; table, string tableName = null, string databaseName = null, string schemaName = null, bool? throwExceptionIfNotExists = default(bool? ), string serverName = null, TableOptions tableOptions = TableOptions.NotSet, CancellationToken token = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static async Task DropTableAsync&lt;T&gt;(this ITable&lt;T&gt; table, string tableName = null, string databaseName = null, string schemaName = null, bool? throwExceptionIfNotExists = null, string serverName = null, TableOptions tableOptions = TableOptions.NotSet, CancellationToken token = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -4401,7 +4401,7 @@ Returns identity value for inserted record as <a class="xref" href="https://msdn
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;decimal&gt; InsertWithDecimalIdentityAsync&lt;T&gt;(this IDataContext dataContext, T obj, InsertColumnFilter&lt;T&gt; columnFilter, string tableName = null, string databaseName = null, string schemaName = null, string serverName = null, TableOptions tableOptions = TableOptions.NotSet, CancellationToken token = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static async Task&lt;decimal&gt; InsertWithDecimalIdentityAsync&lt;T&gt;(this IDataContext dataContext, T obj, InsertColumnFilter&lt;T&gt; columnFilter, string tableName = null, string databaseName = null, string schemaName = null, string serverName = null, TableOptions tableOptions = TableOptions.NotSet, CancellationToken token = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -5273,7 +5273,7 @@ Returns identity value for inserted record as <a class="xref" href="https://msdn
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;int&gt; InsertWithInt32IdentityAsync&lt;T&gt;(this IDataContext dataContext, T obj, InsertColumnFilter&lt;T&gt; columnFilter, string tableName = null, string databaseName = null, string schemaName = null, string serverName = null, TableOptions tableOptions = TableOptions.NotSet, CancellationToken token = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static async Task&lt;int&gt; InsertWithInt32IdentityAsync&lt;T&gt;(this IDataContext dataContext, T obj, InsertColumnFilter&lt;T&gt; columnFilter, string tableName = null, string databaseName = null, string schemaName = null, string serverName = null, TableOptions tableOptions = TableOptions.NotSet, CancellationToken token = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -5709,7 +5709,7 @@ Returns identity value for inserted record as <a class="xref" href="https://msdn
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;long&gt; InsertWithInt64IdentityAsync&lt;T&gt;(this IDataContext dataContext, T obj, InsertColumnFilter&lt;T&gt; columnFilter, string tableName = null, string databaseName = null, string schemaName = null, string serverName = null, TableOptions tableOptions = TableOptions.NotSet, CancellationToken token = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static async Task&lt;long&gt; InsertWithInt64IdentityAsync&lt;T&gt;(this IDataContext dataContext, T obj, InsertColumnFilter&lt;T&gt; columnFilter, string tableName = null, string databaseName = null, string schemaName = null, string serverName = null, TableOptions tableOptions = TableOptions.NotSet, CancellationToken token = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
