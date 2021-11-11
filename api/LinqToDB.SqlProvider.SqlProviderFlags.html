@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SqlProviderFlags
    | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.58.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -98,6 +98,55 @@
   </div>
   <h3 id="properties">Properties
   </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlProvider_SqlProviderFlags_AcceptsOuterExpressionInAggregate.md&amp;value=---%0Auid%3A%20LinqToDB.SqlProvider.SqlProviderFlags.AcceptsOuterExpressionInAggregate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlProvider/SqlProviderFlags.cs/#L106">View Source</a>
+  </span>
+  <a id="LinqToDB_SqlProvider_SqlProviderFlags_AcceptsOuterExpressionInAggregate_" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.AcceptsOuterExpressionInAggregate*"></a>
+  <h4 id="LinqToDB_SqlProvider_SqlProviderFlags_AcceptsOuterExpressionInAggregate" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.AcceptsOuterExpressionInAggregate">AcceptsOuterExpressionInAggregate</h4>
+  <div class="markdown level1 summary"><p>Provider supports aggregated expression with Outer reference</p>
+<pre><code>SELECT
+(
+    SELECT SUM(inner.FieldX + outer.FieldOuter)
+    FROM table2 inner
+) AS Sum_Column
+FROM table1 outer</code></pre>
+<p> Otherwise aggeragated expression will be wrapped in subquery and aggregate function will be applied to subquery column.</p>
+<pre><code>SELECT
+(
+    SELECT
+        SUM(sub.Column)
+    FROM 
+        (
+            SELECT inner.FieldX + outer.FieldOuter AS Column
+            FROM table2 inner
+        ) sub
+) AS Sum_Column
+FROM table1 outer</code></pre>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AcceptsOuterExpressionInAggregate { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlProvider_SqlProviderFlags_AcceptsTakeAsParameter.md&amp;value=---%0Auid%3A%20LinqToDB.SqlProvider.SqlProviderFlags.AcceptsTakeAsParameter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -193,7 +242,7 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlProvider_SqlProviderFlags_CustomFlags.md&amp;value=---%0Auid%3A%20LinqToDB.SqlProvider.SqlProviderFlags.CustomFlags%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlProvider/SqlProviderFlags.cs/#L118">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlProvider/SqlProviderFlags.cs/#L145">View Source</a>
   </span>
   <a id="LinqToDB_SqlProvider_SqlProviderFlags_CustomFlags_" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.CustomFlags*"></a>
   <h4 id="LinqToDB_SqlProvider_SqlProviderFlags_CustomFlags" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.CustomFlags">CustomFlags</h4>
@@ -224,7 +273,7 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlProvider_SqlProviderFlags_DefaultMultiQueryIsolationLevel.md&amp;value=---%0Auid%3A%20LinqToDB.SqlProvider.SqlProviderFlags.DefaultMultiQueryIsolationLevel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlProvider/SqlProviderFlags.cs/#L113">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlProvider/SqlProviderFlags.cs/#L140">View Source</a>
   </span>
   <a id="LinqToDB_SqlProvider_SqlProviderFlags_DefaultMultiQueryIsolationLevel_" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.DefaultMultiQueryIsolationLevel*"></a>
   <h4 id="LinqToDB_SqlProvider_SqlProviderFlags_DefaultMultiQueryIsolationLevel" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.DefaultMultiQueryIsolationLevel">DefaultMultiQueryIsolationLevel</h4>
@@ -928,7 +977,7 @@ INNER JOIN a ON 1 = 1 </p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlProvider_SqlProviderFlags_IsUpdateFromSupported.md&amp;value=---%0Auid%3A%20LinqToDB.SqlProvider.SqlProviderFlags.IsUpdateFromSupported%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlProvider/SqlProviderFlags.cs/#L89">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlProvider/SqlProviderFlags.cs/#L116">View Source</a>
   </span>
   <a id="LinqToDB_SqlProvider_SqlProviderFlags_IsUpdateFromSupported_" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.IsUpdateFromSupported*"></a>
   <h4 id="LinqToDB_SqlProvider_SqlProviderFlags_IsUpdateFromSupported" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.IsUpdateFromSupported">IsUpdateFromSupported</h4>
@@ -1054,7 +1103,7 @@ FROM B</code></pre> syntax
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlProvider_SqlProviderFlags_Equals_System_Object_.md&amp;value=---%0Auid%3A%20LinqToDB.SqlProvider.SqlProviderFlags.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlProvider/SqlProviderFlags.cs/#L159">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlProvider/SqlProviderFlags.cs/#L187">View Source</a>
   </span>
   <a id="LinqToDB_SqlProvider_SqlProviderFlags_Equals_" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.Equals*"></a>
   <h4 id="LinqToDB_SqlProvider_SqlProviderFlags_Equals_System_Object_" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.Equals(System.Object)">Equals(Object)</h4>
@@ -1103,7 +1152,7 @@ FROM B</code></pre> syntax
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlProvider_SqlProviderFlags_GetAcceptsTakeAsParameterFlag_LinqToDB_SqlQuery_SelectQuery_.md&amp;value=---%0Auid%3A%20LinqToDB.SqlProvider.SqlProviderFlags.GetAcceptsTakeAsParameterFlag(LinqToDB.SqlQuery.SelectQuery)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlProvider/SqlProviderFlags.cs/#L91">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlProvider/SqlProviderFlags.cs/#L118">View Source</a>
   </span>
   <a id="LinqToDB_SqlProvider_SqlProviderFlags_GetAcceptsTakeAsParameterFlag_" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.GetAcceptsTakeAsParameterFlag*"></a>
   <h4 id="LinqToDB_SqlProvider_SqlProviderFlags_GetAcceptsTakeAsParameterFlag_LinqToDB_SqlQuery_SelectQuery_" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.GetAcceptsTakeAsParameterFlag(LinqToDB.SqlQuery.SelectQuery)">GetAcceptsTakeAsParameterFlag(SelectQuery)</h4>
@@ -1150,7 +1199,7 @@ FROM B</code></pre> syntax
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlProvider_SqlProviderFlags_GetHashCode.md&amp;value=---%0Auid%3A%20LinqToDB.SqlProvider.SqlProviderFlags.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlProvider/SqlProviderFlags.cs/#L124">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlProvider/SqlProviderFlags.cs/#L151">View Source</a>
   </span>
   <a id="LinqToDB_SqlProvider_SqlProviderFlags_GetHashCode_" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.GetHashCode*"></a>
   <h4 id="LinqToDB_SqlProvider_SqlProviderFlags_GetHashCode" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.GetHashCode">GetHashCode()</h4>
@@ -1182,7 +1231,7 @@ FROM B</code></pre> syntax
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlProvider_SqlProviderFlags_GetIsSkipSupportedFlag_LinqToDB_SqlQuery_ISqlExpression_LinqToDB_SqlQuery_ISqlExpression_.md&amp;value=---%0Auid%3A%20LinqToDB.SqlProvider.SqlProviderFlags.GetIsSkipSupportedFlag(LinqToDB.SqlQuery.ISqlExpression%2CLinqToDB.SqlQuery.ISqlExpression)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlProvider/SqlProviderFlags.cs/#L96">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlProvider/SqlProviderFlags.cs/#L123">View Source</a>
   </span>
   <a id="LinqToDB_SqlProvider_SqlProviderFlags_GetIsSkipSupportedFlag_" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.GetIsSkipSupportedFlag*"></a>
   <h4 id="LinqToDB_SqlProvider_SqlProviderFlags_GetIsSkipSupportedFlag_LinqToDB_SqlQuery_ISqlExpression_LinqToDB_SqlQuery_ISqlExpression_" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.GetIsSkipSupportedFlag(LinqToDB.SqlQuery.ISqlExpression,LinqToDB.SqlQuery.ISqlExpression)">GetIsSkipSupportedFlag(ISqlExpression, ISqlExpression)</h4>
@@ -1234,7 +1283,7 @@ FROM B</code></pre> syntax
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlProvider_SqlProviderFlags_GetIsTakeHintsSupported_LinqToDB_TakeHints_.md&amp;value=---%0Auid%3A%20LinqToDB.SqlProvider.SqlProviderFlags.GetIsTakeHintsSupported(LinqToDB.TakeHints)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlProvider/SqlProviderFlags.cs/#L101">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlProvider/SqlProviderFlags.cs/#L128">View Source</a>
   </span>
   <a id="LinqToDB_SqlProvider_SqlProviderFlags_GetIsTakeHintsSupported_" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.GetIsTakeHintsSupported*"></a>
   <h4 id="LinqToDB_SqlProvider_SqlProviderFlags_GetIsTakeHintsSupported_LinqToDB_TakeHints_" data-uid="LinqToDB.SqlProvider.SqlProviderFlags.GetIsTakeHintsSupported(LinqToDB.TakeHints)">GetIsTakeHintsSupported(TakeHints)</h4>
@@ -1279,6 +1328,12 @@ FROM B</code></pre> syntax
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="LinqToDB.Tools.Mapper.Map.html#LinqToDB_Tools_Mapper_Map_DeepCopy__1___0_">Map.DeepCopy&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
   </div>
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>

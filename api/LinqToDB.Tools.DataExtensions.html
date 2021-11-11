@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class DataExtensions
    | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.58.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -100,21 +100,20 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Tools_DataExtensions_RetrieveIdentity__1_System_Collections_Generic_IEnumerable___0__LinqToDB_Data_DataConnection_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.Tools.DataExtensions.RetrieveIdentity%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CLinqToDB.Data.DataConnection%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Tools_DataExtensions_RetrieveIdentity__1_System_Collections_Generic_IEnumerable___0__LinqToDB_Data_DataConnection_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.Tools.DataExtensions.RetrieveIdentity%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CLinqToDB.Data.DataConnection%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Tools/DataExtensions.cs/#L23">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Tools/DataExtensions.cs/#L29">View Source</a>
   </span>
   <a id="LinqToDB_Tools_DataExtensions_RetrieveIdentity_" data-uid="LinqToDB.Tools.DataExtensions.RetrieveIdentity*"></a>
-  <h4 id="LinqToDB_Tools_DataExtensions_RetrieveIdentity__1_System_Collections_Generic_IEnumerable___0__LinqToDB_Data_DataConnection_System_Boolean_" data-uid="LinqToDB.Tools.DataExtensions.RetrieveIdentity``1(System.Collections.Generic.IEnumerable{``0},LinqToDB.Data.DataConnection,System.Boolean)">RetrieveIdentity&lt;T&gt;(IEnumerable&lt;T&gt;, DataConnection, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Initializes source columns, marked with <a class="xref" href="LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_IsIdentity">IsIdentity</a> with values.
-If column had sequence name set using <a class="xref" href="LinqToDB.Mapping.SequenceNameAttribute.html">SequenceNameAttribute</a> and <code data-dev-comment-type="paramref" class="paramref">useSequenceName</code> set to <code>true</code>, values from sequence used.
-Otherwise column initialized with values, incremented by 1 starting with max value from database for this column plus 1.</p>
+  <h4 id="LinqToDB_Tools_DataExtensions_RetrieveIdentity__1_System_Collections_Generic_IEnumerable___0__LinqToDB_Data_DataConnection_System_Boolean_System_Boolean_" data-uid="LinqToDB.Tools.DataExtensions.RetrieveIdentity``1(System.Collections.Generic.IEnumerable{``0},LinqToDB.Data.DataConnection,System.Boolean,System.Boolean)">RetrieveIdentity&lt;T&gt;(IEnumerable&lt;T&gt;, DataConnection, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Initializes source columns, marked with <a class="xref" href="LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_IsIdentity">IsIdentity</a> or <a class="xref" href="LinqToDB.Mapping.IdentityAttribute.html">IdentityAttribute</a> with identity values:
+<ul><li></li><li></li><li></li></ul></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; RetrieveIdentity&lt;T&gt;(this IEnumerable&lt;T&gt; source, DataConnection context, bool useSequenceName = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; RetrieveIdentity&lt;T&gt;(this IEnumerable&lt;T&gt; source, DataConnection context, bool useSequenceName = true, bool useIdentity = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -141,7 +140,13 @@ Otherwise column initialized with values, incremented by 1 starting with max val
       <tr>
         <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
         <td><span class="parametername">useSequenceName</span></td>
-        <td><p>Enables identity values retrieval from sequence for columns with sequence name specified in mapping using <a class="xref" href="LinqToDB.Mapping.SequenceNameAttribute.html">SequenceNameAttribute</a>.</p>
+        <td><p>Enables identity values retrieval from sequence for columns with sequence name specified in mapping using <a class="xref" href="LinqToDB.Mapping.SequenceNameAttribute.html">SequenceNameAttribute</a>. Implemented for Oracle and PostgreSQL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
+        <td><span class="parametername">useIdentity</span></td>
+        <td><p>Enables identity values retrieval from table with identity column. Implemented for SQL Server 2005+.</p>
 </td>
       </tr>
     </tbody>
@@ -189,7 +194,7 @@ Otherwise column initialized with values, incremented by 1 starting with max val
                     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Tools_DataExtensions.md&amp;value=---%0Auid%3A%20LinqToDB.Tools.DataExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Tools/DataExtensions.cs/#L11" class="contribution-link">View Source</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Tools/DataExtensions.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

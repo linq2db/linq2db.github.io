@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Enum AlternativeBulkCopy
    | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.58.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -83,7 +83,8 @@
   
   <h1 id="LinqToDB_DataProvider_Oracle_AlternativeBulkCopy" data-uid="LinqToDB.DataProvider.Oracle.AlternativeBulkCopy" class="text-break">Enum AlternativeBulkCopy
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Defines type of multi-row INSERT operation to generate for <a class="xref" href="LinqToDB.Data.BulkCopyType.html#LinqToDB_Data_BulkCopyType_RowByRow">RowByRow</a> bulk copy mode.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.DataProvider.Oracle.html">LinqToDB.DataProvider.Oracle</a></h6>
   <h6><strong>Assembly</strong>: linq2db.dll</h6>
@@ -103,15 +104,31 @@
     <tbody>
       <tr>
         <td id="LinqToDB_DataProvider_Oracle_AlternativeBulkCopy_InsertAll">InsertAll</td>
-        <td></td>
+        <td><p>This mode generates INSERT ALL statement.
+Note that INSERT ALL doesn&apos;t support sequences and will use single generated value for all rows.</p>
+<pre><code>INSERT ALL
+    INTO target_table VALUES(/*row data*/)
+    ...
+    INTO target_table VALUES(/*row data*/)</code></pre>
+</td>
       </tr>
       <tr>
         <td id="LinqToDB_DataProvider_Oracle_AlternativeBulkCopy_InsertDual">InsertDual</td>
-        <td></td>
+        <td><p>This mode generates INSERT ... SELECT statement.</p>
+<pre><code>INSERT INTO target_table(/*columns*/)
+    SELECT /*row data*/ FROM DUAL
+    UNION ALL
+    ...
+    UNION ALL
+    SELECT /*row data*/ FROM DUAL</code></pre>
+</td>
       </tr>
       <tr>
         <td id="LinqToDB_DataProvider_Oracle_AlternativeBulkCopy_InsertInto">InsertInto</td>
-        <td></td>
+        <td><p>This mode performs regular INSERT INTO query with array of values for each column.</p>
+<pre><code>INSERT INTO target_table(/*columns*/)
+    VALUES(:column1ArrayParameter, ..., :columnXArrayParameter)</code></pre>
+</td>
       </tr>
     </tbody>
   </thead></thead></table>
@@ -124,6 +141,18 @@
   </div>
   <div>
       <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_NotBetween__1___0___0___0_">Sql.NotBetween&lt;AlternativeBulkCopy&gt;(AlternativeBulkCopy, AlternativeBulkCopy)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;AlternativeBulkCopy&gt;(AlternativeBulkCopy)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0_System_Nullable___0__">Sql.IsDistinctFrom&lt;AlternativeBulkCopy&gt;(Nullable&lt;AlternativeBulkCopy&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;AlternativeBulkCopy&gt;(AlternativeBulkCopy)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0_System_Nullable___0__">Sql.IsNotDistinctFrom&lt;AlternativeBulkCopy&gt;(Nullable&lt;AlternativeBulkCopy&gt;)</a>
   </div>
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;AlternativeBulkCopy&gt;(IEnumerable&lt;AlternativeBulkCopy&gt;)</a>
@@ -166,7 +195,7 @@
                     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_Oracle_AlternativeBulkCopy.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.Oracle.AlternativeBulkCopy%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleTools.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleTools.cs/#L16" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
