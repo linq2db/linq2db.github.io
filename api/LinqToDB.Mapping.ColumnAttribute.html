@@ -91,20 +91,14 @@ In latter case you should specify member name using <a class="xref" href="LinqTo
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.object(v=vs.110).aspx">Object</a></div>
-    <div class="level1"><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.attribute(v=vs.110).aspx">Attribute</a></div>
-    <div class="level2"><span class="xref">ColumnAttribute</span></div>
-      <div class="level3"><a class="xref" href="LinqToDB.Mapping.NotColumnAttribute.html">NotColumnAttribute</a></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="https://msdn.microsoft.com/en-us/library/ms146214(v=vs.110).aspx">_Attribute</a></div>
+    <div class="level1"><span class="xref">ColumnAttribute</span></div>
+      <div class="level2"><a class="xref" href="LinqToDB.Mapping.NotColumnAttribute.html">NotColumnAttribute</a></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.Mapping.html">LinqToDB.Mapping</a></h6>
   <h6><strong>Assembly</strong>: linq2db.dll</h6>
   <h5 id="LinqToDB_Mapping_ColumnAttribute_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Class | AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Interface, AllowMultiple = true, Inherited = true)]
-public class ColumnAttribute : Attribute, _Attribute</code></pre>
+    <pre><code class="lang-csharp hljs">public class ColumnAttribute : Attribute</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -247,7 +241,7 @@ Attributes with <code>null</code> or empty string <a class="xref" href="LinqToDB
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Configuration { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? Configuration { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -259,7 +253,7 @@ Attributes with <code>null</code> or empty string <a class="xref" href="LinqToDB
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -274,7 +268,7 @@ Attributes with <code>null</code> or empty string <a class="xref" href="LinqToDB
   <a id="LinqToDB_Mapping_ColumnAttribute_CreateFormat_" data-uid="LinqToDB.Mapping.ColumnAttribute.CreateFormat*"></a>
   <h4 id="LinqToDB_Mapping_ColumnAttribute_CreateFormat" data-uid="LinqToDB.Mapping.ColumnAttribute.CreateFormat">CreateFormat</h4>
   <div class="markdown level1 summary"><p>Custom template for column definition in create table SQL expression, generated using
-<a class="xref" href="LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_CreateTable__1_LinqToDB_IDataContext_System_String_System_String_System_String_System_String_System_String_LinqToDB_SqlQuery_DefaultNullable_System_String_LinqToDB_TableOptions_">CreateTable&lt;T&gt;(IDataContext, String, String, String, String, String, DefaultNullable, String, TableOptions)</a> methods.
+<a class="xref" href="LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_CreateTable__1_LinqToDB_IDataContext_System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_String__LinqToDB_SqlQuery_DefaultNullable_System_Nullable_System_String__LinqToDB_TableOptions_">CreateTable&lt;T&gt;(IDataContext, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;, DefaultNullable, Nullable&lt;String&gt;, TableOptions)</a> methods.
 Template accepts following string parameters:</p>
 <ul>
 <li>{0} - column name;</li>
@@ -286,7 +280,7 @@ Template accepts following string parameters:</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string CreateFormat { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? CreateFormat { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -298,7 +292,7 @@ Template accepts following string parameters:</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -350,7 +344,7 @@ Default value: default type, defined for member type in mapping schema.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string DbType { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? DbType { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -362,7 +356,7 @@ Default value: default type, defined for member type in mapping schema.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -565,7 +559,7 @@ public class User
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string MemberName { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? MemberName { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -577,7 +571,7 @@ public class User
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -597,7 +591,7 @@ If not specified, member name will be used.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? Name { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -609,7 +603,7 @@ If not specified, member name will be used.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -788,7 +782,7 @@ Default value: <code>false</code>.</p>
   <h4 id="LinqToDB_Mapping_ColumnAttribute_SkipOnInsert" data-uid="LinqToDB.Mapping.ColumnAttribute.SkipOnInsert">SkipOnInsert</h4>
   <div class="markdown level1 summary"><p>Gets or sets whether a column is insertable.
 This flag will affect only insert operations with implicit columns specification like
-<a class="xref" href="LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_Insert__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">Insert&lt;T&gt;(IDataContext, T, String, String, String, String, TableOptions)</a>
+<a class="xref" href="LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_Insert__1_LinqToDB_IDataContext___0_System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_String__LinqToDB_TableOptions_">Insert&lt;T&gt;(IDataContext, T, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;, TableOptions)</a>
 method and will be ignored when user explicitly specifies value for this column.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -822,7 +816,7 @@ method and will be ignored when user explicitly specifies value for this column.
   <h4 id="LinqToDB_Mapping_ColumnAttribute_SkipOnUpdate" data-uid="LinqToDB.Mapping.ColumnAttribute.SkipOnUpdate">SkipOnUpdate</h4>
   <div class="markdown level1 summary"><p>Gets or sets whether a column is updatable.
 This flag will affect only update operations with implicit columns specification like
-<a class="xref" href="LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_Update__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">Update&lt;T&gt;(IDataContext, T, String, String, String, String, TableOptions)</a>
+<a class="xref" href="LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_Update__1_LinqToDB_IDataContext___0_System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_String__LinqToDB_TableOptions_">Update&lt;T&gt;(IDataContext, T, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;, TableOptions)</a>
 method and will be ignored when user explicitly specifies value for this column.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -860,7 +854,7 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Storage { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? Storage { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -872,15 +866,11 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="https://msdn.microsoft.com/en-us/library/ms146214(v=vs.110).aspx">_Attribute</a>
-  </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="LinqToDB.Tools.Mapper.Map.html#LinqToDB_Tools_Mapper_Map_DeepCopy__1___0_">Map.DeepCopy&lt;T&gt;(T)</a>
@@ -892,10 +882,10 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
       <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
   </div>
   <div>
-      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
   </div>
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, T[])</a>
@@ -907,10 +897,10 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
   </div>
   <div>
-      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
   </div>
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, T[])</a>

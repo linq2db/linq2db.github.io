@@ -92,27 +92,21 @@ Could be applied to:</p>
 <p>For associations, defined using static methods, <code>this</code> mapping side defined by type of first parameter.
 Also, optionally, you can pass data context object as extra method parameter.</p>
 <p>Based on association type - to one or to multiple records - result type should be target record&apos;s mapping type or
-<a class="xref" href="https://msdn.microsoft.com/en-us/library/ms131187(v=vs.110).aspx">IEquatable&lt;T&gt;</a> collection.</p>
+<see cref="!:IEquatable&lt;T>"></see> collection.</p>
 <p>By default associations are used only for joins generation in LINQ queries and will have <code>null</code> value for loaded
-records. To load data into association, you should explicitly specify it in your query using <a class="xref" href="LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_LoadWith__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___">LoadWith&lt;TEntity, TProperty&gt;(IQueryable&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt;)</a> method.</p>
+records. To load data into association, you should explicitly specify it in your query using <see cref="!:LinqExtensions.LoadWith&lt;TEntity,TProperty>(System.Linq.IQueryable&lt;TEntity>,System.Linq.Expressions.Expression&lt;System.Func&lt;TEntity,TProperty>>)"></see> method.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.object(v=vs.110).aspx">Object</a></div>
-    <div class="level1"><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.attribute(v=vs.110).aspx">Attribute</a></div>
-    <div class="level2"><span class="xref">AssociationAttribute</span></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="https://msdn.microsoft.com/en-us/library/ms146214(v=vs.110).aspx">_Attribute</a></div>
+    <div class="level1"><span class="xref">AssociationAttribute</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.Mapping.html">LinqToDB.Mapping</a></h6>
   <h6><strong>Assembly</strong>: linq2db.dll</h6>
   <h5 id="LinqToDB_Mapping_AssociationAttribute_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Method | AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
-public class AssociationAttribute : Attribute, _Attribute</code></pre>
+    <pre><code class="lang-csharp hljs">public class AssociationAttribute : Attribute</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -148,7 +142,7 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string AliasName { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? AliasName { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -160,7 +154,7 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -179,7 +173,7 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string BackReferenceName { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? BackReferenceName { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -191,7 +185,7 @@ public class AssociationAttribute : Attribute, _Attribute</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -248,7 +242,7 @@ Attributes with <code>null</code> or empty string <a class="xref" href="LinqToDB
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Configuration { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? Configuration { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -260,7 +254,7 @@ Attributes with <code>null</code> or empty string <a class="xref" href="LinqToDB
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -281,7 +275,7 @@ Predicate expression lambda function takes two parameters: this record and other
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ExpressionPredicate { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? ExpressionPredicate { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -293,7 +287,7 @@ Predicate expression lambda function takes two parameters: this record and other
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -343,7 +337,7 @@ Predicate expression lambda function takes two parameters: this record and other
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string KeyName { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? KeyName { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -355,7 +349,7 @@ Predicate expression lambda function takes two parameters: this record and other
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -376,7 +370,7 @@ You must specify keys it you do not use custom predicate (see <a class="xref" hr
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string OtherKey { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? OtherKey { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -388,7 +382,7 @@ You must specify keys it you do not use custom predicate (see <a class="xref" hr
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -409,7 +403,7 @@ Predicate expression lambda function takes two parameters: this record and other
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Expression Predicate { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Expression? Predicate { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -421,7 +415,7 @@ Predicate expression lambda function takes two parameters: this record and other
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.linq.expressions.expression(v=vs.110).aspx">Expression</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<span class="xref">Expression</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -448,7 +442,7 @@ associationQuery = (e, db) => db.GetTable&lt;SomeOtherEntity>().Where(se => se.I
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Expression QueryExpression { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Expression? QueryExpression { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -460,7 +454,7 @@ associationQuery = (e, db) => db.GetTable&lt;SomeOtherEntity>().Where(se => se.I
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.linq.expressions.expression(v=vs.110).aspx">Expression</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<span class="xref">Expression</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -494,7 +488,7 @@ Result of query method should be lambda which takes two parameters: this record,
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string QueryExpressionMethod { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? QueryExpressionMethod { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -506,7 +500,7 @@ Result of query method should be lambda which takes two parameters: this record,
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -551,13 +545,13 @@ Result of query method should be lambda which takes two parameters: this record,
   </span>
   <a id="LinqToDB_Mapping_AssociationAttribute_Storage_" data-uid="LinqToDB.Mapping.AssociationAttribute.Storage*"></a>
   <h4 id="LinqToDB_Mapping_AssociationAttribute_Storage" data-uid="LinqToDB.Mapping.AssociationAttribute.Storage">Storage</h4>
-  <div class="markdown level1 summary"><p>Specify name of property or field to store association value, loaded using <a class="xref" href="LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_LoadWith__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___">LoadWith&lt;TEntity, TProperty&gt;(IQueryable&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt;)</a> method.
+  <div class="markdown level1 summary"><p>Specify name of property or field to store association value, loaded using <see cref="!:LinqExtensions.LoadWith&lt;TEntity,TProperty>(System.Linq.IQueryable&lt;TEntity>,System.Linq.Expressions.Expression&lt;System.Func&lt;TEntity,TProperty>>)"></see> method.
 When not specified, current association member will be used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Storage { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? Storage { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -569,7 +563,7 @@ When not specified, current association member will be used.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -590,7 +584,7 @@ You must specify keys it you do not use custom predicate (see <a class="xref" hr
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ThisKey { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? ThisKey { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -602,7 +596,7 @@ You must specify keys it you do not use custom predicate (see <a class="xref" hr
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -673,10 +667,6 @@ You must specify keys it you do not use custom predicate (see <a class="xref" hr
       </tr>
     </tbody>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="https://msdn.microsoft.com/en-us/library/ms146214(v=vs.110).aspx">_Attribute</a>
-  </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="LinqToDB.Tools.Mapper.Map.html#LinqToDB_Tools_Mapper_Map_DeepCopy__1___0_">Map.DeepCopy&lt;T&gt;(T)</a>
@@ -688,10 +678,10 @@ You must specify keys it you do not use custom predicate (see <a class="xref" hr
       <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
   </div>
   <div>
-      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
   </div>
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, T[])</a>
@@ -703,10 +693,10 @@ You must specify keys it you do not use custom predicate (see <a class="xref" hr
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
   </div>
   <div>
-      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
   </div>
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, T[])</a>

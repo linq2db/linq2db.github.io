@@ -99,7 +99,7 @@
   <h6><strong>Assembly</strong>: linq2db.dll</h6>
   <h5 id="LinqToDB_Mapping_ColumnDescriptor_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ColumnDescriptor : IColumnChangeDescriptor</code></pre>
+    <pre><code class="lang-csharp hljs">public class ColumnDescriptor : object, IColumnChangeDescriptor</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -236,7 +236,7 @@ If not specified, <a class="xref" href="LinqToDB.Mapping.ColumnDescriptor.html#L
   <a id="LinqToDB_Mapping_ColumnDescriptor_CreateFormat_" data-uid="LinqToDB.Mapping.ColumnDescriptor.CreateFormat*"></a>
   <h4 id="LinqToDB_Mapping_ColumnDescriptor_CreateFormat" data-uid="LinqToDB.Mapping.ColumnDescriptor.CreateFormat">CreateFormat</h4>
   <div class="markdown level1 summary"><p>Custom template for column definition in create table SQL expression, generated using
-<a class="xref" href="LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_CreateTable__1_LinqToDB_IDataContext_System_String_System_String_System_String_System_String_System_String_LinqToDB_SqlQuery_DefaultNullable_System_String_LinqToDB_TableOptions_">CreateTable&lt;T&gt;(IDataContext, String, String, String, String, String, DefaultNullable, String, TableOptions)</a> methods.
+<a class="xref" href="LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_CreateTable__1_LinqToDB_IDataContext_System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_String__LinqToDB_SqlQuery_DefaultNullable_System_Nullable_System_String__LinqToDB_TableOptions_">CreateTable&lt;T&gt;(IDataContext, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;, DefaultNullable, Nullable&lt;String&gt;, TableOptions)</a> methods.
 Template accepts following string parameters:</p>
 <ul>
 <li>{0} - column name;</li>
@@ -248,7 +248,7 @@ Template accepts following string parameters:</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string CreateFormat { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? CreateFormat { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -260,7 +260,7 @@ Template accepts following string parameters:</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -310,7 +310,7 @@ Template accepts following string parameters:</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string DbType { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? DbType { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -322,7 +322,7 @@ Template accepts following string parameters:</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -666,7 +666,7 @@ Also see <a class="xref" href="LinqToDB.Mapping.PrimaryKeyAttribute.html">Primar
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.reflection.memberinfo(v=vs.110).aspx">MemberInfo</a></td>
+        <td><span class="xref">MemberInfo</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -750,7 +750,7 @@ public class User
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.type(v=vs.110).aspx">Type</a></td>
+        <td><span class="xref">Type</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -987,7 +987,7 @@ Default value: <code>false</code>.</p>
   <h4 id="LinqToDB_Mapping_ColumnDescriptor_SkipOnInsert" data-uid="LinqToDB.Mapping.ColumnDescriptor.SkipOnInsert">SkipOnInsert</h4>
   <div class="markdown level1 summary"><p>Gets whether a column is insertable.
 This flag will affect only insert operations with implicit columns specification like
-<a class="xref" href="LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_Insert__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">Insert&lt;T&gt;(IDataContext, T, String, String, String, String, TableOptions)</a>
+<a class="xref" href="LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_Insert__1_LinqToDB_IDataContext___0_System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_String__LinqToDB_TableOptions_">Insert&lt;T&gt;(IDataContext, T, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;, TableOptions)</a>
 method and will be ignored when user explicitly specifies value for this column.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1021,7 +1021,7 @@ method and will be ignored when user explicitly specifies value for this column.
   <h4 id="LinqToDB_Mapping_ColumnDescriptor_SkipOnUpdate" data-uid="LinqToDB.Mapping.ColumnDescriptor.SkipOnUpdate">SkipOnUpdate</h4>
   <div class="markdown level1 summary"><p>Gets whether a column is updatable.
 This flag will affect only update operations with implicit columns specification like
-<a class="xref" href="LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_Update__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">Update&lt;T&gt;(IDataContext, T, String, String, String, String, TableOptions)</a>
+<a class="xref" href="LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_Update__1_LinqToDB_IDataContext___0_System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_String__System_Nullable_System_String__LinqToDB_TableOptions_">Update&lt;T&gt;(IDataContext, T, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;, Nullable&lt;String&gt;, TableOptions)</a>
 method and will be ignored when user explicitly specifies value for this column.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1059,7 +1059,7 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Storage { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? Storage { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1071,7 +1071,7 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1102,7 +1102,7 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.reflection.memberinfo(v=vs.110).aspx">MemberInfo</a></td>
+        <td><span class="xref">MemberInfo</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -1133,7 +1133,7 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.type(v=vs.110).aspx">Type</a></td>
+        <td><span class="xref">Type</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -1173,13 +1173,75 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_ColumnDescriptor_ApplyConversions_LinqToDB_Mapping_MappingSchema_System_Linq_Expressions_Expression_LinqToDB_Common_DbDataType_LinqToDB_Common_IValueConverter_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.ColumnDescriptor.ApplyConversions(LinqToDB.Mapping.MappingSchema%2CSystem.Linq.Expressions.Expression%2CLinqToDB.Common.DbDataType%2CLinqToDB.Common.IValueConverter%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_ColumnDescriptor_ApplyConversions_Expression_LinqToDB_Common_DbDataType_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.ColumnDescriptor.ApplyConversions(Expression%2CLinqToDB.Common.DbDataType%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Mapping/ColumnDescriptor.cs/#L720">View Source</a>
+  </span>
+  <a id="LinqToDB_Mapping_ColumnDescriptor_ApplyConversions_" data-uid="LinqToDB.Mapping.ColumnDescriptor.ApplyConversions*"></a>
+  <h4 id="LinqToDB_Mapping_ColumnDescriptor_ApplyConversions_Expression_LinqToDB_Common_DbDataType_System_Boolean_" data-uid="LinqToDB.Mapping.ColumnDescriptor.ApplyConversions(Expression,LinqToDB.Common.DbDataType,System.Boolean)">ApplyConversions(Expression, DbDataType, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Helper function for applying all needed conversions for converting value to database type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Expression ApplyConversions(Expression getterExpr, DbDataType dbDataType, bool includingEnum)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Expression</span></td>
+        <td><span class="parametername">getterExpr</span></td>
+        <td><p>Expression which returns value which has to be converted.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="LinqToDB.Common.DbDataType.html">DbDataType</a></td>
+        <td><span class="parametername">dbDataType</span></td>
+        <td><p>Database type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
+        <td><span class="parametername">includingEnum</span></td>
+        <td><p>Provides default enum conversion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Expression</span></td>
+        <td><p>Expression with applied conversions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_ColumnDescriptor_ApplyConversions_LinqToDB_Mapping_MappingSchema_Expression_LinqToDB_Common_DbDataType_LinqToDB_Common_IValueConverter_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.ColumnDescriptor.ApplyConversions(LinqToDB.Mapping.MappingSchema%2CExpression%2CLinqToDB.Common.DbDataType%2CLinqToDB.Common.IValueConverter%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Mapping/ColumnDescriptor.cs/#L661">View Source</a>
   </span>
   <a id="LinqToDB_Mapping_ColumnDescriptor_ApplyConversions_" data-uid="LinqToDB.Mapping.ColumnDescriptor.ApplyConversions*"></a>
-  <h4 id="LinqToDB_Mapping_ColumnDescriptor_ApplyConversions_LinqToDB_Mapping_MappingSchema_System_Linq_Expressions_Expression_LinqToDB_Common_DbDataType_LinqToDB_Common_IValueConverter_System_Boolean_" data-uid="LinqToDB.Mapping.ColumnDescriptor.ApplyConversions(LinqToDB.Mapping.MappingSchema,System.Linq.Expressions.Expression,LinqToDB.Common.DbDataType,LinqToDB.Common.IValueConverter,System.Boolean)">ApplyConversions(MappingSchema, Expression, DbDataType, IValueConverter, Boolean)</h4>
+  <h4 id="LinqToDB_Mapping_ColumnDescriptor_ApplyConversions_LinqToDB_Mapping_MappingSchema_Expression_LinqToDB_Common_DbDataType_LinqToDB_Common_IValueConverter_System_Boolean_" data-uid="LinqToDB.Mapping.ColumnDescriptor.ApplyConversions(LinqToDB.Mapping.MappingSchema,Expression,LinqToDB.Common.DbDataType,LinqToDB.Common.IValueConverter,System.Boolean)">ApplyConversions(MappingSchema, Expression, DbDataType, IValueConverter, Boolean)</h4>
   <div class="markdown level1 summary"><p>Helper function for applying all needed conversions for converting value to database type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1204,7 +1266,7 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.linq.expressions.expression(v=vs.110).aspx">Expression</a></td>
+        <td><span class="xref">Expression</span></td>
         <td><span class="parametername">getterExpr</span></td>
         <td><p>Expression which returns value which has to be converted.</p>
 </td>
@@ -1239,7 +1301,7 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.linq.expressions.expression(v=vs.110).aspx">Expression</a></td>
+        <td><span class="xref">Expression</span></td>
         <td><p>Expression with applied conversions.</p>
 </td>
       </tr>
@@ -1247,75 +1309,13 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_ColumnDescriptor_ApplyConversions_System_Linq_Expressions_Expression_LinqToDB_Common_DbDataType_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.ColumnDescriptor.ApplyConversions(System.Linq.Expressions.Expression%2CLinqToDB.Common.DbDataType%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Mapping/ColumnDescriptor.cs/#L720">View Source</a>
-  </span>
-  <a id="LinqToDB_Mapping_ColumnDescriptor_ApplyConversions_" data-uid="LinqToDB.Mapping.ColumnDescriptor.ApplyConversions*"></a>
-  <h4 id="LinqToDB_Mapping_ColumnDescriptor_ApplyConversions_System_Linq_Expressions_Expression_LinqToDB_Common_DbDataType_System_Boolean_" data-uid="LinqToDB.Mapping.ColumnDescriptor.ApplyConversions(System.Linq.Expressions.Expression,LinqToDB.Common.DbDataType,System.Boolean)">ApplyConversions(Expression, DbDataType, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Helper function for applying all needed conversions for converting value to database type.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Expression ApplyConversions(Expression getterExpr, DbDataType dbDataType, bool includingEnum)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.linq.expressions.expression(v=vs.110).aspx">Expression</a></td>
-        <td><span class="parametername">getterExpr</span></td>
-        <td><p>Expression which returns value which has to be converted.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Common.DbDataType.html">DbDataType</a></td>
-        <td><span class="parametername">dbDataType</span></td>
-        <td><p>Database type.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
-        <td><span class="parametername">includingEnum</span></td>
-        <td><p>Provides default enum conversion.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.linq.expressions.expression(v=vs.110).aspx">Expression</a></td>
-        <td><p>Expression with applied conversions.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_ColumnDescriptor_CalculateDataType_LinqToDB_Mapping_MappingSchema_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.ColumnDescriptor.CalculateDataType(LinqToDB.Mapping.MappingSchema%2CSystem.Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Mapping_ColumnDescriptor_CalculateDataType_LinqToDB_Mapping_MappingSchema_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Mapping.ColumnDescriptor.CalculateDataType(LinqToDB.Mapping.MappingSchema%2CType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Mapping/ColumnDescriptor.cs/#L476">View Source</a>
   </span>
   <a id="LinqToDB_Mapping_ColumnDescriptor_CalculateDataType_" data-uid="LinqToDB.Mapping.ColumnDescriptor.CalculateDataType*"></a>
-  <h4 id="LinqToDB_Mapping_ColumnDescriptor_CalculateDataType_LinqToDB_Mapping_MappingSchema_System_Type_" data-uid="LinqToDB.Mapping.ColumnDescriptor.CalculateDataType(LinqToDB.Mapping.MappingSchema,System.Type)">CalculateDataType(MappingSchema, Type)</h4>
+  <h4 id="LinqToDB_Mapping_ColumnDescriptor_CalculateDataType_LinqToDB_Mapping_MappingSchema_Type_" data-uid="LinqToDB.Mapping.ColumnDescriptor.CalculateDataType(LinqToDB.Mapping.MappingSchema,Type)">CalculateDataType(MappingSchema, Type)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1338,7 +1338,7 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.type(v=vs.110).aspx">Type</a></td>
+        <td><span class="xref">Type</span></td>
         <td><span class="parametername">systemType</span></td>
         <td></td>
       </tr>
@@ -1464,7 +1464,7 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.linq.expressions.lambdaexpression(v=vs.110).aspx">LambdaExpression</a></td>
+        <td><span class="xref">LambdaExpression</span></td>
         <td><p>Returns Lambda which extracts member value to database type or <a class="xref" href="LinqToDB.Data.DataParameter.html">DataParameter</a>.</p>
 </td>
       </tr>
@@ -1496,7 +1496,7 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.linq.expressions.lambdaexpression(v=vs.110).aspx">LambdaExpression</a></td>
+        <td><span class="xref">LambdaExpression</span></td>
         <td><p>Returns Lambda which extracts member value to database type.</p>
 </td>
       </tr>
@@ -1528,7 +1528,7 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.linq.expressions.expression(v=vs.110).aspx">Expression</a></td>
+        <td><span class="xref">Expression</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -1559,7 +1559,7 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.linq.expressions.expression(v=vs.110).aspx">Expression</a></td>
+        <td><span class="xref">Expression</span></td>
         <td><p>Returns Lambda which extracts member value to database type.</p>
 </td>
       </tr>
@@ -1579,7 +1579,7 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual object GetValue(object obj)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual object? GetValue(object obj)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1609,7 +1609,7 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.object(v=vs.110).aspx">Object</a></td>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.object(v=vs.110).aspx">Object</a>&gt;</td>
         <td><p>Returns column value, converted to database type.</p>
 </td>
       </tr>
@@ -1754,10 +1754,10 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
       <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
   </div>
   <div>
-      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
   </div>
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, T[])</a>
@@ -1769,10 +1769,10 @@ Could be usefull e.g. in combination of private storage field and getter-only ma
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
   </div>
   <div>
-      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+      <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
   </div>
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, T[])</a>

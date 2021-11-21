@@ -94,25 +94,25 @@
   <h6><strong>Assembly</strong>: linq2db.Tools.dll</h6>
   <h5 id="LinqToDB_Tools_EnumerableExtensions_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class EnumerableExtensions</code></pre>
+    <pre><code class="lang-csharp hljs">public static class EnumerableExtensions : object</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Tools_EnumerableExtensions_ToDiagnosticString__1_System_Collections_Generic_IEnumerable___0__System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.Tools.EnumerableExtensions.ToDiagnosticString%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Tools_EnumerableExtensions_ToDiagnosticString__1_IEnumerable___0__StringBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.Tools.EnumerableExtensions.ToDiagnosticString%60%601(IEnumerable%7B%60%600%7D%2CStringBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/EnumerableExtensions.cs/#L161">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/EnumerableExtensions.cs/#L28">View Source</a>
   </span>
   <a id="LinqToDB_Tools_EnumerableExtensions_ToDiagnosticString_" data-uid="LinqToDB.Tools.EnumerableExtensions.ToDiagnosticString*"></a>
-  <h4 id="LinqToDB_Tools_EnumerableExtensions_ToDiagnosticString__1_System_Collections_Generic_IEnumerable___0__System_String_System_Boolean_" data-uid="LinqToDB.Tools.EnumerableExtensions.ToDiagnosticString``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Boolean)">ToDiagnosticString&lt;T&gt;(IEnumerable&lt;T&gt;, String, Boolean)</h4>
+  <h4 id="LinqToDB_Tools_EnumerableExtensions_ToDiagnosticString__1_IEnumerable___0__StringBuilder_System_Boolean_" data-uid="LinqToDB.Tools.EnumerableExtensions.ToDiagnosticString``1(IEnumerable{``0},StringBuilder,System.Boolean)">ToDiagnosticString&lt;T&gt;(IEnumerable&lt;T&gt;, StringBuilder, Boolean)</h4>
   <div class="markdown level1 summary"><p>Returns well formatted text.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string ToDiagnosticString&lt;T&gt;(this IEnumerable&lt;T&gt; source, string header = null, bool addTableHeader = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public static StringBuilder ToDiagnosticString&lt;T&gt;(this IEnumerable&lt;T&gt; source, StringBuilder stringBuilder, bool addTableHeader = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -125,13 +125,90 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/9eekhta0(v=vs.110).aspx">IEnumerable</a>&lt;T&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
         <td><span class="parametername">source</span></td>
         <td><p>Source to process.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">stringBuilder</span></td>
+        <td><p><see cref="!:StringBuilder"></see> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
+        <td><span class="parametername">addTableHeader</span></td>
+        <td><p>if true (default), adds table header.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>Formatted text.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Tools_EnumerableExtensions_ToDiagnosticString__1_IEnumerable___0__System_Nullable_System_String__System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.Tools.EnumerableExtensions.ToDiagnosticString%60%601(IEnumerable%7B%60%600%7D%2CSystem.Nullable%7BSystem.String%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/EnumerableExtensions.cs/#L161">View Source</a>
+  </span>
+  <a id="LinqToDB_Tools_EnumerableExtensions_ToDiagnosticString_" data-uid="LinqToDB.Tools.EnumerableExtensions.ToDiagnosticString*"></a>
+  <h4 id="LinqToDB_Tools_EnumerableExtensions_ToDiagnosticString__1_IEnumerable___0__System_Nullable_System_String__System_Boolean_" data-uid="LinqToDB.Tools.EnumerableExtensions.ToDiagnosticString``1(IEnumerable{``0},System.Nullable{System.String},System.Boolean)">ToDiagnosticString&lt;T&gt;(IEnumerable&lt;T&gt;, Nullable&lt;String&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Returns well formatted text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToDiagnosticString&lt;T&gt;(this IEnumerable&lt;T&gt; source, string? header = null, bool addTableHeader = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>Source to process.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/b3h38hb0(v=vs.110).aspx">Nullable</a>&lt;<a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a>&gt;</td>
         <td><span class="parametername">header</span></td>
         <td><p>Optional header text.</p>
 </td>
@@ -155,83 +232,6 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.string(v=vs.110).aspx">String</a></td>
-        <td><p>Formatted text.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Tools_EnumerableExtensions_ToDiagnosticString__1_System_Collections_Generic_IEnumerable___0__System_Text_StringBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.Tools.EnumerableExtensions.ToDiagnosticString%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Text.StringBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/EnumerableExtensions.cs/#L28">View Source</a>
-  </span>
-  <a id="LinqToDB_Tools_EnumerableExtensions_ToDiagnosticString_" data-uid="LinqToDB.Tools.EnumerableExtensions.ToDiagnosticString*"></a>
-  <h4 id="LinqToDB_Tools_EnumerableExtensions_ToDiagnosticString__1_System_Collections_Generic_IEnumerable___0__System_Text_StringBuilder_System_Boolean_" data-uid="LinqToDB.Tools.EnumerableExtensions.ToDiagnosticString``1(System.Collections.Generic.IEnumerable{``0},System.Text.StringBuilder,System.Boolean)">ToDiagnosticString&lt;T&gt;(IEnumerable&lt;T&gt;, StringBuilder, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Returns well formatted text.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static StringBuilder ToDiagnosticString&lt;T&gt;(this IEnumerable&lt;T&gt; source, StringBuilder stringBuilder, bool addTableHeader = true)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/9eekhta0(v=vs.110).aspx">IEnumerable</a>&lt;T&gt;</td>
-        <td><span class="parametername">source</span></td>
-        <td><p>Source to process.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.text.stringbuilder(v=vs.110).aspx">StringBuilder</a></td>
-        <td><span class="parametername">stringBuilder</span></td>
-        <td><p><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.text.stringbuilder(v=vs.110).aspx">StringBuilder</a> instance.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.boolean(v=vs.110).aspx">Boolean</a></td>
-        <td><span class="parametername">addTableHeader</span></td>
-        <td><p>if true (default), adds table header.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://msdn.microsoft.com/en-us/library/system.text.stringbuilder(v=vs.110).aspx">StringBuilder</a></td>
         <td><p>Formatted text.</p>
 </td>
       </tr>
