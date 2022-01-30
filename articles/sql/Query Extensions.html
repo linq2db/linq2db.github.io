@@ -1,0 +1,568 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Query Extensions | Linq To DB (aka linq2db) </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Query Extensions | Linq To DB (aka linq2db) ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../../images/icon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../images/icon.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="query-extensions">Query Extensions</h1>
+
+<p>LinqToDB contains different mechanisms to extend and customize generated SQL. Query Extensions are designed to extend SQL on clause and statement level such as table, join, query hints, etc.</p>
+<h2 id="common-hint-extensions">Common Hint Extensions</h2>
+<p>The <code>QueryExtensionScope</code> enumeration defines a scope where this extension is applied to. </p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Method</th>
+<th>Applied to</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>None</td>
+<td>Path through methods</td>
+<td><code>IQueryable</code></td>
+<td>This type of extension should not generate SQL and can be used to implement path through methods such as <code>AsSqlServer()</code> that converts <code>IQueryable</code> sequence to <code>ISqlServerSpecificQueryable</code>.</td>
+</tr>
+<tr>
+<td>TableHint</td>
+<td><code>TableHint</code>, <code>With</code></td>
+<td><code>ITable</code></td>
+<td>Generates table hints.</td>
+</tr>
+<tr>
+<td>TablesInScopeHint</td>
+<td><code>TablesInScopeHint</code></td>
+<td><code>IQueryable</code></td>
+<td>This method applies provided hint to all the tables in scope of this method. It is supported by the same database providers as TableHint.</td>
+</tr>
+<tr>
+<td>IndexHint</td>
+<td><code>IndexHint</code></td>
+<td><code>ITable</code></td>
+<td>MySql supports both hint styles: Oracle Optimizer Hints and SqlServer Table Hints. The TableHint extension generates Oracle hints, whereas this extension supports SqlServer hint style.</td>
+</tr>
+<tr>
+<td>JoinHint</td>
+<td><code>JoinHint</code></td>
+<td><code>IQueryable</code></td>
+<td>Generates join hints.</td>
+</tr>
+<tr>
+<td>SubQueryHint</td>
+<td><code>SubQueryHint</code></td>
+<td><code>IQueryable</code></td>
+<td>Generates subquery or statement hints. Supported by PostgreSQL.</td>
+</tr>
+<tr>
+<td>QueryHint</td>
+<td><code>QueryHint</code></td>
+<td><code>IQueryable</code></td>
+<td>Generates statement hints.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tableid-method-and-sqlsqlid-class">TableID method and Sql.SqlID class</h3>
+<p>Some hints require references to table specifications or aliases. LinqToDB automatically generates table and subquery aliases, so the idea to use generated names for hints is definitely not the best. The <code>TableID</code> method assigns provided identifier to a table and this ID can be used later to generate references to the table. The following methods can be used as hint parameters to generate table references:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Sql.TableAlias(&quot;id&quot;)</code></td>
+<td>Generates table alias.</td>
+</tr>
+<tr>
+<td><code>Sql.TableName(&quot;id&quot;)</code></td>
+<td>Generates table name.</td>
+</tr>
+<tr>
+<td><code>Sql.TableSpec(&quot;id&quot;)</code></td>
+<td>Generates table specification. May include query block name.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="naming-query-blocks">Naming Query Blocks</h3>
+<p>Oracle and MySql table-level, index-level, and subquery optimizer hints permit specific query blocks to be named as part of their argument syntax. To create these names, use the following methods:</p>
+<pre><code class="lang-c#">AsSubQuery(&quot;qb_name&quot;)
+QueryName(&quot;qb_name&quot;)
+</code></pre><h3 id="examples">Examples</h3>
+<h4 id="access">Access</h4>
+<pre><code class="lang-c#">var q =
+(
+    from p in db.Parent
+    select p
+)
+.QueryHint(AccessHints.Query.WithOwnerAccessOption);
+</code></pre><pre><code class="lang-sql">SELECT
+    [p].[ParentID],
+    [p].[Value1]
+FROM
+    [Parent] [p]
+WITH OWNERACCESS OPTION
+</code></pre><h4 id="mysql">MySql</h4>
+<pre><code class="lang-c#">var q =
+(
+    from p in
+        (
+            from p in db.Parent.TableID(&quot;Pr&quot;)
+                .TableHint(MySqlHints.Table.NoBka)
+                .TableHint(MySqlHints.Table.Index, &quot;PK_Parent&quot;)
+            from c in db.Child.TableID(&quot;Ch&quot;)
+                .IndexHint(MySqlHints.Table.UseKeyForOrderBy, &quot;IX_ChildIndex&quot;, &quot;IX_ChildIndex2&quot;)
+            select p
+        )
+        .AsSubQuery(&quot;qq&quot;)
+    select p
+)
+.QueryHint(MySqlHints.Query.NoBka,  Sql.TableSpec(&quot;Pr&quot;), Sql.TableSpec(&quot;Ch&quot;))
+.QueryHint(MySqlHints.Query.SetVar, &quot;sort_buffer_size=16M&quot;);
+</code></pre><pre><code class="lang-sql">SELECT /*+ NO_BKA(p@qq) INDEX(p@qq PK_Parent) NO_BKA(p@qq, c_1@qq) SET_VAR(sort_buffer_size=16M) */
+    `p_1`.`ParentID`,
+    `p_1`.`Value1`
+FROM
+    (
+        SELECT /*+ QB_NAME(qq) */
+            `p`.`ParentID`,
+            `p`.`Value1`
+        FROM
+            `Parent` `p`,
+            `Child` `c_1` USE KEY FOR ORDER BY(IX_ChildIndex, IX_ChildIndex2)
+    ) `p_1`
+</code></pre><h4 id="oracle">Oracle</h4>
+<pre><code class="lang-c#">var q =
+(
+    from p in
+        (
+            from c in db.Child
+                .TableHint(OracleHints.Hint.Full)
+                .TableHint(OracleHints.Hint.Parallel, &quot;DEFAULT&quot;)
+            join p in db.Parent
+                .TableHint(OracleHints.Hint.DynamicSampling, 1)
+                .TableHint(OracleHints.Hint.Index, &quot;parent_ix&quot;)
+                .AsSubQuery(&quot;Parent&quot;)
+            on c.ParentID equals p.ParentID
+            select p
+        )
+        .AsSubQuery()
+    select p
+)
+.QueryHint(OracleHints.Hint.NoUnnest, &quot;@Parent&quot;);
+</code></pre><pre><code class="lang-sql">SELECT /*+ FULL(p_1.c_1) PARALLEL(p_1.c_1 DEFAULT) DYNAMIC_SAMPLING(t1@Parent 1) INDEX(t1@Parent parent_ix) NO_UNNEST(@Parent) */
+    p_1.&quot;ParentID&quot;,
+    p_1.&quot;Value1&quot;
+FROM
+    (
+        SELECT
+            p.&quot;ParentID&quot;,
+            p.&quot;Value1&quot;
+        FROM
+            &quot;Child&quot; c_1
+                INNER JOIN (
+                    SELECT /*+ QB_NAME(Parent) */
+                        t1.&quot;ParentID&quot;,
+                        t1.&quot;Value1&quot;
+                    FROM
+                        &quot;Parent&quot; t1
+                ) p ON c_1.&quot;ParentID&quot; = p.&quot;ParentID&quot;
+    ) p_1
+</code></pre><h4 id="postgresql">PostgreSQL</h4>
+<pre><code class="lang-c#">var q =
+(
+    from p in
+        (
+            from p in
+                (
+                    from p in db.Parent
+                    from c in db.Child
+                    where c.ParentID == p.ParentID
+                    select p
+                )
+                .SubQueryHint(PostgreSQLHints.ForUpdate)
+                .AsSubQuery()
+            where p.ParentID &lt; -100
+            select p
+        )
+        .SubQueryHint(PostgreSQLHints.ForShare)
+    select p
+)
+.SubQueryHint(PostgreSQLHints.ForKeyShare + &quot; &quot; + PostgreSQLHints.SkipLocked);
+</code></pre><pre><code class="lang-sql">SELECT
+    p_1.&quot;ParentID&quot;,
+    p_1.&quot;Value1&quot;
+FROM
+    (
+        SELECT
+            p.&quot;ParentID&quot;,
+            p.&quot;Value1&quot;
+        FROM
+            &quot;Parent&quot; p,
+            &quot;Child&quot; c_1
+        WHERE
+            c_1.&quot;ParentID&quot; = p.&quot;ParentID&quot;
+        FOR UPDATE
+    ) p_1
+WHERE
+    p_1.&quot;ParentID&quot; &lt; -100
+FOR SHARE
+FOR KEY SHARE SKIP LOCKED
+</code></pre><h4 id="sqlce">SqlCe</h4>
+<pre><code class="lang-c#">from p in db.Person
+    .TableHint(SqlCeHints.Table.Index, &quot;PK_Person&quot;)
+    .With(SqlCeHints.Table.NoLock)
+select p;
+</code></pre><pre><code class="lang-sql">SELECT
+    [p].[FirstName],
+    [p].[PersonID],
+    [p].[LastName],
+    [p].[MiddleName],
+    [p].[Gender]
+FROM
+    [Person] [p] WITH (Index(PK_Person), NoLock)
+</code></pre><h4 id="sqlite">SQLite</h4>
+<pre><code class="lang-c#">from p in db.Person.TableHint(SQLiteHints.Hint.IndexedBy(&quot;IX_PersonDesc&quot;))
+where p.ID &gt; 0
+select p;
+</code></pre><pre><code class="lang-sql">SELECT
+    [p].[FirstName],
+    [p].[PersonID],
+    [p].[LastName],
+    [p].[MiddleName],
+    [p].[Gender]
+FROM
+    [Person] [p] INDEXED BY IX_PersonDesc
+WHERE
+    [p].[PersonID] &gt; 0
+</code></pre><h4 id="sqlserver">SqlServer</h4>
+<pre><code class="lang-c#">var q =
+(
+    from c in db.Child
+        .TableHint(SqlServerHints.Table.SpatialWindowMaxCells(10))
+        .IndexHint(SqlServerHints.Table.Index, &quot;IX_ChildIndex&quot;)
+    join p in
+        (
+            from t in db.Parent.With(SqlServerHints.Table.NoLock)
+            where t.Children.Any()
+            select new { t.ParentID, t.Children.Count }
+        )
+        .JoinHint(SqlServerHints.Join.Hash) on c.ParentID equals p.ParentID
+    select p
+)
+.QueryHint(SqlServerHints.Query.Recompile)
+.QueryHint(SqlServerHints.Query.Fast(10))
+.QueryHint(SqlServerHints.Query.MaxGrantPercent(25));
+</code></pre><pre><code class="lang-sql">SELECT
+    [p].[ParentID],
+    [p].[Count_1]
+FROM
+    [Child] [c_1] WITH (SPATIAL_WINDOW_MAX_CELLS=10, Index(IX_ChildIndex))
+        INNER HASH JOIN (
+            SELECT
+                [t].[ParentID],
+                (
+                    SELECT
+                        Count(*)
+                    FROM
+                        [Child] [t1]
+                    WHERE
+                        [t].[ParentID] = [t1].[ParentID]
+                ) as [Count_1]
+            FROM
+                [Parent] [t] WITH (NoLock)
+            WHERE
+                EXISTS(
+                    SELECT
+                        *
+                    FROM
+                        [Child] [t2]
+                    WHERE
+                        [t].[ParentID] = [t2].[ParentID]
+                )
+        ) [p] ON [c_1].[ParentID] = [p].[ParentID]
+OPTION (RECOMPILE, FAST 10, MAX_GRANT_PERCENT=25)
+</code></pre><h2 id="database-specific-hint-extensions">Database Specific Hint Extensions</h2>
+<p>The extension methods above are common and can be used to generate SQL for all database providers. You will be responsible for generated SQL as LinqToDB will generate SQL based on what you pass as parameters. Besides, LinqToDB implements database specific hint extensions. These extensions are designed specially for specific providers in the type-safe way and are “provider friendly” (which means you can use different specific database hints applied for the same LINQ query and they will not conflict).</p>
+<h3 id="c">C#</h3>
+<pre><code class="lang-c#">var q =
+(
+    from p in db.Parent.TableID(&quot;pr&quot;)
+        .AsMySql()
+            .NoBatchedKeyAccessHint()
+            .IndexHint(&quot;PK_Parent&quot;)
+    from c in db.Child.TableID(&quot;ch&quot;)
+        .AsMySql()
+            .UseIndexHint(&quot;IX_ChildIndex&quot;)
+        .AsOracle()
+            .FullHint()
+            .HashHint()
+        .AsSqlCe()
+            .WithNoLock()
+        .AsSQLite()
+            .NotIndexedHint()
+        .AsSqlServer()
+            .WithNoLock()
+            .WithNoWait()
+    join t in db.Patient.TableID(&quot;pt&quot;)
+        .AsSqlServer()
+            .JoinLoopHint()
+    on c.ParentID equals t.PersonID
+    select t
+)
+.QueryName(&quot;qb&quot;)
+.AsAccess()
+    .WithOwnerAccessOption()
+.AsMySql()
+    .MaxExecutionTimeHint(1000)
+    .BatchedKeyAccessHint(Sql.TableSpec(&quot;ch&quot;))
+.AsOracle()
+    .ParallelHint(2)
+    .NoUnnestHint(&quot;qb&quot;)
+.AsPostgreSQL()
+    .ForShareHint(Sql.TableAlias(&quot;pt&quot;))
+.AsSqlServer()
+    .WithReadUncommittedInScope()
+    .OptionRecompile()
+    .OptionTableHint(Sql.TableAlias(&quot;pr&quot;), SqlServerHints.Table.ReadUncommitted)
+    .OptionNoPerformanceSpool()
+;
+</code></pre><h3 id="sql">SQL</h3>
+<h4 id="access-1">Access</h4>
+<pre><code class="lang-sql">SELECT
+    [t].[PersonID],
+    [t].[Diagnosis]
+FROM
+    (
+        SELECT
+            [c_1].[ParentID]
+        FROM
+            [Parent] [p],
+            [Child] [c_1]
+    ) [t1]
+        INNER JOIN [Patient] [t] ON ([t1].[ParentID] = [t].[PersonID])
+WITH OWNERACCESS OPTION
+</code></pre><h4 id="mysql-1">MySql</h4>
+<pre><code class="lang-sql">SELECT /*+ QB_NAME(qb) NO_BKA(t1.p@qb) INDEX(t1.p@qb PK_Parent) MAX_EXECUTION_TIME(1000) BKA(t1.c_1@qb) */
+    `t`.`PersonID`,
+    `t`.`Diagnosis`
+FROM
+    (
+        SELECT
+            `c_1`.`ParentID`
+        FROM
+            `Parent` `p`,
+            `Child` `c_1` USE INDEX(IX_ChildIndex)
+    ) `t1`
+        INNER JOIN `Patient` `t` ON `t1`.`ParentID` = `t`.`PersonID`
+</code></pre><h4 id="oracle-1">Oracle</h4>
+<pre><code class="lang-sql">SELECT /*+ QB_NAME(qb) FULL(t1.c_1@qb) HASH(t1.c_1@qb) PARALLEL(2) NO_UNNEST(qb) */
+    t.&quot;PersonID&quot;,
+    t.&quot;Diagnosis&quot;
+FROM
+    (
+        SELECT
+            c_1.&quot;ParentID&quot;
+        FROM
+            &quot;Parent&quot; p,
+            &quot;Child&quot; c_1
+    ) t1
+        INNER JOIN &quot;Patient&quot; t ON t1.&quot;ParentID&quot; = t.&quot;PersonID&quot;
+</code></pre><h4 id="postgresql-1">PostgreSQL</h4>
+<pre><code class="lang-sql">SELECT /* qb */
+    t.&quot;PersonID&quot;,
+    t.&quot;Diagnosis&quot;
+FROM
+    (
+        SELECT
+            c_1.&quot;ParentID&quot;
+        FROM
+            &quot;Parent&quot; p,
+            &quot;Child&quot; c_1
+    ) t1
+        INNER JOIN &quot;Patient&quot; t ON t1.&quot;ParentID&quot; = t.&quot;PersonID&quot;
+FOR SHARE OF t
+</code></pre><h4 id="sqlce-1">SqlCe</h4>
+<pre><code class="lang-sql">SELECT /* qb */
+    [t].[PersonID],
+    [t].[Diagnosis]
+FROM
+    (
+        SELECT
+            [c_1].[ParentID]
+        FROM
+            [Parent] [p],
+            [Child] [c_1] WITH (NoLock)
+    ) [t1]
+        INNER JOIN [Patient] [t] ON [t1].[ParentID] = [t].[PersonID]
+</code></pre><h4 id="sqlite-1">SQLite</h4>
+<pre><code class="lang-sql">SELECT /* qb */
+    [t].[PersonID],
+    [t].[Diagnosis]
+FROM
+    (
+        SELECT
+            [c_1].[ParentID]
+        FROM
+            [Parent] [p],
+            [Child] [c_1] NOT INDEXED
+    ) [t1]
+        INNER JOIN [Patient] [t] ON [t1].[ParentID] = [t].[PersonID]
+</code></pre><h4 id="sqlserver-2005">SqlServer 2005</h4>
+<pre><code class="lang-sql">SELECT /* qb */
+    [t].[PersonID],
+    [t].[Diagnosis]
+FROM
+    (
+        SELECT
+            [c_1].[ParentID]
+        FROM
+            [Parent] [p] WITH (ReadUncommitted),
+            [Child] [c_1] WITH (NoLock, NoWait, ReadUncommitted)
+    ) [t1]
+        INNER LOOP JOIN [Patient] [t] WITH (ReadUncommitted) ON [t1].[ParentID] = [t].[PersonID]
+OPTION (RECOMPILE)
+</code></pre><h4 id="sqlserver-2008">SqlServer 2008</h4>
+<pre><code class="lang-sql">SELECT /* qb */
+    [t].[PersonID],
+    [t].[Diagnosis]
+FROM
+    (
+        SELECT
+            [c_1].[ParentID]
+        FROM
+            [Parent] [p] WITH (ReadUncommitted),
+            [Child] [c_1] WITH (NoLock, NoWait, ReadUncommitted)
+    ) [t1]
+        INNER LOOP JOIN [Patient] [t] WITH (ReadUncommitted) ON [t1].[ParentID] = [t].[PersonID]
+OPTION (RECOMPILE, TABLE HINT(p, ReadUncommitted))
+</code></pre><h4 id="sqlserver-2019">SqlServer 2019</h4>
+<pre><code class="lang-sql">SELECT /* qb */
+    [t].[PersonID],
+    [t].[Diagnosis]
+FROM
+    (
+        SELECT
+            [c_1].[ParentID]
+        FROM
+            [Parent] [p] WITH (ReadUncommitted),
+            [Child] [c_1] WITH (NoLock, NoWait, ReadUncommitted)
+    ) [t1]
+        INNER LOOP JOIN [Patient] [t] WITH (ReadUncommitted) ON [t1].[ParentID] = [t].[PersonID]
+OPTION (RECOMPILE, TABLE HINT(p, ReadUncommitted), NO_PERFORMANCE_SPOOL)
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/linq2db/docs/blob/master/source/articles/sql/Query Extensions.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2011-2020 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
