@@ -133,9 +133,9 @@
   LinqToDB.ProviderName.SqlServer2012,
   &quot;Server=.\;Database=Northwind;Trusted_Connection=True;Enlist=False;&quot;);
 </code></pre><h3 id="using-connection-options-builder">Using Connection Options Builder</h3>
-<p>You can configure connection options from code using <a href="https://linq2db.github.io/api/LinqToDB.Configuration.LinqToDbConnectionOptionsBuilder.html"><code>LinqToDbConnectionOptionsBuilder</code></a> class (check class for available options):</p>
+<p>You can configure connection options from code using <a href="https://linq2db.github.io/api/LinqToDB.Configuration.LinqToDBConnectionOptionsBuilder.html"><code>LinqToDBConnectionOptionsBuilder</code></a> class (check class for available options):</p>
 <pre><code class="lang-cs">// create options builder
-var builder = new LinqToDbConnectionOptionsBuilder();
+var builder = new LinqToDBConnectionOptionsBuilder();
 
 // configure connection string
 builder.UseSqlServer(connectionString);
@@ -285,8 +285,8 @@ public class Product
 {
   public DbNorthwind() : base(&quot;Northwind&quot;) { }
 
-  public ITable&lt;Product&gt;  Product  =&gt; GetTable&lt;Product&gt;();
-  public ITable&lt;Category&gt; Category =&gt; GetTable&lt;Category&gt;();
+  public ITable&lt;Product&gt;  Product  =&gt; this.GetTable&lt;Product&gt;();
+  public ITable&lt;Category&gt; Category =&gt; this.GetTable&lt;Category&gt;();
 
   // ... other tables ...
 }
@@ -594,42 +594,19 @@ public class DbDataContext : DataConnection
   public DbDataContext() : base(&quot;Northwind&quot;) {}
 
 #else
-
-  // use static instance of mapping schema
-  // never create mapping schema per-connection
-  // or it will seriously affect performance
-  private static readonly MappingSchema _miniProfilerMappings = new ();
-
-  static DbDataContext()
-  {
-    // this is important part:
-    // here we tell linq2db how to access underlying ADO.NET classes of used provider
-    // if you don&#39;t configure those mappings, linq2db will be unable to use
-    // provider-specific functionality which could lead to loss or unavailability
-    //of some functionality when profiled connection enabled
-    _miniProfilerMappings.SetConvertExpression&lt;ProfiledDbConnection,  IDbConnection&gt; (
-        db =&gt; db.WrappedConnection);
-    _miniProfilerMappings.SetConvertExpression&lt;ProfiledDbDataReader,  IDataReader&gt;   (
-        db =&gt; db.WrappedReader);
-    _miniProfilerMappings.SetConvertExpression&lt;ProfiledDbTransaction, IDbTransaction&gt;(
-        db =&gt; db.WrappedTransaction);
-    _miniProfilerMappings.SetConvertExpression&lt;ProfiledDbCommand,     IDbCommand&gt;    (
-        db =&gt; db.InternalCommand);
-  }
-
   public DbDataContext()
       : base(
           // get data provider instance using
-          // &lt;DB_NAME&gt;Tools.GetDataProvider()
-          // helpers
+          // &lt;DB_NAME&gt;Tools.GetDataProvider() helpers
           // In this case we use SQL Server provider
           SqlServerTools.GetDataProvider(SqlServerVersion.v2012),
-          GetConnection(),
-          _miniProfilerMappings)
-  { }
+          GetConnection())
+  {
+    AddInterceptor(new UnwrapProfilerInterceptor());
+  }
 
   // wrap connection into profiler wrapper
-  private static IDbConnection GetConnection()
+  private static DbConnection GetConnection()
   {
      // create provider-specific connection instance. SqlConnection in our case
      var dbConnection = new SqlConnection(
@@ -639,6 +616,30 @@ public class DbDataContext : DataConnection
      return new StackExchange.Profiling.Data.ProfiledDbConnection(
                                                  dbConnection,
                                                  MiniProfiler.Current);
+  }
+
+  // define UnwrapDataObjectInterceptor
+  class UnwrapProfilerInterceptor : UnwrapDataObjectInterceptor
+  {
+    public override DbConnection UnwrapConnection(IDataContext dataContext, DbConnection connection)
+    {
+      return connection is ProfiledDbConnection c ? c.WrappedConnection : connection;
+    }
+
+    public override DbTransaction UnwrapTransaction(IDataContext dataContext, DbTransaction transaction)
+    {
+       return transaction is ProfiledDbTransaction t ? t.WrappedTransaction : transaction;
+    }
+
+    public override DbCommand UnwrapCommand(IDataContext dataContext, DbCommand command)
+    {
+      return command is ProfiledDbCommand c ? c.InternalCommand : command;
+    }
+
+    public override DbDataReader UnwrapDataReader(IDataContext dataContext, DbDataReader dataReader)
+    {
+      return dataReader is ProfiledDbDataReader dr ? dr.WrappedReader : dataReader;
+    }
   }
 #endif
 }

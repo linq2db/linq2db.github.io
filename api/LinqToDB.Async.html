@@ -88,25 +88,26 @@
     <h3 id="classes">Classes
   </h3>
       <h4><a class="xref" href="LinqToDB.Async.AsyncDbConnection.html">AsyncDbConnection</a></h4>
-      <section><p>Implements <a class="xref" href="LinqToDB.Async.IAsyncDbConnection.html">IAsyncDbConnection</a> wrapper over <see cref="!:IDbConnection"></see> instance with
+      <section><p>Implements <a class="xref" href="LinqToDB.Async.IAsyncDbConnection.html">IAsyncDbConnection</a> wrapper over <see cref="!:DbConnection"></see> instance with
 synchronous implementation of asynchronous methods.
 Providers with async operations support could override its methods with asynchronous implementations.</p>
 </section>
       <h4><a class="xref" href="LinqToDB.Async.AsyncDbTransaction.html">AsyncDbTransaction</a></h4>
-      <section><p>Asynchronous version of the <see cref="!:IDbTransaction"></see> interface, allowing asynchronous operations,
-missing from <see cref="!:IDbTransaction"></see>.
-Providers with async operations support could override its methods with asynchronous implementations.</p>
+      <section><p>Basic <a class="xref" href="LinqToDB.Async.IAsyncDbTransaction.html">IAsyncDbTransaction</a> implementation with fallback to synchronous operations if corresponding functionality
+missing from <see cref="!:DbTransaction"></see>.</p>
 </section>
       <h4><a class="xref" href="LinqToDB.Async.AsyncFactory.html">AsyncFactory</a></h4>
-      <section><p>Provides factory methods to create async wrappers for <see cref="!:IDbConnection"></see> and <see cref="!:IDbTransaction"></see> instances.</p>
+      <section><p>Provides factory methods to create async wrappers for <see cref="!:DbConnection"></see> and <see cref="!:DbTransaction"></see> instances.</p>
 </section>
     <h3 id="interfaces">Interfaces
   </h3>
       <h4><a class="xref" href="LinqToDB.Async.IAsyncDbConnection.html">IAsyncDbConnection</a></h4>
-      <section><p>Asynchronous version of the <see cref="!:IDbConnection"></see> interface, allowing asynchronous operations, missing from <see cref="!:IDbConnection"></see>.</p>
+      <section><p>Wrapper over <see cref="!:DbConnection"></see> instance which contains all operations that could have custom implementation like:
+<ul><li></li><li></li></ul></p>
 </section>
       <h4><a class="xref" href="LinqToDB.Async.IAsyncDbTransaction.html">IAsyncDbTransaction</a></h4>
-      <section><p>Asynchronous version of the <see cref="!:IDbTransaction"></see> interface, allowing asynchronous operations, missing from <see cref="!:IDbTransaction"></see>.</p>
+      <section><p>Wrapper over <see cref="!:DbTransaction"></see> instance with asynchronous operations, missing from <see cref="!:DbTransaction"></see>.
+Includes only operations, used by Linq To DB.</p>
 </section>
       <h4><a class="xref" href="LinqToDB.Async.IAsyncDisposable.html">IAsyncDisposable</a></h4>
       <section><p>Provides a mechanism for releasing unmanaged resources asynchronously.</p>
