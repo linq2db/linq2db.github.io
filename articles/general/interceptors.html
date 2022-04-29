@@ -8,7 +8,7 @@
     <title>Interceptors&lt;!-- omit in toc --&gt; | Linq To DB (aka linq2db) </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interceptors&lt;!-- omit in toc --&gt; | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.59.0.0">
+    <meta name="generator" content="docfx 2.59.2.0">
     
     <link rel="shortcut icon" href="../../images/icon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -241,6 +241,14 @@ Task&lt;Option&lt;DbDataReader&gt;&gt; ExecuteReaderAsync(CommandEventData     e
                                               CommandBehavior      commandBehavior,
                                               Option&lt;DbDataReader&gt; result,
                                               CancellationToken    cancellationToken);
+
+// triggered after `ExecuteReader/ExecuteReaderAsync` call but before reader enumeration
+// could be used to configure reader
+void AfterExecuteReader(
+    CommandEventData eventData,
+    DbCommand        command,
+    CommandBehavior  commandBehavior,
+    DbDataReader     dataReader);
 
 struct CommandEventData
 {
