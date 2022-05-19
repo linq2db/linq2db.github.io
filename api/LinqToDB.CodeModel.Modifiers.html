@@ -83,7 +83,9 @@
   
   <h1 id="LinqToDB_CodeModel_Modifiers" data-uid="LinqToDB.CodeModel.Modifiers" class="text-break">Enum Modifiers
   </h1>
-  <div class="markdown level0 summary"><p>Type and type member attributes and modifiers.</p>
+  <div class="markdown level0 summary"><p>Explicit type and type member attributes and modifiers.
+We don&apos;t check if set flag match defaults for applied member or type and always generate modifier if it set by this enum.
+Also we don&apos;t check wether modifier is valid on member/type.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.CodeModel.html">LinqToDB.CodeModel</a></h6>
@@ -103,6 +105,11 @@
     <thead>
     <tbody>
       <tr>
+        <td id="LinqToDB_CodeModel_Modifiers_Abstract">Abstract</td>
+        <td><p>Abstract class or member.</p>
+</td>
+      </tr>
+      <tr>
         <td id="LinqToDB_CodeModel_Modifiers_Async">Async</td>
         <td><p>Async method.</p>
 </td>
@@ -113,8 +120,24 @@
 </td>
       </tr>
       <tr>
+        <td id="LinqToDB_CodeModel_Modifiers_Internal">Internal</td>
+        <td><p>Internal type or type member.
+Could be combined with <a class="xref" href="LinqToDB.CodeModel.Modifiers.html#LinqToDB_CodeModel_Modifiers_Protected">Protected</a> to form <code>protected internal</code> modifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="LinqToDB_CodeModel_Modifiers_New">New</td>
+        <td><p><code>new</code> overload attribute on type members.</p>
+</td>
+      </tr>
+      <tr>
         <td id="LinqToDB_CodeModel_Modifiers_None">None</td>
         <td><p>No explicit attributes on type or type member.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="LinqToDB_CodeModel_Modifiers_Override">Override</td>
+        <td><p>Member override.</p>
 </td>
       </tr>
       <tr>
@@ -124,7 +147,15 @@
       </tr>
       <tr>
         <td id="LinqToDB_CodeModel_Modifiers_Private">Private</td>
-        <td><p>Private type member (including nested types).</p>
+        <td><p>Private type or type member.
+Could be combined with <a class="xref" href="LinqToDB.CodeModel.Modifiers.html#LinqToDB_CodeModel_Modifiers_Protected">Protected</a> to form <code>private protected</code> modifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="LinqToDB_CodeModel_Modifiers_Protected">Protected</td>
+        <td><p>Protected type member.
+Could be combined with <a class="xref" href="LinqToDB.CodeModel.Modifiers.html#LinqToDB_CodeModel_Modifiers_Private">Private</a> to form <code>private protected</code> modifier.
+Could be combined with <a class="xref" href="LinqToDB.CodeModel.Modifiers.html#LinqToDB_CodeModel_Modifiers_Internal">Internal</a> to form <code>protected internal</code> modifier.</p>
 </td>
       </tr>
       <tr>
@@ -138,8 +169,18 @@
 </td>
       </tr>
       <tr>
+        <td id="LinqToDB_CodeModel_Modifiers_Sealed">Sealed</td>
+        <td><p>Sealed class/member.</p>
+</td>
+      </tr>
+      <tr>
         <td id="LinqToDB_CodeModel_Modifiers_Static">Static</td>
-        <td><p>Static class or type member.</p>
+        <td><p><code>static</code> attribute on type/type members.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="LinqToDB_CodeModel_Modifiers_Virtual">Virtual</td>
+        <td><p><code>virtual</code> attribute on type members.</p>
 </td>
       </tr>
     </tbody>
@@ -201,7 +242,7 @@
                     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_Modifiers.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.Modifiers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/AST/Basics/Modifiers.cs/#L8" class="contribution-link">View Source</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/AST/Basics/Modifiers.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
