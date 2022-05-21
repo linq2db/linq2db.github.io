@@ -1,0 +1,820 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>LINQ to DB CLI tools | Linq To DB (aka linq2db) </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="LINQ to DB CLI tools | Linq To DB (aka linq2db) ">
+    <meta name="generator" content="docfx 2.59.2.0">
+    
+    <link rel="shortcut icon" href="../images/icon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/icon.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="linq-to-db-cli-tools">LINQ to DB CLI tools</h1>
+
+<ul>
+<li><a href="#linq-to-db-cli-tools">LINQ to DB CLI tools</a><ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#use">Use</a><ul>
+<li><a href="#usage-examples">Usage Examples</a><ul>
+<li><a href="#generate-sqlite-database-model-in-current-folder">Generate SQLite database model in current folder</a></li>
+<li><a href="#generate-sqlite-database-model-using-response-file">Generate SQLite database model using response file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#customize-scaffold-with-code">Customize Scaffold with Code</a><ul>
+<li><a href="#customization-with-assembly">Customization with assembly</a></li>
+<li><a href="#customization-with-t4-template">Customization with T4 template</a></li>
+<li><a href="#interceptors-overview">Interceptors Overview</a><ul>
+<li><a href="#schema-load-interceptors">Schema Load Interceptors</a></li>
+<li><a href="#type-mapping-interceptor">Type mapping interceptor</a></li>
+<li><a href="#data-model-interceptors">Data Model Interceptors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<blockquote><p>Requres .NET Core 3.1 or higher.</p>
+</blockquote>
+<p>Install as global tool:</p>
+<p><code>dotnet tool install -g linq2db.cli</code></p>
+<p>Update:</p>
+<p><code>dotnet tool update -g linq2db.cli</code></p>
+<p>General information on .NET Tools could be found <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools">here</a></p>
+<h2 id="use">Use</h2>
+<p>To invoke tool use <code>dotnet-linq2db &lt;PARAMETERS&gt;</code> or <code>dotnet linq2db &lt;PARAMETERS&gt;</code> command.</p>
+<p>Available commands:</p>
+<ul>
+<li><code>dotnet linq2db help</code>: prints general help</li>
+<li><code>dotnet linq2db help scaffold</code>: prints help for <code>scaffold</code> command</li>
+<li><code>dotnet linq2db scaffold &lt;options&gt;</code>: performs database model scaffolding</li>
+<li><code>dotnet linq2db template [-o template_path]</code>: creates base T4 template file for scaffolding customization code</li>
+</ul>
+<p>For list of available options, use <code>dotnet linq2db help scaffold</code> command.</p>
+<h3 id="usage-examples">Usage Examples</h3>
+<h4 id="generate-sqlite-database-model-in-current-folder">Generate SQLite database model in current folder</h4>
+<p>This command uses minimal set of options, required for scaffolding (database provider and connection string) and generates database model classes in current folder.</p>
+<p><code>dotnet linq2db scaffold -p SQLite -c &quot;Data Source=c:\Databases\MyDatabase.sqlite&quot;</code></p>
+<h4 id="generate-sqlite-database-model-using-response-file">Generate SQLite database model using response file</h4>
+<p>This command demonstrates use of configuration file with scaffold options combined with command line options.</p>
+<p><code>dotnet linq2db scaffold -i database.json -c &quot;Data Source=c:\Databases\MyDatabase.sqlite&quot;</code></p>
+<p>database.json file:</p>
+<pre><code class="lang-json">{
+    &quot;general&quot;: {
+        &quot;provider&quot;: &quot;SQLite&quot;,
+        &quot;connection&quot;: &quot;Data Source=c:\\Databases\\TestDatabase.sqlite&quot;,
+        &quot;output&quot;: &quot;c:\\MyProject\\DbModel&quot;,
+        &quot;overwrite&quot;: true
+    }
+}
+</code></pre><p>Here you can see that connection string passed using both command line and <code>json</code> config file. In such cases option passed in command line takes precedence.</p>
+<p>Scaffold configs (response files) are convenient in many ways:</p>
+<ul>
+<li>you can store scaffolding options for your project in source control and share with other developers</li>
+<li>with many options it is hard to work with command line</li>
+<li>some options not available from CLI or hard to use due to CLI nature (e.g. various issues with escaping of parameters)</li>
+</ul>
+<h2 id="customize-scaffold-with-code">Customize Scaffold with Code</h2>
+<p>For more advanced scaffolding configuration you can use scaffold interceptor class (inherited from <code>ScaffoldInterceptors</code> class), passed as pre-built assembly (don&#39;t forget that scaffold utility use .net core 3.1+, so don&#39;t target it with .NET Framework TFM) or T4 template.
+Class, inherited from <code>ScaffoldInterceptors</code> should have default constructor or constructor with <code>ScaffoldOptions</code> parameters.</p>
+<p>Main difference between assembly and T4 approach is:</p>
+<ul>
+<li>with assembly you can write customization in any .net language in your favorite IDE, but need to build it to .net assembly to use</li>
+<li>with T4 you can use only C# and IDE support for T4 templates is limited, but you will have ready-to-use T4 template to modify and compilation will be done by cli tool</li>
+</ul>
+<p>To invoke scaffolding with code-based customization use <code>--customize path_to_file</code> option:</p>
+<p><code>dotnet linq2db scaffold -i database.json -c &quot;Data Source=c:\Databases\MyDatabase.sqlite&quot; --customize CustomAssembly.dll</code></p>
+<p><code>dotnet linq2db scaffold -i database.json -c &quot;Data Source=c:\Databases\MyDatabase.sqlite&quot; --customize CustomTemplate.t4</code></p>
+<p>CLI tool will detect custmization approach using file extension:</p>
+<ul>
+<li><code>.dll</code>: referenced file will be loaded as assembly</li>
+<li>any other extension: referenced file will be treated as T4 template</li>
+</ul>
+<h3 id="customization-with-assembly">Customization with assembly</h3>
+<ol>
+<li>Create new .net library project and reference <code>linq2db.Tools</code> nuget</li>
+<li>Add class, inherited from <code>LinqToDB.Scaffold.ScaffoldInterceptors</code> and override required customization methods</li>
+<li>Build assembly and use it with <code>--custmize</code> option</li>
+</ol>
+<blockquote><p>CLI tool tries to locate and load referenced 3rd-party assemblies, used by customization assembly automatically.</p>
+<p>If it fails to find referenced assembly, you can try to enable local copy behavior by adding following property to project file:</p>
+<p><code>&lt;CopyLocalLockFileAssemblies&gt;true&lt;/CopyLocalLockFileAssemblies&gt;</code></p>
+</blockquote>
+<h3 id="customization-with-t4-template">Customization with T4 template</h3>
+<ol>
+<li>Generate initial T4 template file using <code>dotnet linq2db template</code> command</li>
+<li>Edit <code>Interceptors</code> class methods in template with required customization logic</li>
+<li>Use template file with <code>--custmize</code> option</li>
+</ol>
+<h3 id="interceptors-overview">Interceptors Overview</h3>
+<p>Scaffold process is a multi-stange process with following steps:</p>
+<ul>
+<li>database schema load</li>
+<li>generation of data context object model from schema</li>
+<li>generation of data context code model from object model</li>
+<li>generation of source code from code model</li>
+</ul>
+<p>We allow injection of interceptors/extension points at some of those stages. They could be split into three categories:</p>
+<ul>
+<li>Database schema load interceptors. Those interceptors allow user to add, remove or modify information about database objects, used for data model generation.</li>
+<li>Database type mapping interceptor. This interceptor allows user to override default .NET type used for specific database type in data model or specify .NET type for database type, not known to scaffold utility (e.g. some custom database type)</li>
+<li>Data model interceptors. Those interceptors work with generate data model objects and allow user to modify them before they will be converted to source code. Such objects include:<ul>
+<li>entities (table/view mapping classes)</li>
+<li>methods for stored procedure or function mapping</li>
+<li>associations (foreign key relations)</li>
+<li>some other generated objects.</li>
+</ul>
+</li>
+</ul>
+<h4 id="schema-load-interceptors">Schema Load Interceptors</h4>
+<p>During schema load stage user can filter, modify or even add new database object descriptors to database schema. There is interception method for each of currently supported database object types:</p>
+<pre><code class="lang-cs">IEnumerable&lt;Table&gt;             GetTables            (IEnumerable&lt;Table&gt;             tables);
+IEnumerable&lt;View&gt;              GetViews             (IEnumerable&lt;View&gt;              views);
+IEnumerable&lt;ForeignKey&gt;        GetForeignKeys       (IEnumerable&lt;ForeignKey&gt;        keys);
+IEnumerable&lt;StoredProcedure&gt;   GetProcedures        (IEnumerable&lt;StoredProcedure&gt;   procedures);
+IEnumerable&lt;TableFunction&gt;     GetTableFunctions    (IEnumerable&lt;TableFunction&gt;     functions);
+IEnumerable&lt;ScalarFunction&gt;    GetScalarFunctions   (IEnumerable&lt;ScalarFunction&gt;    functions);
+IEnumerable&lt;AggregateFunction&gt; GetAggregateFunctions(IEnumerable&lt;AggregateFunction&gt; functions)
+</code></pre><blockquote><p>Database object-specific interceptor will be called only if specific object type load was allowed in options (see <code>--objects</code> parameter).</p>
+</blockquote>
+<details>
+  <summary>Interceptor implementation example (table)</summary>
+
+<code>cs
+public override IEnumerable&lt;Table&gt; GetTables(IEnumerable&lt;Table&gt; tables)
+{
+    foreach (var table in tables)
+    {
+        if (table.Name.Schema == &quot;private&quot;)
+        {
+            // hide/ignore tables from &quot;private&quot; schema
+            // note that it could be also done using --exclude-schemas CLI option
+            continue;
+        }
+
+        if (table.Name.Name.StartsWith(&quot;test_&quot;))
+        {
+            // modify record: remove test_ prefix from table name
+            yield return table with
+            {
+                Name = table.Name with
+                {
+                    Name = table.Name.Name.Substring(&quot;test_&quot;.Length)
+                }
+            };
+            continue;
+        }
+
+        yield return table;
+    }
+
+    // add new table record, not returned by schema API
+    yield return new Table(
+        new SqlObjectName(&quot;my_table_name&quot;),
+        null,
+        new[] { new Column(&quot;pk&quot;, null, new DatabaseType(&quot;BIGINT&quot;, null, null, null), false, false, false) },
+        new Identity(&quot;pk&quot;, null),
+        new PrimaryKey(&quot;PK_my_table_name&quot;, new[] { &quot;pk&quot; }));
+}</code>
+
+</details>
+
+<details>
+  <summary>Database schema models</summary>
+
+<code>cs
+// generic descriptors
+public readonly record struct SqlObjectName(string Name, string? Server = null, string? Database = null, string? Schema = null, string? Package = null);
+
+public sealed record DatabaseType(string? Name, long? Length, int? Precision, int? Scale);
+
+// table/view descriptors
+public sealed record Table(
+    SqlObjectName               Name,
+    string?                     Description,
+    IReadOnlyCollection&lt;Column&gt; Columns,
+    Identity?                   Identity,
+    PrimaryKey?                 PrimaryKey);
+
+public sealed record View(
+    SqlObjectName               Name,
+    string?                     Description,
+    IReadOnlyCollection&lt;Column&gt; Columns,
+    Identity?                   Identity,
+    PrimaryKey?                 PrimaryKey);
+
+public sealed record ForeignKey(
+    string                                 Name,
+    SqlObjectName                          Source,
+    SqlObjectName                          Target,
+    IReadOnlyList&lt;ForeignKeyColumnMapping&gt; Relation);
+
+public sealed record Column(string Name, string? Description, DatabaseType Type, bool Nullable, bool Insertable, bool Updatable);
+
+public sealed record Identity(string Column, Sequence? Sequence);
+
+public sealed record Sequence(SqlObjectName? Name);
+
+public sealed record PrimaryKey(string? Name, IReadOnlyCollection&lt;string&gt; Columns);
+
+public sealed record ForeignKeyColumnMapping(string SourceColumn, string TargetColumn);
+
+// procedures and functions descriptors
+public sealed record StoredProcedure(
+    SqlObjectName                               Name,
+    string?                                     Description,
+    IReadOnlyCollection&lt;Parameter&gt;              Parameters,
+    Exception?                                  SchemaError,
+    IReadOnlyList&lt;IReadOnlyList&lt;ResultColumn&gt;&gt;? ResultSets,
+    Result                                      Result);
+
+public sealed record TableFunction(
+    SqlObjectName                      Name,
+    string?                            Description,
+    IReadOnlyCollection&lt;Parameter&gt;     Parameters,
+    Exception?                         SchemaError,
+    IReadOnlyCollection&lt;ResultColumn&gt;? Result);
+
+public sealed record AggregateFunction(
+    SqlObjectName                  Name,
+    string?                        Description,
+    IReadOnlyCollection&lt;Parameter&gt; Parameters,
+    ScalarResult                   Result);
+
+public sealed record ScalarFunction(
+    SqlObjectName                  Name,
+    string?                        Description,
+    IReadOnlyCollection&lt;Parameter&gt; Parameters,
+    Result                         Result);
+
+public sealed record Parameter(
+    string             Name,
+    string?            Description,
+    DatabaseType       Type,
+    bool               Nullable,
+    ParameterDirection Direction);
+
+public enum ParameterDirection
+{
+    Input,
+    Output,
+    InputOutput
+}
+
+public enum ResultKind
+{
+    Void,
+    Tuple,
+    Scalar,
+}
+
+public sealed record ScalarResult(string? Name, DatabaseType Type, bool Nullable)
+    : Result(ResultKind.Scalar);
+
+public sealed record TupleResult(IReadOnlyCollection&lt;ScalarResult&gt; Fields, bool Nullable)
+    : Result(ResultKind.Tuple);
+
+public sealed record VoidResult() : Result(ResultKind.Void);
+
+public sealed record ResultColumn(string? Name, DatabaseType Type, bool Nullable);</code>
+
+</details>
+
+<h4 id="type-mapping-interceptor">Type mapping interceptor</h4>
+<p>This interceptor allows user to specify which .NET type should be used for specific database type and usefull in several cases:</p>
+<ul>
+<li>when default type mapping use wrong type</li>
+<li>user wants to use different type for specific database type</li>
+<li>default type mapping cannot map type and uses fallback type (<code>System.Object</code>)</li>
+</ul>
+<blockquote><p>Database type doesn&#39;t include nullability flag. Nullability applied to type automatically later.</p>
+</blockquote>
+<pre><code class="lang-cs">// IMPORTANT: this method called only once for each database type
+// ITypeParser inte
+TypeMapping GetTypeMapping(DatabaseType databaseType, ITypeParser typeParser, TypeMapping defaultMapping);
+
+// IType is internal .NET type abstraction created only using ITypeParser interface methods
+// DataType is LinqToDB.DataType mapping enum
+public sealed record TypeMapping(IType CLRType, DataType? DataType);
+
+// this interface provides helpers to create type tokens from System.Type or type name
+public interface ITypeParser
+{
+    // create type token from .NET Type
+    IType Parse(Type type);
+    IType Parse&lt;T&gt;();
+
+    // create type token from full type name (with namespace)
+    // namespaces and type separated by dot (.)
+    // nested types separated by plus (+)
+    // generic types allowed
+    // Example: &quot;My.NameSpace.WrapperClass+NestedClass&lt;int, string&gt;&quot;
+    // 
+    // valueType: specify that type is reference or value type to properly handle type nullability
+    IType Parse(string typeName, bool valueType);
+}
+</code></pre><details>
+  <summary>Example</summary>
+
+<code>cs
+// defaultMapping could be null if tool cannot map database type
+// in such cases default type (System.Object) will be used in mapping
+public override TypeMapping? GetTypeMapping(DatabaseType databaseType, ITypeParser typeParser, TypeMapping? defaultMapping)
+{
+    // use provider-specific (Npgsql) type for &quot;date&quot; database type
+    if (databaseType?.Name?.ToLower() == &quot;date&quot;)
+        return new TypeMapping(typeParser.Parse&lt;NpgsqlTypes.NpgsqlDate&gt;(), null);
+        // or use string if Npgsql assembly not referenced
+        // return new TypeMapping(typeParser.Parse(&quot;NpgsqlTypes.NpgsqlDate&quot;, true), null);
+
+    // for other types use default mapping
+    return defaultMapping;
+}</code>
+
+</details>
+
+<h4 id="data-model-interceptors">Data Model Interceptors</h4>
+<p>This group of interceptors allow user to modify generated data model objects before they converted to source code.</p>
+<pre><code class="lang-cs">// This interceptor works with single entity model object that
+// corresponds to database table or view.
+// List of options, available for modification:
+// - Table/view mapping metadata
+// - Entity class code generation options (name, visibility, inheritance, etc)
+// - Data context table property for entity
+// - Find/FindQuery entity extensions generation options
+// - List of entity column properties (column metada and property code generation options)
+void PreprocessEntity(ITypeParser typeParser, EntityModel entityModel);
+</code></pre><details>
+  <summary>Interceptor implementation examples</summary>
+
+<code>cs
+// several use-cases cases of entity customization
+public override void PreprocessEntity(ITypeParser typeParser, EntityModel entityModel)
+{
+    // change type for specific column: use DateOnly type for event_date columns in audit table
+    if (entityModel.Metadata.Name?.Name.StartsWith(&quot;Audit$&quot;) == true)
+    {
+        var dateColumn = entityModel.Columns.Where(c =&gt; c.Metadata.Name == &quot;event_date&quot;).Single();
+        // create type from name string because CLI tool use .net core 3.1 runtime without DateOnly type
+        dateColumn.Property.Type = typeParser.Parse(&quot;System.DateOnly&quot;, true);
+    }
+
+    // for log tables, remove table access properties from data context class
+    if (entityModel.Metadata.Name?.Name.StartsWith(&quot;Logs$&quot;) == true)
+        entityModel.ContextProperty = null;
+
+    // for table with name &quot;alltypes&quot; we cannot recognize separate words to properly generate class name
+    // let&#39;s modify generated entity class name in model
+    if (entityModel.Class.Name == &quot;Alltypes&quot;)
+        entityModel.Class.Name = &quot;AllTypes&quot;;
+
+    // mark column as non-editable
+    var creatorColumn = entityModel.Columns.Where(c =&gt; c.Metadata.Name == &quot;created_by&quot;).FirstOrDefault();
+    if (creatorColumn != null)
+        creatorColumn.Metadata.SkipOnUpdate = true;
+}</code>
+
+</details>
+
+<details>
+  <summary>Data model classes</summary>
+
+<code>cs
+// data model descriptors
+
+// entity descriptor
+public sealed class EntityModel
+{
+    public EntityMetadata    Metadata             { get; set; }
+    public ClassModel        Class                { get; set; }
+    public PropertyModel?    ContextProperty      { get; set; }
+    public FindTypes         FindExtensions       { get; set; }
+    public bool              ImplementsIEquatable { get; set; }
+    public List&lt;ColumnModel&gt; Columns              { get;      }
+}
+
+// column descriptor
+public sealed class ColumnModel
+{
+    public ColumnMetadata Metadata { get; set; }
+    public PropertyModel  Property { get; set; }
+}
+
+// Flags to specify generated Find/FindQuery extensions per-entity
+[Flags]
+public enum FindTypes
+{
+    // specify generated method signatures:
+
+    None,
+    /// &lt;summary&gt;
+    /// Method version: sync Find().
+    /// &lt;/summary&gt;
+    Sync                       = 0x0001,
+    /// &lt;summary&gt;
+    /// Method version: async FindAsync().
+    /// &lt;/summary&gt;
+    Async                      = 0x0002,
+    /// &lt;summary&gt;
+    /// Method version: FindQuery().
+    /// &lt;/summary&gt;
+    Query                      = 0x0004,
+
+    // specify what should be passed to methods: primary key values or whole entity instance
+
+    /// &lt;summary&gt;
+    /// Method primary key: from parameters.
+    /// &lt;/summary&gt;
+    ByPrimaryKey               = 0x0010,
+    /// &lt;summary&gt;
+    /// Method primary key: from entity object.
+    /// &lt;/summary&gt;
+    ByEntity                   = 0x0020,
+
+    // specify extended type
+
+    /// &lt;summary&gt;
+    /// Method extends: entity table.
+    /// &lt;/summary&gt;
+    OnTable                    = 0x0100,
+    /// &lt;summary&gt;
+    /// Method extends: generated context.
+    /// &lt;/summary&gt;
+    OnContext                  = 0x0200,
+
+    // some ready-to-use flags combinations
+    FindByPkOnTable            = Sync | ByPrimaryKey | OnTable,
+    FindAsyncByPkOnTable       = Async | ByPrimaryKey | OnTable,
+    FindQueryByPkOnTable       = Query | ByPrimaryKey | OnTable,
+    FindByRecordOnTable        = Sync | ByEntity | OnTable,
+    FindAsyncByRecordOnTable   = Async | ByEntity | OnTable,
+    FindQueryByRecordOnTable   = Query | ByEntity | OnTable,
+    FindByPkOnContext          = Sync | ByPrimaryKey | OnContext,
+    FindAsyncByPkOnContext     = Async | ByPrimaryKey | OnContext,
+    FindQueryByPkOnContext     = Query | ByPrimaryKey | OnContext,
+    FindByRecordOnContext      = Sync | ByEntity | OnContext,
+    FindAsyncByRecordOnContext = Async | ByEntity | OnContext,
+    FindQueryByRecordOnContext = Query | ByEntity | OnContext,
+}
+
+public sealed class StoredProcedureModel : TableFunctionModelBase
+{
+    public FunctionParameterModel? Return  { get; set; }
+    public List&lt;FunctionResult&gt;    Results { get; set; } = new();
+}
+
+public sealed class TableFunctionModel : TableFunctionModelBase
+{
+    public string                MethodInfoFieldName { get; set; }
+    public TableFunctionMetadata Metadata            { get; set; }
+    public FunctionResult?       Result              { get; set; }
+}
+
+public sealed class ScalarFunctionModel : ScalarFunctionModelBase
+{
+    public IType?      Return      { get; set; }
+    public TupleModel? ReturnTuple { get; set; }
+}
+
+public sealed class AggregateFunctionModel : ScalarFunctionModelBase
+{
+    public IType ReturnType { get; set; }
+}
+
+public abstract class TableFunctionModelBase : FunctionModelBase
+{
+    public SqlObjectName Name  { get; set; }
+    public string?       Error { get; set; }
+}
+
+public abstract class ScalarFunctionModelBase : FunctionModelBase
+{
+    public FunctionMetadata Metadata { get; set; }
+}
+
+public abstract class FunctionModelBase
+{
+    public MethodModel                  Method     { get; set; }
+    public List&lt;FunctionParameterModel&gt; Parameters { get;      } = new();
+}
+
+public sealed class FunctionParameterModel
+{
+    public ParameterModel                 Parameter  { get; set; }
+    public string?                        DbName     { get; set; }
+    public DatabaseType?                  Type       { get; set; }
+    public DataType?                      DataType   { get; set; }
+    public bool                           IsNullable { get; set; }
+    public System.Data.ParameterDirection Direction  { get; set; }
+}
+
+public sealed class TupleModel
+{
+    public ClassModel            Class     { get; set; }
+    public bool                  CanBeNull { get; set; }
+    public List&lt;TupleFieldModel&gt; Fields    { get;      } = new ();
+}
+
+public sealed class TupleFieldModel
+{
+    public PropertyModel Property { get; set; }
+    public DatabaseType  Type     { get; set; }
+    public DataType?     DataType { get; set; }
+}
+
+public sealed record FunctionResult(
+    ResultTableModel?     CustomTable,
+    EntityModel?          Entity,
+    AsyncProcedureResult? AsyncResult);
+
+public sealed class ResultTableModel
+{
+    public ClassModel        Class   { get; set; }
+    public List&lt;ColumnModel&gt; Columns { get;      } = new ();
+}
+
+public sealed class AsyncProcedureResult
+{
+    public ClassModel                                        Class               { get; set; }
+    public PropertyModel                                     MainResult          { get; set; }
+    public Dictionary&lt;FunctionParameterModel, PropertyModel&gt; ParameterProperties { get; } = new();
+}
+
+public sealed class AssociationModel
+{
+    public AssociationMetadata SourceMetadata         { get; set; }
+    public AssociationMetadata TargetMetadata         { get; set; }
+    public EntityModel         Source                 { get; set; }
+    public EntityModel         Target                 { get; set; }
+    public PropertyModel?      Property               { get; set; }
+    public PropertyModel?      BackreferenceProperty  { get; set; }
+    public MethodModel?        Extension              { get; set; }
+    public MethodModel?        BackreferenceExtension { get; set; }
+    public ColumnModel[]?      FromColumns            { get; set; }
+    public ColumnModel[]?      ToColumns              { get; set; }
+    public bool                ManyToOne              { get; set; }
+}</code>
+
+</details>
+
+<details>
+  <summary>Code models</summary>
+
+ <code>cs
+
+public sealed class ClassModel
+{
+    public string?              Summary          { get; set; }
+    public string               Name             { get; set; }
+    public string?              Namespace        { get; set; }
+    public IType?               BaseType         { get; set; }
+    public List&lt;IType&gt;?         Interfaces       { get; set; }
+    public Modifiers            Modifiers        { get; set; }
+    public string?              FileName         { get; set; }
+    public List&lt;CodeAttribute&gt;? CustomAttributes { get; set; }
+}
+
+public sealed class PropertyModel
+{
+    public string               Name             { get; set; }
+    public IType?               Type             { get; set; }
+    public string?              Summary          { get; set; }
+    public Modifiers            Modifiers        { get; set; }
+    public bool                 IsDefault        { get; set; }
+    public bool                 HasSetter        { get; set; }
+    public string?              TrailingComment  { get; set; }
+    public List&lt;CodeAttribute&gt;? CustomAttributes { get; set; }
+}
+
+public sealed class MethodModel
+{
+    public string?              Summary          { get; set; }
+    public string               Name             { get; set; }
+    public Modifiers            Modifiers        { get; set; }
+    public List&lt;CodeAttribute&gt;? CustomAttributes { get; set; }
+}
+
+public sealed class ParameterModel
+{
+    public string                 Name        { get; set; }
+    public IType                  Type        { get; set; }
+    public string?                Description { get; set; }
+    public CodeParameterDirection Direction   { get; set; }
+}
+
+// various modifiers on type/type member
+[Flags]
+public enum Modifiers
+{
+    None      = 0,
+    Public    = 0x0001,
+    Protected = 0x0002,
+    Internal  = 0x0004,
+    Private   = 0x0008,
+    New       = 0x0010,
+    Override  = 0x0020,
+    Abstract  = 0x0040,
+    Sealed    = 0x0080,
+    Partial   = 0x0100,
+    Extension = 0x0200 | Static,
+    ReadOnly  = 0x0400,
+    Async     = 0x0800,
+    Static    = 0x1000,
+    Virtual   = 0x2000,
+}
+
+public enum CodeParameterDirection
+{
+    In,
+    Ref,
+    Out
+}</code>
+
+</details>
+
+<details>
+  <summary>Metadata models</summary>
+
+ <code>cs
+public sealed class EntityMetadata
+{
+    public SqlObjectName? Name                      { get; set; }
+    public bool           IsView                    { get; set; }
+    public string?        Configuration             { get; set; }
+    public bool           IsColumnAttributeRequired { get; set; } = true;
+    public bool           IsTemporary               { get; set; }
+    public TableOptions   TableOptions              { get; set; }
+}
+
+public sealed class ColumnMetadata
+{
+    public string?       Name              { get; set; }
+    public DatabaseType? DbType            { get; set; }
+    public DataType?     DataType          { get; set; }
+    public bool          CanBeNull         { get; set; }
+    public bool          SkipOnInsert      { get; set; }
+    public bool          SkipOnUpdate      { get; set; }
+    public bool          IsIdentity        { get; set; }
+    public bool          IsPrimaryKey      { get; set; }
+    public int?          PrimaryKeyOrder   { get; set; }
+    public string?       Configuration     { get; set; }
+    public string?       MemberName        { get; set; }
+    public string?       Storage           { get; set; }
+    public string?       CreateFormat      { get; set; }
+    public bool          IsColumn          { get; set; } = true;
+    public bool          IsDiscriminator   { get; set; }
+    public bool          SkipOnEntityFetch { get; set; }
+    public int?          Order             { get; set; }
+}
+
+// table function/stored procedure
+public sealed class TableFunctionMetadata
+{
+    public SqlObjectName? Name          { get; set; }
+    public string?        Configuration { get; set; }
+    public int[]?         ArgIndices    { get; set; }
+}
+
+// scalar/aggregate function
+public sealed class FunctionMetadata
+{
+    public SqlObjectName?      Name             { get; set; }
+    public int[]?              ArgIndices       { get; set; }
+    public string?             Configuration    { get; set; }
+    public bool?               ServerSideOnly   { get; set; }
+    public bool?               PreferServerSide { get; set; }
+    public bool?               InlineParameters { get; set; }
+    public bool?               IsPredicate      { get; set; }
+    public bool?               IsAggregate      { get; set; }
+    public bool?               IsWindowFunction { get; set; }
+    public bool?               IsPure           { get; set; }
+    public bool?               CanBeNull        { get; set; }
+    public Sql.IsNullableType? IsNullable       { get; set; }
+}
+
+public sealed class AssociationMetadata
+{
+    public bool             CanBeNull             { get; set; }
+    public ICodeExpression? ThisKeyExpression     { get; set; }
+    public ICodeExpression? OtherKeyExpression    { get; set; }
+    public string?          Configuration         { get; set; }
+    public string?          Alias                 { get; set; }
+    public string?          Storage               { get; set; }
+    public string?          ThisKey               { get; set; }
+    public string?          OtherKey              { get; set; }
+    public string?          ExpressionPredicate   { get; set; }
+    public string?          QueryExpressionMethod { get; set; }
+}</code>
+
+</details>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/linq2db/docs/blob/master/source/articles/CLI.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2011-2022 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
