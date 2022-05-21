@@ -78,9 +78,9 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="linq-to-db-cli-tools">LINQ to DB CLI tools</h1>
+<!-- omit in toc -->
 
 <ul>
-<li><a href="#linq-to-db-cli-tools">LINQ to DB CLI tools</a><ul>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#use">Use</a><ul>
 <li><a href="#usage-examples">Usage Examples</a><ul>
@@ -94,9 +94,20 @@
 <li><a href="#customization-with-assembly">Customization with assembly</a></li>
 <li><a href="#customization-with-t4-template">Customization with T4 template</a></li>
 <li><a href="#interceptors-overview">Interceptors Overview</a><ul>
-<li><a href="#schema-load-interceptors">Schema Load Interceptors</a></li>
-<li><a href="#type-mapping-interceptor">Type mapping interceptor</a></li>
-<li><a href="#data-model-interceptors">Data Model Interceptors</a></li>
+<li><a href="#schema-load-interceptors">Schema Load Interceptors</a><ul>
+<li><a href="#interceptor-implementation-example">Interceptor implementation example</a></li>
+<li><a href="#database-schema-models">Database schema models</a></li>
+</ul>
+</li>
+<li><a href="#type-mapping-interceptor">Type mapping interceptor</a><ul>
+<li><a href="#example">Example</a></li>
+</ul>
+</li>
+<li><a href="#data-model-interceptors">Data Model Interceptors</a><ul>
+<li><a href="#interceptor-implementation-examples">Interceptor implementation examples</a></li>
+<li><a href="#data-model-classes">Data model classes</a></li>
+<li><a href="#code-models">Code models</a></li>
+<li><a href="#metadata-models">Metadata models</a></li>
 </ul>
 </li>
 </ul>
@@ -105,8 +116,8 @@
 </li>
 </ul>
 <h2 id="installation">Installation</h2>
-<blockquote><p>Requres .NET Core 3.1 or higher.</p>
-</blockquote>
+<div class="NOTE"><h5>Note</h5><p>Requres .NET Core 3.1 or higher.</p>
+</div>
 <p>Install as global tool:</p>
 <p><code>dotnet tool install -g linq2db.cli</code></p>
 <p>Update:</p>
@@ -167,10 +178,10 @@ Class, inherited from <code>ScaffoldInterceptors</code> should have default cons
 <li>Add class, inherited from <code>LinqToDB.Scaffold.ScaffoldInterceptors</code> and override required customization methods</li>
 <li>Build assembly and use it with <code>--custmize</code> option</li>
 </ol>
-<blockquote><p>CLI tool tries to locate and load referenced 3rd-party assemblies, used by customization assembly automatically.</p>
+<div class="NOTE"><h5>Note</h5><p>CLI tool tries to locate and load referenced 3rd-party assemblies, used by customization assembly automatically.</p>
 <p>If it fails to find referenced assembly, you can try to enable local copy behavior by adding following property to project file:</p>
 <p><code>&lt;CopyLocalLockFileAssemblies&gt;true&lt;/CopyLocalLockFileAssemblies&gt;</code></p>
-</blockquote>
+</div>
 <h3 id="customization-with-t4-template">Customization with T4 template</h3>
 <ol>
 <li>Generate initial T4 template file using <code>dotnet linq2db template</code> command</li>
@@ -206,12 +217,10 @@ IEnumerable&lt;StoredProcedure&gt;   GetProcedures        (IEnumerable&lt;Stored
 IEnumerable&lt;TableFunction&gt;     GetTableFunctions    (IEnumerable&lt;TableFunction&gt;     functions);
 IEnumerable&lt;ScalarFunction&gt;    GetScalarFunctions   (IEnumerable&lt;ScalarFunction&gt;    functions);
 IEnumerable&lt;AggregateFunction&gt; GetAggregateFunctions(IEnumerable&lt;AggregateFunction&gt; functions)
-</code></pre><blockquote><p>Database object-specific interceptor will be called only if specific object type load was allowed in options (see <code>--objects</code> parameter).</p>
-</blockquote>
-<details>
-  <summary>Interceptor implementation example (table)</summary>
-
-<code>cs
+</code></pre><div class="NOTE"><h5>Note</h5><p>Database object-specific interceptor will be called only if specific object type load was allowed in options (see <code>--objects</code> parameter).</p>
+</div>
+<h5 id="interceptor-implementation-example">Interceptor implementation example</h5>
+<pre><code class="lang-c#">
 public override IEnumerable&lt;Table&gt; GetTables(IEnumerable&lt;Table&gt; tables)
 {
     foreach (var table in tables)
@@ -246,15 +255,9 @@ public override IEnumerable&lt;Table&gt; GetTables(IEnumerable&lt;Table&gt; tabl
         new[] { new Column(&quot;pk&quot;, null, new DatabaseType(&quot;BIGINT&quot;, null, null, null), false, false, false) },
         new Identity(&quot;pk&quot;, null),
         new PrimaryKey(&quot;PK_my_table_name&quot;, new[] { &quot;pk&quot; }));
-}</code>
-
-</details>
-
-<details>
-  <summary>Database schema models</summary>
-
-<code>cs
-// generic descriptors
+}
+</code></pre><h5 id="database-schema-models">Database schema models</h5>
+<pre><code class="lang-csharp">// generic descriptors
 public readonly record struct SqlObjectName(string Name, string? Server = null, string? Database = null, string? Schema = null, string? Package = null);
 
 public sealed record DatabaseType(string? Name, long? Length, int? Precision, int? Scale);
@@ -347,19 +350,16 @@ public sealed record TupleResult(IReadOnlyCollection&lt;ScalarResult&gt; Fields,
 
 public sealed record VoidResult() : Result(ResultKind.Void);
 
-public sealed record ResultColumn(string? Name, DatabaseType Type, bool Nullable);</code>
-
-</details>
-
-<h4 id="type-mapping-interceptor">Type mapping interceptor</h4>
+public sealed record ResultColumn(string? Name, DatabaseType Type, bool Nullable);
+</code></pre><h4 id="type-mapping-interceptor">Type mapping interceptor</h4>
 <p>This interceptor allows user to specify which .NET type should be used for specific database type and usefull in several cases:</p>
 <ul>
 <li>when default type mapping use wrong type</li>
 <li>user wants to use different type for specific database type</li>
 <li>default type mapping cannot map type and uses fallback type (<code>System.Object</code>)</li>
 </ul>
-<blockquote><p>Database type doesn&#39;t include nullability flag. Nullability applied to type automatically later.</p>
-</blockquote>
+<div class="NOTE"><h5>Note</h5><p>Database type doesn&#39;t include nullability flag. Nullability applied to type automatically later.</p>
+</div>
 <pre><code class="lang-cs">// IMPORTANT: this method called only once for each database type
 // ITypeParser inte
 TypeMapping GetTypeMapping(DatabaseType databaseType, ITypeParser typeParser, TypeMapping defaultMapping);
@@ -384,11 +384,8 @@ public interface ITypeParser
     // valueType: specify that type is reference or value type to properly handle type nullability
     IType Parse(string typeName, bool valueType);
 }
-</code></pre><details>
-  <summary>Example</summary>
-
-<code>cs
-// defaultMapping could be null if tool cannot map database type
+</code></pre><h5 id="example">Example</h5>
+<pre><code class="lang-cs">// defaultMapping could be null if tool cannot map database type
 // in such cases default type (System.Object) will be used in mapping
 public override TypeMapping? GetTypeMapping(DatabaseType databaseType, ITypeParser typeParser, TypeMapping? defaultMapping)
 {
@@ -400,11 +397,8 @@ public override TypeMapping? GetTypeMapping(DatabaseType databaseType, ITypePars
 
     // for other types use default mapping
     return defaultMapping;
-}</code>
-
-</details>
-
-<h4 id="data-model-interceptors">Data Model Interceptors</h4>
+}
+</code></pre><h4 id="data-model-interceptors">Data Model Interceptors</h4>
 <p>This group of interceptors allow user to modify generated data model objects before they converted to source code.</p>
 <pre><code class="lang-cs">// This interceptor works with single entity model object that
 // corresponds to database table or view.
@@ -415,11 +409,8 @@ public override TypeMapping? GetTypeMapping(DatabaseType databaseType, ITypePars
 // - Find/FindQuery entity extensions generation options
 // - List of entity column properties (column metada and property code generation options)
 void PreprocessEntity(ITypeParser typeParser, EntityModel entityModel);
-</code></pre><details>
-  <summary>Interceptor implementation examples</summary>
-
-<code>cs
-// several use-cases cases of entity customization
+</code></pre><h5 id="interceptor-implementation-examples">Interceptor implementation examples</h5>
+<pre><code class="lang-cs">// several use-cases cases of entity customization
 public override void PreprocessEntity(ITypeParser typeParser, EntityModel entityModel)
 {
     // change type for specific column: use DateOnly type for event_date columns in audit table
@@ -443,15 +434,9 @@ public override void PreprocessEntity(ITypeParser typeParser, EntityModel entity
     var creatorColumn = entityModel.Columns.Where(c =&gt; c.Metadata.Name == &quot;created_by&quot;).FirstOrDefault();
     if (creatorColumn != null)
         creatorColumn.Metadata.SkipOnUpdate = true;
-}</code>
-
-</details>
-
-<details>
-  <summary>Data model classes</summary>
-
-<code>cs
-// data model descriptors
+}
+</code></pre><h5 id="data-model-classes">Data model classes</h5>
+<pre><code class="lang-cs">// data model descriptors
 
 // entity descriptor
 public sealed class EntityModel
@@ -514,18 +499,18 @@ public enum FindTypes
     OnContext                  = 0x0200,
 
     // some ready-to-use flags combinations
-    FindByPkOnTable            = Sync | ByPrimaryKey | OnTable,
+    FindByPkOnTable            = Sync  | ByPrimaryKey | OnTable,
     FindAsyncByPkOnTable       = Async | ByPrimaryKey | OnTable,
     FindQueryByPkOnTable       = Query | ByPrimaryKey | OnTable,
-    FindByRecordOnTable        = Sync | ByEntity | OnTable,
-    FindAsyncByRecordOnTable   = Async | ByEntity | OnTable,
-    FindQueryByRecordOnTable   = Query | ByEntity | OnTable,
-    FindByPkOnContext          = Sync | ByPrimaryKey | OnContext,
+    FindByRecordOnTable        = Sync  | ByEntity     | OnTable,
+    FindAsyncByRecordOnTable   = Async | ByEntity     | OnTable,
+    FindQueryByRecordOnTable   = Query | ByEntity     | OnTable,
+    FindByPkOnContext          = Sync  | ByPrimaryKey | OnContext,
     FindAsyncByPkOnContext     = Async | ByPrimaryKey | OnContext,
     FindQueryByPkOnContext     = Query | ByPrimaryKey | OnContext,
-    FindByRecordOnContext      = Sync | ByEntity | OnContext,
-    FindAsyncByRecordOnContext = Async | ByEntity | OnContext,
-    FindQueryByRecordOnContext = Query | ByEntity | OnContext,
+    FindByRecordOnContext      = Sync  | ByEntity     | OnContext,
+    FindAsyncByRecordOnContext = Async | ByEntity     | OnContext,
+    FindQueryByRecordOnContext = Query | ByEntity     | OnContext,
 }
 
 public sealed class StoredProcedureModel : TableFunctionModelBase
@@ -624,161 +609,147 @@ public sealed class AssociationModel
     public ColumnModel[]?      FromColumns            { get; set; }
     public ColumnModel[]?      ToColumns              { get; set; }
     public bool                ManyToOne              { get; set; }
-}</code>
-
-</details>
-
-<details>
-  <summary>Code models</summary>
-
- <code>cs
-
+}
+</code></pre><h5 id="code-models">Code models</h5>
+<pre><code class="lang-cs">
 public sealed class ClassModel
 {
-    public string?              Summary          { get; set; }
-    public string               Name             { get; set; }
-    public string?              Namespace        { get; set; }
-    public IType?               BaseType         { get; set; }
-    public List&lt;IType&gt;?         Interfaces       { get; set; }
-    public Modifiers            Modifiers        { get; set; }
-    public string?              FileName         { get; set; }
-    public List&lt;CodeAttribute&gt;? CustomAttributes { get; set; }
+   public string?              Summary          { get; set; }
+   public string               Name             { get; set; }
+   public string?              Namespace        { get; set; }
+   public IType?               BaseType         { get; set; }
+   public List&lt;IType&gt;?         Interfaces       { get; set; }
+   public Modifiers            Modifiers        { get; set; }
+   public string?              FileName         { get; set; }
+   public List&lt;CodeAttribute&gt;? CustomAttributes { get; set; }
 }
 
 public sealed class PropertyModel
 {
-    public string               Name             { get; set; }
-    public IType?               Type             { get; set; }
-    public string?              Summary          { get; set; }
-    public Modifiers            Modifiers        { get; set; }
-    public bool                 IsDefault        { get; set; }
-    public bool                 HasSetter        { get; set; }
-    public string?              TrailingComment  { get; set; }
-    public List&lt;CodeAttribute&gt;? CustomAttributes { get; set; }
+   public string               Name             { get; set; }
+   public IType?               Type             { get; set; }
+   public string?              Summary          { get; set; }
+   public Modifiers            Modifiers        { get; set; }
+   public bool                 IsDefault        { get; set; }
+   public bool                 HasSetter        { get; set; }
+   public string?              TrailingComment  { get; set; }
+   public List&lt;CodeAttribute&gt;? CustomAttributes { get; set; }
 }
 
 public sealed class MethodModel
 {
-    public string?              Summary          { get; set; }
-    public string               Name             { get; set; }
-    public Modifiers            Modifiers        { get; set; }
-    public List&lt;CodeAttribute&gt;? CustomAttributes { get; set; }
+   public string?              Summary          { get; set; }
+   public string               Name             { get; set; }
+   public Modifiers            Modifiers        { get; set; }
+   public List&lt;CodeAttribute&gt;? CustomAttributes { get; set; }
 }
 
 public sealed class ParameterModel
 {
-    public string                 Name        { get; set; }
-    public IType                  Type        { get; set; }
-    public string?                Description { get; set; }
-    public CodeParameterDirection Direction   { get; set; }
+   public string                 Name        { get; set; }
+   public IType                  Type        { get; set; }
+   public string?                Description { get; set; }
+   public CodeParameterDirection Direction   { get; set; }
 }
 
 // various modifiers on type/type member
 [Flags]
 public enum Modifiers
 {
-    None      = 0,
-    Public    = 0x0001,
-    Protected = 0x0002,
-    Internal  = 0x0004,
-    Private   = 0x0008,
-    New       = 0x0010,
-    Override  = 0x0020,
-    Abstract  = 0x0040,
-    Sealed    = 0x0080,
-    Partial   = 0x0100,
-    Extension = 0x0200 | Static,
-    ReadOnly  = 0x0400,
-    Async     = 0x0800,
-    Static    = 0x1000,
-    Virtual   = 0x2000,
+   None      = 0,
+   Public    = 0x0001,
+   Protected = 0x0002,
+   Internal  = 0x0004,
+   Private   = 0x0008,
+   New       = 0x0010,
+   Override  = 0x0020,
+   Abstract  = 0x0040,
+   Sealed    = 0x0080,
+   Partial   = 0x0100,
+   Extension = 0x0200 | Static,
+   ReadOnly  = 0x0400,
+   Async     = 0x0800,
+   Static    = 0x1000,
+   Virtual   = 0x2000,
 }
 
 public enum CodeParameterDirection
 {
-    In,
-    Ref,
-    Out
-}</code>
-
-</details>
-
-<details>
-  <summary>Metadata models</summary>
-
- <code>cs
-public sealed class EntityMetadata
+   In,
+   Ref,
+   Out
+}
+</code></pre><h5 id="metadata-models">Metadata models</h5>
+<pre><code class="lang-cs">public sealed class EntityMetadata
 {
-    public SqlObjectName? Name                      { get; set; }
-    public bool           IsView                    { get; set; }
-    public string?        Configuration             { get; set; }
-    public bool           IsColumnAttributeRequired { get; set; } = true;
-    public bool           IsTemporary               { get; set; }
-    public TableOptions   TableOptions              { get; set; }
+   public SqlObjectName? Name                      { get; set; }
+   public bool           IsView                    { get; set; }
+   public string?        Configuration             { get; set; }
+   public bool           IsColumnAttributeRequired { get; set; } = true;
+   public bool           IsTemporary               { get; set; }
+   public TableOptions   TableOptions              { get; set; }
 }
 
 public sealed class ColumnMetadata
 {
-    public string?       Name              { get; set; }
-    public DatabaseType? DbType            { get; set; }
-    public DataType?     DataType          { get; set; }
-    public bool          CanBeNull         { get; set; }
-    public bool          SkipOnInsert      { get; set; }
-    public bool          SkipOnUpdate      { get; set; }
-    public bool          IsIdentity        { get; set; }
-    public bool          IsPrimaryKey      { get; set; }
-    public int?          PrimaryKeyOrder   { get; set; }
-    public string?       Configuration     { get; set; }
-    public string?       MemberName        { get; set; }
-    public string?       Storage           { get; set; }
-    public string?       CreateFormat      { get; set; }
-    public bool          IsColumn          { get; set; } = true;
-    public bool          IsDiscriminator   { get; set; }
-    public bool          SkipOnEntityFetch { get; set; }
-    public int?          Order             { get; set; }
+   public string?       Name              { get; set; }
+   public DatabaseType? DbType            { get; set; }
+   public DataType?     DataType          { get; set; }
+   public bool          CanBeNull         { get; set; }
+   public bool          SkipOnInsert      { get; set; }
+   public bool          SkipOnUpdate      { get; set; }
+   public bool          IsIdentity        { get; set; }
+   public bool          IsPrimaryKey      { get; set; }
+   public int?          PrimaryKeyOrder   { get; set; }
+   public string?       Configuration     { get; set; }
+   public string?       MemberName        { get; set; }
+   public string?       Storage           { get; set; }
+   public string?       CreateFormat      { get; set; }
+   public bool          IsColumn          { get; set; } = true;
+   public bool          IsDiscriminator   { get; set; }
+   public bool          SkipOnEntityFetch { get; set; }
+   public int?          Order             { get; set; }
 }
 
 // table function/stored procedure
 public sealed class TableFunctionMetadata
 {
-    public SqlObjectName? Name          { get; set; }
-    public string?        Configuration { get; set; }
-    public int[]?         ArgIndices    { get; set; }
+   public SqlObjectName? Name          { get; set; }
+   public string?        Configuration { get; set; }
+   public int[]?         ArgIndices    { get; set; }
 }
 
 // scalar/aggregate function
 public sealed class FunctionMetadata
 {
-    public SqlObjectName?      Name             { get; set; }
-    public int[]?              ArgIndices       { get; set; }
-    public string?             Configuration    { get; set; }
-    public bool?               ServerSideOnly   { get; set; }
-    public bool?               PreferServerSide { get; set; }
-    public bool?               InlineParameters { get; set; }
-    public bool?               IsPredicate      { get; set; }
-    public bool?               IsAggregate      { get; set; }
-    public bool?               IsWindowFunction { get; set; }
-    public bool?               IsPure           { get; set; }
-    public bool?               CanBeNull        { get; set; }
-    public Sql.IsNullableType? IsNullable       { get; set; }
+   public SqlObjectName?      Name             { get; set; }
+   public int[]?              ArgIndices       { get; set; }
+   public string?             Configuration    { get; set; }
+   public bool?               ServerSideOnly   { get; set; }
+   public bool?               PreferServerSide { get; set; }
+   public bool?               InlineParameters { get; set; }
+   public bool?               IsPredicate      { get; set; }
+   public bool?               IsAggregate      { get; set; }
+   public bool?               IsWindowFunction { get; set; }
+   public bool?               IsPure           { get; set; }
+   public bool?               CanBeNull        { get; set; }
+   public Sql.IsNullableType? IsNullable       { get; set; }
 }
 
 public sealed class AssociationMetadata
 {
-    public bool             CanBeNull             { get; set; }
-    public ICodeExpression? ThisKeyExpression     { get; set; }
-    public ICodeExpression? OtherKeyExpression    { get; set; }
-    public string?          Configuration         { get; set; }
-    public string?          Alias                 { get; set; }
-    public string?          Storage               { get; set; }
-    public string?          ThisKey               { get; set; }
-    public string?          OtherKey              { get; set; }
-    public string?          ExpressionPredicate   { get; set; }
-    public string?          QueryExpressionMethod { get; set; }
-}</code>
-
-</details>
-</article>
+   public bool             CanBeNull             { get; set; }
+   public ICodeExpression? ThisKeyExpression     { get; set; }
+   public ICodeExpression? OtherKeyExpression    { get; set; }
+   public string?          Configuration         { get; set; }
+   public string?          Alias                 { get; set; }
+   public string?          Storage               { get; set; }
+   public string?          ThisKey               { get; set; }
+   public string?          OtherKey              { get; set; }
+   public string?          ExpressionPredicate   { get; set; }
+   public string?          QueryExpressionMethod { get; set; }
+}
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
