@@ -256,6 +256,24 @@ public override IEnumerable&lt;Table&gt; GetTables(IEnumerable&lt;Table&gt; tabl
         new Identity(&quot;pk&quot;, null),
         new PrimaryKey(&quot;PK_my_table_name&quot;, new[] { &quot;pk&quot; }));
 }
+
+public override IEnumerable&lt;ForeignKey&gt; GetForeignKeys(IEnumerable&lt;ForeignKey&gt; keys)
+{
+    // add additional relation (foreign key)
+    // from table Item (OrderId FK field) to table Order (Id PK field)
+
+    // source table name
+    var source   = new SqlObjectName(&quot;Item&quot;, Schema: &quot;dbo&quot;);
+    // target table name
+    var target   = new SqlObjectName(&quot;Order&quot;, Schema: &quot;dbo&quot;);
+    // list of foreign key columns (source column + target column pairs)
+    var relation = new[] { new ForeignKeyColumnMapping(&quot;OrderId&quot;, &quot;Id&quot;) };
+    // foreign key relation definition
+    var fk       = new ForeignKey(&quot;FK_Item_Order&quot;, source, target, relation);
+
+    // return foreign keys from schema + new key
+    return keys.Concat(new[] { fk });
+}
 </code></pre><h5 id="database-schema-models">Database schema models</h5>
 <pre><code class="lang-csharp">// generic descriptors
 public readonly record struct SqlObjectName(string Name, string? Server = null, string? Database = null, string? Schema = null, string? Package = null);
