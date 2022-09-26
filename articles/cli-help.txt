@@ -1,4 +1,4 @@
-dotnet linq2db - Linq To DB command-line utilities. Version: 4.0.0.0
+dotnet linq2db - Linq To DB command-line utilities. Version: 4.2.0.0
 
 Usage:
         dotnet linq2db scaffold <options>
@@ -211,6 +211,16 @@ Options:
          cannot use with: --include-catalogs
          json: schema.exclude-catalogs
 
+   --default-schemas                         : specify which schemas should be recognized as default schemas
+         type: string list (optional)
+         json: schema.default-schemas
+
+      Objects from schemas, marked as default, will be:
+        - put to main data context instead of separate schema-specific class (see also schema-as-type option)
+        - will skip generation of schema name in metadata (see also include-default-schema-name option)
+      When this option is not set, CLI tool use database-specific logic to detect default schema. Usually it is current user/schema name associated with connection string, used for databas
+      e scaffolding and supports only one schema. Using this option you can specify multiple schemas.
+
    --include-tables                          : only load tables with specified name(s)
          type: (string | object) list (optional)
          cannot use with: --exclude-tables
@@ -397,6 +407,68 @@ Options:
       |
       string // also you can put procedure name as string directly to list
 
+   --include-stored-procedures               : only load stored procedures with specified name(s)
+         type: (string | object) list (optional)
+         cannot use with: --exclude-stored-procedures
+         json: schema.include-stored-procedures
+         examples:
+               --include-stored-procedures GetUsers,GetRoles,LoadPermissions
+         JSON examples:
+               { "schema": { "include-stored-procedures": [ "ActiveUsers", { "name": "InactiveUsers", "schema": "dbo" } ] } } // ActiveUsers and dbo.InactiveUsers procedures
+               { "schema": { "include-stored-procedures": [ { "regex": "^Query.$+", "schema": "dbo" } ] } } // all stored procedures starting from Query prefix
+
+      Provided stored procedures names should have same casing as actual procedure name in database. Specifying this option in command line has several limitations and it is recommended to
+       use JSON for it instead:
+        - there is no way to specify schema name for stored procedure;
+        - stored procedure name cannot have comma (,) as it is used as list separator;
+        - only exact match possible;
+      JSON allows you to specify more options:
+        - stored procedure schema (schema property);
+        - regular expression (regex property) instead of exact stored procedure name (name property).
+      JSON list element schema:
+      {
+          "name"  : string  // stored procedure name
+          "schema": string? // stored procedure schema (optional)
+      }
+      |
+      {
+          "regex" : string  // stored procedure name matching regular expression
+          "schema": string? // stored procedure schema (optional)
+      }
+      |
+      string // also you can put stored procedure name as string directly to list
+
+   --exclude-stored-procedures               : skip load of stored procedures with specified name(s)
+         type: (string | object) list (optional)
+         cannot use with: --include-stored-procedures
+         json: schema.exclude-stored-procedures
+         examples:
+               --exclude-stored-procedure GetUsers,GetRoles,LoadPermissions
+         JSON examples:
+               { "schema": { "exclude-stored-procedure": [ "TestProcedure", { "name": "CheckDb", "schema": "dbo" } ] } } // TestProcedure and dbo.CheckDb procedures ignored
+               { "schema": { "exclude-stored-procedure": [ { "regex": "^Audit.$+", "schema": "dbo" } ] } } // all stored procedures starting from Audit prefix ignored
+
+      Provided stored procedures names should have same casing as actual procedure name in database. Specifying this option in command line has several limitations and it is recommended to
+       use JSON for it instead:
+        - there is no way to specify schema name for stored procedure;
+        - stored procedure name cannot have comma (,) as it is used as list separator;
+        - only exact match possible;
+      JSON allows you to specify more options:
+        - stored procedure schema (schema property);
+        - regular expression (regex property) instead of exact stored procedure name (name property).
+      JSON list element schema:
+      {
+          "name"  : string  // stored procedure name
+          "schema": string? // stored procedure schema (optional)
+      }
+      |
+      {
+          "regex" : string  // stored procedure name matching regular expression
+          "schema": string? // stored procedure schema  (optional)
+      }
+      |
+      string // also you can put stored procedure name as string directly to list
+
    --include-table-functions                 : only load table functions with specified name(s)
          type: (string | object) list (optional)
          cannot use with: --exclude-table-functions
@@ -458,6 +530,130 @@ Options:
       }
       |
       string // also you can put table function name as string directly to list
+
+   --include-scalar-functions                : only load scalar functions with specified name(s)
+         type: (string | object) list (optional)
+         cannot use with: --exclude-scalar-functions
+         json: schema.include-scalar-functions
+         examples:
+               --include-scalar-functions GetUsers,GetRoles,LoadPermissions
+         JSON examples:
+               { "schema": { "include-scalar-functions": [ "ActiveUsers", { "name": "InactiveUsers", "schema": "dbo" } ] } } // ActiveUsers and dbo.InactiveUsers functions
+               { "schema": { "include-scalar-functions": [ { "regex": "^Query.$+", "schema": "dbo" } ] } } // all scalar functions starting from Query prefix
+
+      Provided scalar functions names should have same casing as actual function name in database. Specifying this option in command line has several limitations and it is recommended to u
+      se JSON for it instead:
+        - there is no way to specify schema name for scalar function;
+        - scalar function name cannot have comma (,) as it is used as list separator;
+        - only exact match possible;
+      JSON allows you to specify more options:
+        - scalar function schema (schema property);
+        - regular expression (regex property) instead of exact scalar function name (name property).
+      JSON list element schema:
+      {
+          "name"  : string  // scalar function name
+          "schema": string? // scalar function schema (optional)
+      }
+      |
+      {
+          "regex" : string  // scalar function name matching regular expression
+          "schema": string? // scalar function schema (optional)
+      }
+      |
+      string // also you can put scalar function name as string directly to list
+
+   --exclude-scalar-functions                : skip load of scalar functions with specified name(s)
+         type: (string | object) list (optional)
+         cannot use with: --include-scalar-functions
+         json: schema.exclude-scalar-functions
+         examples:
+               --exclude-scalar-functions GetUsers,GetRoles,LoadPermissions
+         JSON examples:
+               { "schema": { "exclude-scalar-functions": [ "TestFunction", { "name": "CheckDb", "schema": "dbo" } ] } } // TestFunction and dbo.CheckDb functions ignored
+               { "schema": { "exclude-scalar-functions": [ { "regex": "^Audit.$+", "schema": "dbo" } ] } } // all scalar functions starting from Audit prefix ignored
+
+      Provided scalar functions names should have same casing as actual function name in database. Specifying this option in command line has several limitations and it is recommended to u
+      se JSON for it instead:
+        - there is no way to specify schema name for scalar function;
+        - scalar function name cannot have comma (,) as it is used as list separator;
+        - only exact match possible;
+      JSON allows you to specify more options:
+        - scalar function schema (schema property);
+        - regular expression (regex property) instead of exact scalar function name (name property).
+      JSON list element schema:
+      {
+          "name"  : string  // scalar function name
+          "schema": string? // scalar function schema (optional)
+      }
+      |
+      {
+          "regex" : string  // scalar function name matching regular expression
+          "schema": string? // scalar function schema  (optional)
+      }
+      |
+      string // also you can put scalar function name as string directly to list
+
+   --include-aggregate-functions             : only load aggregate functions with specified name(s)
+         type: (string | object) list (optional)
+         cannot use with: --exclude-aggregate-functions
+         json: schema.include-aggregate-functions
+         examples:
+               --include-aggregate-functions GetUsers,GetRoles,LoadPermissions
+         JSON examples:
+               { "schema": { "include-aggregate-functions": [ "ActiveUsers", { "name": "InactiveUsers", "schema": "dbo" } ] } } // ActiveUsers and dbo.InactiveUsers functions
+               { "schema": { "include-aggregate-functions": [ { "regex": "^Query.$+", "schema": "dbo" } ] } } // all aggregate functions starting from Query prefix
+
+      Provided aggregate functions names should have same casing as actual function name in database. Specifying this option in command line has several limitations and it is recommended t
+      o use JSON for it instead:
+        - there is no way to specify schema name for aggregate function;
+        - aggregate function name cannot have comma (,) as it is used as list separator;
+        - only exact match possible;
+      JSON allows you to specify more options:
+        - aggregate function schema (schema property);
+        - regular expression (regex property) instead of exact aggregate function name (name property).
+      JSON list element schema:
+      {
+          "name"  : string  // aggregate function name
+          "schema": string? // aggregate function schema (optional)
+      }
+      |
+      {
+          "regex" : string  // aggregate function name matching regular expression
+          "schema": string? // aggregate function schema (optional)
+      }
+      |
+      string // also you can put aggregateaggregate function name as string directly to list
+
+   --exclude-aggregate-functions             : skip load of aggregate functions with specified name(s)
+         type: (string | object) list (optional)
+         cannot use with: --include-aggregate-functions
+         json: schema.exclude-aggregate-functions
+         examples:
+               --exclude-aggregate-functions GetUsers,GetRoles,LoadPermissions
+         JSON examples:
+               { "schema": { "exclude-aggregate-functions": [ "TestFunction", { "name": "CheckDb", "schema": "dbo" } ] } } // TestFunction and dbo.CheckDb functions ignored
+               { "schema": { "exclude-aggregate-functions": [ { "regex": "^Audit.$+", "schema": "dbo" } ] } } // all aggregate functions starting from Audit prefix ignored
+
+      Provided aggregate functions names should have same casing as actual function name in database. Specifying this option in command line has several limitations and it is recommended t
+      o use JSON for it instead:
+        - there is no way to specify schema name for aggregate function;
+        - aggregate function name cannot have comma (,) as it is used as list separator;
+        - only exact match possible;
+      JSON allows you to specify more options:
+        - aggregate function schema (schema property);
+        - regular expression (regex property) instead of exact aggregate function name (name property).
+      JSON list element schema:
+      {
+          "name"  : string  // aggregate function name
+          "schema": string? // aggregate function schema (optional)
+      }
+      |
+      {
+          "regex" : string  // aggregate function name matching regular expression
+          "schema": string? // aggregate function schema  (optional)
+      }
+      |
+      string // also you can put aggregate function name as string directly to list
 
 === Data Model : data model configuration
 
@@ -750,8 +946,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -809,8 +1006,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -869,8 +1067,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -928,8 +1127,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -987,8 +1187,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -1046,8 +1247,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -1105,8 +1307,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -1164,8 +1367,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -1223,8 +1427,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -1282,8 +1487,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -1343,8 +1549,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -1404,8 +1611,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -1464,8 +1672,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -1523,8 +1732,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -1582,8 +1792,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -1641,8 +1852,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -1700,8 +1912,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -1759,8 +1972,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
@@ -1818,8 +2032,9 @@ Options:
       - prefix                           : string? : optional name prefix
       - suffix                           : string? : optional name suffix
       - transformation                   : string  : base name transformation logic (see values below)
+          + "none"                : no transformations applied, treat whole identifier as one word
           + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "t4"                  : emulation of identifier generation logic for association name used by T4 templates (compat. option)
+          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
       - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
       - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
       If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
