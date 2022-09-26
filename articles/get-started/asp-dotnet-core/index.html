@@ -8,7 +8,7 @@
     <title>Configuring LINQ To DB for ASP.NET Core | Linq To DB (aka linq2db) </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Configuring LINQ To DB for ASP.NET Core | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.59.3.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../../../images/icon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -101,7 +101,7 @@ using LinqToDB.Data;
 
 public class AppDataConnection: DataConnection
 {
-    public AppDataConnection(LinqToDbConnectionOptions&lt;AppDataConnection&gt; options)
+    public AppDataConnection(LinqToDBConnectionOptions&lt;AppDataConnection&gt; options)
         :base(options)
     {
 
@@ -109,7 +109,7 @@ public class AppDataConnection: DataConnection
 }
 </code></pre><div class="TIP"><h5>Tip</h5><p>Note here our <code>AppDataConnection</code> inherits from <code>LinqToDB.Data.DataConnection</code> which is the base class for the Linq2Db connection. </p>
 </div>
-<div class="TIP"><h5>Tip</h5><p>a public constructor that accepts <code>LinqToDbConnectionOptions&lt;AppDataConnection&gt;</code> and passes the options on to the base constructor is required.</p>
+<div class="TIP"><h5>Tip</h5><p>a public constructor that accepts <code>LinqToDBConnectionOptions&lt;AppDataConnection&gt;</code> and passes the options on to the base constructor is required.</p>
 </div>
 <h2 id="add-connection-string">Add Connection String</h2>
 <p>For this example we&#39;re going to use SQLite in memory mode, for production you&#39;ll want to use something else, but it&#39;s pretty easy to change.</p>
@@ -149,9 +149,9 @@ public class AppDataConnection: DataConnection
         //...
     }
 }
-</code></pre><div class="TIP"><h5>Tip</h5><p>There&#39;s plenty of other configuration options availble, if you are familiar with LINQ To DB already, you can convert your existing application over to use the new <code>LinqToDbConnectionOptions</code> class as every configuration method is supported</p>
+</code></pre><div class="TIP"><h5>Tip</h5><p>There&#39;s plenty of other configuration options availble, if you are familiar with LINQ To DB already, you can convert your existing application over to use the new <code>LinqToDBConnectionOptions</code> class as every configuration method is supported</p>
 </div>
-<div class="TIP"><h5>Tip</h5><p>Note, only <code>DataConnection</code> supports <code>LinqToDbConnectionOptions</code>. <code>DataContext</code> is not yet supported.</p>
+<div class="TIP"><h5>Tip</h5><p>Note, only <code>DataConnection</code> supports <code>LinqToDBConnectionOptions</code>. <code>DataContext</code> is not yet supported.</p>
 </div>
 <div class="TIP"><h5>Tip</h5><p>Use <code>AddLinqToDbContext&lt;TContext, TContextImplementation&gt;</code> if you would like to resolve an interface or base class instead of the concrete class in your controllers</p>
 </div>
@@ -285,14 +285,14 @@ There&#39;s also some methods to setup tracing and mapping schema.</p>
 <p>You&#39;ll need to update your data connection to accept the new options class too.</p>
 <pre><code class="lang-C#">public class AppDataConnection: DataConnection
 {
-    public AppDataConnection(LinqToDbConnectionOptions&lt;AppDataConnection&gt; options)
+    public AppDataConnection(LinqToDBConnectionOptions&lt;AppDataConnection&gt; options)
         :base(options)
     {
 
     }
 }
 </code></pre><p><code>DataConnection</code> will used the options passed into the base constructor to setup the connection. </p>
-<div class="NOTE"><h5>Note</h5><p><code>DataConnection</code> supports <code>LinqToDbConnectionOptions</code>. However <code>DataContext</code> is not yet supported.</p>
+<div class="NOTE"><h5>Note</h5><p><code>DataConnection</code> supports <code>LinqToDBConnectionOptions</code>. However <code>DataContext</code> is not yet supported.</p>
 </div>
 </article>
           </div>
