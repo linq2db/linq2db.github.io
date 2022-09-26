@@ -76,7 +76,7 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="Interceptors">
 <h1 id="interceptors---omit-in-toc---">Interceptors<!-- omit in toc --></h1>
 
 <p>This API available since <code>Linq To DB</code> 4.0.0</p>
@@ -249,6 +249,18 @@ void AfterExecuteReader(
     DbCommand        command,
     CommandBehavior  commandBehavior,
     DbDataReader     dataReader);
+
+// triggered before DbDataReader dispose using Dispose method in synchronous APIs
+void BeforeReaderDispose(
+    CommandEventData eventData,
+    DbCommand? command,
+    DbDataReader dataReader);    
+
+// triggered before DbDataReader dispose using DisposeAsync method in asynchronous APIs
+Task BeforeReaderDisposeAsync(
+    CommandEventData eventData,
+    DbCommand? command,
+    DbDataReader dataReader);    
 
 struct CommandEventData
 {

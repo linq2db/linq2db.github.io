@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Toc | Linq To DB (aka linq2db) </title>
+    <title>General | Linq To DB (aka linq2db) </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Toc | Linq To DB (aka linq2db) ">
+    <meta name="title" content="General | Linq To DB (aka linq2db) ">
     <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../images/icon.ico">
@@ -77,7 +77,6 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="toc">Toc</h1>
 
 <ul>
 <li>General<ul>
@@ -94,11 +93,14 @@
 </ul>
 <h1 id="general">General</h1>
 <h2 id="which-async-model-linq-to-db-use">Which async model Linq To DB use?</h2>
-<p>By default it use <code>await awaitable.ConfigureAwait(true)</code> (same as <code>await awaitable</code>) mode for internal asyn calls.
+<p>By default it use <code>await awaitable.ConfigureAwait(false)</code> (same as <code>await awaitable</code>) mode for internal asyn calls.
 If you need it to use another mode you can change it by setting following configuration option:</p>
-<pre><code class="lang-cs">// switch to await awaitable.ConfigureAwait(false)
-Configuration.ContinueOnCapturedContext = false;
-</code></pre><h2 id="i-need-to-configure-connection-before-or-immediately-after-it-opened-eg-set-sql-server-accesstoken-or-sqlite-encryption-key">I need to configure connection before or immediately after it opened (e.g. set SQL Server AccessToken or SQLite encryption key)</h2>
+<pre><code class="lang-cs">// switch to await awaitable.ConfigureAwait(true)
+Configuration.ContinueOnCapturedContext = true;
+</code></pre><p>Note that in versions before 4.0 this setting was set to <code>true</code> by default.</p>
+<h2 id="i-need-to-configure-connection-before-or-immediately-after-it-opened-eg-set-sql-server-accesstoken-or-sqlite-encryption-key">I need to configure connection before or immediately after it opened (e.g. set SQL Server AccessToken or SQLite encryption key)</h2>
+<div class="WARNING"><h5>Warning</h5><p>Answer below is for older versions of LinqToDB. Starting with Linq To DB 4.0 you should use <a class="xref" href="general/interceptors.html">interceptors</a>.</p>
+</div>
 <p>If you are using <code>DataConnection</code> to access database, you can subscribe to those events (each came in pair of sync and async events) and configure your connection there.</p>
 <p>Configure connection before it opened (SQL Server AccessToken example):</p>
 <pre><code class="lang-cs">// or do it in constructor of DataConnection-based class
@@ -182,7 +184,7 @@ DataProviderBase.OnConnectionCreated = (p, cn) =&gt;
 };
 </code></pre><h1 id="mapping">Mapping</h1>
 <h2 id="do-i-need-to-use-attribute-andor-code-first-mapping">Do I need to use Attribute and/or Code first Mapping?</h2>
-<p>Not strictly. It is possible to use linq2db with simple, non-attributed POCOs, however there will be specific limitations. </p>
+<p>Not strictly. It is possible to use linq2db with simple, non-attributed POCOs, however there will be specific limitations:</p>
 <ul>
 <li><p>The biggest of these is that the <code>string</code> type is nullable by default in .NET, and unlike with <code>int</code> or <code>double</code> there is no way for linq2db to infer nullability. This can cause problems in certain cases, such as if you are ever required to join two <code>VARCHAR</code> fields together.</p>
 </li>
@@ -205,9 +207,8 @@ DataProviderBase.OnConnectionCreated = (p, cn) =&gt;
 <p>Spatial types for SQL Server provided by:</p>
 <ul>
 <li><a href="https://www.nuget.org/packages/Microsoft.SqlServer.Types/"><code>Microsoft.SqlServer.Types</code></a> assembly from Microsoft for .NET Framework</li>
-<li><a href="https://www.nuget.org/packages/dotMorten.Microsoft.SqlServer.Types/"><code>dotMorten.Microsoft.SqlServer.Types</code></a> assembly from <a href="https://github.com/dotMorten">Morten Nielsen</a> for .NET Core</li>
+<li><a href="https://www.nuget.org/packages/dotMorten.Microsoft.SqlServer.Types/"><code>dotMorten.Microsoft.SqlServer.Types</code></a> assembly from <a href="https://github.com/dotMorten">Morten Nielsen</a> for .NET Core. v1.x versions are for <code>System.Data.SqlClient</code> provider and v2.x versions are for <code>Microsoft.Data.SqlClient</code> provider</li>
 </ul>
-<p>For .net core we recommend to use at least linq2db 2.9.0 as it contains several important fixes in this area for .net core projects.</p>
 <p>First of all it is recommended to register types assembly in linq2db using following call:</p>
 <pre><code class="lang-cs">SqlServerTools.ResolveSqlTypes(typeof(SqlGeography).Assembly);
 </code></pre><p>Main problem that people hit with SQL Server spatial types is following error on select queries: <code>Can&#39;t create &#39;&lt;DB_NAME&gt;.sys.&lt;SPATIAL_TYPE_NAME&gt;&#39; type or &#39;&#39; specific type for &lt;COLUMN_NAME&gt;.</code></p>

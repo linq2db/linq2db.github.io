@@ -79,9 +79,9 @@
             <article class="content wrap" id="_content" data-uid="Bulk-Copy">
 <h1 id="bulk-copy-bulk-insert">Bulk Copy (Bulk Insert)</h1>
 
-<p>Some database servers provide functionality to quickly insert large amounts of data into a table. The downside of this method is that each server has its own view on how this functionality should work; there is no standard interface for it.</p>
+<p>Some database servers provide functionality to insert large amounts of data into a table in more effective way compared to conventional inserts. The downside of this method is that each server has its own view on how this functionality should work; there is no standard interface for it.</p>
 <h2 id="overview">Overview</h2>
-<p>To leverage the complexity of work with this operation, <code>LINQ To DB</code> provides a <code>BulkCopy</code> method. There are several overrides, but all they do the same thing - take data and operation options, then perform inserts and return operation status. How insert operations are performed internally depends on the level of provider support and the provided options.</p>
+<p>To leverage the complexity of work with this operation, <code>LINQ To DB</code> provides a <code>BulkCopy</code> method. There are several overrides, but all of them do the same thing - take data and operation options, then perform inserts and return operation status. How insert operations are performed internally depends on the level of provider support and the provided options.</p>
 <pre><code class="lang-cs">// DataConnectionExtensions.cs
 BulkCopyRowsCopied BulkCopy&lt;T&gt;(this DataConnection dataConnection, BulkCopyOptions options, IEnumerable&lt;T&gt; source)
 BulkCopyRowsCopied BulkCopy&lt;T&gt;(this DataConnection dataConnection, int maxBatchSize, IEnumerable&lt;T&gt; source)
@@ -211,9 +211,25 @@ Task&lt;BulkCopyRowsCopied&gt; BulkCopyAsync&lt;T&gt;(this ITable&lt;T&gt; table
 <td>MultipleRows</td>
 <td>SybaseTools.DefaultBulkCopyType</td>
 </tr>
+<tr>
+<td>ClickHouse</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes (except MySqlConnector)</td>
+<td>ProviderSpecific</td>
+<td>ClickHouseTools.DefaultBulkCopyType</td>
+</tr>
 </tbody>
 </table>
-<p>Note that when using the provider-specific insert method, only MySql, PostgreSQL, SAP HANA, and Microsoft SQL Server support asynchronous operation; other providers will silently fall back to a synchronous operation.</p>
+<p>Note that when using the provider-specific insert method, only some providers support asynchronous operation; other providers will silently fall back to a synchronous operation.</p>
+<p>Providers with async support:</p>
+<ul>
+<li>MySqlConnector</li>
+<li>Npgsql</li>
+<li>SAP HANA native provider</li>
+<li>System.Data.SqlClient and Microsoft.Data.SqlClient</li>
+<li>ClickHouse.Client and Octonica.ClickHouseClient</li>
+</ul>
 <h3 id="postgresql-provider-specific-bulk-copy">PostgreSQL provider-specific bulk copy</h3>
 <p>For PostgreSQL, <code>BulkCopy</code> uses the <code>BINARY COPY</code> operation when the <code>ProviderSpecific</code> method specified. This operation is very sensitive to what types are used. You must always use the proper type that matches the type in target table, or you will receive an error from server (e.g. <code>&quot;22P03: incorrect binary data format&quot;</code>).</p>
 <p>Below is a list of types that could result in error without an explicit type specification:</p>
@@ -228,8 +244,8 @@ Task&lt;BulkCopyRowsCopied&gt; BulkCopyAsync&lt;T&gt;(this ITable&lt;T&gt; table
 </ul>
 <p>If you have issues with other types, feel free to create an issue.</p>
 <h2 id="options">Options</h2>
-<p>See <a class="xref" href="../../api/LinqToDB.Data.BulkCopyOptions.html">BulkCopyOptions</a> properties and support per-provider</p>
-<h2 id="keepidentity-option-default--false"><code>KeepIdentity</code> option (default : <code>false</code>)</h2>
+<p>See <a class="xref" href="../../api/LinqToDB.Data.BulkCopyOptions.html">BulkCopyOptions</a> properties and support per-provider. Some options explained below.</p>
+<h3 id="keepidentity-option-default--false"><code>KeepIdentity</code> option (default : <code>false</code>)</h3>
 <p>This option allows you to insert provided values into the identity column. It is supported by limited set of providers and is not compatible with <code>RowByRow</code> mode. Hence, if the provider doesn&#39;t support any other insert mode, the <code>KeepIdentity</code> option is not supported.</p>
 <p>This option is not supported for <code>RowByRow</code> because corresponding functionality is not implemented by <code>LINQ To DB</code>; it could be added upon request.</p>
 <p>If you will set this option to <code>true</code> for an unsupported mode or provider, you will get a <code>LinqToDBException</code>.</p>
@@ -289,8 +305,20 @@ Task&lt;BulkCopyRowsCopied&gt; BulkCopyAsync&lt;T&gt;(this ITable&lt;T&gt; table
 <td>Sybase ASE</td>
 <td>Yes</td>
 </tr>
+<tr>
+<td>ClickHouse</td>
+<td>No (ClickHouse doesn&#39;t have identity/sequence concept)</td>
+</tr>
 </tbody>
 </table>
+<h3 id="maxdegreeofparallelism-option-default-null"><code>MaxDegreeOfParallelism</code> Option (default: <code>null</code>)</h3>
+<p>Supported only by <code>ClickHouse.Client</code> provider and defines number of parallel connections to use for insert. Note that behavior depends on provider implementation, which currently use 4 parallel connections by default and perform parallel insert only for batches larger than 100K records.</p>
+<h3 id="withoutsession-option-default-false"><code>WithoutSession</code> Option (default: <code>false</code>)</h3>
+<p>Supported only by <code>ClickHouse.Client</code> provider. When enabled, provider will use session-less connection even if <code>linq2db</code> connection configured to use sessions. Note that:</p>
+<ul>
+<li>session-less connection requied for parallel inserts (see <code>MaxDegreeOfParallelism</code> option)</li>
+<li>session-less connections doesn&#39;t support temporary tables, so you cannot insert into temporary table with this option set to <code>true</code></li>
+</ul>
 <h2 id="see-also">See Also</h2>
 <p>As an alternative to <code>BulkCopy</code>, a <a class="xref" href="merge/Merge-API.html">Merge</a> operation could be used. It allows more flexibility but is not available for some providers and will be always slower than <code>BulkCopy</code> with native provider support.</p>
 </article>

@@ -80,7 +80,7 @@
 <h1 id="contributing-guide">Contributing guide</h1>
 
 <h2 id="project-structure">Project structure</h2>
-<h4 id="solution-and-folder-structure">Solution and folder structure</h4>
+<h3 id="solution-and-folder-structure">Solution and folder structure</h3>
 <table>
 <thead>
 <tr>
@@ -110,16 +110,28 @@
 <td>LINQ to DB source code</td>
 </tr>
 <tr>
-<td>.\Source\LinqToDB.Tools</td>
-<td>LINQ to DB Tools source code</td>
-</tr>
-<tr>
 <td>.\Source\LinqToDB.AspNet</td>
 <td>LINQ to DB ASP.NET Core integration library source code</td>
 </tr>
 <tr>
+<td>.\Source\LinqToDB.CLI</td>
+<td>LINQ to DB CLI scaffold tool source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Remote.Grpc</td>
+<td>LINQ to DB Remote Context GRPC client/server source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Remote.Wcf</td>
+<td>LINQ to DB Remote Context WCF client/server source code</td>
+</tr>
+<tr>
 <td>.\Source\LinqToDB.Templates</td>
 <td>LINQ to DB t4models source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Tools</td>
+<td>LINQ to DB Tools source code</td>
 </tr>
 <tr>
 <td>.\Tests</td>
@@ -159,59 +171,13 @@
 </tr>
 </tbody>
 </table>
-<p>Solutions:</p>
+<h4 id="solutions">Solutions</h4>
 <ul>
 <li><code>.\linq2db.sln</code> - full linq2db solution</li>
 <li><code>.\linq2db.playground.slnf</code> - ligthweight linq2db test solution. Used to work on specific test without loading of all payload of full solution</li>
 <li><code>.\linq2db.Benchmarks.slnf</code> - ligthweight linq2db benchmarks solution. Used to work on benchmarks without loading of all payload of full solution</li>
 </ul>
 <h4 id="source-projects">Source projects</h4>
-<table>
-<thead>
-<tr>
-<th style="text-align:right">Project \ Target</th>
-<th style="text-align:center">.NET 4.5</th>
-<th style="text-align:center">.NET 4.6</th>
-<th style="text-align:center">.NET 4.7.2</th>
-<th style="text-align:center">.NET Standard 2.0</th>
-<th style="text-align:center">.NET Standard 2.1</th>
-<th style="text-align:center">.NET Core 3.1</th>
-<th style="text-align:center">.NET 6.0</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right"><code>.\Source\LinqToDB\LinqToDB.csproj</code></td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>.\Source\LinqToDB\LinqToDB.Tools.csproj</code></td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">√</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">√</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>.\Source\LinqToDB\LinqToDB.AspNet.csproj</code></td>
-<td style="text-align:center">√</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">√</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">√</td>
-</tr>
-</tbody>
-</table>
 <p>Preferred target defines:</p>
 <ul>
 <li><code>NETFRAMEWORK</code> - <code>net45</code>, <code>net46</code> and <code>net472</code> target ifdef</li>
@@ -230,71 +196,12 @@
 </ul>
 <p>Allowed debugging defines:</p>
 <ul>
-<li><code>TRACK_BUILD</code> - ?</li>
+<li><code>TRACK_BUILD</code> - ???</li>
 <li><code>DEBUG</code> - for debug code in debug build. To disable debug code use <code>DEBUG1</code> rename</li>
-<li><code>OVERRIDETOSTRING</code> - enables ToString()<code>overrides for AST model (must be enabled in LinqToDB.csproj by renaming existing</code>OVERRIDETOSTRING1` define)</li>
+<li><code>OVERRIDETOSTRING</code> - enables <code>ToString()</code> overrides for AST model (must be enabled in LinqToDB.csproj by renaming existing <code>OVERRIDETOSTRING1</code> define)</li>
 </ul>
 <h4 id="test-projects">Test projects</h4>
-<table>
-<thead>
-<tr>
-<th style="text-align:right">Project \ Target</th>
-<th style="text-align:center">.NET 4.7.2</th>
-<th style="text-align:center">.NET Core 3.1</th>
-<th style="text-align:center">.NET 6.0</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right"><code>.\Tests\Base\Tests.Base.csproj</code></td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>.\Tests\FSharp\Tests.FSharp.fsproj</code></td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>.\Tests\Linq\Tests.csproj</code></td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>.\Tests\Model\Tests.Model.csproj</code></td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>.\Tests\Tests.Benchmarks\Tests.Benchmarks.csproj</code></td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>.\Tests\Tests.Playground\Tests.Playground.csproj</code></td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>.\Tests\Tests.T4\Tests.T4.csproj</code></td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-</tr>
-<tr>
-<td style="text-align:right"><code>.\Tests\VisualBasic\Tests.VisualBasic.vbproj</code></td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-</tr>
-</tbody>
-</table>
+<p>Tests targets: <code>net472</code>, <code>netcoreapp31</code>, <code>net6.0</code></p>
 <p>Allowed target defines:</p>
 <ul>
 <li><code>NETCOREAPP3_1</code> - <code>netcoreapp3.1</code> target ifdef</li>
@@ -302,33 +209,35 @@
 <li><code>NET472</code> - <code>net472</code> target ifdef</li>
 <li><code>AZURE</code> - for Azure Pipelines CI builds</li>
 </ul>
-<h2 id="building">Building</h2>
-<p>You can use the solution to build and run tests. Also you can build whole solution or library using the following batch files:</p>
+<h2 id="build">Build</h2>
+<p>You can use solution to build and run tests. Also you can build whole solution or library using the following batch files:</p>
 <ul>
 <li><code>.\Build.cmd</code> - builds all the projects in the solution for Debug, Release and Azure configurations</li>
 <li><code>.\Compile.cmd</code> - builds LinqToDB project for Debug and Release configurations</li>
 <li><code>.\Clean.cmd</code> - cleanups solution projects for Debug, Release and Azure configurations</li>
 <li><code>.\Test.cmd</code> - build <code>Debug</code> configuration and run tests for <code>net472</code>, <code>netcoreapp3.1</code> and <code>net6.0</code> targets. You can set other configuration by passing it as first parameter, disable test targets by passing 0 to second (for <code>net472</code>),  third (for <code>netcoreapp3.1</code>) or fourth (for <code>net6.0</code>) parameter and format (default:html) as 6th parameter.</li>
 </ul>
-<p>Example of running Release build tests for <code>netcoreapp3.1</code> only with trx as output:</p>
+<p>Example of running <code>Release</code> build tests for <code>netcoreapp3.1</code> only with trx as output:</p>
 <pre><code>test.cmd Release 0 1 0 0 0 trx
 </code></pre><h3 id="different-platforms-support">Different platforms support</h3>
-<p>Because of compiling for different platforms we do use:</p>
+<p>Because we target different TFMs, we use:</p>
 <ul>
 <li>Conditional compilation. See supported defines above</li>
-<li>Implementing missing classes and enums. There are some under <code>.\Source\LinqToDB\Compatibility</code> folder</li>
+<li>Implementation of missing runtime functionality (usually copied from <code>dotnet/runtime</code> repository). Should be placed to <code>Source\Shared</code> folder with proper TFM <code>#ifdef</code>s (it will be picked by all projects automatically) and made explicitly internal to avoid conflicts.</li>
 </ul>
 <h2 id="branches">Branches</h2>
 <ul>
-<li><code>master</code> - current development branch for next release</li>
-<li><code>release</code> - branch with the latest release</li>
+<li><code>master</code> - main development branch, contains code for next release</li>
+<li><code>release</code> - branch with the latest released version</li>
 </ul>
 <h2 id="run-tests">Run tests</h2>
-<p>NUnit3 is used as unit testing framework. Most of tests are run for all supported databases, and written in same pattern:</p>
-<pre><code class="lang-cs">[TestFixture]
-public class Test: TestBase // TestBase - base class, provides base methods and object data sources
+<p>NUnit3 is used as unit-testing framework. Most of tests are run for all supported databases and written in same pattern:</p>
+<pre><code class="lang-cs">// TestBase - base class for all our tests
+// provides required testing infrastructure
+[TestFixture]
+public class Test: TestBase
 {
-    // DataSourcesAttribute - implements NUnit IParameterDataSource to provide testcases for enabled database providers
+    // DataSourcesAttribute - custom attribute to feed test with enabled database configurations
     [Test]
     public void Test([DataSources] string context)
     {
@@ -473,8 +382,6 @@ For more details check <a href="https://github.com/linq2db/linq2db/blob/master/B
 <li>Nugets publishing to <a href="https://dev.azure.com/linq2db/linq2db/_packaging?_a=feed&amp;feed=linq2db">Azure feeds</a> enabled only for <code>branch</code></li>
 <li>Nugets publishing to <a href="https://www.nuget.org/profiles/LinqToDB">Nuget.org</a> enabled only for <code>release</code> branch</li>
 </ul>
-<h3 id="skip-ci-build">Skip CI build</h3>
-<p>If you want to skip building commit by CI (for example you have changed *.md files only) check this <a href="https://developercommunity.visualstudio.com/comments/503497/view.html">message</a>.</p>
 <h3 id="publishing-packages">Publishing packages</h3>
 <ul>
 <li><strong>&quot;Nightly&quot; builds</strong> packages are published to <a href="https://dev.azure.com/linq2db/linq2db/_packaging?_a=feed&amp;feed=linq2db">Azure feeds</a> for each successful build of <strong>master</strong> branch.</li>
@@ -486,7 +393,7 @@ For more details check <a href="https://github.com/linq2db/linq2db/blob/master/B
 <li>Create PR from <code>master</code> to <code>release</code> branch, in comments add <a href="https://github.com/linq2db/linq2db/wiki/How-can-i-help#testing-how-to">@testers</a> to notify all testers that we are ready to release</li>
 <li>Wait few days for feedback from testers and approval from contributors</li>
 <li>Merge PR</li>
-<li><a href="https://github.com/linq2db/linq2db/releases">Tag release</a></li>
+<li><a href="https://github.com/linq2db/linq2db/releases">Tag release</a> on <code>master</code> branch</li>
 <li>Update versions in <code>master</code> branch (this will lead to publish all next <code>master</code> builds as new version RC):<ul>
 <li>in <a href="https://github.com/linq2db/linq2db/blob/master/Build/Azure/pipelines/templates/build-vars.yml">\Build\Azure\pipelines\templates\build-vars.yml</a> set <code>assemblyVersion</code> and <code>packageVersion</code> (for release and development) parameters to next version. Always use next minor version and change it to major only before release, if it should be new major version release</li>
 </ul>
@@ -495,10 +402,13 @@ For more details check <a href="https://github.com/linq2db/linq2db/blob/master/B
 <h2 id="process">Process</h2>
 <p>In general you should follow simple rules:</p>
 <ul>
-<li>Development rules and regulations, code style</li>
+<li>Code style should match exising code</li>
+<li>There should be no compilation warnings (will fail CI builds)</li>
 <li>Do not add new features without tests</li>
 <li>Avoid direct pushes to <code>master</code> and <code>release</code> branches</li>
 <li>To fix some issue or implement new feature create new branch and make pull request after you are ready to merge or create pull request as <code>work-in-progress</code> pull request. Merge your PR only after contributors&#39; review.</li>
+<li>bugfix branches must use <code>issue/&lt;issue_id&gt;</code> naming format</li>
+<li>feature branches must use <code>feature/&lt;issue_id_or_feature_name&gt;</code> naming format</li>
 <li>If you do have repository write access, it is recommended to use central repository instead of fork</li>
 <li>Do not add new public classes, properties, methods without XML documentation on them</li>
 <li>Read issues and help users</li>

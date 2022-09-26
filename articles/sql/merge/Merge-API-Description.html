@@ -88,9 +88,11 @@
 </ul>
 <p>To create and execute merge command you should first configure target, source and match conditions. Then you must add at least one operation to merge builder. After that you should call <code>Merge</code> method to execute command.
 Note that all operation methods returns new merge builder, so code like that:</p>
-<pre><code class="lang-cs">// WRONG
-var db.Table.Merge().UsingTarget().OnTargetKey().DeleteWhenMatched();
+<pre><code class="lang-cs">// Incorrect call example
+var merge = db.Table.Merge().UsingTarget().OnTargetKey().DeleteWhenMatched();
 // wrong, it will not modify merge object, but will create new one
+// correct line should be
+// merge = merge.InsertWhenNotMatched();
 merge.InsertWhenNotMatched();
 // execute merge with only one command - Delete
 merge.Merge();

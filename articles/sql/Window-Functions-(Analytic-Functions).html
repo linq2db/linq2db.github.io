@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title> | Linq To DB (aka linq2db) </title>
+    <title>Window (Analytic) Functions | Linq To DB (aka linq2db) </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content=" | Linq To DB (aka linq2db) ">
+    <meta name="title" content="Window (Analytic) Functions | Linq To DB (aka linq2db) ">
     <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../../images/icon.ico">
@@ -77,18 +77,18 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
+<h1 id="window-analytic-functions">Window (Analytic) Functions</h1>
 
-<p>Support of Window Functions also known as Analytic Functions in <code>LINQ To DB</code> is based on <a href="https://docs.oracle.com/cd/E11882_01/server.112/e41084/functions004.htm">Oracle&#39;s Documentation</a> and all mentioned functions are supported. </p>
-<p>Window functions are implemented as extension methods for static <code>Sql.Ext</code> property. For defining Partitioning and Ordering fluent syntax is used and it is closest as possible to original SQL syntax.</p>
-<h4 id="c-syntax">C# Syntax:</h4>
+<p>Window functions are implemented as extension methods for static <code>Sql.Ext</code> property. For extensions generation (e.g. partitioning or ordering) fluent syntax is used.</p>
+<h4 id="call-syntax">Call Syntax</h4>
 <pre><code class="lang-cs">Sql.Ext.[Function]([Parameters])
     .Over()
     .[PartitionPart]
     .[OrderByPart]
     .[WindowingPart]
     .ToValue();
-</code></pre><p>Last function in method chain <strong>must</strong> be function <code>ToValue()</code> - it is a mark that method chain is finished and provides correct DataType for resulting columns.</p>
-<h4 id="example">Example:</h4>
+</code></pre><p>Last function in method chain <strong>must</strong> be function <code>ToValue()</code> - it is a mark that method chain is finished.</p>
+<h5 id="example">Example</h5>
 <pre><code class="lang-c#">var q = 
     from p in db.Parent
     join c in db.Child on p.ParentID equals c.ParentID 
@@ -135,8 +135,9 @@
             .Range.Between.UnboundedPreceding.And.CurrentRow
             .ToValue(),
     };
+
 var res = q.ToArray();
-</code></pre><h4 id="resulting-sql">Resulting SQL:</h4>
+</code></pre><h5 id="resulting-sql">Resulting SQL</h5>
 <pre><code class="lang-sql">SELECT
     RANK() OVER(PARTITION BY [p].[Value1], [c7].[ChildID] ORDER BY [p].[Value1], [c7].[ChildID], [c7].[ParentID]) as [c1],
     ROW_NUMBER() OVER(PARTITION BY [p].[Value1], [c7].[ChildID] ORDER BY [p].[Value1] DESC, [c7].[ChildID], [c7].[ParentID] DESC) as [c2],
@@ -147,15 +148,13 @@ var res = q.ToArray();
 FROM
     [Parent] [p]
         INNER JOIN [Child] [c7] ON [p].[ParentID] = [c7].[ParentID]
-</code></pre><blockquote><p><strong>Note</strong> There is no limitation in window functions usage. <code>LINQ To DB</code> will create SQL and run query, if function is not supported or some part of function is limited in particular Database - error will be thrown on database side.</p>
-</blockquote>
-<h4 id="functions-mapping">Functions mapping</h4>
-<p>The following table contains list of supported Window Functions and <code>LINQ To DB</code> representation of these functions. Some functions have overloads for supporting full Window Functions syntax.</p>
+</code></pre><h4 id="supported-functions-could-be-incomplete">Supported Functions (could be incomplete)</h4>
+<p>The following table contains list of supported Window Functions and <code>LINQ To DB</code> representation of these functions.</p>
 <table>
 <thead>
 <tr>
-<th>SQL Function Name</th>
-<th>Linq2db Function Name</th>
+<th>Function</th>
+<th>Linq To DB Extension</th>
 </tr>
 </thead>
 <tbody>
@@ -329,14 +328,14 @@ FROM
 </tr>
 </tbody>
 </table>
-<blockquote><p>If you have found that your database supports function that is not listed in table above, you can easily create your own extension. Code samples are located in <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs">Sql.Analytic.cs</a></p>
+<blockquote><p>If you have found that your database supports function that is not listed in table above, you can easily create your own extension (but it will be better to create feature request or PR). Code samples are located in <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs">Sql.Analytic.cs</a></p>
 </blockquote>
-<h4 id="engines-that-support-window-functions">Engines that support Window Functions</h4>
+<h4 id="window-functions-support">Window Functions Support</h4>
 <ul>
 <li><a href="https://docs.oracle.com/cd/E11882_01/server.112/e41084/functions004.htm">Oracle</a></li>
 <li><a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql">MSSQL</a></li>
 <li><a href="http://www.sqlitetutorial.net/sqlite-window-functions/">SQLite</a></li>
-<li><a href="https://www.postgresql.org/docs/current/static/tutorial-window.html">Postresql</a></li>
+<li><a href="https://www.postgresql.org/docs/current/static/tutorial-window.html">PostreSQL</a></li>
 <li><a href="https://mariadb.com/kb/en/mariadb/window-functions">MariaDB</a></li>
 <li><a href="https://dev.mysql.com/doc/refman/8.0/en/window-functions-usage.html">MySQL 8</a></li>
 <li><a href="https://www.ibm.com/support/knowledgecenter/en/SSEPEK_12.0.0/sqlref/src/tpc/db2z_olapspecification.html">DB2 z/OS</a></li>
@@ -344,8 +343,9 @@ FROM
 <li><a href="https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/sqlp/rbafyolap.htm">DB2 iSeries</a></li>
 <li><a href="https://www.ibm.com/support/knowledgecenter/en/SSGU8G_12.1.0/com.ibm.sqls.doc/ids_sqs_2584.htm">Informix</a></li>
 <li><a href="http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/20/a353327519101495dfd0a87060a0d3/content.htm">SAP HANA</a></li>
-<li><a href="http://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc38151.1602/doc/html/san1278452950084.html">SAP ASE</a></li>
-<li><a href="https://www.firebirdsql.org/file/documentation/release_notes/html/en/3_0/rnfb30-dml-windowfuncs.html">Firebird 3</a></li>
+<li><a href="http://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc38151.1602/doc/html/san1278452950084.html">SAP/Sybase ASE</a></li>
+<li><a href="https://www.firebirdsql.org/file/documentation/release_notes/html/en/3_0/rnfb30-dml-windowfuncs.html">Firebird 3+</a></li>
+<li><a href="https://clickhouse.com/docs/en/sql-reference/window-functions/">ClickHouse</a></li>
 </ul>
 </article>
           </div>

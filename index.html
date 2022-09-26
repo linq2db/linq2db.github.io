@@ -70,12 +70,12 @@
         <div class="article row grid">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h2 id="linq-to-db">LINQ to DB</h2>
+<h1 id="linq-to-db">LINQ to DB</h1>
 
 <p><a href="https://www.nuget.org/profiles/LinqToDB"><img src="https://buildstats.info/nuget/linq2db?includePreReleases=true" alt="NuGet Version and Downloads count"></a> <a href="../submodules/linq2db/MIT-LICENSE.txt"><img src="https://img.shields.io/github/license/linq2db/linq2db" alt="License"></a>
 <a href="https://twitter.com/linq2db"><img src="https://img.shields.io/twitter/follow/linq2db.svg" alt="Follow @linq2db"></a> <a href="https://github.com/linq2db/linq2db/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22"><img src="https://img.shields.io/github/issues/linq2db/linq2db/good%20first%20issue.svg" alt="&quot;good first issue&quot; tasks"></a></p>
 <p><a href="https://dev.azure.com/linq2db/linq2db/_build?definitionId=5&amp;_a=summary"><img src="https://img.shields.io/azure-devops/build/linq2db/linq2db/5/master?label=build%20(master)" alt="Master branch build"></a> <a href="https://dev.azure.com/linq2db/linq2db/_build?definitionId=5&amp;_a=summary"><img src="https://img.shields.io/azure-devops/build/linq2db/linq2db/5?label=build%20(latest)" alt="Latest build"></a></p>
-<p>LINQ to DB is the fastest LINQ database access library offering a simple, light, fast, and type-safe layer between your POCO objects and your database. </p>
+<p>LINQ to DB is the fastest LINQ database access library offering a simple, light, fast, and type-safe layer between your POCO objects and your database.</p>
 <p>Architecturally it is one step above micro-ORMs like Dapper, Massive, or PetaPoco, in that you work with LINQ expressions, not with magic strings, while maintaining a thin abstraction layer between your code and the database. Your queries are checked by the C# compiler and allow for easy refactoring.</p>
 <p>However, it&#39;s not as heavy as LINQ to SQL or Entity Framework. There is no change-tracking, so you have to manage that yourself, but on the positive side you get more control and faster access to your data.</p>
 <p>In other words <strong>LINQ to DB is type-safe SQL</strong>.</p>
@@ -97,7 +97,7 @@
 </ul>
 <p>Visit our <a href="http://blog.linq2db.com/">blog</a> and see <a href="https://linq2db.github.io/index.html">Github.io documentation</a> for more details.</p>
 <p>Code examples and demos can be found <a href="https://github.com/linq2db/examples">here</a> or in <a href="https://github.com/linq2db/linq2db/tree/master/Tests/Linq">tests</a>.</p>
-<p><a href="https://github.com/linq2db/linq2db/wiki/Releases-and-Roadmap">Release Notes</a> page.</p>
+<p><a href="https://github.com/linq2db/linq2db/wiki/Releases-and-Roadmap">Release notes</a> page.</p>
 <h3 id="related-linq2db-and-3rd-party-projects">Related linq2db and 3rd-party projects</h3>
 <ul>
 <li><a href="https://github.com/linq2db/linq2db.EntityFrameworkCore">linq2db.EntityFrameworkCore</a> (adds support for linq2db functionality in EF.Core projects)</li>
@@ -199,7 +199,7 @@ public class MySettings : ILinqToDBSettings
 </code></pre><h3 id="aspnet-core">ASP.NET Core</h3>
 <p>See <a href="https://linq2db.github.io/articles/get-started/asp-dotnet-core/index.html">article</a>.</p>
 <h2 id="now-lets-create-a-poco-class">Now let&#39;s create a <strong>POCO</strong> class</h2>
-<p>You can generate POCO classes from your database using <a href="https://linq2db.github.io/articles/T4.html">T4 templates</a>.  These classes will be generated using the <code>Attribute configuration</code>. Demonstration video could be found <a href="https://linq2db.github.io/articles/general/Video.html">here</a>. </p>
+<p>You can generate POCO classes from your database using <a href="https://linq2db.github.io/articles/T4.html">T4 templates</a>.  These classes will be generated using the <code>Attribute configuration</code>. Demonstration video could be found <a href="https://linq2db.github.io/articles/general/Video.html">here</a>.</p>
 <p>Alternatively, you can write them manually, using <code>Attribute configuration</code>, <code>Fluent configuration</code>, or inferring.</p>
 <h3 id="attribute-configuration">Attribute configuration</h3>
 <pre><code class="lang-c#">using System;
@@ -234,9 +234,9 @@ public class Product
 
   public string Name { get; set; }
 }
-</code></pre><p>Property <code>Name</code> will be ignored as it lacks <code>Column</code> attibute. </p>
+</code></pre><p>Property <code>Name</code> will be ignored as it lacks <code>Column</code> attibute.</p>
 <h3 id="fluent-configuration">Fluent Configuration</h3>
-<p>This method lets you configure your mapping dynamically at runtime. Furthermore, it lets you to have several different configurations if you need so. You will get all configuration abilities available with attribute configuration. These two approaches are interchangeable in its abilities. This kind of configuration is done through the class <code>MappingSchema</code>. </p>
+<p>This method lets you configure your mapping dynamically at runtime. Furthermore, it lets you to have several different configurations if you need so. You will get all configuration abilities available with attribute configuration. These two approaches are interchangeable in its abilities. This kind of configuration is done through the class <code>MappingSchema</code>.</p>
 <p>With Fluent approach you can configure only things that require it explicitly. All other properties will be inferred by linq2db:</p>
 <pre><code class="lang-c#">// IMPORTANT: configure mapping schema instance only once
 // and use it with all your connections that need those mappings
@@ -346,7 +346,7 @@ select new Product
   }
 }
 </code></pre><h2 id="paging">Paging</h2>
-<p>A lot of times we need to write code that returns only a subset of the entire dataset. We expand on the previous example to show what a product search function could look like. </p>
+<p>A lot of times we need to write code that returns only a subset of the entire dataset. We expand on the previous example to show what a product search function could look like.</p>
 <p>Keep in mind that the code below will query the database twice. Once to find out the total number of records, something that is required by many paging controls, and once to return the actual data.</p>
 <pre><code class="lang-c#">public static List&lt;Product&gt; Search(
                   string  searchFor,
