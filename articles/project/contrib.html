@@ -181,7 +181,7 @@
 <p>Preferred target defines:</p>
 <ul>
 <li><code>NETFRAMEWORK</code> - <code>net45</code>, <code>net46</code> and <code>net472</code> target ifdef</li>
-<li><code>NETSTANDARD2_1PLUS</code> - targets with <code>netstandard2.1</code> support (<code>netstandard2.1</code>, <code>netcoreapp3.1</code>, <code>net6.0</code>). Don&#39;t use this define in test projects!</li>
+<li><code>NETSTANDARD2_1PLUS</code> - targets with <code>netstandard2.1</code> support (<code>netstandard2.1</code>, <code>netcoreapp3.1</code>, <code>net6.0</code>, <code>net7.0</code>). Don&#39;t use this define in test projects!</li>
 <li><code>NATIVE_ASYNC</code> - ifdef with native support for <code>ValueTask</code>, <code>IAsyncEnumerable&lt;T&gt;</code> and <code>IAsyncDisposable</code> types</li>
 </ul>
 <p>Other allowed target defines:</p>
@@ -190,6 +190,7 @@
 <li><code>NETCOREAPP3_1</code> - <code>netcoreapp3.1</code> target ifdef</li>
 <li><code>NETSTANDARD2_0</code> - <code>netstandard2.0</code> target ifdef</li>
 <li><code>NET6_0</code> - <code>net6.0</code> target ifdef</li>
+<li><code>NET7_0</code> - <code>net7.0</code> target ifdef</li>
 <li><code>NET45</code> - <code>net45</code> target ifdef</li>
 <li><code>NET46</code> - <code>net46</code> target ifdef</li>
 <li><code>NET472</code> - <code>net472</code> target ifdef</li>
@@ -201,11 +202,12 @@
 <li><code>OVERRIDETOSTRING</code> - enables <code>ToString()</code> overrides for AST model (must be enabled in LinqToDB.csproj by renaming existing <code>OVERRIDETOSTRING1</code> define)</li>
 </ul>
 <h4 id="test-projects">Test projects</h4>
-<p>Tests targets: <code>net472</code>, <code>netcoreapp31</code>, <code>net6.0</code></p>
+<p>Tests targets: <code>net472</code>, <code>netcoreapp31</code>, <code>net6.0</code>, <code>net7.0</code></p>
 <p>Allowed target defines:</p>
 <ul>
 <li><code>NETCOREAPP3_1</code> - <code>netcoreapp3.1</code> target ifdef</li>
 <li><code>NET6_0</code> - <code>net6.0</code> target ifdef</li>
+<li><code>NET7_0</code> - <code>net7.0</code> target ifdef</li>
 <li><code>NET472</code> - <code>net472</code> target ifdef</li>
 <li><code>AZURE</code> - for Azure Pipelines CI builds</li>
 </ul>
@@ -215,7 +217,7 @@
 <li><code>.\Build.cmd</code> - builds all the projects in the solution for Debug, Release and Azure configurations</li>
 <li><code>.\Compile.cmd</code> - builds LinqToDB project for Debug and Release configurations</li>
 <li><code>.\Clean.cmd</code> - cleanups solution projects for Debug, Release and Azure configurations</li>
-<li><code>.\Test.cmd</code> - build <code>Debug</code> configuration and run tests for <code>net472</code>, <code>netcoreapp3.1</code> and <code>net6.0</code> targets. You can set other configuration by passing it as first parameter, disable test targets by passing 0 to second (for <code>net472</code>),  third (for <code>netcoreapp3.1</code>) or fourth (for <code>net6.0</code>) parameter and format (default:html) as 6th parameter.</li>
+<li><code>.\Test.cmd</code> - build <code>Debug</code> configuration and run tests for <code>net472</code>, <code>netcoreapp3.1</code>, <code>net6.0</code> and <code>net7.0</code> targets. You can set other configuration by passing it as first parameter, disable test targets by passing 0 to second (for <code>net472</code>),  third (for <code>netcoreapp3.1</code>), fourth (for <code>net6.0</code>) or fifth (for <code>net7.0</code>) parameter and format (default:html) as 7th parameter.</li>
 </ul>
 <p>Example of running <code>Release</code> build tests for <code>netcoreapp3.1</code> only with trx as output:</p>
 <pre><code>test.cmd Release 0 1 0 0 0 trx
@@ -345,6 +347,28 @@ list of providers to test.</p>
         ]
     },
 
+    // .net 7.0 test configuration
+    &quot;NET70&quot; :
+    {
+        &quot;BasedOn&quot;              : &quot;LocalConnectionStrings&quot;,
+        &quot;Providers&quot;            :
+        [
+            &quot;SQLite.MS&quot;,
+            &quot;Northwind.SQLite.MS&quot;,
+            &quot;SqlServer.2014&quot;,
+            &quot;SqlServer.2012&quot;,
+            &quot;SqlServer.2008&quot;,
+            &quot;SqlServer.2005&quot;,
+            &quot;SqlServer.Azure&quot;,
+            &quot;Firebird&quot;,
+            &quot;MySql&quot;,
+            &quot;MariaDB&quot;,
+            &quot;PostgreSQL&quot;,
+            &quot;SqlServer.Northwind&quot;,
+            &quot;TestNoopProvider&quot;
+        ]
+    },
+
     // list of connection strings for all providers
     &quot;LocalConnectionStrings&quot;:
     {
@@ -371,7 +395,8 @@ list of providers to test.</p>
 It builds solution, generate and publish nugets and runs tests for:<ul>
 <li>.Net 4.7.2</li>
 <li>.Net Core 3.1 (Windows, Linux and MacOS)</li>
-<li>.Net 6.0 (Windows, Linux and MacOS)
+<li>.Net 6.0 (Windows, Linux and MacOS)</li>
+<li>.Net 7.0 (Windows, Linux and MacOS)
 For more details check <a href="https://github.com/linq2db/linq2db/blob/master/Build/Azure/README.md">readme</a></li>
 </ul>
 </li>
