@@ -100,13 +100,13 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDB_IServiceCollection_Action_IServiceProvider_LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder__ServiceLifetime_.md&amp;value=---%0Auid%3A%20LinqToDB.AspNet.ServiceConfigurationExtensions.AddLinqToDB(IServiceCollection%2CAction%7BIServiceProvider%2CLinqToDB.Configuration.LinqToDBConnectionOptionsBuilder%7D%2CServiceLifetime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDB_IServiceCollection_Func_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__ServiceLifetime_.md&amp;value=---%0Auid%3A%20LinqToDB.AspNet.ServiceConfigurationExtensions.AddLinqToDB(IServiceCollection%2CFunc%7BIServiceProvider%2CLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D%2CServiceLifetime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.AspNet/ServiceConfigurationExtensions.cs/#L53">View Source</a>
   </span>
   <a id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDB_" data-uid="LinqToDB.AspNet.ServiceConfigurationExtensions.AddLinqToDB*"></a>
-  <h4 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDB_IServiceCollection_Action_IServiceProvider_LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder__ServiceLifetime_" data-uid="LinqToDB.AspNet.ServiceConfigurationExtensions.AddLinqToDB(IServiceCollection,Action{IServiceProvider,LinqToDB.Configuration.LinqToDBConnectionOptionsBuilder},ServiceLifetime)">AddLinqToDB(IServiceCollection, Action&lt;IServiceProvider, LinqToDBConnectionOptionsBuilder&gt;, ServiceLifetime)</h4>
+  <h4 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDB_IServiceCollection_Func_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__ServiceLifetime_" data-uid="LinqToDB.AspNet.ServiceConfigurationExtensions.AddLinqToDB(IServiceCollection,Func{IServiceProvider,LinqToDB.DataOptions,LinqToDB.DataOptions},ServiceLifetime)">AddLinqToDB(IServiceCollection, Func&lt;IServiceProvider, DataOptions, DataOptions&gt;, ServiceLifetime)</h4>
   <div class="markdown level1 summary"><p>Registers <a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a> as the service <a class="xref" href="LinqToDB.IDataContext.html">IDataContext</a> in the <see cref="!:IServiceCollection"></see>.
 You use this method when using dependency injection in your application, such as with ASP.NET.
 For more information on setting up dependency injection, see <a href="http://go.microsoft.com/fwlink/?LinkId=526890">http://go.microsoft.com/fwlink/?LinkId=526890</a>.</p>
@@ -114,7 +114,7 @@ For more information on setting up dependency injection, see <a href="http://go.
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IServiceCollection AddLinqToDB(this IServiceCollection serviceCollection, Action&lt;IServiceProvider, LinqToDBConnectionOptionsBuilder&gt; configure, ServiceLifetime lifetime = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IServiceCollection AddLinqToDB(this IServiceCollection serviceCollection, Func&lt;IServiceProvider, DataOptions, DataOptions&gt; configure, ServiceLifetime lifetime = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -133,10 +133,10 @@ For more information on setting up dependency injection, see <a href="http://go.
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Action</span>&lt;<span class="xref">IServiceProvider</span>, <a class="xref" href="LinqToDB.Configuration.LinqToDBConnectionOptionsBuilder.html">LinqToDBConnectionOptionsBuilder</a>&gt;</td>
+        <td><span class="xref">Func</span>&lt;<span class="xref">IServiceProvider</span>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
         <td><span class="parametername">configure</span></td>
         <td><p>
-    An action to configure the <a class="xref" href="LinqToDB.Configuration.LinqToDBConnectionOptionsBuilder.html">LinqToDBConnectionOptionsBuilder</a> for the context.
+    An action to configure the <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a> for the context.
 </p>
 </td>
       </tr>
@@ -165,17 +165,17 @@ For one connection per request use <see cref="!:ServiceLifetime.Scoped"></see> (
       </tr>
     </tbody>
   </table>
-  <h5 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDB_IServiceCollection_Action_IServiceProvider_LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder__ServiceLifetime__remarks">Remarks</h5>
+  <h5 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDB_IServiceCollection_Func_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__ServiceLifetime__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
     This will only work when you have 1 database connection across your whole application.
     If your application needs multiple different connections with different configurations
-    then use <a class="xref" href="LinqToDB.AspNet.ServiceConfigurationExtensions.html#LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__1_IServiceCollection_Action_IServiceProvider_LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder__ServiceLifetime_">AddLinqToDBContext&lt;TContext&gt;(IServiceCollection, Action&lt;IServiceProvider, LinqToDBConnectionOptionsBuilder&gt;, ServiceLifetime)</a> or <a class="xref" href="LinqToDB.AspNet.ServiceConfigurationExtensions.html#LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__2_IServiceCollection_Action_IServiceProvider_LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder__ServiceLifetime_">AddLinqToDBContext&lt;TContext, TContextImplementation&gt;(IServiceCollection, Action&lt;IServiceProvider, LinqToDBConnectionOptionsBuilder&gt;, ServiceLifetime)</a>.
+    then use <a class="xref" href="LinqToDB.AspNet.ServiceConfigurationExtensions.html#LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__1_IServiceCollection_Func_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__ServiceLifetime_">AddLinqToDBContext&lt;TContext&gt;(IServiceCollection, Func&lt;IServiceProvider, DataOptions, DataOptions&gt;, ServiceLifetime)</a> or <a class="xref" href="LinqToDB.AspNet.ServiceConfigurationExtensions.html#LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__2_IServiceCollection_Func_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__ServiceLifetime_">AddLinqToDBContext&lt;TContext, TContextImplementation&gt;(IServiceCollection, Func&lt;IServiceProvider, DataOptions, DataOptions&gt;, ServiceLifetime)</a>.
 </p>
 <p>
     To Resolve the connection inject <a class="xref" href="LinqToDB.IDataContext.html">IDataContext</a> into your services.
 </p>
 </div>
-  <h5 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDB_IServiceCollection_Action_IServiceProvider_LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder__ServiceLifetime__examples">Examples</h5>
+  <h5 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDB_IServiceCollection_Func_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__ServiceLifetime__examples">Examples</h5>
   <pre><code>      public void ConfigureServices(IServiceCollection services)
       {
           var connectionString = &quot;connection string to database&quot;;
@@ -187,13 +187,13 @@ For one connection per request use <see cref="!:ServiceLifetime.Scoped"></see> (
 
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__1_IServiceCollection_Action_IServiceProvider_LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder__ServiceLifetime_.md&amp;value=---%0Auid%3A%20LinqToDB.AspNet.ServiceConfigurationExtensions.AddLinqToDBContext%60%601(IServiceCollection%2CAction%7BIServiceProvider%2CLinqToDB.Configuration.LinqToDBConnectionOptionsBuilder%7D%2CServiceLifetime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__1_IServiceCollection_Func_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__ServiceLifetime_.md&amp;value=---%0Auid%3A%20LinqToDB.AspNet.ServiceConfigurationExtensions.AddLinqToDBContext%60%601(IServiceCollection%2CFunc%7BIServiceProvider%2CLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D%2CServiceLifetime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.AspNet/ServiceConfigurationExtensions.cs/#L104">View Source</a>
   </span>
   <a id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext_" data-uid="LinqToDB.AspNet.ServiceConfigurationExtensions.AddLinqToDBContext*"></a>
-  <h4 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__1_IServiceCollection_Action_IServiceProvider_LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder__ServiceLifetime_" data-uid="LinqToDB.AspNet.ServiceConfigurationExtensions.AddLinqToDBContext``1(IServiceCollection,Action{IServiceProvider,LinqToDB.Configuration.LinqToDBConnectionOptionsBuilder},ServiceLifetime)">AddLinqToDBContext&lt;TContext&gt;(IServiceCollection, Action&lt;IServiceProvider, LinqToDBConnectionOptionsBuilder&gt;, ServiceLifetime)</h4>
+  <h4 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__1_IServiceCollection_Func_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__ServiceLifetime_" data-uid="LinqToDB.AspNet.ServiceConfigurationExtensions.AddLinqToDBContext``1(IServiceCollection,Func{IServiceProvider,LinqToDB.DataOptions,LinqToDB.DataOptions},ServiceLifetime)">AddLinqToDBContext&lt;TContext&gt;(IServiceCollection, Func&lt;IServiceProvider, DataOptions, DataOptions&gt;, ServiceLifetime)</h4>
   <div class="markdown level1 summary"><p>Registers <code data-dev-comment-type="typeparamref" class="typeparamref">TContext</code> as a service in the <see cref="!:IServiceCollection"></see>.
 You use this method when using dependency injection in your application, such as with ASP.NET.
 For more information on setting up dependency injection, see <a href="http://go.microsoft.com/fwlink/?LinkId=526890">http://go.microsoft.com/fwlink/?LinkId=526890</a>.</p>
@@ -201,7 +201,7 @@ For more information on setting up dependency injection, see <a href="http://go.
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IServiceCollection AddLinqToDBContext&lt;TContext&gt;(this IServiceCollection serviceCollection, Action&lt;IServiceProvider, LinqToDBConnectionOptionsBuilder&gt; configure, ServiceLifetime lifetime = null)
+    <pre><code class="lang-csharp hljs">public static IServiceCollection AddLinqToDBContext&lt;TContext&gt;(this IServiceCollection serviceCollection, Func&lt;IServiceProvider, DataOptions, DataOptions&gt; configure, ServiceLifetime lifetime = null)
     where TContext : IDataContext</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -221,14 +221,14 @@ For more information on setting up dependency injection, see <a href="http://go.
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Action</span>&lt;<span class="xref">IServiceProvider</span>, <a class="xref" href="LinqToDB.Configuration.LinqToDBConnectionOptionsBuilder.html">LinqToDBConnectionOptionsBuilder</a>&gt;</td>
+        <td><span class="xref">Func</span>&lt;<span class="xref">IServiceProvider</span>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
         <td><span class="parametername">configure</span></td>
         <td><p>
-    An action to configure the <a class="xref" href="LinqToDB.Configuration.LinqToDBConnectionOptionsBuilder.html">LinqToDBConnectionOptionsBuilder</a> for the context.
+    An action to configure the <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a> for the context.
 </p>
 <p>
     In order for the options to be passed into your context, you need to expose a constructor on your context that takes
-<a class="xref" href="LinqToDB.Configuration.LinqToDBConnectionOptions-1.html">LinqToDBConnectionOptions&lt;T&gt;</a> and passes it to the base constructor of <a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a>.
+<a class="xref" href="LinqToDB.DataContextOptions.html">DataContextOptions</a> and passes it to the base constructor of <a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a>.
 </p>
 </td>
       </tr>
@@ -269,17 +269,17 @@ For one connection per request use <see cref="!:ServiceLifetime.Scoped"></see> (
       <tr>
         <td><span class="parametername">TContext</span></td>
         <td><p>The type of context to be registered. Must inherit from <a class="xref" href="LinqToDB.IDataContext.html">IDataContext</a>
-and expose a constructor that takes <a class="xref" href="LinqToDB.Configuration.LinqToDBConnectionOptions-1.html">LinqToDBConnectionOptions&lt;T&gt;</a> (where T is <code data-dev-comment-type="typeparamref" class="typeparamref">TContext</code>)
+and expose a constructor that takes <a class="xref" href="LinqToDB.DataContextOptions.html">DataContextOptions</a> (where T is <code data-dev-comment-type="typeparamref" class="typeparamref">TContext</code>)
 and passes it to the base constructor of <a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__1_IServiceCollection_Action_IServiceProvider_LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder__ServiceLifetime__remarks">Remarks</h5>
+  <h5 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__1_IServiceCollection_Func_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__ServiceLifetime__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This method should be used when a custom context is required or
 when multiple contexts with different configurations are required.</p>
 </div>
-  <h5 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__1_IServiceCollection_Action_IServiceProvider_LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder__ServiceLifetime__examples">Examples</h5>
+  <h5 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__1_IServiceCollection_Func_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__ServiceLifetime__examples">Examples</h5>
   <pre><code>      public void ConfigureServices(IServiceCollection services)
       {
           var connectionString = &quot;connection string to database&quot;;
@@ -291,13 +291,13 @@ when multiple contexts with different configurations are required.</p>
 
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__2_IServiceCollection_Action_IServiceProvider_LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder__ServiceLifetime_.md&amp;value=---%0Auid%3A%20LinqToDB.AspNet.ServiceConfigurationExtensions.AddLinqToDBContext%60%602(IServiceCollection%2CAction%7BIServiceProvider%2CLinqToDB.Configuration.LinqToDBConnectionOptionsBuilder%7D%2CServiceLifetime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__2_IServiceCollection_Func_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__ServiceLifetime_.md&amp;value=---%0Auid%3A%20LinqToDB.AspNet.ServiceConfigurationExtensions.AddLinqToDBContext%60%602(IServiceCollection%2CFunc%7BIServiceProvider%2CLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D%2CServiceLifetime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.AspNet/ServiceConfigurationExtensions.cs/#L159">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.AspNet/ServiceConfigurationExtensions.cs/#L160">View Source</a>
   </span>
   <a id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext_" data-uid="LinqToDB.AspNet.ServiceConfigurationExtensions.AddLinqToDBContext*"></a>
-  <h4 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__2_IServiceCollection_Action_IServiceProvider_LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder__ServiceLifetime_" data-uid="LinqToDB.AspNet.ServiceConfigurationExtensions.AddLinqToDBContext``2(IServiceCollection,Action{IServiceProvider,LinqToDB.Configuration.LinqToDBConnectionOptionsBuilder},ServiceLifetime)">AddLinqToDBContext&lt;TContext, TContextImplementation&gt;(IServiceCollection, Action&lt;IServiceProvider, LinqToDBConnectionOptionsBuilder&gt;, ServiceLifetime)</h4>
+  <h4 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__2_IServiceCollection_Func_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__ServiceLifetime_" data-uid="LinqToDB.AspNet.ServiceConfigurationExtensions.AddLinqToDBContext``2(IServiceCollection,Func{IServiceProvider,LinqToDB.DataOptions,LinqToDB.DataOptions},ServiceLifetime)">AddLinqToDBContext&lt;TContext, TContextImplementation&gt;(IServiceCollection, Func&lt;IServiceProvider, DataOptions, DataOptions&gt;, ServiceLifetime)</h4>
   <div class="markdown level1 summary"><p>Registers <code data-dev-comment-type="typeparamref" class="typeparamref">TContext</code> as a service in the <see cref="!:IServiceCollection"></see>.
 You use this method when using dependency injection in your application, such as with ASP.NET.
 For more information on setting up dependency injection, see <a href="http://go.microsoft.com/fwlink/?LinkId=526890">http://go.microsoft.com/fwlink/?LinkId=526890</a>.</p>
@@ -305,8 +305,8 @@ For more information on setting up dependency injection, see <a href="http://go.
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IServiceCollection AddLinqToDBContext&lt;TContext, TContextImplementation&gt;(this IServiceCollection serviceCollection, Action&lt;IServiceProvider, LinqToDBConnectionOptionsBuilder&gt; configure, ServiceLifetime lifetime = null)
-    where TContextImplementation : TContext, IDataContext</code></pre>
+    <pre><code class="lang-csharp hljs">public static IServiceCollection AddLinqToDBContext&lt;TContext, TContextImplementation&gt;(this IServiceCollection serviceCollection, Func&lt;IServiceProvider, DataOptions, DataOptions&gt; configure, ServiceLifetime lifetime = null)
+    where TContext : IDataContext where TContextImplementation : TContext, IDataContext</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -325,14 +325,14 @@ For more information on setting up dependency injection, see <a href="http://go.
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Action</span>&lt;<span class="xref">IServiceProvider</span>, <a class="xref" href="LinqToDB.Configuration.LinqToDBConnectionOptionsBuilder.html">LinqToDBConnectionOptionsBuilder</a>&gt;</td>
+        <td><span class="xref">Func</span>&lt;<span class="xref">IServiceProvider</span>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
         <td><span class="parametername">configure</span></td>
         <td><p>
-    An action to configure the <a class="xref" href="LinqToDB.Configuration.LinqToDBConnectionOptionsBuilder.html">LinqToDBConnectionOptionsBuilder</a> for the context.
+    An action to configure the <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a> for the context.
 </p>
 <p>
     In order for the options to be passed into your context, you need to expose a constructor on your context that takes
-<a class="xref" href="LinqToDB.Configuration.LinqToDBConnectionOptions-1.html">LinqToDBConnectionOptions&lt;T&gt;</a> and passes it to the base constructor of <a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a>.
+<a class="xref" href="LinqToDB.DataContextOptions.html">DataContextOptions</a> and passes it to the base constructor of <a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a>.
 </p>
 </td>
       </tr>
@@ -379,17 +379,17 @@ For one connection per request use <see cref="!:ServiceLifetime.Scoped"></see> (
         <td><span class="parametername">TContextImplementation</span></td>
         <td><p>The concrete implementation type used to fulfill requests for <code data-dev-comment-type="typeparamref" class="typeparamref">TContext</code> from the container.
 Must inherit from <a class="xref" href="LinqToDB.IDataContext.html">IDataContext</a> and <code data-dev-comment-type="typeparamref" class="typeparamref">TContext</code>
-and expose a constructor that takes <a class="xref" href="LinqToDB.Configuration.LinqToDBConnectionOptions-1.html">LinqToDBConnectionOptions&lt;T&gt;</a> (where T is <code data-dev-comment-type="typeparamref" class="typeparamref">TContextImplementation</code>)
+and expose a constructor that takes <a class="xref" href="LinqToDB.DataContextOptions.html">DataContextOptions</a> (where T is <code data-dev-comment-type="typeparamref" class="typeparamref">TContextImplementation</code>)
 and passes it to the base constructor of <a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__2_IServiceCollection_Action_IServiceProvider_LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder__ServiceLifetime__remarks">Remarks</h5>
+  <h5 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__2_IServiceCollection_Func_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__ServiceLifetime__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This method should be used when a custom context is required or
 when multiple contexts with different configurations are required.</p>
 </div>
-  <h5 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__2_IServiceCollection_Action_IServiceProvider_LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder__ServiceLifetime__examples">Examples</h5>
+  <h5 id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__2_IServiceCollection_Func_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__ServiceLifetime__examples">Examples</h5>
   <pre><code>      public void ConfigureServices(IServiceCollection services)
       {
           var connectionString = &quot;connection string to database&quot;;

@@ -97,6 +97,7 @@ or attached to existing connection or transaction.</p>
   <div class="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="LinqToDB.IDataContext.html">IDataContext</a></div>
+    <div><a class="xref" href="LinqToDB.Common.Internal.IConfigurationID.html">IConfigurationID</a></div>
     <div><span class="xref">IDisposable</span></div>
     <div><a class="xref" href="LinqToDB.Async.IAsyncDisposable.html">IAsyncDisposable</a></div>
     <div><span class="xref">ICloneable</span></div>
@@ -111,7 +112,7 @@ or attached to existing connection or transaction.</p>
   <h6><strong>Assembly</strong>: linq2db.dll</h6>
   <h5 id="LinqToDB_Data_DataConnection_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DataConnection : object, IDataContext, IAsyncDisposable, IInterceptable&lt;ICommandInterceptor&gt;, IInterceptable&lt;IConnectionInterceptor&gt;, IInterceptable&lt;IDataContextInterceptor&gt;, IInterceptable&lt;IEntityServiceInterceptor&gt;, IInterceptable&lt;IUnwrapDataObjectInterceptor&gt;, IInterceptable</code></pre>
+    <pre><code class="lang-csharp hljs">public class DataConnection : object, IDataContext, IConfigurationID, IAsyncDisposable, IInterceptable&lt;ICommandInterceptor&gt;, IInterceptable&lt;IConnectionInterceptor&gt;, IInterceptable&lt;IDataContextInterceptor&gt;, IInterceptable&lt;IEntityServiceInterceptor&gt;, IInterceptable&lt;IUnwrapDataObjectInterceptor&gt;, IInterceptable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -120,7 +121,7 @@ or attached to existing connection or transaction.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L38">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L34">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
   <h4 id="LinqToDB_Data_DataConnection__ctor" data-uid="LinqToDB.Data.DataConnection.#ctor">DataConnection()</h4>
@@ -133,19 +134,19 @@ or attached to existing connection or transaction.</p>
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_Configuration_LinqToDBConnectionOptions_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.Configuration.LinqToDBConnectionOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(Func%7BLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L226">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L41">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
-  <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_Configuration_LinqToDBConnectionOptions_" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.Configuration.LinqToDBConnectionOptions)">DataConnection(LinqToDBConnectionOptions)</h4>
-  <div class="markdown level1 summary"><p>Creates database connection object that uses a <a class="xref" href="LinqToDB.Configuration.LinqToDBConnectionOptions.html">LinqToDBConnectionOptions</a> to configure the connection.</p>
+  <h4 id="LinqToDB_Data_DataConnection__ctor_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__" data-uid="LinqToDB.Data.DataConnection.#ctor(Func{LinqToDB.DataOptions,LinqToDB.DataOptions})">DataConnection(Func&lt;DataOptions, DataOptions&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates database connection object that uses default connection configuration from <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_DefaultConfiguration">DefaultConfiguration</a> property.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DataConnection(LinqToDBConnectionOptions options)</code></pre>
+    <pre><code class="lang-csharp hljs">public DataConnection(Func&lt;DataOptions, DataOptions&gt; optionsSetter)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -158,7 +159,40 @@ or attached to existing connection or transaction.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LinqToDB.Configuration.LinqToDBConnectionOptions.html">LinqToDBConnectionOptions</a></td>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
+        <td><span class="parametername">optionsSetter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataOptions_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L418">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
+  <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataOptions_" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataOptions)">DataConnection(DataOptions)</h4>
+  <div class="markdown level1 summary"><p>Creates database connection object that uses a <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a> to configure the connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataConnection(DataOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a></td>
         <td><span class="parametername">options</span></td>
         <td><p>Options, setup ahead of time.</p>
 </td>
@@ -170,7 +204,7 @@ or attached to existing connection or transaction.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbConnection_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CDbConnection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L170">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L307">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
   <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbConnection_" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,DbConnection)">DataConnection(IDataProvider, DbConnection)</h4>
@@ -210,10 +244,58 @@ or attached to existing connection or transaction.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbConnection_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CDbConnection%2CFunc%7BLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L322">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
+  <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbConnection_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,DbConnection,Func{LinqToDB.DataOptions,LinqToDB.DataOptions})">DataConnection(IDataProvider, DbConnection, Func&lt;DataOptions, DataOptions&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates database connection object that uses specified database provider and connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataConnection(IDataProvider dataProvider, DbConnection connection, Func&lt;DataOptions, DataOptions&gt; optionsSetter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a></td>
+        <td><span class="parametername">dataProvider</span></td>
+        <td><p>Database provider implementation to use with this connection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DbConnection</span></td>
+        <td><span class="parametername">connection</span></td>
+        <td><p>Existing database connection to use.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
+        <td><span class="parametername">optionsSetter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbConnection_Func_LinqToDB_DataOptions_LinqToDB_DataOptions___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><code data-dev-comment-type="paramref" class="paramref">connection</code> would not be disposed.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbConnection_LinqToDB_Mapping_MappingSchema_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CDbConnection%2CLinqToDB.Mapping.MappingSchema)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L154">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L276">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
   <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbConnection_LinqToDB_Mapping_MappingSchema_" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,DbConnection,LinqToDB.Mapping.MappingSchema)">DataConnection(IDataProvider, DbConnection, MappingSchema)</h4>
@@ -256,10 +338,61 @@ or attached to existing connection or transaction.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbConnection_LinqToDB_Mapping_MappingSchema_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CDbConnection%2CLinqToDB.Mapping.MappingSchema%2CFunc%7BLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L290">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
+  <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbConnection_LinqToDB_Mapping_MappingSchema_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,DbConnection,LinqToDB.Mapping.MappingSchema,Func{LinqToDB.DataOptions,LinqToDB.DataOptions})">DataConnection(IDataProvider, DbConnection, MappingSchema, Func&lt;DataOptions, DataOptions&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates database connection object that uses specified database provider, connection and mapping schema.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataConnection(IDataProvider dataProvider, DbConnection connection, MappingSchema mappingSchema, Func&lt;DataOptions, DataOptions&gt; optionsSetter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a></td>
+        <td><span class="parametername">dataProvider</span></td>
+        <td><p>Database provider implementation to use with this connection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DbConnection</span></td>
+        <td><span class="parametername">connection</span></td>
+        <td><p>Existing database connection to use.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></td>
+        <td><span class="parametername">mappingSchema</span></td>
+        <td><p>Mapping schema to use with this connection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
+        <td><span class="parametername">optionsSetter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbConnection_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CDbConnection%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L184">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L336">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
   <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbConnection_System_Boolean_" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,DbConnection,System.Boolean)">DataConnection(IDataProvider, DbConnection, Boolean)</h4>
@@ -302,10 +435,61 @@ or attached to existing connection or transaction.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbConnection_System_Boolean_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CDbConnection%2CSystem.Boolean%2CFunc%7BLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L350">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
+  <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbConnection_System_Boolean_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,DbConnection,System.Boolean,Func{LinqToDB.DataOptions,LinqToDB.DataOptions})">DataConnection(IDataProvider, DbConnection, Boolean, Func&lt;DataOptions, DataOptions&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates database connection object that uses specified database provider and connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataConnection(IDataProvider dataProvider, DbConnection connection, bool disposeConnection, Func&lt;DataOptions, DataOptions&gt; optionsSetter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a></td>
+        <td><span class="parametername">dataProvider</span></td>
+        <td><p>Database provider implementation to use with this connection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DbConnection</span></td>
+        <td><span class="parametername">connection</span></td>
+        <td><p>Existing database connection to use.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">disposeConnection</span></td>
+        <td><p>If true <code data-dev-comment-type="paramref" class="paramref">connection</code> would be disposed on DataConnection disposing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
+        <td><span class="parametername">optionsSetter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbTransaction_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CDbTransaction)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L211">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L393">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
   <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbTransaction_" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,DbTransaction)">DataConnection(IDataProvider, DbTransaction)</h4>
@@ -342,10 +526,55 @@ or attached to existing connection or transaction.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbTransaction_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CDbTransaction%2CFunc%7BLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L405">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
+  <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbTransaction_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,DbTransaction,Func{LinqToDB.DataOptions,LinqToDB.DataOptions})">DataConnection(IDataProvider, DbTransaction, Func&lt;DataOptions, DataOptions&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates database connection object that uses specified database provider and transaction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataConnection(IDataProvider dataProvider, DbTransaction transaction, Func&lt;DataOptions, DataOptions&gt; optionsSetter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a></td>
+        <td><span class="parametername">dataProvider</span></td>
+        <td><p>Database provider implementation to use with this connection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DbTransaction</span></td>
+        <td><span class="parametername">transaction</span></td>
+        <td><p>Existing database transaction to use.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
+        <td><span class="parametername">optionsSetter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbTransaction_LinqToDB_Mapping_MappingSchema_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CDbTransaction%2CLinqToDB.Mapping.MappingSchema)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L198">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L365">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
   <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbTransaction_LinqToDB_Mapping_MappingSchema_" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,DbTransaction,LinqToDB.Mapping.MappingSchema)">DataConnection(IDataProvider, DbTransaction, MappingSchema)</h4>
@@ -388,10 +617,61 @@ or attached to existing connection or transaction.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbTransaction_LinqToDB_Mapping_MappingSchema_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CDbTransaction%2CLinqToDB.Mapping.MappingSchema%2CFunc%7BLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L379">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
+  <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_DbTransaction_LinqToDB_Mapping_MappingSchema_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,DbTransaction,LinqToDB.Mapping.MappingSchema,Func{LinqToDB.DataOptions,LinqToDB.DataOptions})">DataConnection(IDataProvider, DbTransaction, MappingSchema, Func&lt;DataOptions, DataOptions&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates database connection object that uses specified database provider, transaction and mapping schema.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataConnection(IDataProvider dataProvider, DbTransaction transaction, MappingSchema mappingSchema, Func&lt;DataOptions, DataOptions&gt; optionsSetter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a></td>
+        <td><span class="parametername">dataProvider</span></td>
+        <td><p>Database provider implementation to use with this connection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DbTransaction</span></td>
+        <td><span class="parametername">transaction</span></td>
+        <td><p>Existing database transaction to use.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></td>
+        <td><span class="parametername">mappingSchema</span></td>
+        <td><p>Mapping schema to use with this connection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
+        <td><span class="parametername">optionsSetter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_Func_DbConnection__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CFunc%7BDbConnection%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L141">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L250">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
   <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_Func_DbConnection__" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,Func{DbConnection})">DataConnection(IDataProvider, Func&lt;DbConnection&gt;)</h4>
@@ -428,10 +708,55 @@ or attached to existing connection or transaction.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_Func_DbConnection__Func_LinqToDB_DataOptions_LinqToDB_DataOptions__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CFunc%7BDbConnection%7D%2CFunc%7BLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L262">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
+  <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_Func_DbConnection__Func_LinqToDB_DataOptions_LinqToDB_DataOptions__" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,Func{DbConnection},Func{LinqToDB.DataOptions,LinqToDB.DataOptions})">DataConnection(IDataProvider, Func&lt;DbConnection&gt;, Func&lt;DataOptions, DataOptions&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates database connection object that uses specified database provider and connection factory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataConnection(IDataProvider dataProvider, Func&lt;DbConnection&gt; connectionFactory, Func&lt;DataOptions, DataOptions&gt; optionsSetter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a></td>
+        <td><span class="parametername">dataProvider</span></td>
+        <td><p>Database provider implementation to use with this connection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">DbConnection</span>&gt;</td>
+        <td><span class="parametername">connectionFactory</span></td>
+        <td><p>Database connection factory method.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
+        <td><span class="parametername">optionsSetter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_Func_DbConnection__LinqToDB_Mapping_MappingSchema_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CFunc%7BDbConnection%7D%2CLinqToDB.Mapping.MappingSchema)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L128">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L222">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
   <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_Func_DbConnection__LinqToDB_Mapping_MappingSchema_" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,Func{DbConnection},LinqToDB.Mapping.MappingSchema)">DataConnection(IDataProvider, Func&lt;DbConnection&gt;, MappingSchema)</h4>
@@ -474,10 +799,61 @@ or attached to existing connection or transaction.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_Func_DbConnection__LinqToDB_Mapping_MappingSchema_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CFunc%7BDbConnection%7D%2CLinqToDB.Mapping.MappingSchema%2CFunc%7BLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L236">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
+  <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_Func_DbConnection__LinqToDB_Mapping_MappingSchema_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,Func{DbConnection},LinqToDB.Mapping.MappingSchema,Func{LinqToDB.DataOptions,LinqToDB.DataOptions})">DataConnection(IDataProvider, Func&lt;DbConnection&gt;, MappingSchema, Func&lt;DataOptions, DataOptions&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates database connection object that uses specified database provider, connection factory and mapping schema.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataConnection(IDataProvider dataProvider, Func&lt;DbConnection&gt; connectionFactory, MappingSchema mappingSchema, Func&lt;DataOptions, DataOptions&gt; optionsSetter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a></td>
+        <td><span class="parametername">dataProvider</span></td>
+        <td><p>Database provider implementation to use with this connection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">DbConnection</span>&gt;</td>
+        <td><span class="parametername">connectionFactory</span></td>
+        <td><p>Database connection factory method.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></td>
+        <td><span class="parametername">mappingSchema</span></td>
+        <td><p>Mapping schema to use with this connection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
+        <td><span class="parametername">optionsSetter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L115">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L196">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
   <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_System_String_" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,System.String)">DataConnection(IDataProvider, String)</h4>
@@ -514,10 +890,55 @@ or attached to existing connection or transaction.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_System_String_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CSystem.String%2CFunc%7BLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L208">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
+  <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_System_String_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,System.String,Func{LinqToDB.DataOptions,LinqToDB.DataOptions})">DataConnection(IDataProvider, String, Func&lt;DataOptions, DataOptions&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates database connection object that uses specified database provider and connection string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataConnection(IDataProvider dataProvider, string connectionString, Func&lt;DataOptions, DataOptions&gt; optionsSetter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a></td>
+        <td><span class="parametername">dataProvider</span></td>
+        <td><p>Database provider implementation to use with this connection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">connectionString</span></td>
+        <td><p>Database connection string to use for connection with database.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
+        <td><span class="parametername">optionsSetter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_System_String_LinqToDB_Mapping_MappingSchema_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CSystem.String%2CLinqToDB.Mapping.MappingSchema)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L102">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L168">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
   <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_System_String_LinqToDB_Mapping_MappingSchema_" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,System.String,LinqToDB.Mapping.MappingSchema)">DataConnection(IDataProvider, String, MappingSchema)</h4>
@@ -560,10 +981,61 @@ or attached to existing connection or transaction.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_System_String_LinqToDB_Mapping_MappingSchema_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.DataProvider.IDataProvider%2CSystem.String%2CLinqToDB.Mapping.MappingSchema%2CFunc%7BLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L182">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
+  <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_DataProvider_IDataProvider_System_String_LinqToDB_Mapping_MappingSchema_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.DataProvider.IDataProvider,System.String,LinqToDB.Mapping.MappingSchema,Func{LinqToDB.DataOptions,LinqToDB.DataOptions})">DataConnection(IDataProvider, String, MappingSchema, Func&lt;DataOptions, DataOptions&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates database connection object that uses specified database provider, connection string and mapping schema.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataConnection(IDataProvider dataProvider, string connectionString, MappingSchema mappingSchema, Func&lt;DataOptions, DataOptions&gt; optionsSetter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a></td>
+        <td><span class="parametername">dataProvider</span></td>
+        <td><p>Database provider implementation to use with this connection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">connectionString</span></td>
+        <td><p>Database connection string to use for connection with database.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></td>
+        <td><span class="parametername">mappingSchema</span></td>
+        <td><p>Mapping schema to use with this connection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
+        <td><span class="parametername">optionsSetter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_Mapping_MappingSchema_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.Mapping.MappingSchema)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L45">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L73">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
   <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_Mapping_MappingSchema_" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.Mapping.MappingSchema)">DataConnection(MappingSchema)</h4>
@@ -594,10 +1066,49 @@ or attached to existing connection or transaction.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_LinqToDB_Mapping_MappingSchema_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(LinqToDB.Mapping.MappingSchema%2CFunc%7BLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L81">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
+  <h4 id="LinqToDB_Data_DataConnection__ctor_LinqToDB_Mapping_MappingSchema_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__" data-uid="LinqToDB.Data.DataConnection.#ctor(LinqToDB.Mapping.MappingSchema,Func{LinqToDB.DataOptions,LinqToDB.DataOptions})">DataConnection(MappingSchema, Func&lt;DataOptions, DataOptions&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates database connection object that uses default connection configuration from <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_DefaultConfiguration">DefaultConfiguration</a> property and provided mapping schema.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataConnection(MappingSchema mappingSchema, Func&lt;DataOptions, DataOptions&gt; optionsSetter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></td>
+        <td><span class="parametername">mappingSchema</span></td>
+        <td><p>Mapping schema to use with this connection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
+        <td><span class="parametername">optionsSetter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(System.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L65">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L50">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
   <h4 id="LinqToDB_Data_DataConnection__ctor_System_Nullable_System_String__" data-uid="LinqToDB.Data.DataConnection.#ctor(System.Nullable{System.String})">DataConnection(Nullable&lt;String&gt;)</h4>
@@ -629,10 +1140,50 @@ In case of <code>null</code>, configuration from <a class="xref" href="LinqToDB.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_System_Nullable_System_String__Func_LinqToDB_DataOptions_LinqToDB_DataOptions__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(System.Nullable%7BSystem.String%7D%2CFunc%7BLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L62">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
+  <h4 id="LinqToDB_Data_DataConnection__ctor_System_Nullable_System_String__Func_LinqToDB_DataOptions_LinqToDB_DataOptions__" data-uid="LinqToDB.Data.DataConnection.#ctor(System.Nullable{System.String},Func{LinqToDB.DataOptions,LinqToDB.DataOptions})">DataConnection(Nullable&lt;String&gt;, Func&lt;DataOptions, DataOptions&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates database connection object that uses provided connection configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataConnection(string? configurationString, Func&lt;DataOptions, DataOptions&gt; optionsSetter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">configurationString</span></td>
+        <td><p>Name of database connection configuration to use with this connection.
+In case of <code>null</code>, configuration from <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_DefaultConfiguration">DefaultConfiguration</a> property will be used.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
+        <td><span class="parametername">optionsSetter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_System_Nullable_System_String__LinqToDB_Mapping_MappingSchema_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(System.Nullable%7BSystem.String%7D%2CLinqToDB.Mapping.MappingSchema)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L55">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L92">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
   <h4 id="LinqToDB_Data_DataConnection__ctor_System_Nullable_System_String__LinqToDB_Mapping_MappingSchema_" data-uid="LinqToDB.Data.DataConnection.#ctor(System.Nullable{System.String},LinqToDB.Mapping.MappingSchema)">DataConnection(Nullable&lt;String&gt;, MappingSchema)</h4>
@@ -670,10 +1221,56 @@ In case of null, configuration from <a class="xref" href="LinqToDB.Data.DataConn
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_System_Nullable_System_String__LinqToDB_Mapping_MappingSchema_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(System.Nullable%7BSystem.String%7D%2CLinqToDB.Mapping.MappingSchema%2CFunc%7BLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L103">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
+  <h4 id="LinqToDB_Data_DataConnection__ctor_System_Nullable_System_String__LinqToDB_Mapping_MappingSchema_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__" data-uid="LinqToDB.Data.DataConnection.#ctor(System.Nullable{System.String},LinqToDB.Mapping.MappingSchema,Func{LinqToDB.DataOptions,LinqToDB.DataOptions})">DataConnection(Nullable&lt;String&gt;, MappingSchema, Func&lt;DataOptions, DataOptions&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates database connection object that uses provided connection configuration and mapping schema.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataConnection(string? configurationString, MappingSchema mappingSchema, Func&lt;DataOptions, DataOptions&gt; optionsSetter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">configurationString</span></td>
+        <td><p>Name of database connection configuration to use with this connection.
+In case of null, configuration from <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_DefaultConfiguration">DefaultConfiguration</a> property will be used.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></td>
+        <td><span class="parametername">mappingSchema</span></td>
+        <td><p>Mapping schema to use with this connection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
+        <td><span class="parametername">optionsSetter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_System_String_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L89">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L142">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
   <h4 id="LinqToDB_Data_DataConnection__ctor_System_String_System_String_" data-uid="LinqToDB.Data.DataConnection.#ctor(System.String,System.String)">DataConnection(String, String)</h4>
@@ -710,10 +1307,55 @@ In case of null, configuration from <a class="xref" href="LinqToDB.Data.DataConn
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_System_String_System_String_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(System.String%2CSystem.String%2CFunc%7BLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L154">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
+  <h4 id="LinqToDB_Data_DataConnection__ctor_System_String_System_String_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__" data-uid="LinqToDB.Data.DataConnection.#ctor(System.String,System.String,Func{LinqToDB.DataOptions,LinqToDB.DataOptions})">DataConnection(String, String, Func&lt;DataOptions, DataOptions&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates database connection object that uses specified database provider and connection string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataConnection(string providerName, string connectionString, Func&lt;DataOptions, DataOptions&gt; optionsSetter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">providerName</span></td>
+        <td><p>Name of database provider to use with this connection. <a class="xref" href="LinqToDB.ProviderName.html">ProviderName</a> class for list of providers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">connectionString</span></td>
+        <td><p>Database connection string to use for connection with database.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
+        <td><span class="parametername">optionsSetter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_System_String_System_String_LinqToDB_Mapping_MappingSchema_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(System.String%2CSystem.String%2CLinqToDB.Mapping.MappingSchema)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L76">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L114">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
   <h4 id="LinqToDB_Data_DataConnection__ctor_System_String_System_String_LinqToDB_Mapping_MappingSchema_" data-uid="LinqToDB.Data.DataConnection.#ctor(System.String,System.String,LinqToDB.Mapping.MappingSchema)">DataConnection(String, String, MappingSchema)</h4>
@@ -754,6 +1396,57 @@ In case of null, configuration from <a class="xref" href="LinqToDB.Data.DataConn
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection__ctor_System_String_System_String_LinqToDB_Mapping_MappingSchema_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.%23ctor(System.String%2CSystem.String%2CLinqToDB.Mapping.MappingSchema%2CFunc%7BLinqToDB.DataOptions%2CLinqToDB.DataOptions%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L128">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection__ctor_" data-uid="LinqToDB.Data.DataConnection.#ctor*"></a>
+  <h4 id="LinqToDB_Data_DataConnection__ctor_System_String_System_String_LinqToDB_Mapping_MappingSchema_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__" data-uid="LinqToDB.Data.DataConnection.#ctor(System.String,System.String,LinqToDB.Mapping.MappingSchema,Func{LinqToDB.DataOptions,LinqToDB.DataOptions})">DataConnection(String, String, MappingSchema, Func&lt;DataOptions, DataOptions&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates database connection object that uses specified database provider, connection string and mapping schema.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataConnection(string providerName, string connectionString, MappingSchema mappingSchema, Func&lt;DataOptions, DataOptions&gt; optionsSetter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">providerName</span></td>
+        <td><p>Name of database provider to use with this connection. <a class="xref" href="LinqToDB.ProviderName.html">ProviderName</a> class for list of providers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">connectionString</span></td>
+        <td><p>Database connection string to use for connection with database.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></td>
+        <td><span class="parametername">mappingSchema</span></td>
+        <td><p>Mapping schema to use with this connection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</td>
+        <td><span class="parametername">optionsSetter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="fields">Fields
   </h3>
   <span class="small pull-right mobile-hide">
@@ -761,11 +1454,11 @@ In case of null, configuration from <a class="xref" href="LinqToDB.Data.DataConn
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_WriteTraceLine.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.WriteTraceLine%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L637">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L627">View Source</a>
   </span>
   <h4 id="LinqToDB_Data_DataConnection_WriteTraceLine" data-uid="LinqToDB.Data.DataConnection.WriteTraceLine">WriteTraceLine</h4>
   <div class="markdown level1 summary"><p>Trace function. By Default use <see cref="!:Debug"></see> class for logging, but could be replaced to log e.g. to your log file.
-will be ignored if <a class="xref" href="LinqToDB.Configuration.LinqToDBConnectionOptionsBuilder.html#LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder_WriteTraceWith_Action_System_Nullable_System_String__System_Nullable_System_String__TraceLevel__">WriteTraceWith(Action&lt;Nullable&lt;String&gt;, Nullable&lt;String&gt;, TraceLevel&gt;)</a> is called on builder
+will be ignored if <a class="xref" href="LinqToDB.DataOptionsExtensions.html#LinqToDB_DataOptionsExtensions_UseTraceWith_LinqToDB_DataOptions_Action_System_Nullable_System_String__System_Nullable_System_String__TraceLevel__">UseTraceWith(DataOptions, Action&lt;Nullable&lt;String&gt;, Nullable&lt;String&gt;, TraceLevel&gt;)</a> is called on builder
 <p>First parameter contains trace message.</p>
 <p>Second parameter contains trace message category (<see cref="!:Switch.DisplayName"></see>).</p>
 <p>Third parameter contains trace level for message (<see cref="!:TraceLevel"></see>).</p>
@@ -799,7 +1492,7 @@ will be ignored if <a class="xref" href="LinqToDB.Configuration.LinqToDBConnecti
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_CommandTimeout.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.CommandTimeout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1230">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L784">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_CommandTimeout_" data-uid="LinqToDB.Data.DataConnection.CommandTimeout*"></a>
   <h4 id="LinqToDB_Data_DataConnection_CommandTimeout" data-uid="LinqToDB.Data.DataConnection.CommandTimeout">CommandTimeout</h4>
@@ -833,7 +1526,7 @@ By default timeout is not set and default value for current provider used.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_ConfigurationString.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.ConfigurationString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L391">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L440">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_ConfigurationString_" data-uid="LinqToDB.Data.DataConnection.ConfigurationString*"></a>
   <h4 id="LinqToDB_Data_DataConnection_ConfigurationString" data-uid="LinqToDB.Data.DataConnection.ConfigurationString">ConfigurationString</h4>
@@ -864,7 +1557,7 @@ By default timeout is not set and default value for current provider used.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_Connection.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.Connection%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1095">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L649">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_Connection_" data-uid="LinqToDB.Data.DataConnection.Connection*"></a>
   <h4 id="LinqToDB_Data_DataConnection_Connection" data-uid="LinqToDB.Data.DataConnection.Connection">Connection</h4>
@@ -895,7 +1588,7 @@ By default timeout is not set and default value for current provider used.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_ConnectionString.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.ConnectionString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L399">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L448">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_ConnectionString_" data-uid="LinqToDB.Data.DataConnection.ConnectionString*"></a>
   <h4 id="LinqToDB_Data_DataConnection_ConnectionString" data-uid="LinqToDB.Data.DataConnection.ConnectionString">ConnectionString</h4>
@@ -926,7 +1619,7 @@ By default timeout is not set and default value for current provider used.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_DataProvider.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.DataProvider%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L395">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L444">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_DataProvider_" data-uid="LinqToDB.Data.DataConnection.DataProvider*"></a>
   <h4 id="LinqToDB_Data_DataConnection_DataProvider" data-uid="LinqToDB.Data.DataConnection.DataProvider">DataProvider</h4>
@@ -957,11 +1650,15 @@ By default timeout is not set and default value for current provider used.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_DefaultConfiguration.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.DefaultConfiguration%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L449">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L451">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_DefaultConfiguration_" data-uid="LinqToDB.Data.DataConnection.DefaultConfiguration*"></a>
   <h4 id="LinqToDB_Data_DataConnection_DefaultConfiguration" data-uid="LinqToDB.Data.DataConnection.DefaultConfiguration">DefaultConfiguration</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets default connection configuration name. Used by <a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a> by default and could be set automatically from:
+<p> - <a class="xref" href="LinqToDB.Configuration.ILinqToDBSettings.html#LinqToDB_Configuration_ILinqToDBSettings_DefaultConfiguration">DefaultConfiguration</a>;</p>
+<p> - first non-global connection string name from <a class="xref" href="LinqToDB.Configuration.ILinqToDBSettings.html#LinqToDB_Configuration_ILinqToDBSettings_ConnectionStrings">ConnectionStrings</a>;</p>
+<p> - first non-global connection string name passed to <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_SetConnectionStrings_IEnumerable_LinqToDB_Configuration_IConnectionStringSettings__">SetConnectionStrings(IEnumerable&lt;IConnectionStringSettings&gt;)</a> method.</p></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -982,16 +1679,22 @@ By default timeout is not set and default value for current provider used.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="LinqToDB_Data_DataConnection_DefaultConfiguration_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_DefaultConfiguration">DefaultConfiguration</a></div>
+  </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_DefaultDataProvider.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.DefaultDataProvider%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L461">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L466">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_DefaultDataProvider_" data-uid="LinqToDB.Data.DataConnection.DefaultDataProvider*"></a>
   <h4 id="LinqToDB_Data_DataConnection_DefaultDataProvider" data-uid="LinqToDB.Data.DataConnection.DefaultDataProvider">DefaultDataProvider</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets name of default data provider, used by new connection if user didn&apos;t specified provider explicitly in constructor or in connection options.
+Initialized with value from <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_DefaultSettings">DefaultSettings</a>.<a class="xref" href="LinqToDB.Configuration.ILinqToDBSettings.html#LinqToDB_Configuration_ILinqToDBSettings_DefaultDataProvider">DefaultDataProvider</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1012,12 +1715,16 @@ By default timeout is not set and default value for current provider used.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="LinqToDB_Data_DataConnection_DefaultDataProvider_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_DefaultConfiguration">DefaultConfiguration</a></div>
+  </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_DefaultSettings.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.DefaultSettings%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L656">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L37">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_DefaultSettings_" data-uid="LinqToDB.Data.DataConnection.DefaultSettings*"></a>
   <h4 id="LinqToDB_Data_DataConnection_DefaultSettings" data-uid="LinqToDB.Data.DataConnection.DefaultSettings">DefaultSettings</h4>
@@ -1049,7 +1756,7 @@ By default timeout is not set and default value for current provider used.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_Disposed.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.Disposed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1905">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1461">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_Disposed_" data-uid="LinqToDB.Data.DataConnection.Disposed*"></a>
   <h4 id="LinqToDB_Data_DataConnection_Disposed" data-uid="LinqToDB.Data.DataConnection.Disposed">Disposed</h4>
@@ -1076,41 +1783,10 @@ By default timeout is not set and default value for current provider used.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_ID.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.ID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L410">View Source</a>
-  </span>
-  <a id="LinqToDB_Data_DataConnection_ID_" data-uid="LinqToDB.Data.DataConnection.ID*"></a>
-  <h4 id="LinqToDB_Data_DataConnection_ID" data-uid="LinqToDB.Data.DataConnection.ID">ID</h4>
-  <div class="markdown level1 summary"><p>For internal use only.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int ID { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_InlineParameters.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.InlineParameters%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1829">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1384">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_InlineParameters_" data-uid="LinqToDB.Data.DataConnection.InlineParameters*"></a>
   <h4 id="LinqToDB_Data_DataConnection_InlineParameters" data-uid="LinqToDB.Data.DataConnection.InlineParameters">InlineParameters</h4>
@@ -1142,7 +1818,7 @@ for specific value type, it will be used as parameter.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_IsMarsEnabled.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.IsMarsEnabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L430">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L459">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_IsMarsEnabled_" data-uid="LinqToDB.Data.DataConnection.IsMarsEnabled*"></a>
   <h4 id="LinqToDB_Data_DataConnection_IsMarsEnabled" data-uid="LinqToDB.Data.DataConnection.IsMarsEnabled">IsMarsEnabled</h4>
@@ -1174,7 +1850,7 @@ SQL Azure and SQL Server 2005+.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_LastQuery.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.LastQuery%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1202">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L756">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_LastQuery_" data-uid="LinqToDB.Data.DataConnection.LastQuery*"></a>
   <h4 id="LinqToDB_Data_DataConnection_LastQuery" data-uid="LinqToDB.Data.DataConnection.LastQuery">LastQuery</h4>
@@ -1205,7 +1881,7 @@ SQL Azure and SQL Server 2005+.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_MappingSchema.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.MappingSchema%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1823">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1378">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_MappingSchema_" data-uid="LinqToDB.Data.DataConnection.MappingSchema*"></a>
   <h4 id="LinqToDB_Data_DataConnection_MappingSchema" data-uid="LinqToDB.Data.DataConnection.MappingSchema">MappingSchema</h4>
@@ -1236,7 +1912,7 @@ SQL Azure and SQL Server 2005+.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_NextQueryHints.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.NextQueryHints%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1841">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1396">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_NextQueryHints_" data-uid="LinqToDB.Data.DataConnection.NextQueryHints*"></a>
   <h4 id="LinqToDB_Data_DataConnection_NextQueryHints" data-uid="LinqToDB.Data.DataConnection.NextQueryHints">NextQueryHints</h4>
@@ -1264,20 +1940,18 @@ SQL Azure and SQL Server 2005+.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_OnTrace.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.OnTrace%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_OnRemoveInterceptor.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.OnRemoveInterceptor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L472">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Interceptors.cs/#L57">View Source</a>
   </span>
-  <a id="LinqToDB_Data_DataConnection_OnTrace_" data-uid="LinqToDB.Data.DataConnection.OnTrace*"></a>
-  <h4 id="LinqToDB_Data_DataConnection_OnTrace" data-uid="LinqToDB.Data.DataConnection.OnTrace">OnTrace</h4>
-  <div class="markdown level1 summary"><p>Sets trace handler, used for all new connections unless overriden in <a class="xref" href="LinqToDB.Configuration.LinqToDBConnectionOptions.html">LinqToDBConnectionOptions</a>
-defaults to calling <span class="xref">LinqToDB.Data.DataConnection.OnTraceInternal(LinqToDB.Data.TraceInfo)</span>.</p>
-</div>
+  <a id="LinqToDB_Data_DataConnection_OnRemoveInterceptor_" data-uid="LinqToDB.Data.DataConnection.OnRemoveInterceptor*"></a>
+  <h4 id="LinqToDB_Data_DataConnection_OnRemoveInterceptor" data-uid="LinqToDB.Data.DataConnection.OnRemoveInterceptor">OnRemoveInterceptor</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Action&lt;TraceInfo&gt; OnTrace { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Action&lt;IInterceptor&gt;? OnRemoveInterceptor { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1289,7 +1963,7 @@ defaults to calling <span class="xref">LinqToDB.Data.DataConnection.OnTraceInter
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Action</span>&lt;<a class="xref" href="LinqToDB.Data.TraceInfo.html">TraceInfo</a>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Action</span>&lt;<a class="xref" href="LinqToDB.Interceptors.IInterceptor.html">IInterceptor</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1299,13 +1973,13 @@ defaults to calling <span class="xref">LinqToDB.Data.DataConnection.OnTraceInter
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_OnTraceConnection.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.OnTraceConnection%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L489">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L480">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_OnTraceConnection_" data-uid="LinqToDB.Data.DataConnection.OnTraceConnection*"></a>
   <h4 id="LinqToDB_Data_DataConnection_OnTraceConnection" data-uid="LinqToDB.Data.DataConnection.OnTraceConnection">OnTraceConnection</h4>
   <div class="markdown level1 summary"><p>Gets or sets trace handler, used for current connection instance.
-Configured on the connection builder using <a class="xref" href="LinqToDB.Configuration.LinqToDBConnectionOptionsBuilder.html#LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder_WithTracing_Action_LinqToDB_Data_TraceInfo__">WithTracing(Action&lt;TraceInfo&gt;)</a>.
-defaults to <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_OnTrace">OnTrace</a>.</p>
+Configured on the connection builder using <a class="xref" href="LinqToDB.DataOptionsExtensions.html#LinqToDB_DataOptionsExtensions_UseTracing_LinqToDB_DataOptions_Action_LinqToDB_Data_TraceInfo__">UseTracing(DataOptions, Action&lt;TraceInfo&gt;)</a>.
+defaults to <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_WriteTraceLineConnection">WriteTraceLineConnection</a> calls.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1329,10 +2003,41 @@ defaults to <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Dat
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_Options.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.Options%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L435">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection_Options_" data-uid="LinqToDB.Data.DataConnection.Options*"></a>
+  <h4 id="LinqToDB_Data_DataConnection_Options" data-uid="LinqToDB.Data.DataConnection.Options">Options</h4>
+  <div class="markdown level1 summary"><p>Current DataContext options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataOptions Options { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_QueryHints.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.QueryHints%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1835">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1390">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_QueryHints_" data-uid="LinqToDB.Data.DataConnection.QueryHints*"></a>
   <h4 id="LinqToDB_Data_DataConnection_QueryHints" data-uid="LinqToDB.Data.DataConnection.QueryHints">QueryHints</h4>
@@ -1363,7 +2068,7 @@ defaults to <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Dat
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_RetryPolicy.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.RetryPolicy%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L403">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L452">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_RetryPolicy_" data-uid="LinqToDB.Data.DataConnection.RetryPolicy*"></a>
   <h4 id="LinqToDB_Data_DataConnection_RetryPolicy" data-uid="LinqToDB.Data.DataConnection.RetryPolicy">RetryPolicy</h4>
@@ -1394,7 +2099,7 @@ defaults to <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Dat
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_ThrowOnDisposed.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.ThrowOnDisposed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1906">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1462">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_ThrowOnDisposed_" data-uid="LinqToDB.Data.DataConnection.ThrowOnDisposed*"></a>
   <h4 id="LinqToDB_Data_DataConnection_ThrowOnDisposed" data-uid="LinqToDB.Data.DataConnection.ThrowOnDisposed">ThrowOnDisposed</h4>
@@ -1424,12 +2129,12 @@ defaults to <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Dat
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_TraceSwitch.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.TraceSwitch%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L596">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L587">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_TraceSwitch_" data-uid="LinqToDB.Data.DataConnection.TraceSwitch*"></a>
   <h4 id="LinqToDB_Data_DataConnection_TraceSwitch" data-uid="LinqToDB.Data.DataConnection.TraceSwitch">TraceSwitch</h4>
   <div class="markdown level1 summary"><p>Gets or sets global data connection trace options. Used for all new connections
-unless <a class="xref" href="LinqToDB.Configuration.LinqToDBConnectionOptionsBuilder.html#LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder_WithTraceLevel_TraceLevel_">WithTraceLevel(TraceLevel)</a> is called on builder.
+unless <a class="xref" href="LinqToDB.DataOptionsExtensions.html#LinqToDB_DataOptionsExtensions_UseTraceLevel_LinqToDB_DataOptions_TraceLevel_">UseTraceLevel(DataOptions, TraceLevel)</a> is called on builder.
 defaults to off unless library was built in debug mode.
 <remarks>Should only be used when <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_TraceSwitchConnection">TraceSwitchConnection</a> can not be used!</remarks></p>
 </div>
@@ -1458,7 +2163,7 @@ defaults to off unless library was built in debug mode.
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_TraceSwitchConnection.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.TraceSwitchConnection%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L622">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L612">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_TraceSwitchConnection_" data-uid="LinqToDB.Data.DataConnection.TraceSwitchConnection*"></a>
   <h4 id="LinqToDB_Data_DataConnection_TraceSwitchConnection" data-uid="LinqToDB.Data.DataConnection.TraceSwitchConnection">TraceSwitchConnection</h4>
@@ -1492,7 +2197,7 @@ used for current connection instance.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_Transaction.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.Transaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1594">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1149">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_Transaction_" data-uid="LinqToDB.Data.DataConnection.Transaction*"></a>
   <h4 id="LinqToDB_Data_DataConnection_Transaction" data-uid="LinqToDB.Data.DataConnection.Transaction">Transaction</h4>
@@ -1523,7 +2228,7 @@ used for current connection instance.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_WriteTraceLineConnection.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.WriteTraceLineConnection%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L644">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L634">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_WriteTraceLineConnection_" data-uid="LinqToDB.Data.DataConnection.WriteTraceLineConnection*"></a>
   <h4 id="LinqToDB_Data_DataConnection_WriteTraceLineConnection" data-uid="LinqToDB.Data.DataConnection.WriteTraceLineConnection">WriteTraceLineConnection</h4>
@@ -1558,7 +2263,7 @@ Used for the current instance.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_AddConfiguration_System_String_System_String_LinqToDB_DataProvider_IDataProvider_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.AddConfiguration(System.String%2CSystem.String%2CLinqToDB.DataProvider.IDataProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L985">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L350">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_AddConfiguration_" data-uid="LinqToDB.Data.DataConnection.AddConfiguration*"></a>
   <h4 id="LinqToDB_Data_DataConnection_AddConfiguration_System_String_System_String_LinqToDB_DataProvider_IDataProvider_" data-uid="LinqToDB.Data.DataConnection.AddConfiguration(System.String,System.String,LinqToDB.DataProvider.IDataProvider)">AddConfiguration(String, String, IDataProvider)</h4>
@@ -1604,7 +2309,7 @@ Used for the current instance.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_AddDataProvider_LinqToDB_DataProvider_IDataProvider_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.AddDataProvider(LinqToDB.DataProvider.IDataProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L797">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L273">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_AddDataProvider_" data-uid="LinqToDB.Data.DataConnection.AddDataProvider*"></a>
   <h4 id="LinqToDB_Data_DataConnection_AddDataProvider_LinqToDB_DataProvider_IDataProvider_" data-uid="LinqToDB.Data.DataConnection.AddDataProvider(LinqToDB.DataProvider.IDataProvider)">AddDataProvider(IDataProvider)</h4>
@@ -1638,7 +2343,7 @@ Used for the current instance.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_AddDataProvider_System_String_LinqToDB_DataProvider_IDataProvider_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.AddDataProvider(System.String%2CLinqToDB.DataProvider.IDataProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L780">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L256">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_AddDataProvider_" data-uid="LinqToDB.Data.DataConnection.AddDataProvider*"></a>
   <h4 id="LinqToDB_Data_DataConnection_AddDataProvider_System_String_LinqToDB_DataProvider_IDataProvider_" data-uid="LinqToDB.Data.DataConnection.AddDataProvider(System.String,LinqToDB.DataProvider.IDataProvider)">AddDataProvider(String, IDataProvider)</h4>
@@ -1712,7 +2417,7 @@ Used for the current instance.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_AddMappingSchema_LinqToDB_Mapping_MappingSchema_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.AddMappingSchema(LinqToDB.Mapping.MappingSchema)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1849">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1404">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_AddMappingSchema_" data-uid="LinqToDB.Data.DataConnection.AddMappingSchema*"></a>
   <h4 id="LinqToDB_Data_DataConnection_AddMappingSchema_LinqToDB_Mapping_MappingSchema_" data-uid="LinqToDB.Data.DataConnection.AddMappingSchema(LinqToDB.Mapping.MappingSchema)">AddMappingSchema(MappingSchema)</h4>
@@ -1765,7 +2470,7 @@ Used for the current instance.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_AddOrSetConfiguration_System_String_System_String_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.AddOrSetConfiguration(System.String%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1021">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L389">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_AddOrSetConfiguration_" data-uid="LinqToDB.Data.DataConnection.AddOrSetConfiguration*"></a>
   <h4 id="LinqToDB_Data_DataConnection_AddOrSetConfiguration_System_String_System_String_System_String_" data-uid="LinqToDB.Data.DataConnection.AddOrSetConfiguration(System.String,System.String,System.String)">AddOrSetConfiguration(String, String, String)</h4>
@@ -1807,7 +2512,7 @@ Used for the current instance.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_AddProviderDetector_Func_LinqToDB_Configuration_IConnectionStringSettings_System_String_LinqToDB_DataProvider_IDataProvider__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.AddProviderDetector(Func%7BLinqToDB.Configuration.IConnectionStringSettings%2CSystem.String%2CLinqToDB.DataProvider.IDataProvider%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L726">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L225">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_AddProviderDetector_" data-uid="LinqToDB.Data.DataConnection.AddProviderDetector*"></a>
   <h4 id="LinqToDB_Data_DataConnection_AddProviderDetector_Func_LinqToDB_Configuration_IConnectionStringSettings_System_String_LinqToDB_DataProvider_IDataProvider__" data-uid="LinqToDB.Data.DataConnection.AddProviderDetector(Func{LinqToDB.Configuration.IConnectionStringSettings,System.String,LinqToDB.DataProvider.IDataProvider})">AddProviderDetector(Func&lt;IConnectionStringSettings, String, IDataProvider&gt;)</h4>
@@ -1843,7 +2548,7 @@ instance using provided options.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_BeginTransaction.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.BeginTransaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1605">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1160">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_BeginTransaction_" data-uid="LinqToDB.Data.DataConnection.BeginTransaction*"></a>
   <h4 id="LinqToDB_Data_DataConnection_BeginTransaction" data-uid="LinqToDB.Data.DataConnection.BeginTransaction">BeginTransaction()</h4>
@@ -1875,7 +2580,7 @@ instance using provided options.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_BeginTransaction_IsolationLevel_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.BeginTransaction(IsolationLevel)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1642">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1197">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_BeginTransaction_" data-uid="LinqToDB.Data.DataConnection.BeginTransaction*"></a>
   <h4 id="LinqToDB_Data_DataConnection_BeginTransaction_IsolationLevel_" data-uid="LinqToDB.Data.DataConnection.BeginTransaction(IsolationLevel)">BeginTransaction(IsolationLevel)</h4>
@@ -1925,7 +2630,7 @@ instance using provided options.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_BeginTransactionAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.BeginTransactionAsync(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L36">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L35">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_BeginTransactionAsync_" data-uid="LinqToDB.Data.DataConnection.BeginTransactionAsync*"></a>
   <h4 id="LinqToDB_Data_DataConnection_BeginTransactionAsync_CancellationToken_" data-uid="LinqToDB.Data.DataConnection.BeginTransactionAsync(CancellationToken)">BeginTransactionAsync(CancellationToken)</h4>
@@ -1975,7 +2680,7 @@ instance using provided options.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_BeginTransactionAsync_IsolationLevel_CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.BeginTransactionAsync(IsolationLevel%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L78">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L77">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_BeginTransactionAsync_" data-uid="LinqToDB.Data.DataConnection.BeginTransactionAsync*"></a>
   <h4 id="LinqToDB_Data_DataConnection_BeginTransactionAsync_IsolationLevel_CancellationToken_" data-uid="LinqToDB.Data.DataConnection.BeginTransactionAsync(IsolationLevel,CancellationToken)">BeginTransactionAsync(IsolationLevel, CancellationToken)</h4>
@@ -2031,7 +2736,7 @@ instance using provided options.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_CheckAndThrowOnDisposed.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.CheckAndThrowOnDisposed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1908">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1464">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_CheckAndThrowOnDisposed_" data-uid="LinqToDB.Data.DataConnection.CheckAndThrowOnDisposed*"></a>
   <h4 id="LinqToDB_Data_DataConnection_CheckAndThrowOnDisposed" data-uid="LinqToDB.Data.DataConnection.CheckAndThrowOnDisposed">CheckAndThrowOnDisposed()</h4>
@@ -2046,7 +2751,7 @@ instance using provided options.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_ClearObjectReaderCache.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.ClearObjectReaderCache%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1583">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1137">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_ClearObjectReaderCache_" data-uid="LinqToDB.Data.DataConnection.ClearObjectReaderCache*"></a>
   <h4 id="LinqToDB_Data_DataConnection_ClearObjectReaderCache" data-uid="LinqToDB.Data.DataConnection.ClearObjectReaderCache">ClearObjectReaderCache()</h4>
@@ -2062,7 +2767,7 @@ instance using provided options.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_Clone.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.Clone%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1874">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1430">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_Clone_" data-uid="LinqToDB.Data.DataConnection.Clone*"></a>
   <h4 id="LinqToDB_Data_DataConnection_Clone" data-uid="LinqToDB.Data.DataConnection.Clone">Clone()</h4>
@@ -2094,7 +2799,7 @@ instance using provided options.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_Close.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.Close%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1151">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L705">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_Close_" data-uid="LinqToDB.Data.DataConnection.Close*"></a>
   <h4 id="LinqToDB_Data_DataConnection_Close" data-uid="LinqToDB.Data.DataConnection.Close">Close()</h4>
@@ -2110,7 +2815,7 @@ instance using provided options.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_CloseAsync.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.CloseAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L268">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L267">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_CloseAsync_" data-uid="LinqToDB.Data.DataConnection.CloseAsync*"></a>
   <h4 id="LinqToDB_Data_DataConnection_CloseAsync" data-uid="LinqToDB.Data.DataConnection.CloseAsync">CloseAsync()</h4>
@@ -2142,7 +2847,7 @@ instance using provided options.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_CommitTransaction.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.CommitTransaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1677">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1232">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_CommitTransaction_" data-uid="LinqToDB.Data.DataConnection.CommitTransaction*"></a>
   <h4 id="LinqToDB_Data_DataConnection_CommitTransaction" data-uid="LinqToDB.Data.DataConnection.CommitTransaction">CommitTransaction()</h4>
@@ -2158,7 +2863,7 @@ instance using provided options.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_CommitTransactionAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.CommitTransactionAsync(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L176">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L175">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_CommitTransactionAsync_" data-uid="LinqToDB.Data.DataConnection.CommitTransactionAsync*"></a>
   <h4 id="LinqToDB_Data_DataConnection_CommitTransactionAsync_CancellationToken_" data-uid="LinqToDB.Data.DataConnection.CommitTransactionAsync(CancellationToken)">CommitTransactionAsync(CancellationToken)</h4>
@@ -2209,7 +2914,7 @@ If underlying provider doesn&apos;t support asynchronous commit, it will be perf
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_CreateCommand.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.CreateCommand%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1253">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L807">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_CreateCommand_" data-uid="LinqToDB.Data.DataConnection.CreateCommand*"></a>
   <h4 id="LinqToDB_Data_DataConnection_CreateCommand" data-uid="LinqToDB.Data.DataConnection.CreateCommand">CreateCommand()</h4>
@@ -2240,7 +2945,7 @@ If underlying provider doesn&apos;t support asynchronous commit, it will be perf
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_Dispose.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1917">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1473">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_Dispose_" data-uid="LinqToDB.Data.DataConnection.Dispose*"></a>
   <h4 id="LinqToDB_Data_DataConnection_Dispose" data-uid="LinqToDB.Data.DataConnection.Dispose">Dispose()</h4>
@@ -2256,7 +2961,7 @@ If underlying provider doesn&apos;t support asynchronous commit, it will be perf
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_DisposeAsync.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.DisposeAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L307">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L306">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_DisposeAsync_" data-uid="LinqToDB.Data.DataConnection.DisposeAsync*"></a>
   <h4 id="LinqToDB_Data_DataConnection_DisposeAsync" data-uid="LinqToDB.Data.DataConnection.DisposeAsync">DisposeAsync()</h4>
@@ -2288,7 +2993,7 @@ If underlying provider doesn&apos;t support asynchronous commit, it will be perf
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_DisposeCommand.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.DisposeCommand%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1269">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L823">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_DisposeCommand_" data-uid="LinqToDB.Data.DataConnection.DisposeCommand*"></a>
   <h4 id="LinqToDB_Data_DataConnection_DisposeCommand" data-uid="LinqToDB.Data.DataConnection.DisposeCommand">DisposeCommand()</h4>
@@ -2304,7 +3009,7 @@ If underlying provider doesn&apos;t support asynchronous commit, it will be perf
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_DisposeTransaction.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.DisposeTransaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1737">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1292">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_DisposeTransaction_" data-uid="LinqToDB.Data.DataConnection.DisposeTransaction*"></a>
   <h4 id="LinqToDB_Data_DataConnection_DisposeTransaction" data-uid="LinqToDB.Data.DataConnection.DisposeTransaction">DisposeTransaction()</h4>
@@ -2320,7 +3025,7 @@ If underlying provider doesn&apos;t support asynchronous commit, it will be perf
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_DisposeTransactionAsync.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.DisposeTransactionAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L241">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L240">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_DisposeTransactionAsync_" data-uid="LinqToDB.Data.DataConnection.DisposeTransactionAsync*"></a>
   <h4 id="LinqToDB_Data_DataConnection_DisposeTransactionAsync" data-uid="LinqToDB.Data.DataConnection.DisposeTransactionAsync">DisposeTransactionAsync()</h4>
@@ -2353,7 +3058,7 @@ If underlying provider doesn&apos;t support asynchonous disposal, it will be per
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_EnsureConnectionAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.EnsureConnectionAsync(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L119">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L118">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_EnsureConnectionAsync_" data-uid="LinqToDB.Data.DataConnection.EnsureConnectionAsync*"></a>
   <h4 id="LinqToDB_Data_DataConnection_EnsureConnectionAsync_CancellationToken_" data-uid="LinqToDB.Data.DataConnection.EnsureConnectionAsync(CancellationToken)">EnsureConnectionAsync(CancellationToken)</h4>
@@ -2403,7 +3108,7 @@ If underlying provider doesn&apos;t support asynchonous disposal, it will be per
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_ExecuteNonQuery_DbCommand_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.ExecuteNonQuery(DbCommand)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1280">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L834">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_ExecuteNonQuery_" data-uid="LinqToDB.Data.DataConnection.ExecuteNonQuery*"></a>
   <h4 id="LinqToDB_Data_DataConnection_ExecuteNonQuery_DbCommand_" data-uid="LinqToDB.Data.DataConnection.ExecuteNonQuery(DbCommand)">ExecuteNonQuery(DbCommand)</h4>
@@ -2450,7 +3155,7 @@ If underlying provider doesn&apos;t support asynchonous disposal, it will be per
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_ExecuteNonQueryAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.ExecuteNonQueryAsync(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L374">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L373">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_ExecuteNonQueryAsync_" data-uid="LinqToDB.Data.DataConnection.ExecuteNonQueryAsync*"></a>
   <h4 id="LinqToDB_Data_DataConnection_ExecuteNonQueryAsync_CancellationToken_" data-uid="LinqToDB.Data.DataConnection.ExecuteNonQueryAsync(CancellationToken)">ExecuteNonQueryAsync(CancellationToken)</h4>
@@ -2497,7 +3202,7 @@ If underlying provider doesn&apos;t support asynchonous disposal, it will be per
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_ExecuteReader_CommandBehavior_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.ExecuteReader(CommandBehavior)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1495">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1049">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_ExecuteReader_" data-uid="LinqToDB.Data.DataConnection.ExecuteReader*"></a>
   <h4 id="LinqToDB_Data_DataConnection_ExecuteReader_CommandBehavior_" data-uid="LinqToDB.Data.DataConnection.ExecuteReader(CommandBehavior)">ExecuteReader(CommandBehavior)</h4>
@@ -2544,7 +3249,7 @@ If underlying provider doesn&apos;t support asynchonous disposal, it will be per
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_ExecuteReaderAsync_CommandBehavior_CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.ExecuteReaderAsync(CommandBehavior%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L537">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L536">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_ExecuteReaderAsync_" data-uid="LinqToDB.Data.DataConnection.ExecuteReaderAsync*"></a>
   <h4 id="LinqToDB_Data_DataConnection_ExecuteReaderAsync_CommandBehavior_CancellationToken_" data-uid="LinqToDB.Data.DataConnection.ExecuteReaderAsync(CommandBehavior,CancellationToken)">ExecuteReaderAsync(CommandBehavior, CancellationToken)</h4>
@@ -2596,7 +3301,7 @@ If underlying provider doesn&apos;t support asynchonous disposal, it will be per
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_ExecuteScalar_DbCommand_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.ExecuteScalar(DbCommand)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1423">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L977">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_ExecuteScalar_" data-uid="LinqToDB.Data.DataConnection.ExecuteScalar*"></a>
   <h4 id="LinqToDB_Data_DataConnection_ExecuteScalar_DbCommand_" data-uid="LinqToDB.Data.DataConnection.ExecuteScalar(DbCommand)">ExecuteScalar(DbCommand)</h4>
@@ -2643,7 +3348,7 @@ If underlying provider doesn&apos;t support asynchonous disposal, it will be per
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_ExecuteScalarAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.ExecuteScalarAsync(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L456">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L455">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_ExecuteScalarAsync_" data-uid="LinqToDB.Data.DataConnection.ExecuteScalarAsync*"></a>
   <h4 id="LinqToDB_Data_DataConnection_ExecuteScalarAsync_CancellationToken_" data-uid="LinqToDB.Data.DataConnection.ExecuteScalarAsync(CancellationToken)">ExecuteScalarAsync(CancellationToken)</h4>
@@ -2690,7 +3395,7 @@ If underlying provider doesn&apos;t support asynchonous disposal, it will be per
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_GetConnectionString_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.GetConnectionString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1060">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L424">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_GetConnectionString_" data-uid="LinqToDB.Data.DataConnection.GetConnectionString*"></a>
   <h4 id="LinqToDB_Data_DataConnection_GetConnectionString_System_String_" data-uid="LinqToDB.Data.DataConnection.GetConnectionString(System.String)">GetConnectionString(String)</h4>
@@ -2740,7 +3445,7 @@ If underlying provider doesn&apos;t support asynchonous disposal, it will be per
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_GetDataProvider_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.GetDataProvider(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L809">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L285">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_GetDataProvider_" data-uid="LinqToDB.Data.DataConnection.GetDataProvider*"></a>
   <h4 id="LinqToDB_Data_DataConnection_GetDataProvider_System_String_" data-uid="LinqToDB.Data.DataConnection.GetDataProvider(System.String)">GetDataProvider(String)</h4>
@@ -2790,7 +3495,7 @@ If underlying provider doesn&apos;t support asynchonous disposal, it will be per
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_GetDataProvider_System_String_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.GetDataProvider(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L841">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L313">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_GetDataProvider_" data-uid="LinqToDB.Data.DataConnection.GetDataProvider*"></a>
   <h4 id="LinqToDB_Data_DataConnection_GetDataProvider_System_String_System_String_" data-uid="LinqToDB.Data.DataConnection.GetDataProvider(System.String,System.String)">GetDataProvider(String, String)</h4>
@@ -2846,7 +3551,7 @@ If underlying provider doesn&apos;t support asynchonous disposal, it will be per
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_GetDataProvider_System_String_System_String_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.GetDataProvider(System.String%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L823">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L297">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_GetDataProvider_" data-uid="LinqToDB.Data.DataConnection.GetDataProvider*"></a>
   <h4 id="LinqToDB_Data_DataConnection_GetDataProvider_System_String_System_String_System_String_" data-uid="LinqToDB.Data.DataConnection.GetDataProvider(System.String,System.String,System.String)">GetDataProvider(String, String, String)</h4>
@@ -2908,7 +3613,7 @@ If underlying provider doesn&apos;t support asynchonous disposal, it will be per
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_GetFluentMappingBuilder.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.GetFluentMappingBuilder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1177">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L731">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_GetFluentMappingBuilder_" data-uid="LinqToDB.Data.DataConnection.GetFluentMappingBuilder*"></a>
   <h4 id="LinqToDB_Data_DataConnection_GetFluentMappingBuilder" data-uid="LinqToDB.Data.DataConnection.GetFluentMappingBuilder">GetFluentMappingBuilder()</h4>
@@ -2938,7 +3643,7 @@ If underlying provider doesn&apos;t support asynchonous disposal, it will be per
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_GetRegisteredProviders.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.GetRegisteredProviders%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L858">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L328">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_GetRegisteredProviders_" data-uid="LinqToDB.Data.DataConnection.GetRegisteredProviders*"></a>
   <h4 id="LinqToDB_Data_DataConnection_GetRegisteredProviders" data-uid="LinqToDB.Data.DataConnection.GetRegisteredProviders">GetRegisteredProviders()</h4>
@@ -2970,7 +3675,7 @@ If underlying provider doesn&apos;t support asynchonous disposal, it will be per
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_InsertProviderDetector_Func_LinqToDB_Configuration_IConnectionStringSettings_System_String_LinqToDB_DataProvider_IDataProvider__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.InsertProviderDetector(Func%7BLinqToDB.Configuration.IConnectionStringSettings%2CSystem.String%2CLinqToDB.DataProvider.IDataProvider%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L737">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L236">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_InsertProviderDetector_" data-uid="LinqToDB.Data.DataConnection.InsertProviderDetector*"></a>
   <h4 id="LinqToDB_Data_DataConnection_InsertProviderDetector_Func_LinqToDB_Configuration_IConnectionStringSettings_System_String_LinqToDB_DataProvider_IDataProvider__" data-uid="LinqToDB.Data.DataConnection.InsertProviderDetector(Func{LinqToDB.Configuration.IConnectionStringSettings,System.String,LinqToDB.DataProvider.IDataProvider})">InsertProviderDetector(Func&lt;IConnectionStringSettings, String, IDataProvider&gt;)</h4>
@@ -3006,7 +3711,7 @@ instance using provided options.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_ProcessQuery_LinqToDB_SqlQuery_SqlStatement_LinqToDB_SqlQuery_EvaluationContext_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.ProcessQuery(LinqToDB.SqlQuery.SqlStatement%2CLinqToDB.SqlQuery.EvaluationContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L16">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L14">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_ProcessQuery_" data-uid="LinqToDB.Data.DataConnection.ProcessQuery*"></a>
   <h4 id="LinqToDB_Data_DataConnection_ProcessQuery_LinqToDB_SqlQuery_SqlStatement_LinqToDB_SqlQuery_EvaluationContext_" data-uid="LinqToDB.Data.DataConnection.ProcessQuery(LinqToDB.SqlQuery.SqlStatement,LinqToDB.SqlQuery.EvaluationContext)">ProcessQuery(SqlStatement, EvaluationContext)</h4>
@@ -3055,10 +3760,42 @@ instance using provided options.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_RemoveInterceptor_LinqToDB_Interceptors_IInterceptor_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.RemoveInterceptor(LinqToDB.Interceptors.IInterceptor)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Interceptors.cs/#L59">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection_RemoveInterceptor_" data-uid="LinqToDB.Data.DataConnection.RemoveInterceptor*"></a>
+  <h4 id="LinqToDB_Data_DataConnection_RemoveInterceptor_LinqToDB_Interceptors_IInterceptor_" data-uid="LinqToDB.Data.DataConnection.RemoveInterceptor(LinqToDB.Interceptors.IInterceptor)">RemoveInterceptor(IInterceptor)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveInterceptor(IInterceptor interceptor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.Interceptors.IInterceptor.html">IInterceptor</a></td>
+        <td><span class="parametername">interceptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_RollbackTransaction.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.RollbackTransaction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1707">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1262">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_RollbackTransaction_" data-uid="LinqToDB.Data.DataConnection.RollbackTransaction*"></a>
   <h4 id="LinqToDB_Data_DataConnection_RollbackTransaction" data-uid="LinqToDB.Data.DataConnection.RollbackTransaction">RollbackTransaction()</h4>
@@ -3074,7 +3811,7 @@ instance using provided options.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_RollbackTransactionAsync_CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.RollbackTransactionAsync(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L209">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L208">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_RollbackTransactionAsync_" data-uid="LinqToDB.Data.DataConnection.RollbackTransactionAsync*"></a>
   <h4 id="LinqToDB_Data_DataConnection_RollbackTransactionAsync_CancellationToken_" data-uid="LinqToDB.Data.DataConnection.RollbackTransactionAsync(CancellationToken)">RollbackTransactionAsync(CancellationToken)</h4>
@@ -3125,7 +3862,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_SetConnectionString_System_String_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.SetConnectionString(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1043">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L409">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_SetConnectionString_" data-uid="LinqToDB.Data.DataConnection.SetConnectionString*"></a>
   <h4 id="LinqToDB_Data_DataConnection_SetConnectionString_System_String_System_String_" data-uid="LinqToDB.Data.DataConnection.SetConnectionString(System.String,System.String)">SetConnectionString(String, String)</h4>
@@ -3165,7 +3902,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_SetConnectionStrings_IEnumerable_LinqToDB_Configuration_IConnectionStringSettings__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.SetConnectionStrings(IEnumerable%7BLinqToDB.Configuration.IConnectionStringSettings%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L964">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L55">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_SetConnectionStrings_" data-uid="LinqToDB.Data.DataConnection.SetConnectionStrings*"></a>
   <h4 id="LinqToDB_Data_DataConnection_SetConnectionStrings_IEnumerable_LinqToDB_Configuration_IConnectionStringSettings__" data-uid="LinqToDB.Data.DataConnection.SetConnectionStrings(IEnumerable{LinqToDB.Configuration.IConnectionStringSettings})">SetConnectionStrings(IEnumerable&lt;IConnectionStringSettings&gt;)</h4>
@@ -3199,7 +3936,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_TraceAction__2_LinqToDB_Data_DataConnection_LinqToDB_Data_TraceOperation_System_Nullable_Func___0_System_Nullable_System_String______0_Func_LinqToDB_Data_DataConnection___0___1__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.TraceAction%60%602(LinqToDB.Data.DataConnection%2CLinqToDB.Data.TraceOperation%2CSystem.Nullable%7BFunc%7B%60%600%2CSystem.Nullable%7BSystem.String%7D%7D%7D%2C%60%600%2CFunc%7BLinqToDB.Data.DataConnection%2C%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1761">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1316">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_TraceAction_" data-uid="LinqToDB.Data.DataConnection.TraceAction*"></a>
   <h4 id="LinqToDB_Data_DataConnection_TraceAction__2_LinqToDB_Data_DataConnection_LinqToDB_Data_TraceOperation_System_Nullable_Func___0_System_Nullable_System_String______0_Func_LinqToDB_Data_DataConnection___0___1__" data-uid="LinqToDB.Data.DataConnection.TraceAction``2(LinqToDB.Data.DataConnection,LinqToDB.Data.TraceOperation,System.Nullable{Func{``0,System.Nullable{System.String}}},``0,Func{LinqToDB.Data.DataConnection,``0,``1})">TraceAction&lt;TContext, TResult&gt;(DataConnection, TraceOperation, Nullable&lt;Func&lt;TContext, Nullable&lt;String&gt;&gt;&gt;, TContext, Func&lt;DataConnection, TContext, TResult&gt;)</h4>
@@ -3285,7 +4022,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_TraceActionAsync__2_LinqToDB_Data_DataConnection_LinqToDB_Data_TraceOperation_System_Nullable_Func___0_System_Nullable_System_String______0_Func_LinqToDB_Data_DataConnection___0_CancellationToken_Task___1___CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.TraceActionAsync%60%602(LinqToDB.Data.DataConnection%2CLinqToDB.Data.TraceOperation%2CSystem.Nullable%7BFunc%7B%60%600%2CSystem.Nullable%7BSystem.String%7D%7D%7D%2C%60%600%2CFunc%7BLinqToDB.Data.DataConnection%2C%60%600%2CCancellationToken%2CTask%7B%60%601%7D%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L314">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Async.cs/#L313">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_TraceActionAsync_" data-uid="LinqToDB.Data.DataConnection.TraceActionAsync*"></a>
   <h4 id="LinqToDB_Data_DataConnection_TraceActionAsync__2_LinqToDB_Data_DataConnection_LinqToDB_Data_TraceOperation_System_Nullable_Func___0_System_Nullable_System_String______0_Func_LinqToDB_Data_DataConnection___0_CancellationToken_Task___1___CancellationToken_" data-uid="LinqToDB.Data.DataConnection.TraceActionAsync``2(LinqToDB.Data.DataConnection,LinqToDB.Data.TraceOperation,System.Nullable{Func{``0,System.Nullable{System.String}}},``0,Func{LinqToDB.Data.DataConnection,``0,CancellationToken,Task{``1}},CancellationToken)">TraceActionAsync&lt;TContext, TResult&gt;(DataConnection, TraceOperation, Nullable&lt;Func&lt;TContext, Nullable&lt;String&gt;&gt;&gt;, TContext, Func&lt;DataConnection, TContext, CancellationToken, Task&lt;TResult&gt;&gt;, CancellationToken)</h4>
@@ -3376,7 +4113,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_TryGetConnectionString_System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.TryGetConnectionString(System.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L1072">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L434">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_TryGetConnectionString_" data-uid="LinqToDB.Data.DataConnection.TryGetConnectionString*"></a>
   <h4 id="LinqToDB_Data_DataConnection_TryGetConnectionString_System_Nullable_System_String__" data-uid="LinqToDB.Data.DataConnection.TryGetConnectionString(System.Nullable{System.String})">TryGetConnectionString(Nullable&lt;String&gt;)</h4>
@@ -3426,7 +4163,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_TurnTraceSwitchOn_TraceLevel_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.TurnTraceSwitchOn(TraceLevel)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L608">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.cs/#L599">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_TurnTraceSwitchOn_" data-uid="LinqToDB.Data.DataConnection.TurnTraceSwitchOn*"></a>
   <h4 id="LinqToDB_Data_DataConnection_TurnTraceSwitchOn_TraceLevel_" data-uid="LinqToDB.Data.DataConnection.TurnTraceSwitchOn(TraceLevel)">TurnTraceSwitchOn(TraceLevel)</h4>
@@ -3456,16 +4193,46 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
     </tbody>
   </table>
   <h5 id="LinqToDB_Data_DataConnection_TurnTraceSwitchOn_TraceLevel__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Use <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_TraceSwitchConnection">TraceSwitchConnection</a> when possible, configured via <a class="xref" href="LinqToDB.Configuration.LinqToDBConnectionOptionsBuilder.html#LinqToDB_Configuration_LinqToDBConnectionOptionsBuilder_WithTraceLevel_TraceLevel_">WithTraceLevel(TraceLevel)</a>.</p>
+  <div class="markdown level1 remarks"><p>Use <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_TraceSwitchConnection">TraceSwitchConnection</a> when possible, configured via <a class="xref" href="LinqToDB.DataOptionsExtensions.html#LinqToDB_DataOptionsExtensions_UseTraceLevel_LinqToDB_DataOptions_TraceLevel_">UseTraceLevel(DataOptions, TraceLevel)</a>.</p>
 </div>
   <h3 id="eii">Explicit Interface Implementations
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_LinqToDB_Common_Internal_IConfigurationID_ConfigurationID.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.LinqToDB%23Common%23Internal%23IConfigurationID%23ConfigurationID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Configuration.cs/#L479">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_DataConnection_LinqToDB_Common_Internal_IConfigurationID_ConfigurationID_" data-uid="LinqToDB.Data.DataConnection.LinqToDB#Common#Internal#IConfigurationID#ConfigurationID*"></a>
+  <h4 id="LinqToDB_Data_DataConnection_LinqToDB_Common_Internal_IConfigurationID_ConfigurationID" data-uid="LinqToDB.Data.DataConnection.LinqToDB#Common#Internal#IConfigurationID#ConfigurationID">IConfigurationID.ConfigurationID</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int IConfigurationID.ConfigurationID { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_LinqToDB_IDataContext_Clone_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.LinqToDB%23IDataContext%23Clone(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L39">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L37">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_Clone_" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#Clone*"></a>
   <h4 id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_Clone_System_Boolean_" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#Clone(System.Boolean)">IDataContext.Clone(Boolean)</h4>
@@ -3512,7 +4279,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_LinqToDB_IDataContext_CloseAfterUse.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.LinqToDB%23IDataContext%23CloseAfterUse%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L27">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L25">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_CloseAfterUse_" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#CloseAfterUse*"></a>
   <h4 id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_CloseAfterUse" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#CloseAfterUse">IDataContext.CloseAfterUse</h4>
@@ -3539,40 +4306,10 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_LinqToDB_IDataContext_ContextID.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.LinqToDB%23IDataContext%23ContextID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L66">View Source</a>
-  </span>
-  <a id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_ContextID_" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#ContextID*"></a>
-  <h4 id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_ContextID" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#ContextID">IDataContext.ContextID</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int IDataContext.ContextID { get; }</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_LinqToDB_IDataContext_ContextName.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.LinqToDB%23IDataContext%23ContextName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L65">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L63">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_ContextName_" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#ContextName*"></a>
   <h4 id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_ContextName" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#ContextName">IDataContext.ContextName</h4>
@@ -3602,7 +4339,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_LinqToDB_IDataContext_CreateSqlProvider.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.LinqToDB%23IDataContext%23CreateSqlProvider%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L68">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L65">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_CreateSqlProvider_" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#CreateSqlProvider*"></a>
   <h4 id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_CreateSqlProvider" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#CreateSqlProvider">IDataContext.CreateSqlProvider</h4>
@@ -3632,7 +4369,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_LinqToDB_IDataContext_DataReaderType.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.LinqToDB%23IDataContext%23DataReaderType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L25">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L23">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_DataReaderType_" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#DataReaderType*"></a>
   <h4 id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_DataReaderType" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#DataReaderType">IDataContext.DataReaderType</h4>
@@ -3662,7 +4399,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_LinqToDB_IDataContext_GetQueryRunner_LinqToDB_Linq_Query_System_Int32_Expression_System_Nullable_System_Object____System_Nullable_System_Object____.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.LinqToDB%23IDataContext%23GetQueryRunner(LinqToDB.Linq.Query%2CSystem.Int32%2CExpression%2CSystem.Nullable%7BSystem.Object%7D%5B%5D%2CSystem.Nullable%7BSystem.Object%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.QueryRunner.cs/#L22">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.QueryRunner.cs/#L21">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_GetQueryRunner_" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#GetQueryRunner*"></a>
   <h4 id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_GetQueryRunner_LinqToDB_Linq_Query_System_Int32_Expression_System_Nullable_System_Object____System_Nullable_System_Object____" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#GetQueryRunner(LinqToDB.Linq.Query,System.Int32,Expression,System.Nullable{System.Object}[],System.Nullable{System.Object}[])">IDataContext.GetQueryRunner(Query, Int32, Expression, Nullable&lt;Object&gt;[], Nullable&lt;Object&gt;[])</h4>
@@ -3729,7 +4466,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_LinqToDB_IDataContext_GetReaderExpression_DbDataReader_System_Int32_Expression_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.LinqToDB%23IDataContext%23GetReaderExpression(DbDataReader%2CSystem.Int32%2CExpression%2CType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L29">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L27">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_GetReaderExpression_" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#GetReaderExpression*"></a>
   <h4 id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_GetReaderExpression_DbDataReader_System_Int32_Expression_Type_" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#GetReaderExpression(DbDataReader,System.Int32,Expression,Type)">IDataContext.GetReaderExpression(DbDataReader, Int32, Expression, Type)</h4>
@@ -3791,7 +4528,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_LinqToDB_IDataContext_GetSqlOptimizer.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.LinqToDB%23IDataContext%23GetSqlOptimizer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L75">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L72">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_GetSqlOptimizer_" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#GetSqlOptimizer*"></a>
   <h4 id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_GetSqlOptimizer" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#GetSqlOptimizer">IDataContext.GetSqlOptimizer</h4>
@@ -3799,7 +4536,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Func&lt;ISqlOptimizer&gt; IDataContext.GetSqlOptimizer { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">Func&lt;DataOptions, ISqlOptimizer&gt; IDataContext.GetSqlOptimizer { get; }</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -3811,7 +4548,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;<a class="xref" href="LinqToDB.SqlProvider.ISqlOptimizer.html">ISqlOptimizer</a>&gt;</td>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.SqlProvider.ISqlOptimizer.html">ISqlOptimizer</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -3821,7 +4558,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_LinqToDB_IDataContext_IsDBNullAllowed_DbDataReader_System_Int32_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.LinqToDB%23IDataContext%23IsDBNullAllowed(DbDataReader%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L34">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L32">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_IsDBNullAllowed_" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#IsDBNullAllowed*"></a>
   <h4 id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_IsDBNullAllowed_DbDataReader_System_Int32_" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#IsDBNullAllowed(DbDataReader,System.Int32)">IDataContext.IsDBNullAllowed(DbDataReader, Int32)</h4>
@@ -3873,7 +4610,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_LinqToDB_IDataContext_SqlProviderFlags.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.LinqToDB%23IDataContext%23SqlProviderFlags%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L23">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L21">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_SqlProviderFlags_" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#SqlProviderFlags*"></a>
   <h4 id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_SqlProviderFlags" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#SqlProviderFlags">IDataContext.SqlProviderFlags</h4>
@@ -3903,7 +4640,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection_LinqToDB_IDataContext_SupportedTableOptions.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection.LinqToDB%23IDataContext%23SupportedTableOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L24">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.Linq.cs/#L22">View Source</a>
   </span>
   <a id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_SupportedTableOptions_" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#SupportedTableOptions*"></a>
   <h4 id="LinqToDB_Data_DataConnection_LinqToDB_IDataContext_SupportedTableOptions" data-uid="LinqToDB.Data.DataConnection.LinqToDB#IDataContext#SupportedTableOptions">IDataContext.SupportedTableOptions</h4>
@@ -4111,6 +4848,9 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="LinqToDB.IDataContext.html">IDataContext</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Common.Internal.IConfigurationID.html">IConfigurationID</a>
   </div>
   <div>
       <span class="xref">IDisposable</span>
@@ -4616,7 +5356,7 @@ If underlying provider doesn&apos;t support asynchonous commit, it will be perfo
                     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_DataConnection.md&amp;value=---%0Auid%3A%20LinqToDB.Data.DataConnection%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.QueryRunner.cs/#L20" class="contribution-link">View Source</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/DataConnection.QueryRunner.cs/#L19" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

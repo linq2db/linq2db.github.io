@@ -106,19 +106,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase__ctor_System_Int32_TimeSpan_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.%23ctor(System.Int32%2CTimeSpan)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase__ctor_System_Int32_TimeSpan_System_Double_System_Double_TimeSpan_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.%23ctor(System.Int32%2CTimeSpan%2CSystem.Double%2CSystem.Double%2CTimeSpan)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L22">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L26">View Source</a>
   </span>
   <a id="LinqToDB_Data_RetryPolicy_RetryPolicyBase__ctor_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.#ctor*"></a>
-  <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase__ctor_System_Int32_TimeSpan_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.#ctor(System.Int32,TimeSpan)">RetryPolicyBase(Int32, TimeSpan)</h4>
+  <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase__ctor_System_Int32_TimeSpan_System_Double_System_Double_TimeSpan_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.#ctor(System.Int32,TimeSpan,System.Double,System.Double,TimeSpan)">RetryPolicyBase(Int32, TimeSpan, Double, Double, TimeSpan)</h4>
   <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="LinqToDB.Data.RetryPolicy.RetryPolicyBase.html">RetryPolicyBase</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected RetryPolicyBase(int maxRetryCount, TimeSpan maxRetryDelay)</code></pre>
+    <pre><code class="lang-csharp hljs">protected RetryPolicyBase(int maxRetryCount, TimeSpan maxRetryDelay, double randomFactor, double exponentialBase, TimeSpan coefficient)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -142,16 +142,65 @@
         <td><p>The maximum delay in milliseconds between retries. </p>
 </td>
       </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">randomFactor</span></td>
+        <td><p>The maximum random factor. </p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">exponentialBase</span></td>
+        <td><p>The base for the exponential function used to compute the delay between retries. </p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">coefficient</span></td>
+        <td><p>The coefficient for the exponential function used to compute the delay between retries. </p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h3 id="properties">Properties
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase_Coefficient.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.Coefficient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L62">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_Coefficient_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.Coefficient*"></a>
+  <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_Coefficient" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.Coefficient">Coefficient</h4>
+  <div class="markdown level1 summary"><p>The coefficient for the exponential function used to compute the delay between retries, must be nonnegative.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan Coefficient { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase_ExceptionsEncountered.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.ExceptionsEncountered%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L38">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L67">View Source</a>
   </span>
   <a id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_ExceptionsEncountered_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.ExceptionsEncountered*"></a>
   <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_ExceptionsEncountered" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.ExceptionsEncountered">ExceptionsEncountered</h4>
@@ -179,10 +228,41 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase_ExponentialBase.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.ExponentialBase%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L57">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_ExponentialBase_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.ExponentialBase*"></a>
+  <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_ExponentialBase" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.ExponentialBase">ExponentialBase</h4>
+  <div class="markdown level1 summary"><p>The base for the exponential function used to compute the delay between retries, must be positive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ExponentialBase { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase_MaxRetryCount.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.MaxRetryCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L48">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L77">View Source</a>
   </span>
   <a id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_MaxRetryCount_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.MaxRetryCount*"></a>
   <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_MaxRetryCount" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.MaxRetryCount">MaxRetryCount</h4>
@@ -213,7 +293,7 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase_MaxRetryDelay.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.MaxRetryDelay%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L53">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L82">View Source</a>
   </span>
   <a id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_MaxRetryDelay_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.MaxRetryDelay*"></a>
   <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_MaxRetryDelay" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.MaxRetryDelay">MaxRetryDelay</h4>
@@ -244,11 +324,11 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase_Random.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.Random%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L43">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L72">View Source</a>
   </span>
   <a id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_Random_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.Random*"></a>
   <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_Random" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.Random">Random</h4>
-  <div class="markdown level1 summary"><p>A pseudo-random number generater that can be used to vary the delay between retries.</p>
+  <div class="markdown level1 summary"><p>A pseudo-random number generator that can be used to vary the delay between retries.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -272,10 +352,41 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase_RandomFactor.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.RandomFactor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L52">View Source</a>
+  </span>
+  <a id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_RandomFactor_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.RandomFactor*"></a>
+  <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_RandomFactor" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.RandomFactor">RandomFactor</h4>
+  <div class="markdown level1 summary"><p>The maximum random factor, must not be lesser than 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double RandomFactor { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase_Suspended.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.Suspended%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L61">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L90">View Source</a>
   </span>
   <a id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_Suspended_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.Suspended*"></a>
   <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_Suspended" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.Suspended">Suspended</h4>
@@ -309,7 +420,7 @@ recursive execution from nested operations.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase_Execute_Action_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.Execute(Action)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L85">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L114">View Source</a>
   </span>
   <a id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_Execute_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.Execute*"></a>
   <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_Execute_Action_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.Execute(Action)">Execute(Action)</h4>
@@ -341,7 +452,7 @@ recursive execution from nested operations.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase_Execute__1_Func___0__.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.Execute%60%601(Func%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L75">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L104">View Source</a>
   </span>
   <a id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_Execute_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.Execute*"></a>
   <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_Execute__1_Func___0__" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.Execute``1(Func{``0})">Execute&lt;TResult&gt;(Func&lt;TResult&gt;)</h4>
@@ -407,7 +518,7 @@ recursive execution from nested operations.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase_ExecuteAsync_Func_CancellationToken_Task__CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.ExecuteAsync(Func%7BCancellationToken%2CTask%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L158">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L187">View Source</a>
   </span>
   <a id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_ExecuteAsync_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.ExecuteAsync*"></a>
   <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_ExecuteAsync_Func_CancellationToken_Task__CancellationToken_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.ExecuteAsync(Func{CancellationToken,Task},CancellationToken)">ExecuteAsync(Func&lt;CancellationToken, Task&gt;, CancellationToken)</h4>
@@ -459,7 +570,7 @@ recursive execution from nested operations.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase_ExecuteAsync__1_Func_CancellationToken_Task___0___CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.ExecuteAsync%60%601(Func%7BCancellationToken%2CTask%7B%60%600%7D%7D%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L148">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L177">View Source</a>
   </span>
   <a id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_ExecuteAsync_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.ExecuteAsync*"></a>
   <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_ExecuteAsync__1_Func_CancellationToken_Task___0___CancellationToken_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.ExecuteAsync``1(Func{CancellationToken,Task{``0}},CancellationToken)">ExecuteAsync&lt;TResult&gt;(Func&lt;CancellationToken, Task&lt;TResult&gt;&gt;, CancellationToken)</h4>
@@ -534,7 +645,7 @@ the retry limit is reached, the returned task will become faulted and the except
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase_GetNextDelay_Exception_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.GetNextDelay(Exception)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L230">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L259">View Source</a>
   </span>
   <a id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_GetNextDelay_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.GetNextDelay*"></a>
   <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_GetNextDelay_Exception_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.GetNextDelay(Exception)">GetNextDelay(Exception)</h4>
@@ -585,7 +696,7 @@ the retry limit is reached, the returned task will become faulted and the except
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase_OnFirstExecution.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.OnFirstExecution%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L211">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L240">View Source</a>
   </span>
   <a id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_OnFirstExecution_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.OnFirstExecution*"></a>
   <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_OnFirstExecution" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.OnFirstExecution">OnFirstExecution()</h4>
@@ -601,7 +712,7 @@ the retry limit is reached, the returned task will become faulted and the except
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase_OnRetry.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.OnRetry%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L219">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L248">View Source</a>
   </span>
   <a id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_OnRetry_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.OnRetry*"></a>
   <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_OnRetry" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.OnRetry">OnRetry()</h4>
@@ -617,7 +728,7 @@ the retry limit is reached, the returned task will become faulted and the except
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Data_RetryPolicy_RetryPolicyBase_ShouldRetryOn_Exception_.md&amp;value=---%0Auid%3A%20LinqToDB.Data.RetryPolicy.RetryPolicyBase.ShouldRetryOn(Exception)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L257">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Data/RetryPolicy/RetryPolicyBase.cs/#L286">View Source</a>
   </span>
   <a id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_ShouldRetryOn_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.ShouldRetryOn*"></a>
   <h4 id="LinqToDB_Data_RetryPolicy_RetryPolicyBase_ShouldRetryOn_Exception_" data-uid="LinqToDB.Data.RetryPolicy.RetryPolicyBase.ShouldRetryOn(Exception)">ShouldRetryOn(Exception)</h4>

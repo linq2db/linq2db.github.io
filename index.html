@@ -133,15 +133,15 @@
   LinqToDB.ProviderName.SqlServer2012,
   &quot;Server=.\;Database=Northwind;Trusted_Connection=True;Enlist=False;&quot;);
 </code></pre><h3 id="using-connection-options-builder">Using Connection Options Builder</h3>
-<p>You can configure connection options from code using <a href="https://linq2db.github.io/api/LinqToDB.Configuration.LinqToDBConnectionOptionsBuilder.html"><code>LinqToDBConnectionOptionsBuilder</code></a> class (check class for available options):</p>
+<p>You can configure connection options from code using <a href="https://linq2db.github.io/api/LinqToDB.DataOptions.html"><code>DataOptions</code></a> class (check class for available options):</p>
 <pre><code class="lang-cs">// create options builder
-var builder = new LinqToDBConnectionOptionsBuilder();
+var options = new DataOptions();
 
 // configure connection string
-builder.UseSqlServer(connectionString);
+options.UseSqlServer(connectionString);
 
 // or using custom connection factory
-b.UseConnectionFactory(
+options.UseConnectionFactory(
     SqlServerTools.GetDataProvider(
         SqlServerVersion.v2017,
         SqlServerProvider.MicrosoftDataSqlClient),
@@ -153,7 +153,7 @@ b.UseConnectionFactory(
     });
 
 // pass configured options to data connection constructor
-var dc = new DataConnection(builder.Build());
+var dc = new DataConnection(options);
 </code></pre><h3 id="using-config-file-net-framework">Using Config File (.NET Framework)</h3>
 <p>In your <code>web.config</code> or <code>app.config</code> make sure you have a connection string (check <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/ProviderName.cs">this file</a> for supported providers):</p>
 <pre><code class="lang-xml">&lt;connectionStrings&gt;
