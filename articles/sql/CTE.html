@@ -79,7 +79,7 @@
             <article class="content wrap" id="_content" data-uid="CTE">
 <h1 id="common-table-expression-cte">Common Table Expression (CTE)</h1>
 
-<p>To get familiar with CTE, you can check documentation for Transact SQL: <a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-2017">WITH common_table_expression</a></p>
+<p>To get familiar with CTE, you can check documentation for Transact SQL: <a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql">WITH common_table_expression</a></p>
 <h2 id="when-ctes-are-useful">When CTEs are useful</h2>
 <ul>
 <li>Reusing the same SQL part in complex query</li>
@@ -158,9 +158,9 @@ FROM
       LEFT JOIN [EmployeeSubordinatesReport] [manager]
            ON [t3].[ReportsTo] = [manager].[EmployeeID]
 </code></pre><h2 id="defining-recursive-cte">Defining recursive CTE</h2>
-<blockquote><p>Recursive CTEs are special because they are allowed to reference themselves! Because of this special ability, you can use recursive CTEs to solve problems other queries cannot. As an example, recursive CTEs are really good at working with hierarchical data such as org charts for bill of materials. (Further reading: <a href="https://www.essentialsql.com/recursive-ctes-explained/">Recursive CTEs Explained</a>).</p>
+<blockquote><p>Recursive CTEs are special because they are allowed to reference themselves! Because of this special ability, you can use recursive CTEs to solve problems other queries cannot. As an example, recursive CTEs are really good at working with hierarchical data such as org charts for bill of materials. (Further reading: <a href="https://www.essentialsql.com/recursive-cte/">Recursive CTEs Explained</a>).</p>
 </blockquote>
-<p>CTEs have limitations that are not handled by <code>LINQ To DB</code>, so you have to be aware of them before start of usage - <a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-2017#guidelines-for-defining-and-using-recursive-common-table-expressions">Guidelines for Defining and Using Recursive Common Table Expressions</a></p>
+<p>CTEs have limitations that are not handled by <code>LINQ To DB</code>, so you have to be aware of them before start of usage - <a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql#guidelines-for-defining-and-using-recursive-common-table-expressions">Guidelines for Defining and Using Recursive Common Table Expressions</a></p>
 <p>Since in C# language we can not use a variable&#39;s reference in its own initialization expression, we have created a function that helps in defining recursive queries: <code>GetCte&lt;TCteProjection&gt;(cte =&gt; ...)</code>. <code>TCteProjection</code> is a required generic parameter that is needed for resolving the type of the lambda parameter.</p>
 <p>The following example shows how to define a CTE to calculate the employee level in the hierarchy:</p>
 <pre><code class="lang-cs">// defining class for representing Recursive CTE
@@ -272,7 +272,7 @@ ORDER BY
 <td>2.1</td>
 </tr>
 <tr>
-<td><a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-2017">MS SQL</a></td>
+<td><a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql">MS SQL</a></td>
 <td>2008</td>
 </tr>
 <tr>
@@ -284,7 +284,7 @@ ORDER BY
 <td>11g Release 2</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/9.1/static/queries-with.html">PostgreSQL</a></td>
+<td><a href="https://www.postgresql.org/docs/current/queries-with.html">PostgreSQL</a></td>
 <td>8.4</td>
 </tr>
 <tr>
@@ -292,15 +292,15 @@ ORDER BY
 <td>3.8.3</td>
 </tr>
 <tr>
-<td><a href="https://www.ibm.com/support/knowledgecenter/en/SSEPEK_11.0.0/sqlref/src/tpc/db2z_sql_commontableexpression.html">IBM DB2</a></td>
+<td><a href="https://www.ibm.com/docs/en/db2-for-zos/11?topic=statement-common-table-expression">IBM DB2</a></td>
 <td>8</td>
 </tr>
 <tr>
-<td><a href="https://www.ibm.com/support/knowledgecenter/SSGU8G_14.1.0/com.ibm.sqls.doc/ids_sqs_with.htm">IBM Informix</a></td>
+<td><a href="https://www.ibm.com/docs/en/informix-servers/14.10?topic=statements-statement-common-table-expressions">IBM Informix</a></td>
 <td>14.10</td>
 </tr>
 <tr>
-<td><a href="https://clickhouse.com/docs/en/sql-reference/statements/select/with">ClickHouse</a></td>
+<td><a href="https://clickhouse.com/docs/en/sql-reference/statements/select/with/">ClickHouse</a></td>
 <td></td>
 </tr>
 </tbody>

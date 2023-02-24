@@ -82,7 +82,7 @@
 <p>This API available since <code>Linq To DB</code> 4.0.0</p>
 <ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#interceptors">Interceptors</a><ul>
+<li><a href="#interceptors-1">Interceptors</a><ul>
 <li><a href="#iunwrapdataobjectinterceptor"><code>IUnwrapDataObjectInterceptor</code></a></li>
 <li><a href="#ientityserviceinterceptor"><code>IEntityServiceInterceptor</code></a></li>
 <li><a href="#idatacontextinterceptor"><code>IDataContextInterceptor</code></a></li>
@@ -108,7 +108,7 @@
 <li>set of interceptor interfaces which group extension points logically;</li>
 <li>base interceptor implementation classes without added functionality. They could be used by user for own interceptor implementation. Just inherit from those classes and override required interceptor methods (also it is possible to implement interceptor interface directly);</li>
 <li>single mechanism for interceptors registration in <code>IDataContext</code> implementations (<code>DataConnection</code>, <code>DataContext</code>, <code>RemoteContext</code>);</li>
-<li>interceptors registration using <code>LinqToDbConnectionOptions</code> conntection configuration object (including required fluent configuration APIs);</li>
+<li>interceptors registration using <code>DataOptions</code> conntection configuration object (including required fluent configuration APIs);</li>
 <li>single source of documentation (this document).</li>
 </ul>
 <p>Note that interceptors replace old extensibility mechanims, which means you may need to migrate your existing code to interceptors if you used them. For migration notes check <a href="#migration">migration notes</a> section below.</p>
@@ -289,7 +289,7 @@ struct ConnectionEventData
 <p>Interceptors could be registred using multiple ways:</p>
 <ul>
 <li>add interceptor instance to existing connection/context object using <code>AddInterceptor</code> method</li>
-<li>add interceptor to <code>LinqToDbConnectionOptions</code></li>
+<li>add interceptor to <code>DataOptions</code></li>
 <li>use single-time interceptor of <code>ICommandInterceptor.CommandInitialized</code> using <code>OnNextCommandInitialized</code> method of context</li>
 </ul>
 <pre><code class="lang-cs">// registration in DataContext
@@ -321,10 +321,10 @@ using (var ctx = new DataConnection(...))
 }
 
 // registration in DataConnection using fluent options configuration
-var builder = new LinqToDbConnectionOptionsBuilder()
+var options = new DataOptions()
     .UseSqlServer(connectionString)
     .WithInterceptor(interceptor);
-var dc = new DataConnection(builder.Build());
+var dc = new DataConnection(options);
 </code></pre><h3 id="interceptors-support-per-context">Interceptors support per context</h3>
 <ul>
 <li><code>RemoteDataContext</code>:<ul>

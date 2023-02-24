@@ -85,15 +85,15 @@
 <p>The following will be reuiqred to complete this walkthrough:</p>
 <ul>
 <li><a href="https://dotnet.microsoft.com/download">Latest dotnet core SDK</a></li>
-<li><a href="https://visualstudio.microsoft.com/">Visual Studio</a> or some other IDE</li>
+<li><a href="https://visualstudio.microsoft.com">Visual Studio</a> or some other IDE</li>
 </ul>
 <h2 id="create-a-new-project">Create a new project</h2>
 <p>First thing we&#39;re going to do is create a new ASP.NET Core application using the dotnet CLI</p>
-<pre><code>dotnet new webapp -o gettingStartedLinqToDbAspNet
+<pre><code class="lang-txt">dotnet new webapp -o gettingStartedLinqToDBAspNet
 </code></pre><h2 id="install-linq-to-db">Install LINQ To DB</h2>
-<p>We can now use the CLI to install LINQ To DB</p>
-<pre><code>dotnet add package linq2db.SQLite
-dotnet add package linq2db.AspNet
+<p>We can now use the CLI to install LINQ To DB and database provider (SQLite in this walkthrough)</p>
+<pre><code class="lang-txt">dotnet add package linq2db.AspNet
+dotnet add package System.Data.SQLite.Core
 </code></pre><h2 id="custom-data-connection">Custom Data Connection</h2>
 <p>We&#39;re going to create a custom data connection to use to access LINQ To DB, create a class like this:</p>
 <pre><code class="lang-C#">using LinqToDB.Configuration;
@@ -101,19 +101,19 @@ using LinqToDB.Data;
 
 public class AppDataConnection: DataConnection
 {
-    public AppDataConnection(LinqToDBConnectionOptions&lt;AppDataConnection&gt; options)
+    public AppDataConnection(DataOptions&lt;AppDataConnection&gt; options)
         :base(options)
     {
 
     }
 }
-</code></pre><div class="TIP"><h5>Tip</h5><p>Note here our <code>AppDataConnection</code> inherits from <code>LinqToDB.Data.DataConnection</code> which is the base class for the Linq2Db connection. </p>
+</code></pre><div class="TIP"><h5>Tip</h5><p>Note here our <code>AppDataConnection</code> inherits from <code>LinqToDB.Data.DataConnection</code> which is the base class for the <code>Linq To DB</code> connection.</p>
 </div>
-<div class="TIP"><h5>Tip</h5><p>a public constructor that accepts <code>LinqToDBConnectionOptions&lt;AppDataConnection&gt;</code> and passes the options on to the base constructor is required.</p>
+<div class="TIP"><h5>Tip</h5><p>a public constructor that accepts <code>DataOptions&lt;AppDataConnection&gt;</code> and passes the options on to the base constructor is required.</p>
 </div>
 <h2 id="add-connection-string">Add Connection String</h2>
 <p>For this example we&#39;re going to use SQLite in memory mode, for production you&#39;ll want to use something else, but it&#39;s pretty easy to change.</p>
-<p>First you want to add the connection string to <code>appsettings.Development.json</code>, something like this: </p>
+<p>First you want to add the connection string to <code>appsettings.Development.json</code>, something like this:</p>
 <pre><code class="lang-json">{
   &quot;Logging&quot;: {
     &quot;LogLevel&quot;: {
@@ -137,25 +137,22 @@ public class AppDataConnection: DataConnection
     {
         //...
         //using LinqToDB.AspNet
-        services.AddLinqToDbContext&lt;AppDataConnection&gt;((provider, options) =&gt; {
-            options
-            //will configure the AppDataConnection to use
-            //sqite with the provided connection string
-            //there are methods for each supported database
-            .UseSQLite(Configuration.GetConnectionString(&quot;Default&quot;))
-            //default logging will log everything using the ILoggerFactory configured in the provider
-            .UseDefaultLogging(provider);
-        });
+        services.AddLinqToDBContext&lt;AppDataConnection&gt;((provider, options)
+            =&gt; options
+                //will configure the AppDataConnection to use
+                //sqite with the provided connection string
+                //there are methods for each supported database
+                .UseSQLite(Configuration.GetConnectionString(&quot;Default&quot;))
+                //default logging will log everything using the ILoggerFactory configured in the provider
+                .UseDefaultLogging(provider));
         //...
     }
 }
-</code></pre><div class="TIP"><h5>Tip</h5><p>There&#39;s plenty of other configuration options availble, if you are familiar with LINQ To DB already, you can convert your existing application over to use the new <code>LinqToDBConnectionOptions</code> class as every configuration method is supported</p>
+</code></pre><div class="TIP"><h5>Tip</h5><p>There&#39;s plenty of other configuration options available, if you are familiar with <code>LINQ To DB</code> already, you can convert your existing application over to use the new <code>DataOptions</code> class as every configuration method is supported</p>
 </div>
-<div class="TIP"><h5>Tip</h5><p>Note, only <code>DataConnection</code> supports <code>LinqToDBConnectionOptions</code>. <code>DataContext</code> is not yet supported.</p>
+<div class="TIP"><h5>Tip</h5><p>Use <code>AddLinqToDBContext&lt;TContext, TContextImplementation&gt;</code> if you would like to resolve an interface or base class instead of the concrete class in your controllers</p>
 </div>
-<div class="TIP"><h5>Tip</h5><p>Use <code>AddLinqToDbContext&lt;TContext, TContextImplementation&gt;</code> if you would like to resolve an interface or base class instead of the concrete class in your controllers</p>
-</div>
-<p>By default this will configure the service provider to create a new <code>AppDataConnection</code> for each HTTP Request, and will dispose of it once the request is finished. This can be configured with the last parameter to <code>AddLinqToDbContext(... ServiceLifetime lifetime)</code>, more information about lifetimes <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1#service-lifetimes">here</a></p>
+<p>By default this will configure the service provider to create a new <code>AppDataConnection</code> for each HTTP Request, and will dispose of it once the request is finished. This can be configured with the last parameter to <code>AddLinqToDBContext(... ServiceLifetime lifetime)</code>, more information about lifetimes <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1#service-lifetimes">here</a></p>
 <h2 id="simple-entity-configuration">Simple Entity Configuration</h2>
 <p>Let&#39;s create this simple entity in our project</p>
 <pre><code class="lang-C#">using System;
@@ -164,11 +161,11 @@ using LinqToDB.Mapping;
 public class Person
 {
     [PrimaryKey]
-    public Guid Id { get; set; } = Guid.NewGuid();
-    public string Name { get; set; }
+    public Guid     Id       { get; set; } = Guid.NewGuid();
+    public string   Name     { get; set; }
     public DateTime Birthday { get; set; }
 }
-</code></pre><h3 id="add-table-property-to-the-data-connection">Add table property to the data connection</h3>
+</code></pre><h2 id="add-table-property-to-the-data-connection">Add table property to the data connection</h2>
 <p>Open up our <code>AppDataConnection</code> and add this property</p>
 <pre><code class="lang-C#">public class AppDataConnection: DataConnection
 {
@@ -243,8 +240,8 @@ public class Person
         return _connection.InsertAsync(person);
     }
 }
-</code></pre><h1 id="quick-start-for-people-already-familiar-with-linq-to-db">Quick start for people already familiar with LINQ To DB</h1>
-<p>LINQ To DB now has support for ASP.NET Dependency injection. Here&#39;s a simple example of how to add it to dependancy injection</p>
+</code></pre><h2 id="quick-start-for-people-already-familiar-with-linq-to-db">Quick start for people already familiar with LINQ To DB</h2>
+<p>LINQ To DB now has support for ASP.NET Dependency injection. Here&#39;s a simple example of how to add it to dependency injection</p>
 <pre><code class="lang-C#">public class Startup
 {
     public IConfiguration Configuration { get; }
@@ -253,36 +250,24 @@ public class Person
     {
         //...
         //using LinqToDB.AspNet
-        services.AddLinqToDbContext&lt;AppDataConnection&gt;((provider, options) =&gt; {
-            options
-            //will configure the AppDataConnection to use
-            //SqlServer with the provided connection string
-            //there are methods for each supported database
-            .UseSqlServer(Configuration.GetConnectionString(&quot;Default&quot;))
+        services.AddLinqToDBContext&lt;AppDataConnection&gt;((provider, options)
+            =&gt; options
+                //will configure the AppDataConnection to use
+                //SqlServer with the provided connection string
+                //there are methods for each supported database
+                .UseSqlServer(Configuration.GetConnectionString(&quot;Default&quot;))
 
-            //default logging will log everything using
-            //an ILoggerFactory configured in the provider
-            .UseDefaultLogging(provider);
-        });
+                //default logging will log everything using
+                //an ILoggerFactory configured in the provider
+                .UseDefaultLogging(provider));
         //...
     }
 }
-</code></pre><p>In addition to these configuration options the following are also supported:</p>
-<ul>
-<li><code>Use&lt;DB_NAME&gt;(string connectionString)</code> (extensions for each supported database)</li>
-<li><code>UseConnectionString(string providerName, string connectionString)</code></li>
-<li><code>UseConnectionString(IDataProvider dataProvider, string connectionString)</code></li>
-<li><code>UseConfigurationString(string configurationString)</code></li>
-<li><code>UseConnectionFactory(IDataProvider dataProvider, Func&lt;IDbConnection&gt; connectionFactory)</code></li>
-<li><code>UseConnection(IDataProvider dataProvider, IDbConnection connection, bool disposeConnection = false)</code></li>
-<li><code>UseTransaction(IDataProvider dataProvider, IDbTransaction transaction)</code></li>
-</ul>
-<p>We&#39;ve done our best job to allow any existing use case to be migrated to using the new configuration options, please create an issue if something isn&#39;t supported. We will add more <code>Use&lt;provider_name&gt;</code> in the future.
-There&#39;s also some methods to setup tracing and mapping schema.</p>
+</code></pre><p>We&#39;ve done our best job to allow any existing use case to be migrated to using the new configuration options, please create an issue if something isn&#39;t supported. There are also some methods to setup tracing and mapping schema.</p>
 <p>You&#39;ll need to update your data connection to accept the new options class too.</p>
 <pre><code class="lang-C#">public class AppDataConnection: DataConnection
 {
-    public AppDataConnection(LinqToDBConnectionOptions&lt;AppDataConnection&gt; options)
+    public AppDataConnection(DataOptions&lt;AppDataConnection&gt; options)
         :base(options)
     {
 

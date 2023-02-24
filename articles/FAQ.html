@@ -79,15 +79,18 @@
             <article class="content wrap" id="_content" data-uid="">
 
 <ul>
-<li>General<ul>
+<li><a href="#general">General</a><ul>
 <li><a href="#which-async-model-linq-to-db-use">Which async model Linq To DB use?</a></li>
 <li><a href="#i-need-to-configure-connection-before-or-immediately-after-it-opened-eg-set-sql-server-accesstoken-or-sqlite-encryption-key">I need to configure connection before or immediately after it opened (e.g. set SQL Server AccessToken or SQLite encryption key)</a></li>
 </ul>
 </li>
-<li>Mapping<ul>
+<li><a href="#mapping">Mapping</a><ul>
 <li><a href="#do-i-need-to-use-attribute-andor-code-first-mapping">Do I need to use Attribute and/or Code first Mapping?</a></li>
 <li><a href="#how-can-i-use-calculated-fields">How can I use calculated fields?</a></li>
-<li><a href="#how-can-i-use-sql-server-spatial-types">How can I use SQL Server spatial types</a></li>
+<li><a href="#how-can-i-use-sql-server-spatial-types">How can I use SQL Server spatial types</a><ul>
+<li><a href="#how-to-fix-it">How to fix it</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -97,96 +100,55 @@
 If you need it to use another mode you can change it by setting following configuration option:</p>
 <pre><code class="lang-cs">// switch to await awaitable.ConfigureAwait(true)
 Configuration.ContinueOnCapturedContext = true;
-</code></pre><p>Note that in versions before 4.0 this setting was set to <code>true</code> by default.</p>
-<h2 id="i-need-to-configure-connection-before-or-immediately-after-it-opened-eg-set-sql-server-accesstoken-or-sqlite-encryption-key">I need to configure connection before or immediately after it opened (e.g. set SQL Server AccessToken or SQLite encryption key)</h2>
-<div class="WARNING"><h5>Warning</h5><p>Answer below is for older versions of LinqToDB. Starting with Linq To DB 4.0 you should use <a class="xref" href="general/interceptors.html">interceptors</a>.</p>
+</code></pre><h2 id="i-need-to-configure-connection-before-or-immediately-after-it-opened-eg-set-sql-server-accesstoken-or-sqlite-encryption-key">I need to configure connection before or immediately after it opened (e.g. set SQL Server AccessToken or SQLite encryption key)</h2>
+<div class="NOTE"><h5>Note</h5><p>You also could use connection factory method or connection interceptor to configure connection, but we recommend to use connection configuration action option as it used also for auto-detection of provider dialect (for providers with auto-detect logic and when auto-detect is enabled).</p>
 </div>
-<p>If you are using <code>DataConnection</code> to access database, you can subscribe to those events (each came in pair of sync and async events) and configure your connection there.</p>
-<p>Configure connection before it opened (SQL Server AccessToken example):</p>
-<pre><code class="lang-cs">// or do it in constructor of DataConnection-based class
-public class MyDb : DataConnection
+<p>Configure connection on creation/open (SQL Server and SQLite examples):</p>
+<pre><code class="lang-cs">public class MySqlServerDb : DataConnection // or DataContext
 {
-  public MyDb() : base(...)
+  public MySqlServerDb(connectionString) : base(
+    new DataOptions()
+      .UseSqlServer(connectionString)
+      .UseBeforeConnectionOpened(connection =&gt;
+      {
+        connection.AccessToken = &quot;..token here..&quot;;
+      }))
   {
-    this.OnBeforeConnectionOpen += (db, cn)
-      =&gt; ((SqlConnection)cn).AccessToken = GetAccessToken();
-
-    // code for this event could be the same, but you still need both
-    // events to handle both sync and async connection open operations
-    this.OnBeforeConnectionOpenAsync += async (db, cn, token) 
-      =&gt; ((SqlConnection)cn).AccessToken = await GetAccessTokenAsync(token);
   }
 }
 
-using (var db = new MyDb())
+public class MySQLiteDb : DataConnection // or DataContext
+{
+  public MySQLiteDb(connectionString) : base(
+    new DataOptions()
+      .UseSQLite(connectionString)
+      .UseAfterConnectionOpened(
+        connection =&gt;
+        {
+          using var cmd = connection.CreateCommand();
+          cmd.CommandText = $&quot;PRAGMA KEY &#39;{key}&#39;&quot;;
+          cmd.ExecuteNonQuery();
+        },
+        // optionally add async version to use non-blocking calls from async execution path
+        async (connection, cancellationToken) =&gt;
+        {
+          using var cmd = connection.CreateCommand();
+          cmd.CommandText = $&quot;PRAGMA KEY &#39;{key}&#39;&quot;;
+          await cmd.ExecuteNonQueryAsync(cancellationToken);
+        }))
+  {
+  }
+}
+
+using (var db = new MySqlServerDb())
 {
   // queries here will get pre-configured connection
 }
-</code></pre><p>Configure connection immediately after it opened (SQLite encryption example):</p>
-<pre><code class="lang-cs">// or do it in constructor of DataConnection-based class
-public class MyDb : DataConnection
-{
-  public MyDb() : base(...)
-  {
-    this.OnConnectionOpened += (db, cn)
-      =&gt; db.Execute($&quot;PRAGMA key = {GetQuotedPassword()}&quot;);
-
-    // code for this event could be the same, but you still need both
-    // events to handle both sync and async connection open operations
-    this.OnConnectionOpenedAsync += async (db, cn, token) 
-      =&gt; await db.ExecuteAsync(
-          $&quot;PRAGMA key = {await GetQuotedPasswordAsync(token)}&quot;, token);
-  }
-}
-
-using (var db = new MyDb())
-{
-  // queries here will get connection with encryption key set
-}
-</code></pre><p>If you need to do it also for other use-cases, e.g. for <code>DataContext</code>, it is not so convenient, but still possible (it will also handle <code>DataConnection</code> case).</p>
-<p>One option is to derive from your provider and override <code>CreateConnectionInternal</code> method. If you need to perform connection configuration after connection opened, you allowed to open created connection in this method (but you will loose <code>OpenAsync()</code> benefits for providers that support it).</p>
-<pre><code class="lang-cs">public class MySqliteProvider : SQLiteDataProvider
-{
-  public MySqliteProvider()
-      : base(...)
-  {
-  }
-
-  protected override IDbConnection CreateConnectionInternal(
-            string connectionString)
-  {
-    var cn = new SqliteConnection(connectionString);
-    cn.Open();
-    using (var cmd = cn.CreateCommand())
-    {
-      cmd.CommandText = $&quot;PRAGMA key = {GetQuotedPassword()}&quot;;
-      cmd.ExecuteNonQuery();
-    }
-
-    return cn;
-  }
-}
-</code></pre><p>Another option if you just need to configure non-opened connection, you can do it by using <code>DataProviderBase.OnConnectionCreated</code> callback:</p>
-<pre><code class="lang-cs">// note that:
-// - this is not event, so you cannot have multiple subscribers
-// - it is called for all connection creation operations
-// for all providers
-DataProviderBase.OnConnectionCreated = (p, cn) =&gt;
-{
-  // this is global handler, so if you use multiple databases,
-  // you need to check here if you need to handle it
-  if (cn is SqlConnection connection)
-  {
-    connection.AccessToken = GetAccessToken();
-  }
-
-  return cn;
-};
 </code></pre><h1 id="mapping">Mapping</h1>
 <h2 id="do-i-need-to-use-attribute-andor-code-first-mapping">Do I need to use Attribute and/or Code first Mapping?</h2>
-<p>Not strictly. It is possible to use linq2db with simple, non-attributed POCOs, however there will be specific limitations:</p>
+<p>Not strictly. It is possible to use <code>Linq To DB</code> with simple, non-attributed POCOs, however there will be specific limitations:</p>
 <ul>
-<li><p>The biggest of these is that the <code>string</code> type is nullable by default in .NET, and unlike with <code>int</code> or <code>double</code> there is no way for linq2db to infer nullability. This can cause problems in certain cases, such as if you are ever required to join two <code>VARCHAR</code> fields together.</p>
+<li><p>The biggest of these is that <code>Linq To DB</code> will not have information about nullability of reference types (e.g. <code>string</code>) and treat all such columns as nullable by default if you don&#39;t enable C# nullable reference types annotations in your code and not tell <code>Linq To DB</code> to read them.</p>
 </li>
 <li><p>Table and column names will have to match the class and property names.</p>
 <ul>
@@ -206,14 +168,15 @@ DataProviderBase.OnConnectionCreated = (p, cn) =&gt;
 </code></pre><h2 id="how-can-i-use-sql-server-spatial-types">How can I use SQL Server spatial types</h2>
 <p>Spatial types for SQL Server provided by:</p>
 <ul>
-<li><a href="https://www.nuget.org/packages/Microsoft.SqlServer.Types/"><code>Microsoft.SqlServer.Types</code></a> assembly from Microsoft for .NET Framework</li>
-<li><a href="https://www.nuget.org/packages/dotMorten.Microsoft.SqlServer.Types/"><code>dotMorten.Microsoft.SqlServer.Types</code></a> assembly from <a href="https://github.com/dotMorten">Morten Nielsen</a> for .NET Core. v1.x versions are for <code>System.Data.SqlClient</code> provider and v2.x versions are for <code>Microsoft.Data.SqlClient</code> provider</li>
+<li><a href="https://www.nuget.org/packages/Microsoft.SqlServer.Types"><code>Microsoft.SqlServer.Types</code></a> assembly from Microsoft for .NET Framework</li>
+<li><a href="https://www.nuget.org/packages/dotMorten.Microsoft.SqlServer.Types"><code>dotMorten.Microsoft.SqlServer.Types</code></a> assembly from <a href="https://github.com/dotMorten">Morten Nielsen</a> for .NET Core. v1.x versions are for <code>System.Data.SqlClient</code> provider and v2.x versions are for <code>Microsoft.Data.SqlClient</code> provider</li>
+<li><a href="https://www.nuget.org/packages/Microsoft.SqlServer.Server"><code>Microsoft.SqlServer.Server</code></a> nuget for use with <a href="https://www.nuget.org/packages/Microsoft.Data.SqlClient"><code>Microsoft.Data.SqlClient</code></a> provider (starting from 5.0 release of client)</li>
 </ul>
-<p>First of all it is recommended to register types assembly in linq2db using following call:</p>
+<p><code>Linq To DB</code> will automatically locate required types. You can register types assembly in <code>Linq To DB</code> manually, but it shouldn&#39;t be needed:</p>
 <pre><code class="lang-cs">SqlServerTools.ResolveSqlTypes(typeof(SqlGeography).Assembly);
 </code></pre><p>Main problem that people hit with SQL Server spatial types is following error on select queries: <code>Can&#39;t create &#39;&lt;DB_NAME&gt;.sys.&lt;SPATIAL_TYPE_NAME&gt;&#39; type or &#39;&#39; specific type for &lt;COLUMN_NAME&gt;.</code></p>
 <p>This happens due to different versions of <code>Microsoft.SqlServer.Types</code> assembly, requested by SqlClient, and assembly, referenced by your project.</p>
-<h4 id="how-to-fix-it">How to fix it</h4>
+<h3 id="how-to-fix-it">How to fix it</h3>
 <p>For .NET Framework you just need to add assembly bindings redirect to your configuration file to redirect all assembly load requests to your version (make sure that <code>newVersion</code> contains proper version of assembly you have):</p>
 <pre><code class="lang-xml">&lt;runtime&gt;
   &lt;assemblyBinding xmlns=&quot;urn:schemas-microsoft-com:asm.v1&quot;&gt;

@@ -83,7 +83,8 @@
   
   <h1 id="LinqToDB_Metadata_XmlAttributeReader" data-uid="LinqToDB.Metadata.XmlAttributeReader" class="text-break">Class XmlAttributeReader
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Metadata atributes provider. Uses XML document to describe attributes and their bindings.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -100,6 +101,24 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class XmlAttributeReader : object, IMetadataReader</code></pre>
   </div>
+  <h5 id="LinqToDB_Metadata_XmlAttributeReader_examples"><strong>Examples</strong></h5>
+  <p>XML format:</p>
+<p>&lt;[Root]&gt;
+&lt;Type Name=&quot;&lt;Type.FullName|Type.Name&gt;&quot;&gt;
+    &lt;Member Name=&quot;&lt;Name&gt;&quot;&gt;
+        [&lt;Attribute /&gt;]*
+    &lt;/Member&gt;
+    [&lt;Attribute /&gt;]*
+&lt;/Type&gt;
+&lt;/[Root]&gt;</p>
+<ol><li>Root node name could be any</li><li>Type nodes define entity classes with entity type name specified in Name attribute (must be <code>typeof(Entity).FullName</code> or <code>typeof(Entity).Name</code> value)</li><li>Member nodes define entity class members with mapping attributes with member name specified in Name attribute</li><li>Attr nodes define attributes of entity (if nested into Type node) or entity member (when nested into Member node)</li></ol>
+
+<p>Attribute node format:</p>
+<p>&lt;[AttributeTypeName]&gt;
+  &lt;[PropertyName] Value=&quot;&lt;serialized_value&gt;&quot; Type=&quot;&lt;Type.FullName|Type.Name&gt;&quot; /&gt;
+&lt;/[AttributeTypeName]&gt;</p>
+<ol><li>Node name is a mapping attribute type name as <code>Type.FullName</code>, <code>Type.Name</code> or <code>Type.Name</code> without <code>&quot;Attribute&quot;</code> suffix</li><li>PropertyName node name is a name of attribute property you want to set</li><li>Type attribute specify value type as <code>Type.FullName</code> or <code>Type.Name</code> string and specified only for non-string properties</li><li>Value contains attribute property value, serialized as string, understandable by <a class="xref" href="LinqToDB.Common.Converter.html#LinqToDB_Common_Converter_ChangeType_System_Nullable_System_Object__Type_LinqToDB_Mapping_MappingSchema_">ChangeType(Nullable&lt;Object&gt;, Type, MappingSchema)</a> method</li></ol>
+
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
@@ -107,11 +126,12 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Metadata_XmlAttributeReader__ctor_Stream_.md&amp;value=---%0Auid%3A%20LinqToDB.Metadata.XmlAttributeReader.%23ctor(Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Metadata/XmlAttributeReader.cs/#L65">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Metadata/XmlAttributeReader.cs/#L182">View Source</a>
   </span>
   <a id="LinqToDB_Metadata_XmlAttributeReader__ctor_" data-uid="LinqToDB.Metadata.XmlAttributeReader.#ctor*"></a>
   <h4 id="LinqToDB_Metadata_XmlAttributeReader__ctor_Stream_" data-uid="LinqToDB.Metadata.XmlAttributeReader.#ctor(Stream)">XmlAttributeReader(Stream)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates metadata provider instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -130,7 +150,8 @@
       <tr>
         <td><span class="xref">Stream</span></td>
         <td><span class="parametername">xmlDocStream</span></td>
-        <td></td>
+        <td><p>Stream with XML document.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -139,11 +160,12 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Metadata_XmlAttributeReader__ctor_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.Metadata.XmlAttributeReader.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Metadata/XmlAttributeReader.cs/#L16">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Metadata/XmlAttributeReader.cs/#L99">View Source</a>
   </span>
   <a id="LinqToDB_Metadata_XmlAttributeReader__ctor_" data-uid="LinqToDB.Metadata.XmlAttributeReader.#ctor*"></a>
   <h4 id="LinqToDB_Metadata_XmlAttributeReader__ctor_System_String_" data-uid="LinqToDB.Metadata.XmlAttributeReader.#ctor(System.String)">XmlAttributeReader(String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates metadata provider instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -162,7 +184,10 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">xmlFile</span></td>
-        <td></td>
+        <td><p>Parameter could reference to (probed in specified order):
+<ul><li>full or relative path to XML file resolved against current directory</li><li>full or relative path to XML file resolved against application&apos;s app domain base directory (<see cref="!:AppDomain.BaseDirectory"></see>)</li><li>name of resource with XML document, resolved using <see cref="!:Assembly.GetManifestResourceStream(string)"></see> method</li><li>name of resource suffix (<code>.{<code data-dev-comment-type="paramref" class="paramref">xmlFile</code>}</code>) for resource with XML document, resolved using <see cref="!:Assembly.GetManifestResourceStream(string)"></see> method</li></ul>
+Resource search performed in calling assembly.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -171,11 +196,12 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Metadata_XmlAttributeReader__ctor_System_String_Assembly_.md&amp;value=---%0Auid%3A%20LinqToDB.Metadata.XmlAttributeReader.%23ctor(System.String%2CAssembly)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Metadata/XmlAttributeReader.cs/#L21">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Metadata/XmlAttributeReader.cs/#L119">View Source</a>
   </span>
   <a id="LinqToDB_Metadata_XmlAttributeReader__ctor_" data-uid="LinqToDB.Metadata.XmlAttributeReader.#ctor*"></a>
   <h4 id="LinqToDB_Metadata_XmlAttributeReader__ctor_System_String_Assembly_" data-uid="LinqToDB.Metadata.XmlAttributeReader.#ctor(System.String,Assembly)">XmlAttributeReader(String, Assembly)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates metadata provider instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -194,12 +220,15 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">xmlFile</span></td>
-        <td></td>
+        <td><p>Parameter could reference to (probed in specified order):
+<ul><li>full or relative path to XML file resolved against current directory</li><li>full or relative path to XML file resolved against application&apos;s app domain base directory (<see cref="!:AppDomain.BaseDirectory"></see>)</li><li>name of resource with XML document, resolved using <see cref="!:Assembly.GetManifestResourceStream(string)"></see> method</li><li>name of resource suffix (<code>.{<code data-dev-comment-type="paramref" class="paramref">xmlFile</code>}</code>) for resource with XML document, resolved using <see cref="!:Assembly.GetManifestResourceStream(string)"></see> method</li></ul></p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">Assembly</span></td>
         <td><span class="parametername">assembly</span></td>
-        <td></td>
+        <td><p>Assembly to load resource from for two last options from <code data-dev-comment-type="paramref" class="paramref">xmlFile</code> parameter.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -207,19 +236,65 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Metadata_XmlAttributeReader_GetAttributes__1_Type_MemberInfo_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.Metadata.XmlAttributeReader.GetAttributes%60%601(Type%2CMemberInfo%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Metadata_XmlAttributeReader_GetAttributes_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Metadata.XmlAttributeReader.GetAttributes(Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Metadata/XmlAttributeReader.cs/#L149">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Metadata/XmlAttributeReader.cs/#L257">View Source</a>
   </span>
   <a id="LinqToDB_Metadata_XmlAttributeReader_GetAttributes_" data-uid="LinqToDB.Metadata.XmlAttributeReader.GetAttributes*"></a>
-  <h4 id="LinqToDB_Metadata_XmlAttributeReader_GetAttributes__1_Type_MemberInfo_System_Boolean_" data-uid="LinqToDB.Metadata.XmlAttributeReader.GetAttributes``1(Type,MemberInfo,System.Boolean)">GetAttributes&lt;T&gt;(Type, MemberInfo, Boolean)</h4>
+  <h4 id="LinqToDB_Metadata_XmlAttributeReader_GetAttributes_Type_" data-uid="LinqToDB.Metadata.XmlAttributeReader.GetAttributes(Type)">GetAttributes(Type)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T[] GetAttributes&lt;T&gt;(Type type, MemberInfo memberInfo, bool inherit = true)
-    where T : Attribute</code></pre>
+    <pre><code class="lang-csharp hljs">public MappingAttribute[] GetAttributes(Type type)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LinqToDB.Mapping.MappingAttribute.html">MappingAttribute</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Metadata_XmlAttributeReader_GetAttributes_Type_MemberInfo_.md&amp;value=---%0Auid%3A%20LinqToDB.Metadata.XmlAttributeReader.GetAttributes(Type%2CMemberInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Metadata/XmlAttributeReader.cs/#L265">View Source</a>
+  </span>
+  <a id="LinqToDB_Metadata_XmlAttributeReader_GetAttributes_" data-uid="LinqToDB.Metadata.XmlAttributeReader.GetAttributes*"></a>
+  <h4 id="LinqToDB_Metadata_XmlAttributeReader_GetAttributes_Type_MemberInfo_" data-uid="LinqToDB.Metadata.XmlAttributeReader.GetAttributes(Type,MemberInfo)">GetAttributes(Type, MemberInfo)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MappingAttribute[] GetAttributes(Type type, MemberInfo memberInfo)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -241,11 +316,6 @@
         <td><span class="parametername">memberInfo</span></td>
         <td></td>
       </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">inherit</span></td>
-        <td></td>
-      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -258,90 +328,7 @@
     </thead>
     <tbody>
       <tr>
-        <td>T[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Metadata_XmlAttributeReader_GetAttributes__1_Type_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.Metadata.XmlAttributeReader.GetAttributes%60%601(Type%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Metadata/XmlAttributeReader.cs/#L140">View Source</a>
-  </span>
-  <a id="LinqToDB_Metadata_XmlAttributeReader_GetAttributes_" data-uid="LinqToDB.Metadata.XmlAttributeReader.GetAttributes*"></a>
-  <h4 id="LinqToDB_Metadata_XmlAttributeReader_GetAttributes__1_Type_System_Boolean_" data-uid="LinqToDB.Metadata.XmlAttributeReader.GetAttributes``1(Type,System.Boolean)">GetAttributes&lt;T&gt;(Type, Boolean)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T[] GetAttributes&lt;T&gt;(Type type, bool inherit = true)
-    where T : Attribute</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Type</span></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">inherit</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>T[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
+        <td><a class="xref" href="LinqToDB.Mapping.MappingAttribute.html">MappingAttribute</a>[]</td>
         <td></td>
       </tr>
     </tbody>
@@ -351,7 +338,7 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Metadata_XmlAttributeReader_GetDynamicColumns_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Metadata.XmlAttributeReader.GetDynamicColumns(Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Metadata/XmlAttributeReader.cs/#L164">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Metadata/XmlAttributeReader.cs/#L277">View Source</a>
   </span>
   <a id="LinqToDB_Metadata_XmlAttributeReader_GetDynamicColumns_" data-uid="LinqToDB.Metadata.XmlAttributeReader.GetDynamicColumns*"></a>
   <h4 id="LinqToDB_Metadata_XmlAttributeReader_GetDynamicColumns_Type_" data-uid="LinqToDB.Metadata.XmlAttributeReader.GetDynamicColumns(Type)">GetDynamicColumns(Type)</h4>
@@ -393,6 +380,36 @@
         <td><span class="xref">MemberInfo</span>[]</td>
         <td><p>All dynamic columns defined on given type.</p>
 </td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Metadata_XmlAttributeReader_GetObjectID.md&amp;value=---%0Auid%3A%20LinqToDB.Metadata.XmlAttributeReader.GetObjectID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Metadata/XmlAttributeReader.cs/#L279">View Source</a>
+  </span>
+  <a id="LinqToDB_Metadata_XmlAttributeReader_GetObjectID_" data-uid="LinqToDB.Metadata.XmlAttributeReader.GetObjectID*"></a>
+  <h4 id="LinqToDB_Metadata_XmlAttributeReader_GetObjectID" data-uid="LinqToDB.Metadata.XmlAttributeReader.GetObjectID">GetObjectID()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetObjectID()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -451,7 +468,7 @@
                     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Metadata_XmlAttributeReader.md&amp;value=---%0Auid%3A%20LinqToDB.Metadata.XmlAttributeReader%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Metadata/XmlAttributeReader.cs/#L12" class="contribution-link">View Source</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Metadata/XmlAttributeReader.cs/#L55" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

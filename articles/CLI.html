@@ -76,7 +76,7 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="cli">
 <h1 id="linq-to-db-cli-tools">LINQ to DB CLI tools</h1>
 <!-- omit in toc -->
 
@@ -557,7 +557,6 @@ public sealed class AggregateFunctionModel : ScalarFunctionModelBase
 
 public abstract class TableFunctionModelBase : FunctionModelBase
 {
-    public SqlObjectName Name  { get; set; }
     public string?       Error { get; set; }
 }
 
@@ -570,6 +569,7 @@ public abstract class FunctionModelBase
 {
     public MethodModel                  Method     { get; set; }
     public List&lt;FunctionParameterModel&gt; Parameters { get;      } = new();
+    public SqlObjectName                Name       { get; set; }
 }
 
 public sealed class FunctionParameterModel
@@ -627,6 +627,7 @@ public sealed class AssociationModel
     public ColumnModel[]?      FromColumns            { get; set; }
     public ColumnModel[]?      ToColumns              { get; set; }
     public bool                ManyToOne              { get; set; }
+    public string?             ForeignKeyName         { get; set; }
 }
 </code></pre><h5 id="code-models">Code models</h5>
 <pre><code class="lang-cs">

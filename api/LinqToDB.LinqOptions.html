@@ -109,7 +109,7 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions__ctor.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L155">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L157">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions__ctor_" data-uid="LinqToDB.LinqOptions.#ctor*"></a>
   <h4 id="LinqToDB_LinqOptions__ctor" data-uid="LinqToDB.LinqOptions.#ctor">LinqOptions()</h4>
@@ -124,7 +124,7 @@
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions__ctor_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Nullable_TimeSpan__System_Boolean_System_Boolean_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.%23ctor(System.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Nullable%7BTimeSpan%7D%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L136">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L138">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions__ctor_" data-uid="LinqToDB.LinqOptions.#ctor*"></a>
   <h4 id="LinqToDB_LinqOptions__ctor_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Nullable_TimeSpan__System_Boolean_System_Boolean_System_Boolean_System_Boolean_" data-uid="LinqToDB.LinqOptions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Nullable{TimeSpan},System.Boolean,System.Boolean,System.Boolean,System.Boolean)">LinqOptions(Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Nullable&lt;TimeSpan&gt;, Boolean, Boolean, Boolean, Boolean)</h4>
@@ -132,7 +132,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LinqOptions(bool PreloadGroups = false, bool IgnoreEmptyUpdate = false, bool GenerateExpressionTest = false, bool TraceMapperExpression = false, bool DoNotClearOrderBys = false, bool OptimizeJoins = true, bool CompareNullsAsValues = true, bool GuardGrouping = true, bool DisableQueryCache = false, TimeSpan? CacheSlidingExpiration = null, bool PreferApply = true, bool KeepDistinctOrdered = true, bool ParameterizeTakeSkip = true, bool EnableAutoFluentMapping = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public LinqOptions(bool PreloadGroups = false, bool IgnoreEmptyUpdate = false, bool GenerateExpressionTest = false, bool TraceMapperExpression = false, bool DoNotClearOrderBys = false, bool OptimizeJoins = true, bool CompareNullsAsValues = true, bool GuardGrouping = true, bool DisableQueryCache = false, TimeSpan? CacheSlidingExpiration = null, bool PreferApply = true, bool KeepDistinctOrdered = true, bool ParameterizeTakeSkip = true, bool EnableContextSchemaEdit = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -311,10 +311,12 @@ Default value: <code>true</code>.</p>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">EnableAutoFluentMapping</span></td>
-        <td><p>If <code>true</code>, auto support for fluent mapping is ON,
-which means that you do not need to create additional MappingSchema object to define FluentMapping.
-You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
+        <td><span class="parametername">EnableContextSchemaEdit</span></td>
+        <td><p>If <code>true</code>, user could add new mappings to context mapping schems (<a class="xref" href="LinqToDB.IDataContext.html#LinqToDB_IDataContext_MappingSchema">MappingSchema</a>).
+Otherwise <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be generated on locked mapping schema edit attempt.
+It is not recommended to enable this option as it has performance implications.
+Proper approach is to create single <a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a> instance once, configure mappings for it and use this <a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a> instance for all context instances.
+Default value: <code>false</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -326,7 +328,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_CacheSlidingExpiration.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.CacheSlidingExpiration%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L147">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L149">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions_CacheSlidingExpiration_" data-uid="LinqToDB.LinqOptions.CacheSlidingExpiration*"></a>
   <h4 id="LinqToDB_LinqOptions_CacheSlidingExpiration" data-uid="LinqToDB.LinqOptions.CacheSlidingExpiration">CacheSlidingExpiration</h4>
@@ -356,7 +358,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_CacheSlidingExpirationOrDefault.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.CacheSlidingExpirationOrDefault%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L195">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L209">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions_CacheSlidingExpirationOrDefault_" data-uid="LinqToDB.LinqOptions.CacheSlidingExpirationOrDefault*"></a>
   <h4 id="LinqToDB_LinqOptions_CacheSlidingExpirationOrDefault" data-uid="LinqToDB.LinqOptions.CacheSlidingExpirationOrDefault">CacheSlidingExpirationOrDefault</h4>
@@ -386,7 +388,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_CompareNullsAsValues.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.CompareNullsAsValues%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L144">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L146">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions_CompareNullsAsValues_" data-uid="LinqToDB.LinqOptions.CompareNullsAsValues*"></a>
   <h4 id="LinqToDB_LinqOptions_CompareNullsAsValues" data-uid="LinqToDB.LinqOptions.CompareNullsAsValues">CompareNullsAsValues</h4>
@@ -416,7 +418,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_DisableQueryCache.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.DisableQueryCache%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L146">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L148">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions_DisableQueryCache_" data-uid="LinqToDB.LinqOptions.DisableQueryCache*"></a>
   <h4 id="LinqToDB_LinqOptions_DisableQueryCache" data-uid="LinqToDB.LinqOptions.DisableQueryCache">DisableQueryCache</h4>
@@ -446,7 +448,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_DoNotClearOrderBys.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.DoNotClearOrderBys%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L142">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L144">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions_DoNotClearOrderBys_" data-uid="LinqToDB.LinqOptions.DoNotClearOrderBys*"></a>
   <h4 id="LinqToDB_LinqOptions_DoNotClearOrderBys" data-uid="LinqToDB.LinqOptions.DoNotClearOrderBys">DoNotClearOrderBys</h4>
@@ -473,18 +475,18 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_EnableAutoFluentMapping.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.EnableAutoFluentMapping%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_EnableContextSchemaEdit.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.EnableContextSchemaEdit%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L151">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L153">View Source</a>
   </span>
-  <a id="LinqToDB_LinqOptions_EnableAutoFluentMapping_" data-uid="LinqToDB.LinqOptions.EnableAutoFluentMapping*"></a>
-  <h4 id="LinqToDB_LinqOptions_EnableAutoFluentMapping" data-uid="LinqToDB.LinqOptions.EnableAutoFluentMapping">EnableAutoFluentMapping</h4>
+  <a id="LinqToDB_LinqOptions_EnableContextSchemaEdit_" data-uid="LinqToDB.LinqOptions.EnableContextSchemaEdit*"></a>
+  <h4 id="LinqToDB_LinqOptions_EnableContextSchemaEdit" data-uid="LinqToDB.LinqOptions.EnableContextSchemaEdit">EnableContextSchemaEdit</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool EnableAutoFluentMapping { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool EnableContextSchemaEdit { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -506,7 +508,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_GenerateExpressionTest.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.GenerateExpressionTest%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L140">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L142">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions_GenerateExpressionTest_" data-uid="LinqToDB.LinqOptions.GenerateExpressionTest*"></a>
   <h4 id="LinqToDB_LinqOptions_GenerateExpressionTest" data-uid="LinqToDB.LinqOptions.GenerateExpressionTest">GenerateExpressionTest</h4>
@@ -536,7 +538,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_GuardGrouping.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.GuardGrouping%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L145">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L147">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions_GuardGrouping_" data-uid="LinqToDB.LinqOptions.GuardGrouping*"></a>
   <h4 id="LinqToDB_LinqOptions_GuardGrouping" data-uid="LinqToDB.LinqOptions.GuardGrouping">GuardGrouping</h4>
@@ -566,7 +568,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_IgnoreEmptyUpdate.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.IgnoreEmptyUpdate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L139">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L141">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions_IgnoreEmptyUpdate_" data-uid="LinqToDB.LinqOptions.IgnoreEmptyUpdate*"></a>
   <h4 id="LinqToDB_LinqOptions_IgnoreEmptyUpdate" data-uid="LinqToDB.LinqOptions.IgnoreEmptyUpdate">IgnoreEmptyUpdate</h4>
@@ -596,7 +598,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_KeepDistinctOrdered.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.KeepDistinctOrdered%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L149">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L151">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions_KeepDistinctOrdered_" data-uid="LinqToDB.LinqOptions.KeepDistinctOrdered*"></a>
   <h4 id="LinqToDB_LinqOptions_KeepDistinctOrdered" data-uid="LinqToDB.LinqOptions.KeepDistinctOrdered">KeepDistinctOrdered</h4>
@@ -626,7 +628,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_OptimizeJoins.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.OptimizeJoins%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L143">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L145">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions_OptimizeJoins_" data-uid="LinqToDB.LinqOptions.OptimizeJoins*"></a>
   <h4 id="LinqToDB_LinqOptions_OptimizeJoins" data-uid="LinqToDB.LinqOptions.OptimizeJoins">OptimizeJoins</h4>
@@ -656,7 +658,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_ParameterizeTakeSkip.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.ParameterizeTakeSkip%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L150">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L152">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions_ParameterizeTakeSkip_" data-uid="LinqToDB.LinqOptions.ParameterizeTakeSkip*"></a>
   <h4 id="LinqToDB_LinqOptions_ParameterizeTakeSkip" data-uid="LinqToDB.LinqOptions.ParameterizeTakeSkip">ParameterizeTakeSkip</h4>
@@ -686,7 +688,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_PreferApply.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.PreferApply%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L148">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L150">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions_PreferApply_" data-uid="LinqToDB.LinqOptions.PreferApply*"></a>
   <h4 id="LinqToDB_LinqOptions_PreferApply" data-uid="LinqToDB.LinqOptions.PreferApply">PreferApply</h4>
@@ -716,7 +718,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_PreloadGroups.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.PreloadGroups%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L138">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L140">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions_PreloadGroups_" data-uid="LinqToDB.LinqOptions.PreloadGroups*"></a>
   <h4 id="LinqToDB_LinqOptions_PreloadGroups" data-uid="LinqToDB.LinqOptions.PreloadGroups">PreloadGroups</h4>
@@ -746,7 +748,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_TraceMapperExpression.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.TraceMapperExpression%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L141">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L143">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions_TraceMapperExpression_" data-uid="LinqToDB.LinqOptions.TraceMapperExpression*"></a>
   <h4 id="LinqToDB_LinqOptions_TraceMapperExpression" data-uid="LinqToDB.LinqOptions.TraceMapperExpression">TraceMapperExpression</h4>
@@ -778,7 +780,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_Equals_LinqToDB_LinqOptions_.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.Equals(LinqToDB.LinqOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L199">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L213">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions_Equals_" data-uid="LinqToDB.LinqOptions.Equals*"></a>
   <h4 id="LinqToDB_LinqOptions_Equals_LinqToDB_LinqOptions_" data-uid="LinqToDB.LinqOptions.Equals(LinqToDB.LinqOptions)">Equals(LinqOptions)</h4>
@@ -825,7 +827,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_GetHashCode.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L207">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L221">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions_GetHashCode_" data-uid="LinqToDB.LinqOptions.GetHashCode*"></a>
   <h4 id="LinqToDB_LinqOptions_GetHashCode" data-uid="LinqToDB.LinqOptions.GetHashCode">GetHashCode()</h4>
@@ -857,7 +859,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions_LinqToDB_Common_Internal_IConfigurationID_ConfigurationID.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions.LinqToDB%23Common%23Internal%23IConfigurationID%23ConfigurationID%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L178">View Source</a>
+    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L180">View Source</a>
   </span>
   <a id="LinqToDB_LinqOptions_LinqToDB_Common_Internal_IConfigurationID_ConfigurationID_" data-uid="LinqToDB.LinqOptions.LinqToDB#Common#Internal#IConfigurationID#ConfigurationID*"></a>
   <h4 id="LinqToDB_LinqOptions_LinqToDB_Common_Internal_IConfigurationID_ConfigurationID" data-uid="LinqToDB.LinqOptions.LinqToDB#Common#Internal#IConfigurationID#ConfigurationID">IConfigurationID.ConfigurationID</h4>
@@ -933,7 +935,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
       <a class="xref" href="LinqToDB.DataOptionsExtensions.html#LinqToDB_DataOptionsExtensions_WithParameterizeTakeSkip_LinqToDB_LinqOptions_System_Boolean_">DataOptionsExtensions.WithParameterizeTakeSkip(LinqOptions, Boolean)</a>
   </div>
   <div>
-      <a class="xref" href="LinqToDB.DataOptionsExtensions.html#LinqToDB_DataOptionsExtensions_WithEnableAutoFluentMapping_LinqToDB_LinqOptions_System_Boolean_">DataOptionsExtensions.WithEnableAutoFluentMapping(LinqOptions, Boolean)</a>
+      <a class="xref" href="LinqToDB.DataOptionsExtensions.html#LinqToDB_DataOptionsExtensions_WithEnableContextSchemaEdit_LinqToDB_LinqOptions_System_Boolean_">DataOptionsExtensions.WithEnableContextSchemaEdit(LinqOptions, Boolean)</a>
   </div>
   <div>
       <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
@@ -982,7 +984,7 @@ You can use <code>context.MappingSchema.GetFluentMappingBuilder()</code>.</p>
                     <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_LinqOptions.md&amp;value=---%0Auid%3A%20LinqToDB.LinqOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L136" class="contribution-link">View Source</a>
+                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L138" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
