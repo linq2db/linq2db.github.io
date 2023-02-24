@@ -1,21 +1,20 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Window (Analytic) Functions | Linq To DB (aka linq2db) </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Window (Analytic) Functions | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.59.4.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Window (Analytic) Functions | Linq To DB (aka linq2db) </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Window (Analytic) Functions | Linq To DB (aka linq2db) ">
     
-    <link rel="shortcut icon" href="../../images/icon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
+      <link rel="shortcut icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
     
     <meta property="docfx:rel" content="../../">
     
@@ -23,7 +22,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../../index.html">
                 <img id="logo" class="svg" src="../../images/icon.png" alt="">
               </a>
@@ -47,7 +46,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -57,7 +56,7 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
@@ -67,7 +66,7 @@
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -82,73 +81,76 @@
 <p>Window functions are implemented as extension methods for static <code>Sql.Ext</code> property. For extensions generation (e.g. partitioning or ordering) fluent syntax is used.</p>
 <h4 id="call-syntax">Call Syntax</h4>
 <pre><code class="lang-cs">Sql.Ext.[Function]([Parameters])
-    .Over()
-    .[PartitionPart]
-    .[OrderByPart]
-    .[WindowingPart]
-    .ToValue();
-</code></pre><p>Last function in method chain <strong>must</strong> be function <code>ToValue()</code> - it is a mark that method chain is finished.</p>
+	.Over()
+	.[PartitionPart]
+	.[OrderByPart]
+	.[WindowingPart]
+	.ToValue();
+</code></pre>
+<p>Last function in method chain <strong>must</strong> be function <code>ToValue()</code> - it is a mark that method chain is finished.</p>
 <h5 id="example">Example</h5>
 <pre><code class="lang-c#">var q = 
-    from p in db.Parent
-    join c in db.Child on p.ParentID equals c.ParentID 
-    select new
-    {
-        Rank = Sql.Ext.Rank()
-            .Over()
-            .PartitionBy(p.Value1, c.ChildID)
-            .OrderBy(p.Value1)
-            .ThenBy(c.ChildID)
-            .ThenBy(c.ParentID)
-            .ToValue(),
+	from p in db.Parent
+	join c in db.Child on p.ParentID equals c.ParentID 
+	select new
+	{
+		Rank = Sql.Ext.Rank()
+			.Over()
+			.PartitionBy(p.Value1, c.ChildID)
+			.OrderBy(p.Value1)
+			.ThenBy(c.ChildID)
+			.ThenBy(c.ParentID)
+			.ToValue(),
 
-        RowNumber = Sql.Ext.RowNumber()
-            .Over()
-            .PartitionBy(p.Value1, c.ChildID)
-            .OrderByDesc(p.Value1)
-            .ThenBy(c.ChildID)
-            .ThenByDesc(c.ParentID)
-            .ToValue(),
+		RowNumber = Sql.Ext.RowNumber()
+			.Over()
+			.PartitionBy(p.Value1, c.ChildID)
+			.OrderByDesc(p.Value1)
+			.ThenBy(c.ChildID)
+			.ThenByDesc(c.ParentID)
+			.ToValue(),
 
-        DenseRank = Sql.Ext.DenseRank()
-            .Over()
-            .PartitionBy(p.Value1, c.ChildID)
-            .OrderBy(p.Value1)
-            .ToValue(),
+		DenseRank = Sql.Ext.DenseRank()
+			.Over()
+			.PartitionBy(p.Value1, c.ChildID)
+			.OrderBy(p.Value1)
+			.ToValue(),
 
-        Sum = Sql.Ext.Sum(p.Value1)
-            .Over()
-            .PartitionBy(p.Value1, c.ChildID)
-            .OrderBy(p.Value1)
-            .ToValue(),
+		Sum = Sql.Ext.Sum(p.Value1)
+			.Over()
+			.PartitionBy(p.Value1, c.ChildID)
+			.OrderBy(p.Value1)
+			.ToValue(),
 
-        Avg = Sql.Ext.Average&lt;double&gt;(p.Value1)
-            .Over()
-            .PartitionBy(p.Value1, c.ChildID)
-            .OrderBy(p.Value1)
-            .ToValue(),
+		Avg = Sql.Ext.Average&lt;double&gt;(p.Value1)
+			.Over()
+			.PartitionBy(p.Value1, c.ChildID)
+			.OrderBy(p.Value1)
+			.ToValue(),
 
-        Count = Sql.Ext.Count(p.ParentID, Sql.AggregateModifier.All)
-            .Over()
-            .PartitionBy(p.Value1)
-            .OrderBy(p.Value1)
-            .Range.Between.UnboundedPreceding.And.CurrentRow
-            .ToValue(),
-    };
+		Count = Sql.Ext.Count(p.ParentID, Sql.AggregateModifier.All)
+			.Over()
+			.PartitionBy(p.Value1)
+			.OrderBy(p.Value1)
+			.Range.Between.UnboundedPreceding.And.CurrentRow
+			.ToValue(),
+	};
 
 var res = q.ToArray();
-</code></pre><h5 id="resulting-sql">Resulting SQL</h5>
+</code></pre>
+<h5 id="resulting-sql">Resulting SQL</h5>
 <pre><code class="lang-sql">SELECT
-    RANK() OVER(PARTITION BY [p].[Value1], [c7].[ChildID] ORDER BY [p].[Value1], [c7].[ChildID], [c7].[ParentID]) as [c1],
-    ROW_NUMBER() OVER(PARTITION BY [p].[Value1], [c7].[ChildID] ORDER BY [p].[Value1] DESC, [c7].[ChildID], [c7].[ParentID] DESC) as [c2],
-    DENSE_RANK() OVER(PARTITION BY [p].[Value1], [c7].[ChildID] ORDER BY [p].[Value1]) as [c3],
-    SUM([p].[Value1]) OVER(PARTITION BY [p].[Value1], [c7].[ChildID] ORDER BY [p].[Value1]) as [c4],
-    AVG([p].[Value1]) OVER(PARTITION BY [p].[Value1], [c7].[ChildID] ORDER BY [p].[Value1]) as [c5],
-    COUNT(ALL [p].[ParentID]) OVER(PARTITION BY [p].[Value1] ORDER BY [p].[Value1] RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) as [c6]
+	RANK() OVER(PARTITION BY [p].[Value1], [c7].[ChildID] ORDER BY [p].[Value1], [c7].[ChildID], [c7].[ParentID]) as [c1],
+	ROW_NUMBER() OVER(PARTITION BY [p].[Value1], [c7].[ChildID] ORDER BY [p].[Value1] DESC, [c7].[ChildID], [c7].[ParentID] DESC) as [c2],
+	DENSE_RANK() OVER(PARTITION BY [p].[Value1], [c7].[ChildID] ORDER BY [p].[Value1]) as [c3],
+	SUM([p].[Value1]) OVER(PARTITION BY [p].[Value1], [c7].[ChildID] ORDER BY [p].[Value1]) as [c4],
+	AVG([p].[Value1]) OVER(PARTITION BY [p].[Value1], [c7].[ChildID] ORDER BY [p].[Value1]) as [c5],
+	COUNT(ALL [p].[ParentID]) OVER(PARTITION BY [p].[Value1] ORDER BY [p].[Value1] RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) as [c6]
 FROM
-    [Parent] [p]
-        INNER JOIN [Child] [c7] ON [p].[ParentID] = [c7].[ParentID]
-</code></pre><h4 id="supported-functions-could-be-incomplete">Supported Functions (could be incomplete)</h4>
+	[Parent] [p]
+		INNER JOIN [Child] [c7] ON [p].[ParentID] = [c7].[ParentID]
+</code></pre>
+<h4 id="supported-functions-could-be-incomplete">Supported Functions (could be incomplete)</h4>
 <p>The following table contains list of supported Window Functions and <code>LINQ To DB</code> representation of these functions.</p>
 <table>
 <thead>
@@ -328,7 +330,8 @@ FROM
 </tr>
 </tbody>
 </table>
-<blockquote><p>If you have found that your database supports function that is not listed in table above, you can easily create your own extension (but it will be better to create feature request or PR). Code samples are located in <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs">Sql.Analytic.cs</a></p>
+<blockquote>
+<p>If you have found that your database supports function that is not listed in table above, you can easily create your own extension (but it will be better to create feature request or PR). Code samples are located in <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Sql/Sql.Analytic.cs">Sql.Analytic.cs</a></p>
 </blockquote>
 <h4 id="window-functions-support">Window Functions Support</h4>
 <ul>
@@ -349,7 +352,7 @@ FROM
 </ul>
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -367,7 +370,7 @@ FROM
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -375,13 +378,13 @@ FROM
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2011-2022 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-            
+      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+      
           </div>
         </div>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>

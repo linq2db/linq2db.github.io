@@ -1,21 +1,20 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>LINQ to DB CLI tools | Linq To DB (aka linq2db) </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="LINQ to DB CLI tools | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.59.4.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>LINQ to DB CLI tools | Linq To DB (aka linq2db) </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="LINQ to DB CLI tools | Linq To DB (aka linq2db) ">
     
-    <link rel="shortcut icon" href="../images/icon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+      <link rel="shortcut icon" href="../images/icon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
     
     <meta property="docfx:rel" content="../">
     
@@ -23,7 +22,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../images/icon.png" alt="">
               </a>
@@ -47,7 +46,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -57,7 +56,7 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
@@ -67,7 +66,7 @@
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -82,28 +81,35 @@
 
 <ul>
 <li><a href="#installation">Installation</a></li>
-<li><a href="#use">Use</a><ul>
-<li><a href="#usage-examples">Usage Examples</a><ul>
+<li><a href="#use">Use</a>
+<ul>
+<li><a href="#usage-examples">Usage Examples</a>
+<ul>
 <li><a href="#generate-sqlite-database-model-in-current-folder">Generate SQLite database model in current folder</a></li>
 <li><a href="#generate-sqlite-database-model-using-response-file">Generate SQLite database model using response file</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#customize-scaffold-with-code">Customize Scaffold with Code</a><ul>
+<li><a href="#customize-scaffold-with-code">Customize Scaffold with Code</a>
+<ul>
 <li><a href="#customization-with-assembly">Customization with assembly</a></li>
 <li><a href="#customization-with-t4-template">Customization with T4 template</a></li>
-<li><a href="#interceptors-overview">Interceptors Overview</a><ul>
-<li><a href="#schema-load-interceptors">Schema Load Interceptors</a><ul>
+<li><a href="#interceptors-overview">Interceptors Overview</a>
+<ul>
+<li><a href="#schema-load-interceptors">Schema Load Interceptors</a>
+<ul>
 <li><a href="#interceptor-implementation-example">Interceptor implementation example</a></li>
 <li><a href="#database-schema-models">Database schema models</a></li>
 </ul>
 </li>
-<li><a href="#type-mapping-interceptor">Type mapping interceptor</a><ul>
+<li><a href="#type-mapping-interceptor">Type mapping interceptor</a>
+<ul>
 <li><a href="#example">Example</a></li>
 </ul>
 </li>
-<li><a href="#data-model-interceptors">Data Model Interceptors</a><ul>
+<li><a href="#data-model-interceptors">Data Model Interceptors</a>
+<ul>
 <li><a href="#interceptor-implementation-examples">Interceptor implementation examples</a></li>
 <li><a href="#data-model-classes">Data model classes</a></li>
 <li><a href="#code-models">Code models</a></li>
@@ -116,7 +122,9 @@
 </li>
 </ul>
 <h2 id="installation">Installation</h2>
-<div class="NOTE"><h5>Note</h5><p>Requres .NET Core 3.1 or higher.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Requres .NET Core 3.1 or higher.</p>
 </div>
 <p>Install as global tool:</p>
 <p><code>dotnet tool install -g linq2db.cli</code></p>
@@ -149,7 +157,8 @@
         &quot;overwrite&quot;: true
     }
 }
-</code></pre><p>Here you can see that connection string passed using both command line and <code>json</code> config file. In such cases option passed in command line takes precedence.</p>
+</code></pre>
+<p>Here you can see that connection string passed using both command line and <code>json</code> config file. In such cases option passed in command line takes precedence.</p>
 <p>Scaffold configs (response files) are convenient in many ways:</p>
 <ul>
 <li>you can store scaffolding options for your project in source control and share with other developers</li>
@@ -157,7 +166,7 @@
 <li>some options not available from CLI or hard to use due to CLI nature (e.g. various issues with escaping of parameters)</li>
 </ul>
 <h2 id="customize-scaffold-with-code">Customize Scaffold with Code</h2>
-<p>For more advanced scaffolding configuration you can use scaffold interceptor class (inherited from <code>ScaffoldInterceptors</code> class), passed as pre-built assembly (don&#39;t forget that scaffold utility use .net core 3.1+, so don&#39;t target it with .NET Framework TFM) or T4 template.
+<p>For more advanced scaffolding configuration you can use scaffold interceptor class (inherited from <code>ScaffoldInterceptors</code> class), passed as pre-built assembly (don't forget that scaffold utility use .net core 3.1+, so don't target it with .NET Framework TFM) or T4 template.
 Class, inherited from <code>ScaffoldInterceptors</code> should have default constructor or constructor with <code>ScaffoldOptions</code> parameters.</p>
 <p>Main difference between assembly and T4 approach is:</p>
 <ul>
@@ -178,7 +187,9 @@ Class, inherited from <code>ScaffoldInterceptors</code> should have default cons
 <li>Add class, inherited from <code>LinqToDB.Scaffold.ScaffoldInterceptors</code> and override required customization methods</li>
 <li>Build assembly and use it with <code>--custmize</code> option</li>
 </ol>
-<div class="NOTE"><h5>Note</h5><p>CLI tool tries to locate and load referenced 3rd-party assemblies, used by customization assembly automatically.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>CLI tool tries to locate and load referenced 3rd-party assemblies, used by customization assembly automatically.</p>
 <p>If it fails to find referenced assembly, you can try to enable local copy behavior by adding following property to project file:</p>
 <p><code>&lt;CopyLocalLockFileAssemblies&gt;true&lt;/CopyLocalLockFileAssemblies&gt;</code></p>
 </div>
@@ -200,7 +211,8 @@ Class, inherited from <code>ScaffoldInterceptors</code> should have default cons
 <ul>
 <li>Database schema load interceptors. Those interceptors allow user to add, remove or modify information about database objects, used for data model generation.</li>
 <li>Database type mapping interceptor. This interceptor allows user to override default .NET type used for specific database type in data model or specify .NET type for database type, not known to scaffold utility (e.g. some custom database type)</li>
-<li>Data model interceptors. Those interceptors work with generate data model objects and allow user to modify them before they will be converted to source code. Such objects include:<ul>
+<li>Data model interceptors. Those interceptors work with generate data model objects and allow user to modify them before they will be converted to source code. Such objects include:
+<ul>
 <li>entities (table/view mapping classes)</li>
 <li>methods for stored procedure or function mapping</li>
 <li>associations (foreign key relations)</li>
@@ -217,7 +229,10 @@ IEnumerable&lt;StoredProcedure&gt;   GetProcedures        (IEnumerable&lt;Stored
 IEnumerable&lt;TableFunction&gt;     GetTableFunctions    (IEnumerable&lt;TableFunction&gt;     functions);
 IEnumerable&lt;ScalarFunction&gt;    GetScalarFunctions   (IEnumerable&lt;ScalarFunction&gt;    functions);
 IEnumerable&lt;AggregateFunction&gt; GetAggregateFunctions(IEnumerable&lt;AggregateFunction&gt; functions)
-</code></pre><div class="NOTE"><h5>Note</h5><p>Database object-specific interceptor will be called only if specific object type load was allowed in options (see <code>--objects</code> parameter).</p>
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Database object-specific interceptor will be called only if specific object type load was allowed in options (see <code>--objects</code> parameter).</p>
 </div>
 <h5 id="interceptor-implementation-example">Interceptor implementation example</h5>
 <pre><code class="lang-c#">
@@ -274,7 +289,8 @@ public override IEnumerable&lt;ForeignKey&gt; GetForeignKeys(IEnumerable&lt;Fore
     // return foreign keys from schema + new key
     return keys.Concat(new[] { fk });
 }
-</code></pre><h5 id="database-schema-models">Database schema models</h5>
+</code></pre>
+<h5 id="database-schema-models">Database schema models</h5>
 <pre><code class="lang-csharp">// generic descriptors
 public readonly record struct SqlObjectName(string Name, string? Server = null, string? Database = null, string? Schema = null, string? Package = null);
 
@@ -369,14 +385,17 @@ public sealed record TupleResult(IReadOnlyCollection&lt;ScalarResult&gt; Fields,
 public sealed record VoidResult() : Result(ResultKind.Void);
 
 public sealed record ResultColumn(string? Name, DatabaseType Type, bool Nullable);
-</code></pre><h4 id="type-mapping-interceptor">Type mapping interceptor</h4>
+</code></pre>
+<h4 id="type-mapping-interceptor">Type mapping interceptor</h4>
 <p>This interceptor allows user to specify which .NET type should be used for specific database type and usefull in several cases:</p>
 <ul>
 <li>when default type mapping use wrong type</li>
 <li>user wants to use different type for specific database type</li>
 <li>default type mapping cannot map type and uses fallback type (<code>System.Object</code>)</li>
 </ul>
-<div class="NOTE"><h5>Note</h5><p>Database type doesn&#39;t include nullability flag. Nullability applied to type automatically later.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Database type doesn't include nullability flag. Nullability applied to type automatically later.</p>
 </div>
 <pre><code class="lang-cs">// IMPORTANT: this method called only once for each database type
 // ITypeParser inte
@@ -402,7 +421,8 @@ public interface ITypeParser
     // valueType: specify that type is reference or value type to properly handle type nullability
     IType Parse(string typeName, bool valueType);
 }
-</code></pre><h5 id="example">Example</h5>
+</code></pre>
+<h5 id="example">Example</h5>
 <pre><code class="lang-cs">// defaultMapping could be null if tool cannot map database type
 // in such cases default type (System.Object) will be used in mapping
 public override TypeMapping? GetTypeMapping(DatabaseType databaseType, ITypeParser typeParser, TypeMapping? defaultMapping)
@@ -416,7 +436,8 @@ public override TypeMapping? GetTypeMapping(DatabaseType databaseType, ITypePars
     // for other types use default mapping
     return defaultMapping;
 }
-</code></pre><h4 id="data-model-interceptors">Data Model Interceptors</h4>
+</code></pre>
+<h4 id="data-model-interceptors">Data Model Interceptors</h4>
 <p>This group of interceptors allow user to modify generated data model objects before they converted to source code.</p>
 <pre><code class="lang-cs">// This interceptor works with single entity model object that
 // corresponds to database table or view.
@@ -427,7 +448,8 @@ public override TypeMapping? GetTypeMapping(DatabaseType databaseType, ITypePars
 // - Find/FindQuery entity extensions generation options
 // - List of entity column properties (column metada and property code generation options)
 void PreprocessEntity(ITypeParser typeParser, EntityModel entityModel);
-</code></pre><h5 id="interceptor-implementation-examples">Interceptor implementation examples</h5>
+</code></pre>
+<h5 id="interceptor-implementation-examples">Interceptor implementation examples</h5>
 <pre><code class="lang-cs">// several use-cases cases of entity customization
 public override void PreprocessEntity(ITypeParser typeParser, EntityModel entityModel)
 {
@@ -444,7 +466,7 @@ public override void PreprocessEntity(ITypeParser typeParser, EntityModel entity
         entityModel.ContextProperty = null;
 
     // for table with name &quot;alltypes&quot; we cannot recognize separate words to properly generate class name
-    // let&#39;s modify generated entity class name in model
+    // let's modify generated entity class name in model
     if (entityModel.Class.Name == &quot;Alltypes&quot;)
         entityModel.Class.Name = &quot;AllTypes&quot;;
 
@@ -453,7 +475,8 @@ public override void PreprocessEntity(ITypeParser typeParser, EntityModel entity
     if (creatorColumn != null)
         creatorColumn.Metadata.SkipOnUpdate = true;
 }
-</code></pre><h5 id="data-model-classes">Data model classes</h5>
+</code></pre>
+<h5 id="data-model-classes">Data model classes</h5>
 <pre><code class="lang-cs">// data model descriptors
 
 // entity descriptor
@@ -629,7 +652,9 @@ public sealed class AssociationModel
     public bool                ManyToOne              { get; set; }
     public string?             ForeignKeyName         { get; set; }
 }
-</code></pre><h5 id="code-models">Code models</h5>
+
+</code></pre>
+<h5 id="code-models">Code models</h5>
 <pre><code class="lang-cs">
 public sealed class ClassModel
 {
@@ -698,7 +723,9 @@ public enum CodeParameterDirection
    Ref,
    Out
 }
-</code></pre><h5 id="metadata-models">Metadata models</h5>
+
+</code></pre>
+<h5 id="metadata-models">Metadata models</h5>
 <pre><code class="lang-cs">public sealed class EntityMetadata
 {
    public SqlObjectName? Name                      { get; set; }
@@ -768,9 +795,11 @@ public sealed class AssociationMetadata
    public string?          ExpressionPredicate   { get; set; }
    public string?          QueryExpressionMethod { get; set; }
 }
-</code></pre></article>
+
+</code></pre>
+</article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -788,7 +817,7 @@ public sealed class AssociationMetadata
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -796,13 +825,13 @@ public sealed class AssociationMetadata
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2011-2022 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-            
+      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+      
           </div>
         </div>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>

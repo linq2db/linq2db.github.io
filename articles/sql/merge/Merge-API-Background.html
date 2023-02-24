@@ -1,21 +1,20 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Merge API Background Information | Linq To DB (aka linq2db) </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Merge API Background Information | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.59.4.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Merge API Background Information | Linq To DB (aka linq2db) </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Merge API Background Information | Linq To DB (aka linq2db) ">
     
-    <link rel="shortcut icon" href="../../../images/icon.ico">
-    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../../styles/docfx.css">
-    <link rel="stylesheet" href="../../../styles/main.css">
-    <meta property="docfx:navrel" content="../../../toc.html">
-    <meta property="docfx:tocrel" content="../../toc.html">
+      <link rel="shortcut icon" href="../../../images/icon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
     
     <meta property="docfx:rel" content="../../../">
     
@@ -23,7 +22,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../../../index.html">
                 <img id="logo" class="svg" src="../../../images/icon.png" alt="">
               </a>
@@ -47,7 +46,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -57,7 +56,7 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
@@ -67,7 +66,7 @@
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -91,23 +90,28 @@ Later we plan to extend providers support by adding support for <code>UPSERT</co
 
 &lt;update_operation&gt; := UPDATE SET &lt;column&gt; = &lt;value&gt; [, &lt;column&gt; = &lt;value&gt;]
 &lt;insert_operation&gt; := INSERT (&lt;column_list&gt;) VALUES(&lt;values_list&gt;)
-</code></pre><h2 id="advanced-syntax-sql2008-extensions">Advanced syntax (SQL:2008 extensions)</h2>
+</code></pre>
+<h2 id="advanced-syntax-sql2008-extensions">Advanced syntax (SQL:2008 extensions)</h2>
 <h3 id="multiple-match-cases">Multiple <code>MATCH</code> cases</h3>
 <p>It is possible to perform different operations for records, matched by ON match condition by specifying extra conditions on <code>WHEN</code> statement:</p>
 <pre><code class="lang-sql">WHEN [NOT] MATCHED [AND &lt;extra_condition&gt;] THEN &lt;match_specific_operation&gt;
-</code></pre><h3 id="delete-operation"><code>DELETE</code> operation</h3>
+</code></pre>
+<h3 id="delete-operation"><code>DELETE</code> operation</h3>
 <p><code>DELETE</code> operation could be used for <code>WHEN MATCHED</code> case.</p>
 <pre><code class="lang-sql">WHEN MATCHED [AND &lt;extra condition&gt;] THEN DELETE
-</code></pre><h2 id="links">Links</h2>
+</code></pre>
+<h2 id="links">Links</h2>
 <ul>
 <li><a href="https://en.wikibooks.org/wiki/Structured_Query_Language/MERGE">MERGE on wikibooks</a></li>
 <li><a href="https://jakewheat.github.io/sql-overview/">SQL grammar</a> see SQL:2003 and SQL:2011 (sic! grammars)</li>
 </ul>
 <h2 id="supported-databases">Supported Databases</h2>
 <ul>
-<li><a href="#merge-api-background-information">Merge API Background Information</a><ul>
+<li><a href="#merge-api-background-information">Merge API Background Information</a>
+<ul>
 <li><a href="#basic-syntax-sql2003">Basic syntax (SQL:2003)</a></li>
-<li><a href="#advanced-syntax-sql2008-extensions">Advanced syntax (SQL:2008 extensions)</a><ul>
+<li><a href="#advanced-syntax-sql2008-extensions">Advanced syntax (SQL:2008 extensions)</a>
+<ul>
 <li><a href="#multiple-match-cases">Multiple <code>MATCH</code> cases</a></li>
 <li><a href="#delete-operation"><code>DELETE</code> operation</a></li>
 </ul>
@@ -154,7 +158,7 @@ It supports all features from <code>SQL:2008</code> standard and adds support fo
 <p>DB2 supports all features from <code>SQL:2008</code> standard.</p>
 <p>Limitations:</p>
 <ul>
-<li>doesn&#39;t support associations (joins) in match predicate</li>
+<li>doesn't support associations (joins) in match predicate</li>
 </ul>
 <p>Links:</p>
 <ul>
@@ -180,15 +184,15 @@ Firebird 3.0 supports all features from <code>SQL:2008</code> standard.</p>
 <h2 id="oracle-database">Oracle Database</h2>
 <p>Oracle supports <code>SQL:2003</code> features and operation conditions from <code>SQL:2008</code>.</p>
 <p>Instead of independent <code>Delete</code> operation it supports delete condition for <code>Update</code> operation, which will be applied only to updated records and work with updated values.
-To support this behavior, merge API supports <code>Update Then Delete</code> operation, that works only for Oracle. You also can use regular <code>Update</code> operation, but not <code>Delete</code>. For <code>Delete</code> operation you can use `UpdateWithDelete&#39; with the same condition for update and delete.</p>
+To support this behavior, merge API supports <code>Update Then Delete</code> operation, that works only for Oracle. You also can use regular <code>Update</code> operation, but not <code>Delete</code>. For <code>Delete</code> operation you can use `UpdateWithDelete' with the same condition for update and delete.</p>
 <p>Limitations:</p>
 <ul>
 <li>Only two operations per command supported, where one of them should be <code>Insert</code> and second should be <code>Update</code> or <code>UpdateWithDelete</code></li>
 <li><code>Delete</code> operation not supported</li>
-<li>Associations in `Insert&#39; setters not supported</li>
+<li>Associations in `Insert' setters not supported</li>
 <li>fields, used in match condition, cannot be updated</li>
 <li>command with empty enumerable source will not send command to database and return 0 immediately</li>
-<li>mixing nulls and non-null values for binary column for client-side source doesn&#39;t work</li>
+<li>mixing nulls and non-null values for binary column for client-side source doesn't work</li>
 </ul>
 <p>Links:</p>
 <ul>
@@ -201,8 +205,8 @@ To support this behavior, merge API supports <code>Update Then Delete</code> ope
 <li>it is hard to name it just a limitation * server could crash on some merge queries</li>
 <li>associations in match condition not supported (undocumented)</li>
 <li>returned number of affected records could be (and usually is) more than expected</li>
-<li>Merge only with <code>Delete</code> operations doesn&#39;t work (undocumented)</li>
-<li>Some combinations of operations rise error with text that doesn&#39;t make any sense (undocumented): &quot;<code>MERGE is not allowed because different MERGE actions are referenced in the same WHEN [NOT] MATCHED clause</code>&quot;, which is not true, because other commands with same set of operations just work</li>
+<li>Merge only with <code>Delete</code> operations doesn't work (undocumented)</li>
+<li>Some combinations of operations rise error with text that doesn't make any sense (undocumented): &quot;<code>MERGE is not allowed because different MERGE actions are referenced in the same WHEN [NOT] MATCHED clause</code>&quot;, which is not true, because other commands with same set of operations just work</li>
 <li>command with empty enumerable source will not send command to database and return 0 immediately</li>
 </ul>
 <p>Other notes:</p>
@@ -253,7 +257,7 @@ To support this behavior, merge API supports <code>Update Then Delete</code> ope
 </ul>
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -271,7 +275,7 @@ To support this behavior, merge API supports <code>Update Then Delete</code> ope
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -279,13 +283,13 @@ To support this behavior, merge API supports <code>Update Then Delete</code> ope
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2011-2022 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-            
+      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+      
           </div>
         </div>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../../styles/main.js"></script>

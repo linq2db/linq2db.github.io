@@ -1,21 +1,20 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>General | Linq To DB (aka linq2db) </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="General | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.59.4.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>General | Linq To DB (aka linq2db) </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="General | Linq To DB (aka linq2db) ">
     
-    <link rel="shortcut icon" href="../images/icon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+      <link rel="shortcut icon" href="../images/icon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
     
     <meta property="docfx:rel" content="../">
     
@@ -23,7 +22,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../images/icon.png" alt="">
               </a>
@@ -47,7 +46,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -57,7 +56,7 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
@@ -67,7 +66,7 @@
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -79,15 +78,18 @@
             <article class="content wrap" id="_content" data-uid="">
 
 <ul>
-<li><a href="#general">General</a><ul>
+<li><a href="#general">General</a>
+<ul>
 <li><a href="#which-async-model-linq-to-db-use">Which async model Linq To DB use?</a></li>
 <li><a href="#i-need-to-configure-connection-before-or-immediately-after-it-opened-eg-set-sql-server-accesstoken-or-sqlite-encryption-key">I need to configure connection before or immediately after it opened (e.g. set SQL Server AccessToken or SQLite encryption key)</a></li>
 </ul>
 </li>
-<li><a href="#mapping">Mapping</a><ul>
+<li><a href="#mapping">Mapping</a>
+<ul>
 <li><a href="#do-i-need-to-use-attribute-andor-code-first-mapping">Do I need to use Attribute and/or Code first Mapping?</a></li>
 <li><a href="#how-can-i-use-calculated-fields">How can I use calculated fields?</a></li>
-<li><a href="#how-can-i-use-sql-server-spatial-types">How can I use SQL Server spatial types</a><ul>
+<li><a href="#how-can-i-use-sql-server-spatial-types">How can I use SQL Server spatial types</a>
+<ul>
 <li><a href="#how-to-fix-it">How to fix it</a></li>
 </ul>
 </li>
@@ -100,8 +102,11 @@
 If you need it to use another mode you can change it by setting following configuration option:</p>
 <pre><code class="lang-cs">// switch to await awaitable.ConfigureAwait(true)
 Configuration.ContinueOnCapturedContext = true;
-</code></pre><h2 id="i-need-to-configure-connection-before-or-immediately-after-it-opened-eg-set-sql-server-accesstoken-or-sqlite-encryption-key">I need to configure connection before or immediately after it opened (e.g. set SQL Server AccessToken or SQLite encryption key)</h2>
-<div class="NOTE"><h5>Note</h5><p>You also could use connection factory method or connection interceptor to configure connection, but we recommend to use connection configuration action option as it used also for auto-detection of provider dialect (for providers with auto-detect logic and when auto-detect is enabled).</p>
+</code></pre>
+<h2 id="i-need-to-configure-connection-before-or-immediately-after-it-opened-eg-set-sql-server-accesstoken-or-sqlite-encryption-key">I need to configure connection before or immediately after it opened (e.g. set SQL Server AccessToken or SQLite encryption key)</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You also could use connection factory method or connection interceptor to configure connection, but we recommend to use connection configuration action option as it used also for auto-detection of provider dialect (for providers with auto-detect logic and when auto-detect is enabled).</p>
 </div>
 <p>Configure connection on creation/open (SQL Server and SQLite examples):</p>
 <pre><code class="lang-cs">public class MySqlServerDb : DataConnection // or DataContext
@@ -126,14 +131,14 @@ public class MySQLiteDb : DataConnection // or DataContext
         connection =&gt;
         {
           using var cmd = connection.CreateCommand();
-          cmd.CommandText = $&quot;PRAGMA KEY &#39;{key}&#39;&quot;;
+          cmd.CommandText = $&quot;PRAGMA KEY '{key}'&quot;;
           cmd.ExecuteNonQuery();
         },
         // optionally add async version to use non-blocking calls from async execution path
         async (connection, cancellationToken) =&gt;
         {
           using var cmd = connection.CreateCommand();
-          cmd.CommandText = $&quot;PRAGMA KEY &#39;{key}&#39;&quot;;
+          cmd.CommandText = $&quot;PRAGMA KEY '{key}'&quot;;
           await cmd.ExecuteNonQueryAsync(cancellationToken);
         }))
   {
@@ -144,11 +149,12 @@ using (var db = new MySqlServerDb())
 {
   // queries here will get pre-configured connection
 }
-</code></pre><h1 id="mapping">Mapping</h1>
+</code></pre>
+<h1 id="mapping">Mapping</h1>
 <h2 id="do-i-need-to-use-attribute-andor-code-first-mapping">Do I need to use Attribute and/or Code first Mapping?</h2>
 <p>Not strictly. It is possible to use <code>Linq To DB</code> with simple, non-attributed POCOs, however there will be specific limitations:</p>
 <ul>
-<li><p>The biggest of these is that <code>Linq To DB</code> will not have information about nullability of reference types (e.g. <code>string</code>) and treat all such columns as nullable by default if you don&#39;t enable C# nullable reference types annotations in your code and not tell <code>Linq To DB</code> to read them.</p>
+<li><p>The biggest of these is that <code>Linq To DB</code> will not have information about nullability of reference types (e.g. <code>string</code>) and treat all such columns as nullable by default if you don't enable C# nullable reference types annotations in your code and not tell <code>Linq To DB</code> to read them.</p>
 </li>
 <li><p>Table and column names will have to match the class and property names.</p>
 <ul>
@@ -165,16 +171,18 @@ using (var db = new MySqlServerDb())
     [Column(SkipOnInsert = true, SkipOnUpdate = true)]
     public int CalculatedField { get; set; }
 }
-</code></pre><h2 id="how-can-i-use-sql-server-spatial-types">How can I use SQL Server spatial types</h2>
+</code></pre>
+<h2 id="how-can-i-use-sql-server-spatial-types">How can I use SQL Server spatial types</h2>
 <p>Spatial types for SQL Server provided by:</p>
 <ul>
 <li><a href="https://www.nuget.org/packages/Microsoft.SqlServer.Types"><code>Microsoft.SqlServer.Types</code></a> assembly from Microsoft for .NET Framework</li>
 <li><a href="https://www.nuget.org/packages/dotMorten.Microsoft.SqlServer.Types"><code>dotMorten.Microsoft.SqlServer.Types</code></a> assembly from <a href="https://github.com/dotMorten">Morten Nielsen</a> for .NET Core. v1.x versions are for <code>System.Data.SqlClient</code> provider and v2.x versions are for <code>Microsoft.Data.SqlClient</code> provider</li>
 <li><a href="https://www.nuget.org/packages/Microsoft.SqlServer.Server"><code>Microsoft.SqlServer.Server</code></a> nuget for use with <a href="https://www.nuget.org/packages/Microsoft.Data.SqlClient"><code>Microsoft.Data.SqlClient</code></a> provider (starting from 5.0 release of client)</li>
 </ul>
-<p><code>Linq To DB</code> will automatically locate required types. You can register types assembly in <code>Linq To DB</code> manually, but it shouldn&#39;t be needed:</p>
+<p><code>Linq To DB</code> will automatically locate required types. You can register types assembly in <code>Linq To DB</code> manually, but it shouldn't be needed:</p>
 <pre><code class="lang-cs">SqlServerTools.ResolveSqlTypes(typeof(SqlGeography).Assembly);
-</code></pre><p>Main problem that people hit with SQL Server spatial types is following error on select queries: <code>Can&#39;t create &#39;&lt;DB_NAME&gt;.sys.&lt;SPATIAL_TYPE_NAME&gt;&#39; type or &#39;&#39; specific type for &lt;COLUMN_NAME&gt;.</code></p>
+</code></pre>
+<p>Main problem that people hit with SQL Server spatial types is following error on select queries: <code>Can't create '&lt;DB_NAME&gt;.sys.&lt;SPATIAL_TYPE_NAME&gt;' type or '' specific type for &lt;COLUMN_NAME&gt;.</code></p>
 <p>This happens due to different versions of <code>Microsoft.SqlServer.Types</code> assembly, requested by SqlClient, and assembly, referenced by your project.</p>
 <h3 id="how-to-fix-it">How to fix it</h3>
 <p>For .NET Framework you just need to add assembly bindings redirect to your configuration file to redirect all assembly load requests to your version (make sure that <code>newVersion</code> contains proper version of assembly you have):</p>
@@ -186,10 +194,11 @@ using (var db = new MySqlServerDb())
     &lt;/dependentAssembly&gt;
   &lt;/assemblyBinding&gt;
 &lt;/runtime&gt;
-</code></pre><p>For .NET Core it is a bit tricky because:</p>
+</code></pre>
+<p>For .NET Core it is a bit tricky because:</p>
 <ul>
-<li>.NET Core doesn&#39;t support binding redirects</li>
-<li>You need to use 3rd-party assembly with non-Microsoft public key and binding redirects doesn&#39;t allow such redirects anyway</li>
+<li>.NET Core doesn't support binding redirects</li>
+<li>You need to use 3rd-party assembly with non-Microsoft public key and binding redirects doesn't allow such redirects anyway</li>
 </ul>
 <p>To workaround it you need to add custom assembly resolver to your code:</p>
 <pre><code class="lang-cs">// subscribe to assembly load request event somewhere in your init code
@@ -216,13 +225,14 @@ Assembly OnAssemblyResolve(AssemblyLoadContext assemblyLoadContext, AssemblyName
   }
   finally
   {
-    // don&#39;t forget to restore our load handler
+    // don't forget to restore our load handler
     AssemblyLoadContext.Default.Resolving += OnAssemblyResolve;
   }
 }
-</code></pre></article>
+</code></pre>
+</article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -240,7 +250,7 @@ Assembly OnAssemblyResolve(AssemblyLoadContext assemblyLoadContext, AssemblyName
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -248,13 +258,13 @@ Assembly OnAssemblyResolve(AssemblyLoadContext assemblyLoadContext, AssemblyName
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2011-2022 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-            
+      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+      
           </div>
         </div>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>

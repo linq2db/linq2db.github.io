@@ -1,21 +1,20 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Configuring LINQ To DB for ASP.NET Core | Linq To DB (aka linq2db) </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Configuring LINQ To DB for ASP.NET Core | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.59.4.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Configuring LINQ To DB for ASP.NET Core | Linq To DB (aka linq2db) </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Configuring LINQ To DB for ASP.NET Core | Linq To DB (aka linq2db) ">
     
-    <link rel="shortcut icon" href="../../../images/icon.ico">
-    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../../styles/docfx.css">
-    <link rel="stylesheet" href="../../../styles/main.css">
-    <meta property="docfx:navrel" content="../../../toc.html">
-    <meta property="docfx:tocrel" content="../../toc.html">
+      <link rel="shortcut icon" href="../../../images/icon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
     
     <meta property="docfx:rel" content="../../../">
     
@@ -23,7 +22,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../../../index.html">
                 <img id="logo" class="svg" src="../../../images/icon.png" alt="">
               </a>
@@ -47,7 +46,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -57,7 +56,7 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
@@ -67,7 +66,7 @@
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -88,14 +87,16 @@
 <li><a href="https://visualstudio.microsoft.com">Visual Studio</a> or some other IDE</li>
 </ul>
 <h2 id="create-a-new-project">Create a new project</h2>
-<p>First thing we&#39;re going to do is create a new ASP.NET Core application using the dotnet CLI</p>
+<p>First thing we're going to do is create a new ASP.NET Core application using the dotnet CLI</p>
 <pre><code class="lang-txt">dotnet new webapp -o gettingStartedLinqToDBAspNet
-</code></pre><h2 id="install-linq-to-db">Install LINQ To DB</h2>
+</code></pre>
+<h2 id="install-linq-to-db">Install LINQ To DB</h2>
 <p>We can now use the CLI to install LINQ To DB and database provider (SQLite in this walkthrough)</p>
 <pre><code class="lang-txt">dotnet add package linq2db.AspNet
 dotnet add package System.Data.SQLite.Core
-</code></pre><h2 id="custom-data-connection">Custom Data Connection</h2>
-<p>We&#39;re going to create a custom data connection to use to access LINQ To DB, create a class like this:</p>
+</code></pre>
+<h2 id="custom-data-connection">Custom Data Connection</h2>
+<p>We're going to create a custom data connection to use to access LINQ To DB, create a class like this:</p>
 <pre><code class="lang-C#">using LinqToDB.Configuration;
 using LinqToDB.Data;
 
@@ -107,12 +108,17 @@ public class AppDataConnection: DataConnection
 
     }
 }
-</code></pre><div class="TIP"><h5>Tip</h5><p>Note here our <code>AppDataConnection</code> inherits from <code>LinqToDB.Data.DataConnection</code> which is the base class for the <code>Linq To DB</code> connection.</p>
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Note here our <code>AppDataConnection</code> inherits from <code>LinqToDB.Data.DataConnection</code> which is the base class for the <code>Linq To DB</code> connection.</p>
 </div>
-<div class="TIP"><h5>Tip</h5><p>a public constructor that accepts <code>DataOptions&lt;AppDataConnection&gt;</code> and passes the options on to the base constructor is required.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>a public constructor that accepts <code>DataOptions&lt;AppDataConnection&gt;</code> and passes the options on to the base constructor is required.</p>
 </div>
 <h2 id="add-connection-string">Add Connection String</h2>
-<p>For this example we&#39;re going to use SQLite in memory mode, for production you&#39;ll want to use something else, but it&#39;s pretty easy to change.</p>
+<p>For this example we're going to use SQLite in memory mode, for production you'll want to use something else, but it's pretty easy to change.</p>
 <p>First you want to add the connection string to <code>appsettings.Development.json</code>, something like this:</p>
 <pre><code class="lang-json">{
   &quot;Logging&quot;: {
@@ -127,7 +133,8 @@ public class AppDataConnection: DataConnection
     &quot;Default&quot;: &quot;:memory:&quot; //&lt;-- connection string, used in the next step
   }
 }
-</code></pre><h2 id="configure-dependency-injection">Configure Dependency injection</h2>
+</code></pre>
+<h2 id="configure-dependency-injection">Configure Dependency injection</h2>
 <p>inside <code>Startup.cs</code> you want register the data connection like this:</p>
 <pre><code class="lang-C#">public class Startup
 {
@@ -148,13 +155,18 @@ public class AppDataConnection: DataConnection
         //...
     }
 }
-</code></pre><div class="TIP"><h5>Tip</h5><p>There&#39;s plenty of other configuration options available, if you are familiar with <code>LINQ To DB</code> already, you can convert your existing application over to use the new <code>DataOptions</code> class as every configuration method is supported</p>
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>There's plenty of other configuration options available, if you are familiar with <code>LINQ To DB</code> already, you can convert your existing application over to use the new <code>DataOptions</code> class as every configuration method is supported</p>
 </div>
-<div class="TIP"><h5>Tip</h5><p>Use <code>AddLinqToDBContext&lt;TContext, TContextImplementation&gt;</code> if you would like to resolve an interface or base class instead of the concrete class in your controllers</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Use <code>AddLinqToDBContext&lt;TContext, TContextImplementation&gt;</code> if you would like to resolve an interface or base class instead of the concrete class in your controllers</p>
 </div>
 <p>By default this will configure the service provider to create a new <code>AppDataConnection</code> for each HTTP Request, and will dispose of it once the request is finished. This can be configured with the last parameter to <code>AddLinqToDBContext(... ServiceLifetime lifetime)</code>, more information about lifetimes <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1#service-lifetimes">here</a></p>
 <h2 id="simple-entity-configuration">Simple Entity Configuration</h2>
-<p>Let&#39;s create this simple entity in our project</p>
+<p>Let's create this simple entity in our project</p>
 <pre><code class="lang-C#">using System;
 using LinqToDB.Mapping;
 
@@ -165,7 +177,8 @@ public class Person
     public string   Name     { get; set; }
     public DateTime Birthday { get; set; }
 }
-</code></pre><h2 id="add-table-property-to-the-data-connection">Add table property to the data connection</h2>
+</code></pre>
+<h2 id="add-table-property-to-the-data-connection">Add table property to the data connection</h2>
 <p>Open up our <code>AppDataConnection</code> and add this property</p>
 <pre><code class="lang-C#">public class AppDataConnection: DataConnection
 {
@@ -173,8 +186,11 @@ public class Person
     public ITable&lt;Person&gt; People =&gt; GetTable&lt;Person&gt;();
     //...
 }
-</code></pre><p>Now we can inject our data connection into a controller and query and insert/update/delete using the <code>ITable&lt;Person&gt;</code> interface.</p>
-<div class="TIP"><h5>Tip</h5><p>side note, since we don&#39;t have anything to create the actual database, we need to add this code into the configure method in <code>Startup.cs</code></p>
+</code></pre>
+<p>Now we can inject our data connection into a controller and query and insert/update/delete using the <code>ITable&lt;Person&gt;</code> interface.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>side note, since we don't have anything to create the actual database, we need to add this code into the configure method in <code>Startup.cs</code></p>
 <pre><code class="lang-C#">public class Startup
 {
    //...
@@ -190,9 +206,10 @@ public class Person
    }
 }
 //...
-</code></pre></div>
+</code></pre>
+</div>
 <h2 id="inject-the-connection-into-a-controller">Inject the connection into a controller</h2>
-<p>In order to actually access the database we&#39;re going to want to use it from a controller, here&#39;s a sample controller to get you started with a few examples.</p>
+<p>In order to actually access the database we're going to want to use it from a controller, here's a sample controller to get you started with a few examples.</p>
 <pre><code class="lang-C#">public class PeopleController : Controller
 {
     private readonly AppDataConnection _connection;
@@ -240,8 +257,9 @@ public class Person
         return _connection.InsertAsync(person);
     }
 }
-</code></pre><h2 id="quick-start-for-people-already-familiar-with-linq-to-db">Quick start for people already familiar with LINQ To DB</h2>
-<p>LINQ To DB now has support for ASP.NET Dependency injection. Here&#39;s a simple example of how to add it to dependency injection</p>
+</code></pre>
+<h2 id="quick-start-for-people-already-familiar-with-linq-to-db">Quick start for people already familiar with LINQ To DB</h2>
+<p>LINQ To DB now has support for ASP.NET Dependency injection. Here's a simple example of how to add it to dependency injection</p>
 <pre><code class="lang-C#">public class Startup
 {
     public IConfiguration Configuration { get; }
@@ -263,8 +281,9 @@ public class Person
         //...
     }
 }
-</code></pre><p>We&#39;ve done our best job to allow any existing use case to be migrated to using the new configuration options, please create an issue if something isn&#39;t supported. There are also some methods to setup tracing and mapping schema.</p>
-<p>You&#39;ll need to update your data connection to accept the new options class too.</p>
+</code></pre>
+<p>We've done our best job to allow any existing use case to be migrated to using the new configuration options, please create an issue if something isn't supported. There are also some methods to setup tracing and mapping schema.</p>
+<p>You'll need to update your data connection to accept the new options class too.</p>
 <pre><code class="lang-C#">public class AppDataConnection: DataConnection
 {
     public AppDataConnection(DataOptions&lt;AppDataConnection&gt; options)
@@ -273,10 +292,11 @@ public class Person
 
     }
 }
-</code></pre><p><code>DataConnection</code> will use the options passed into the base constructor to setup the connection.</p>
+</code></pre>
+<p><code>DataConnection</code> will use the options passed into the base constructor to setup the connection.</p>
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -294,7 +314,7 @@ public class Person
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -302,13 +322,13 @@ public class Person
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2011-2022 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-            
+      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+      
           </div>
         </div>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../../styles/main.js"></script>

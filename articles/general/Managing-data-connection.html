@@ -1,21 +1,20 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Managing Data Connection | Linq To DB (aka linq2db) </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Managing Data Connection | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.59.4.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Managing Data Connection | Linq To DB (aka linq2db) </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Managing Data Connection | Linq To DB (aka linq2db) ">
     
-    <link rel="shortcut icon" href="../../images/icon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
+      <link rel="shortcut icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
     
     <meta property="docfx:rel" content="../../">
     
@@ -23,7 +22,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../../index.html">
                 <img id="logo" class="svg" src="../../images/icon.png" alt="">
               </a>
@@ -47,7 +46,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -57,7 +56,7 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
@@ -67,7 +66,7 @@
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -80,19 +79,21 @@
 <h1 id="managing-data-connection">Managing Data Connection</h1>
 
 <p>Since connecting to a database is an expensive operation, .NET database providers use connection pools to minimize this cost. They take a connection from the pool, use it, and then release the connection back to the pool so it could be reused.</p>
-<p>If you don&#39;t release database connections back to the pool then:</p>
+<p>If you don't release database connections back to the pool then:</p>
 <ul>
-<li>Your application would create more and more connections to the database. This is because from connection pool&#39;s point of view there are no <em>available</em> connections to reuse.</li>
+<li>Your application would create more and more connections to the database. This is because from connection pool's point of view there are no <em>available</em> connections to reuse.</li>
 <li>When the pool size limit is reached then your application would fail to obtain a new connection.</li>
 </ul>
 <p>To avoid connection leaks you should pay attention to how you are creating and disposing connections. There are two ways to query a database with linq2db:</p>
 <ol>
-<li>Using the <code>DataConnection</code> class you can make several queries using a single database connection. This way you do not have the overhead of opening and closing database connections for each query. You should follow these simple rules:<ul>
-<li><strong>Always</strong> dispose the <code>DataConnection</code> instance. We recommend the C#&#39;s <code>using</code> block. (Please see below for an example.)</li>
+<li>Using the <code>DataConnection</code> class you can make several queries using a single database connection. This way you do not have the overhead of opening and closing database connections for each query. You should follow these simple rules:
+<ul>
+<li><strong>Always</strong> dispose the <code>DataConnection</code> instance. We recommend the C#'s <code>using</code> block. (Please see below for an example.)</li>
 <li>Your query should be executed <strong>before</strong> the <code>DataConnection</code> object is disposed. Starting with version 1.8.0 we have added checks to catch improper usages; you will get <code>ObjectDisposedException</code> when trying to perform a query on a disposed <code>DataConnection</code> instance.</li>
 </ul>
 </li>
-<li>Using the <code>DataContext</code> class opens and closes an actual connection for <strong>each</strong> query!<ul>
+<li>Using the <code>DataContext</code> class opens and closes an actual connection for <strong>each</strong> query!
+<ul>
 <li>Be careful with the <code>DataContext.KeepConnectionAlive</code> property. If you set it to <code>true</code> it would work the same way as <code>DataConnection</code>.</li>
 </ul>
 </li>
@@ -135,7 +136,9 @@ public async Task&lt;IEnumerable&lt;Person&gt;&gt; GetPersons()
         return await db.GetTable&lt;Person&gt;().ToListAsync(); 
     }
 }
-</code></pre><h2 id="done-wrong">Done Wrong</h2>
+
+</code></pre>
+<h2 id="done-wrong">Done Wrong</h2>
 <pre><code class="lang-cs">public IEnumerable&lt;Person&gt; GetPersons()
 {
     using (var db = new DataConnection())
@@ -152,7 +155,8 @@ public async Task&lt;IEnumerable&lt;Person&gt;&gt; GetPersons()
 // Versions prior to 1.8.0 would execute the query (if there are any free connections
 // left) and leak the connection.
 var persons = GetPersons().ToList();
-</code></pre><pre><code class="lang-cs">public async Task&lt;IEnumerable&lt;Person&gt;&gt; GetPersons()
+</code></pre>
+<pre><code class="lang-cs">public async Task&lt;IEnumerable&lt;Person&gt;&gt; GetPersons()
 {
     using (var db = new DataConnection())
     {
@@ -163,9 +167,10 @@ var persons = GetPersons().ToList();
 
 // The query execution would be called on a disposed DataConnection
 var persons = await GetPersons();
-</code></pre></article>
+</code></pre>
+</article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -183,7 +188,7 @@ var persons = await GetPersons();
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -191,13 +196,13 @@ var persons = await GetPersons();
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2011-2022 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-            
+      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+      
           </div>
         </div>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>

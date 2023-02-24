@@ -1,21 +1,20 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Joins | Linq To DB (aka linq2db) </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Joins | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.59.4.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Joins | Linq To DB (aka linq2db) </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Joins | Linq To DB (aka linq2db) ">
     
-    <link rel="shortcut icon" href="../../images/icon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
+      <link rel="shortcut icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
     
     <meta property="docfx:rel" content="../../">
     
@@ -23,7 +22,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../../index.html">
                 <img id="logo" class="svg" src="../../images/icon.png" alt="">
               </a>
@@ -47,7 +46,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -57,7 +56,7 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
@@ -67,7 +66,7 @@
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -87,19 +86,22 @@
     join p in db.Product on c.CategoryID equals p.CategoryID
     where !p.Discontinued
     select c;
-</code></pre><h3 id="using-where-condition">Using &quot;Where&quot; condition</h3>
+</code></pre>
+<h3 id="using-where-condition">Using &quot;Where&quot; condition</h3>
 <pre><code class="lang-c#">var query =
     from c in db.Category
     from p in db.Product.Where(pr =&gt; pr.CategoryID == c.CategoryID)
     where !p.Discontinued
     select c;
-</code></pre><h3 id="using-innerjoin-function">Using &quot;InnerJoin&quot; function</h3>
+</code></pre>
+<h3 id="using-innerjoin-function">Using &quot;InnerJoin&quot; function</h3>
 <pre><code class="lang-c#">var query =
     from c in db.Category
     from p in db.Product.InnerJoin(pr =&gt; pr.CategoryID == c.CategoryID)
     where !p.Discontinued
     select c;
-</code></pre><h3 id="resulting-sql">Resulting SQL</h3>
+</code></pre>
+<h3 id="resulting-sql">Resulting SQL</h3>
 <pre><code class="lang-sql">SELECT
     [c].[CategoryID],
     [c].[CategoryName],
@@ -110,7 +112,8 @@ FROM
         INNER JOIN [Products] [p] ON [c].[CategoryID] = [p].[CategoryID]
 WHERE
     [p].[Discontinued] &lt;&gt; 1
-</code></pre><h3 id="join-operator-on-multiple-columns">Join operator on multiple columns</h3>
+</code></pre>
+<h3 id="join-operator-on-multiple-columns">Join operator on multiple columns</h3>
 <pre><code class="lang-cs">var query =
     from p in db.Product
     from o in db.Order
@@ -123,7 +126,8 @@ WHERE
         p.ProductID,
         o.OrderID,
     };
-</code></pre><h3 id="resulting-sql-1">Resulting SQL</h3>
+</code></pre>
+<h3 id="resulting-sql-1">Resulting SQL</h3>
 <pre><code class="lang-sql">SELECT
     [t3].[ProductID] as [ProductID1],
     [t3].[OrderID] as [OrderID1]
@@ -140,7 +144,8 @@ FROM
         INNER JOIN [Order Details] [d] ON [t3].[ProductID] = [d].[ProductID] AND [t3].[OrderID] = [d].[OrderID]
 WHERE
     [t3].[Discontinued] &lt;&gt; 1
-</code></pre><h2 id="left-join">LEFT JOIN</h2>
+</code></pre>
+<h2 id="left-join">LEFT JOIN</h2>
 <h3 id="join-operator-on-single-column-1">Join operator on single column</h3>
 <pre><code class="lang-cs">var query =
     from c in db.Category
@@ -148,19 +153,22 @@ WHERE
     from lp in lj.DefaultIfEmpty()
     where !lp.Discontinued
     select c;
-</code></pre><h3 id="using-where-condition-1">Using &quot;Where&quot; condition</h3>
+</code></pre>
+<h3 id="using-where-condition-1">Using &quot;Where&quot; condition</h3>
 <pre><code class="lang-cs">var query =
     from c in db.Category
     from lp in db.Product.Where(p =&gt; p.CategoryID == c.CategoryID).DefaultIfEmpty()
     where !lp.Discontinued
     select c;
-</code></pre><h3 id="using-leftjoin-function">Using &quot;LeftJoin&quot; function</h3>
+</code></pre>
+<h3 id="using-leftjoin-function">Using &quot;LeftJoin&quot; function</h3>
 <pre><code class="lang-cs">var query =
     from c in db.Category
     from p in db.Product.LeftJoin(pr =&gt; pr.CategoryID == c.CategoryID)
     where !p.Discontinued
     select c;
-</code></pre><h3 id="resulting-sql-2">Resulting SQL</h3>
+</code></pre>
+<h3 id="resulting-sql-2">Resulting SQL</h3>
 <pre><code class="lang-sql">SELECT
     [c1].[CategoryID],
     [c1].[CategoryName],
@@ -171,14 +179,16 @@ FROM
         LEFT JOIN [Products] [lj] ON [c1].[CategoryID] = [lj].[CategoryID]
 WHERE
     1 &lt;&gt; [lj].[Discontinued]
-</code></pre><h2 id="right-join">RIGHT JOIN</h2>
+</code></pre>
+<h2 id="right-join">RIGHT JOIN</h2>
 <h3 id="using-rightjoin-function">Using &quot;RightJoin&quot; function</h3>
 <pre><code class="lang-cs">var query =
     from c in db.Category
     from p in db.Product.RightJoin(pr =&gt; pr.CategoryID == c.CategoryID)
     where !p.Discontinued
     select c;
-</code></pre><h3 id="resulting-sql-3">Resulting SQL</h3>
+</code></pre>
+<h3 id="resulting-sql-3">Resulting SQL</h3>
 <pre><code class="lang-sql">SELECT
     [t2].[CategoryID],
     [t2].[CategoryName],
@@ -189,14 +199,16 @@ FROM
         RIGHT JOIN [Products] [t1] ON [t1].[CategoryID] = [t2].[CategoryID]
 WHERE
     1 &lt;&gt; [t1].[Discontinued]
-</code></pre><h2 id="full-join">FULL JOIN</h2>
+</code></pre>
+<h2 id="full-join">FULL JOIN</h2>
 <h3 id="using-fulljoin-function">Using &quot;FullJoin&quot; function</h3>
 <pre><code class="lang-cs">var query =
     from c in db.Category
     from p in db.Product.FullJoin(pr =&gt; pr.CategoryID == c.CategoryID)
     where !p.Discontinued
     select c;
-</code></pre><h3 id="resulting-sql-4">Resulting SQL</h3>
+</code></pre>
+<h3 id="resulting-sql-4">Resulting SQL</h3>
 <pre><code class="lang-sql">SELECT
     [t2].[CategoryID],
     [t2].[CategoryName],
@@ -207,14 +219,16 @@ FROM
         FULL JOIN [Products] [t1] ON [t1].[CategoryID] = [t2].[CategoryID]
 WHERE
     1 &lt;&gt; [t1].[Discontinued]
-</code></pre><h2 id="cross-join">CROSS JOIN</h2>
+</code></pre>
+<h2 id="cross-join">CROSS JOIN</h2>
 <h3 id="using-selectmany">Using SelectMany</h3>
 <pre><code class="lang-cs">var query =
     from c in db.Category
     from p in db.Product
     where !p.Discontinued
     select new {c, p};
-</code></pre><h3 id="resulting-sql-5">Resulting SQL</h3>
+</code></pre>
+<h3 id="resulting-sql-5">Resulting SQL</h3>
 <pre><code class="lang-sql">SELECT
     [t1].[CategoryID],
     [t1].[CategoryName],
@@ -235,9 +249,10 @@ FROM
     [Products] [t2]
 WHERE
     1 &lt;&gt; [t2].[Discontinued]
-</code></pre></article>
+</code></pre>
+</article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -255,7 +270,7 @@ WHERE
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -263,13 +278,13 @@ WHERE
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2011-2022 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-            
+      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+      
           </div>
         </div>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>

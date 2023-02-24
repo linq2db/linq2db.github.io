@@ -1,21 +1,20 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Common Table Expression (CTE) | Linq To DB (aka linq2db) </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Common Table Expression (CTE) | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.59.4.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Common Table Expression (CTE) | Linq To DB (aka linq2db) </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Common Table Expression (CTE) | Linq To DB (aka linq2db) ">
     
-    <link rel="shortcut icon" href="../../images/icon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
+      <link rel="shortcut icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
     
     <meta property="docfx:rel" content="../../">
     
@@ -23,7 +22,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../../index.html">
                 <img id="logo" class="svg" src="../../images/icon.png" alt="">
               </a>
@@ -47,7 +46,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -57,7 +56,7 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
@@ -67,7 +66,7 @@
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -104,7 +103,8 @@
 // employeeSubordinatesReport sub-query used as CTE body 
 var employeeSubordinatesReportCte = employeeSubordinatesReport
                                      .AsCte(&quot;EmployeeSubordinatesReport&quot;);
-</code></pre><p>The variable <code>employeeSubordinatesReportCte</code> can now be reused in other parts of linq query.</p>
+</code></pre>
+<p>The variable <code>employeeSubordinatesReportCte</code> can now be reused in other parts of linq query.</p>
 <pre><code class="lang-cs">var result =
    from employee in employeeSubordinatesReportCte
    from manager in employeeSubordinatesReportCte
@@ -118,7 +118,8 @@ var employeeSubordinatesReportCte = employeeSubordinatesReport
       ManagerFirstName = manager.FirstName,
       ManagerNumberOfSubordinates = manager.NumberOfSubordinates
    };
-</code></pre><p>You are not limited in the number of  CTEs, defined in a query, and they may reference each other. <code>LINQ To DB</code> will put them in the correct order and generate SQL with one limitation - <strong>there should be no circular references between CTEs</strong>.</p>
+</code></pre>
+<p>You are not limited in the number of  CTEs, defined in a query, and they may reference each other. <code>LINQ To DB</code> will put them in the correct order and generate SQL with one limitation - <strong>there should be no circular references between CTEs</strong>.</p>
 <pre><code class="lang-sql">WITH [EmployeeSubordinatesReport]
 (
    [ReportsTo],
@@ -157,11 +158,13 @@ FROM
    [EmployeeSubordinatesReport] [t3]
       LEFT JOIN [EmployeeSubordinatesReport] [manager]
            ON [t3].[ReportsTo] = [manager].[EmployeeID]
-</code></pre><h2 id="defining-recursive-cte">Defining recursive CTE</h2>
-<blockquote><p>Recursive CTEs are special because they are allowed to reference themselves! Because of this special ability, you can use recursive CTEs to solve problems other queries cannot. As an example, recursive CTEs are really good at working with hierarchical data such as org charts for bill of materials. (Further reading: <a href="https://www.essentialsql.com/recursive-cte/">Recursive CTEs Explained</a>).</p>
+</code></pre>
+<h2 id="defining-recursive-cte">Defining recursive CTE</h2>
+<blockquote>
+<p>Recursive CTEs are special because they are allowed to reference themselves! Because of this special ability, you can use recursive CTEs to solve problems other queries cannot. As an example, recursive CTEs are really good at working with hierarchical data such as org charts for bill of materials. (Further reading: <a href="https://www.essentialsql.com/recursive-cte/">Recursive CTEs Explained</a>).</p>
 </blockquote>
 <p>CTEs have limitations that are not handled by <code>LINQ To DB</code>, so you have to be aware of them before start of usage - <a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql#guidelines-for-defining-and-using-recursive-common-table-expressions">Guidelines for Defining and Using Recursive Common Table Expressions</a></p>
-<p>Since in C# language we can not use a variable&#39;s reference in its own initialization expression, we have created a function that helps in defining recursive queries: <code>GetCte&lt;TCteProjection&gt;(cte =&gt; ...)</code>. <code>TCteProjection</code> is a required generic parameter that is needed for resolving the type of the lambda parameter.</p>
+<p>Since in C# language we can not use a variable's reference in its own initialization expression, we have created a function that helps in defining recursive queries: <code>GetCte&lt;TCteProjection&gt;(cte =&gt; ...)</code>. <code>TCteProjection</code> is a required generic parameter that is needed for resolving the type of the lambda parameter.</p>
 <p>The following example shows how to define a CTE to calculate the employee level in the hierarchy:</p>
 <pre><code class="lang-cs">// defining class for representing Recursive CTE
 class EmployeeHierarchyCTE
@@ -213,7 +216,8 @@ using (var db = new NorthwindDB(context))
 
    var data = result.ToArray();
 }
-</code></pre><p>Resulting SQL:</p>
+</code></pre>
+<p>Resulting SQL:</p>
 <pre><code class="lang-sql">WITH [employeeHierarchy]
 (
    [EmployeeID],
@@ -258,7 +262,8 @@ ORDER BY
    [t3].[HierarchyLevel],
    [t3].[LastName],
    [t3].[FirstName]
-</code></pre><h2 id="database-engines-that-support-cte">Database engines that support CTE</h2>
+</code></pre>
+<h2 id="database-engines-that-support-cte">Database engines that support CTE</h2>
 <table>
 <thead>
 <tr>
@@ -312,7 +317,7 @@ ORDER BY
 </ul>
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -330,7 +335,7 @@ ORDER BY
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -338,13 +343,13 @@ ORDER BY
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2011-2022 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-            
+      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+      
           </div>
         </div>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>

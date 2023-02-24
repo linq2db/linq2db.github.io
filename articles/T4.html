@@ -1,21 +1,20 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>T4 Models | Linq To DB (aka linq2db) </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="T4 Models | Linq To DB (aka linq2db) ">
-    <meta name="generator" content="docfx 2.59.4.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>T4 Models | Linq To DB (aka linq2db) </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="T4 Models | Linq To DB (aka linq2db) ">
     
-    <link rel="shortcut icon" href="../images/icon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+      <link rel="shortcut icon" href="../images/icon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
     
     <meta property="docfx:rel" content="../">
     
@@ -23,7 +22,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../images/icon.png" alt="">
               </a>
@@ -47,7 +46,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -57,7 +56,7 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
@@ -67,7 +66,7 @@
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -78,10 +77,13 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="scaffold-t4">
 
-<div class="WARNING"><h5>Warning</h5><p>T4 templates are obsoleted and replaced with new <a href="https://www.nuget.org/packages/linq2db.cli"><code>dotnet tool</code></a>. Tool documentation could be found <a class="xref" href="CLI.html">here</a>.</p>
+
+<div class="WARNING">
+<h5>Warning</h5>
+<p>T4 templates are obsoleted and replaced with new <a href="https://www.nuget.org/packages/linq2db.cli"><code>dotnet tool</code></a>. Tool documentation could be found <a class="xref" href="CLI.html">here</a>.</p>
 </div>
 <h1 id="t4-models">T4 Models</h1>
-<p>T4 models are used to generate POCO&#39;s C# code using your database structure.</p>
+<p>T4 models are used to generate POCO's C# code using your database structure.</p>
 <h2 id="installation">Installation</h2>
 <p>First you should install one of packages with T4 templates into your project:</p>
 <p><code>Install-Package linq2db.&lt;PROVIDER_NAME&gt;</code></p>
@@ -106,7 +108,7 @@
 <li>Call to <code>GenerateModel()</code> method to generate C# file with data model classes</li>
 </ol>
 <h4 id="sdk-project-specifics">SDK project specifics</h4>
-<p>Because SDK projects install nuget content files as references to files in <code>nuget</code> cache instead of copying them into project&#39;s folder, to run T4 templates you&#39;ll need create empty <code>&lt;choose_your_name&gt;.tt</code> file manually and paste content of <code>CopyMe.&lt;DB_NAME&gt;.tt.txt</code> to it. Also it is not recommended to alter <code>*.ttinclude</code> files directly as you will alter nuget cache content, which will affect any other SDK projects that use that package.</p>
+<p>Because SDK projects install nuget content files as references to files in <code>nuget</code> cache instead of copying them into project's folder, to run T4 templates you'll need create empty <code>&lt;choose_your_name&gt;.tt</code> file manually and paste content of <code>CopyMe.&lt;DB_NAME&gt;.tt.txt</code> to it. Also it is not recommended to alter <code>*.ttinclude</code> files directly as you will alter nuget cache content, which will affect any other SDK projects that use that package.</p>
 <h2 id="configuring-schema-load-process">Configuring schema load process</h2>
 <p>Use the following initialization <strong>before</strong> you call the <code>LoadMetadata()</code> method.</p>
 <p>All schema load functionality configured using <code>GetSchemaOptions</code> property of <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SchemaProvider/GetSchemaOptions.cs"><code>LinqToDB.SchemaProvider.GetSchemaOptions</code></a> type. Check this class for all available options.</p>
@@ -145,7 +147,7 @@ GetSchemaOptions.ExcludedCatalogs = null;
 
 // Custom filter for table/view schema load
 // Can be used to exclude views or tables from generation based in their descriptor.
-// This filter especially usefull, when you wan&#39;t to exclude table, referenced by other generated
+// This filter especially usefull, when you wan't to exclude table, referenced by other generated
 // tables using associations, or by procedures using excluded table as result. Doing it in filter
 // will automatically prevent associations generation and will trigger generation of procedure-specific
 // result classes.
@@ -175,7 +177,8 @@ GetSchemaOptions.GetAssociationMemberName = null;
 // Procedures load progress reporting callback
 // Not applicable for T4 templates
 GetSchemaOptions.ProcedureLoadingProgress = (int total, int current) =&gt; {};
-</code></pre><h2 id="configuring-generation-process">Configuring generation process</h2>
+</code></pre>
+<h2 id="configuring-generation-process">Configuring generation process</h2>
 <p>Use the following initialization <strong>before</strong> you call the <code>LoadMetadata()</code> method.</p>
 <pre><code class="lang-cs">/* Global/generic options */
 // Namespace to use for generated model
@@ -325,7 +328,7 @@ SingularizeDataContextPropertyNames = false;
 // Enables normalization of of type and member names.
 // Default normalization removes underscores and capitalize first letter.
 // Could be overriden using ToValidName option below.
-// By default doesn&#39;t normalize names without underscores.
+// By default doesn't normalize names without underscores.
 // see NormalizeNamesWithoutUnderscores setting
 NormalizeNames                                 = true;
 // enables normalization of names without underscores.
@@ -334,7 +337,8 @@ NormalizeNamesWithoutUnderscores               = false;
 Func&lt;string, bool, string&gt; ToValidName         = ToValidNameDefault;
 // Makes C# identifier valid by removing unsupported symbols and calling ToValidName
 Func&lt;string, bool, string&gt; ConvertToCompilable = ConvertToCompilableDefault;
-</code></pre><h2 id="provider-specific-options">Provider specific options</h2>
+</code></pre>
+<h2 id="provider-specific-options">Provider specific options</h2>
 <h3 id="sql-server">SQL Server</h3>
 <pre><code class="lang-cs">// Enables generation of extensions for Free Text Search
 //
@@ -347,13 +351,16 @@ bool GenerateSqlServerFreeText = false;
 // procedure code) if procedure uses this parameter or it always returns default value (0).
 // Usefull for procedures, that use &quot;RETURN code&quot; statements to returns integer values from procedure.
 void AddReturnParameter(string procedureName, string parameterName = &quot;@return&quot;);
-</code></pre><h3 id="postgresql">PostgreSQL</h3>
+</code></pre>
+<h3 id="postgresql">PostgreSQL</h3>
 <pre><code class="lang-cs">// Enables generation of case-sensitive names of database objects
 bool GenerateCaseSensitiveNames = false;
-</code></pre><h3 id="sybase">Sybase</h3>
+</code></pre>
+<h3 id="sybase">Sybase</h3>
 <pre><code class="lang-cs">// Enables generation of Sybase sysobjects tables
 bool GenerateSybaseSystemTables = false;
-</code></pre><h2 id="example-of-generation-process-customization">Example of generation process customization</h2>
+</code></pre>
+<h2 id="example-of-generation-process-customization">Example of generation process customization</h2>
 <p>Use the following code to modify your model <strong>before</strong> you call the <code>GenerateModel()</code> method.</p>
 <pre><code class="lang-c#">// Replaces table mapping class name
 GetTable(&quot;Person&quot;).TypeName  = &quot;MyName&quot;;
@@ -378,22 +385,23 @@ GetFK(&quot;Orders&quot;, &quot;FK_Orders_Customers&quot;).MemberName      = &qu
 GetFK(&quot;Orders&quot;, &quot;FK_Orders_Customers&quot;).AssociationType = AssociationType.OneToMany;
 
 SetTable(string tableName,
-    string TypeName = null,
-    string DataContextPropertyName = null)
+	string TypeName = null,
+	string DataContextPropertyName = null)
 
-    .Column(string columnName, string MemberName = null, string Type = null, bool? IsNullable = null)
-    .FK    (string fkName,     string MemberName = null, AssociationType? AssociationType = null)
-    ;
+	.Column(string columnName, string MemberName = null, string Type = null, bool? IsNullable = null)
+	.FK    (string fkName,     string MemberName = null, AssociationType? AssociationType = null)
+	;
 
 // Adds extra namespace to usings
 Model.Usings.Add(&quot;MyNamespace&quot;);
 
-// Replaces all property names for columns where name is &#39;&lt;TableName&gt;&#39; + &#39;ID&#39; with &#39;ID&#39;.
+// Replaces all property names for columns where name is '&lt;TableName&gt;' + 'ID' with 'ID'.
 foreach (var t in Tables.Values)
-    foreach (var c in t.Columns.Values)
-        if (c.IsPrimaryKey &amp;&amp; c.MemberName == t.TypeName + &quot;ID&quot;)
-            c.MemberName = &quot;ID&quot;;
-</code></pre><h2 id="useful-members-and-data-structures">Useful members and data structures</h2>
+	foreach (var c in t.Columns.Values)
+		if (c.IsPrimaryKey &amp;&amp; c.MemberName == t.TypeName + &quot;ID&quot;)
+			c.MemberName = &quot;ID&quot;;
+</code></pre>
+<h2 id="useful-members-and-data-structures">Useful members and data structures</h2>
 <pre><code class="lang-c#">Dictionary&lt;string,Table&gt;     Tables     = new Dictionary&lt;string,Table&gt;    ();
 Dictionary&lt;string,Procedure&gt; Procedures = new Dictionary&lt;string,Procedure&gt;();
 
@@ -405,90 +413,91 @@ ForeignKey GetForeignKey(string tableName, string fkName);
 
 public class Table
 {
-    public string Schema;
-    public string TableName;
-    public string DataContextPropertyName;
-    public bool   IsView;
-    public string Description;
-    public string AliasPropertyName;
-    public string AliasTypeName;
-    public string TypeName;
+	public string Schema;
+	public string TableName;
+	public string DataContextPropertyName;
+	public bool   IsView;
+	public string Description;
+	public string AliasPropertyName;
+	public string AliasTypeName;
+	public string TypeName;
 
-    public Dictionary&lt;string,Column&gt;     Columns;
-    public Dictionary&lt;string,ForeignKey&gt; ForeignKeys;
+	public Dictionary&lt;string,Column&gt;     Columns;
+	public Dictionary&lt;string,ForeignKey&gt; ForeignKeys;
 }
 
 public partial class Column : Property
 {
-    public string    ColumnName; // Column name in database
-    public bool      IsNullable;
-    public bool      IsIdentity;
-    public string    ColumnType; // Type of the column in database
-    public DbType    DbType;
-    public string    Description;
-    public bool      IsPrimaryKey;
-    public int       PrimaryKeyOrder;
-    public bool      SkipOnUpdate;
-    public bool      SkipOnInsert;
-    public bool      IsDuplicateOrEmpty;
-    public string    AliasName;
-    public string    MemberName;
+	public string    ColumnName; // Column name in database
+	public bool      IsNullable;
+	public bool      IsIdentity;
+	public string    ColumnType; // Type of the column in database
+	public DbType    DbType;
+	public string    Description;
+	public bool      IsPrimaryKey;
+	public int       PrimaryKeyOrder;
+	public bool      SkipOnUpdate;
+	public bool      SkipOnInsert;
+	public bool      IsDuplicateOrEmpty;
+	public string    AliasName;
+	public string    MemberName;
 }
 
 public enum AssociationType
 {
-    Auto,
-    OneToOne,
-    OneToMany,
-    ManyToOne,
+	Auto,
+	OneToOne,
+	OneToMany,
+	ManyToOne,
 }
 
 public partial class ForeignKey : Property
 {
-    public string           KeyName;
-    public Table            OtherTable;
-    public List&lt;Column&gt;     ThisColumns;
-    public List&lt;Column&gt;     OtherColumns;
-    public bool             CanBeNull;
-    public ForeignKey       BackReference;
-    public string           MemberName;
-    public AssociationType  AssociationType;
+	public string           KeyName;
+	public Table            OtherTable;
+	public List&lt;Column&gt;     ThisColumns;
+	public List&lt;Column&gt;     OtherColumns;
+	public bool             CanBeNull;
+	public ForeignKey       BackReference;
+	public string           MemberName;
+	public AssociationType  AssociationType;
 }
 
 public partial class Procedure : Method
 {
-    public string          Schema;
-    public string          ProcedureName;
-    public bool            IsFunction;
-    public bool            IsTableFunction;
-    public bool            IsDefaultSchema;
+	public string          Schema;
+	public string          ProcedureName;
+	public bool            IsFunction;
+	public bool            IsTableFunction;
+	public bool            IsDefaultSchema;
 
-    public Table           ResultTable;
-    public Exception       ResultException;
-    public List&lt;Table&gt;     SimilarTables;
-    public List&lt;Parameter&gt; ProcParameters;
+	public Table           ResultTable;
+	public Exception       ResultException;
+	public List&lt;Table&gt;     SimilarTables;
+	public List&lt;Parameter&gt; ProcParameters;
 }
 
 public class Parameter
 {
-    public string   SchemaName;
-    public string   SchemaType;
-    public bool     IsIn;
-    public bool     IsOut;
-    public bool     IsResult;
-    public int?     Size;
-    public string   ParameterName;
-    public string   ParameterType;
-    public Type     SystemType;
-    public string   DataType;
+	public string   SchemaName;
+	public string   SchemaType;
+	public bool     IsIn;
+	public bool     IsOut;
+	public bool     IsResult;
+	public int?     Size;
+	public string   ParameterName;
+	public string   ParameterType;
+	public Type     SystemType;
+	public string   DataType;
 }
-</code></pre><h2 id="iequatable-interface-implementation-equatablettinclude">IEquatable interface implementation (Equatable.ttinclude)</h2>
+</code></pre>
+<h2 id="iequatable-interface-implementation-equatablettinclude">IEquatable interface implementation (Equatable.ttinclude)</h2>
 <p>There is <code>Equatable.ttinclude</code> template that could be used to implement <code>IEquatable&lt;T&gt;</code> interface.</p>
 <p>This template has following options:</p>
 <pre><code class="lang-c#">partial class Class
 {
-    // Determines whether need to implement IEquatable interface for this class
-    public bool IsEquatable = DefaultEquatable;
+	// Determines whether need to implement IEquatable interface for this class
+	public bool IsEquatable = DefaultEquatable;
 }
 
 // Default value for Class.IsEquatable property
@@ -503,13 +512,14 @@ Func&lt;Class, Property, bool&gt; EqualityPropertiesFilter = EqualityPropertiesF
 // Default implementation of the EqualityPropertiesFilter option
 static bool EqualityPropertiesFilterDefault(Class cl, Property prop)
 {
-    // Don&#39;t generate equality for non-table classes (e.g. data manager class) and associations
-    // Compare only by primary keys
-    return cl is Table &amp;&amp; prop is Column col &amp;&amp; col.IsPrimaryKey;
+	// Don't generate equality for non-table classes (e.g. data manager class) and associations
+	// Compare only by primary keys
+	return cl is Table &amp;&amp; prop is Column col &amp;&amp; col.IsPrimaryKey;
 }
-</code></pre></article>
+</code></pre>
+</article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -527,7 +537,7 @@ static bool EqualityPropertiesFilterDefault(Class cl, Property prop)
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -535,13 +545,13 @@ static bool EqualityPropertiesFilterDefault(Class cl, Property prop)
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright © 2011-2022 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-            
+      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+      
           </div>
         </div>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
