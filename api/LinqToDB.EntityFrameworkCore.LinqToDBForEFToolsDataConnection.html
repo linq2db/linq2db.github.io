@@ -82,7 +82,7 @@
 
   <h1 id="LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection" data-uid="LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection" class="text-break">Class LinqToDBForEFToolsDataConnection
 </h1>
-  <div class="markdown level0 summary"><p>linq2db EF.Core data connection.</p>
+  <div class="markdown level0 summary"><p>Linq To DB EF.Core data connection.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -94,6 +94,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="LinqToDB.IDataContext.html">IDataContext</a></div>
+    <div><a class="xref" href="LinqToDB.Common.Internal.IConfigurationID.html">IConfigurationID</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icloneable">ICloneable</a></div>
@@ -152,13 +153,13 @@
       <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_ExecuteReaderAsync_System_Data_CommandBehavior_System_Threading_CancellationToken_">DataConnection.ExecuteReaderAsync(CommandBehavior, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_TurnTraceSwitchOn_System_Diagnostics_TraceLevel_">DataConnection.TurnTraceSwitchOn(TraceLevel)</a>
+      <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_SetConnectionStrings_System_Collections_Generic_IEnumerable_LinqToDB_Configuration_IConnectionStringSettings__">DataConnection.SetConnectionStrings(IEnumerable&lt;IConnectionStringSettings&gt;)</a>
     </div>
     <div>
-      <span class="xref">LinqToDB.Data.DataConnection.AddProviderDetector(System.Func&lt;LinqToDB.Configuration.IConnectionStringSettings, string, LinqToDB.DataProvider.IDataProvider&gt;)</span>
+      <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_AddProviderDetector_System_Func_LinqToDB_Data_ConnectionOptions_LinqToDB_DataProvider_IDataProvider__">DataConnection.AddProviderDetector(Func&lt;ConnectionOptions, IDataProvider&gt;)</a>
     </div>
     <div>
-      <span class="xref">LinqToDB.Data.DataConnection.InsertProviderDetector(System.Func&lt;LinqToDB.Configuration.IConnectionStringSettings, string, LinqToDB.DataProvider.IDataProvider&gt;)</span>
+      <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_InsertProviderDetector_System_Func_LinqToDB_Data_ConnectionOptions_LinqToDB_DataProvider_IDataProvider__">DataConnection.InsertProviderDetector(Func&lt;ConnectionOptions, IDataProvider&gt;)</a>
     </div>
     <div>
       <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_AddDataProvider_System_String_LinqToDB_DataProvider_IDataProvider_">DataConnection.AddDataProvider(string, IDataProvider)</a>
@@ -179,9 +180,6 @@
       <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_GetRegisteredProviders">DataConnection.GetRegisteredProviders()</a>
     </div>
     <div>
-      <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_SetConnectionStrings_System_Collections_Generic_IEnumerable_LinqToDB_Configuration_IConnectionStringSettings__">DataConnection.SetConnectionStrings(IEnumerable&lt;IConnectionStringSettings&gt;)</a>
-    </div>
-    <div>
       <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_AddConfiguration_System_String_System_String_LinqToDB_DataProvider_IDataProvider_">DataConnection.AddConfiguration(string, string, IDataProvider)</a>
     </div>
     <div>
@@ -197,10 +195,10 @@
       <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_TryGetConnectionString_System_String_">DataConnection.TryGetConnectionString(string)</a>
     </div>
     <div>
-      <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_Close">DataConnection.Close()</a>
+      <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_TurnTraceSwitchOn_System_Diagnostics_TraceLevel_">DataConnection.TurnTraceSwitchOn(TraceLevel)</a>
     </div>
     <div>
-      <span class="xref">LinqToDB.Data.DataConnection.GetFluentMappingBuilder()</span>
+      <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_Close">DataConnection.Close()</a>
     </div>
     <div>
       <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_CreateCommand">DataConnection.CreateCommand()</a>
@@ -254,7 +252,22 @@
       <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_AddInterceptor_LinqToDB_Interceptors_IInterceptor_">DataConnection.AddInterceptor(IInterceptor)</a>
     </div>
     <div>
+      <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_RemoveInterceptor_LinqToDB_Interceptors_IInterceptor_">DataConnection.RemoveInterceptor(IInterceptor)</a>
+    </div>
+    <div>
       <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_ProcessQuery_LinqToDB_SqlQuery_SqlStatement_LinqToDB_SqlQuery_EvaluationContext_">DataConnection.ProcessQuery(SqlStatement, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_DefaultSettings">DataConnection.DefaultSettings</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_DefaultConfiguration">DataConnection.DefaultConfiguration</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_DefaultDataProvider">DataConnection.DefaultDataProvider</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_Options">DataConnection.Options</a>
     </div>
     <div>
       <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_ConfigurationString">DataConnection.ConfigurationString</a>
@@ -269,19 +282,7 @@
       <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_RetryPolicy">DataConnection.RetryPolicy</a>
     </div>
     <div>
-      <span class="xref">LinqToDB.Data.DataConnection.ID</span>
-    </div>
-    <div>
       <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_IsMarsEnabled">DataConnection.IsMarsEnabled</a>
-    </div>
-    <div>
-      <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_DefaultConfiguration">DataConnection.DefaultConfiguration</a>
-    </div>
-    <div>
-      <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_DefaultDataProvider">DataConnection.DefaultDataProvider</a>
-    </div>
-    <div>
-      <span class="xref">LinqToDB.Data.DataConnection.OnTrace</span>
     </div>
     <div>
       <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_OnTraceConnection">DataConnection.OnTraceConnection</a>
@@ -294,9 +295,6 @@
     </div>
     <div>
       <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_WriteTraceLineConnection">DataConnection.WriteTraceLineConnection</a>
-    </div>
-    <div>
-      <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_DefaultSettings">DataConnection.DefaultSettings</a>
     </div>
     <div>
       <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_Connection">DataConnection.Connection</a>
@@ -328,30 +326,33 @@
     <div>
       <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_ThrowOnDisposed">DataConnection.ThrowOnDisposed</a>
     </div>
+    <div>
+      <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_OnRemoveInterceptor">DataConnection.OnRemoveInterceptor</a>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.EntityFrameworkCore.html">EntityFrameworkCore</a></h6>
   <h6><strong>Assembly</strong>: linq2db.EntityFrameworkCore.dll</h6>
   <h5 id="LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class LinqToDBForEFToolsDataConnection : DataConnection, IDataContext, IDisposable, IAsyncDisposable, ICloneable, IInterceptable&lt;ICommandInterceptor&gt;, IInterceptable&lt;IConnectionInterceptor&gt;, IInterceptable&lt;IDataContextInterceptor&gt;, IInterceptable&lt;IEntityServiceInterceptor&gt;, IInterceptable&lt;IUnwrapDataObjectInterceptor&gt;, IInterceptable, IExpressionPreprocessor, IEntityServiceInterceptor, IInterceptor</code></pre>
+    <pre><code class="lang-csharp hljs">public class LinqToDBForEFToolsDataConnection : DataConnection, IDataContext, IConfigurationID, IDisposable, IAsyncDisposable, ICloneable, IInterceptable&lt;ICommandInterceptor&gt;, IInterceptable&lt;IConnectionInterceptor&gt;, IInterceptable&lt;IDataContextInterceptor&gt;, IInterceptable&lt;IEntityServiceInterceptor&gt;, IInterceptable&lt;IUnwrapDataObjectInterceptor&gt;, IInterceptable, IExpressionPreprocessor, IEntityServiceInterceptor, IInterceptor</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/new/master/apiSpec/new?filename=LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection__ctor_Microsoft_EntityFrameworkCore_DbContext_LinqToDB_DataProvider_IDataProvider_System_Data_Common_DbConnection_Microsoft_EntityFrameworkCore_Metadata_IModel_System_Func_System_Linq_Expressions_Expression_LinqToDB_IDataContext_Microsoft_EntityFrameworkCore_DbContext_Microsoft_EntityFrameworkCore_Metadata_IModel_System_Linq_Expressions_Expression__.md&amp;value=---%0Auid%3A%20LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.%23ctor(Microsoft.EntityFrameworkCore.DbContext%2CLinqToDB.DataProvider.IDataProvider%2CSystem.Data.Common.DbConnection%2CMicrosoft.EntityFrameworkCore.Metadata.IModel%2CSystem.Func%7BSystem.Linq.Expressions.Expression%2CLinqToDB.IDataContext%2CMicrosoft.EntityFrameworkCore.DbContext%2CMicrosoft.EntityFrameworkCore.Metadata.IModel%2CSystem.Linq.Expressions.Expression%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/new/master/apiSpec/new?filename=LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection__ctor_Microsoft_EntityFrameworkCore_DbContext_LinqToDB_DataOptions_Microsoft_EntityFrameworkCore_Metadata_IModel_System_Func_System_Linq_Expressions_Expression_LinqToDB_IDataContext_Microsoft_EntityFrameworkCore_DbContext_Microsoft_EntityFrameworkCore_Metadata_IModel_System_Linq_Expressions_Expression__.md&amp;value=---%0Auid%3A%20LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.%23ctor(Microsoft.EntityFrameworkCore.DbContext%2CLinqToDB.DataOptions%2CMicrosoft.EntityFrameworkCore.Metadata.IModel%2CSystem.Func%7BSystem.Linq.Expressions.Expression%2CLinqToDB.IDataContext%2CMicrosoft.EntityFrameworkCore.DbContext%2CMicrosoft.EntityFrameworkCore.Metadata.IModel%2CSystem.Linq.Expressions.Expression%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/blob/master/Source/LinqToDB.EntityFrameworkCore/LinqToDBForEFToolsDataConnection.cs/#L107">View Source</a>
+    <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/blob/master/Source/LinqToDB.EntityFrameworkCore/LinqToDBForEFToolsDataConnection.cs/#L58">View Source</a>
   </span>
   <a id="LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection__ctor_" data-uid="LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.#ctor*"></a>
-  <h4 id="LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection__ctor_Microsoft_EntityFrameworkCore_DbContext_LinqToDB_DataProvider_IDataProvider_System_Data_Common_DbConnection_Microsoft_EntityFrameworkCore_Metadata_IModel_System_Func_System_Linq_Expressions_Expression_LinqToDB_IDataContext_Microsoft_EntityFrameworkCore_DbContext_Microsoft_EntityFrameworkCore_Metadata_IModel_System_Linq_Expressions_Expression__" data-uid="LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.#ctor(Microsoft.EntityFrameworkCore.DbContext,LinqToDB.DataProvider.IDataProvider,System.Data.Common.DbConnection,Microsoft.EntityFrameworkCore.Metadata.IModel,System.Func{System.Linq.Expressions.Expression,LinqToDB.IDataContext,Microsoft.EntityFrameworkCore.DbContext,Microsoft.EntityFrameworkCore.Metadata.IModel,System.Linq.Expressions.Expression})">LinqToDBForEFToolsDataConnection(DbContext?, IDataProvider, DbConnection, IModel?, Func&lt;Expression, IDataContext, DbContext?, IModel?, Expression&gt;?)</h4>
+  <h4 id="LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection__ctor_Microsoft_EntityFrameworkCore_DbContext_LinqToDB_DataOptions_Microsoft_EntityFrameworkCore_Metadata_IModel_System_Func_System_Linq_Expressions_Expression_LinqToDB_IDataContext_Microsoft_EntityFrameworkCore_DbContext_Microsoft_EntityFrameworkCore_Metadata_IModel_System_Linq_Expressions_Expression__" data-uid="LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.#ctor(Microsoft.EntityFrameworkCore.DbContext,LinqToDB.DataOptions,Microsoft.EntityFrameworkCore.Metadata.IModel,System.Func{System.Linq.Expressions.Expression,LinqToDB.IDataContext,Microsoft.EntityFrameworkCore.DbContext,Microsoft.EntityFrameworkCore.Metadata.IModel,System.Linq.Expressions.Expression})">LinqToDBForEFToolsDataConnection(DbContext?, DataOptions, IModel?, Func&lt;Expression, IDataContext, DbContext?, IModel?, Expression&gt;?)</h4>
   <div class="markdown level1 summary"><p>Creates new instance of data connection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LinqToDBForEFToolsDataConnection(DbContext? context, IDataProvider dataProvider, DbConnection connection, IModel? model, Func&lt;Expression, IDataContext, DbContext?, IModel?, Expression&gt;? transformFunc)</code></pre>
+    <pre><code class="lang-csharp hljs">public LinqToDBForEFToolsDataConnection(DbContext? context, DataOptions options, IModel? model, Func&lt;Expression, IDataContext, DbContext?, IModel?, Expression&gt;? transformFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -370,131 +371,9 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a></td>
-        <td><span class="parametername">dataProvider</span></td>
-        <td><p>linq2db database provider.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a></td>
-        <td><span class="parametername">connection</span></td>
-        <td><p>Database connection instance.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.metadata.imodel">IModel</a></td>
-        <td><span class="parametername">model</span></td>
-        <td><p>EF.Core data model.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-5">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="LinqToDB.IDataContext.html">IDataContext</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext">DbContext</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.metadata.imodel">IModel</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</td>
-        <td><span class="parametername">transformFunc</span></td>
-        <td><p>Expression converter.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/new/master/apiSpec/new?filename=LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection__ctor_Microsoft_EntityFrameworkCore_DbContext_LinqToDB_DataProvider_IDataProvider_System_Data_Common_DbTransaction_Microsoft_EntityFrameworkCore_Metadata_IModel_System_Func_System_Linq_Expressions_Expression_LinqToDB_IDataContext_Microsoft_EntityFrameworkCore_DbContext_Microsoft_EntityFrameworkCore_Metadata_IModel_System_Linq_Expressions_Expression__.md&amp;value=---%0Auid%3A%20LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.%23ctor(Microsoft.EntityFrameworkCore.DbContext%2CLinqToDB.DataProvider.IDataProvider%2CSystem.Data.Common.DbTransaction%2CMicrosoft.EntityFrameworkCore.Metadata.IModel%2CSystem.Func%7BSystem.Linq.Expressions.Expression%2CLinqToDB.IDataContext%2CMicrosoft.EntityFrameworkCore.DbContext%2CMicrosoft.EntityFrameworkCore.Metadata.IModel%2CSystem.Linq.Expressions.Expression%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/blob/master/Source/LinqToDB.EntityFrameworkCore/LinqToDBForEFToolsDataConnection.cs/#L83">View Source</a>
-  </span>
-  <a id="LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection__ctor_" data-uid="LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.#ctor*"></a>
-  <h4 id="LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection__ctor_Microsoft_EntityFrameworkCore_DbContext_LinqToDB_DataProvider_IDataProvider_System_Data_Common_DbTransaction_Microsoft_EntityFrameworkCore_Metadata_IModel_System_Func_System_Linq_Expressions_Expression_LinqToDB_IDataContext_Microsoft_EntityFrameworkCore_DbContext_Microsoft_EntityFrameworkCore_Metadata_IModel_System_Linq_Expressions_Expression__" data-uid="LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.#ctor(Microsoft.EntityFrameworkCore.DbContext,LinqToDB.DataProvider.IDataProvider,System.Data.Common.DbTransaction,Microsoft.EntityFrameworkCore.Metadata.IModel,System.Func{System.Linq.Expressions.Expression,LinqToDB.IDataContext,Microsoft.EntityFrameworkCore.DbContext,Microsoft.EntityFrameworkCore.Metadata.IModel,System.Linq.Expressions.Expression})">LinqToDBForEFToolsDataConnection(DbContext?, IDataProvider, DbTransaction, IModel?, Func&lt;Expression, IDataContext, DbContext?, IModel?, Expression&gt;?)</h4>
-  <div class="markdown level1 summary"><p>Creates new instance of data connection.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LinqToDBForEFToolsDataConnection(DbContext? context, IDataProvider dataProvider, DbTransaction transaction, IModel? model, Func&lt;Expression, IDataContext, DbContext?, IModel?, Expression&gt;? transformFunc)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext">DbContext</a></td>
-        <td><span class="parametername">context</span></td>
-        <td><p>EF.Core database context.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a></td>
-        <td><span class="parametername">dataProvider</span></td>
-        <td><p>linq2db database provider.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbtransaction">DbTransaction</a></td>
-        <td><span class="parametername">transaction</span></td>
-        <td><p>Database transaction.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.metadata.imodel">IModel</a></td>
-        <td><span class="parametername">model</span></td>
-        <td><p>EF.Core data model.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-5">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="LinqToDB.IDataContext.html">IDataContext</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext">DbContext</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.metadata.imodel">IModel</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</td>
-        <td><span class="parametername">transformFunc</span></td>
-        <td><p>Expression converter.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/new/master/apiSpec/new?filename=LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection__ctor_Microsoft_EntityFrameworkCore_DbContext_LinqToDB_DataProvider_IDataProvider_System_String_Microsoft_EntityFrameworkCore_Metadata_IModel_System_Func_System_Linq_Expressions_Expression_LinqToDB_IDataContext_Microsoft_EntityFrameworkCore_DbContext_Microsoft_EntityFrameworkCore_Metadata_IModel_System_Linq_Expressions_Expression__.md&amp;value=---%0Auid%3A%20LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.%23ctor(Microsoft.EntityFrameworkCore.DbContext%2CLinqToDB.DataProvider.IDataProvider%2CSystem.String%2CMicrosoft.EntityFrameworkCore.Metadata.IModel%2CSystem.Func%7BSystem.Linq.Expressions.Expression%2CLinqToDB.IDataContext%2CMicrosoft.EntityFrameworkCore.DbContext%2CMicrosoft.EntityFrameworkCore.Metadata.IModel%2CSystem.Linq.Expressions.Expression%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/blob/master/Source/LinqToDB.EntityFrameworkCore/LinqToDBForEFToolsDataConnection.cs/#L60">View Source</a>
-  </span>
-  <a id="LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection__ctor_" data-uid="LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.#ctor*"></a>
-  <h4 id="LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection__ctor_Microsoft_EntityFrameworkCore_DbContext_LinqToDB_DataProvider_IDataProvider_System_String_Microsoft_EntityFrameworkCore_Metadata_IModel_System_Func_System_Linq_Expressions_Expression_LinqToDB_IDataContext_Microsoft_EntityFrameworkCore_DbContext_Microsoft_EntityFrameworkCore_Metadata_IModel_System_Linq_Expressions_Expression__" data-uid="LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.#ctor(Microsoft.EntityFrameworkCore.DbContext,LinqToDB.DataProvider.IDataProvider,System.String,Microsoft.EntityFrameworkCore.Metadata.IModel,System.Func{System.Linq.Expressions.Expression,LinqToDB.IDataContext,Microsoft.EntityFrameworkCore.DbContext,Microsoft.EntityFrameworkCore.Metadata.IModel,System.Linq.Expressions.Expression})">LinqToDBForEFToolsDataConnection(DbContext?, IDataProvider, string, IModel?, Func&lt;Expression, IDataContext, DbContext?, IModel?, Expression&gt;?)</h4>
-  <div class="markdown level1 summary"><p>Creates new instance of data connection.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LinqToDBForEFToolsDataConnection(DbContext? context, IDataProvider dataProvider, string connectionString, IModel? model, Func&lt;Expression, IDataContext, DbContext?, IModel?, Expression&gt;? transformFunc)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext">DbContext</a></td>
-        <td><span class="parametername">context</span></td>
-        <td><p>EF.Core database context.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a></td>
-        <td><span class="parametername">dataProvider</span></td>
-        <td><p>linq2db database provider.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">connectionString</span></td>
-        <td><p>Connection string.</p>
+        <td><a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Linq To DB context options.</p>
 </td>
       </tr>
       <tr>
@@ -518,7 +397,7 @@
     <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/new/master/apiSpec/new?filename=LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection_Context.md&amp;value=---%0Auid%3A%20LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.Context%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/blob/master/Source/LinqToDB.EntityFrameworkCore/LinqToDBForEFToolsDataConnection.cs/#L50">View Source</a>
+    <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/blob/master/Source/LinqToDB.EntityFrameworkCore/LinqToDBForEFToolsDataConnection.cs/#L49">View Source</a>
   </span>
   <a id="LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection_Context_" data-uid="LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.Context*"></a>
   <h4 id="LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection_Context" data-uid="LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.Context">Context</h4>
@@ -549,7 +428,7 @@
     <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/new/master/apiSpec/new?filename=LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection_Tracking.md&amp;value=---%0Auid%3A%20LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.Tracking%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/blob/master/Source/LinqToDB.EntityFrameworkCore/LinqToDBForEFToolsDataConnection.cs/#L45">View Source</a>
+    <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/blob/master/Source/LinqToDB.EntityFrameworkCore/LinqToDBForEFToolsDataConnection.cs/#L44">View Source</a>
   </span>
   <a id="LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection_Tracking_" data-uid="LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.Tracking*"></a>
   <h4 id="LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection_Tracking" data-uid="LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.Tracking">Tracking</h4>
@@ -582,7 +461,7 @@
     <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/new/master/apiSpec/new?filename=LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection_ProcessExpression_System_Linq_Expressions_Expression_.md&amp;value=---%0Auid%3A%20LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.ProcessExpression(System.Linq.Expressions.Expression)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/blob/master/Source/LinqToDB.EntityFrameworkCore/LinqToDBForEFToolsDataConnection.cs/#L127">View Source</a>
+    <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/blob/master/Source/LinqToDB.EntityFrameworkCore/LinqToDBForEFToolsDataConnection.cs/#L77">View Source</a>
   </span>
   <a id="LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection_ProcessExpression_" data-uid="LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.ProcessExpression*"></a>
   <h4 id="LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection_ProcessExpression_System_Linq_Expressions_Expression_" data-uid="LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection.ProcessExpression(System.Linq.Expressions.Expression)">ProcessExpression(Expression)</h4>
@@ -630,6 +509,9 @@
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="LinqToDB.IDataContext.html">IDataContext</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Common.Internal.IConfigurationID.html">IConfigurationID</a>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
@@ -718,7 +600,7 @@
                     <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/new/master/apiSpec/new?filename=LinqToDB_EntityFrameworkCore_LinqToDBForEFToolsDataConnection.md&amp;value=---%0Auid%3A%20LinqToDB.EntityFrameworkCore.LinqToDBForEFToolsDataConnection%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/blob/master/Source/LinqToDB.EntityFrameworkCore/LinqToDBForEFToolsDataConnection.cs/#L28" class="contribution-link">View Source</a>
+                    <a href="https://github.com/linq2db/linq2db.EntityFrameworkCore/blob/master/Source/LinqToDB.EntityFrameworkCore/LinqToDBForEFToolsDataConnection.cs/#L24" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
