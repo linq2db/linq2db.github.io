@@ -1,878 +1,124 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Interface IDataContext
  | Linq To DB (aka linq2db) </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IDataContext
  | Linq To DB (aka linq2db) ">
-    
-      <link rel="shortcut icon" href="../images/icon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
+      
+      <link rel="icon" href="../images/icon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
       <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+
+      <script>
+        MathJax = {
+          options: {
+            processHtmlClass: ['tex2jax_process', 'math']
+          }
+        };
+      </script>
+
+      <script type="text/javascript" src="../styles/docfx.min.js"></script>
+      <script type="text/javascript" src="../styles/main.js"></script>
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../images/icon.png" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="LinqToDB.IDataContext">
+
+        <article data-uid="LinqToDB.IDataContext">
 
 
-  <h1 id="LinqToDB_IDataContext" data-uid="LinqToDB.IDataContext" class="text-break">Interface IDataContext
-</h1>
-  <div class="markdown level0 summary"><p>Database connection abstraction interface.</p>
+
+  <h1 id="LinqToDB_IDataContext" data-uid="LinqToDB.IDataContext" class="text-break">
+    Interface IDataContext
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Database connection abstraction interface.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IDataContext : IConfigurationID, IDisposable, IAsyncDisposable</code></pre>
+  </div>
+
+
+
+
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
     <div>
       <a class="xref" href="LinqToDB.Common.Internal.IConfigurationID.html#LinqToDB_Common_Internal_IConfigurationID_ConfigurationID">IConfigurationID.ConfigurationID</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose#system-idisposable-dispose">IDisposable.Dispose()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">IDisposable.Dispose()</a>
     </div>
     <div>
       <a class="xref" href="LinqToDB.Async.IAsyncDisposable.html#LinqToDB_Async_IAsyncDisposable_DisposeAsync">IAsyncDisposable.DisposeAsync()</a>
     </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.html">LinqToDB</a></h6>
-  <h6><strong>Assembly</strong>: linq2db.dll</h6>
-  <h5 id="LinqToDB_IDataContext_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IDataContext : IConfigurationID, IDisposable, IAsyncDisposable</code></pre>
-  </div>
-  <h3 id="properties">Properties
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_CloseAfterUse.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.CloseAfterUse%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L72">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_CloseAfterUse_" data-uid="LinqToDB.IDataContext.CloseAfterUse*"></a>
-  <h4 id="LinqToDB_IDataContext_CloseAfterUse" data-uid="LinqToDB.IDataContext.CloseAfterUse">CloseAfterUse</h4>
-  <div class="markdown level1 summary"><p>Gets or sets flag to close context after query execution or leave it open.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool CloseAfterUse { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_ContextName.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.ContextName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L31">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_ContextName_" data-uid="LinqToDB.IDataContext.ContextName*"></a>
-  <h4 id="LinqToDB_IDataContext_ContextName" data-uid="LinqToDB.IDataContext.ContextName">ContextName</h4>
-  <div class="markdown level1 summary"><p>Provider identifier.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">string ContextName { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_CreateSqlProvider.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.CreateSqlProvider%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L35">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_CreateSqlProvider_" data-uid="LinqToDB.IDataContext.CreateSqlProvider*"></a>
-  <h4 id="LinqToDB_IDataContext_CreateSqlProvider" data-uid="LinqToDB.IDataContext.CreateSqlProvider">CreateSqlProvider</h4>
-  <div class="markdown level1 summary"><p>Gets SQL builder service factory method for current context data provider.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Func&lt;ISqlBuilder&gt; CreateSqlProvider { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="LinqToDB.SqlProvider.ISqlBuilder.html">ISqlBuilder</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_DataReaderType.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.DataReaderType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L51">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_DataReaderType_" data-uid="LinqToDB.IDataContext.DataReaderType*"></a>
-  <h4 id="LinqToDB_IDataContext_DataReaderType" data-uid="LinqToDB.IDataContext.DataReaderType">DataReaderType</h4>
-  <div class="markdown level1 summary"><p>Gets data reader implementation type for current context data provider.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Type DataReaderType { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_GetSqlOptimizer.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.GetSqlOptimizer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L39">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_GetSqlOptimizer_" data-uid="LinqToDB.IDataContext.GetSqlOptimizer*"></a>
-  <h4 id="LinqToDB_IDataContext_GetSqlOptimizer" data-uid="LinqToDB.IDataContext.GetSqlOptimizer">GetSqlOptimizer</h4>
-  <div class="markdown level1 summary"><p>Gets SQL optimizer service factory method for current context data provider.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Func&lt;DataOptions, ISqlOptimizer&gt; GetSqlOptimizer { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.SqlProvider.ISqlOptimizer.html">ISqlOptimizer</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_InlineParameters.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.InlineParameters%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L60">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_InlineParameters_" data-uid="LinqToDB.IDataContext.InlineParameters*"></a>
-  <h4 id="LinqToDB_IDataContext_InlineParameters" data-uid="LinqToDB.IDataContext.InlineParameters">InlineParameters</h4>
-  <div class="markdown level1 summary"><p>Gets or sets option to force inline parameter values as literals into command text. If parameter inlining not supported
-for specific value type, it will be used as parameter.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool InlineParameters { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_MappingSchema.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.MappingSchema%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L55">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_MappingSchema_" data-uid="LinqToDB.IDataContext.MappingSchema*"></a>
-  <h4 id="LinqToDB_IDataContext_MappingSchema" data-uid="LinqToDB.IDataContext.MappingSchema">MappingSchema</h4>
-  <div class="markdown level1 summary"><p>Gets mapping schema, used for current context.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">MappingSchema MappingSchema { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_NextQueryHints.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.NextQueryHints%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L68">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_NextQueryHints_" data-uid="LinqToDB.IDataContext.NextQueryHints*"></a>
-  <h4 id="LinqToDB_IDataContext_NextQueryHints" data-uid="LinqToDB.IDataContext.NextQueryHints">NextQueryHints</h4>
-  <div class="markdown level1 summary"><p>Gets list of query hints (writable collection), that will be used only for next query, executed using current context.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">List&lt;string&gt; NextQueryHints { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_Options.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.Options%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L77">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_Options_" data-uid="LinqToDB.IDataContext.Options*"></a>
-  <h4 id="LinqToDB_IDataContext_Options" data-uid="LinqToDB.IDataContext.Options">Options</h4>
-  <div class="markdown level1 summary"><p>Current DataContext LINQ options</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">DataOptions Options { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_QueryHints.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.QueryHints%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L64">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_QueryHints_" data-uid="LinqToDB.IDataContext.QueryHints*"></a>
-  <h4 id="LinqToDB_IDataContext_QueryHints" data-uid="LinqToDB.IDataContext.QueryHints">QueryHints</h4>
-  <div class="markdown level1 summary"><p>Gets list of query hints (writable collection), that will be used for all queries, executed using current context.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">List&lt;string&gt; QueryHints { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_SqlProviderFlags.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.SqlProviderFlags%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L43">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_SqlProviderFlags_" data-uid="LinqToDB.IDataContext.SqlProviderFlags*"></a>
-  <h4 id="LinqToDB_IDataContext_SqlProviderFlags" data-uid="LinqToDB.IDataContext.SqlProviderFlags">SqlProviderFlags</h4>
-  <div class="markdown level1 summary"><p>Gets SQL support flags for current context data provider.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">SqlProviderFlags SqlProviderFlags { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.SqlProvider.SqlProviderFlags.html">SqlProviderFlags</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_SupportedTableOptions.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.SupportedTableOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L47">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_SupportedTableOptions_" data-uid="LinqToDB.IDataContext.SupportedTableOptions*"></a>
-  <h4 id="LinqToDB_IDataContext_SupportedTableOptions" data-uid="LinqToDB.IDataContext.SupportedTableOptions">SupportedTableOptions</h4>
-  <div class="markdown level1 summary"><p>Gets supported table options for current context data provider.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">TableOptions SupportedTableOptions { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.TableOptions.html">TableOptions</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_UnwrapDataObjectInterceptor.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.UnwrapDataObjectInterceptor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L135">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_UnwrapDataObjectInterceptor_" data-uid="LinqToDB.IDataContext.UnwrapDataObjectInterceptor*"></a>
-  <h4 id="LinqToDB_IDataContext_UnwrapDataObjectInterceptor" data-uid="LinqToDB.IDataContext.UnwrapDataObjectInterceptor">UnwrapDataObjectInterceptor</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IUnwrapDataObjectInterceptor? UnwrapDataObjectInterceptor { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Interceptors.IUnwrapDataObjectInterceptor.html">IUnwrapDataObjectInterceptor</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_AddInterceptor_LinqToDB_Interceptors_IInterceptor_.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.AddInterceptor(LinqToDB.Interceptors.IInterceptor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L127">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_AddInterceptor_" data-uid="LinqToDB.IDataContext.AddInterceptor*"></a>
-  <h4 id="LinqToDB_IDataContext_AddInterceptor_LinqToDB_Interceptors_IInterceptor_" data-uid="LinqToDB.IDataContext.AddInterceptor(LinqToDB.Interceptors.IInterceptor)">AddInterceptor(IInterceptor)</h4>
-  <div class="markdown level1 summary"><p>Adds interceptor instance to context.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void AddInterceptor(IInterceptor interceptor)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Interceptors.IInterceptor.html">IInterceptor</a></td>
-        <td><span class="parametername">interceptor</span></td>
-        <td><p>Interceptor.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_Clone_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.Clone(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L100">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_Clone_" data-uid="LinqToDB.IDataContext.Clone*"></a>
-  <h4 id="LinqToDB_IDataContext_Clone_System_Boolean_" data-uid="LinqToDB.IDataContext.Clone(System.Boolean)">Clone(bool)</h4>
-  <div class="markdown level1 summary"><p>Clones current context.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IDataContext Clone(bool forNestedQuery)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><span class="parametername">forNestedQuery</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.IDataContext.html">IDataContext</a></td>
-        <td><p>Cloned context.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_Close.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.Close%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L105">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_Close_" data-uid="LinqToDB.IDataContext.Close*"></a>
-  <h4 id="LinqToDB_IDataContext_Close" data-uid="LinqToDB.IDataContext.Close">Close()</h4>
-  <div class="markdown level1 summary"><p>Closes context connection and disposes underlying resources.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Close()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_CloseAsync.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.CloseAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L110">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_CloseAsync_" data-uid="LinqToDB.IDataContext.CloseAsync*"></a>
-  <h4 id="LinqToDB_IDataContext_CloseAsync" data-uid="LinqToDB.IDataContext.CloseAsync">CloseAsync()</h4>
-  <div class="markdown level1 summary"><p>Closes context connection and disposes underlying resources.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task CloseAsync()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_GetQueryRunner_LinqToDB_Linq_Query_System_Int32_System_Linq_Expressions_Expression_System_Object___System_Object___.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.GetQueryRunner(LinqToDB.Linq.Query%2CSystem.Int32%2CSystem.Linq.Expressions.Expression%2CSystem.Object%5B%5D%2CSystem.Object%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L121">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_GetQueryRunner_" data-uid="LinqToDB.IDataContext.GetQueryRunner*"></a>
-  <h4 id="LinqToDB_IDataContext_GetQueryRunner_LinqToDB_Linq_Query_System_Int32_System_Linq_Expressions_Expression_System_Object___System_Object___" data-uid="LinqToDB.IDataContext.GetQueryRunner(LinqToDB.Linq.Query,System.Int32,System.Linq.Expressions.Expression,System.Object[],System.Object[])">GetQueryRunner(Query, int, Expression, object?[]?, object?[]?)</h4>
-  <div class="markdown level1 summary"><p>Returns query runner service for current context.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IQueryRunner GetQueryRunner(Query query, int queryNumber, Expression expression, object?[]? parameters, object?[]? preambles)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Linq.Query.html">Query</a></td>
-        <td><span class="parametername">query</span></td>
-        <td><p>Query batch object.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">queryNumber</span></td>
-        <td><p>Index of query in query batch.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></td>
-        <td><span class="parametername">expression</span></td>
-        <td><p>Query results mapping expression.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
-        <td><span class="parametername">parameters</span></td>
-        <td><p>Query parameters.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</td>
-        <td><span class="parametername">preambles</span></td>
-        <td><p>Query preambles</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Linq.IQueryRunner.html">IQueryRunner</a></td>
-        <td><p>Query runner service.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_GetReaderExpression_System_Data_Common_DbDataReader_System_Int32_System_Linq_Expressions_Expression_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.GetReaderExpression(System.Data.Common.DbDataReader%2CSystem.Int32%2CSystem.Linq.Expressions.Expression%2CSystem.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L87">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_GetReaderExpression_" data-uid="LinqToDB.IDataContext.GetReaderExpression*"></a>
-  <h4 id="LinqToDB_IDataContext_GetReaderExpression_System_Data_Common_DbDataReader_System_Int32_System_Linq_Expressions_Expression_System_Type_" data-uid="LinqToDB.IDataContext.GetReaderExpression(System.Data.Common.DbDataReader,System.Int32,System.Linq.Expressions.Expression,System.Type)">GetReaderExpression(DbDataReader, int, Expression, Type)</h4>
-  <div class="markdown level1 summary"><p>Returns column value reader expression.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Expression GetReaderExpression(DbDataReader reader, int idx, Expression readerExpression, Type toType)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a></td>
-        <td><span class="parametername">reader</span></td>
-        <td><p>Data reader instance.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">idx</span></td>
-        <td><p>Column index.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></td>
-        <td><span class="parametername">readerExpression</span></td>
-        <td><p>Data reader accessor expression.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">toType</span></td>
-        <td><p>Expected value type.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></td>
-        <td><p>Column read expression.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_IsDBNullAllowed_System_Data_Common_DbDataReader_System_Int32_.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.IsDBNullAllowed(System.Data.Common.DbDataReader%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L94">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_IsDBNullAllowed_" data-uid="LinqToDB.IDataContext.IsDBNullAllowed*"></a>
-  <h4 id="LinqToDB_IDataContext_IsDBNullAllowed_System_Data_Common_DbDataReader_System_Int32_" data-uid="LinqToDB.IDataContext.IsDBNullAllowed(System.Data.Common.DbDataReader,System.Int32)">IsDBNullAllowed(DbDataReader, int)</h4>
-  <div class="markdown level1 summary"><p>Returns true, of data reader column could contain <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dbnull">DBNull</a> value.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool? IsDBNullAllowed(DbDataReader reader, int idx)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a></td>
-        <td><span class="parametername">reader</span></td>
-        <td><p>Data reader instance.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">idx</span></td>
-        <td><p>Column index.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
-        <td><p><code>true</code> or <code>null</code> if column could contain <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dbnull">DBNull</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext_RemoveInterceptor_LinqToDB_Interceptors_IInterceptor_.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext.RemoveInterceptor(LinqToDB.Interceptors.IInterceptor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L133">View Source</a>
-  </span>
-  <a id="LinqToDB_IDataContext_RemoveInterceptor_" data-uid="LinqToDB.IDataContext.RemoveInterceptor*"></a>
-  <h4 id="LinqToDB_IDataContext_RemoveInterceptor_LinqToDB_Interceptors_IInterceptor_" data-uid="LinqToDB.IDataContext.RemoveInterceptor(LinqToDB.Interceptors.IInterceptor)">RemoveInterceptor(IInterceptor)</h4>
-  <div class="markdown level1 summary"><p>Removes interceptor instance from context.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void RemoveInterceptor(IInterceptor interceptor)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Interceptors.IInterceptor.html">IInterceptor</a></td>
-        <td><span class="parametername">interceptor</span></td>
-        <td><p>Interceptor.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="extensionmethods">Extension Methods</h3>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
   <div>
       <a class="xref" href="LinqToDB.Common.Logging.LoggingExtensions.html#LinqToDB_Common_Logging_LoggingExtensions_GetTraceSwitch_LinqToDB_IDataContext_">LoggingExtensions.GetTraceSwitch(IDataContext)</a>
   </div>
@@ -1134,46 +380,795 @@ for specific value type, it will be used as parameter.</p>
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
   </div>
-</article>
-          </div>
+  </dd></dl>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_IDataContext.md&amp;value=---%0Auid%3A%20LinqToDB.IDataContext%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L20" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LinqToDB_IDataContext_CloseAfterUse_" data-uid="LinqToDB.IDataContext.CloseAfterUse*"></a>
+
+  <h3 id="LinqToDB_IDataContext_CloseAfterUse" data-uid="LinqToDB.IDataContext.CloseAfterUse">
+  CloseAfterUse
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets flag to close context after query execution or leave it open.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool CloseAfterUse { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_ConfigurationString_" data-uid="LinqToDB.IDataContext.ConfigurationString*"></a>
+
+  <h3 id="LinqToDB_IDataContext_ConfigurationString" data-uid="LinqToDB.IDataContext.ConfigurationString">
+  ConfigurationString
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets initial value for database connection configuration name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string? ConfigurationString { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_ContextName_" data-uid="LinqToDB.IDataContext.ContextName*"></a>
+
+  <h3 id="LinqToDB_IDataContext_ContextName" data-uid="LinqToDB.IDataContext.ContextName">
+  ContextName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Provider identifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string ContextName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_CreateSqlProvider_" data-uid="LinqToDB.IDataContext.CreateSqlProvider*"></a>
+
+  <h3 id="LinqToDB_IDataContext_CreateSqlProvider" data-uid="LinqToDB.IDataContext.CreateSqlProvider">
+  CreateSqlProvider
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets SQL builder service factory method for current context data provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Func&lt;ISqlBuilder&gt; CreateSqlProvider { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="LinqToDB.SqlProvider.ISqlBuilder.html">ISqlBuilder</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_DataReaderType_" data-uid="LinqToDB.IDataContext.DataReaderType*"></a>
+
+  <h3 id="LinqToDB_IDataContext_DataReaderType" data-uid="LinqToDB.IDataContext.DataReaderType">
+  DataReaderType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets data reader implementation type for current context data provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Type DataReaderType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_GetSqlOptimizer_" data-uid="LinqToDB.IDataContext.GetSqlOptimizer*"></a>
+
+  <h3 id="LinqToDB_IDataContext_GetSqlOptimizer" data-uid="LinqToDB.IDataContext.GetSqlOptimizer">
+  GetSqlOptimizer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets SQL optimizer service factory method for current context data provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Func&lt;DataOptions, ISqlOptimizer&gt; GetSqlOptimizer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.SqlProvider.ISqlOptimizer.html">ISqlOptimizer</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_InlineParameters_" data-uid="LinqToDB.IDataContext.InlineParameters*"></a>
+
+  <h3 id="LinqToDB_IDataContext_InlineParameters" data-uid="LinqToDB.IDataContext.InlineParameters">
+  InlineParameters
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets option to force inline parameter values as literals into command text. If parameter inlining not supported
+for specific value type, it will be used as parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool InlineParameters { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_MappingSchema_" data-uid="LinqToDB.IDataContext.MappingSchema*"></a>
+
+  <h3 id="LinqToDB_IDataContext_MappingSchema" data-uid="LinqToDB.IDataContext.MappingSchema">
+  MappingSchema
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets mapping schema, used for current context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">MappingSchema MappingSchema { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_NextQueryHints_" data-uid="LinqToDB.IDataContext.NextQueryHints*"></a>
+
+  <h3 id="LinqToDB_IDataContext_NextQueryHints" data-uid="LinqToDB.IDataContext.NextQueryHints">
+  NextQueryHints
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets list of query hints (writable collection), that will be used only for next query, executed using current context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">List&lt;string&gt; NextQueryHints { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_Options_" data-uid="LinqToDB.IDataContext.Options*"></a>
+
+  <h3 id="LinqToDB_IDataContext_Options" data-uid="LinqToDB.IDataContext.Options">
+  Options
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Current DataContext LINQ options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataOptions Options { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_QueryHints_" data-uid="LinqToDB.IDataContext.QueryHints*"></a>
+
+  <h3 id="LinqToDB_IDataContext_QueryHints" data-uid="LinqToDB.IDataContext.QueryHints">
+  QueryHints
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets list of query hints (writable collection), that will be used for all queries, executed using current context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">List&lt;string&gt; QueryHints { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_SqlProviderFlags_" data-uid="LinqToDB.IDataContext.SqlProviderFlags*"></a>
+
+  <h3 id="LinqToDB_IDataContext_SqlProviderFlags" data-uid="LinqToDB.IDataContext.SqlProviderFlags">
+  SqlProviderFlags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets SQL support flags for current context data provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SqlProviderFlags SqlProviderFlags { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.SqlProvider.SqlProviderFlags.html">SqlProviderFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_SupportedTableOptions_" data-uid="LinqToDB.IDataContext.SupportedTableOptions*"></a>
+
+  <h3 id="LinqToDB_IDataContext_SupportedTableOptions" data-uid="LinqToDB.IDataContext.SupportedTableOptions">
+  SupportedTableOptions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets supported table options for current context data provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TableOptions SupportedTableOptions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.TableOptions.html">TableOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_UnwrapDataObjectInterceptor_" data-uid="LinqToDB.IDataContext.UnwrapDataObjectInterceptor*"></a>
+
+  <h3 id="LinqToDB_IDataContext_UnwrapDataObjectInterceptor" data-uid="LinqToDB.IDataContext.UnwrapDataObjectInterceptor">
+  UnwrapDataObjectInterceptor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IUnwrapDataObjectInterceptor? UnwrapDataObjectInterceptor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Interceptors.IUnwrapDataObjectInterceptor.html">IUnwrapDataObjectInterceptor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LinqToDB_IDataContext_AddInterceptor_" data-uid="LinqToDB.IDataContext.AddInterceptor*"></a>
+
+  <h3 id="LinqToDB_IDataContext_AddInterceptor_LinqToDB_Interceptors_IInterceptor_" data-uid="LinqToDB.IDataContext.AddInterceptor(LinqToDB.Interceptors.IInterceptor)">
+  AddInterceptor(IInterceptor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds interceptor instance to context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void AddInterceptor(IInterceptor interceptor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>interceptor</code> <a class="xref" href="LinqToDB.Interceptors.IInterceptor.html">IInterceptor</a></dt>
+    <dd><p>Interceptor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_Clone_" data-uid="LinqToDB.IDataContext.Clone*"></a>
+
+  <h3 id="LinqToDB_IDataContext_Clone_System_Boolean_" data-uid="LinqToDB.IDataContext.Clone(System.Boolean)">
+  Clone(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clones current context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IDataContext Clone(bool forNestedQuery)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>forNestedQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.IDataContext.html">IDataContext</a></dt>
+    <dd><p>Cloned context.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_Close_" data-uid="LinqToDB.IDataContext.Close*"></a>
+
+  <h3 id="LinqToDB_IDataContext_Close" data-uid="LinqToDB.IDataContext.Close">
+  Close()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Closes context connection and disposes underlying resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Close()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_CloseAsync_" data-uid="LinqToDB.IDataContext.CloseAsync*"></a>
+
+  <h3 id="LinqToDB_IDataContext_CloseAsync" data-uid="LinqToDB.IDataContext.CloseAsync">
+  CloseAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Closes context connection and disposes underlying resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task CloseAsync()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_GetQueryRunner_" data-uid="LinqToDB.IDataContext.GetQueryRunner*"></a>
+
+  <h3 id="LinqToDB_IDataContext_GetQueryRunner_LinqToDB_Linq_Query_System_Int32_System_Linq_Expressions_Expression_System_Object___System_Object___" data-uid="LinqToDB.IDataContext.GetQueryRunner(LinqToDB.Linq.Query,System.Int32,System.Linq.Expressions.Expression,System.Object[],System.Object[])">
+  GetQueryRunner(Query, int, Expression, object?[]?, object?[]?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns query runner service for current context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IQueryRunner GetQueryRunner(Query query, int queryNumber, Expression expression, object?[]? parameters, object?[]? preambles)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>query</code> <a class="xref" href="LinqToDB.Linq.Query.html">Query</a></dt>
+    <dd><p>Query batch object.</p>
+</dd>
+    <dt><code>queryNumber</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Index of query in query batch.</p>
+</dd>
+    <dt><code>expression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd><p>Query results mapping expression.</p>
+</dd>
+    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
+    <dd><p>Query parameters.</p>
+</dd>
+    <dt><code>preambles</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
+    <dd><p>Query preambles</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Linq.IQueryRunner.html">IQueryRunner</a></dt>
+    <dd><p>Query runner service.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_GetReaderExpression_" data-uid="LinqToDB.IDataContext.GetReaderExpression*"></a>
+
+  <h3 id="LinqToDB_IDataContext_GetReaderExpression_System_Data_Common_DbDataReader_System_Int32_System_Linq_Expressions_Expression_System_Type_" data-uid="LinqToDB.IDataContext.GetReaderExpression(System.Data.Common.DbDataReader,System.Int32,System.Linq.Expressions.Expression,System.Type)">
+  GetReaderExpression(DbDataReader, int, Expression, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns column value reader expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Expression GetReaderExpression(DbDataReader reader, int idx, Expression readerExpression, Type toType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a></dt>
+    <dd><p>Data reader instance.</p>
+</dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Column index.</p>
+</dd>
+    <dt><code>readerExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd><p>Data reader accessor expression.</p>
+</dd>
+    <dt><code>toType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Expected value type.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd><p>Column read expression.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_IsDBNullAllowed_" data-uid="LinqToDB.IDataContext.IsDBNullAllowed*"></a>
+
+  <h3 id="LinqToDB_IDataContext_IsDBNullAllowed_System_Data_Common_DbDataReader_System_Int32_" data-uid="LinqToDB.IDataContext.IsDBNullAllowed(System.Data.Common.DbDataReader,System.Int32)">
+  IsDBNullAllowed(DbDataReader, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true, of data reader column could contain <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dbnull">DBNull</a> value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool? IsDBNullAllowed(DbDataReader reader, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a></dt>
+    <dd><p>Data reader instance.</p>
+</dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Column index.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p><code>true</code> or <code>null</code> if column could contain <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dbnull">DBNull</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_IDataContext_RemoveInterceptor_" data-uid="LinqToDB.IDataContext.RemoveInterceptor*"></a>
+
+  <h3 id="LinqToDB_IDataContext_RemoveInterceptor_LinqToDB_Interceptors_IInterceptor_" data-uid="LinqToDB.IDataContext.RemoveInterceptor(LinqToDB.Interceptors.IInterceptor)">
+  RemoveInterceptor(IInterceptor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes interceptor instance from context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void RemoveInterceptor(IInterceptor interceptor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>interceptor</code> <a class="xref" href="LinqToDB.Interceptors.IInterceptor.html">IInterceptor</a></dt>
+    <dd><p>Interceptor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/IDataContext.cs/#L20" class="edit-link">Edit this page</a>
         </div>
+
+        
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-      
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,680 +1,124 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class CommandInterceptor
  | Linq To DB (aka linq2db) </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class CommandInterceptor
  | Linq To DB (aka linq2db) ">
-    
-      <link rel="shortcut icon" href="../images/icon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
+      
+      <link rel="icon" href="../images/icon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
       <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Interceptors_CommandInterceptor.md&amp;value=---%0Auid%3A%20LinqToDB.Interceptors.CommandInterceptor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+
+      <script>
+        MathJax = {
+          options: {
+            processHtmlClass: ['tex2jax_process', 'math']
+          }
+        };
+      </script>
+
+      <script type="text/javascript" src="../styles/docfx.min.js"></script>
+      <script type="text/javascript" src="../styles/main.js"></script>
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../images/icon.png" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="LinqToDB.Interceptors.CommandInterceptor">
+
+        <article data-uid="LinqToDB.Interceptors.CommandInterceptor">
 
 
-  <h1 id="LinqToDB_Interceptors_CommandInterceptor" data-uid="LinqToDB.Interceptors.CommandInterceptor" class="text-break">Class CommandInterceptor
-</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">CommandInterceptor</span></div>
+
+  <h1 id="LinqToDB_Interceptors_CommandInterceptor" data-uid="LinqToDB.Interceptors.CommandInterceptor" class="text-break">
+    Class CommandInterceptor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Interceptors.html">Interceptors</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="LinqToDB.Interceptors.ICommandInterceptor.html">ICommandInterceptor</a></div>
-    <div><a class="xref" href="LinqToDB.Interceptors.IInterceptor.html">IInterceptor</a></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Interceptors.html">Interceptors</a></h6>
-  <h6><strong>Assembly</strong>: linq2db.dll</h6>
-  <h5 id="LinqToDB_Interceptors_CommandInterceptor_syntax">Syntax</h5>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract class CommandInterceptor : ICommandInterceptor, IInterceptor</code></pre>
   </div>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Interceptors_CommandInterceptor_AfterExecuteReader_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_System_Data_CommandBehavior_System_Data_Common_DbDataReader_.md&amp;value=---%0Auid%3A%20LinqToDB.Interceptors.CommandInterceptor.AfterExecuteReader(LinqToDB.Interceptors.CommandEventData%2CSystem.Data.Common.DbCommand%2CSystem.Data.CommandBehavior%2CSystem.Data.Common.DbDataReader)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L21">View Source</a>
-  </span>
-  <a id="LinqToDB_Interceptors_CommandInterceptor_AfterExecuteReader_" data-uid="LinqToDB.Interceptors.CommandInterceptor.AfterExecuteReader*"></a>
-  <h4 id="LinqToDB_Interceptors_CommandInterceptor_AfterExecuteReader_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_System_Data_CommandBehavior_System_Data_Common_DbDataReader_" data-uid="LinqToDB.Interceptors.CommandInterceptor.AfterExecuteReader(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,System.Data.CommandBehavior,System.Data.Common.DbDataReader)">AfterExecuteReader(CommandEventData, DbCommand, CommandBehavior, DbDataReader)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void AfterExecuteReader(CommandEventData eventData, DbCommand command, CommandBehavior commandBehavior, DbDataReader dataReader)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></td>
-        <td><span class="parametername">eventData</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></td>
-        <td><span class="parametername">command</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.commandbehavior">CommandBehavior</a></td>
-        <td><span class="parametername">commandBehavior</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a></td>
-        <td><span class="parametername">dataReader</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Interceptors_CommandInterceptor_BeforeReaderDispose_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_System_Data_Common_DbDataReader_.md&amp;value=---%0Auid%3A%20LinqToDB.Interceptors.CommandInterceptor.BeforeReaderDispose(LinqToDB.Interceptors.CommandEventData%2CSystem.Data.Common.DbCommand%2CSystem.Data.Common.DbDataReader)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L26">View Source</a>
-  </span>
-  <a id="LinqToDB_Interceptors_CommandInterceptor_BeforeReaderDispose_" data-uid="LinqToDB.Interceptors.CommandInterceptor.BeforeReaderDispose*"></a>
-  <h4 id="LinqToDB_Interceptors_CommandInterceptor_BeforeReaderDispose_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_System_Data_Common_DbDataReader_" data-uid="LinqToDB.Interceptors.CommandInterceptor.BeforeReaderDispose(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,System.Data.Common.DbDataReader)">BeforeReaderDispose(CommandEventData, DbCommand?, DbDataReader)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void BeforeReaderDispose(CommandEventData eventData, DbCommand? command, DbDataReader dataReader)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></td>
-        <td><span class="parametername">eventData</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></td>
-        <td><span class="parametername">command</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a></td>
-        <td><span class="parametername">dataReader</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Interceptors_CommandInterceptor_BeforeReaderDisposeAsync_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_System_Data_Common_DbDataReader_.md&amp;value=---%0Auid%3A%20LinqToDB.Interceptors.CommandInterceptor.BeforeReaderDisposeAsync(LinqToDB.Interceptors.CommandEventData%2CSystem.Data.Common.DbCommand%2CSystem.Data.Common.DbDataReader)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L27">View Source</a>
-  </span>
-  <a id="LinqToDB_Interceptors_CommandInterceptor_BeforeReaderDisposeAsync_" data-uid="LinqToDB.Interceptors.CommandInterceptor.BeforeReaderDisposeAsync*"></a>
-  <h4 id="LinqToDB_Interceptors_CommandInterceptor_BeforeReaderDisposeAsync_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_System_Data_Common_DbDataReader_" data-uid="LinqToDB.Interceptors.CommandInterceptor.BeforeReaderDisposeAsync(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,System.Data.Common.DbDataReader)">BeforeReaderDisposeAsync(CommandEventData, DbCommand?, DbDataReader)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual Task BeforeReaderDisposeAsync(CommandEventData eventData, DbCommand? command, DbDataReader dataReader)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></td>
-        <td><span class="parametername">eventData</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></td>
-        <td><span class="parametername">command</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a></td>
-        <td><span class="parametername">dataReader</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Interceptors_CommandInterceptor_CommandInitialized_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_.md&amp;value=---%0Auid%3A%20LinqToDB.Interceptors.CommandInterceptor.CommandInitialized(LinqToDB.Interceptors.CommandEventData%2CSystem.Data.Common.DbCommand)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L13">View Source</a>
-  </span>
-  <a id="LinqToDB_Interceptors_CommandInterceptor_CommandInitialized_" data-uid="LinqToDB.Interceptors.CommandInterceptor.CommandInitialized*"></a>
-  <h4 id="LinqToDB_Interceptors_CommandInterceptor_CommandInitialized_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_" data-uid="LinqToDB.Interceptors.CommandInterceptor.CommandInitialized(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand)">CommandInitialized(CommandEventData, DbCommand)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual DbCommand CommandInitialized(CommandEventData eventData, DbCommand command)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></td>
-        <td><span class="parametername">eventData</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></td>
-        <td><span class="parametername">command</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Interceptors_CommandInterceptor_ExecuteNonQuery_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_LinqToDB_Common_Option_System_Int32__.md&amp;value=---%0Auid%3A%20LinqToDB.Interceptors.CommandInterceptor.ExecuteNonQuery(LinqToDB.Interceptors.CommandEventData%2CSystem.Data.Common.DbCommand%2CLinqToDB.Common.Option%7BSystem.Int32%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L15">View Source</a>
-  </span>
-  <a id="LinqToDB_Interceptors_CommandInterceptor_ExecuteNonQuery_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteNonQuery*"></a>
-  <h4 id="LinqToDB_Interceptors_CommandInterceptor_ExecuteNonQuery_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_LinqToDB_Common_Option_System_Int32__" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteNonQuery(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,LinqToDB.Common.Option{System.Int32})">ExecuteNonQuery(CommandEventData, DbCommand, Option&lt;int&gt;)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual Option&lt;int&gt; ExecuteNonQuery(CommandEventData eventData, DbCommand command, Option&lt;int&gt; result)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></td>
-        <td><span class="parametername">eventData</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></td>
-        <td><span class="parametername">command</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
-        <td><span class="parametername">result</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Interceptors_CommandInterceptor_ExecuteNonQueryAsync_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_LinqToDB_Common_Option_System_Int32__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.Interceptors.CommandInterceptor.ExecuteNonQueryAsync(LinqToDB.Interceptors.CommandEventData%2CSystem.Data.Common.DbCommand%2CLinqToDB.Common.Option%7BSystem.Int32%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L16">View Source</a>
-  </span>
-  <a id="LinqToDB_Interceptors_CommandInterceptor_ExecuteNonQueryAsync_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteNonQueryAsync*"></a>
-  <h4 id="LinqToDB_Interceptors_CommandInterceptor_ExecuteNonQueryAsync_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_LinqToDB_Common_Option_System_Int32__System_Threading_CancellationToken_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteNonQueryAsync(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,LinqToDB.Common.Option{System.Int32},System.Threading.CancellationToken)">ExecuteNonQueryAsync(CommandEventData, DbCommand, Option&lt;int&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual Task&lt;Option&lt;int&gt;&gt; ExecuteNonQueryAsync(CommandEventData eventData, DbCommand command, Option&lt;int&gt; result, CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></td>
-        <td><span class="parametername">eventData</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></td>
-        <td><span class="parametername">command</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
-        <td><span class="parametername">result</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Interceptors_CommandInterceptor_ExecuteReader_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_System_Data_CommandBehavior_LinqToDB_Common_Option_System_Data_Common_DbDataReader__.md&amp;value=---%0Auid%3A%20LinqToDB.Interceptors.CommandInterceptor.ExecuteReader(LinqToDB.Interceptors.CommandEventData%2CSystem.Data.Common.DbCommand%2CSystem.Data.CommandBehavior%2CLinqToDB.Common.Option%7BSystem.Data.Common.DbDataReader%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L18">View Source</a>
-  </span>
-  <a id="LinqToDB_Interceptors_CommandInterceptor_ExecuteReader_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteReader*"></a>
-  <h4 id="LinqToDB_Interceptors_CommandInterceptor_ExecuteReader_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_System_Data_CommandBehavior_LinqToDB_Common_Option_System_Data_Common_DbDataReader__" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteReader(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,System.Data.CommandBehavior,LinqToDB.Common.Option{System.Data.Common.DbDataReader})">ExecuteReader(CommandEventData, DbCommand, CommandBehavior, Option&lt;DbDataReader&gt;)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual Option&lt;DbDataReader&gt; ExecuteReader(CommandEventData eventData, DbCommand command, CommandBehavior commandBehavior, Option&lt;DbDataReader&gt; result)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></td>
-        <td><span class="parametername">eventData</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></td>
-        <td><span class="parametername">command</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.commandbehavior">CommandBehavior</a></td>
-        <td><span class="parametername">commandBehavior</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a>&gt;</td>
-        <td><span class="parametername">result</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Interceptors_CommandInterceptor_ExecuteReaderAsync_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_System_Data_CommandBehavior_LinqToDB_Common_Option_System_Data_Common_DbDataReader__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.Interceptors.CommandInterceptor.ExecuteReaderAsync(LinqToDB.Interceptors.CommandEventData%2CSystem.Data.Common.DbCommand%2CSystem.Data.CommandBehavior%2CLinqToDB.Common.Option%7BSystem.Data.Common.DbDataReader%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L19">View Source</a>
-  </span>
-  <a id="LinqToDB_Interceptors_CommandInterceptor_ExecuteReaderAsync_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteReaderAsync*"></a>
-  <h4 id="LinqToDB_Interceptors_CommandInterceptor_ExecuteReaderAsync_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_System_Data_CommandBehavior_LinqToDB_Common_Option_System_Data_Common_DbDataReader__System_Threading_CancellationToken_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteReaderAsync(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,System.Data.CommandBehavior,LinqToDB.Common.Option{System.Data.Common.DbDataReader},System.Threading.CancellationToken)">ExecuteReaderAsync(CommandEventData, DbCommand, CommandBehavior, Option&lt;DbDataReader&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual Task&lt;Option&lt;DbDataReader&gt;&gt; ExecuteReaderAsync(CommandEventData eventData, DbCommand command, CommandBehavior commandBehavior, Option&lt;DbDataReader&gt; result, CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></td>
-        <td><span class="parametername">eventData</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></td>
-        <td><span class="parametername">command</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.commandbehavior">CommandBehavior</a></td>
-        <td><span class="parametername">commandBehavior</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a>&gt;</td>
-        <td><span class="parametername">result</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a>&gt;&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Interceptors_CommandInterceptor_ExecuteScalar_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_LinqToDB_Common_Option_System_Object__.md&amp;value=---%0Auid%3A%20LinqToDB.Interceptors.CommandInterceptor.ExecuteScalar(LinqToDB.Interceptors.CommandEventData%2CSystem.Data.Common.DbCommand%2CLinqToDB.Common.Option%7BSystem.Object%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L23">View Source</a>
-  </span>
-  <a id="LinqToDB_Interceptors_CommandInterceptor_ExecuteScalar_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteScalar*"></a>
-  <h4 id="LinqToDB_Interceptors_CommandInterceptor_ExecuteScalar_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_LinqToDB_Common_Option_System_Object__" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteScalar(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,LinqToDB.Common.Option{System.Object})">ExecuteScalar(CommandEventData, DbCommand, Option&lt;object?&gt;)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual Option&lt;object?&gt; ExecuteScalar(CommandEventData eventData, DbCommand command, Option&lt;object?&gt; result)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></td>
-        <td><span class="parametername">eventData</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></td>
-        <td><span class="parametername">command</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
-        <td><span class="parametername">result</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Interceptors_CommandInterceptor_ExecuteScalarAsync_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_LinqToDB_Common_Option_System_Object__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.Interceptors.CommandInterceptor.ExecuteScalarAsync(LinqToDB.Interceptors.CommandEventData%2CSystem.Data.Common.DbCommand%2CLinqToDB.Common.Option%7BSystem.Object%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L24">View Source</a>
-  </span>
-  <a id="LinqToDB_Interceptors_CommandInterceptor_ExecuteScalarAsync_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteScalarAsync*"></a>
-  <h4 id="LinqToDB_Interceptors_CommandInterceptor_ExecuteScalarAsync_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_LinqToDB_Common_Option_System_Object__System_Threading_CancellationToken_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteScalarAsync(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,LinqToDB.Common.Option{System.Object},System.Threading.CancellationToken)">ExecuteScalarAsync(CommandEventData, DbCommand, Option&lt;object?&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual Task&lt;Option&lt;object?&gt;&gt; ExecuteScalarAsync(CommandEventData eventData, DbCommand command, Option&lt;object?&gt; result, CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></td>
-        <td><span class="parametername">eventData</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></td>
-        <td><span class="parametername">command</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
-        <td><span class="parametername">result</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="LinqToDB.Interceptors.ICommandInterceptor.html">ICommandInterceptor</a>
-  </div>
-  <div>
-      <a class="xref" href="LinqToDB.Interceptors.IInterceptor.html">IInterceptor</a>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CommandInterceptor</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LinqToDB.Interceptors.ICommandInterceptor.html">ICommandInterceptor</a></div>
+      <div><a class="xref" href="LinqToDB.Interceptors.IInterceptor.html">IInterceptor</a></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
   <div>
       <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
   </div>
@@ -714,46 +158,491 @@
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
   </div>
-</article>
-          </div>
+  </dd></dl>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Interceptors_CommandInterceptor.md&amp;value=---%0Auid%3A%20LinqToDB.Interceptors.CommandInterceptor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L11" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LinqToDB_Interceptors_CommandInterceptor_AfterExecuteReader_" data-uid="LinqToDB.Interceptors.CommandInterceptor.AfterExecuteReader*"></a>
+
+  <h3 id="LinqToDB_Interceptors_CommandInterceptor_AfterExecuteReader_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_System_Data_CommandBehavior_System_Data_Common_DbDataReader_" data-uid="LinqToDB.Interceptors.CommandInterceptor.AfterExecuteReader(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,System.Data.CommandBehavior,System.Data.Common.DbDataReader)">
+  AfterExecuteReader(CommandEventData, DbCommand, CommandBehavior, DbDataReader)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Event, triggered after command execution using <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand.executereader#system-data-common-dbcommand-executereader(system-data-commandbehavior)">ExecuteReader(CommandBehavior)</a> or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand.executereaderasync#system-data-common-dbcommand-executereaderasync(system-data-commandbehavior-system-threading-cancellationtoken)">ExecuteReaderAsync(CommandBehavior, CancellationToken)</a> methods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void AfterExecuteReader(CommandEventData eventData, DbCommand command, CommandBehavior commandBehavior, DbDataReader dataReader)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></dt>
+    <dd><p>Additional data for event.</p>
+</dd>
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></dt>
+    <dd><p>Executed command.</p>
+</dd>
+    <dt><code>commandBehavior</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.commandbehavior">CommandBehavior</a></dt>
+    <dd><p>Behavior, used for command execution.</p>
+</dd>
+    <dt><code>dataReader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a></dt>
+    <dd><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a> instance, returned by <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand.executereader#system-data-common-dbcommand-executereader(system-data-commandbehavior)">ExecuteReader(CommandBehavior)</a> or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand.executereaderasync#system-data-common-dbcommand-executereaderasync(system-data-commandbehavior-system-threading-cancellationtoken)">ExecuteReaderAsync(CommandBehavior, CancellationToken)</a> methods.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Interceptors_CommandInterceptor_BeforeReaderDispose_" data-uid="LinqToDB.Interceptors.CommandInterceptor.BeforeReaderDispose*"></a>
+
+  <h3 id="LinqToDB_Interceptors_CommandInterceptor_BeforeReaderDispose_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_System_Data_Common_DbDataReader_" data-uid="LinqToDB.Interceptors.CommandInterceptor.BeforeReaderDispose(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,System.Data.Common.DbDataReader)">
+  BeforeReaderDispose(CommandEventData, DbCommand?, DbDataReader)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Event, triggered after all data is consumed from <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a> before <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void BeforeReaderDispose(CommandEventData eventData, DbCommand? command, DbDataReader dataReader)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></dt>
+    <dd><p>Additional data for event.</p>
+</dd>
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></dt>
+    <dd><p>Executed command. Could be <code>null</code>.</p>
+</dd>
+    <dt><code>dataReader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a></dt>
+    <dd><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a> instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Interceptors_CommandInterceptor_BeforeReaderDisposeAsync_" data-uid="LinqToDB.Interceptors.CommandInterceptor.BeforeReaderDisposeAsync*"></a>
+
+  <h3 id="LinqToDB_Interceptors_CommandInterceptor_BeforeReaderDisposeAsync_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_System_Data_Common_DbDataReader_" data-uid="LinqToDB.Interceptors.CommandInterceptor.BeforeReaderDisposeAsync(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,System.Data.Common.DbDataReader)">
+  BeforeReaderDisposeAsync(CommandEventData, DbCommand?, DbDataReader)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Event, triggered after all data is consumed from <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a> before <code>DisposeAsync</code> call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task BeforeReaderDisposeAsync(CommandEventData eventData, DbCommand? command, DbDataReader dataReader)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></dt>
+    <dd><p>Additional data for event.</p>
+</dd>
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></dt>
+    <dd><p>Executed command. Could be <code>null</code>.</p>
+</dd>
+    <dt><code>dataReader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a></dt>
+    <dd><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a> instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Interceptors_CommandInterceptor_CommandInitialized_" data-uid="LinqToDB.Interceptors.CommandInterceptor.CommandInitialized*"></a>
+
+  <h3 id="LinqToDB_Interceptors_CommandInterceptor_CommandInitialized_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_" data-uid="LinqToDB.Interceptors.CommandInterceptor.CommandInitialized(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand)">
+  CommandInitialized(CommandEventData, DbCommand)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Event, triggered after command prepared for execution with both command text and parameters set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DbCommand CommandInitialized(CommandEventData eventData, DbCommand command)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></dt>
+    <dd><p>Additional data for event.</p>
+</dd>
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></dt>
+    <dd><p>Initialized command instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></dt>
+    <dd><p>Returns command instance for execution.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Interceptors_CommandInterceptor_ExecuteNonQuery_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteNonQuery*"></a>
+
+  <h3 id="LinqToDB_Interceptors_CommandInterceptor_ExecuteNonQuery_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_LinqToDB_Common_Option_System_Int32__" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteNonQuery(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,LinqToDB.Common.Option{System.Int32})">
+  ExecuteNonQuery(CommandEventData, DbCommand, Option&lt;int&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Event, triggered before command execution using <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonquery">ExecuteNonQuery()</a> method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Option&lt;int&gt; ExecuteNonQuery(CommandEventData eventData, DbCommand command, Option&lt;int&gt; result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></dt>
+    <dd><p>Additional data for event.</p>
+</dd>
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></dt>
+    <dd><p>Command, prepared for execution.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>Value, returned by previous interceptor when multiple <a class="xref" href="LinqToDB.Interceptors.ICommandInterceptor.html">ICommandInterceptor</a> instances registered or <a class="xref" href="LinqToDB.Common.Option-1.html#LinqToDB_Common_Option_1_None">None</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>When event returns <a class="xref" href="LinqToDB.Common.Option-1.html#LinqToDB_Common_Option_1_None">None</a>, Linq To DB will execute command, otherwise it will use returned value as execution result.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Interceptors_CommandInterceptor_ExecuteNonQueryAsync_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteNonQueryAsync*"></a>
+
+  <h3 id="LinqToDB_Interceptors_CommandInterceptor_ExecuteNonQueryAsync_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_LinqToDB_Common_Option_System_Int32__System_Threading_CancellationToken_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteNonQueryAsync(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,LinqToDB.Common.Option{System.Int32},System.Threading.CancellationToken)">
+  ExecuteNonQueryAsync(CommandEventData, DbCommand, Option&lt;int&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Event, triggered before command execution using <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync#system-data-common-dbcommand-executenonqueryasync(system-threading-cancellationtoken)">ExecuteNonQueryAsync(CancellationToken)</a> method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;Option&lt;int&gt;&gt; ExecuteNonQueryAsync(CommandEventData eventData, DbCommand command, Option&lt;int&gt; result, CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></dt>
+    <dd><p>Additional data for event.</p>
+</dd>
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></dt>
+    <dd><p>Command, prepared for execution.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>Value, returned by previous interceptor when multiple <a class="xref" href="LinqToDB.Interceptors.ICommandInterceptor.html">ICommandInterceptor</a> instances registered or <a class="xref" href="LinqToDB.Common.Option-1.html#LinqToDB_Common_Option_1_None">None</a>.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;&gt;</dt>
+    <dd><p>When event returns <a class="xref" href="LinqToDB.Common.Option-1.html#LinqToDB_Common_Option_1_None">None</a>, Linq To DB will execute command, otherwise it will use returned value as execution result.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Interceptors_CommandInterceptor_ExecuteReader_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteReader*"></a>
+
+  <h3 id="LinqToDB_Interceptors_CommandInterceptor_ExecuteReader_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_System_Data_CommandBehavior_LinqToDB_Common_Option_System_Data_Common_DbDataReader__" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteReader(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,System.Data.CommandBehavior,LinqToDB.Common.Option{System.Data.Common.DbDataReader})">
+  ExecuteReader(CommandEventData, DbCommand, CommandBehavior, Option&lt;DbDataReader&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Event, triggered before command execution using <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand.executereader#system-data-common-dbcommand-executereader(system-data-commandbehavior)">ExecuteReader(CommandBehavior)</a> method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Option&lt;DbDataReader&gt; ExecuteReader(CommandEventData eventData, DbCommand command, CommandBehavior commandBehavior, Option&lt;DbDataReader&gt; result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></dt>
+    <dd><p>Additional data for event.</p>
+</dd>
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></dt>
+    <dd><p>Command, prepared for execution.</p>
+</dd>
+    <dt><code>commandBehavior</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.commandbehavior">CommandBehavior</a></dt>
+    <dd><p>Behavior, used for command execution.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a>&gt;</dt>
+    <dd><p>Value, returned by previous interceptor when multiple <a class="xref" href="LinqToDB.Interceptors.ICommandInterceptor.html">ICommandInterceptor</a> instances registered or <a class="xref" href="LinqToDB.Common.Option-1.html#LinqToDB_Common_Option_1_None">None</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a>&gt;</dt>
+    <dd><p>When event returns <a class="xref" href="LinqToDB.Common.Option-1.html#LinqToDB_Common_Option_1_None">None</a>, Linq To DB will execute command, otherwise it will use returned value as execution result.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Interceptors_CommandInterceptor_ExecuteReaderAsync_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteReaderAsync*"></a>
+
+  <h3 id="LinqToDB_Interceptors_CommandInterceptor_ExecuteReaderAsync_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_System_Data_CommandBehavior_LinqToDB_Common_Option_System_Data_Common_DbDataReader__System_Threading_CancellationToken_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteReaderAsync(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,System.Data.CommandBehavior,LinqToDB.Common.Option{System.Data.Common.DbDataReader},System.Threading.CancellationToken)">
+  ExecuteReaderAsync(CommandEventData, DbCommand, CommandBehavior, Option&lt;DbDataReader&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Event, triggered before command execution using <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand.executereaderasync#system-data-common-dbcommand-executereaderasync(system-data-commandbehavior-system-threading-cancellationtoken)">ExecuteReaderAsync(CommandBehavior, CancellationToken)</a> method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;Option&lt;DbDataReader&gt;&gt; ExecuteReaderAsync(CommandEventData eventData, DbCommand command, CommandBehavior commandBehavior, Option&lt;DbDataReader&gt; result, CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></dt>
+    <dd><p>Additional data for event.</p>
+</dd>
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></dt>
+    <dd><p>Command, prepared for execution.</p>
+</dd>
+    <dt><code>commandBehavior</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.commandbehavior">CommandBehavior</a></dt>
+    <dd><p>Behavior, used for command execution.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a>&gt;</dt>
+    <dd><p>Value, returned by previous interceptor when multiple <a class="xref" href="LinqToDB.Interceptors.ICommandInterceptor.html">ICommandInterceptor</a> instances registered or <a class="xref" href="LinqToDB.Common.Option-1.html#LinqToDB_Common_Option_1_None">None</a>.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a>&gt;&gt;</dt>
+    <dd><p>When event returns <a class="xref" href="LinqToDB.Common.Option-1.html#LinqToDB_Common_Option_1_None">None</a>, Linq To DB will execute command, otherwise it will use returned value as execution result.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Interceptors_CommandInterceptor_ExecuteScalar_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteScalar*"></a>
+
+  <h3 id="LinqToDB_Interceptors_CommandInterceptor_ExecuteScalar_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_LinqToDB_Common_Option_System_Object__" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteScalar(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,LinqToDB.Common.Option{System.Object})">
+  ExecuteScalar(CommandEventData, DbCommand, Option&lt;object?&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Event, triggered before command execution using <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand.executescalar">ExecuteScalar()</a> method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Option&lt;object?&gt; ExecuteScalar(CommandEventData eventData, DbCommand command, Option&lt;object?&gt; result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></dt>
+    <dd><p>Additional data for event.</p>
+</dd>
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></dt>
+    <dd><p>Command, prepared for execution.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>Value, returned by previous interceptor when multiple <a class="xref" href="LinqToDB.Interceptors.ICommandInterceptor.html">ICommandInterceptor</a> instances registered or <a class="xref" href="LinqToDB.Common.Option-1.html#LinqToDB_Common_Option_1_None">None</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>When event returns <a class="xref" href="LinqToDB.Common.Option-1.html#LinqToDB_Common_Option_1_None">None</a>, Linq To DB will execute command, otherwise it will use returned value as execution result.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Interceptors_CommandInterceptor_ExecuteScalarAsync_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteScalarAsync*"></a>
+
+  <h3 id="LinqToDB_Interceptors_CommandInterceptor_ExecuteScalarAsync_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_LinqToDB_Common_Option_System_Object__System_Threading_CancellationToken_" data-uid="LinqToDB.Interceptors.CommandInterceptor.ExecuteScalarAsync(LinqToDB.Interceptors.CommandEventData,System.Data.Common.DbCommand,LinqToDB.Common.Option{System.Object},System.Threading.CancellationToken)">
+  ExecuteScalarAsync(CommandEventData, DbCommand, Option&lt;object?&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Event, triggered before command execution using <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand.executescalarasync#system-data-common-dbcommand-executescalarasync(system-threading-cancellationtoken)">ExecuteScalarAsync(CancellationToken)</a> method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;Option&lt;object?&gt;&gt; ExecuteScalarAsync(CommandEventData eventData, DbCommand command, Option&lt;object?&gt; result, CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventData</code> <a class="xref" href="LinqToDB.Interceptors.CommandEventData.html">CommandEventData</a></dt>
+    <dd><p>Additional data for event.</p>
+</dd>
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></dt>
+    <dd><p>Command, prepared for execution.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>Value, returned by previous interceptor when multiple <a class="xref" href="LinqToDB.Interceptors.ICommandInterceptor.html">ICommandInterceptor</a> instances registered or <a class="xref" href="LinqToDB.Common.Option-1.html#LinqToDB_Common_Option_1_None">None</a>.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.Common.Option-1.html">Option</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;&gt;</dt>
+    <dd><p>When event returns <a class="xref" href="LinqToDB.Common.Option-1.html#LinqToDB_Common_Option_1_None">None</a>, Linq To DB will execute command, otherwise it will use returned value as execution result.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Interceptors/CommandInterceptor.cs/#L11" class="edit-link">Edit this page</a>
         </div>
+
+        
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-      
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

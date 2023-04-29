@@ -1,736 +1,134 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class SqlStatement
  | Linq To DB (aka linq2db) </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class SqlStatement
  | Linq To DB (aka linq2db) ">
-    
-      <link rel="shortcut icon" href="../images/icon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
+      
+      <link rel="icon" href="../images/icon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
       <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+
+      <script>
+        MathJax = {
+          options: {
+            processHtmlClass: ['tex2jax_process', 'math']
+          }
+        };
+      </script>
+
+      <script type="text/javascript" src="../styles/docfx.min.js"></script>
+      <script type="text/javascript" src="../styles/main.js"></script>
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../images/icon.png" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="LinqToDB.SqlQuery.SqlStatement">
+
+        <article data-uid="LinqToDB.SqlQuery.SqlStatement">
 
 
-  <h1 id="LinqToDB_SqlQuery_SqlStatement" data-uid="LinqToDB.SqlQuery.SqlStatement" class="text-break">Class SqlStatement
-</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">SqlStatement</span></div>
-      <div class="level2"><a class="xref" href="LinqToDB.SqlQuery.SqlCreateTableStatement.html">SqlCreateTableStatement</a></div>
-      <div class="level2"><a class="xref" href="LinqToDB.SqlQuery.SqlDropTableStatement.html">SqlDropTableStatement</a></div>
-      <div class="level2"><a class="xref" href="LinqToDB.SqlQuery.SqlMultiInsertStatement.html">SqlMultiInsertStatement</a></div>
-      <div class="level2"><a class="xref" href="LinqToDB.SqlQuery.SqlStatementWithQueryBase.html">SqlStatementWithQueryBase</a></div>
-      <div class="level2"><a class="xref" href="LinqToDB.SqlQuery.SqlTruncateTableStatement.html">SqlTruncateTableStatement</a></div>
+
+  <h1 id="LinqToDB_SqlQuery_SqlStatement" data-uid="LinqToDB.SqlQuery.SqlStatement" class="text-break">
+    Class SqlStatement
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.SqlQuery.html">SqlQuery</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="LinqToDB.SqlQuery.IQueryElement.html">IQueryElement</a></div>
-    <div><a class="xref" href="LinqToDB.SqlQuery.ISqlExpressionWalkable.html">ISqlExpressionWalkable</a></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.SqlQuery.html">SqlQuery</a></h6>
-  <h6><strong>Assembly</strong>: linq2db.dll</h6>
-  <h5 id="LinqToDB_SqlQuery_SqlStatement_syntax">Syntax</h5>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract class SqlStatement : IQueryElement, ISqlExpressionWalkable</code></pre>
   </div>
-  <h3 id="properties">Properties
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement_DebugSqlText.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement.DebugSqlText%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L25">View Source</a>
-  </span>
-  <a id="LinqToDB_SqlQuery_SqlStatement_DebugSqlText_" data-uid="LinqToDB.SqlQuery.SqlStatement.DebugSqlText*"></a>
-  <h4 id="LinqToDB_SqlQuery_SqlStatement_DebugSqlText" data-uid="LinqToDB.SqlQuery.SqlStatement.DebugSqlText">DebugSqlText</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected string DebugSqlText { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement_ElementType.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement.ElementType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L66">View Source</a>
-  </span>
-  <a id="LinqToDB_SqlQuery_SqlStatement_ElementType_" data-uid="LinqToDB.SqlQuery.SqlStatement.ElementType*"></a>
-  <h4 id="LinqToDB_SqlQuery_SqlStatement_ElementType" data-uid="LinqToDB.SqlQuery.SqlStatement.ElementType">ElementType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract QueryElementType ElementType { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.SqlQuery.QueryElementType.html">QueryElementType</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement_IsParameterDependent.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement.IsParameterDependent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L30">View Source</a>
-  </span>
-  <a id="LinqToDB_SqlQuery_SqlStatement_IsParameterDependent_" data-uid="LinqToDB.SqlQuery.SqlStatement.IsParameterDependent*"></a>
-  <h4 id="LinqToDB_SqlQuery_SqlStatement_IsParameterDependent" data-uid="LinqToDB.SqlQuery.SqlStatement.IsParameterDependent">IsParameterDependent</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract bool IsParameterDependent { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement_ParentStatement.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement.ParentStatement%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L35">View Source</a>
-  </span>
-  <a id="LinqToDB_SqlQuery_SqlStatement_ParentStatement_" data-uid="LinqToDB.SqlQuery.SqlStatement.ParentStatement*"></a>
-  <h4 id="LinqToDB_SqlQuery_SqlStatement_ParentStatement" data-uid="LinqToDB.SqlQuery.SqlStatement.ParentStatement">ParentStatement</h4>
-  <div class="markdown level1 summary"><p>Used internally for SQL Builder</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SqlStatement? ParentStatement { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.SqlQuery.SqlStatement.html">SqlStatement</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement_QueryType.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement.QueryType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L28">View Source</a>
-  </span>
-  <a id="LinqToDB_SqlQuery_SqlStatement_QueryType_" data-uid="LinqToDB.SqlQuery.SqlStatement.QueryType*"></a>
-  <h4 id="LinqToDB_SqlQuery_SqlStatement_QueryType" data-uid="LinqToDB.SqlQuery.SqlStatement.QueryType">QueryType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract QueryType QueryType { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.SqlQuery.QueryType.html">QueryType</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement_SelectQuery.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement.SelectQuery%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L59">View Source</a>
-  </span>
-  <a id="LinqToDB_SqlQuery_SqlStatement_SelectQuery_" data-uid="LinqToDB.SqlQuery.SqlStatement.SelectQuery*"></a>
-  <h4 id="LinqToDB_SqlQuery_SqlStatement_SelectQuery" data-uid="LinqToDB.SqlQuery.SqlStatement.SelectQuery">SelectQuery</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract SelectQuery? SelectQuery { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.SqlQuery.SelectQuery.html">SelectQuery</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement_SqlQueryExtensions.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement.SqlQueryExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L62">View Source</a>
-  </span>
-  <a id="LinqToDB_SqlQuery_SqlStatement_SqlQueryExtensions_" data-uid="LinqToDB.SqlQuery.SqlStatement.SqlQueryExtensions*"></a>
-  <h4 id="LinqToDB_SqlQuery_SqlStatement_SqlQueryExtensions" data-uid="LinqToDB.SqlQuery.SqlStatement.SqlQueryExtensions">SqlQueryExtensions</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;SqlQueryExtension&gt;? SqlQueryExtensions { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="LinqToDB.SqlQuery.SqlQueryExtension.html">SqlQueryExtension</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement_SqlText.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement.SqlText%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L16">View Source</a>
-  </span>
-  <a id="LinqToDB_SqlQuery_SqlStatement_SqlText_" data-uid="LinqToDB.SqlQuery.SqlStatement.SqlText*"></a>
-  <h4 id="LinqToDB_SqlQuery_SqlStatement_SqlText" data-uid="LinqToDB.SqlQuery.SqlStatement.SqlText">SqlText</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string SqlText { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement_Tag.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement.Tag%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L61">View Source</a>
-  </span>
-  <a id="LinqToDB_SqlQuery_SqlStatement_Tag_" data-uid="LinqToDB.SqlQuery.SqlStatement.Tag*"></a>
-  <h4 id="LinqToDB_SqlQuery_SqlStatement_Tag" data-uid="LinqToDB.SqlQuery.SqlStatement.Tag">Tag</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SqlComment? Tag { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.SqlQuery.SqlComment.html">SqlComment</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement_CollectParameters.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement.CollectParameters%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L37">View Source</a>
-  </span>
-  <a id="LinqToDB_SqlQuery_SqlStatement_CollectParameters_" data-uid="LinqToDB.SqlQuery.SqlStatement.CollectParameters*"></a>
-  <h4 id="LinqToDB_SqlQuery_SqlStatement_CollectParameters" data-uid="LinqToDB.SqlQuery.SqlStatement.CollectParameters">CollectParameters()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SqlParameter[] CollectParameters()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.SqlQuery.SqlParameter.html">SqlParameter</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement_GetTableSource_LinqToDB_SqlQuery_ISqlTableSource_.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement.GetTableSource(LinqToDB.SqlQuery.ISqlTableSource)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L289">View Source</a>
-  </span>
-  <a id="LinqToDB_SqlQuery_SqlStatement_GetTableSource_" data-uid="LinqToDB.SqlQuery.SqlStatement.GetTableSource*"></a>
-  <h4 id="LinqToDB_SqlQuery_SqlStatement_GetTableSource_LinqToDB_SqlQuery_ISqlTableSource_" data-uid="LinqToDB.SqlQuery.SqlStatement.GetTableSource(LinqToDB.SqlQuery.ISqlTableSource)">GetTableSource(ISqlTableSource)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract ISqlTableSource? GetTableSource(ISqlTableSource table)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.SqlQuery.ISqlTableSource.html">ISqlTableSource</a></td>
-        <td><span class="parametername">table</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.SqlQuery.ISqlTableSource.html">ISqlTableSource</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement_IsDependedOn_LinqToDB_SqlQuery_SqlTable_.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement.IsDependedOn(LinqToDB.SqlQuery.SqlTable)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L312">View Source</a>
-  </span>
-  <a id="LinqToDB_SqlQuery_SqlStatement_IsDependedOn_" data-uid="LinqToDB.SqlQuery.SqlStatement.IsDependedOn*"></a>
-  <h4 id="LinqToDB_SqlQuery_SqlStatement_IsDependedOn_LinqToDB_SqlQuery_SqlTable_" data-uid="LinqToDB.SqlQuery.SqlStatement.IsDependedOn(LinqToDB.SqlQuery.SqlTable)">IsDependedOn(SqlTable)</h4>
-  <div class="markdown level1 summary"><p>Indicates when optimizer can not remove reference for particular table</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual bool IsDependedOn(SqlTable table)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.SqlQuery.SqlTable.html">SqlTable</a></td>
-        <td><span class="parametername">table</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement_PrepareQueryAndAliases_LinqToDB_SqlQuery_SqlStatement_LinqToDB_SqlQuery_AliasesContext_LinqToDB_SqlQuery_AliasesContext__.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement.PrepareQueryAndAliases(LinqToDB.SqlQuery.SqlStatement%2CLinqToDB.SqlQuery.AliasesContext%2CLinqToDB.SqlQuery.AliasesContext%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L114">View Source</a>
-  </span>
-  <a id="LinqToDB_SqlQuery_SqlStatement_PrepareQueryAndAliases_" data-uid="LinqToDB.SqlQuery.SqlStatement.PrepareQueryAndAliases*"></a>
-  <h4 id="LinqToDB_SqlQuery_SqlStatement_PrepareQueryAndAliases_LinqToDB_SqlQuery_SqlStatement_LinqToDB_SqlQuery_AliasesContext_LinqToDB_SqlQuery_AliasesContext__" data-uid="LinqToDB.SqlQuery.SqlStatement.PrepareQueryAndAliases(LinqToDB.SqlQuery.SqlStatement,LinqToDB.SqlQuery.AliasesContext,LinqToDB.SqlQuery.AliasesContext@)">PrepareQueryAndAliases(SqlStatement, AliasesContext?, out AliasesContext)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void PrepareQueryAndAliases(SqlStatement statement, AliasesContext? prevAliasContext, out AliasesContext newAliasContext)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.SqlQuery.SqlStatement.html">SqlStatement</a></td>
-        <td><span class="parametername">statement</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="LinqToDB.SqlQuery.AliasesContext.html">AliasesContext</a></td>
-        <td><span class="parametername">prevAliasContext</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="LinqToDB.SqlQuery.AliasesContext.html">AliasesContext</a></td>
-        <td><span class="parametername">newAliasContext</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement_ToString_System_Text_StringBuilder_System_Collections_Generic_Dictionary_LinqToDB_SqlQuery_IQueryElement_LinqToDB_SqlQuery_IQueryElement__.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement.ToString(System.Text.StringBuilder%2CSystem.Collections.Generic.Dictionary%7BLinqToDB.SqlQuery.IQueryElement%2CLinqToDB.SqlQuery.IQueryElement%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L67">View Source</a>
-  </span>
-  <a id="LinqToDB_SqlQuery_SqlStatement_ToString_" data-uid="LinqToDB.SqlQuery.SqlStatement.ToString*"></a>
-  <h4 id="LinqToDB_SqlQuery_SqlStatement_ToString_System_Text_StringBuilder_System_Collections_Generic_Dictionary_LinqToDB_SqlQuery_IQueryElement_LinqToDB_SqlQuery_IQueryElement__" data-uid="LinqToDB.SqlQuery.SqlStatement.ToString(System.Text.StringBuilder,System.Collections.Generic.Dictionary{LinqToDB.SqlQuery.IQueryElement,LinqToDB.SqlQuery.IQueryElement})">ToString(StringBuilder, Dictionary&lt;IQueryElement, IQueryElement&gt;)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract StringBuilder ToString(StringBuilder sb, Dictionary&lt;IQueryElement, IQueryElement&gt; dic)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></td>
-        <td><span class="parametername">sb</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="LinqToDB.SqlQuery.IQueryElement.html">IQueryElement</a>, <a class="xref" href="LinqToDB.SqlQuery.IQueryElement.html">IQueryElement</a>&gt;</td>
-        <td><span class="parametername">dic</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement_Walk__1_LinqToDB_SqlQuery_WalkOptions___0_System_Func___0_LinqToDB_SqlQuery_ISqlExpression_LinqToDB_SqlQuery_ISqlExpression__.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement.Walk%60%601(LinqToDB.SqlQuery.WalkOptions%2C%60%600%2CSystem.Func%7B%60%600%2CLinqToDB.SqlQuery.ISqlExpression%2CLinqToDB.SqlQuery.ISqlExpression%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L73">View Source</a>
-  </span>
-  <a id="LinqToDB_SqlQuery_SqlStatement_Walk_" data-uid="LinqToDB.SqlQuery.SqlStatement.Walk*"></a>
-  <h4 id="LinqToDB_SqlQuery_SqlStatement_Walk__1_LinqToDB_SqlQuery_WalkOptions___0_System_Func___0_LinqToDB_SqlQuery_ISqlExpression_LinqToDB_SqlQuery_ISqlExpression__" data-uid="LinqToDB.SqlQuery.SqlStatement.Walk``1(LinqToDB.SqlQuery.WalkOptions,``0,System.Func{``0,LinqToDB.SqlQuery.ISqlExpression,LinqToDB.SqlQuery.ISqlExpression})">Walk&lt;TContext&gt;(WalkOptions, TContext, Func&lt;TContext, ISqlExpression, ISqlExpression&gt;)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual ISqlExpression? Walk&lt;TContext&gt;(WalkOptions options, TContext context, Func&lt;TContext, ISqlExpression, ISqlExpression&gt; func)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.SqlQuery.WalkOptions.html">WalkOptions</a></td>
-        <td><span class="parametername">options</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">TContext</span></td>
-        <td><span class="parametername">context</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TContext, <a class="xref" href="LinqToDB.SqlQuery.ISqlExpression.html">ISqlExpression</a>, <a class="xref" href="LinqToDB.SqlQuery.ISqlExpression.html">ISqlExpression</a>&gt;</td>
-        <td><span class="parametername">func</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.SqlQuery.ISqlExpression.html">ISqlExpression</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TContext</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement_WalkQueries__1___0_System_Func___0_LinqToDB_SqlQuery_SelectQuery_LinqToDB_SqlQuery_SelectQuery__.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement.WalkQueries%60%601(%60%600%2CSystem.Func%7B%60%600%2CLinqToDB.SqlQuery.SelectQuery%2CLinqToDB.SqlQuery.SelectQuery%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L291">View Source</a>
-  </span>
-  <a id="LinqToDB_SqlQuery_SqlStatement_WalkQueries_" data-uid="LinqToDB.SqlQuery.SqlStatement.WalkQueries*"></a>
-  <h4 id="LinqToDB_SqlQuery_SqlStatement_WalkQueries__1___0_System_Func___0_LinqToDB_SqlQuery_SelectQuery_LinqToDB_SqlQuery_SelectQuery__" data-uid="LinqToDB.SqlQuery.SqlStatement.WalkQueries``1(``0,System.Func{``0,LinqToDB.SqlQuery.SelectQuery,LinqToDB.SqlQuery.SelectQuery})">WalkQueries&lt;TContext&gt;(TContext, Func&lt;TContext, SelectQuery, SelectQuery&gt;)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void WalkQueries&lt;TContext&gt;(TContext context, Func&lt;TContext, SelectQuery, SelectQuery&gt; func)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TContext</span></td>
-        <td><span class="parametername">context</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TContext, <a class="xref" href="LinqToDB.SqlQuery.SelectQuery.html">SelectQuery</a>, <a class="xref" href="LinqToDB.SqlQuery.SelectQuery.html">SelectQuery</a>&gt;</td>
-        <td><span class="parametername">func</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TContext</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="LinqToDB.SqlQuery.IQueryElement.html">IQueryElement</a>
-  </div>
-  <div>
-      <a class="xref" href="LinqToDB.SqlQuery.ISqlExpressionWalkable.html">ISqlExpressionWalkable</a>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">SqlStatement</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LinqToDB.SqlQuery.IQueryElement.html">IQueryElement</a></div>
+      <div><a class="xref" href="LinqToDB.SqlQuery.ISqlExpressionWalkable.html">ISqlExpressionWalkable</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="LinqToDB.SqlQuery.SqlCreateTableStatement.html">SqlCreateTableStatement</a></div>
+      <div><a class="xref" href="LinqToDB.SqlQuery.SqlDropTableStatement.html">SqlDropTableStatement</a></div>
+      <div><a class="xref" href="LinqToDB.SqlQuery.SqlMultiInsertStatement.html">SqlMultiInsertStatement</a></div>
+      <div><a class="xref" href="LinqToDB.SqlQuery.SqlStatementWithQueryBase.html">SqlStatementWithQueryBase</a></div>
+      <div><a class="xref" href="LinqToDB.SqlQuery.SqlTruncateTableStatement.html">SqlTruncateTableStatement</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
   <div>
       <a class="xref" href="LinqToDB.SqlQuery.QueryHelper.html#LinqToDB_SqlQuery_QueryHelper_CanBeEvaluated_LinqToDB_SqlQuery_IQueryElement_LinqToDB_SqlQuery_EvaluationContext_">QueryHelper.CanBeEvaluated(IQueryElement, EvaluationContext)</a>
   </div>
@@ -905,46 +303,583 @@
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
   </div>
-</article>
-          </div>
+  </dd></dl>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_SqlQuery_SqlStatement.md&amp;value=---%0Auid%3A%20LinqToDB.SqlQuery.SqlStatement%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L13" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LinqToDB_SqlQuery_SqlStatement_DebugSqlText_" data-uid="LinqToDB.SqlQuery.SqlStatement.DebugSqlText*"></a>
+
+  <h3 id="LinqToDB_SqlQuery_SqlStatement_DebugSqlText" data-uid="LinqToDB.SqlQuery.SqlStatement.DebugSqlText">
+  DebugSqlText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string DebugSqlText { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_SqlQuery_SqlStatement_ElementType_" data-uid="LinqToDB.SqlQuery.SqlStatement.ElementType*"></a>
+
+  <h3 id="LinqToDB_SqlQuery_SqlStatement_ElementType" data-uid="LinqToDB.SqlQuery.SqlStatement.ElementType">
+  ElementType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract QueryElementType ElementType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.SqlQuery.QueryElementType.html">QueryElementType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_SqlQuery_SqlStatement_IsParameterDependent_" data-uid="LinqToDB.SqlQuery.SqlStatement.IsParameterDependent*"></a>
+
+  <h3 id="LinqToDB_SqlQuery_SqlStatement_IsParameterDependent" data-uid="LinqToDB.SqlQuery.SqlStatement.IsParameterDependent">
+  IsParameterDependent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool IsParameterDependent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_SqlQuery_SqlStatement_ParentStatement_" data-uid="LinqToDB.SqlQuery.SqlStatement.ParentStatement*"></a>
+
+  <h3 id="LinqToDB_SqlQuery_SqlStatement_ParentStatement" data-uid="LinqToDB.SqlQuery.SqlStatement.ParentStatement">
+  ParentStatement
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Used internally for SQL Builder</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SqlStatement? ParentStatement { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.SqlQuery.SqlStatement.html">SqlStatement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_SqlQuery_SqlStatement_QueryType_" data-uid="LinqToDB.SqlQuery.SqlStatement.QueryType*"></a>
+
+  <h3 id="LinqToDB_SqlQuery_SqlStatement_QueryType" data-uid="LinqToDB.SqlQuery.SqlStatement.QueryType">
+  QueryType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract QueryType QueryType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.SqlQuery.QueryType.html">QueryType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_SqlQuery_SqlStatement_SelectQuery_" data-uid="LinqToDB.SqlQuery.SqlStatement.SelectQuery*"></a>
+
+  <h3 id="LinqToDB_SqlQuery_SqlStatement_SelectQuery" data-uid="LinqToDB.SqlQuery.SqlStatement.SelectQuery">
+  SelectQuery
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract SelectQuery? SelectQuery { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.SqlQuery.SelectQuery.html">SelectQuery</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_SqlQuery_SqlStatement_SqlQueryExtensions_" data-uid="LinqToDB.SqlQuery.SqlStatement.SqlQueryExtensions*"></a>
+
+  <h3 id="LinqToDB_SqlQuery_SqlStatement_SqlQueryExtensions" data-uid="LinqToDB.SqlQuery.SqlStatement.SqlQueryExtensions">
+  SqlQueryExtensions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;SqlQueryExtension&gt;? SqlQueryExtensions { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="LinqToDB.SqlQuery.SqlQueryExtension.html">SqlQueryExtension</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_SqlQuery_SqlStatement_SqlText_" data-uid="LinqToDB.SqlQuery.SqlStatement.SqlText*"></a>
+
+  <h3 id="LinqToDB_SqlQuery_SqlStatement_SqlText" data-uid="LinqToDB.SqlQuery.SqlStatement.SqlText">
+  SqlText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SqlText { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_SqlQuery_SqlStatement_Tag_" data-uid="LinqToDB.SqlQuery.SqlStatement.Tag*"></a>
+
+  <h3 id="LinqToDB_SqlQuery_SqlStatement_Tag" data-uid="LinqToDB.SqlQuery.SqlStatement.Tag">
+  Tag
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SqlComment? Tag { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.SqlQuery.SqlComment.html">SqlComment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LinqToDB_SqlQuery_SqlStatement_CollectParameters_" data-uid="LinqToDB.SqlQuery.SqlStatement.CollectParameters*"></a>
+
+  <h3 id="LinqToDB_SqlQuery_SqlStatement_CollectParameters" data-uid="LinqToDB.SqlQuery.SqlStatement.CollectParameters">
+  CollectParameters()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SqlParameter[] CollectParameters()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.SqlQuery.SqlParameter.html">SqlParameter</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_SqlQuery_SqlStatement_GetTableSource_" data-uid="LinqToDB.SqlQuery.SqlStatement.GetTableSource*"></a>
+
+  <h3 id="LinqToDB_SqlQuery_SqlStatement_GetTableSource_LinqToDB_SqlQuery_ISqlTableSource_" data-uid="LinqToDB.SqlQuery.SqlStatement.GetTableSource(LinqToDB.SqlQuery.ISqlTableSource)">
+  GetTableSource(ISqlTableSource)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L289"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ISqlTableSource? GetTableSource(ISqlTableSource table)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>table</code> <a class="xref" href="LinqToDB.SqlQuery.ISqlTableSource.html">ISqlTableSource</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.SqlQuery.ISqlTableSource.html">ISqlTableSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_SqlQuery_SqlStatement_IsDependedOn_" data-uid="LinqToDB.SqlQuery.SqlStatement.IsDependedOn*"></a>
+
+  <h3 id="LinqToDB_SqlQuery_SqlStatement_IsDependedOn_LinqToDB_SqlQuery_SqlTable_" data-uid="LinqToDB.SqlQuery.SqlStatement.IsDependedOn(LinqToDB.SqlQuery.SqlTable)">
+  IsDependedOn(SqlTable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L312"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates when optimizer can not remove reference for particular table</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsDependedOn(SqlTable table)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>table</code> <a class="xref" href="LinqToDB.SqlQuery.SqlTable.html">SqlTable</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_SqlQuery_SqlStatement_PrepareQueryAndAliases_" data-uid="LinqToDB.SqlQuery.SqlStatement.PrepareQueryAndAliases*"></a>
+
+  <h3 id="LinqToDB_SqlQuery_SqlStatement_PrepareQueryAndAliases_LinqToDB_SqlQuery_SqlStatement_LinqToDB_SqlQuery_AliasesContext_LinqToDB_SqlQuery_AliasesContext__" data-uid="LinqToDB.SqlQuery.SqlStatement.PrepareQueryAndAliases(LinqToDB.SqlQuery.SqlStatement,LinqToDB.SqlQuery.AliasesContext,LinqToDB.SqlQuery.AliasesContext@)">
+  PrepareQueryAndAliases(SqlStatement, AliasesContext?, out AliasesContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void PrepareQueryAndAliases(SqlStatement statement, AliasesContext? prevAliasContext, out AliasesContext newAliasContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>statement</code> <a class="xref" href="LinqToDB.SqlQuery.SqlStatement.html">SqlStatement</a></dt>
+    <dd></dd>
+    <dt><code>prevAliasContext</code> <a class="xref" href="LinqToDB.SqlQuery.AliasesContext.html">AliasesContext</a></dt>
+    <dd></dd>
+    <dt><code>newAliasContext</code> <a class="xref" href="LinqToDB.SqlQuery.AliasesContext.html">AliasesContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_SqlQuery_SqlStatement_ToString_" data-uid="LinqToDB.SqlQuery.SqlStatement.ToString*"></a>
+
+  <h3 id="LinqToDB_SqlQuery_SqlStatement_ToString_System_Text_StringBuilder_System_Collections_Generic_Dictionary_LinqToDB_SqlQuery_IQueryElement_LinqToDB_SqlQuery_IQueryElement__" data-uid="LinqToDB.SqlQuery.SqlStatement.ToString(System.Text.StringBuilder,System.Collections.Generic.Dictionary{LinqToDB.SqlQuery.IQueryElement,LinqToDB.SqlQuery.IQueryElement})">
+  ToString(StringBuilder, Dictionary&lt;IQueryElement, IQueryElement&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract StringBuilder ToString(StringBuilder sb, Dictionary&lt;IQueryElement, IQueryElement&gt; dic)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sb</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></dt>
+    <dd></dd>
+    <dt><code>dic</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="LinqToDB.SqlQuery.IQueryElement.html">IQueryElement</a>, <a class="xref" href="LinqToDB.SqlQuery.IQueryElement.html">IQueryElement</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_SqlQuery_SqlStatement_WalkQueries_" data-uid="LinqToDB.SqlQuery.SqlStatement.WalkQueries*"></a>
+
+  <h3 id="LinqToDB_SqlQuery_SqlStatement_WalkQueries__1___0_System_Func___0_LinqToDB_SqlQuery_SelectQuery_LinqToDB_SqlQuery_SelectQuery__" data-uid="LinqToDB.SqlQuery.SqlStatement.WalkQueries``1(``0,System.Func{``0,LinqToDB.SqlQuery.SelectQuery,LinqToDB.SqlQuery.SelectQuery})">
+  WalkQueries&lt;TContext&gt;(TContext, Func&lt;TContext, SelectQuery, SelectQuery&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L291"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void WalkQueries&lt;TContext&gt;(TContext context, Func&lt;TContext, SelectQuery, SelectQuery&gt; func)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <span class="xref">TContext</span></dt>
+    <dd></dd>
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TContext, <a class="xref" href="LinqToDB.SqlQuery.SelectQuery.html">SelectQuery</a>, <a class="xref" href="LinqToDB.SqlQuery.SelectQuery.html">SelectQuery</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TContext</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_SqlQuery_SqlStatement_Walk_" data-uid="LinqToDB.SqlQuery.SqlStatement.Walk*"></a>
+
+  <h3 id="LinqToDB_SqlQuery_SqlStatement_Walk__1_LinqToDB_SqlQuery_WalkOptions___0_System_Func___0_LinqToDB_SqlQuery_ISqlExpression_LinqToDB_SqlQuery_ISqlExpression__" data-uid="LinqToDB.SqlQuery.SqlStatement.Walk``1(LinqToDB.SqlQuery.WalkOptions,``0,System.Func{``0,LinqToDB.SqlQuery.ISqlExpression,LinqToDB.SqlQuery.ISqlExpression})">
+  Walk&lt;TContext&gt;(WalkOptions, TContext, Func&lt;TContext, ISqlExpression, ISqlExpression&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISqlExpression? Walk&lt;TContext&gt;(WalkOptions options, TContext context, Func&lt;TContext, ISqlExpression, ISqlExpression&gt; func)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="LinqToDB.SqlQuery.WalkOptions.html">WalkOptions</a></dt>
+    <dd></dd>
+    <dt><code>context</code> <span class="xref">TContext</span></dt>
+    <dd></dd>
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TContext, <a class="xref" href="LinqToDB.SqlQuery.ISqlExpression.html">ISqlExpression</a>, <a class="xref" href="LinqToDB.SqlQuery.ISqlExpression.html">ISqlExpression</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TContext</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SqlQuery/SqlStatement.cs/#L13" class="edit-link">Edit this page</a>
         </div>
+
+        
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-      
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

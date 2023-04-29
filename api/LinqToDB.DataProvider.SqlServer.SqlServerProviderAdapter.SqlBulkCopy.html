@@ -1,101 +1,124 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class SqlServerProviderAdapter.SqlBulkCopy
  | Linq To DB (aka linq2db) </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class SqlServerProviderAdapter.SqlBulkCopy
  | Linq To DB (aka linq2db) ">
-    
-      <link rel="shortcut icon" href="../images/icon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
+      
+      <link rel="icon" href="../images/icon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
       <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+
+      <script>
+        MathJax = {
+          options: {
+            processHtmlClass: ['tex2jax_process', 'math']
+          }
+        };
+      </script>
+
+      <script type="text/javascript" src="../styles/docfx.min.js"></script>
+      <script type="text/javascript" src="../styles/main.js"></script>
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../images/icon.png" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy">
+
+        <article data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy">
 
 
-  <h1 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy" class="text-break">Class SqlServerProviderAdapter.SqlBulkCopy
-</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><a class="xref" href="LinqToDB.Expressions.TypeWrapper.html">TypeWrapper</a></div>
-    <div class="level2"><span class="xref">SqlServerProviderAdapter.SqlBulkCopy</span></div>
+
+  <h1 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy" class="text-break">
+    Class SqlServerProviderAdapter.SqlBulkCopy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L368"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.html">SqlServer</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Wrapper]
+public class SqlServerProviderAdapter.SqlBulkCopy : TypeWrapper, IDisposable</code></pre>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="LinqToDB.Expressions.TypeWrapper.html">TypeWrapper</a></div>
+      <div><span class="xref">SqlServerProviderAdapter.SqlBulkCopy</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
     <div>
       <a class="xref" href="LinqToDB.Expressions.TypeWrapper.html#LinqToDB_Expressions_TypeWrapper_instance_">TypeWrapper.instance_</a>
     </div>
@@ -105,369 +128,11 @@
     <div>
       <a class="xref" href="LinqToDB.Expressions.TypeWrapper.html#LinqToDB_Expressions_TypeWrapper_PropertySetter__2_System_Linq_Expressions_Expression_System_Func___0___1___">TypeWrapper.PropertySetter&lt;TI, TP&gt;(Expression&lt;Func&lt;TI, TP&gt;&gt;)</a>
     </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.html">SqlServer</a></h6>
-  <h6><strong>Assembly</strong>: linq2db.dll</h6>
-  <h5 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Wrapper]
-public class SqlServerProviderAdapter.SqlBulkCopy : TypeWrapper, IDisposable</code></pre>
-  </div>
-  <h3 id="constructors">Constructors
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy__ctor_LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlConnection_LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopyOptions_LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlTransaction_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.%23ctor(LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlConnection%2CLinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopyOptions%2CLinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlTransaction)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L411">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy__ctor_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.#ctor*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy__ctor_LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlConnection_LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopyOptions_LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlTransaction_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.#ctor(LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlConnection,LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopyOptions,LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlTransaction)">SqlBulkCopy(SqlConnection, SqlBulkCopyOptions, SqlTransaction?)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SqlBulkCopy(SqlServerProviderAdapter.SqlConnection connection, SqlServerProviderAdapter.SqlBulkCopyOptions options, SqlServerProviderAdapter.SqlTransaction? transaction)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlConnection.html">SqlConnection</a></td>
-        <td><span class="parametername">connection</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopyOptions.html">SqlBulkCopyOptions</a></td>
-        <td><span class="parametername">options</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlTransaction.html">SqlTransaction</a></td>
-        <td><span class="parametername">transaction</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy__ctor_System_Object_System_Delegate___.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.%23ctor(System.Object%2CSystem.Delegate%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L407">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy__ctor_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.#ctor*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy__ctor_System_Object_System_Delegate___" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.#ctor(System.Object,System.Delegate[])">SqlBulkCopy(object, Delegate[])</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SqlBulkCopy(object instance, Delegate[] wrappers)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
-        <td><span class="parametername">instance</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Delegate</a>[]</td>
-        <td><span class="parametername">wrappers</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_BatchSize.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.BatchSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L426">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_BatchSize_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.BatchSize*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_BatchSize" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.BatchSize">BatchSize</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int BatchSize { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_BulkCopyTimeout.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.BulkCopyTimeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L432">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_BulkCopyTimeout_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.BulkCopyTimeout*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_BulkCopyTimeout" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.BulkCopyTimeout">BulkCopyTimeout</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int BulkCopyTimeout { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_ColumnMappings.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.ColumnMappings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L444">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_ColumnMappings_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.ColumnMappings*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_ColumnMappings" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.ColumnMappings">ColumnMappings</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SqlServerProviderAdapter.SqlBulkCopyColumnMappingCollection ColumnMappings { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopyColumnMappingCollection.html">SqlBulkCopyColumnMappingCollection</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_DestinationTableName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.DestinationTableName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L438">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_DestinationTableName_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.DestinationTableName*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_DestinationTableName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.DestinationTableName">DestinationTableName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? DestinationTableName { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_NotifyAfter.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.NotifyAfter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L420">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_NotifyAfter_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.NotifyAfter*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_NotifyAfter" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.NotifyAfter">NotifyAfter</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int NotifyAfter { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_WriteToServer_System_Data_IDataReader_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.WriteToServer(System.Data.IDataReader)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L415">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_WriteToServer_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.WriteToServer*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_WriteToServer_System_Data_IDataReader_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.WriteToServer(System.Data.IDataReader)">WriteToServer(IDataReader)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void WriteToServer(IDataReader dataReader)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.idatareader">IDataReader</a></td>
-        <td><span class="parametername">dataReader</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_WriteToServerAsync_System_Data_IDataReader_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.WriteToServerAsync(System.Data.IDataReader%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L416">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_WriteToServerAsync_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.WriteToServerAsync*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_WriteToServerAsync_System_Data_IDataReader_System_Threading_CancellationToken_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.WriteToServerAsync(System.Data.IDataReader,System.Threading.CancellationToken)">WriteToServerAsync(IDataReader, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task WriteToServerAsync(IDataReader dataReader, CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.idatareader">IDataReader</a></td>
-        <td><span class="parametername">dataReader</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="events">Events
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_SqlRowsCopied.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.SqlRowsCopied%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L447">View Source</a>
-  </span>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_SqlRowsCopied" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.SqlRowsCopied">SqlRowsCopied</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event SqlServerProviderAdapter.SqlRowsCopiedEventHandler? SqlRowsCopied</code></pre>
-  </div>
-  <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlRowsCopiedEventHandler.html">SqlRowsCopiedEventHandler</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
   <div>
       <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
   </div>
@@ -507,46 +172,373 @@ public class SqlServerProviderAdapter.SqlBulkCopy : TypeWrapper, IDisposable</co
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
   </div>
-</article>
-          </div>
+  </dd></dl>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L368" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy__ctor_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.#ctor*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy__ctor_LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlConnection_LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopyOptions_LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlTransaction_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.#ctor(LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlConnection,LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopyOptions,LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlTransaction)">
+  SqlBulkCopy(SqlConnection, SqlBulkCopyOptions, SqlTransaction?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L411"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SqlBulkCopy(SqlServerProviderAdapter.SqlConnection connection, SqlServerProviderAdapter.SqlBulkCopyOptions options, SqlServerProviderAdapter.SqlTransaction? transaction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connection</code> <a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlConnection.html">SqlConnection</a></dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopyOptions.html">SqlBulkCopyOptions</a></dt>
+    <dd></dd>
+    <dt><code>transaction</code> <a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlTransaction.html">SqlTransaction</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy__ctor_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.#ctor*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy__ctor_System_Object_System_Delegate___" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.#ctor(System.Object,System.Delegate[])">
+  SqlBulkCopy(object, Delegate[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L407"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SqlBulkCopy(object instance, Delegate[] wrappers)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>instance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>wrappers</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Delegate</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_BatchSize_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.BatchSize*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_BatchSize" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.BatchSize">
+  BatchSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L426"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int BatchSize { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_BulkCopyTimeout_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.BulkCopyTimeout*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_BulkCopyTimeout" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.BulkCopyTimeout">
+  BulkCopyTimeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L432"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int BulkCopyTimeout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_ColumnMappings_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.ColumnMappings*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_ColumnMappings" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.ColumnMappings">
+  ColumnMappings
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L444"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SqlServerProviderAdapter.SqlBulkCopyColumnMappingCollection ColumnMappings { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopyColumnMappingCollection.html">SqlBulkCopyColumnMappingCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_DestinationTableName_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.DestinationTableName*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_DestinationTableName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.DestinationTableName">
+  DestinationTableName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L438"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? DestinationTableName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_NotifyAfter_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.NotifyAfter*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_NotifyAfter" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.NotifyAfter">
+  NotifyAfter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L420"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int NotifyAfter { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_WriteToServer_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.WriteToServer*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_WriteToServer_System_Data_IDataReader_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.WriteToServer(System.Data.IDataReader)">
+  WriteToServer(IDataReader)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L415"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void WriteToServer(IDataReader dataReader)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataReader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.idatareader">IDataReader</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_WriteToServerAsync_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.WriteToServerAsync*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_WriteToServerAsync_System_Data_IDataReader_System_Threading_CancellationToken_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.WriteToServerAsync(System.Data.IDataReader,System.Threading.CancellationToken)">
+  WriteToServerAsync(IDataReader, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L416"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task WriteToServerAsync(IDataReader dataReader, CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataReader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.idatareader">IDataReader</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopy_SqlRowsCopied" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.SqlRowsCopied">
+  SqlRowsCopied
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L447"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event SqlServerProviderAdapter.SqlRowsCopiedEventHandler? SqlRowsCopied</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlRowsCopiedEventHandler.html">SqlRowsCopiedEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L368" class="edit-link">Edit this page</a>
         </div>
+
+        
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-      
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

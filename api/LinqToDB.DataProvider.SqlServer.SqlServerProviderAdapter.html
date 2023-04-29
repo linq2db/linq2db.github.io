@@ -1,1019 +1,123 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class SqlServerProviderAdapter
  | Linq To DB (aka linq2db) </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class SqlServerProviderAdapter
  | Linq To DB (aka linq2db) ">
-    
-      <link rel="shortcut icon" href="../images/icon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
+      
+      <link rel="icon" href="../images/icon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
       <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+
+      <script>
+        MathJax = {
+          options: {
+            processHtmlClass: ['tex2jax_process', 'math']
+          }
+        };
+      </script>
+
+      <script type="text/javascript" src="../styles/docfx.min.js"></script>
+      <script type="text/javascript" src="../styles/main.js"></script>
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../images/icon.png" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter">
+
+        <article data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter">
 
 
-  <h1 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter" class="text-break">Class SqlServerProviderAdapter
-</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">SqlServerProviderAdapter</span></div>
+
+  <h1 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter" class="text-break">
+    Class SqlServerProviderAdapter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.html">SqlServer</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="LinqToDB.DataProvider.IDynamicProviderAdapter.html">IDynamicProviderAdapter</a></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.html">SqlServer</a></h6>
-  <h6><strong>Assembly</strong>: linq2db.dll</h6>
-  <h5 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_syntax">Syntax</h5>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class SqlServerProviderAdapter : IDynamicProviderAdapter</code></pre>
   </div>
-  <h3 id="fields">Fields
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_MicrosoftAssemblyName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.MicrosoftAssemblyName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L31">View Source</a>
-  </span>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_MicrosoftAssemblyName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.MicrosoftAssemblyName">MicrosoftAssemblyName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string MicrosoftAssemblyName = &quot;Microsoft.Data.SqlClient&quot;</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_MicrosoftClientNamespace.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.MicrosoftClientNamespace%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L32">View Source</a>
-  </span>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_MicrosoftClientNamespace" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.MicrosoftClientNamespace">MicrosoftClientNamespace</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string MicrosoftClientNamespace = &quot;Microsoft.Data.SqlClient&quot;</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_MicrosoftProviderFactoryName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.MicrosoftProviderFactoryName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L33">View Source</a>
-  </span>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_MicrosoftProviderFactoryName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.MicrosoftProviderFactoryName">MicrosoftProviderFactoryName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string MicrosoftProviderFactoryName = &quot;Microsoft.Data.SqlClient&quot;</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SystemAssemblyName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SystemAssemblyName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L27">View Source</a>
-  </span>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SystemAssemblyName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SystemAssemblyName">SystemAssemblyName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string SystemAssemblyName = &quot;System.Data.SqlClient&quot;</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SystemClientNamespace.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SystemClientNamespace%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L28">View Source</a>
-  </span>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SystemClientNamespace" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SystemClientNamespace">SystemClientNamespace</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string SystemClientNamespace = &quot;System.Data.SqlClient&quot;</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SystemProviderFactoryName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SystemProviderFactoryName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L29">View Source</a>
-  </span>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SystemProviderFactoryName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SystemProviderFactoryName">SystemProviderFactoryName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string SystemProviderFactoryName = &quot;System.Data.SqlClient&quot;</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CommandType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CommandType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L83">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CommandType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CommandType*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CommandType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CommandType">CommandType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type CommandType { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_ConnectionType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.ConnectionType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L80">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_ConnectionType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.ConnectionType*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_ConnectionType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.ConnectionType">ConnectionType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type ConnectionType { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_DataReaderType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.DataReaderType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L81">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_DataReaderType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.DataReaderType*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_DataReaderType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.DataReaderType">DataReaderType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type DataReaderType { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetDateTimeOffsetReaderMethod.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetDateTimeOffsetReaderMethod%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L90">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetDateTimeOffsetReaderMethod_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetDateTimeOffsetReaderMethod*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetDateTimeOffsetReaderMethod" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetDateTimeOffsetReaderMethod">GetDateTimeOffsetReaderMethod</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string GetDateTimeOffsetReaderMethod { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetDbType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetDbType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L105">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetDbType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetDbType*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetDbType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetDbType">GetDbType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Func&lt;DbParameter, SqlDbType&gt; GetDbType { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.sqldbtype">SqlDbType</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetSqlXmlReaderMethod.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetSqlXmlReaderMethod%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L89">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetSqlXmlReaderMethod_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetSqlXmlReaderMethod*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetSqlXmlReaderMethod" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetSqlXmlReaderMethod">GetSqlXmlReaderMethod</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string GetSqlXmlReaderMethod { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetTimeSpanReaderMethod.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetTimeSpanReaderMethod%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L91">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetTimeSpanReaderMethod_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetTimeSpanReaderMethod*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetTimeSpanReaderMethod" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetTimeSpanReaderMethod">GetTimeSpanReaderMethod</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string GetTimeSpanReaderMethod { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetTypeName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetTypeName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L111">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetTypeName_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetTypeName*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetTypeName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetTypeName">GetTypeName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Func&lt;DbParameter, string&gt; GetTypeName { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetUdtTypeName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetUdtTypeName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L108">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetUdtTypeName_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetUdtTypeName*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetUdtTypeName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetUdtTypeName">GetUdtTypeName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Func&lt;DbParameter, string&gt; GetUdtTypeName { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_ParameterType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.ParameterType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L82">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_ParameterType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.ParameterType*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_ParameterType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.ParameterType">ParameterType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type ParameterType { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SetDbType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SetDbType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L104">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SetDbType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SetDbType*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SetDbType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SetDbType">SetDbType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action&lt;DbParameter, SqlDbType&gt; SetDbType { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.sqldbtype">SqlDbType</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SetTypeName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SetTypeName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L110">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SetTypeName_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SetTypeName*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SetTypeName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SetTypeName">SetTypeName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action&lt;DbParameter, string&gt; SetTypeName { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SetUdtTypeName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SetUdtTypeName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L107">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SetUdtTypeName_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SetUdtTypeName*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SetUdtTypeName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SetUdtTypeName">SetUdtTypeName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action&lt;DbParameter, string&gt; SetUdtTypeName { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlDataRecordType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlDataRecordType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L86">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlDataRecordType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlDataRecordType*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlDataRecordType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlDataRecordType">SqlDataRecordType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type SqlDataRecordType { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlExceptionType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlExceptionType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L87">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlExceptionType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlExceptionType*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlExceptionType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlExceptionType">SqlExceptionType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type SqlExceptionType { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_TransactionType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.TransactionType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L84">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_TransactionType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.TransactionType*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_TransactionType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.TransactionType">TransactionType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type TransactionType { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateBulkCopy_System_Data_Common_DbConnection_LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopyOptions_System_Data_Common_DbTransaction_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateBulkCopy(System.Data.Common.DbConnection%2CLinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopyOptions%2CSystem.Data.Common.DbTransaction)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L97">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateBulkCopy_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateBulkCopy*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateBulkCopy_System_Data_Common_DbConnection_LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopyOptions_System_Data_Common_DbTransaction_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateBulkCopy(System.Data.Common.DbConnection,LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopyOptions,System.Data.Common.DbTransaction)">CreateBulkCopy(DbConnection, SqlBulkCopyOptions, DbTransaction?)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SqlServerProviderAdapter.SqlBulkCopy CreateBulkCopy(DbConnection connection, SqlServerProviderAdapter.SqlBulkCopyOptions options, DbTransaction? transaction)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a></td>
-        <td><span class="parametername">connection</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopyOptions.html">SqlBulkCopyOptions</a></td>
-        <td><span class="parametername">options</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbtransaction">DbTransaction</a></td>
-        <td><span class="parametername">transaction</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.html">SqlBulkCopy</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateBulkCopyColumnMapping_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateBulkCopyColumnMapping(System.Int32%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L101">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateBulkCopyColumnMapping_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateBulkCopyColumnMapping*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateBulkCopyColumnMapping_System_Int32_System_String_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateBulkCopyColumnMapping(System.Int32,System.String)">CreateBulkCopyColumnMapping(int, string)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SqlServerProviderAdapter.SqlBulkCopyColumnMapping CreateBulkCopyColumnMapping(int source, string destination)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">source</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">destination</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopyColumnMapping.html">SqlBulkCopyColumnMapping</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateConnection_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateConnection(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L114">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateConnection_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateConnection*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateConnection_System_String_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateConnection(System.String)">CreateConnection(string)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SqlServerProviderAdapter.SqlConnection CreateConnection(string connectionString)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">connectionString</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlConnection.html">SqlConnection</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateConnectionStringBuilder_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateConnectionStringBuilder(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L94">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateConnectionStringBuilder_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateConnectionStringBuilder*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateConnectionStringBuilder_System_String_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateConnectionStringBuilder(System.String)">CreateConnectionStringBuilder(string)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SqlServerProviderAdapter.SqlConnectionStringBuilder CreateConnectionStringBuilder(string connectionString)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">connectionString</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlConnectionStringBuilder.html">SqlConnectionStringBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetInstance_LinqToDB_DataProvider_SqlServer_SqlServerProvider_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetInstance(LinqToDB.DataProvider.SqlServer.SqlServerProvider)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L116">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetInstance_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetInstance*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetInstance_LinqToDB_DataProvider_SqlServer_SqlServerProvider_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetInstance(LinqToDB.DataProvider.SqlServer.SqlServerProvider)">GetInstance(SqlServerProvider)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlServerProviderAdapter GetInstance(SqlServerProvider provider)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProvider.html">SqlServerProvider</a></td>
-        <td><span class="parametername">provider</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="LinqToDB.DataProvider.IDynamicProviderAdapter.html">IDynamicProviderAdapter</a>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">SqlServerProviderAdapter</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LinqToDB.DataProvider.IDynamicProviderAdapter.html">IDynamicProviderAdapter</a></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
   <div>
       <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
   </div>
@@ -1053,46 +157,915 @@
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
   </div>
-</article>
-          </div>
+  </dd></dl>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L19" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_MicrosoftAssemblyName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.MicrosoftAssemblyName">
+  MicrosoftAssemblyName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MicrosoftAssemblyName = &quot;Microsoft.Data.SqlClient&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_MicrosoftClientNamespace" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.MicrosoftClientNamespace">
+  MicrosoftClientNamespace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MicrosoftClientNamespace = &quot;Microsoft.Data.SqlClient&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_MicrosoftProviderFactoryName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.MicrosoftProviderFactoryName">
+  MicrosoftProviderFactoryName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MicrosoftProviderFactoryName = &quot;Microsoft.Data.SqlClient&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SystemAssemblyName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SystemAssemblyName">
+  SystemAssemblyName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string SystemAssemblyName = &quot;System.Data.SqlClient&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SystemClientNamespace" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SystemClientNamespace">
+  SystemClientNamespace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string SystemClientNamespace = &quot;System.Data.SqlClient&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SystemProviderFactoryName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SystemProviderFactoryName">
+  SystemProviderFactoryName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string SystemProviderFactoryName = &quot;System.Data.SqlClient&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CommandType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CommandType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CommandType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CommandType">
+  CommandType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets type, that implements <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a> for current ADO.NET provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type CommandType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_ConnectionType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.ConnectionType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_ConnectionType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.ConnectionType">
+  ConnectionType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets type, that implements <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a> for current ADO.NET provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type ConnectionType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_DataReaderType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.DataReaderType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_DataReaderType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.DataReaderType">
+  DataReaderType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets type, that implements <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a> for current ADO.NET provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type DataReaderType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetDateTimeOffsetReaderMethod_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetDateTimeOffsetReaderMethod*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetDateTimeOffsetReaderMethod" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetDateTimeOffsetReaderMethod">
+  GetDateTimeOffsetReaderMethod
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetDateTimeOffsetReaderMethod { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetDbType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetDbType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetDbType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetDbType">
+  GetDbType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Func&lt;DbParameter, SqlDbType&gt; GetDbType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.sqldbtype">SqlDbType</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetSqlXmlReaderMethod_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetSqlXmlReaderMethod*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetSqlXmlReaderMethod" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetSqlXmlReaderMethod">
+  GetSqlXmlReaderMethod
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetSqlXmlReaderMethod { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetTimeSpanReaderMethod_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetTimeSpanReaderMethod*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetTimeSpanReaderMethod" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetTimeSpanReaderMethod">
+  GetTimeSpanReaderMethod
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetTimeSpanReaderMethod { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetTypeName_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetTypeName*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetTypeName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetTypeName">
+  GetTypeName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Func&lt;DbParameter, string&gt; GetTypeName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetUdtTypeName_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetUdtTypeName*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetUdtTypeName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetUdtTypeName">
+  GetUdtTypeName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Func&lt;DbParameter, string&gt; GetUdtTypeName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_ParameterType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.ParameterType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_ParameterType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.ParameterType">
+  ParameterType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets type, that implements <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a> for current ADO.NET provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type ParameterType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SetDbType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SetDbType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SetDbType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SetDbType">
+  SetDbType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;DbParameter, SqlDbType&gt; SetDbType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.sqldbtype">SqlDbType</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SetTypeName_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SetTypeName*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SetTypeName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SetTypeName">
+  SetTypeName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;DbParameter, string&gt; SetTypeName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SetUdtTypeName_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SetUdtTypeName*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SetUdtTypeName" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SetUdtTypeName">
+  SetUdtTypeName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;DbParameter, string&gt; SetUdtTypeName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlDataRecordType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlDataRecordType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlDataRecordType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlDataRecordType">
+  SqlDataRecordType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type SqlDataRecordType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlExceptionType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlExceptionType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlExceptionType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlExceptionType">
+  SqlExceptionType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type SqlExceptionType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_TransactionType_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.TransactionType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_TransactionType" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.TransactionType">
+  TransactionType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets type, that implements <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbtransaction">DbTransaction</a> for current ADO.NET provider.
+For providers/databases without transaction support contains <code>null</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type TransactionType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateBulkCopy_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateBulkCopy*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateBulkCopy_System_Data_Common_DbConnection_LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_SqlBulkCopyOptions_System_Data_Common_DbTransaction_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateBulkCopy(System.Data.Common.DbConnection,LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopyOptions,System.Data.Common.DbTransaction)">
+  CreateBulkCopy(DbConnection, SqlBulkCopyOptions, DbTransaction?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SqlServerProviderAdapter.SqlBulkCopy CreateBulkCopy(DbConnection connection, SqlServerProviderAdapter.SqlBulkCopyOptions options, DbTransaction? transaction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a></dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopyOptions.html">SqlBulkCopyOptions</a></dt>
+    <dd></dd>
+    <dt><code>transaction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbtransaction">DbTransaction</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopy.html">SqlBulkCopy</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateBulkCopyColumnMapping_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateBulkCopyColumnMapping*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateBulkCopyColumnMapping_System_Int32_System_String_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateBulkCopyColumnMapping(System.Int32,System.String)">
+  CreateBulkCopyColumnMapping(int, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SqlServerProviderAdapter.SqlBulkCopyColumnMapping CreateBulkCopyColumnMapping(int source, string destination)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>destination</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlBulkCopyColumnMapping.html">SqlBulkCopyColumnMapping</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateConnection_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateConnection*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateConnection_System_String_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateConnection(System.String)">
+  CreateConnection(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SqlServerProviderAdapter.SqlConnection CreateConnection(string connectionString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connectionString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlConnection.html">SqlConnection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateConnectionStringBuilder_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateConnectionStringBuilder*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_CreateConnectionStringBuilder_System_String_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.CreateConnectionStringBuilder(System.String)">
+  CreateConnectionStringBuilder(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SqlServerProviderAdapter.SqlConnectionStringBuilder CreateConnectionStringBuilder(string connectionString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connectionString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.SqlConnectionStringBuilder.html">SqlConnectionStringBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetInstance_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetInstance*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlServerProviderAdapter_GetInstance_LinqToDB_DataProvider_SqlServer_SqlServerProvider_" data-uid="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.GetInstance(LinqToDB.DataProvider.SqlServer.SqlServerProvider)">
+  GetInstance(SqlServerProvider)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlServerProviderAdapter GetInstance(SqlServerProvider provider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>provider</code> <a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProvider.html">SqlServerProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlServerProviderAdapter.html">SqlServerProviderAdapter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlServerProviderAdapter.cs/#L19" class="edit-link">Edit this page</a>
         </div>
+
+        
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-      
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

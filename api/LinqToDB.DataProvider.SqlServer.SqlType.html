@@ -1,2251 +1,124 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class SqlType
  | Linq To DB (aka linq2db) </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class SqlType
  | Linq To DB (aka linq2db) ">
-    
-      <link rel="shortcut icon" href="../images/icon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
+      
+      <link rel="icon" href="../images/icon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
       <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+
+      <script>
+        MathJax = {
+          options: {
+            processHtmlClass: ['tex2jax_process', 'math']
+          }
+        };
+      </script>
+
+      <script type="text/javascript" src="../styles/docfx.min.js"></script>
+      <script type="text/javascript" src="../styles/main.js"></script>
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../images/icon.png" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="LinqToDB.DataProvider.SqlServer.SqlType">
+
+        <article data-uid="LinqToDB.DataProvider.SqlServer.SqlType">
 
 
-  <h1 id="LinqToDB_DataProvider_SqlServer_SqlType" data-uid="LinqToDB.DataProvider.SqlServer.SqlType" class="text-break">Class SqlType
-</h1>
-  <div class="markdown level0 summary"><p>See <a href="https://docs.microsoft.com/en-us/sql/t-sql/data-types/data-types-transact-sql">Data types</a>.</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">SqlType</span></div>
-      <div class="level2"><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;T&gt;</div>
+
+  <h1 id="LinqToDB_DataProvider_SqlServer_SqlType" data-uid="LinqToDB.DataProvider.SqlServer.SqlType" class="text-break">
+    Class SqlType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.html">SqlServer</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.DataProvider.SqlServer.html">SqlServer</a></h6>
-  <h6><strong>Assembly</strong>: linq2db.dll</h6>
-  <h5 id="LinqToDB_DataProvider_SqlServer_SqlType_syntax">Syntax</h5>
+
+  <div class="markdown summary"><p>See <a href="https://docs.microsoft.com/en-us/sql/t-sql/data-types/data-types-transact-sql">Data types</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract class SqlType</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType__ctor_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.%23ctor(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L10">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType__ctor_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.#ctor*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType__ctor_System_String_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.#ctor(System.String)">SqlType(string)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected SqlType(string dataType)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">dataType</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_BigInt.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.BigInt%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L31">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_BigInt_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.BigInt*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_BigInt" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.BigInt">BigInt</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;long?&gt; BigInt { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_BinaryMax.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.BinaryMax%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L86">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_BinaryMax_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.BinaryMax*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_BinaryMax" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.BinaryMax">BinaryMax</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte[]?&gt; BinaryMax { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Bit.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Bit%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L35">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Bit_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Bit*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Bit" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Bit">Bit</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;bool?&gt; Bit { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_CharMax.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.CharMax%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L67">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_CharMax_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.CharMax*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_CharMax" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.CharMax">CharMax</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; CharMax { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Cursor.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Cursor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L94">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Cursor_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Cursor*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Cursor" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Cursor">Cursor</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;object?&gt; Cursor { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Date.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Date%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L53">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Date_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Date*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Date" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Date">Date</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;DateTime?&gt; Date { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Datetime.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Datetime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L59">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Datetime_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Datetime*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Datetime" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Datetime">Datetime</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;DateTime?&gt; Datetime { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Image.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Image%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L90">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Image_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Image*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Image" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Image">Image</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte[]?&gt; Image { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Int.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Int%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L41">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Int_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Int*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Int" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Int">Int</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;int?&gt; Int { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Money.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Money%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L43">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Money_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Money*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Money" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Money">Money</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;decimal?&gt; Money { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_NCharMax.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.NCharMax%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L77">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_NCharMax_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NCharMax*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_NCharMax" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NCharMax">NCharMax</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; NCharMax { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_NText.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.NText%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L81">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_NText_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NText*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_NText" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NText">NText</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; NText { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_NVarCharMax.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.NVarCharMax%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L80">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_NVarCharMax_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NVarCharMax*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_NVarCharMax" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NVarCharMax">NVarCharMax</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; NVarCharMax { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Real.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Real%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L49">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Real_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Real*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Real" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Real">Real</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;float?&gt; Real { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_RowVersion.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.RowVersion%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L95">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_RowVersion_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.RowVersion*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_RowVersion" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.RowVersion">RowVersion</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte[]?&gt; RowVersion { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_SmallDatetime.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.SmallDatetime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L58">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_SmallDatetime_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.SmallDatetime*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_SmallDatetime" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.SmallDatetime">SmallDatetime</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;DateTime?&gt; SmallDatetime { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_SmallInt.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.SmallInt%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L36">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_SmallInt_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.SmallInt*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_SmallInt" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.SmallInt">SmallInt</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;short?&gt; SmallInt { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_SmallMoney.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.SmallMoney%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L40">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_SmallMoney_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.SmallMoney*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_SmallMoney" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.SmallMoney">SmallMoney</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;decimal?&gt; SmallMoney { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_SqlVariant.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.SqlVariant%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L99">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_SqlVariant_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.SqlVariant*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_SqlVariant" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.SqlVariant">SqlVariant</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;object?&gt; SqlVariant { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Table.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Table%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L106">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Table_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Table*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Table" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Table">Table</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;object?&gt; Table { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Text.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Text%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L71">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Text_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Text*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Text" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Text">Text</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; Text { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_TinyInt.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.TinyInt%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L42">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_TinyInt_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.TinyInt*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_TinyInt" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.TinyInt">TinyInt</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte?&gt; TinyInt { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_UniqueIdentifier.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.UniqueIdentifier%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L98">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_UniqueIdentifier_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.UniqueIdentifier*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_UniqueIdentifier" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.UniqueIdentifier">UniqueIdentifier</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;Guid?&gt; UniqueIdentifier { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_VarBinaryMax.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.VarBinaryMax%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L89">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_VarBinaryMax_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarBinaryMax*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_VarBinaryMax" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarBinaryMax">VarBinaryMax</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte[]?&gt; VarBinaryMax { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_VarCharMax.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.VarCharMax%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L70">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_VarCharMax_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarCharMax*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_VarCharMax" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarCharMax">VarCharMax</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; VarCharMax { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Binary.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Binary%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L84">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Binary_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Binary*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Binary" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Binary">Binary()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte[]?&gt; Binary()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Binary_System_Int32_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Binary(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L85">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Binary_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Binary*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Binary_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Binary(System.Int32)">Binary(int)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte[]?&gt; Binary(int size)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">size</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Char.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Char%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L65">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Char_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Char*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Char" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Char">Char()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; Char()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Char_System_Int32_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Char(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L66">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Char_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Char*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Char_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Char(System.Int32)">Char(int)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; Char(int size)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">size</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Datetime2.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Datetime2%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L56">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Datetime2_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Datetime2*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Datetime2" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Datetime2">Datetime2()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;DateTime?&gt; Datetime2()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Datetime2_System_Int32_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Datetime2(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L57">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Datetime2_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Datetime2*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Datetime2_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Datetime2(System.Int32)">Datetime2(int)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;DateTime?&gt; Datetime2(int size)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">size</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_DatetimeOffset.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.DatetimeOffset%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L54">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_DatetimeOffset_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.DatetimeOffset*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_DatetimeOffset" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.DatetimeOffset">DatetimeOffset()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;DateTimeOffset?&gt; DatetimeOffset()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_DatetimeOffset_System_Int32_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.DatetimeOffset(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L55">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_DatetimeOffset_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.DatetimeOffset*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_DatetimeOffset_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.DatetimeOffset(System.Int32)">DatetimeOffset(int)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;DateTimeOffset?&gt; DatetimeOffset(int size)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">size</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Decimal.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Decimal%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L37">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Decimal_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Decimal*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Decimal" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Decimal">Decimal()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;decimal?&gt; Decimal()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Decimal_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Decimal(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L39">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Decimal_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Decimal*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Decimal_System_Int32_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Decimal(System.Int32,System.Int32)">Decimal(int, int)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;decimal?&gt; Decimal(int precision, int scale)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">precision</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">scale</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Decimal_System_Int32_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Decimal(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L38">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Decimal_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Decimal*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Decimal_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Decimal(System.Int32)">Decimal(int)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;decimal?&gt; Decimal(int precision)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">precision</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Float.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Float%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L47">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Float_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Float*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Float" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Float">Float()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;double?&gt; Float()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Float_System_Int32_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Float(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L48">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Float_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Float*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Float_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Float(System.Int32)">Float(int)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;double?&gt; Float(int n)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">n</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Geography.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Geography%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L104">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Geography_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Geography*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Geography" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Geography">Geography()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;object?&gt; Geography()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Geography__1.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Geography%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L105">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Geography_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Geography*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Geography__1" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Geography``1">Geography&lt;T&gt;()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;T&gt; Geography&lt;T&gt;()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Geometry.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Geometry%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L102">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Geometry_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Geometry*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Geometry" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Geometry">Geometry()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;object?&gt; Geometry()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Geometry__1.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Geometry%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L103">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Geometry_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Geometry*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Geometry__1" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Geometry``1">Geometry&lt;T&gt;()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;T&gt; Geometry&lt;T&gt;()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_HierarchyID.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.HierarchyID%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L96">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_HierarchyID_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.HierarchyID*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_HierarchyID" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.HierarchyID">HierarchyID()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;object?&gt; HierarchyID()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_HierarchyID__1.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.HierarchyID%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L97">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_HierarchyID_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.HierarchyID*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_HierarchyID__1" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.HierarchyID``1">HierarchyID&lt;T&gt;()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;T&gt; HierarchyID&lt;T&gt;()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_NChar.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.NChar%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L75">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_NChar_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NChar*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_NChar" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NChar">NChar()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; NChar()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_NChar_System_Int32_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.NChar(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L76">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_NChar_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NChar*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_NChar_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NChar(System.Int32)">NChar(int)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; NChar(int size)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">size</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Numeric.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Numeric%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L32">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Numeric_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Numeric*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Numeric" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Numeric">Numeric()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;decimal?&gt; Numeric()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Numeric_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Numeric(System.Int32%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L34">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Numeric_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Numeric*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Numeric_System_Int32_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Numeric(System.Int32,System.Int32)">Numeric(int, int)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;decimal?&gt; Numeric(int precision, int scale)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">precision</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">scale</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Numeric_System_Int32_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Numeric(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L33">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Numeric_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Numeric*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Numeric_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Numeric(System.Int32)">Numeric(int)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;decimal?&gt; Numeric(int precision)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">precision</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_NVarChar.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.NVarChar%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L78">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_NVarChar_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NVarChar*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_NVarChar" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NVarChar">NVarChar()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; NVarChar()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_NVarChar_System_Int32_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.NVarChar(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L79">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_NVarChar_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NVarChar*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_NVarChar_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NVarChar(System.Int32)">NVarChar(int)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; NVarChar(int size)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">size</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Time.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Time%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L60">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Time_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Time*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Time" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Time">Time()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;TimeSpan?&gt; Time()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Time_System_Int32_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Time(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L61">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Time_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Time*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Time_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Time(System.Int32)">Time(int)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;TimeSpan?&gt; Time(int size)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">size</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_ToString.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.ToString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L17">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_ToString_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.ToString*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_ToString" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.ToString">ToString()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_VarBinary.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.VarBinary%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L87">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_VarBinary_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarBinary*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_VarBinary" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarBinary">VarBinary()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte[]?&gt; VarBinary()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_VarBinary_System_Int32_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.VarBinary(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L88">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_VarBinary_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarBinary*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_VarBinary_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarBinary(System.Int32)">VarBinary(int)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte[]?&gt; VarBinary(int size)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">size</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_VarChar.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.VarChar%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L68">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_VarChar_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarChar*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_VarChar" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarChar">VarChar()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; VarChar()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_VarChar_System_Int32_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.VarChar(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L69">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_VarChar_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarChar*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_VarChar_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarChar(System.Int32)">VarChar(int)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; VarChar(int size)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">size</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Xml.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Xml%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L100">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Xml_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Xml*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Xml" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Xml">Xml()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; Xml()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType_Xml__1.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType.Xml%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L101">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Xml_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Xml*"></a>
-  <h4 id="LinqToDB_DataProvider_SqlServer_SqlType_Xml__1" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Xml``1">Xml&lt;T&gt;()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static SqlType&lt;T&gt; Xml&lt;T&gt;()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="extensionmethods">Extension Methods</h3>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">SqlType</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;T&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
   <div>
       <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
   </div>
@@ -2285,46 +158,2032 @@
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
   </div>
-</article>
-          </div>
+  </dd></dl>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_SqlServer_SqlType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.SqlServer.SqlType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L8" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType__ctor_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.#ctor*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType__ctor_System_String_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.#ctor(System.String)">
+  SqlType(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SqlType(string dataType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_BigInt_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.BigInt*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_BigInt" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.BigInt">
+  BigInt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;long?&gt; BigInt { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_BinaryMax_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.BinaryMax*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_BinaryMax" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.BinaryMax">
+  BinaryMax
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte[]?&gt; BinaryMax { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Bit_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Bit*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Bit" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Bit">
+  Bit
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;bool?&gt; Bit { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_CharMax_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.CharMax*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_CharMax" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.CharMax">
+  CharMax
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; CharMax { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Cursor_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Cursor*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Cursor" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Cursor">
+  Cursor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;object?&gt; Cursor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Date_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Date*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Date" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Date">
+  Date
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;DateTime?&gt; Date { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Datetime_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Datetime*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Datetime" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Datetime">
+  Datetime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;DateTime?&gt; Datetime { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Image_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Image*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Image" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Image">
+  Image
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte[]?&gt; Image { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Int_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Int*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Int" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Int">
+  Int
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;int?&gt; Int { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Money_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Money*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Money" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Money">
+  Money
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;decimal?&gt; Money { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_NCharMax_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NCharMax*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_NCharMax" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NCharMax">
+  NCharMax
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; NCharMax { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_NText_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NText*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_NText" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NText">
+  NText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; NText { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_NVarCharMax_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NVarCharMax*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_NVarCharMax" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NVarCharMax">
+  NVarCharMax
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; NVarCharMax { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Real_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Real*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Real" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Real">
+  Real
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;float?&gt; Real { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_RowVersion_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.RowVersion*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_RowVersion" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.RowVersion">
+  RowVersion
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte[]?&gt; RowVersion { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_SmallDatetime_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.SmallDatetime*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_SmallDatetime" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.SmallDatetime">
+  SmallDatetime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;DateTime?&gt; SmallDatetime { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_SmallInt_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.SmallInt*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_SmallInt" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.SmallInt">
+  SmallInt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;short?&gt; SmallInt { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_SmallMoney_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.SmallMoney*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_SmallMoney" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.SmallMoney">
+  SmallMoney
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;decimal?&gt; SmallMoney { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_SqlVariant_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.SqlVariant*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_SqlVariant" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.SqlVariant">
+  SqlVariant
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;object?&gt; SqlVariant { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Table_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Table*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Table" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Table">
+  Table
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;object?&gt; Table { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Text_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Text*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Text" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Text">
+  Text
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; Text { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_TinyInt_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.TinyInt*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_TinyInt" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.TinyInt">
+  TinyInt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte?&gt; TinyInt { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_UniqueIdentifier_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.UniqueIdentifier*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_UniqueIdentifier" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.UniqueIdentifier">
+  UniqueIdentifier
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;Guid?&gt; UniqueIdentifier { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_VarBinaryMax_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarBinaryMax*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_VarBinaryMax" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarBinaryMax">
+  VarBinaryMax
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte[]?&gt; VarBinaryMax { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_VarCharMax_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarCharMax*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_VarCharMax" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarCharMax">
+  VarCharMax
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; VarCharMax { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Binary_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Binary*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Binary" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Binary">
+  Binary()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte[]?&gt; Binary()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Binary_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Binary*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Binary_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Binary(System.Int32)">
+  Binary(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte[]?&gt; Binary(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Char_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Char*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Char" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Char">
+  Char()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; Char()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Char_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Char*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Char_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Char(System.Int32)">
+  Char(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; Char(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Datetime2_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Datetime2*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Datetime2" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Datetime2">
+  Datetime2()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;DateTime?&gt; Datetime2()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Datetime2_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Datetime2*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Datetime2_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Datetime2(System.Int32)">
+  Datetime2(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;DateTime?&gt; Datetime2(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_DatetimeOffset_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.DatetimeOffset*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_DatetimeOffset" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.DatetimeOffset">
+  DatetimeOffset()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;DateTimeOffset?&gt; DatetimeOffset()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_DatetimeOffset_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.DatetimeOffset*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_DatetimeOffset_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.DatetimeOffset(System.Int32)">
+  DatetimeOffset(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;DateTimeOffset?&gt; DatetimeOffset(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Decimal_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Decimal*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Decimal" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Decimal">
+  Decimal()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;decimal?&gt; Decimal()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Decimal_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Decimal*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Decimal_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Decimal(System.Int32)">
+  Decimal(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;decimal?&gt; Decimal(int precision)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>precision</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Decimal_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Decimal*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Decimal_System_Int32_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Decimal(System.Int32,System.Int32)">
+  Decimal(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;decimal?&gt; Decimal(int precision, int scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>precision</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Float_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Float*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Float" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Float">
+  Float()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;double?&gt; Float()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Float_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Float*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Float_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Float(System.Int32)">
+  Float(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;double?&gt; Float(int n)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Geography_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Geography*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Geography" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Geography">
+  Geography()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;object?&gt; Geography()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Geography_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Geography*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Geography__1" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Geography``1">
+  Geography&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;T&gt; Geography&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Geometry_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Geometry*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Geometry" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Geometry">
+  Geometry()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;object?&gt; Geometry()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Geometry_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Geometry*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Geometry__1" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Geometry``1">
+  Geometry&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;T&gt; Geometry&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_HierarchyID_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.HierarchyID*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_HierarchyID" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.HierarchyID">
+  HierarchyID()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;object?&gt; HierarchyID()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_HierarchyID_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.HierarchyID*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_HierarchyID__1" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.HierarchyID``1">
+  HierarchyID&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;T&gt; HierarchyID&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_NChar_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NChar*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_NChar" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NChar">
+  NChar()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; NChar()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_NChar_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NChar*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_NChar_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NChar(System.Int32)">
+  NChar(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; NChar(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_NVarChar_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NVarChar*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_NVarChar" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NVarChar">
+  NVarChar()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; NVarChar()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_NVarChar_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NVarChar*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_NVarChar_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.NVarChar(System.Int32)">
+  NVarChar(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; NVarChar(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Numeric_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Numeric*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Numeric" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Numeric">
+  Numeric()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;decimal?&gt; Numeric()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Numeric_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Numeric*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Numeric_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Numeric(System.Int32)">
+  Numeric(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;decimal?&gt; Numeric(int precision)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>precision</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Numeric_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Numeric*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Numeric_System_Int32_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Numeric(System.Int32,System.Int32)">
+  Numeric(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;decimal?&gt; Numeric(int precision, int scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>precision</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Time_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Time*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Time" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Time">
+  Time()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;TimeSpan?&gt; Time()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Time_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Time*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Time_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Time(System.Int32)">
+  Time(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;TimeSpan?&gt; Time(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_ToString_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.ToString*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_ToString" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_VarBinary_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarBinary*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_VarBinary" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarBinary">
+  VarBinary()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte[]?&gt; VarBinary()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_VarBinary_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarBinary*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_VarBinary_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarBinary(System.Int32)">
+  VarBinary(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;byte[]?&gt; VarBinary(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_VarChar_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarChar*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_VarChar" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarChar">
+  VarChar()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; VarChar()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_VarChar_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarChar*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_VarChar_System_Int32_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.VarChar(System.Int32)">
+  VarChar(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; VarChar(int size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Xml_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Xml*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Xml" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Xml">
+  Xml()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;string?&gt; Xml()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_SqlServer_SqlType_Xml_" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Xml*"></a>
+
+  <h3 id="LinqToDB_DataProvider_SqlServer_SqlType_Xml__1" data-uid="LinqToDB.DataProvider.SqlServer.SqlType.Xml``1">
+  Xml&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SqlType&lt;T&gt; Xml&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.SqlType-1.html">SqlType</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/SqlServer/SqlType.cs/#L8" class="edit-link">Edit this page</a>
         </div>
+
+        
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-      
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

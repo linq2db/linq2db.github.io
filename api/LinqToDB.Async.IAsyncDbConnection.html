@@ -1,560 +1,122 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Interface IAsyncDbConnection
  | Linq To DB (aka linq2db) </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IAsyncDbConnection
  | Linq To DB (aka linq2db) ">
-    
-      <link rel="shortcut icon" href="../images/icon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
+      
+      <link rel="icon" href="../images/icon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
       <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Async_IAsyncDbConnection.md&amp;value=---%0Auid%3A%20LinqToDB.Async.IAsyncDbConnection%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+
+      <script>
+        MathJax = {
+          options: {
+            processHtmlClass: ['tex2jax_process', 'math']
+          }
+        };
+      </script>
+
+      <script type="text/javascript" src="../styles/docfx.min.js"></script>
+      <script type="text/javascript" src="../styles/main.js"></script>
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../images/icon.png" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="LinqToDB.Async.IAsyncDbConnection">
+
+        <article data-uid="LinqToDB.Async.IAsyncDbConnection">
 
 
-  <h1 id="LinqToDB_Async_IAsyncDbConnection" data-uid="LinqToDB.Async.IAsyncDbConnection" class="text-break">Interface IAsyncDbConnection
-</h1>
-  <div class="markdown level0 summary"><p>Wrapper over <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a> instance which contains all operations that could have custom implementation like:</p>
+
+  <h1 id="LinqToDB_Async_IAsyncDbConnection" data-uid="LinqToDB.Async.IAsyncDbConnection" class="text-break">
+    Interface IAsyncDbConnection
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Async.html">Async</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Wrapper over <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a> instance which contains all operations that could have custom implementation like:</p>
 <ul><li><a class="xref" href="LinqToDB.Data.RetryPolicy.IRetryPolicy.html">IRetryPolicy</a> support</li><li>asynchronous operations, missing from <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a> but provided by data provider implementation.</li></ul>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IAsyncDbConnection : IDisposable, IAsyncDisposable</code></pre>
+  </div>
+
+
+
+
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose#system-idisposable-dispose">IDisposable.Dispose()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">IDisposable.Dispose()</a>
     </div>
     <div>
       <a class="xref" href="LinqToDB.Async.IAsyncDisposable.html#LinqToDB_Async_IAsyncDisposable_DisposeAsync">IAsyncDisposable.DisposeAsync()</a>
     </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Async.html">Async</a></h6>
-  <h6><strong>Assembly</strong>: linq2db.dll</h6>
-  <h5 id="LinqToDB_Async_IAsyncDbConnection_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IAsyncDbConnection : IDisposable, IAsyncDisposable</code></pre>
-  </div>
-  <h3 id="properties">Properties
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Async_IAsyncDbConnection_Connection.md&amp;value=---%0Auid%3A%20LinqToDB.Async.IAsyncDbConnection.Connection%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L26">View Source</a>
-  </span>
-  <a id="LinqToDB_Async_IAsyncDbConnection_Connection_" data-uid="LinqToDB.Async.IAsyncDbConnection.Connection*"></a>
-  <h4 id="LinqToDB_Async_IAsyncDbConnection_Connection" data-uid="LinqToDB.Async.IAsyncDbConnection.Connection">Connection</h4>
-  <div class="markdown level1 summary"><p>Gets underlying connection instance.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">DbConnection Connection { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Async_IAsyncDbConnection_ConnectionString.md&amp;value=---%0Auid%3A%20LinqToDB.Async.IAsyncDbConnection.ConnectionString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L34">View Source</a>
-  </span>
-  <a id="LinqToDB_Async_IAsyncDbConnection_ConnectionString_" data-uid="LinqToDB.Async.IAsyncDbConnection.ConnectionString*"></a>
-  <h4 id="LinqToDB_Async_IAsyncDbConnection_ConnectionString" data-uid="LinqToDB.Async.IAsyncDbConnection.ConnectionString">ConnectionString</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">string ConnectionString { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Async_IAsyncDbConnection_State.md&amp;value=---%0Auid%3A%20LinqToDB.Async.IAsyncDbConnection.State%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L37">View Source</a>
-  </span>
-  <a id="LinqToDB_Async_IAsyncDbConnection_State_" data-uid="LinqToDB.Async.IAsyncDbConnection.State*"></a>
-  <h4 id="LinqToDB_Async_IAsyncDbConnection_State" data-uid="LinqToDB.Async.IAsyncDbConnection.State">State</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ConnectionState State { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.connectionstate">ConnectionState</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Async_IAsyncDbConnection_BeginTransaction.md&amp;value=---%0Auid%3A%20LinqToDB.Async.IAsyncDbConnection.BeginTransaction%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L59">View Source</a>
-  </span>
-  <a id="LinqToDB_Async_IAsyncDbConnection_BeginTransaction_" data-uid="LinqToDB.Async.IAsyncDbConnection.BeginTransaction*"></a>
-  <h4 id="LinqToDB_Async_IAsyncDbConnection_BeginTransaction" data-uid="LinqToDB.Async.IAsyncDbConnection.BeginTransaction">BeginTransaction()</h4>
-  <div class="markdown level1 summary"><p>Starts new transaction for current connection with default isolation level.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IAsyncDbTransaction BeginTransaction()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Async.IAsyncDbTransaction.html">IAsyncDbTransaction</a></td>
-        <td><p>Database transaction object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Async_IAsyncDbConnection_BeginTransaction_System_Data_IsolationLevel_.md&amp;value=---%0Auid%3A%20LinqToDB.Async.IAsyncDbConnection.BeginTransaction(System.Data.IsolationLevel)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L66">View Source</a>
-  </span>
-  <a id="LinqToDB_Async_IAsyncDbConnection_BeginTransaction_" data-uid="LinqToDB.Async.IAsyncDbConnection.BeginTransaction*"></a>
-  <h4 id="LinqToDB_Async_IAsyncDbConnection_BeginTransaction_System_Data_IsolationLevel_" data-uid="LinqToDB.Async.IAsyncDbConnection.BeginTransaction(System.Data.IsolationLevel)">BeginTransaction(IsolationLevel)</h4>
-  <div class="markdown level1 summary"><p>Starts new transaction for current connection with specified isolation level.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IAsyncDbTransaction BeginTransaction(IsolationLevel isolationLevel)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.isolationlevel">IsolationLevel</a></td>
-        <td><span class="parametername">isolationLevel</span></td>
-        <td><p>Transaction isolation level.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Async.IAsyncDbTransaction.html">IAsyncDbTransaction</a></td>
-        <td><p>Database transaction object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Async_IAsyncDbConnection_BeginTransactionAsync_System_Data_IsolationLevel_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.Async.IAsyncDbConnection.BeginTransactionAsync(System.Data.IsolationLevel%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L88">View Source</a>
-  </span>
-  <a id="LinqToDB_Async_IAsyncDbConnection_BeginTransactionAsync_" data-uid="LinqToDB.Async.IAsyncDbConnection.BeginTransactionAsync*"></a>
-  <h4 id="LinqToDB_Async_IAsyncDbConnection_BeginTransactionAsync_System_Data_IsolationLevel_System_Threading_CancellationToken_" data-uid="LinqToDB.Async.IAsyncDbConnection.BeginTransactionAsync(System.Data.IsolationLevel,System.Threading.CancellationToken)">BeginTransactionAsync(IsolationLevel, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Starts new transaction asynchronously for current connection with specified isolation level.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;IAsyncDbTransaction&gt; BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.isolationlevel">IsolationLevel</a></td>
-        <td><span class="parametername">isolationLevel</span></td>
-        <td><p>Transaction isolation level.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>Asynchronous operation cancellation token.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.Async.IAsyncDbTransaction.html">IAsyncDbTransaction</a>&gt;</td>
-        <td><p>Database transaction object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Async_IAsyncDbConnection_BeginTransactionAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.Async.IAsyncDbConnection.BeginTransactionAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L76">View Source</a>
-  </span>
-  <a id="LinqToDB_Async_IAsyncDbConnection_BeginTransactionAsync_" data-uid="LinqToDB.Async.IAsyncDbConnection.BeginTransactionAsync*"></a>
-  <h4 id="LinqToDB_Async_IAsyncDbConnection_BeginTransactionAsync_System_Threading_CancellationToken_" data-uid="LinqToDB.Async.IAsyncDbConnection.BeginTransactionAsync(System.Threading.CancellationToken)">BeginTransactionAsync(CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Starts new transaction asynchronously for current connection with default isolation level.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;IAsyncDbTransaction&gt; BeginTransactionAsync(CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>Asynchronous operation cancellation token.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.Async.IAsyncDbTransaction.html">IAsyncDbTransaction</a>&gt;</td>
-        <td><p>Database transaction object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Async_IAsyncDbConnection_Close.md&amp;value=---%0Auid%3A%20LinqToDB.Async.IAsyncDbConnection.Close%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L48">View Source</a>
-  </span>
-  <a id="LinqToDB_Async_IAsyncDbConnection_Close_" data-uid="LinqToDB.Async.IAsyncDbConnection.Close*"></a>
-  <h4 id="LinqToDB_Async_IAsyncDbConnection_Close" data-uid="LinqToDB.Async.IAsyncDbConnection.Close">Close()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Close()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Async_IAsyncDbConnection_CloseAsync.md&amp;value=---%0Auid%3A%20LinqToDB.Async.IAsyncDbConnection.CloseAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L53">View Source</a>
-  </span>
-  <a id="LinqToDB_Async_IAsyncDbConnection_CloseAsync_" data-uid="LinqToDB.Async.IAsyncDbConnection.CloseAsync*"></a>
-  <h4 id="LinqToDB_Async_IAsyncDbConnection_CloseAsync" data-uid="LinqToDB.Async.IAsyncDbConnection.CloseAsync">CloseAsync()</h4>
-  <div class="markdown level1 summary"><p>Closes current connection asynchonously.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task CloseAsync()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
-        <td><p>Async operation task.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Async_IAsyncDbConnection_CreateCommand.md&amp;value=---%0Auid%3A%20LinqToDB.Async.IAsyncDbConnection.CreateCommand%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L40">View Source</a>
-  </span>
-  <a id="LinqToDB_Async_IAsyncDbConnection_CreateCommand_" data-uid="LinqToDB.Async.IAsyncDbConnection.CreateCommand*"></a>
-  <h4 id="LinqToDB_Async_IAsyncDbConnection_CreateCommand" data-uid="LinqToDB.Async.IAsyncDbConnection.CreateCommand">CreateCommand()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">DbCommand CreateCommand()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Async_IAsyncDbConnection_Open.md&amp;value=---%0Auid%3A%20LinqToDB.Async.IAsyncDbConnection.Open%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L43">View Source</a>
-  </span>
-  <a id="LinqToDB_Async_IAsyncDbConnection_Open_" data-uid="LinqToDB.Async.IAsyncDbConnection.Open*"></a>
-  <h4 id="LinqToDB_Async_IAsyncDbConnection_Open" data-uid="LinqToDB.Async.IAsyncDbConnection.Open">Open()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Open()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Async_IAsyncDbConnection_OpenAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20LinqToDB.Async.IAsyncDbConnection.OpenAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L45">View Source</a>
-  </span>
-  <a id="LinqToDB_Async_IAsyncDbConnection_OpenAsync_" data-uid="LinqToDB.Async.IAsyncDbConnection.OpenAsync*"></a>
-  <h4 id="LinqToDB_Async_IAsyncDbConnection_OpenAsync_System_Threading_CancellationToken_" data-uid="LinqToDB.Async.IAsyncDbConnection.OpenAsync(System.Threading.CancellationToken)">OpenAsync(CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task OpenAsync(CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Async_IAsyncDbConnection_TryClone.md&amp;value=---%0Auid%3A%20LinqToDB.Async.IAsyncDbConnection.TryClone%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L31">View Source</a>
-  </span>
-  <a id="LinqToDB_Async_IAsyncDbConnection_TryClone_" data-uid="LinqToDB.Async.IAsyncDbConnection.TryClone*"></a>
-  <h4 id="LinqToDB_Async_IAsyncDbConnection_TryClone" data-uid="LinqToDB.Async.IAsyncDbConnection.TryClone">TryClone()</h4>
-  <div class="markdown level1 summary"><p>Returns cloned connection instance, if underlying provider supports cloning or null otherwise.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">DbConnection? TryClone()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="extensionmethods">Extension Methods</h3>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
   <div>
       <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
   </div>
@@ -594,46 +156,474 @@
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
   </div>
-</article>
-          </div>
+  </dd></dl>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Async_IAsyncDbConnection.md&amp;value=---%0Auid%3A%20LinqToDB.Async.IAsyncDbConnection%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L20" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LinqToDB_Async_IAsyncDbConnection_Connection_" data-uid="LinqToDB.Async.IAsyncDbConnection.Connection*"></a>
+
+  <h3 id="LinqToDB_Async_IAsyncDbConnection_Connection" data-uid="LinqToDB.Async.IAsyncDbConnection.Connection">
+  Connection
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets underlying connection instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DbConnection Connection { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Async_IAsyncDbConnection_ConnectionString_" data-uid="LinqToDB.Async.IAsyncDbConnection.ConnectionString*"></a>
+
+  <h3 id="LinqToDB_Async_IAsyncDbConnection_ConnectionString" data-uid="LinqToDB.Async.IAsyncDbConnection.ConnectionString">
+  ConnectionString
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string ConnectionString { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Async_IAsyncDbConnection_State_" data-uid="LinqToDB.Async.IAsyncDbConnection.State*"></a>
+
+  <h3 id="LinqToDB_Async_IAsyncDbConnection_State" data-uid="LinqToDB.Async.IAsyncDbConnection.State">
+  State
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ConnectionState State { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.connectionstate">ConnectionState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LinqToDB_Async_IAsyncDbConnection_BeginTransaction_" data-uid="LinqToDB.Async.IAsyncDbConnection.BeginTransaction*"></a>
+
+  <h3 id="LinqToDB_Async_IAsyncDbConnection_BeginTransaction" data-uid="LinqToDB.Async.IAsyncDbConnection.BeginTransaction">
+  BeginTransaction()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts new transaction for current connection with default isolation level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IAsyncDbTransaction BeginTransaction()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Async.IAsyncDbTransaction.html">IAsyncDbTransaction</a></dt>
+    <dd><p>Database transaction object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Async_IAsyncDbConnection_BeginTransaction_" data-uid="LinqToDB.Async.IAsyncDbConnection.BeginTransaction*"></a>
+
+  <h3 id="LinqToDB_Async_IAsyncDbConnection_BeginTransaction_System_Data_IsolationLevel_" data-uid="LinqToDB.Async.IAsyncDbConnection.BeginTransaction(System.Data.IsolationLevel)">
+  BeginTransaction(IsolationLevel)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts new transaction for current connection with specified isolation level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IAsyncDbTransaction BeginTransaction(IsolationLevel isolationLevel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>isolationLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.isolationlevel">IsolationLevel</a></dt>
+    <dd><p>Transaction isolation level.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Async.IAsyncDbTransaction.html">IAsyncDbTransaction</a></dt>
+    <dd><p>Database transaction object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Async_IAsyncDbConnection_BeginTransactionAsync_" data-uid="LinqToDB.Async.IAsyncDbConnection.BeginTransactionAsync*"></a>
+
+  <h3 id="LinqToDB_Async_IAsyncDbConnection_BeginTransactionAsync_System_Data_IsolationLevel_System_Threading_CancellationToken_" data-uid="LinqToDB.Async.IAsyncDbConnection.BeginTransactionAsync(System.Data.IsolationLevel,System.Threading.CancellationToken)">
+  BeginTransactionAsync(IsolationLevel, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts new transaction asynchronously for current connection with specified isolation level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IAsyncDbTransaction&gt; BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>isolationLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.isolationlevel">IsolationLevel</a></dt>
+    <dd><p>Transaction isolation level.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Asynchronous operation cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.Async.IAsyncDbTransaction.html">IAsyncDbTransaction</a>&gt;</dt>
+    <dd><p>Database transaction object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Async_IAsyncDbConnection_BeginTransactionAsync_" data-uid="LinqToDB.Async.IAsyncDbConnection.BeginTransactionAsync*"></a>
+
+  <h3 id="LinqToDB_Async_IAsyncDbConnection_BeginTransactionAsync_System_Threading_CancellationToken_" data-uid="LinqToDB.Async.IAsyncDbConnection.BeginTransactionAsync(System.Threading.CancellationToken)">
+  BeginTransactionAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts new transaction asynchronously for current connection with default isolation level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IAsyncDbTransaction&gt; BeginTransactionAsync(CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Asynchronous operation cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.Async.IAsyncDbTransaction.html">IAsyncDbTransaction</a>&gt;</dt>
+    <dd><p>Database transaction object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Async_IAsyncDbConnection_Close_" data-uid="LinqToDB.Async.IAsyncDbConnection.Close*"></a>
+
+  <h3 id="LinqToDB_Async_IAsyncDbConnection_Close" data-uid="LinqToDB.Async.IAsyncDbConnection.Close">
+  Close()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Close()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Async_IAsyncDbConnection_CloseAsync_" data-uid="LinqToDB.Async.IAsyncDbConnection.CloseAsync*"></a>
+
+  <h3 id="LinqToDB_Async_IAsyncDbConnection_CloseAsync" data-uid="LinqToDB.Async.IAsyncDbConnection.CloseAsync">
+  CloseAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Closes current connection asynchonously.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task CloseAsync()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>Async operation task.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Async_IAsyncDbConnection_CreateCommand_" data-uid="LinqToDB.Async.IAsyncDbConnection.CreateCommand*"></a>
+
+  <h3 id="LinqToDB_Async_IAsyncDbConnection_CreateCommand" data-uid="LinqToDB.Async.IAsyncDbConnection.CreateCommand">
+  CreateCommand()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DbCommand CreateCommand()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Async_IAsyncDbConnection_Open_" data-uid="LinqToDB.Async.IAsyncDbConnection.Open*"></a>
+
+  <h3 id="LinqToDB_Async_IAsyncDbConnection_Open" data-uid="LinqToDB.Async.IAsyncDbConnection.Open">
+  Open()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Open()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Async_IAsyncDbConnection_OpenAsync_" data-uid="LinqToDB.Async.IAsyncDbConnection.OpenAsync*"></a>
+
+  <h3 id="LinqToDB_Async_IAsyncDbConnection_OpenAsync_System_Threading_CancellationToken_" data-uid="LinqToDB.Async.IAsyncDbConnection.OpenAsync(System.Threading.CancellationToken)">
+  OpenAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task OpenAsync(CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Async_IAsyncDbConnection_TryClone_" data-uid="LinqToDB.Async.IAsyncDbConnection.TryClone*"></a>
+
+  <h3 id="LinqToDB_Async_IAsyncDbConnection_TryClone" data-uid="LinqToDB.Async.IAsyncDbConnection.TryClone">
+  TryClone()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns cloned connection instance, if underlying provider supports cloning or null otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DbConnection? TryClone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Async/IAsyncDbConnection.cs/#L20" class="edit-link">Edit this page</a>
         </div>
+
+        
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-      
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,2596 +1,1991 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class ReflectionExtensions
  | Linq To DB (aka linq2db) </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ReflectionExtensions
  | Linq To DB (aka linq2db) ">
-    
-      <link rel="shortcut icon" href="../images/icon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
+      
+      <link rel="icon" href="../images/icon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
       <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+
+      <script>
+        MathJax = {
+          options: {
+            processHtmlClass: ['tex2jax_process', 'math']
+          }
+        };
+      </script>
+
+      <script type="text/javascript" src="../styles/docfx.min.js"></script>
+      <script type="text/javascript" src="../styles/main.js"></script>
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../images/icon.png" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="LinqToDB.Extensions.ReflectionExtensions">
+
+        <article data-uid="LinqToDB.Extensions.ReflectionExtensions">
 
 
-  <h1 id="LinqToDB_Extensions_ReflectionExtensions" data-uid="LinqToDB.Extensions.ReflectionExtensions" class="text-break">Class ReflectionExtensions
-</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">ReflectionExtensions</span></div>
+
+  <h1 id="LinqToDB_Extensions_ReflectionExtensions" data-uid="LinqToDB.Extensions.ReflectionExtensions" class="text-break">
+    Class ReflectionExtensions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Extensions.html">Extensions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Extensions.html">Extensions</a></h6>
-  <h6><strong>Assembly</strong>: linq2db.dll</h6>
-  <h5 id="LinqToDB_Extensions_ReflectionExtensions_syntax">Syntax</h5>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static class ReflectionExtensions</code></pre>
   </div>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_AsNullable_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.AsNullable(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L345">View Source</a>
-  </span>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ReflectionExtensions</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_AsNullable_" data-uid="LinqToDB.Extensions.ReflectionExtensions.AsNullable*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_AsNullable_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.AsNullable(System.Type)">AsNullable(Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_AsNullable_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.AsNullable(System.Type)">
+  AsNullable(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L345"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Wraps type into <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable&lt;T&gt;</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Type AsNullable(this Type type)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td><p>Value type to wrap. Must be value type (except <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable&lt;T&gt;</a> itself).</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><p>Type, wrapped by <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable&lt;T&gt;</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_CanConvertTo_System_Type_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.CanConvertTo(System.Type%2CSystem.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L869">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Value type to wrap. Must be value type (except <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable&lt;T&gt;</a> itself).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Type, wrapped by <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable&lt;T&gt;</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_CanConvertTo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.CanConvertTo*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_CanConvertTo_System_Type_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.CanConvertTo(System.Type,System.Type)">CanConvertTo(Type, Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_CanConvertTo_System_Type_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.CanConvertTo(System.Type,System.Type)">
+  CanConvertTo(Type, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L869"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool CanConvertTo(this Type fromType, Type toType)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">fromType</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">toType</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_EqualsTo_System_Reflection_MemberInfo_System_Reflection_MemberInfo_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.EqualsTo(System.Reflection.MemberInfo%2CSystem.Reflection.MemberInfo%2CSystem.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L889">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fromType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>toType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_EqualsTo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.EqualsTo*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_EqualsTo_System_Reflection_MemberInfo_System_Reflection_MemberInfo_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.EqualsTo(System.Reflection.MemberInfo,System.Reflection.MemberInfo,System.Type)">EqualsTo(MemberInfo?, MemberInfo?, Type?)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_EqualsTo_System_Reflection_MemberInfo_System_Reflection_MemberInfo_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.EqualsTo(System.Reflection.MemberInfo,System.Reflection.MemberInfo,System.Type)">
+  EqualsTo(MemberInfo?, MemberInfo?, Type?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L889"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool EqualsTo(this MemberInfo? member1, MemberInfo? member2, Type? declaringType = null)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></td>
-        <td><span class="parametername">member1</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></td>
-        <td><span class="parametername">member2</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">declaringType</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetDefaultConstructorEx_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetDefaultConstructorEx(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L192">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>member1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></dt>
+    <dd></dd>
+    <dt><code>member2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></dt>
+    <dd></dd>
+    <dt><code>declaringType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetDefaultConstructorEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetDefaultConstructorEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetDefaultConstructorEx_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetDefaultConstructorEx(System.Type)">GetDefaultConstructorEx(Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetDefaultConstructorEx_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetDefaultConstructorEx(System.Type)">
+  GetDefaultConstructorEx(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static ConstructorInfo? GetDefaultConstructorEx(this Type type)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.constructorinfo">ConstructorInfo</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetDefaultValue_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetDefaultValue(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L782">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.constructorinfo">ConstructorInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetDefaultValue_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetDefaultValue*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetDefaultValue_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetDefaultValue(System.Type)">GetDefaultValue(Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetDefaultValue_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetDefaultValue(System.Type)">
+  GetDefaultValue(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L782"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static object? GetDefaultValue(this Type type)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetDefiningTypes_System_Type_System_Reflection_MemberInfo_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetDefiningTypes(System.Type%2CSystem.Reflection.MemberInfo)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L355">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetDefiningTypes_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetDefiningTypes*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetDefiningTypes_System_Type_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetDefiningTypes(System.Type,System.Reflection.MemberInfo)">GetDefiningTypes(Type, MemberInfo)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetDefiningTypes_System_Type_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetDefiningTypes(System.Type,System.Reflection.MemberInfo)">
+  GetDefiningTypes(Type, MemberInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L355"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IEnumerable&lt;Type&gt; GetDefiningTypes(this Type child, MemberInfo member)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">child</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></td>
-        <td><span class="parametername">member</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetEventEx_System_Type_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetEventEx(System.Type%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L790">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>child</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>member</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetEventEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetEventEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetEventEx_System_Type_System_String_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetEventEx(System.Type,System.String)">GetEventEx(Type, string)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetEventEx_System_Type_System_String_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetEventEx(System.Type,System.String)">
+  GetEventEx(Type, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L790"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static EventInfo? GetEventEx(this Type type, string eventName)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">eventName</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.eventinfo">EventInfo</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetGenericArguments_System_Type_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetGenericArguments(System.Type%2CSystem.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L695">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>eventName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.eventinfo">EventInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetGenericArguments_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetGenericArguments*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetGenericArguments_System_Type_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetGenericArguments(System.Type,System.Type)">GetGenericArguments(Type, Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetGenericArguments_System_Type_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetGenericArguments(System.Type,System.Type)">
+  GetGenericArguments(Type, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L695"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns an array of Type objects that represent the type arguments
 of a generic type or the type parameters of a generic type definition.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Type[]? GetGenericArguments(this Type type, Type baseType)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> instance.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">baseType</span></td>
-        <td><p>Non generic base type.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</td>
-        <td><p>An array of Type objects that represent the type arguments
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> instance.</p>
+</dd>
+    <dt><code>baseType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Non generic base type.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</dt>
+    <dd><p>An array of Type objects that represent the type arguments
 of a generic type. Returns an empty array if the current type is not a generic type.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetGenericType_System_Type_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetGenericType(System.Type%2CSystem.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L477">View Source</a>
-  </span>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetGenericType_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetGenericType*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetGenericType_System_Type_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetGenericType(System.Type,System.Type)">GetGenericType(Type, Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetGenericType_System_Type_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetGenericType(System.Type,System.Type)">
+  GetGenericType(Type, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L477"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Type? GetGenericType(this Type genericType, Type type)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">genericType</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetInstanceMemberEx_System_Type_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetInstanceMemberEx(System.Type%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L256">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>genericType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetInstanceMemberEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetInstanceMemberEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetInstanceMemberEx_System_Type_System_String_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetInstanceMemberEx(System.Type,System.String)">GetInstanceMemberEx(Type, string)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetInstanceMemberEx_System_Type_System_String_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetInstanceMemberEx(System.Type,System.String)">
+  GetInstanceMemberEx(Type, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L256"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static MemberInfo[] GetInstanceMemberEx(this Type type, string name)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetInterfaceMapEx_System_Type_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetInterfaceMapEx(System.Type%2CSystem.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L269">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetInterfaceMapEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetInterfaceMapEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetInterfaceMapEx_System_Type_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetInterfaceMapEx(System.Type,System.Type)">GetInterfaceMapEx(Type, Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetInterfaceMapEx_System_Type_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetInterfaceMapEx(System.Type,System.Type)">
+  GetInterfaceMapEx(Type, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L269"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static InterfaceMapping GetInterfaceMapEx(this Type type, Type interfaceType)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">interfaceType</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.interfacemapping">InterfaceMapping</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetItemType_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetItemType(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L625">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>interfaceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.interfacemapping">InterfaceMapping</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetItemType_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetItemType*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetItemType_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetItemType(System.Type)">GetItemType(Type?)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetItemType_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetItemType(System.Type)">
+  GetItemType(Type?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L625"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Type? GetItemType(this Type? type)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetListItemType_System_Collections_IEnumerable_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetListItemType(System.Collections.IEnumerable)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L511">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetListItemType_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetListItemType*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetListItemType_System_Collections_IEnumerable_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetListItemType(System.Collections.IEnumerable)">GetListItemType(IEnumerable?)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetListItemType_System_Collections_IEnumerable_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetListItemType(System.Collections.IEnumerable)">
+  GetListItemType(IEnumerable?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L511"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the Type of a list item.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Type GetListItemType(this IEnumerable? list)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></td>
-        <td><span class="parametername">list</span></td>
-        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a> instance.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><p>The Type instance that represents the exact runtime type of a list item.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetListItemType_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetListItemType(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L563">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>list</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a> instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>The Type instance that represents the exact runtime type of a list item.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetListItemType_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetListItemType*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetListItemType_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetListItemType(System.Type)">GetListItemType(Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetListItemType_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetListItemType(System.Type)">
+  GetListItemType(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L563"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the Type of a list item.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Type GetListItemType(this Type listType)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">listType</span></td>
-        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> instance.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><p>The Type instance that represents the exact runtime type of a list item.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetMemberEx_System_Type_System_Reflection_MemberInfo_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetMemberEx(System.Type%2CSystem.Reflection.MemberInfo)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L78">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>listType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>The Type instance that represents the exact runtime type of a list item.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetMemberEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMemberEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetMemberEx_System_Type_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMemberEx(System.Type,System.Reflection.MemberInfo)">GetMemberEx(Type, MemberInfo)</h4>
-  <div class="markdown level1 summary"><p>Returns <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a> of <code data-dev-comment-type="paramref" class="paramref">type</code> described by <code data-dev-comment-type="paramref" class="paramref">memberInfo</code>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetMemberEx_System_Type_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMemberEx(System.Type,System.Reflection.MemberInfo)">
+  GetMemberEx(Type, MemberInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a> of <code class="paramref">type</code> described by <code class="paramref">memberInfo</code>
 It us useful when member's declared and reflected types are not the same.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static MemberInfo? GetMemberEx(this Type type, MemberInfo memberInfo)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> to find member info</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></td>
-        <td><span class="parametername">memberInfo</span></td>
-        <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></td>
-        <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a> or null</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="LinqToDB_Extensions_ReflectionExtensions_GetMemberEx_System_Type_System_Reflection_MemberInfo__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> to find member info</p>
+</dd>
+    <dt><code>memberInfo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></dt>
+    <dd><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></dt>
+    <dd><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a> or null</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="LinqToDB_Extensions_ReflectionExtensions_GetMemberEx_System_Type_System_Reflection_MemberInfo__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>This method searches only properties, fields and methods</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetMemberType_System_Reflection_MemberInfo_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetMemberType(System.Reflection.MemberInfo)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L823">View Source</a>
-  </span>
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetMemberType_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMemberType*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetMemberType_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMemberType(System.Reflection.MemberInfo)">GetMemberType(MemberInfo)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetMemberType_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMemberType(System.Reflection.MemberInfo)">
+  GetMemberType(MemberInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L823"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Type GetMemberType(this MemberInfo memberInfo)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></td>
-        <td><span class="parametername">memberInfo</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_System_Type_System_String_System_Int32_System_Type___.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetMethodEx(System.Type%2CSystem.String%2CSystem.Int32%2CSystem.Type%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L152">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>memberInfo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMethodEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_System_Type_System_String_System_Int32_System_Type___" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMethodEx(System.Type,System.String,System.Int32,System.Type[])">GetMethodEx(Type, string, int, params Type[])</h4>
-  <div class="markdown level1 summary"><p>Gets generic method.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static MethodInfo? GetMethodEx(this Type type, string name, int genericParametersCount, params Type[] types)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">genericParametersCount</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</td>
-        <td><span class="parametername">types</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_System_Type_System_String_System_Type___.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetMethodEx(System.Type%2CSystem.String%2CSystem.Type%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L182">View Source</a>
-  </span>
-  <a id="LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMethodEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_System_Type_System_String_System_Type___" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMethodEx(System.Type,System.String,System.Type[])">GetMethodEx(Type, string, params Type[])</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_System_Type_System_String_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMethodEx(System.Type,System.String)">
+  GetMethodEx(Type, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static MethodInfo? GetMethodEx(this Type type, string name, params Type[] types)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</td>
-        <td><span class="parametername">types</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_System_Type_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetMethodEx(System.Type%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L112">View Source</a>
-  </span>
-  <a id="LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMethodEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_System_Type_System_String_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMethodEx(System.Type,System.String)">GetMethodEx(Type, string)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static MethodInfo? GetMethodEx(this Type type, string name)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_System_Type_System_Type_System_String_System_Type___.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetMethodEx(System.Type%2CSystem.Type%2CSystem.String%2CSystem.Type%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L121">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMethodEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_System_Type_System_Type_System_String_System_Type___" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMethodEx(System.Type,System.Type,System.String,System.Type[])">GetMethodEx(Type, Type, string, params Type[])</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_System_Type_System_String_System_Int32_System_Type___" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMethodEx(System.Type,System.String,System.Int32,System.Type[])">
+  GetMethodEx(Type, string, int, params Type[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets generic method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MethodInfo? GetMethodEx(this Type type, string name, int genericParametersCount, params Type[] types)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>genericParametersCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>types</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMethodEx*"></a>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_System_Type_System_String_System_Type___" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMethodEx(System.Type,System.String,System.Type[])">
+  GetMethodEx(Type, string, params Type[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L182"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MethodInfo? GetMethodEx(this Type type, string name, params Type[] types)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>types</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMethodEx*"></a>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetMethodEx_System_Type_System_Type_System_String_System_Type___" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetMethodEx(System.Type,System.Type,System.String,System.Type[])">
+  GetMethodEx(Type, Type, string, params Type[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets method by name, input parameters and return type.
 Usefull for method overloads by return type, like op_Explicit/op_Implicit conversions.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static MethodInfo? GetMethodEx(this Type type, Type returnType, string name, params Type[] types)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">returnType</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</td>
-        <td><span class="parametername">types</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetNonPublicPropertiesEx_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetNonPublicPropertiesEx(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L251">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>returnType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>types</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetNonPublicPropertiesEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetNonPublicPropertiesEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetNonPublicPropertiesEx_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetNonPublicPropertiesEx(System.Type)">GetNonPublicPropertiesEx(Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetNonPublicPropertiesEx_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetNonPublicPropertiesEx(System.Type)">
+  GetNonPublicPropertiesEx(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static PropertyInfo[] GetNonPublicPropertiesEx(this Type type)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetPropertiesEx_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetPropertiesEx(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L246">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetPropertiesEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPropertiesEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetPropertiesEx_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPropertiesEx(System.Type)">GetPropertiesEx(Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetPropertiesEx_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPropertiesEx(System.Type)">
+  GetPropertiesEx(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L246"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static PropertyInfo[] GetPropertiesEx(this Type type)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetPropertyInfo_System_Reflection_MethodInfo_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetPropertyInfo(System.Reflection.MethodInfo)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L799">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetPropertyInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPropertyInfo*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetPropertyInfo_System_Reflection_MethodInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPropertyInfo(System.Reflection.MethodInfo)">GetPropertyInfo(MethodInfo?)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetPropertyInfo_System_Reflection_MethodInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPropertyInfo(System.Reflection.MethodInfo)">
+  GetPropertyInfo(MethodInfo?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L799"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static PropertyInfo? GetPropertyInfo(this MethodInfo? method)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></td>
-        <td><span class="parametername">method</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetPublicInstanceMembersEx_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetPublicInstanceMembersEx(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L24">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetPublicInstanceMembersEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPublicInstanceMembersEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetPublicInstanceMembersEx_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPublicInstanceMembersEx(System.Type)">GetPublicInstanceMembersEx(Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetPublicInstanceMembersEx_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPublicInstanceMembersEx(System.Type)">
+  GetPublicInstanceMembersEx(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static MemberInfo[] GetPublicInstanceMembersEx(this Type type)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetPublicInstanceMethodEx_System_Type_System_String_System_Type___.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetPublicInstanceMethodEx(System.Type%2CSystem.String%2CSystem.Type%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L187">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetPublicInstanceMethodEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPublicInstanceMethodEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetPublicInstanceMethodEx_System_Type_System_String_System_Type___" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPublicInstanceMethodEx(System.Type,System.String,System.Type[])">GetPublicInstanceMethodEx(Type, string, params Type[])</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetPublicInstanceMethodEx_System_Type_System_String_System_Type___" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPublicInstanceMethodEx(System.Type,System.String,System.Type[])">
+  GetPublicInstanceMethodEx(Type, string, params Type[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static MethodInfo? GetPublicInstanceMethodEx(this Type type, string name, params Type[] types)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</td>
-        <td><span class="parametername">types</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetPublicInstanceValueMembers_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetPublicInstanceValueMembers(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L29">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>types</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetPublicInstanceValueMembers_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPublicInstanceValueMembers*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetPublicInstanceValueMembers_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPublicInstanceValueMembers(System.Type)">GetPublicInstanceValueMembers(Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetPublicInstanceValueMembers_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPublicInstanceValueMembers(System.Type)">
+  GetPublicInstanceValueMembers(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static MemberInfo[] GetPublicInstanceValueMembers(this Type type)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetPublicMemberEx_System_Type_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetPublicMemberEx(System.Type%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L261">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetPublicMemberEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPublicMemberEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetPublicMemberEx_System_Type_System_String_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPublicMemberEx(System.Type,System.String)">GetPublicMemberEx(Type, string)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetPublicMemberEx_System_Type_System_String_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetPublicMemberEx(System.Type,System.String)">
+  GetPublicMemberEx(Type, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L261"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static MemberInfo[] GetPublicMemberEx(this Type type, string name)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetStaticMembersEx_System_Type_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetStaticMembersEx(System.Type%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L65">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetStaticMembersEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetStaticMembersEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetStaticMembersEx_System_Type_System_String_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetStaticMembersEx(System.Type,System.String)">GetStaticMembersEx(Type, string)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetStaticMembersEx_System_Type_System_String_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetStaticMembersEx(System.Type,System.String)">
+  GetStaticMembersEx(Type, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static MemberInfo[] GetStaticMembersEx(this Type type, string name)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_GetTypeCodeEx_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.GetTypeCodeEx(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L201">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_GetTypeCodeEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetTypeCodeEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_GetTypeCodeEx_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetTypeCodeEx(System.Type)">GetTypeCodeEx(Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_GetTypeCodeEx_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.GetTypeCodeEx(System.Type)">
+  GetTypeCodeEx(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static TypeCode GetTypeCodeEx(this Type type)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.typecode">TypeCode</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_IsAnonymous_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.IsAnonymous(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L959">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.typecode">TypeCode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_IsAnonymous_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsAnonymous*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_IsAnonymous_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsAnonymous(System.Type)">IsAnonymous(Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_IsAnonymous_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsAnonymous(System.Type)">
+  IsAnonymous(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L959"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool IsAnonymous(this Type type)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_IsDynamicColumnPropertyEx_System_Reflection_MemberInfo_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.IsDynamicColumnPropertyEx(System.Reflection.MemberInfo)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L241">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_IsDynamicColumnPropertyEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsDynamicColumnPropertyEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_IsDynamicColumnPropertyEx_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsDynamicColumnPropertyEx(System.Reflection.MemberInfo)">IsDynamicColumnPropertyEx(MemberInfo)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_IsDynamicColumnPropertyEx_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsDynamicColumnPropertyEx(System.Reflection.MemberInfo)">
+  IsDynamicColumnPropertyEx(MemberInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L241"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Determines whether member info is dynamic column property.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool IsDynamicColumnPropertyEx(this MemberInfo memberInfo)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></td>
-        <td><span class="parametername">memberInfo</span></td>
-        <td><p>The member information.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p><code>true</code> if member info is dynamic column property; otherwise, <code>false</code>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_IsEnumerableTType_System_Type_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.IsEnumerableTType(System.Type%2CSystem.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L602">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>memberInfo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></dt>
+    <dd><p>The member information.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if member info is dynamic column property; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_IsEnumerableTType_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsEnumerableTType*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_IsEnumerableTType_System_Type_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsEnumerableTType(System.Type,System.Type)">IsEnumerableTType(Type, Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_IsEnumerableTType_System_Type_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsEnumerableTType(System.Type,System.Type)">
+  IsEnumerableTType(Type, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L602"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool IsEnumerableTType(this Type type, Type elementType)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">elementType</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_IsFieldEx_System_Reflection_MemberInfo_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.IsFieldEx(System.Reflection.MemberInfo)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L211">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>elementType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_IsFieldEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsFieldEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_IsFieldEx_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsFieldEx(System.Reflection.MemberInfo)">IsFieldEx(MemberInfo)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_IsFieldEx_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsFieldEx(System.Reflection.MemberInfo)">
+  IsFieldEx(MemberInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool IsFieldEx(this MemberInfo memberInfo)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></td>
-        <td><span class="parametername">memberInfo</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_IsFloatType_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.IsFloatType(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L734">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>memberInfo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_IsFloatType_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsFloatType*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_IsFloatType_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsFloatType(System.Type)">IsFloatType(Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_IsFloatType_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsFloatType(System.Type)">
+  IsFloatType(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L734"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool IsFloatType(this Type type)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_IsGenericEnumerableType_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.IsGenericEnumerableType(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L615">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_IsGenericEnumerableType_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsGenericEnumerableType*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_IsGenericEnumerableType_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsGenericEnumerableType(System.Type)">IsGenericEnumerableType(Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_IsGenericEnumerableType_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsGenericEnumerableType(System.Type)">
+  IsGenericEnumerableType(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L615"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool IsGenericEnumerableType(this Type type)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_IsIntegerType_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.IsIntegerType(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L749">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_IsIntegerType_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsIntegerType*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_IsIntegerType_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsIntegerType(System.Type)">IsIntegerType(Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_IsIntegerType_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsIntegerType(System.Type)">
+  IsIntegerType(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L749"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool IsIntegerType(this Type type)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_IsMethodEx_System_Reflection_MemberInfo_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.IsMethodEx(System.Reflection.MemberInfo)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L216">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_IsMethodEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsMethodEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_IsMethodEx_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsMethodEx(System.Reflection.MemberInfo)">IsMethodEx(MemberInfo)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_IsMethodEx_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsMethodEx(System.Reflection.MemberInfo)">
+  IsMethodEx(MemberInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L216"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool IsMethodEx(this MemberInfo memberInfo)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></td>
-        <td><span class="parametername">memberInfo</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_IsNullable_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.IsNullable(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L306">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>memberInfo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_IsNullable_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsNullable*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_IsNullable_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsNullable(System.Type)">IsNullable(Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_IsNullable_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsNullable(System.Type)">
+  IsNullable(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L306"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns true, if type is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable&lt;T&gt;</a> type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool IsNullable(this Type type)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> instance.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p><code>true</code>, if <code data-dev-comment-type="paramref" class="paramref">type</code> represents <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable&lt;T&gt;</a> type; otherwise, <code>false</code>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_IsNullableGetValueOrDefault_System_Reflection_MemberInfo_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.IsNullableGetValueOrDefault(System.Reflection.MemberInfo)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L849">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code>, if <code class="paramref">type</code> represents <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable&lt;T&gt;</a> type; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_IsNullableGetValueOrDefault_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsNullableGetValueOrDefault*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_IsNullableGetValueOrDefault_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsNullableGetValueOrDefault(System.Reflection.MemberInfo)">IsNullableGetValueOrDefault(MemberInfo)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_IsNullableGetValueOrDefault_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsNullableGetValueOrDefault(System.Reflection.MemberInfo)">
+  IsNullableGetValueOrDefault(MemberInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L849"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool IsNullableGetValueOrDefault(this MemberInfo member)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></td>
-        <td><span class="parametername">member</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_IsNullableHasValueMember_System_Reflection_MemberInfo_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.IsNullableHasValueMember(System.Reflection.MemberInfo)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L842">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>member</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_IsNullableHasValueMember_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsNullableHasValueMember*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_IsNullableHasValueMember_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsNullableHasValueMember(System.Reflection.MemberInfo)">IsNullableHasValueMember(MemberInfo)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_IsNullableHasValueMember_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsNullableHasValueMember(System.Reflection.MemberInfo)">
+  IsNullableHasValueMember(MemberInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L842"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool IsNullableHasValueMember(this MemberInfo member)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></td>
-        <td><span class="parametername">member</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_IsNullableValueMember_System_Reflection_MemberInfo_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.IsNullableValueMember(System.Reflection.MemberInfo)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L835">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>member</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_IsNullableValueMember_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsNullableValueMember*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_IsNullableValueMember_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsNullableValueMember(System.Reflection.MemberInfo)">IsNullableValueMember(MemberInfo)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_IsNullableValueMember_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsNullableValueMember(System.Reflection.MemberInfo)">
+  IsNullableValueMember(MemberInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L835"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool IsNullableValueMember(this MemberInfo member)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></td>
-        <td><span class="parametername">member</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_IsPropertyEx_System_Reflection_MemberInfo_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.IsPropertyEx(System.Reflection.MemberInfo)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L206">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>member</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_IsPropertyEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsPropertyEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_IsPropertyEx_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsPropertyEx(System.Reflection.MemberInfo)">IsPropertyEx(MemberInfo)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_IsPropertyEx_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsPropertyEx(System.Reflection.MemberInfo)">
+  IsPropertyEx(MemberInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool IsPropertyEx(this MemberInfo memberInfo)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></td>
-        <td><span class="parametername">memberInfo</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_IsSameOrParentOf_System_Type_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.IsSameOrParentOf(System.Type%2CSystem.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L391">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>memberInfo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_IsSameOrParentOf_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsSameOrParentOf*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_IsSameOrParentOf_System_Type_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsSameOrParentOf(System.Type,System.Type)">IsSameOrParentOf(Type, Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_IsSameOrParentOf_System_Type_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsSameOrParentOf(System.Type,System.Type)">
+  IsSameOrParentOf(Type, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L391"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Determines whether the specified types are considered equal.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool IsSameOrParentOf(this Type parent, Type child)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">parent</span></td>
-        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> instance.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">child</span></td>
-        <td><p>A type possible derived from the <code>parent</code> type</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p>True, when an object instance of the type <code>child</code>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> instance.</p>
+</dd>
+    <dt><code>child</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>A type possible derived from the <code>parent</code> type</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True, when an object instance of the type <code>child</code>
 can be used as an object of the type <code>parent</code>; otherwise, false.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="LinqToDB_Extensions_ReflectionExtensions_IsSameOrParentOf_System_Type_System_Type__remarks">Remarks</h5>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="LinqToDB_Extensions_ReflectionExtensions_IsSameOrParentOf_System_Type_System_Type__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Note that nullable types does not have a parent-child relation to it's underlying type.
 For example, the 'int?' type (nullable int) and the 'int' type
 aren't a parent and it's child.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_IsScalar_System_Type_System_Boolean_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.IsScalar(System.Type%2CSystem.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L670">View Source</a>
-  </span>
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_IsScalar_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsScalar*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_IsScalar_System_Type_System_Boolean_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsScalar(System.Type,System.Boolean)">IsScalar(Type, bool)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_IsScalar_System_Type_System_Boolean_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsScalar(System.Type,System.Boolean)">
+  IsScalar(Type, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L670"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets a value indicating whether a type can be used as a db primitive.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool IsScalar(this Type type, bool checkArrayElementType = true)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> instance.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><span class="parametername">checkArrayElementType</span></td>
-        <td><p>True if needed to check element type for arrays</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p>True, if the type parameter is a primitive type; otherwise, False.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="LinqToDB_Extensions_ReflectionExtensions_IsScalar_System_Type_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>. <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a>.
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> instance.</p>
+</dd>
+    <dt><code>checkArrayElementType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if needed to check element type for arrays</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True, if the type parameter is a primitive type; otherwise, False.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="LinqToDB_Extensions_ReflectionExtensions_IsScalar_System_Type_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>. <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a>.
 <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlreader">XmlReader</a>. <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmldocument">XmlDocument</a>. are specially handled by the library
 and, therefore, can be treated as scalar types.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_IsSqlPropertyMethodEx_System_Reflection_MemberInfo_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.IsSqlPropertyMethodEx(System.Reflection.MemberInfo)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L228">View Source</a>
-  </span>
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_IsSqlPropertyMethodEx_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsSqlPropertyMethodEx*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_IsSqlPropertyMethodEx_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsSqlPropertyMethodEx(System.Reflection.MemberInfo)">IsSqlPropertyMethodEx(MemberInfo)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_IsSqlPropertyMethodEx_System_Reflection_MemberInfo_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsSqlPropertyMethodEx(System.Reflection.MemberInfo)">
+  IsSqlPropertyMethodEx(MemberInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L228"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Determines whether member info represent a Sql.Property method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool IsSqlPropertyMethodEx(this MemberInfo memberInfo)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></td>
-        <td><span class="parametername">memberInfo</span></td>
-        <td><p>The member information.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p><code>true</code> if member info is Sql.Property method; otherwise, <code>false</code>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_IsSubClassOf_System_Type_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.IsSubClassOf(System.Type%2CSystem.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L443">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>memberInfo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a></dt>
+    <dd><p>The member information.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if member info is Sql.Property method; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_IsSubClassOf_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsSubClassOf*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_IsSubClassOf_System_Type_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsSubClassOf(System.Type,System.Type)">IsSubClassOf(Type, Type)</h4>
-  <div class="markdown level1 summary"><p>Determines whether the <code data-dev-comment-type="paramref" class="paramref">type</code> derives from the specified <code data-dev-comment-type="paramref" class="paramref">check</code>.</p>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_IsSubClassOf_System_Type_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.IsSubClassOf(System.Type,System.Type)">
+  IsSubClassOf(Type, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L443"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the <code class="paramref">type</code> derives from the specified <code class="paramref">check</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool IsSubClassOf(this Type type, Type check)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td><p>The type to test.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">check</span></td>
-        <td><p>The type to compare with.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><p>true if the <code data-dev-comment-type="paramref" class="paramref">type</code> derives from <code data-dev-comment-type="paramref" class="paramref">check</code>; otherwise, false.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="LinqToDB_Extensions_ReflectionExtensions_IsSubClassOf_System_Type_System_Type__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method also returns false if <code data-dev-comment-type="paramref" class="paramref">type</code> and the <code data-dev-comment-type="paramref" class="paramref">check</code> are equal.</p>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>The type to test.</p>
+</dd>
+    <dt><code>check</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>The type to compare with.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if the <code class="paramref">type</code> derives from <code class="paramref">check</code>; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="LinqToDB_Extensions_ReflectionExtensions_IsSubClassOf_System_Type_System_Type__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method also returns false if <code class="paramref">type</code> and the <code class="paramref">check</code> are equal.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_ToNullableUnderlying_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.ToNullableUnderlying(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L333">View Source</a>
-  </span>
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_ToNullableUnderlying_" data-uid="LinqToDB.Extensions.ReflectionExtensions.ToNullableUnderlying*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_ToNullableUnderlying_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.ToNullableUnderlying(System.Type)">ToNullableUnderlying(Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_ToNullableUnderlying_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.ToNullableUnderlying(System.Type)">
+  ToNullableUnderlying(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L333"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Type ToNullableUnderlying(this Type type)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions_ToUnderlying_System_Type_.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions.ToUnderlying(System.Type)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L323">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Extensions_ReflectionExtensions_ToUnderlying_" data-uid="LinqToDB.Extensions.ReflectionExtensions.ToUnderlying*"></a>
-  <h4 id="LinqToDB_Extensions_ReflectionExtensions_ToUnderlying_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.ToUnderlying(System.Type)">ToUnderlying(Type)</h4>
+
+  <h3 id="LinqToDB_Extensions_ReflectionExtensions_ToUnderlying_System_Type_" data-uid="LinqToDB.Extensions.ReflectionExtensions.ToUnderlying(System.Type)">
+  ToUnderlying(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L323"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns the underlying type argument of the specified type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Type ToUnderlying(this Type type)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">type</span></td>
-        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> instance.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Extensions_ReflectionExtensions.md&amp;value=---%0Auid%3A%20LinqToDB.Extensions.ReflectionExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L20" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/ReflectionExtensions.cs/#L20" class="edit-link">Edit this page</a>
         </div>
+
+        
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-      
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

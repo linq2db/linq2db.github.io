@@ -1,1873 +1,125 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class CodeModelVisitor
  | Linq To DB (aka linq2db) </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class CodeModelVisitor
  | Linq To DB (aka linq2db) ">
-    
-      <link rel="shortcut icon" href="../images/icon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
+      
+      <link rel="icon" href="../images/icon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
       <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+
+      <script>
+        MathJax = {
+          options: {
+            processHtmlClass: ['tex2jax_process', 'math']
+          }
+        };
+      </script>
+
+      <script type="text/javascript" src="../styles/docfx.min.js"></script>
+      <script type="text/javascript" src="../styles/main.js"></script>
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../images/icon.png" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="LinqToDB.CodeModel.CodeModelVisitor">
+
+        <article data-uid="LinqToDB.CodeModel.CodeModelVisitor">
 
 
-  <h1 id="LinqToDB_CodeModel_CodeModelVisitor" data-uid="LinqToDB.CodeModel.CodeModelVisitor" class="text-break">Class CodeModelVisitor
-</h1>
-  <div class="markdown level0 summary"><p>Base AST visitor class without node visit methods implementation.</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">CodeModelVisitor</span></div>
-      <div class="level2"><a class="xref" href="LinqToDB.CodeModel.CodeGenerationVisitor.html">CodeGenerationVisitor</a></div>
-      <div class="level2"><a class="xref" href="LinqToDB.CodeModel.NoopCodeModelVisitor.html">NoopCodeModelVisitor</a></div>
+
+  <h1 id="LinqToDB_CodeModel_CodeModelVisitor" data-uid="LinqToDB.CodeModel.CodeModelVisitor" class="text-break">
+    Class CodeModelVisitor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.CodeModel.html">CodeModel</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.Tools.dll</dd></dl>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.CodeModel.html">CodeModel</a></h6>
-  <h6><strong>Assembly</strong>: linq2db.Tools.dll</h6>
-  <h5 id="LinqToDB_CodeModel_CodeModelVisitor_syntax">Syntax</h5>
+
+  <div class="markdown summary"><p>Base AST visitor class without node visit methods implementation.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract class CodeModelVisitor</code></pre>
   </div>
-  <h3 id="properties">Properties
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Parent.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Parent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L19">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Parent_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Parent*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Parent" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Parent">Parent</h4>
-  <div class="markdown level1 summary"><p>Parent node or <code>null</code> if visitor at top level node position.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ICodeElement? Parent { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.ICodeElement.html">ICodeElement</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_ClassGroup_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.ClassGroup)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L92">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_ClassGroup_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.ClassGroup)">Visit(ClassGroup)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(ClassGroup group)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.ClassGroup.html">ClassGroup</a></td>
-        <td><span class="parametername">group</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAsOperator_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAsOperator)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L96">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAsOperator_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAsOperator)">Visit(CodeAsOperator)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeAsOperator expression)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeAsOperator.html">CodeAsOperator</a></td>
-        <td><span class="parametername">expression</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAssignmentExpression_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAssignmentExpression)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L107">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAssignmentExpression_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAssignmentExpression)">Visit(CodeAssignmentExpression)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeAssignmentExpression expression)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeAssignmentExpression.html">CodeAssignmentExpression</a></td>
-        <td><span class="parametername">expression</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAssignmentStatement_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAssignmentStatement)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L106">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAssignmentStatement_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAssignmentStatement)">Visit(CodeAssignmentStatement)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeAssignmentStatement statement)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeAssignmentStatement.html">CodeAssignmentStatement</a></td>
-        <td><span class="parametername">statement</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAttribute_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAttribute)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L119">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAttribute_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAttribute)">Visit(CodeAttribute)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeAttribute attribute)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeAttribute.html">CodeAttribute</a></td>
-        <td><span class="parametername">attribute</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAwaitExpression_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAwaitExpression)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L109">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAwaitExpression_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAwaitExpression)">Visit(CodeAwaitExpression)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeAwaitExpression expression)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeAwaitExpression.html">CodeAwaitExpression</a></td>
-        <td><span class="parametername">expression</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAwaitStatement_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAwaitStatement)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L108">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAwaitStatement_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAwaitStatement)">Visit(CodeAwaitStatement)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeAwaitStatement statement)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeAwaitStatement.html">CodeAwaitStatement</a></td>
-        <td><span class="parametername">statement</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeBinary_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeBinary)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L113">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeBinary_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeBinary)">Visit(CodeBinary)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeBinary expression)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeBinary.html">CodeBinary</a></td>
-        <td><span class="parametername">expression</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeCallExpression_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeCallExpression)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L129">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeCallExpression_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeCallExpression)">Visit(CodeCallExpression)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeCallExpression call)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeCallExpression.html">CodeCallExpression</a></td>
-        <td><span class="parametername">call</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeCallStatement_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeCallStatement)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L128">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeCallStatement_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeCallStatement)">Visit(CodeCallStatement)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeCallStatement call)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeCallStatement.html">CodeCallStatement</a></td>
-        <td><span class="parametername">call</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeClass_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeClass)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L133">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeClass_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeClass)">Visit(CodeClass)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeClass @class)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeClass.html">CodeClass</a></td>
-        <td><span class="parametername">class</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeComment_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeComment)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L120">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeComment_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeComment)">Visit(CodeComment)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeComment comment)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeComment.html">CodeComment</a></td>
-        <td><span class="parametername">comment</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeConstant_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeConstant)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L118">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeConstant_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeConstant)">Visit(CodeConstant)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeConstant constant)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeConstant.html">CodeConstant</a></td>
-        <td><span class="parametername">constant</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeConstructor_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeConstructor)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L125">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeConstructor_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeConstructor)">Visit(CodeConstructor)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeConstructor ctor)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeConstructor.html">CodeConstructor</a></td>
-        <td><span class="parametername">ctor</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeDefault_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeDefault)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L104">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeDefault_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeDefault)">Visit(CodeDefault)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeDefault expression)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeDefault.html">CodeDefault</a></td>
-        <td><span class="parametername">expression</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeEmptyLine_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeEmptyLine)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L121">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeEmptyLine_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeEmptyLine)">Visit(CodeEmptyLine)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeEmptyLine line)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeEmptyLine.html">CodeEmptyLine</a></td>
-        <td><span class="parametername">line</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeField_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeField)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L103">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeField_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeField)">Visit(CodeField)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeField field)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeField.html">CodeField</a></td>
-        <td><span class="parametername">field</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeFile_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeFile)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L112">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeFile_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeFile)">Visit(CodeFile)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeFile file)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeFile.html">CodeFile</a></td>
-        <td><span class="parametername">file</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeIdentifier_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeIdentifier)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L134">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeIdentifier_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeIdentifier)">Visit(CodeIdentifier)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeIdentifier identifier)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeIdentifier.html">CodeIdentifier</a></td>
-        <td><span class="parametername">identifier</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeImport_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeImport)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L110">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeImport_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeImport)">Visit(CodeImport)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeImport import)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeImport.html">CodeImport</a></td>
-        <td><span class="parametername">import</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeIndex_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeIndex)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L102">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeIndex_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeIndex)">Visit(CodeIndex)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeIndex expression)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeIndex.html">CodeIndex</a></td>
-        <td><span class="parametername">expression</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeLambda_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeLambda)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L114">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeLambda_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeLambda)">Visit(CodeLambda)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeLambda method)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeLambda.html">CodeLambda</a></td>
-        <td><span class="parametername">method</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeMember_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeMember)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L115">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeMember_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeMember)">Visit(CodeMember)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeMember expression)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeMember.html">CodeMember</a></td>
-        <td><span class="parametername">expression</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeMethod_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeMethod)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L122">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeMethod_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeMethod)">Visit(CodeMethod)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeMethod method)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeMethod.html">CodeMethod</a></td>
-        <td><span class="parametername">method</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeNameOf_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeNameOf)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L116">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeNameOf_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeNameOf)">Visit(CodeNameOf)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeNameOf nameOf)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeNameOf.html">CodeNameOf</a></td>
-        <td><span class="parametername">nameOf</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeNamespace_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeNamespace)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L132">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeNamespace_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeNamespace)">Visit(CodeNamespace)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeNamespace @namespace)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeNamespace.html">CodeNamespace</a></td>
-        <td><span class="parametername">namespace</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeNew_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeNew)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L105">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeNew_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeNew)">Visit(CodeNew)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeNew expression)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeNew.html">CodeNew</a></td>
-        <td><span class="parametername">expression</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeNewArray_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeNewArray)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L101">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeNewArray_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeNewArray)">Visit(CodeNewArray)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeNewArray expression)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeNewArray.html">CodeNewArray</a></td>
-        <td><span class="parametername">expression</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeParameter_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeParameter)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L123">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeParameter_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeParameter)">Visit(CodeParameter)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeParameter parameter)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeParameter.html">CodeParameter</a></td>
-        <td><span class="parametername">parameter</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodePragma_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodePragma)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L111">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodePragma_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodePragma)">Visit(CodePragma)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodePragma pragma)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodePragma.html">CodePragma</a></td>
-        <td><span class="parametername">pragma</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeProperty_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeProperty)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L131">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeProperty_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeProperty)">Visit(CodeProperty)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeProperty property)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeProperty.html">CodeProperty</a></td>
-        <td><span class="parametername">property</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeReference_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeReference)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L137">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeReference_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeReference)">Visit(CodeReference)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeReference reference)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeReference.html">CodeReference</a></td>
-        <td><span class="parametername">reference</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeRegion_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeRegion)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L117">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeRegion_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeRegion)">Visit(CodeRegion)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeRegion region)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeRegion.html">CodeRegion</a></td>
-        <td><span class="parametername">region</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeReturn_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeReturn)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L130">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeReturn_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeReturn)">Visit(CodeReturn)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeReturn statement)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeReturn.html">CodeReturn</a></td>
-        <td><span class="parametername">statement</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeSuppressNull_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeSuppressNull)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L97">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeSuppressNull_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeSuppressNull)">Visit(CodeSuppressNull)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeSuppressNull expression)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeSuppressNull.html">CodeSuppressNull</a></td>
-        <td><span class="parametername">expression</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeThis_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeThis)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L127">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeThis_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeThis)">Visit(CodeThis)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeThis expression)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeThis.html">CodeThis</a></td>
-        <td><span class="parametername">expression</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeThrowExpression_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeThrowExpression)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L99">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeThrowExpression_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeThrowExpression)">Visit(CodeThrowExpression)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeThrowExpression expression)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeThrowExpression.html">CodeThrowExpression</a></td>
-        <td><span class="parametername">expression</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeThrowStatement_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeThrowStatement)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L98">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeThrowStatement_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeThrowStatement)">Visit(CodeThrowStatement)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeThrowStatement statement)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeThrowStatement.html">CodeThrowStatement</a></td>
-        <td><span class="parametername">statement</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeTypeCast_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeTypeCast)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L95">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeTypeCast_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeTypeCast)">Visit(CodeTypeCast)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeTypeCast expression)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeTypeCast.html">CodeTypeCast</a></td>
-        <td><span class="parametername">expression</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeTypeInitializer_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeTypeInitializer)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L126">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeTypeInitializer_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeTypeInitializer)">Visit(CodeTypeInitializer)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeTypeInitializer cctor)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeTypeInitializer.html">CodeTypeInitializer</a></td>
-        <td><span class="parametername">cctor</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeTypeReference_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeTypeReference)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L135">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeTypeReference_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeTypeReference)">Visit(CodeTypeReference)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeTypeReference type)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeTypeReference.html">CodeTypeReference</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeTypeToken_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeTypeToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L136">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeTypeToken_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeTypeToken)">Visit(CodeTypeToken)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeTypeToken type)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeTypeToken.html">CodeTypeToken</a></td>
-        <td><span class="parametername">type</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeVariable_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeVariable)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L100">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeVariable_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeVariable)">Visit(CodeVariable)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeVariable expression)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeVariable.html">CodeVariable</a></td>
-        <td><span class="parametername">expression</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeXmlComment_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeXmlComment)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L124">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeXmlComment_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeXmlComment)">Visit(CodeXmlComment)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeXmlComment doc)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeXmlComment.html">CodeXmlComment</a></td>
-        <td><span class="parametername">doc</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_ConstructorGroup_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.ConstructorGroup)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L90">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_ConstructorGroup_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.ConstructorGroup)">Visit(ConstructorGroup)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(ConstructorGroup group)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.ConstructorGroup.html">ConstructorGroup</a></td>
-        <td><span class="parametername">group</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_FieldGroup_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.FieldGroup)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L93">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_FieldGroup_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.FieldGroup)">Visit(FieldGroup)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(FieldGroup group)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.FieldGroup.html">FieldGroup</a></td>
-        <td><span class="parametername">group</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_ICodeElement_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.ICodeElement)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L25">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_ICodeElement_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.ICodeElement)">Visit(ICodeElement)</h4>
-  <div class="markdown level1 summary"><p>Main dispatch method.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Visit(ICodeElement node)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.ICodeElement.html">ICodeElement</a></td>
-        <td><span class="parametername">node</span></td>
-        <td><p>Node to visit.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_MethodGroup_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.MethodGroup)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L89">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_MethodGroup_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.MethodGroup)">Visit(MethodGroup)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(MethodGroup group)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.MethodGroup.html">MethodGroup</a></td>
-        <td><span class="parametername">group</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_PragmaGroup_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.PragmaGroup)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L94">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_PragmaGroup_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.PragmaGroup)">Visit(PragmaGroup)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(PragmaGroup group)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.PragmaGroup.html">PragmaGroup</a></td>
-        <td><span class="parametername">group</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_PropertyGroup_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.PropertyGroup)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L88">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_PropertyGroup_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.PropertyGroup)">Visit(PropertyGroup)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(PropertyGroup group)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.PropertyGroup.html">PropertyGroup</a></td>
-        <td><span class="parametername">group</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_RegionGroup_.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.RegionGroup)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L91">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_RegionGroup_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.RegionGroup)">Visit(RegionGroup)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Visit(RegionGroup group)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.RegionGroup.html">RegionGroup</a></td>
-        <td><span class="parametername">group</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_VisitList__1_LinqToDB_CodeModel_CodeElementList___0__.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.VisitList%60%601(LinqToDB.CodeModel.CodeElementList%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L144">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_VisitList_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.VisitList*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_VisitList__1_LinqToDB_CodeModel_CodeElementList___0__" data-uid="LinqToDB.CodeModel.CodeModelVisitor.VisitList``1(LinqToDB.CodeModel.CodeElementList{``0})">VisitList&lt;T&gt;(CodeElementList&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"><p>Helper method to visit list of nodes.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void VisitList&lt;T&gt;(CodeElementList&lt;T&gt; list) where T : ICodeElement</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.CodeModel.CodeElementList-1.html">CodeElementList</a>&lt;T&gt;</td>
-        <td><span class="parametername">list</span></td>
-        <td><p>List of nodes.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>Node type in list.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor_VisitList__1_System_Collections_Generic_IEnumerable___0__.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor.VisitList%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L155">View Source</a>
-  </span>
-  <a id="LinqToDB_CodeModel_CodeModelVisitor_VisitList_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.VisitList*"></a>
-  <h4 id="LinqToDB_CodeModel_CodeModelVisitor_VisitList__1_System_Collections_Generic_IEnumerable___0__" data-uid="LinqToDB.CodeModel.CodeModelVisitor.VisitList``1(System.Collections.Generic.IEnumerable{``0})">VisitList&lt;T&gt;(IEnumerable&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"><p>Helper method to visit collection of nodes.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void VisitList&lt;T&gt;(IEnumerable&lt;T&gt; list) where T : ICodeElement</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
-        <td><span class="parametername">list</span></td>
-        <td><p>Collection of nodes.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>Node type in list.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="extensionmethods">Extension Methods</h3>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CodeModelVisitor</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="LinqToDB.CodeModel.CodeGenerationVisitor.html">CodeGenerationVisitor</a></div>
+      <div><a class="xref" href="LinqToDB.CodeModel.NoopCodeModelVisitor.html">NoopCodeModelVisitor</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
   <div>
       <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
   </div>
@@ -1907,46 +159,1798 @@
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
   </div>
-</article>
-          </div>
+  </dd></dl>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_CodeModel_CodeModelVisitor.md&amp;value=---%0Auid%3A%20LinqToDB.CodeModel.CodeModelVisitor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L9" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Parent_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Parent*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Parent" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Parent">
+  Parent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Parent node or <code>null</code> if visitor at top level node position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ICodeElement? Parent { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.CodeModel.ICodeElement.html">ICodeElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_ClassGroup_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.ClassGroup)">
+  Visit(ClassGroup)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(ClassGroup group)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>group</code> <a class="xref" href="LinqToDB.CodeModel.ClassGroup.html">ClassGroup</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAsOperator_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAsOperator)">
+  Visit(CodeAsOperator)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeAsOperator expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.CodeModel.CodeAsOperator.html">CodeAsOperator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAssignmentExpression_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAssignmentExpression)">
+  Visit(CodeAssignmentExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeAssignmentExpression expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.CodeModel.CodeAssignmentExpression.html">CodeAssignmentExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAssignmentStatement_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAssignmentStatement)">
+  Visit(CodeAssignmentStatement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeAssignmentStatement statement)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>statement</code> <a class="xref" href="LinqToDB.CodeModel.CodeAssignmentStatement.html">CodeAssignmentStatement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAttribute_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAttribute)">
+  Visit(CodeAttribute)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeAttribute attribute)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>attribute</code> <a class="xref" href="LinqToDB.CodeModel.CodeAttribute.html">CodeAttribute</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAwaitExpression_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAwaitExpression)">
+  Visit(CodeAwaitExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeAwaitExpression expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.CodeModel.CodeAwaitExpression.html">CodeAwaitExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeAwaitStatement_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeAwaitStatement)">
+  Visit(CodeAwaitStatement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeAwaitStatement statement)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>statement</code> <a class="xref" href="LinqToDB.CodeModel.CodeAwaitStatement.html">CodeAwaitStatement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeBinary_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeBinary)">
+  Visit(CodeBinary)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeBinary expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.CodeModel.CodeBinary.html">CodeBinary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeCallExpression_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeCallExpression)">
+  Visit(CodeCallExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeCallExpression call)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>call</code> <a class="xref" href="LinqToDB.CodeModel.CodeCallExpression.html">CodeCallExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeCallStatement_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeCallStatement)">
+  Visit(CodeCallStatement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeCallStatement call)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>call</code> <a class="xref" href="LinqToDB.CodeModel.CodeCallStatement.html">CodeCallStatement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeClass_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeClass)">
+  Visit(CodeClass)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeClass @class)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>class</code> <a class="xref" href="LinqToDB.CodeModel.CodeClass.html">CodeClass</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeComment_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeComment)">
+  Visit(CodeComment)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeComment comment)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>comment</code> <a class="xref" href="LinqToDB.CodeModel.CodeComment.html">CodeComment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeConstant_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeConstant)">
+  Visit(CodeConstant)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeConstant constant)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>constant</code> <a class="xref" href="LinqToDB.CodeModel.CodeConstant.html">CodeConstant</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeConstructor_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeConstructor)">
+  Visit(CodeConstructor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeConstructor ctor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ctor</code> <a class="xref" href="LinqToDB.CodeModel.CodeConstructor.html">CodeConstructor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeDefault_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeDefault)">
+  Visit(CodeDefault)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeDefault expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.CodeModel.CodeDefault.html">CodeDefault</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeEmptyLine_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeEmptyLine)">
+  Visit(CodeEmptyLine)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeEmptyLine line)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>line</code> <a class="xref" href="LinqToDB.CodeModel.CodeEmptyLine.html">CodeEmptyLine</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeField_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeField)">
+  Visit(CodeField)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeField field)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>field</code> <a class="xref" href="LinqToDB.CodeModel.CodeField.html">CodeField</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeFile_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeFile)">
+  Visit(CodeFile)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeFile file)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>file</code> <a class="xref" href="LinqToDB.CodeModel.CodeFile.html">CodeFile</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeIdentifier_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeIdentifier)">
+  Visit(CodeIdentifier)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeIdentifier identifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <a class="xref" href="LinqToDB.CodeModel.CodeIdentifier.html">CodeIdentifier</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeImport_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeImport)">
+  Visit(CodeImport)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeImport import)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>import</code> <a class="xref" href="LinqToDB.CodeModel.CodeImport.html">CodeImport</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeIndex_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeIndex)">
+  Visit(CodeIndex)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeIndex expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.CodeModel.CodeIndex.html">CodeIndex</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeLambda_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeLambda)">
+  Visit(CodeLambda)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeLambda method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="LinqToDB.CodeModel.CodeLambda.html">CodeLambda</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeMember_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeMember)">
+  Visit(CodeMember)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeMember expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.CodeModel.CodeMember.html">CodeMember</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeMethod_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeMethod)">
+  Visit(CodeMethod)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeMethod method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <a class="xref" href="LinqToDB.CodeModel.CodeMethod.html">CodeMethod</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeNameOf_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeNameOf)">
+  Visit(CodeNameOf)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeNameOf nameOf)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nameOf</code> <a class="xref" href="LinqToDB.CodeModel.CodeNameOf.html">CodeNameOf</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeNamespace_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeNamespace)">
+  Visit(CodeNamespace)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeNamespace @namespace)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>namespace</code> <a class="xref" href="LinqToDB.CodeModel.CodeNamespace.html">CodeNamespace</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeNew_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeNew)">
+  Visit(CodeNew)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeNew expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.CodeModel.CodeNew.html">CodeNew</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeNewArray_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeNewArray)">
+  Visit(CodeNewArray)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeNewArray expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.CodeModel.CodeNewArray.html">CodeNewArray</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeParameter_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeParameter)">
+  Visit(CodeParameter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeParameter parameter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="LinqToDB.CodeModel.CodeParameter.html">CodeParameter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodePragma_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodePragma)">
+  Visit(CodePragma)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodePragma pragma)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pragma</code> <a class="xref" href="LinqToDB.CodeModel.CodePragma.html">CodePragma</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeProperty_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeProperty)">
+  Visit(CodeProperty)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeProperty property)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <a class="xref" href="LinqToDB.CodeModel.CodeProperty.html">CodeProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeReference_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeReference)">
+  Visit(CodeReference)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeReference reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reference</code> <a class="xref" href="LinqToDB.CodeModel.CodeReference.html">CodeReference</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeRegion_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeRegion)">
+  Visit(CodeRegion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeRegion region)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>region</code> <a class="xref" href="LinqToDB.CodeModel.CodeRegion.html">CodeRegion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeReturn_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeReturn)">
+  Visit(CodeReturn)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeReturn statement)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>statement</code> <a class="xref" href="LinqToDB.CodeModel.CodeReturn.html">CodeReturn</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeSuppressNull_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeSuppressNull)">
+  Visit(CodeSuppressNull)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeSuppressNull expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.CodeModel.CodeSuppressNull.html">CodeSuppressNull</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeTernary_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeTernary)">
+  Visit(CodeTernary)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeTernary expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.CodeModel.CodeTernary.html">CodeTernary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeThis_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeThis)">
+  Visit(CodeThis)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeThis expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.CodeModel.CodeThis.html">CodeThis</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeThrowExpression_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeThrowExpression)">
+  Visit(CodeThrowExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeThrowExpression expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.CodeModel.CodeThrowExpression.html">CodeThrowExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeThrowStatement_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeThrowStatement)">
+  Visit(CodeThrowStatement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeThrowStatement statement)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>statement</code> <a class="xref" href="LinqToDB.CodeModel.CodeThrowStatement.html">CodeThrowStatement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeTypeCast_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeTypeCast)">
+  Visit(CodeTypeCast)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeTypeCast expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.CodeModel.CodeTypeCast.html">CodeTypeCast</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeTypeInitializer_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeTypeInitializer)">
+  Visit(CodeTypeInitializer)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeTypeInitializer cctor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cctor</code> <a class="xref" href="LinqToDB.CodeModel.CodeTypeInitializer.html">CodeTypeInitializer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeTypeReference_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeTypeReference)">
+  Visit(CodeTypeReference)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeTypeReference type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="LinqToDB.CodeModel.CodeTypeReference.html">CodeTypeReference</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeTypeToken_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeTypeToken)">
+  Visit(CodeTypeToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeTypeToken type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="LinqToDB.CodeModel.CodeTypeToken.html">CodeTypeToken</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeUnary_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeUnary)">
+  Visit(CodeUnary)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeUnary expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.CodeModel.CodeUnary.html">CodeUnary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeVariable_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeVariable)">
+  Visit(CodeVariable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeVariable expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.CodeModel.CodeVariable.html">CodeVariable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_CodeXmlComment_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.CodeXmlComment)">
+  Visit(CodeXmlComment)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(CodeXmlComment doc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>doc</code> <a class="xref" href="LinqToDB.CodeModel.CodeXmlComment.html">CodeXmlComment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_ConstructorGroup_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.ConstructorGroup)">
+  Visit(ConstructorGroup)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(ConstructorGroup group)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>group</code> <a class="xref" href="LinqToDB.CodeModel.ConstructorGroup.html">ConstructorGroup</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_FieldGroup_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.FieldGroup)">
+  Visit(FieldGroup)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(FieldGroup group)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>group</code> <a class="xref" href="LinqToDB.CodeModel.FieldGroup.html">FieldGroup</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_ICodeElement_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.ICodeElement)">
+  Visit(ICodeElement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Main dispatch method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Visit(ICodeElement node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="LinqToDB.CodeModel.ICodeElement.html">ICodeElement</a></dt>
+    <dd><p>Node to visit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_MethodGroup_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.MethodGroup)">
+  Visit(MethodGroup)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(MethodGroup group)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>group</code> <a class="xref" href="LinqToDB.CodeModel.MethodGroup.html">MethodGroup</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_PragmaGroup_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.PragmaGroup)">
+  Visit(PragmaGroup)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(PragmaGroup group)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>group</code> <a class="xref" href="LinqToDB.CodeModel.PragmaGroup.html">PragmaGroup</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_PropertyGroup_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.PropertyGroup)">
+  Visit(PropertyGroup)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(PropertyGroup group)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>group</code> <a class="xref" href="LinqToDB.CodeModel.PropertyGroup.html">PropertyGroup</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_Visit_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_Visit_LinqToDB_CodeModel_RegionGroup_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.Visit(LinqToDB.CodeModel.RegionGroup)">
+  Visit(RegionGroup)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Visit(RegionGroup group)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>group</code> <a class="xref" href="LinqToDB.CodeModel.RegionGroup.html">RegionGroup</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_VisitList_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.VisitList*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_VisitList__1_LinqToDB_CodeModel_CodeElementList___0__" data-uid="LinqToDB.CodeModel.CodeModelVisitor.VisitList``1(LinqToDB.CodeModel.CodeElementList{``0})">
+  VisitList&lt;T&gt;(CodeElementList&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L148"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Helper method to visit list of nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void VisitList&lt;T&gt;(CodeElementList&lt;T&gt; list) where T : ICodeElement</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>list</code> <a class="xref" href="LinqToDB.CodeModel.CodeElementList-1.html">CodeElementList</a>&lt;T&gt;</dt>
+    <dd><p>List of nodes.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Node type in list.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_CodeModel_CodeModelVisitor_VisitList_" data-uid="LinqToDB.CodeModel.CodeModelVisitor.VisitList*"></a>
+
+  <h3 id="LinqToDB_CodeModel_CodeModelVisitor_VisitList__1_System_Collections_Generic_IEnumerable___0__" data-uid="LinqToDB.CodeModel.CodeModelVisitor.VisitList``1(System.Collections.Generic.IEnumerable{``0})">
+  VisitList&lt;T&gt;(IEnumerable&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Helper method to visit collection of nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void VisitList&lt;T&gt;(IEnumerable&lt;T&gt; list) where T : ICodeElement</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>list</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd><p>Collection of nodes.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Node type in list.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/CodeModel/Visitors/Basic/CodeModelVisitor.cs/#L9" class="edit-link">Edit this page</a>
         </div>
+
+        
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-      
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

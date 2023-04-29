@@ -1,1179 +1,123 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class MySqlProviderAdapter
  | Linq To DB (aka linq2db) </title>
-      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class MySqlProviderAdapter
  | Linq To DB (aka linq2db) ">
-    
-      <link rel="shortcut icon" href="../images/icon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
+      
+      <link rel="icon" href="../images/icon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
       <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+
+      <script>
+        MathJax = {
+          options: {
+            processHtmlClass: ['tex2jax_process', 'math']
+          }
+        };
+      </script>
+
+      <script type="text/javascript" src="../styles/docfx.min.js"></script>
+      <script type="text/javascript" src="../styles/main.js"></script>
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../images/icon.png" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/icon.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter">
+
+        <article data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter">
 
 
-  <h1 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter" class="text-break">Class MySqlProviderAdapter
-</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">MySqlProviderAdapter</span></div>
+
+  <h1 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter" class="text-break">
+    Class MySqlProviderAdapter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.DataProvider.MySql.html">MySql</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="LinqToDB.DataProvider.IDynamicProviderAdapter.html">IDynamicProviderAdapter</a></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.DataProvider.MySql.html">MySql</a></h6>
-  <h6><strong>Assembly</strong>: linq2db.dll</h6>
-  <h5 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_syntax">Syntax</h5>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract class MySqlProviderAdapter : IDynamicProviderAdapter</code></pre>
   </div>
-  <h3 id="fields">Fields
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlConnectorAssemblyName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlConnectorAssemblyName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L26">View Source</a>
-  </span>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlConnectorAssemblyName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlConnectorAssemblyName">MySqlConnectorAssemblyName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string MySqlConnectorAssemblyName = &quot;MySqlConnector&quot;</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlConnectorNamespace.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlConnectorNamespace%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L32">View Source</a>
-  </span>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlConnectorNamespace" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlConnectorNamespace">MySqlConnectorNamespace</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string MySqlConnectorNamespace = &quot;MySqlConnector&quot;</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlConnectorTypesNamespace.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlConnectorTypesNamespace%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L33">View Source</a>
-  </span>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlConnectorTypesNamespace" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlConnectorTypesNamespace">MySqlConnectorTypesNamespace</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string MySqlConnectorTypesNamespace = &quot;MySqlConnector&quot;</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDataAssemblyName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDataAssemblyName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L27">View Source</a>
-  </span>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDataAssemblyName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDataAssemblyName">MySqlDataAssemblyName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string MySqlDataAssemblyName = &quot;MySql.Data&quot;</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDataClientNamespace.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDataClientNamespace%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L29">View Source</a>
-  </span>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDataClientNamespace" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDataClientNamespace">MySqlDataClientNamespace</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string MySqlDataClientNamespace = &quot;MySql.Data.MySqlClient&quot;</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDataTypesNamespace.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDataTypesNamespace%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L30">View Source</a>
-  </span>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDataTypesNamespace" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDataTypesNamespace">MySqlDataTypesNamespace</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string MySqlDataTypesNamespace = &quot;MySql.Data.Types&quot;</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_OldMySqlConnectorNamespace.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.OldMySqlConnectorNamespace%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L35">View Source</a>
-  </span>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_OldMySqlConnectorNamespace" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.OldMySqlConnectorNamespace">OldMySqlConnectorNamespace</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string OldMySqlConnectorNamespace = &quot;MySql.Data.MySqlClient&quot;</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_OldMySqlConnectorTypesNamespace.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.OldMySqlConnectorTypesNamespace%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L36">View Source</a>
-  </span>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_OldMySqlConnectorTypesNamespace" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.OldMySqlConnectorTypesNamespace">OldMySqlConnectorTypesNamespace</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string OldMySqlConnectorTypesNamespace = &quot;MySql.Data.Types&quot;</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_BulkCopy.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.BulkCopy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L91">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_BulkCopy_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.BulkCopy*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_BulkCopy" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.BulkCopy">BulkCopy</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MySqlProviderAdapter.BulkCopyAdapter? BulkCopy { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.html">MySqlProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.BulkCopyAdapter.html">BulkCopyAdapter</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_CommandType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.CommandType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L52">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_CommandType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.CommandType*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_CommandType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.CommandType">CommandType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type CommandType { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ConnectionType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ConnectionType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L49">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ConnectionType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ConnectionType*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ConnectionType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ConnectionType">ConnectionType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type ConnectionType { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_DataReaderType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.DataReaderType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L50">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_DataReaderType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.DataReaderType*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_DataReaderType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.DataReaderType">DataReaderType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type DataReaderType { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetDateOnlyMethodName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetDateOnlyMethodName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L79">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetDateOnlyMethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetDateOnlyMethodName*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetDateOnlyMethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetDateOnlyMethodName">GetDateOnlyMethodName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? GetDateOnlyMethodName { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetDateTimeOffsetMethodName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetDateTimeOffsetMethodName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L76">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetDateTimeOffsetMethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetDateTimeOffsetMethodName*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetDateTimeOffsetMethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetDateTimeOffsetMethodName">GetDateTimeOffsetMethodName</h4>
-  <div class="markdown level1 summary"><p>MySqlConnector-only.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? GetDateTimeOffsetMethodName { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetDbType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetDbType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L90">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetDbType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetDbType*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetDbType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetDbType">GetDbType</h4>
-  <div class="markdown level1 summary"><p>Returns object, because both providers use different enums and we anyway don't need typed value.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Func&lt;DbParameter, object&gt; GetDbType { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetMySqlDateTimeMethodName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetMySqlDateTimeMethodName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L84">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetMySqlDateTimeMethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetMySqlDateTimeMethodName*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetMySqlDateTimeMethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetMySqlDateTimeMethodName">GetMySqlDateTimeMethodName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string GetMySqlDateTimeMethodName { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetMySqlDecimalMethodName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetMySqlDecimalMethodName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L71">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetMySqlDecimalMethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetMySqlDecimalMethodName*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetMySqlDecimalMethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetMySqlDecimalMethodName">GetMySqlDecimalMethodName</h4>
-  <div class="markdown level1 summary"><p>Not supported by MySqlConnector prior to 2.1.0.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? GetMySqlDecimalMethodName { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetSByteMethodName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetSByteMethodName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L80">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetSByteMethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetSByteMethodName*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetSByteMethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetSByteMethodName">GetSByteMethodName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? GetSByteMethodName { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetTimeOnlyMethodName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetTimeOnlyMethodName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L78">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetTimeOnlyMethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetTimeOnlyMethodName*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetTimeOnlyMethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetTimeOnlyMethodName">GetTimeOnlyMethodName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? GetTimeOnlyMethodName { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetTimeSpanMethodName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetTimeSpanMethodName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L77">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetTimeSpanMethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetTimeSpanMethodName*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetTimeSpanMethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetTimeSpanMethodName">GetTimeSpanMethodName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? GetTimeSpanMethodName { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetUInt16MethodName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetUInt16MethodName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L81">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetUInt16MethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetUInt16MethodName*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetUInt16MethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetUInt16MethodName">GetUInt16MethodName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? GetUInt16MethodName { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetUInt32MethodName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetUInt32MethodName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L82">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetUInt32MethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetUInt32MethodName*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetUInt32MethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetUInt32MethodName">GetUInt32MethodName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? GetUInt32MethodName { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetUInt64MethodName.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetUInt64MethodName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L83">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetUInt64MethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetUInt64MethodName*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetUInt64MethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetUInt64MethodName">GetUInt64MethodName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? GetUInt64MethodName { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_IsDateOnlySupported.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.IsDateOnlySupported%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L92">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_IsDateOnlySupported_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.IsDateOnlySupported*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_IsDateOnlySupported" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.IsDateOnlySupported">IsDateOnlySupported</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsDateOnlySupported { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_IsPackageProceduresSupported.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.IsPackageProceduresSupported%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L94">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_IsPackageProceduresSupported_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.IsPackageProceduresSupported*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_IsPackageProceduresSupported" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.IsPackageProceduresSupported">IsPackageProceduresSupported</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract bool IsPackageProceduresSupported { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MappingSchema.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MappingSchema%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L54">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MappingSchema_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MappingSchema*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MappingSchema" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MappingSchema">MappingSchema</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MappingSchema MappingSchema { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDateTimeType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDateTimeType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L60">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDateTimeType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDateTimeType*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDateTimeType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDateTimeType">MySqlDateTimeType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type MySqlDateTimeType { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDecimalGetter.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDecimalGetter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L66">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDecimalGetter_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDecimalGetter*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDecimalGetter" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDecimalGetter">MySqlDecimalGetter</h4>
-  <div class="markdown level1 summary"><p>Not needed for MySqlConnector as it supports MySqlDecimal parameters.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Func&lt;object, string&gt;? MySqlDecimalGetter { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDecimalType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDecimalType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L59">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDecimalType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDecimalType*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDecimalType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDecimalType">MySqlDecimalType</h4>
-  <div class="markdown level1 summary"><p>Not supported by MySqlConnector prior to 2.1.0.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type? MySqlDecimalType { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlGeometryType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlGeometryType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L61">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlGeometryType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlGeometryType*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlGeometryType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlGeometryType">MySqlGeometryType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type MySqlGeometryType { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ParameterType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ParameterType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L51">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ParameterType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ParameterType*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ParameterType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ParameterType">ParameterType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type ParameterType { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ProviderType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ProviderType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L48">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ProviderType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ProviderType*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ProviderType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ProviderType">ProviderType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MySqlProviderAdapter.MySqlProvider ProviderType { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.html">MySqlProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlProvider.html">MySqlProvider</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ProviderTypesNamespace.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ProviderTypesNamespace%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L85">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ProviderTypesNamespace_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ProviderTypesNamespace*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ProviderTypesNamespace" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ProviderTypesNamespace">ProviderTypesNamespace</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ProviderTypesNamespace { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_TransactionType.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.TransactionType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L53">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_TransactionType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.TransactionType*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_TransactionType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.TransactionType">TransactionType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Type TransactionType { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetInstance_System_String_.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetInstance(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L110">View Source</a>
-  </span>
-  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetInstance_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetInstance*"></a>
-  <h4 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetInstance_System_String_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetInstance(System.String)">GetInstance(string)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static MySqlProviderAdapter GetInstance(string name)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.html">MySqlProviderAdapter</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="LinqToDB.DataProvider.IDynamicProviderAdapter.html">IDynamicProviderAdapter</a>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">MySqlProviderAdapter</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LinqToDB.DataProvider.IDynamicProviderAdapter.html">IDynamicProviderAdapter</a></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
   <div>
       <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
   </div>
@@ -1213,46 +157,1140 @@
   <div>
       <a class="xref" href="LinqToDB.Tools.SqlExtensions.html#LinqToDB_Tools_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
   </div>
-</article>
-          </div>
+  </dd></dl>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_DataProvider_MySql_MySqlProviderAdapter.md&amp;value=---%0Auid%3A%20LinqToDB.DataProvider.MySql.MySqlProviderAdapter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L16" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlConnectorAssemblyName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlConnectorAssemblyName">
+  MySqlConnectorAssemblyName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MySqlConnectorAssemblyName = &quot;MySqlConnector&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlConnectorNamespace" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlConnectorNamespace">
+  MySqlConnectorNamespace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MySqlConnectorNamespace = &quot;MySqlConnector&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlConnectorTypesNamespace" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlConnectorTypesNamespace">
+  MySqlConnectorTypesNamespace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MySqlConnectorTypesNamespace = &quot;MySqlConnector&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDataAssemblyName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDataAssemblyName">
+  MySqlDataAssemblyName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MySqlDataAssemblyName = &quot;MySql.Data&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDataClientNamespace" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDataClientNamespace">
+  MySqlDataClientNamespace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MySqlDataClientNamespace = &quot;MySql.Data.MySqlClient&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDataTypesNamespace" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDataTypesNamespace">
+  MySqlDataTypesNamespace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MySqlDataTypesNamespace = &quot;MySql.Data.Types&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_OldMySqlConnectorNamespace" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.OldMySqlConnectorNamespace">
+  OldMySqlConnectorNamespace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string OldMySqlConnectorNamespace = &quot;MySql.Data.MySqlClient&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_OldMySqlConnectorTypesNamespace" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.OldMySqlConnectorTypesNamespace">
+  OldMySqlConnectorTypesNamespace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string OldMySqlConnectorTypesNamespace = &quot;MySql.Data.Types&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_BulkCopy_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.BulkCopy*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_BulkCopy" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.BulkCopy">
+  BulkCopy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MySqlProviderAdapter.BulkCopyAdapter? BulkCopy { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.html">MySqlProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.BulkCopyAdapter.html">BulkCopyAdapter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_CommandType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.CommandType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_CommandType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.CommandType">
+  CommandType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets type, that implements <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a> for current ADO.NET provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type CommandType { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ConnectionType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ConnectionType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ConnectionType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ConnectionType">
+  ConnectionType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets type, that implements <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a> for current ADO.NET provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type ConnectionType { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_DataReaderType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.DataReaderType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_DataReaderType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.DataReaderType">
+  DataReaderType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets type, that implements <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a> for current ADO.NET provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type DataReaderType { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetDateOnlyMethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetDateOnlyMethodName*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetDateOnlyMethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetDateOnlyMethodName">
+  GetDateOnlyMethodName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GetDateOnlyMethodName { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetDateTimeOffsetMethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetDateTimeOffsetMethodName*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetDateTimeOffsetMethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetDateTimeOffsetMethodName">
+  GetDateTimeOffsetMethodName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>MySqlConnector-only.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GetDateTimeOffsetMethodName { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetDbType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetDbType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetDbType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetDbType">
+  GetDbType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns object, because both providers use different enums and we anyway don't need typed value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Func&lt;DbParameter, object&gt; GetDbType { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetMySqlDateTimeMethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetMySqlDateTimeMethodName*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetMySqlDateTimeMethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetMySqlDateTimeMethodName">
+  GetMySqlDateTimeMethodName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetMySqlDateTimeMethodName { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetMySqlDecimalMethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetMySqlDecimalMethodName*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetMySqlDecimalMethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetMySqlDecimalMethodName">
+  GetMySqlDecimalMethodName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Not supported by MySqlConnector prior to 2.1.0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GetMySqlDecimalMethodName { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetSByteMethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetSByteMethodName*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetSByteMethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetSByteMethodName">
+  GetSByteMethodName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GetSByteMethodName { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetTimeOnlyMethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetTimeOnlyMethodName*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetTimeOnlyMethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetTimeOnlyMethodName">
+  GetTimeOnlyMethodName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GetTimeOnlyMethodName { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetTimeSpanMethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetTimeSpanMethodName*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetTimeSpanMethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetTimeSpanMethodName">
+  GetTimeSpanMethodName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GetTimeSpanMethodName { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetUInt16MethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetUInt16MethodName*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetUInt16MethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetUInt16MethodName">
+  GetUInt16MethodName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GetUInt16MethodName { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetUInt32MethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetUInt32MethodName*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetUInt32MethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetUInt32MethodName">
+  GetUInt32MethodName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GetUInt32MethodName { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetUInt64MethodName_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetUInt64MethodName*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetUInt64MethodName" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetUInt64MethodName">
+  GetUInt64MethodName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GetUInt64MethodName { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_IsDateOnlySupported_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.IsDateOnlySupported*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_IsDateOnlySupported" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.IsDateOnlySupported">
+  IsDateOnlySupported
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDateOnlySupported { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_IsPackageProceduresSupported_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.IsPackageProceduresSupported*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_IsPackageProceduresSupported" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.IsPackageProceduresSupported">
+  IsPackageProceduresSupported
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool IsPackageProceduresSupported { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MappingSchema_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MappingSchema*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MappingSchema" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MappingSchema">
+  MappingSchema
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MappingSchema MappingSchema { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDateTimeType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDateTimeType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDateTimeType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDateTimeType">
+  MySqlDateTimeType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type MySqlDateTimeType { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDecimalGetter_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDecimalGetter*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDecimalGetter" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDecimalGetter">
+  MySqlDecimalGetter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Not needed for MySqlConnector as it supports MySqlDecimal parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Func&lt;object, string&gt;? MySqlDecimalGetter { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDecimalType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDecimalType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlDecimalType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlDecimalType">
+  MySqlDecimalType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Not supported by MySqlConnector prior to 2.1.0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type? MySqlDecimalType { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlGeometryType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlGeometryType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_MySqlGeometryType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlGeometryType">
+  MySqlGeometryType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type MySqlGeometryType { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ParameterType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ParameterType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ParameterType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ParameterType">
+  ParameterType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets type, that implements <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a> for current ADO.NET provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type ParameterType { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ProviderType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ProviderType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ProviderType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ProviderType">
+  ProviderType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MySqlProviderAdapter.MySqlProvider ProviderType { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.html">MySqlProviderAdapter</a>.<a class="xref" href="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.MySqlProvider.html">MySqlProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ProviderTypesNamespace_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ProviderTypesNamespace*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_ProviderTypesNamespace" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.ProviderTypesNamespace">
+  ProviderTypesNamespace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ProviderTypesNamespace { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_TransactionType_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.TransactionType*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_TransactionType" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.TransactionType">
+  TransactionType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets type, that implements <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbtransaction">DbTransaction</a> for current ADO.NET provider.
+For providers/databases without transaction support contains <code>null</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type TransactionType { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetInstance_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetInstance*"></a>
+
+  <h3 id="LinqToDB_DataProvider_MySql_MySqlProviderAdapter_GetInstance_System_String_" data-uid="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.GetInstance(System.String)">
+  GetInstance(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MySqlProviderAdapter GetInstance(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataProvider.MySql.MySqlProviderAdapter.html">MySqlProviderAdapter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/MySql/MySqlProviderAdapter.cs/#L16" class="edit-link">Edit this page</a>
         </div>
+
+        
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
-      
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2011-2023 linq2db.com<br><br>Generated by <strong>DocFX</strong>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
