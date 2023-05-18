@@ -1,0 +1,501 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SecuritySchema.DatabasePermission
+ | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SecuritySchema.DatabasePermission
+ | Linq To DB ">
+      
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission.md&amp;value=---%0Auid%3A%20LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission">
+
+
+
+  <h1 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission" class="text-break">
+    Class SecuritySchema.DatabasePermission
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L20645"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Tools.html">Tools</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.html">SqlServer</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.html">Schemas</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.Tools.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p><strong>sys.database_permissions (Transact-SQL)</strong></p>
+<p><strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Database √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
+<p>Returns a row for every permission or column-exception permission in the database. For columns, there is a row for every permission that is different from the corresponding object-level permission. If the column permission is the same as the corresponding object permission, there is no row for it and the permission applied is that of the object.<br>
+<div class="IMPORTANT"><h5>important</h5><p><br>
+Column-level permissions override object-level permissions on the same entity.<br>
+</p></div><br>
+<p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-database-permissions-transact-sql">sys.database_permissions</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Table(Schema = &quot;sys&quot;, Name = &quot;database_permissions&quot;, IsView = true)]
+public class SecuritySchema.DatabasePermission</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">SecuritySchema.DatabasePermission</span></div>
+    </dd>
+  </dl>
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.Mapper.Map.html#LinqToDB_Tools_Mapper_Map_DeepCopy__1___0_">Map.DeepCopy&lt;T&gt;(T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_Class_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.Class*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_Class" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.Class">
+  Class
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L20651"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies class on which permission exists. For more information, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-securable-classes-transact-sql">sys.securable_classes (Transact-SQL)</a>.<br><br> 0 = Database<br>1 = Object or Column<br>3 = Schema<br>4 = Database Principal<br>5 = Assembly - <strong>Applies to</strong>: SQL Server 2008 and later.<br>6 = Type<br>10 = XML Schema Collection - <br>                      <strong>Applies to</strong>: SQL Server 2008 and later.<br>15 = Message Type - <strong>Applies to</strong>: SQL Server 2008 and later.<br>16 = Service Contract - <strong>Applies to</strong>: SQL Server 2008 and later.<br>17 = Service - <strong>Applies to</strong>: SQL Server 2008 and later.<br>18 = Remote Service Binding - <strong>Applies to</strong>: SQL Server 2008 and later.<br>19 = Route - <strong>Applies to</strong>: SQL Server 2008 and later.<br>23 =Full-Text Catalog - <strong>Applies to</strong>: SQL Server 2008 and later.<br>24 = Symmetric Key - <strong>Applies to</strong>: SQL Server 2008 and later.<br>25 = Certificate - <strong>Applies to</strong>: SQL Server 2008 and later.<br>26 = Asymmetric Key - <strong>Applies to</strong>: SQL Server 2008 and later.<br>29 = Fulltext Stoplist - <strong>Applies to</strong>: SQL Server 2008 and later.<br>31 = Search Property List - <strong>Applies to</strong>: SQL Server 2008 and later.<br>32 = Database Scoped Credential - <strong>Applies to</strong>: SQL Server 2008 and later.<br>34 = External Language - <strong>Applies to</strong>: SQL Server 2008 and later.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;class&quot;)]
+[NotNull]
+public byte Class { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_ClassDesc_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.ClassDesc*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_ClassDesc" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.ClassDesc">
+  ClassDesc
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L20655"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Description of class on which permission exists.<br><br> DATABASE<br><br> OBJECT_OR_COLUMN<br><br> SCHEMA<br><br> DATABASE_PRINCIPAL<br><br> ASSEMBLY<br><br> TYPE<br><br> XML_SCHEMA_COLLECTION<br><br> MESSAGE_TYPE<br><br> SERVICE_CONTRACT<br><br> SERVICE<br><br> REMOTE_SERVICE_BINDING<br><br> ROUTE<br><br> FULLTEXT_CATALOG<br><br> SYMMETRIC_KEYS<br><br> CERTIFICATE<br><br> ASYMMETRIC_KEY<br><br> FULLTEXT STOPLIST<br><br> SEARCH PROPERTY LIST<br><br> DATABASE SCOPED CREDENTIAL<br><br> EXTERNAL LANGUAGE</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;class_desc&quot;)]
+[Nullable]
+public string? ClassDesc { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_GranteePrincipalID_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.GranteePrincipalID*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_GranteePrincipalID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.GranteePrincipalID">
+  GranteePrincipalID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L20667"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Database principal ID to which the permissions are granted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;grantee_principal_id&quot;)]
+[NotNull]
+public int GranteePrincipalID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_GrantorPrincipalID_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.GrantorPrincipalID*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_GrantorPrincipalID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.GrantorPrincipalID">
+  GrantorPrincipalID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L20671"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Database principal ID of the grantor of these permissions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;grantor_principal_id&quot;)]
+[NotNull]
+public int GrantorPrincipalID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_MajorID_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.MajorID*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_MajorID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.MajorID">
+  MajorID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L20659"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>ID of thing on which permission exists, interpreted according to class. Usually, the <strong>major_id</strong> is simply the kind of ID that applies to what the class represents. <br><br> 0 = The database itself <br><br> &gt;0 = Object-IDs for user objects <br><br> &lt;0 = Object-IDs for system objects</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;major_id&quot;)]
+[NotNull]
+public int MajorID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_MinorID_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.MinorID*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_MinorID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.MinorID">
+  MinorID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L20663"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Secondary-ID of thing on which permission exists, interpreted according to class. Often, the <strong>minor_id</strong> is zero, because there is no subcategory available for the class of object. Otherwise, it is the Column-ID of a table.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;minor_id&quot;)]
+[NotNull]
+public int MinorID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_PermissionName_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.PermissionName*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_PermissionName" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.PermissionName">
+  PermissionName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L20679"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Permission name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;permission_name&quot;)]
+[Nullable]
+public string? PermissionName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_State_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.State*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_State" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.State">
+  State
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L20683"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Permission state:<br><br> D = Deny<br><br> R = Revoke<br><br> G = Grant<br><br> W = Grant With Grant Option</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;state&quot;)]
+[NotNull]
+public string State { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_StateDesc_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.StateDesc*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_StateDesc" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.StateDesc">
+  StateDesc
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L20687"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Description of permission state:<br><br> DENY<br><br> REVOKE<br><br> GRANT<br><br> GRANT_WITH_GRANT_OPTION</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;state_desc&quot;)]
+[Nullable]
+public string? StateDesc { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_TypeColumn_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.TypeColumn*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SecuritySchema_DatabasePermission_TypeColumn" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DatabasePermission.TypeColumn">
+  TypeColumn
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L20675"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Database permission type. For a list of permission types, see the next table.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;type&quot;)]
+[NotNull]
+public string TypeColumn { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2023 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

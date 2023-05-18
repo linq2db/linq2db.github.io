@@ -1,4 +1,4 @@
-dotnet linq2db - Linq To DB command-line utilities. Version: 4.4.0.0
+dotnet linq2db - Linq To DB command-line utilities. Version: 5.2.1.0
 
 Usage:
         dotnet linq2db scaffold <options>
@@ -16,16 +16,16 @@ Options:
       JSON property type depends on option type: bool for boolean properties, integer number for numeric properties and string for other properties.
       If property could have multiple values, it should use array as property type.
       JSON file example:
-          {
-            "general": {
-              "output": "c:\my\project\datamodel",
-              "overwrite": true,
-              "provider": "SQLServer",
-            },
-            "code": {
-              "nrt": false
-            }
-          }
+      	{
+      	  "general": {
+      	    "output": "c:\my\project\datamodel",
+      	    "overwrite": true,
+      	    "provider": "SQLServer",
+      	  },
+      	  "code": {
+      	    "nrt": false
+      	  }
+      	}
 
    -o, --output                              : relative or full path to folder to put generated files
          type: string (optional)
@@ -669,6 +669,16 @@ Options:
          default: false
          default (T4 mode): true
 
+   --metadata                                : specify type of generated metadata
+         type: string (optional)
+         json: dataModel.metadata
+         default: attributes
+         default (T4 mode): attributes
+         supported values:
+               none       : don't emit metadata for model
+               attributes : annotate model with mapping attributes
+               fluent     : annotate model using fluent mapping
+
    --base-entity                             : base class for generated entities
          type: string (optional)
          json: dataModel.base-entity
@@ -737,7 +747,7 @@ Options:
          default: false
          default (T4 mode): true
 
-      Constructor example: public MyDataContext(LinqToDBConnectionOptions options) { ... }
+      Constructor example: public MyDataContext(DataOptions options) { ... }
 
    --add-typed-options-ctor                  : generate data context contructor with generic options parameter
          type: bool (optional)
@@ -745,7 +755,7 @@ Options:
          default: true
          default (T4 mode): true
 
-      Constructor example: public MyDataContext(LinqToDBConnectionOptions<MyDataContext> options) { ... }
+      Constructor example: public MyDataContext(DataOptions<MyDataContext> options) { ... }
 
    --context-name                            : class name for generated data context
          type: string (optional)
@@ -854,9 +864,10 @@ Options:
    --find-methods                            : enable generation of extension methods to access entity by primary key
          type: string list (optional)
          json: dataModel.find-methods
-         default: sync-pk-table, async-pk-table, query-pk-table, sync-pk-context, async-pk-context, query-pk-context, sync-entity-table, async-entity-table, query-entity-table, sync-entity-context, async-entity-context
-         default (T4 mode): sync-pk-table, async-pk-table, query-pk-table, sync-pk-context, async-pk-context, query-pk-context, sync-entity-table, async-entity-table, query-entity-table, sync-entity-context
+         default: sync-pk-table, async-pk-table
+         default (T4 mode): sync-pk-table
          supported values:
+               none                 : disable generation of Find extensions. Cannot be used with other values
                sync-pk-table        : generate sync entity load extension on table object with primary key parameters: Entity?            Find     (this ITable<Entity> table, pk_fields)
                async-pk-table       : generate sync entity load extension on table object with primary key parameters: Task<Entity?>      FindAsync(this ITable<Entity> table, pk_fields, CancellationToken)
                query-pk-table       : generate entity query extension on table object with primary key parameters    : IQueryable<Entity> FindQuery(this ITable<Entity> table, pk_fields)

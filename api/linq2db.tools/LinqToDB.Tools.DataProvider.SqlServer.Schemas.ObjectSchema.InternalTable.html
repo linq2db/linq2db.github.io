@@ -1,0 +1,804 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ObjectSchema.InternalTable
+ | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ObjectSchema.InternalTable
+ | Linq To DB ">
+      
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable.md&amp;value=---%0Auid%3A%20LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable">
+
+
+
+  <h1 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable" class="text-break">
+    Class ObjectSchema.InternalTable
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14802"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Tools.html">Tools</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.html">SqlServer</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.html">Schemas</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.Tools.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p><strong>sys.internal_tables (Transact-SQL)</strong></p>
+<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Returns one row for each object that is an internal table. Internal tables are automatically generated by SQL Server to support various features. For example, when you create a primary XML index, SQL Server automatically creates an internal table to persist the shredded XML document data. Internal tables appear in the <strong>sys</strong> schema of every database and have unique, system-generated names that indicate their function, for example, <strong>xml_index_nodes_2021582240_32001</strong> or <strong>queue_messages_1977058079</strong><br>
+ Internal tables do not contain user-accessible data, and their schema are fixed and unalterable. You cannot reference internal table names in Transact\-SQL statements. For example, you cannot execute a statement such as SELECT \* FROM *\&lt;sys.internal_table_name&gt;*. However, you can query catalog views to see the metadata of internal tables.</p><br>
+<p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-internal-tables-transact-sql">sys.internal_tables</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Table(Schema = &quot;sys&quot;, Name = &quot;internal_tables&quot;, IsView = true)]
+public class ObjectSchema.InternalTable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ObjectSchema.InternalTable</span></div>
+    </dd>
+  </dl>
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.Mapper.Map.html#LinqToDB_Tools_Mapper_Map_DeepCopy__1___0_">Map.DeepCopy&lt;T&gt;(T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_CreateDate_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.CreateDate*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_CreateDate" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.CreateDate">
+  CreateDate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14836"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Date the object was created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;create_date&quot;)]
+[NotNull]
+public DateTime CreateDate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_FilestreamDataSpaceID_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.FilestreamDataSpaceID*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_FilestreamDataSpaceID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.FilestreamDataSpaceID">
+  FilestreamDataSpaceID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14876"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reserved for future use.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;filestream_data_space_id&quot;)]
+[Nullable]
+public int? FilestreamDataSpaceID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_InternalType_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.InternalType*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_InternalType" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.InternalType">
+  InternalType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14856"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Type of the internal table:<br><br> 3 = <strong>query_disk_store_query_hints</strong><br><br> 4 = <strong>query_disk_store_query_template_parameterization</strong><br><br> 6 = <strong>query_disk_store_wait_stats</strong><br><br> 201 = <strong>queue_messages</strong><br><br> 202 = <strong>xml_index_nodes</strong><br><br> 203 = <strong>fulltext_catalog_freelist</strong><br><br> 205 = <strong>query_notification</strong><br><br> 206 = <strong>service_broker_map</strong><br><br> 207 = <strong>extended_indexes</strong> (such as a spatial index)<br><br> 208 = <strong>filestream_tombstone</strong><br><br> 209 = <strong>change_tracking</strong><br><br> 210 = <strong>tracked_committed_transactions</strong><br><br> 220 = <strong>contained_features</strong><br><br> 225 = <strong>filetable_updates</strong><br><br> 236 = <strong>selective_xml_index_node_table</strong><br><br> 240 = <strong>query_disk_store_query_text</strong><br><br> 241 = <strong>query_disk_store_query</strong><br><br> 242 = <strong>query_disk_store_plan</strong><br><br> 243 = <strong>query_disk_store_runtime_stats</strong><br><br> 244 = <strong>query_disk_store_runtime_stats_interval</strong><br><br> 245 = <strong>query_context_settings</strong></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;internal_type&quot;)]
+[Nullable]
+public byte? InternalType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_InternalTypeDesc_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.InternalTypeDesc*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_InternalTypeDesc" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.InternalTypeDesc">
+  InternalTypeDesc
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14860"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Description of the type of internal table:<br><br> QUERY_DISK_STORE_QUERY_HINTS<br><br> QUERY_DISK_STORE_QUERY_TEMPLATE_PARAMETERIZATION<br><br> QUERY_DISK_STORE_WAIT_STATS<br><br> QUEUE_MESSAGES<br><br> XML_INDEX_NODES<br><br> FULLTEXT_CATALOG_FREELIST<br><br> FULLTEXT_CATALOG_MAP<br><br> QUERY_NOTIFICATION<br><br> SERVICE_BROKER_MAP<br><br> EXTENDED_INDEXES<br><br> FILESTREAM_TOMBSTONE<br><br> CHANGE_TRACKING<br><br> TRACKED_COMMITTED_TRANSACTIONS<br><br> CONTAINED_FEATURES<br><br> FILETABLE_UPDATES<br><br> SELECTIVE_XML_INDEX_NODE_TABLE<br><br> QUERY_DISK_STORE_QUERY_TEXT<br><br> QUERY_DISK_STORE_QUERY<br><br> QUERY_DISK_STORE_PLAN<br><br> QUERY_DISK_STORE_RUNTIME_STATS<br><br> QUERY_DISK_STORE_RUNTIME_STATS_INTERVAL<br><br> QUERY_CONTEXT_SETTINGS</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;internal_type_desc&quot;)]
+[Nullable]
+public string? InternalTypeDesc { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_IsMSShipped_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.IsMSShipped*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_IsMSShipped" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.IsMSShipped">
+  IsMSShipped
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14844"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Object is created by an internal SQL Server component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;is_ms_shipped&quot;)]
+[Nullable]
+public bool? IsMSShipped { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_IsPublished_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.IsPublished*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_IsPublished" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.IsPublished">
+  IsPublished
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14848"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Object is published.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;is_published&quot;)]
+[Nullable]
+public bool? IsPublished { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_IsSchemaPublished_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.IsSchemaPublished*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_IsSchemaPublished" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.IsSchemaPublished">
+  IsSchemaPublished
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14852"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Only the schema of the object is published.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;is_schema_published&quot;)]
+[Nullable]
+public bool? IsSchemaPublished { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_LobDataSpaceID_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.LobDataSpaceID*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_LobDataSpaceID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.LobDataSpaceID">
+  LobDataSpaceID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14872"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Non-zero value is the ID of data space (filegroup or partition-scheme) that holds the large object (LOB) data for this table.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;lob_data_space_id&quot;)]
+[NotNull]
+public int LobDataSpaceID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_ModifyDate_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.ModifyDate*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_ModifyDate" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.ModifyDate">
+  ModifyDate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14840"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Date the object was last modified by using an ALTER statement. If the object is a table or a view, modify_date also changes when an index on the table or view is created or altered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;modify_date&quot;)]
+[NotNull]
+public DateTime ModifyDate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_Name_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.Name*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_Name" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14808"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Object name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;name&quot;)]
+[NotNull]
+public string Name { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_Object_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.Object*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_Object" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.Object">
+  Object
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14883"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>objects (sys.objects)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Association(ThisKey = &quot;ObjectID&quot;, OtherKey = &quot;ObjectID&quot;, CanBeNull = false)]
+public ObjectSchema.Object Object { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.html">ObjectSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.Object.html">Object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_ObjectID_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.ObjectID*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_ObjectID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.ObjectID">
+  ObjectID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14812"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Object identification number. Is unique within a database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;object_id&quot;)]
+[NotNull]
+public int ObjectID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_ParentID_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.ParentID*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_ParentID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.ParentID">
+  ParentID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14864"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>ID of the parent, regardless of whether it is schema-scoped or not. Otherwise, 0 if there is no parent.<br><br> <strong>queue_messages</strong> = <strong>object_id</strong> of queue<br><br> <strong>xml_index_nodes</strong> = <strong>object_id</strong> of the xml index<br><br> <strong>fulltext_catalog_freelist</strong> = <strong>fulltext_catalog_id</strong> of the full-text catalog<br><br> <strong>fulltext_index_map</strong> = <strong>object_id</strong> of the full-text index<br><br> <strong>query_notification</strong>, or <strong>service_broker_map</strong> = 0<br><br> <strong>extended_indexes</strong> = <strong>object_id</strong> of an extended index, such as a spatial index<br><br> <strong>object_id</strong> of the table for which table tracking is enabled = <strong>change_tracking</strong></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;parent_id&quot;)]
+[Nullable]
+public int? ParentID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_ParentMinorID_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.ParentMinorID*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_ParentMinorID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.ParentMinorID">
+  ParentMinorID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14868"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Minor ID of the parent.<br><br> <strong>xml_index_nodes</strong> = <strong>index_id</strong> of the XML index<br><br> <strong>extended_indexes</strong> = <strong>index_id</strong> of an extended index, such as a spatial index<br><br> 0 = <strong>queue_messages</strong>, <strong>fulltext_catalog_freelist</strong>, <strong>fulltext_index_map</strong>, <strong>query_notification</strong>, <strong>service_broker_map</strong>, or <strong>change_tracking</strong></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;parent_minor_id&quot;)]
+[Nullable]
+public int? ParentMinorID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_ParentObjectID_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.ParentObjectID*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_ParentObjectID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.ParentObjectID">
+  ParentObjectID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14824"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>ID of the object to which this object belongs.<br><br> 0 = Not a child object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;parent_object_id&quot;)]
+[NotNull]
+public int ParentObjectID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_PrincipalID_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.PrincipalID*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_PrincipalID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.PrincipalID">
+  PrincipalID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14816"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>ID of the individual owner, if different from the schema owner. By default, schema-contained objects are owned by the schema owner. However, an alternate owner can be specified by using the ALTER AUTHORIZATION statement to change ownership.<br><br> Is NULL if there is no alternate individual owner.<br><br> Is NULL if the object type is one of the following:<br><br> C = CHECK constraint<br><br> D = DEFAULT (constraint or stand-alone)<br><br> F = FOREIGN KEY constraint<br><br> PK = PRIMARY KEY constraint<br><br> R = Rule (old-style, stand-alone)<br><br> TA = Assembly (CLR-integration) trigger<br><br> TR = SQL trigger<br><br> UQ = UNIQUE constraint<br><br> EC = Edge constraint</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;principal_id&quot;)]
+[Nullable]
+public int? PrincipalID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_SchemaID_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.SchemaID*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_SchemaID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.SchemaID">
+  SchemaID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14820"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>ID of the schema that the object is contained in.<br><br> Schema-scoped system objects are always contained in the sys or INFORMATION_SCHEMA schemas.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;schema_id&quot;)]
+[NotNull]
+public int SchemaID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_TypeColumn_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.TypeColumn*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_TypeColumn" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.TypeColumn">
+  TypeColumn
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14828"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Object type:<br><br> AF = Aggregate function (CLR)<br><br> C = CHECK constraint<br><br> D = DEFAULT (constraint or stand-alone)<br><br> F = FOREIGN KEY constraint<br><br> FN = SQL scalar function<br><br> FS = Assembly (CLR) scalar-function<br><br> FT = Assembly (CLR) table-valued function<br><br> IF = SQL inline table-valued function<br><br> IT = Internal table<br><br> P = SQL Stored Procedure<br><br> PC = Assembly (CLR) stored-procedure<br><br> PG = Plan guide<br><br> PK = PRIMARY KEY constraint<br><br> R = Rule (old-style, stand-alone)<br><br> RF = Replication-filter-procedure<br><br> S = System base table<br><br> SN = Synonym<br><br> SO = Sequence object<br><br> U = Table (user-defined)<br><br> V = View<br><br> EC = Edge constraint <br><br> <br><br> <strong>Applies to</strong>: SQL Server 2012 (11.x) and later.<br><br> SQ = Service queue<br><br> TA = Assembly (CLR) DML trigger<br><br> TF = SQL table-valued-function<br><br> TR = SQL DML trigger<br><br> TT = Table type<br><br> UQ = UNIQUE constraint<br><br> X = Extended stored procedure<br><br> <br><br> <strong>Applies to</strong>: SQL Server 2014 (12.x) and later, Azure SQL Database, Azure Synapse Analytics, Analytics Platform System (PDW).<br><br> ST = STATS_TREE<br><br> <br><br> <strong>Applies to</strong>: SQL Server 2016 (13.x) and later, Azure SQL Database, Azure Synapse Analytics, Analytics Platform System (PDW).<br><br> ET = External Table</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;type&quot;)]
+[NotNull]
+public string TypeColumn { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_TypeDesc_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.TypeDesc*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_InternalTable_TypeDesc" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.InternalTable.TypeDesc">
+  TypeDesc
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14832"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Description of the object type:<br><br> AGGREGATE_FUNCTION<br><br> CHECK_CONSTRAINT<br><br> CLR_SCALAR_FUNCTION<br><br> CLR_STORED_PROCEDURE<br><br> CLR_TABLE_VALUED_FUNCTION<br><br> CLR_TRIGGER<br><br> DEFAULT_CONSTRAINT<br><br> EXTENDED_STORED_PROCEDURE<br><br> FOREIGN_KEY_CONSTRAINT<br><br> INTERNAL_TABLE<br><br> PLAN_GUIDE<br><br> PRIMARY_KEY_CONSTRAINT<br><br> REPLICATION_FILTER_PROCEDURE<br><br> RULE<br><br> SEQUENCE_OBJECT<br><br> <br><br> <strong>Applies to</strong>: SQL Server 2012 (11.x) and later.<br><br>  SERVICE_QUEUE<br><br> SQL_INLINE_TABLE_VALUED_FUNCTION<br><br> SQL_SCALAR_FUNCTION<br><br> SQL_STORED_PROCEDURE<br><br> SQL_TABLE_VALUED_FUNCTION<br><br> SQL_TRIGGER<br><br> SYNONYM<br><br> SYSTEM_TABLE<br><br> TABLE_TYPE<br><br> UNIQUE_CONSTRAINT<br><br> USER_TABLE<br><br> VIEW</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;type_desc&quot;)]
+[Nullable]
+public string? TypeDesc { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2023 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

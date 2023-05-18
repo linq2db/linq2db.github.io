@@ -1,0 +1,569 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AzureSQLDatabaseSchema.ElasticPoolResourceStat
+ | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AzureSQLDatabaseSchema.ElasticPoolResourceStat
+ | Linq To DB ">
+      
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat.md&amp;value=---%0Auid%3A%20LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat">
+
+
+
+  <h1 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat" class="text-break">
+    Class AzureSQLDatabaseSchema.ElasticPoolResourceStat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L873"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Tools.html">Tools</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.html">SqlServer</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.html">Schemas</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.Tools.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p><strong>sys.elastic_pool_resource_stats (Azure SQL Database)</strong></p>
+<p><strong>Applies to:</strong> √ Azure SQL Database √ Azure SQL Managed Instance</p>
+<p>Returns resource usage statistics for all the elastic pools in a SQL Database server. For each elastic pool, there is one row for each 15 second reporting window (four rows per minute). This includes CPU, IO, Log, storage consumption and concurrent request/session utilization by all databases in the pool. This data is retained for 14 days. <br>
+||<br>
+|-|<br>
+|<strong>Applies to</strong>:  SQL Database V12.|</p><br>
+<p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database">sys.elastic_pool_resource_stats</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Table(Schema = &quot;sys&quot;, Name = &quot;elastic_pool_resource_stats&quot;, IsView = true)]
+public class AzureSQLDatabaseSchema.ElasticPoolResourceStat</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">AzureSQLDatabaseSchema.ElasticPoolResourceStat</span></div>
+    </dd>
+  </dl>
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.Mapper.Map.html#LinqToDB_Tools_Mapper_Map_DeepCopy__1___0_">Map.DeepCopy&lt;T&gt;(T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_AvgAllocatedStoragePercent_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.AvgAllocatedStoragePercent*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_AvgAllocatedStoragePercent" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.AvgAllocatedStoragePercent">
+  AvgAllocatedStoragePercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L923"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The percentage of data space allocated by all databases in the elastic pool.  This is the ratio of data space allocated to data max size for the elastic pool.  For more information see: <a href="https://docs.microsoft.com/en-us/azure/sql-database/sql-database-file-space-management">File space management in SQL Database</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;avg_allocated_storage_percent&quot;)]
+[NotNull]
+public object AvgAllocatedStoragePercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_AvgCpuPercent_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.AvgCpuPercent*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_AvgCpuPercent" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.AvgCpuPercent">
+  AvgCpuPercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L891"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Average compute utilization in percentage of the limit of the pool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;avg_cpu_percent&quot;)]
+[NotNull]
+public object AvgCpuPercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_AvgDataIoPercent_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.AvgDataIoPercent*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_AvgDataIoPercent" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.AvgDataIoPercent">
+  AvgDataIoPercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L895"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Average I/O utilization in percentage based on the limit of the pool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;avg_data_io_percent&quot;)]
+[NotNull]
+public object AvgDataIoPercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_AvgLogWritePercent_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.AvgLogWritePercent*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_AvgLogWritePercent" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.AvgLogWritePercent">
+  AvgLogWritePercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L899"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Average write resource utilization in percentage of the limit of the pool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;avg_log_write_percent&quot;)]
+[NotNull]
+public object AvgLogWritePercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_AvgStoragePercent_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.AvgStoragePercent*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_AvgStoragePercent" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.AvgStoragePercent">
+  AvgStoragePercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L903"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Average storage utilization in percentage of the storage limit of the pool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;avg_storage_percent&quot;)]
+[NotNull]
+public object AvgStoragePercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_ElasticPoolDTULimit_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.ElasticPoolDTULimit*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_ElasticPoolDTULimit" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.ElasticPoolDTULimit">
+  ElasticPoolDTULimit
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L915"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Current max elastic pool DTU setting for this elastic pool during this interval.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;elastic_pool_dtu_limit&quot;)]
+[NotNull]
+public int ElasticPoolDTULimit { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_ElasticPoolName_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.ElasticPoolName*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_ElasticPoolName" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.ElasticPoolName">
+  ElasticPoolName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L887"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Name of the elastic database pool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;elastic_pool_name&quot;)]
+[NotNull]
+public string ElasticPoolName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_ElasticPoolStorageLimitMB_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.ElasticPoolStorageLimitMB*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_ElasticPoolStorageLimitMB" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.ElasticPoolStorageLimitMB">
+  ElasticPoolStorageLimitMB
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L919"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Current max elastic pool storage limit setting for this elastic pool in megabytes during this interval.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;elastic_pool_storage_limit_mb&quot;)]
+[NotNull]
+public long ElasticPoolStorageLimitMB { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_EndTime_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.EndTime*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_EndTime" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.EndTime">
+  EndTime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L883"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>UTC time indicating the end of the 15 second reporting interval.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;end_time&quot;)]
+[NotNull]
+public DateTime EndTime { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_MaxSessionPercent_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.MaxSessionPercent*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_MaxSessionPercent" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.MaxSessionPercent">
+  MaxSessionPercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L911"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum concurrent sessions in percentage based on the limit of the pool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;max_session_percent&quot;)]
+[NotNull]
+public object MaxSessionPercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_MaxWorkerPercent_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.MaxWorkerPercent*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_MaxWorkerPercent" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.MaxWorkerPercent">
+  MaxWorkerPercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L907"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum concurrent workers (requests) in percentage based on the limit of the pool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;max_worker_percent&quot;)]
+[NotNull]
+public object MaxWorkerPercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_StartTime_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.StartTime*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_ElasticPoolResourceStat_StartTime" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.ElasticPoolResourceStat.StartTime">
+  StartTime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L879"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>UTC time indicating the start of the 15 second reporting interval.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;start_time&quot;)]
+[NotNull]
+public DateTime StartTime { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2023 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1413 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RoleStore&lt;TKey, TRole, TRoleClaim&gt;
+ | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RoleStore&lt;TKey, TRole, TRoleClaim&gt;
+ | Linq To DB ">
+      
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/LinqToDB.Identity/new/master/apiSpec/new?filename=LinqToDB_Identity_RoleStore_3.md&amp;value=---%0Auid%3A%20LinqToDB.Identity.RoleStore%603%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LinqToDB.Identity.RoleStore`3">
+
+
+
+  <h1 id="LinqToDB_Identity_RoleStore_3" data-uid="LinqToDB.Identity.RoleStore`3" class="text-break">
+    Class RoleStore&lt;TKey, TRole, TRoleClaim&gt;
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Identity.html">Identity</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LinqToDB.Identity.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Creates a new instance of a persistence store for roles.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RoleStore&lt;TKey, TRole, TRoleClaim&gt; : IQueryableRoleStore&lt;TRole&gt;, IRoleClaimStore&lt;TRole&gt;, IRoleStore&lt;TRole&gt;, IDisposable where TKey : IEquatable&lt;TKey&gt; where TRole : class, IIdentityRole&lt;TKey&gt; where TRoleClaim : class, IIdentityRoleClaim&lt;TKey&gt;, new()</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TKey</code></dt>
+    <dd><p>The type of the primary key for a role.</p>
+</dd>
+    <dt><code>TRole</code></dt>
+    <dd><p>The type of the class representing a role.</p>
+</dd>
+    <dt><code>TRoleClaim</code></dt>
+    <dd><p>The type of the class representing a role claim.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RoleStore&lt;TKey, TRole, TRoleClaim&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.iqueryablerolestore-1">IQueryableRoleStore</a>&lt;TRole&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.iroleclaimstore-1">IRoleClaimStore</a>&lt;TRole&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.irolestore-1">IRoleStore</a>&lt;TRole&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="LinqToDB.Identity.RoleStore-2.html">RoleStore&lt;TKey, TRole&gt;</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LinqToDB_Identity_RoleStore_3__ctor_" data-uid="LinqToDB.Identity.RoleStore`3.#ctor*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3__ctor_LinqToDB_Identity_IConnectionFactory_Microsoft_AspNetCore_Identity_IdentityErrorDescriber_" data-uid="LinqToDB.Identity.RoleStore`3.#ctor(LinqToDB.Identity.IConnectionFactory,Microsoft.AspNetCore.Identity.IdentityErrorDescriber)">
+  RoleStore(IConnectionFactory, IdentityErrorDescriber)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a new instance of <a class="xref" href="LinqToDB.Identity.RoleStore-3.html">RoleStore&lt;TKey, TRole, TRoleClaim&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RoleStore(IConnectionFactory factory, IdentityErrorDescriber describer = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>factory</code> <a class="xref" href="LinqToDB.Identity.IConnectionFactory.html">IConnectionFactory</a></dt>
+    <dd><p><a class="xref" href="LinqToDB.Identity.IConnectionFactory.html">IConnectionFactory</a></p>
+</dd>
+    <dt><code>describer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber">IdentityErrorDescriber</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber">IdentityErrorDescriber</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_ErrorDescriber_" data-uid="LinqToDB.Identity.RoleStore`3.ErrorDescriber*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_ErrorDescriber" data-uid="LinqToDB.Identity.RoleStore`3.ErrorDescriber">
+  ErrorDescriber
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber">IdentityErrorDescriber</a> for any error that occurred with the current operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IdentityErrorDescriber ErrorDescriber { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityerrordescriber">IdentityErrorDescriber</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_Roles_" data-uid="LinqToDB.Identity.RoleStore`3.Roles*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_Roles" data-uid="LinqToDB.Identity.RoleStore`3.Roles">
+  Roles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L360"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A navigation property for the roles the store contains.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IQueryable&lt;TRole&gt; Roles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1">IQueryable</a>&lt;TRole&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_AddClaimAsync_" data-uid="LinqToDB.Identity.RoleStore`3.AddClaimAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_AddClaimAsync_LinqToDB_Data_DataConnection__1_System_Security_Claims_Claim_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.AddClaimAsync(LinqToDB.Data.DataConnection,`1,System.Security.Claims.Claim,System.Threading.CancellationToken)">
+  AddClaimAsync(DataConnection, TRole, Claim, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L416"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the <code class="paramref">claim</code> given to the specified <code class="paramref">role</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task AddClaimAsync(DataConnection db, TRole role, Claim claim, CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>db</code> <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
+    <dd></dd>
+    <dt><code>role</code> <span class="xref">TRole</span></dt>
+    <dd><p>The role to add the claim to.</p>
+</dd>
+    <dt><code>claim</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.claims.claim">Claim</a></dt>
+    <dd><p>The claim to add to the role.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> that represents the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_AddClaimAsync_" data-uid="LinqToDB.Identity.RoleStore`3.AddClaimAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_AddClaimAsync__1_System_Security_Claims_Claim_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.AddClaimAsync(`1,System.Security.Claims.Claim,System.Threading.CancellationToken)">
+  AddClaimAsync(TRole, Claim, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L403"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the <code class="paramref">claim</code> given to the specified <code class="paramref">role</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task AddClaimAsync(TRole role, Claim claim, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <span class="xref">TRole</span></dt>
+    <dd><p>The role to add the claim to.</p>
+</dd>
+    <dt><code>claim</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.claims.claim">Claim</a></dt>
+    <dd><p>The claim to add to the role.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> that represents the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_ConvertIdFromString_" data-uid="LinqToDB.Identity.RoleStore`3.ConvertIdFromString*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_ConvertIdFromString_System_String_" data-uid="LinqToDB.Identity.RoleStore`3.ConvertIdFromString(System.String)">
+  ConvertIdFromString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L462"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the provided <code class="paramref">id</code> to a strongly typed key object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TKey ConvertIdFromString(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The id to convert.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TKey</span></dt>
+    <dd><p>An instance of <code class="typeparamref">TKey</code> representing the provided <code class="paramref">id</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_ConvertIdToString_" data-uid="LinqToDB.Identity.RoleStore`3.ConvertIdToString*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_ConvertIdToString__0_" data-uid="LinqToDB.Identity.RoleStore`3.ConvertIdToString(`0)">
+  ConvertIdToString(TKey)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L474"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the provided <code class="paramref">id</code> to its string representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string ConvertIdToString(TKey id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <span class="xref">TKey</span></dt>
+    <dd><p>The id to convert.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> representation of the provided <code class="paramref">id</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_CreateAsync_" data-uid="LinqToDB.Identity.RoleStore`3.CreateAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_CreateAsync_LinqToDB_Data_DataConnection__1_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.CreateAsync(LinqToDB.Data.DataConnection,`1,System.Threading.CancellationToken)">
+  CreateAsync(DataConnection, TRole, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new role in a store as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task&lt;IdentityResult&gt; CreateAsync(DataConnection db, TRole role, CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>db</code> <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
+    <dd></dd>
+    <dt><code>role</code> <span class="xref">TRole</span></dt>
+    <dd><p>The role to create in the store.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityresult">IdentityResult</a>&gt;</dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> that represents the <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityresult">IdentityResult</a> of the asynchronous query.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_CreateAsync_" data-uid="LinqToDB.Identity.RoleStore`3.CreateAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_CreateAsync__1_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.CreateAsync(`1,System.Threading.CancellationToken)">
+  CreateAsync(TRole, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new role in a store as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IdentityResult&gt; CreateAsync(TRole role, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <span class="xref">TRole</span></dt>
+    <dd><p>The role to create in the store.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityresult">IdentityResult</a>&gt;</dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> that represents the <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityresult">IdentityResult</a> of the asynchronous query.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_CreateRoleClaim_" data-uid="LinqToDB.Identity.RoleStore`3.CreateRoleClaim*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_CreateRoleClaim__1_System_Security_Claims_Claim_" data-uid="LinqToDB.Identity.RoleStore`3.CreateRoleClaim(`1,System.Security.Claims.Claim)">
+  CreateRoleClaim(TRole, Claim)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L497"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a entity representing a role claim.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual TRoleClaim CreateRoleClaim(TRole role, Claim claim)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <span class="xref">TRole</span></dt>
+    <dd><p>The associated role.</p>
+</dd>
+    <dt><code>claim</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.claims.claim">Claim</a></dt>
+    <dd><p>The associated claim.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TRoleClaim</span></dt>
+    <dd><p>The role claim entity.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_DeleteAsync_" data-uid="LinqToDB.Identity.RoleStore`3.DeleteAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_DeleteAsync__1_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.DeleteAsync(`1,System.Threading.CancellationToken)">
+  DeleteAsync(TRole, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes a role from the store as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IdentityResult&gt; DeleteAsync(TRole role, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <span class="xref">TRole</span></dt>
+    <dd><p>The role to delete from the store.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityresult">IdentityResult</a>&gt;</dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> that represents the <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityresult">IdentityResult</a> of the asynchronous query.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_Dispose_" data-uid="LinqToDB.Identity.RoleStore`3.Dispose*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_Dispose" data-uid="LinqToDB.Identity.RoleStore`3.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L352"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dispose the stores</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_FindByIdAsync_" data-uid="LinqToDB.Identity.RoleStore`3.FindByIdAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_FindByIdAsync_LinqToDB_Data_DataConnection__0_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.FindByIdAsync(LinqToDB.Data.DataConnection,`0,System.Threading.CancellationToken)">
+  FindByIdAsync(DataConnection, TKey, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L277"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds the role who has the specified ID as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task&lt;TRole&gt; FindByIdAsync(DataConnection db, TKey roleId, CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>db</code> <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
+    <dd></dd>
+    <dt><code>roleId</code> <span class="xref">TKey</span></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TRole&gt;</dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> that result of the look up.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_FindByIdAsync_" data-uid="LinqToDB.Identity.RoleStore`3.FindByIdAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_FindByIdAsync_System_String_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.FindByIdAsync(System.String,System.Threading.CancellationToken)">
+  FindByIdAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L266"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds the role who has the specified ID as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TRole&gt; FindByIdAsync(string id, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The role ID to look for.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TRole&gt;</dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> that result of the look up.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_FindByNameAsync_" data-uid="LinqToDB.Identity.RoleStore`3.FindByNameAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_FindByNameAsync_LinqToDB_Data_DataConnection_System_String_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.FindByNameAsync(LinqToDB.Data.DataConnection,System.String,System.Threading.CancellationToken)">
+  FindByNameAsync(DataConnection, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L304"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds the role who has the specified normalized name as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task&lt;TRole&gt; FindByNameAsync(DataConnection db, string normalizedName, CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>db</code> <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
+    <dd></dd>
+    <dt><code>normalizedName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The normalized role name to look for.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TRole&gt;</dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> that result of the look up.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_FindByNameAsync_" data-uid="LinqToDB.Identity.RoleStore`3.FindByNameAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_FindByNameAsync_System_String_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.FindByNameAsync(System.String,System.Threading.CancellationToken)">
+  FindByNameAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L291"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds the role who has the specified normalized name as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TRole&gt; FindByNameAsync(string normalizedName, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>normalizedName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The normalized role name to look for.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TRole&gt;</dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> that result of the look up.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_GetClaimsAsync_" data-uid="LinqToDB.Identity.RoleStore`3.GetClaimsAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_GetClaimsAsync_LinqToDB_Data_DataConnection__1_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.GetClaimsAsync(LinqToDB.Data.DataConnection,`1,System.Threading.CancellationToken)">
+  GetClaimsAsync(DataConnection, TRole, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L385"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the claims associated with the specified <code class="paramref">role</code> as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task&lt;IList&lt;Claim&gt;&gt; GetClaimsAsync(DataConnection db, TRole role, CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>db</code> <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
+    <dd></dd>
+    <dt><code>role</code> <span class="xref">TRole</span></dt>
+    <dd><p>The role whose claims should be retrieved.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.claims.claim">Claim</a>&gt;&gt;</dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> that contains the claims granted to a role.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_GetClaimsAsync_" data-uid="LinqToDB.Identity.RoleStore`3.GetClaimsAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_GetClaimsAsync__1_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.GetClaimsAsync(`1,System.Threading.CancellationToken)">
+  GetClaimsAsync(TRole, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L371"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the claims associated with the specified <code class="paramref">role</code> as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IList&lt;Claim&gt;&gt; GetClaimsAsync(TRole role, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <span class="xref">TRole</span></dt>
+    <dd><p>The role whose claims should be retrieved.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.claims.claim">Claim</a>&gt;&gt;</dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> that contains the claims granted to a role.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_GetConnection_" data-uid="LinqToDB.Identity.RoleStore`3.GetConnection*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_GetConnection" data-uid="LinqToDB.Identity.RoleStore`3.GetConnection">
+  GetConnection()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html">DataConnection</a> from supplied <a class="xref" href="LinqToDB.Identity.IConnectionFactory.html">IConnectionFactory</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DataConnection GetConnection()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
+    <dd><p><a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html">DataConnection</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_GetContext_" data-uid="LinqToDB.Identity.RoleStore`3.GetContext*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_GetContext" data-uid="LinqToDB.Identity.RoleStore`3.GetContext">
+  GetContext()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets <a class="xref" href="../linq2db/LinqToDB.IDataContext.html">IDataContext</a> from supplied <a class="xref" href="LinqToDB.Identity.IConnectionFactory.html">IConnectionFactory</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IDataContext GetContext()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="../linq2db/LinqToDB.IDataContext.html">IDataContext</a></dt>
+    <dd><p><a class="xref" href="../linq2db/LinqToDB.IDataContext.html">IDataContext</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_GetNormalizedRoleNameAsync_" data-uid="LinqToDB.Identity.RoleStore`3.GetNormalizedRoleNameAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_GetNormalizedRoleNameAsync__1_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.GetNormalizedRoleNameAsync(`1,System.Threading.CancellationToken)">
+  GetNormalizedRoleNameAsync(TRole, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L318"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get a role's normalized name as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;string&gt; GetNormalizedRoleNameAsync(TRole role, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <span class="xref">TRole</span></dt>
+    <dd><p>The role whose normalized name should be retrieved.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> that contains the name of the role.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_GetRoleIdAsync_" data-uid="LinqToDB.Identity.RoleStore`3.GetRoleIdAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_GetRoleIdAsync__1_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.GetRoleIdAsync(`1,System.Threading.CancellationToken)">
+  GetRoleIdAsync(TRole, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the ID for a role from the store as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;string&gt; GetRoleIdAsync(TRole role, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <span class="xref">TRole</span></dt>
+    <dd><p>The role whose ID should be returned.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> that contains the ID of the role.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_GetRoleNameAsync_" data-uid="LinqToDB.Identity.RoleStore`3.GetRoleNameAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_GetRoleNameAsync__1_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.GetRoleNameAsync(`1,System.Threading.CancellationToken)">
+  GetRoleNameAsync(TRole, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the name of a role from the store as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;string&gt; GetRoleNameAsync(TRole role, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <span class="xref">TRole</span></dt>
+    <dd><p>The role whose name should be returned.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> that contains the name of the role.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_RemoveClaimAsync_" data-uid="LinqToDB.Identity.RoleStore`3.RemoveClaimAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_RemoveClaimAsync_LinqToDB_Data_DataConnection__1_System_Security_Claims_Claim_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.RemoveClaimAsync(LinqToDB.Data.DataConnection,`1,System.Security.Claims.Claim,System.Threading.CancellationToken)">
+  RemoveClaimAsync(DataConnection, TRole, Claim, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L448"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the <code class="paramref">claim</code> given from the specified <code class="paramref">role</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task RemoveClaimAsync(DataConnection db, TRole role, Claim claim, CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>db</code> <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
+    <dd></dd>
+    <dt><code>role</code> <span class="xref">TRole</span></dt>
+    <dd><p>The role to remove the claim from.</p>
+</dd>
+    <dt><code>claim</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.claims.claim">Claim</a></dt>
+    <dd><p>The claim to remove from the role.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> that represents the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_RemoveClaimAsync_" data-uid="LinqToDB.Identity.RoleStore`3.RemoveClaimAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_RemoveClaimAsync__1_System_Security_Claims_Claim_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.RemoveClaimAsync(`1,System.Security.Claims.Claim,System.Threading.CancellationToken)">
+  RemoveClaimAsync(TRole, Claim, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L432"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the <code class="paramref">claim</code> given from the specified <code class="paramref">role</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task RemoveClaimAsync(TRole role, Claim claim, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <span class="xref">TRole</span></dt>
+    <dd><p>The role to remove the claim from.</p>
+</dd>
+    <dt><code>claim</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.claims.claim">Claim</a></dt>
+    <dd><p>The claim to remove from the role.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> that represents the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_SetNormalizedRoleNameAsync_" data-uid="LinqToDB.Identity.RoleStore`3.SetNormalizedRoleNameAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_SetNormalizedRoleNameAsync__1_System_String_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.SetNormalizedRoleNameAsync(`1,System.String,System.Threading.CancellationToken)">
+  SetNormalizedRoleNameAsync(TRole, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L338"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set a role's normalized name as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task SetNormalizedRoleNameAsync(TRole role, string normalizedName, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <span class="xref">TRole</span></dt>
+    <dd><p>The role whose normalized name should be set.</p>
+</dd>
+    <dt><code>normalizedName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The normalized name to set</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> that represents the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_SetRoleNameAsync_" data-uid="LinqToDB.Identity.RoleStore`3.SetRoleNameAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_SetRoleNameAsync__1_System_String_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.SetRoleNameAsync(`1,System.String,System.Threading.CancellationToken)">
+  SetRoleNameAsync(TRole, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L246"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the name of a role in the store as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task SetRoleNameAsync(TRole role, string roleName, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <span class="xref">TRole</span></dt>
+    <dd><p>The role whose name should be set.</p>
+</dd>
+    <dt><code>roleName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the role.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> that represents the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_ThrowIfDisposed_" data-uid="LinqToDB.Identity.RoleStore`3.ThrowIfDisposed*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_ThrowIfDisposed" data-uid="LinqToDB.Identity.RoleStore`3.ThrowIfDisposed">
+  ThrowIfDisposed()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L484"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Throws if this class has been disposed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void ThrowIfDisposed()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_UpdateAsync_" data-uid="LinqToDB.Identity.RoleStore`3.UpdateAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_UpdateAsync_LinqToDB_Data_DataConnection__1_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.UpdateAsync(LinqToDB.Data.DataConnection,`1,System.Threading.CancellationToken)">
+  UpdateAsync(DataConnection, TRole, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates a role in a store as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task&lt;IdentityResult&gt; UpdateAsync(DataConnection db, TRole role, CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>db</code> <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
+    <dd></dd>
+    <dt><code>role</code> <span class="xref">TRole</span></dt>
+    <dd><p>The role to update in the store.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityresult">IdentityResult</a>&gt;</dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> that represents the <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityresult">IdentityResult</a> of the asynchronous query.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Identity_RoleStore_3_UpdateAsync_" data-uid="LinqToDB.Identity.RoleStore`3.UpdateAsync*"></a>
+
+  <h3 id="LinqToDB_Identity_RoleStore_3_UpdateAsync__1_System_Threading_CancellationToken_" data-uid="LinqToDB.Identity.RoleStore`3.UpdateAsync(`1,System.Threading.CancellationToken)">
+  UpdateAsync(TRole, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/LinqToDB.Identity/blob/master/src/LinqToDB.Identity/RoleStore.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates a role in a store as an asynchronous operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IdentityResult&gt; UpdateAsync(TRole role, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>role</code> <span class="xref">TRole</span></dt>
+    <dd><p>The role to update in the store.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> used to propagate notifications that the operation
+should be canceled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityresult">IdentityResult</a>&gt;</dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task&lt;TResult&gt;</a> that represents the <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.identity.identityresult">IdentityResult</a> of the asynchronous query.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2023 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
