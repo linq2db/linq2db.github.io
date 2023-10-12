@@ -16,6 +16,17 @@
       
       
       <meta name="docfx:docurl" content="https://github.com/linq2db/docs/blob/master/source/articles/T4.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
   </head>
 
   <script type="module">
@@ -80,7 +91,7 @@
 
 <div class="WARNING">
 <h5>Warning</h5>
-<p>T4 templates are obsoleted and replaced with new <a href="https://www.nuget.org/packages/linq2db.cli"><code>dotnet tool</code></a>. Tool documentation could be found <a class="xref" href="CLI.html">here</a>.</p>
+<p>We recommend to use <a href="https://www.nuget.org/packages/linq2db.cli"><code>dotnet scaffold tool</code></a> instead of T4 due to limitations of T4 engine (e.g. limited cross-platform support). Tool documentation could be found <a class="xref" href="CLI.html">here</a>.</p>
 </div>
 <h1 id="t4-models">T4 Models</h1>
 <p>T4 models are used to generate POCO's C# code using your database structure.</p>
@@ -330,13 +341,20 @@ SingularizeDataContextPropertyNames = false;
 // Could be overriden using ToValidName option below.
 // By default doesn't normalize names without underscores.
 // see NormalizeNamesWithoutUnderscores setting
-NormalizeNames                                 = true;
+NormalizeNames                      = true;
+// enables parameter name normalization for procedures/functions
+NormalizeParameterName              = true;
+// enables column property name normalization for procedure/table function result table
+NormalizeProcedureColumnName        = true;
 // enables normalization of names without underscores.
-NormalizeNamesWithoutUnderscores               = false;
+NormalizeNamesWithoutUnderscores    = false;
 // Defines logic to convert type/member name, derived from database object name, to C# identifier.
 Func&lt;string, bool, string&gt; ToValidName         = ToValidNameDefault;
 // Makes C# identifier valid by removing unsupported symbols and calling ToValidName
 Func&lt;string, bool, string&gt; ConvertToCompilable = ConvertToCompilableDefault;
+// Defines C# identifier normalization logic.
+// Default implementation calls ConvertToCompilable and then escape names equal to C# identifiers
+Func&lt;string, bool, string&gt; NormalizeName       = NormalizeNameDefault;
 </code></pre>
 <h2 id="provider-specific-options">Provider specific options</h2>
 <h3 id="sql-server">SQL Server</h3>
