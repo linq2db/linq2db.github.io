@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>ActivityService (Metrics) | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="ActivityService (Metrics) | Linq To DB ">
+      
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/docs/blob/master/source/articles/general/metrics.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Metrics">
+<h1 id="activityservice-metrics">ActivityService (Metrics)<!-- omit in toc --></h1>
+
+<h2 id="overview">Overview</h2>
+<p>The <code>ActivityService</code> provides functionality to collect critical <code>Linq To DB</code> telemetry data, that can be used to monitor, analyze, and optimize your application.
+The <code>ActivityService</code> is compatible with the <a href="https://opentelemetry.io/">OpenTelemetry</a> specification and <a href="https://www.nuget.org/packages/System.Diagnostics.DiagnosticSource/">System.Diagnostics.DiagnosticSource</a> package.</p>
+<h2 id="iactivity-interface">IActivity interface</h2>
+<p>The <code>IActivity</code> represents a single activity that can be measured.
+This is an interface that you need to implement to collect <code>Linq To DB</code> telemetry data.</p>
+<h2 id="activitybase-class">ActivityBase class</h2>
+<p>The <code>ActivityBase</code> class provides a basic implementation of the <code>IActivity</code> interface. You do not have to use this class.
+However, it can help you to avoid incompatibility issues in the future if the <code>IActivity</code> interface is extended.</p>
+<h2 id="activityservice-class">ActivityService class</h2>
+<p>The <code>ActivityService</code> class provides a simple API to register factory methods that create <code>IActivity</code> instances or <code>null</code> for provided <code>ActivityID</code> event.
+You can register multiple factory methods.</p>
+<h2 id="activityid">ActivityID</h2>
+<p>The <code>ActivityID</code> is a unique identifier of the LinqToDB activity. It is used to identify the activity in the metrics data.</p>
+<p><code>Linq To DB</code> contains a large set of telemetry collection points that can be used to collect data.
+Each collection point has a unique <code>ActivityID</code> identifier.</p>
+<h2 id="example">Example</h2>
+<p>The following example shows how to use the <code>ActivityService</code> and <code>OpenTelemetry</code> to collect <code>Linq To DB</code> telemetry data.</p>
+<pre><code class="lang-c#">using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
+
+using LinqToDB;
+using LinqToDB.Data;
+using LinqToDB.Mapping;
+using LinqToDB.Tools;
+
+using OpenTelemetry;
+using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
+
+namespace OpenTelemetryExample
+{
+    static class Program
+    {
+        static async Task Main()
+        {
+            using var tracerProvider = Sdk.CreateTracerProviderBuilder()
+                .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService(&quot;MySample&quot;))
+                .AddSource(&quot;Sample.LinqToDB&quot;)
+                .AddConsoleExporter()
+                .Build();
+
+            ActivitySource.AddActivityListener(_activityListener);
+
+            // Register the factory method that creates LinqToDBActivity instances.
+            //
+            ActivityService.AddFactory(LinqToDBActivity.Create);
+
+            {
+                await using var db = new DataConnection(new DataOptions().UseSQLiteMicrosoft(&quot;Data Source=Northwind.MS.sqlite&quot;));
+
+                await db.CreateTableAsync&lt;Customer&gt;(tableOptions:TableOptions.CheckExistence);
+
+                var count = await db.GetTable&lt;Customer&gt;().CountAsync();
+
+                Console.WriteLine($&quot;Count is {count}&quot;);
+            }
+        }
+
+        static readonly ActivitySource   _activitySource   = new(&quot;Sample.LinqToDB&quot;);
+        static readonly ActivityListener _activityListener = new()
+        {
+            ShouldListenTo      = _ =&gt; true,
+            SampleUsingParentId = (ref ActivityCreationOptions&lt;string&gt;          _) =&gt; ActivitySamplingResult.AllData,
+            Sample              = (ref ActivityCreationOptions&lt;ActivityContext&gt; _) =&gt; ActivitySamplingResult.AllData
+        };
+
+        // This class is used to collect LinqToDB telemetry data.
+        //
+        sealed class LinqToDBActivity : IActivity
+        {
+            readonly Activity _activity;
+
+            LinqToDBActivity(Activity activity)
+            {
+                _activity = activity;
+            }
+
+            public void Dispose()
+            {
+                _activity.Dispose();
+            }
+
+            public ValueTask DisposeAsync()
+            {
+                Dispose();
+                return default;
+            }
+
+            // This method is called by the ActivityService to create an instance of the LinqToDBActivity class.
+            //
+            public static IActivity? Create(ActivityID id)
+            {
+                var a = _activitySource.StartActivity(id.ToString());
+                return a == null ? null : new LinqToDBActivity(a);
+            }
+        }
+
+        [Table(Name=&quot;Customers&quot;)]
+        public sealed class Customer
+        {
+            [PrimaryKey]      public string CustomerID  = null!;
+            [Column, NotNull] public string CompanyName = null!;
+        }
+    }
+}
+</code></pre>
+<p>Output:</p>
+<pre><code>Activity.TraceId:            4ee29f995cd25bba583def846a2aa220
+Activity.SpanId:             cd0647218f959924
+Activity.TraceFlags:         Recorded
+Activity.ParentSpanId:       268635637f43fbd1
+Activity.ActivitySourceName: Sample.LinqToDB
+Activity.DisplayName:        FinalizeQuery
+Activity.Kind:               Internal
+Activity.StartTime:          2023-12-28T07:14:45.0200111Z
+Activity.Duration:           00:00:00.0644992
+Resource associated with Activity:
+    service.name: MySample
+    service.instance.id: 61b68727-d6bd-43a1-a426-c206851b6bdb
+    telemetry.sdk.name: opentelemetry
+    telemetry.sdk.language: dotnet
+    telemetry.sdk.version: 1.6.0
+
+Activity.TraceId:            4ee29f995cd25bba583def846a2aa220
+Activity.SpanId:             8f5842b0c199c668
+Activity.TraceFlags:         Recorded
+Activity.ParentSpanId:       93fb3a253e06df95
+Activity.ActivitySourceName: Sample.LinqToDB
+Activity.DisplayName:        BuildSql
+Activity.Kind:               Internal
+Activity.StartTime:          2023-12-28T07:14:45.4280856Z
+Activity.Duration:           00:00:00.0101335
+Resource associated with Activity:
+    service.name: MySample
+    service.instance.id: 61b68727-d6bd-43a1-a426-c206851b6bdb
+    telemetry.sdk.name: opentelemetry
+    telemetry.sdk.language: dotnet
+    telemetry.sdk.version: 1.6.0
+
+
+...
+
+
+Activity.TraceId:            45a597dbc0d5b354e18d371b02a101c6
+Activity.SpanId:             38cfd4c41f55583b
+Activity.TraceFlags:         Recorded
+Activity.ActivitySourceName: Sample.LinqToDB
+Activity.DisplayName:        ExecuteElementAsync
+Activity.Kind:               Internal
+Activity.StartTime:          2023-12-28T07:14:46.2702044Z
+Activity.Duration:           00:00:00.1555957
+Resource associated with Activity:
+    service.name: MySample
+    service.instance.id: 61b68727-d6bd-43a1-a426-c206851b6bdb
+    telemetry.sdk.name: opentelemetry
+    telemetry.sdk.language: dotnet
+    telemetry.sdk.version: 1.6.0
+
+Count is 91
+</code></pre>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2023 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
