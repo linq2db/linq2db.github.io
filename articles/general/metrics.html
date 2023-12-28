@@ -248,6 +248,130 @@ Resource associated with Activity:
 
 Count is 91
 </code></pre>
+<h2 id="tools">Tools</h2>
+<p>The <code>LinqToDB.Tools</code> package contains two activity factories <code>ActivityHierarchy</code> and <code>ActivityStatistics</code>
+that can be used to generate <code>Linq To DB</code> activity reports. An exsample of how to use these factories
+can be found <a href="https://github.com/linq2db/linq2db/tree/metrics/Examples/Metrics/Tools">here</a>.</p>
+<p>The following is an output of this example:</p>
+<pre><code>Count is 91
+LinqToDB call hierarchy:
+
+CreateTable
+  FinalizeQuery
+  Execute NonQuery
+    BuildSql
+    Connection Open
+    Command ExecuteNonQuery
+
+IQueryProvider.Execute&lt;T&gt;
+  GetQuery
+    Find
+      Expose
+      Find
+    Create
+      Build
+        BuildSequence
+          CanBuild (22)
+          Build
+            BuildSequence
+              CanBuild
+              Build
+        ReorderBuilders
+        BuildQuery
+          FinalizeQuery
+  Execute Element
+    BuildSql
+    Command ExecuteReader
+    Materialization
+
+Connection Dispose
+
+
+LinqToDB statistics:
+
+Count : 77
++----------------------------------------+------------------+-----------+------------------+---------+
+| Name                                   | Elapsed          | CallCount | TimePerCall      | Percent |
++----------------------------------------+------------------+-----------+------------------+---------+
+| IQueryProvider.Execute&lt;T&gt;              | 00:00:00.1279609 |         1 | 00:00:00.1279609 |  35.85% |
+| IQueryProvider.Execute                 | 00:00:00         |         0 | 00:00:00         |         |
+| IQueryProvider.GetEnumerator&lt;T&gt;        | 00:00:00         |         0 | 00:00:00         |         |
+| IQueryProvider.GetEnumerator           | 00:00:00         |         0 | 00:00:00         |         |
+|   GetQuery                             | 00:00:00.0748878 |         1 | 00:00:00.0748878 |  20.98% |
+|     Find                               | 00:00:00.0084079 |         1 | 00:00:00.0084079 |   2.36% |
+|       Expose                           | 00:00:00.0081031 |         1 | 00:00:00.0081031 |   2.27% |
+|       Find                             | 00:00:00.0002990 |         1 | 00:00:00.0002990 |   0.08% |
+|     Create                             | 00:00:00.0664771 |         1 | 00:00:00.0664771 |  18.63% |
+|       Build                            | 00:00:00.0450327 |         1 | 00:00:00.0450327 |  12.62% |
+|         BuildSequence                  | 00:00:00.0083066 |         2 | 00:00:00.0041533 |   2.33% |
+|           CanBuild                     | 00:00:00.0000421 |        23 | 00:00:00.0000018 |   0.01% |
+|           Build                        | 00:00:00.0080319 |         2 | 00:00:00.0040159 |   2.25% |
+|         ReorderBuilders                | 00:00:00.0004451 |         1 | 00:00:00.0004451 |   0.12% |
+|         BuildQuery                     | 00:00:00.0382906 |         1 | 00:00:00.0382906 |  10.73% |
+|           FinalizeQuery                | 00:00:00.0590411 |         2 | 00:00:00.0295205 |  16.54% |
+|   GetIEnumerable                       | 00:00:00         |         0 | 00:00:00         |         |
+| Execute                                | 00:00:00.2289324 |         3 | 00:00:00.0763108 |  64.15% |
+|   Execute Query                        | 00:00:00         |         0 | 00:00:00         |         |
+|   Execute Query Async                  | 00:00:00         |         0 | 00:00:00         |         |
+|   Execute Element                      | 00:00:00.0513571 |         1 | 00:00:00.0513571 |  14.39% |
+|   Execute Element Async                | 00:00:00         |         0 | 00:00:00         |         |
+|   Execute Scalar                       | 00:00:00         |         0 | 00:00:00         |         |
+|   Execute Scalar Async                 | 00:00:00         |         0 | 00:00:00         |         |
+|   Execute Scalar 2                     | 00:00:00         |         0 | 00:00:00         |         |
+|   Execute Scalar 2 Async               | 00:00:00         |         0 | 00:00:00         |         |
+|   Execute NonQuery                     | 00:00:00.0511693 |         1 | 00:00:00.0511693 |  14.34% |
+|   Execute NonQuery Async               | 00:00:00         |         0 | 00:00:00         |         |
+|   Execute NonQuery 2                   | 00:00:00         |         0 | 00:00:00         |         |
+|   Execute NonQuery 2 Async             | 00:00:00         |         0 | 00:00:00         |         |
+|   CreateTable                          | 00:00:00.1264060 |         1 | 00:00:00.1264060 |  35.42% |
+|   CreateTable Async                    | 00:00:00         |         0 | 00:00:00         |         |
+|   DropTable                            | 00:00:00         |         0 | 00:00:00         |         |
+|   DropTable Async                      | 00:00:00         |         0 | 00:00:00         |         |
+|   Delete Object                        | 00:00:00         |         0 | 00:00:00         |         |
+|   Delete Object Async                  | 00:00:00         |         0 | 00:00:00         |         |
+|   Insert Object                        | 00:00:00         |         0 | 00:00:00         |         |
+|   Insert Object Async                  | 00:00:00         |         0 | 00:00:00         |         |
+|   InsertOrReplace Object               | 00:00:00         |         0 | 00:00:00         |         |
+|   InsertOrReplace Object Async         | 00:00:00         |         0 | 00:00:00         |         |
+|   InsertWithIdentity Object            | 00:00:00         |         0 | 00:00:00         |         |
+|   InsertWithIdentity Object Async      | 00:00:00         |         0 | 00:00:00         |         |
+|   Update Object                        | 00:00:00         |         0 | 00:00:00         |         |
+|   Update Object Async                  | 00:00:00         |         0 | 00:00:00         |         |
+|   BulkCopy                             | 00:00:00         |         0 | 00:00:00         |         |
+|   BulkCopy Async                       | 00:00:00         |         0 | 00:00:00         |         |
+|     BuildSql                           | 00:00:00.0383149 |         2 | 00:00:00.0191574 |  10.74% |
+|   SQL Execute                          | 00:00:00         |         0 | 00:00:00         |         |
+|   SQL Execute&lt;T&gt;                       | 00:00:00         |         0 | 00:00:00         |         |
+|   SQL ExecuteCustom                    | 00:00:00         |         0 | 00:00:00         |         |
+|   SQL ExecuteAsync                     | 00:00:00         |         0 | 00:00:00         |         |
+|   SQL ExecuteAsync&lt;T&gt;                  | 00:00:00         |         0 | 00:00:00         |         |
+|     ADO.NET                            | 00:00:00.0100436 |         4 | 00:00:00.0025109 |   2.81% |
+|       Connection Open                  | 00:00:00.0041363 |         1 | 00:00:00.0041363 |   1.16% |
+|       Connection OpenAsync             | 00:00:00         |         0 | 00:00:00         |         |
+|       Connection Close                 | 00:00:00         |         0 | 00:00:00         |         |
+|       Connection CloseAsync            | 00:00:00         |         0 | 00:00:00         |         |
+|       Connection Dispose               | 00:00:00.0009168 |         1 | 00:00:00.0009168 |   0.26% |
+|       Connection DisposeAsync          | 00:00:00         |         0 | 00:00:00         |         |
+|       Connection BeginTransaction      | 00:00:00         |         0 | 00:00:00         |         |
+|       Connection BeginTransactionAsync | 00:00:00         |         0 | 00:00:00         |         |
+|       Transaction Commit               | 00:00:00         |         0 | 00:00:00         |         |
+|       Transaction CommitAsync          | 00:00:00         |         0 | 00:00:00         |         |
+|       Transaction Rollback             | 00:00:00         |         0 | 00:00:00         |         |
+|       Transaction RollbackAsync        | 00:00:00         |         0 | 00:00:00         |         |
+|       Transaction Dispose              | 00:00:00         |         0 | 00:00:00         |         |
+|       Transaction DisposeAsync         | 00:00:00         |         0 | 00:00:00         |         |
+|       Command ExecuteScalar            | 00:00:00         |         0 | 00:00:00         |         |
+|       Command ExecuteScalarAsync       | 00:00:00         |         0 | 00:00:00         |         |
+|       Command ExecuteReader            | 00:00:00.0003941 |         1 | 00:00:00.0003941 |   0.11% |
+|       Command ExecuteReaderAsync       | 00:00:00         |         0 | 00:00:00         |         |
+|       Command ExecuteNonQuery          | 00:00:00.0045964 |         1 | 00:00:00.0045964 |   1.29% |
+|       Command ExecuteNonQueryAsync     | 00:00:00         |         0 | 00:00:00         |         |
+|     OnTraceInternal                    | 00:00:00         |         0 | 00:00:00         |         |
+|     Materialization                    | 00:00:00.0005660 |         1 | 00:00:00.0005660 |   0.16% |
+|   GetSqlText                           | 00:00:00         |         0 | 00:00:00         |         |
+| Total                                  | 00:00:00.3568933 |         4 | 00:00:00.0892233 | 100.00% |
++----------------------------------------+------------------+-----------+------------------+---------+
+</code></pre>
 
 </article>
 
