@@ -2,12 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class Converter
- | Linq To DB </title>
+      <title>Class Converter | Linq To DB </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class Converter
- | Linq To DB ">
+      <meta name="title" content="Class Converter | Linq To DB ">
       
+      <meta name="description" content="Type conversion manager.">
       <link rel="icon" href="../../images/icon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -17,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/linq2db/docs/new/master/apiSpec/new?filename=LinqToDB_Common_Converter.md&amp;value=---%0Auid%3A%20LinqToDB.Common.Converter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Common_Converter.md&amp;value=---%0Auid%3A%20LinqToDB.Common.Converter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -90,8 +89,7 @@
 
 
   <h1 id="LinqToDB_Common_Converter" data-uid="LinqToDB.Common.Converter" class="text-break">
-    Class Converter
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/docs/blob/master/submodules/linq2db/Source/LinqToDB/Common/Converter.cs/#L20"><i class="bi bi-code-slash"></i></a>
+Class Converter  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Converter.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -132,17 +130,17 @@
 
   <a id="LinqToDB_Common_Converter_ChangeType_" data-uid="LinqToDB.Common.Converter.ChangeType*"></a>
 
-  <h3 id="LinqToDB_Common_Converter_ChangeType_System_Object_System_Type_LinqToDB_Mapping_MappingSchema_" data-uid="LinqToDB.Common.Converter.ChangeType(System.Object,System.Type,LinqToDB.Mapping.MappingSchema)">
-  ChangeType(object?, Type, MappingSchema?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/docs/blob/master/submodules/linq2db/Source/LinqToDB/Common/Converter.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  <h3 id="LinqToDB_Common_Converter_ChangeType_System_Object_System_Type_LinqToDB_Mapping_MappingSchema_LinqToDB_Common_ConversionType_" data-uid="LinqToDB.Common.Converter.ChangeType(System.Object,System.Type,LinqToDB.Mapping.MappingSchema,LinqToDB.Common.ConversionType)">
+  ChangeType(object?, Type, MappingSchema?, ConversionType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Converter.cs/#L125"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Converts value to <code class="paramref">conversionType</code> type.</p>
+  <div class="markdown level1 summary"><p>Converts value to <code class="paramref">toConvertType</code> type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static object? ChangeType(object? value, Type conversionType, MappingSchema? mappingSchema = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static object? ChangeType(object? value, Type toConvertType, MappingSchema? mappingSchema = null, ConversionType conversionType = ConversionType.Common)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -150,11 +148,14 @@
     <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
     <dd><p>Value to convert.</p>
 </dd>
-    <dt><code>conversionType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dt><code>toConvertType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
     <dd><p>Target conversion type.</p>
 </dd>
     <dt><code>mappingSchema</code> <a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></dt>
     <dd><p>Optional mapping schema.</p>
+</dd>
+    <dt><code>conversionType</code> <a class="xref" href="LinqToDB.Common.ConversionType.html">ConversionType</a></dt>
+    <dd><p>Conversion type. See <a class="xref" href="LinqToDB.Common.ConversionType.html">ConversionType</a> for details.</p>
 </dd>
   </dl>
 
@@ -177,9 +178,9 @@
 
   <a id="LinqToDB_Common_Converter_ChangeTypeTo_" data-uid="LinqToDB.Common.Converter.ChangeTypeTo*"></a>
 
-  <h3 id="LinqToDB_Common_Converter_ChangeTypeTo__1_System_Object_LinqToDB_Mapping_MappingSchema_" data-uid="LinqToDB.Common.Converter.ChangeTypeTo``1(System.Object,LinqToDB.Mapping.MappingSchema)">
-  ChangeTypeTo&lt;T&gt;(object?, MappingSchema?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/docs/blob/master/submodules/linq2db/Source/LinqToDB/Common/Converter.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  <h3 id="LinqToDB_Common_Converter_ChangeTypeTo__1_System_Object_LinqToDB_Mapping_MappingSchema_LinqToDB_Common_ConversionType_" data-uid="LinqToDB.Common.Converter.ChangeTypeTo``1(System.Object,LinqToDB.Mapping.MappingSchema,LinqToDB.Common.ConversionType)">
+  ChangeTypeTo&lt;T&gt;(object?, MappingSchema?, ConversionType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Converter.cs/#L185"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts value to <code class="typeparamref">T</code> type.</p>
@@ -187,7 +188,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T ChangeTypeTo&lt;T&gt;(object? value, MappingSchema? mappingSchema = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T ChangeTypeTo&lt;T&gt;(object? value, MappingSchema? mappingSchema = null, ConversionType conversionType = ConversionType.Common)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -197,6 +198,9 @@
 </dd>
     <dt><code>mappingSchema</code> <a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></dt>
     <dd><p>Optional mapping schema.</p>
+</dd>
+    <dt><code>conversionType</code> <a class="xref" href="LinqToDB.Common.ConversionType.html">ConversionType</a></dt>
+    <dd><p>Conversion type. See <a class="xref" href="LinqToDB.Common.ConversionType.html">ConversionType</a> for details.</p>
 </dd>
   </dl>
 
@@ -227,7 +231,7 @@
 
   <h3 id="LinqToDB_Common_Converter_GetDefaultMappingFromEnumType_LinqToDB_Mapping_MappingSchema_System_Type_" data-uid="LinqToDB.Common.Converter.GetDefaultMappingFromEnumType(LinqToDB.Mapping.MappingSchema,System.Type)">
   GetDefaultMappingFromEnumType(MappingSchema, Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/docs/blob/master/submodules/linq2db/Source/LinqToDB/Common/Converter.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Converter.cs/#L251"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns type, to which provided enumeration values should be mapped.</p>
@@ -269,7 +273,7 @@
 
   <h3 id="LinqToDB_Common_Converter_SetConverter__2_System_Linq_Expressions_Expression_System_Func___0___1___" data-uid="LinqToDB.Common.Converter.SetConverter``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
   SetConverter&lt;TFrom, TTo&gt;(Expression&lt;Func&lt;TFrom, TTo&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/docs/blob/master/submodules/linq2db/Source/LinqToDB/Common/Converter.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Converter.cs/#L98"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets custom converter from <code class="typeparamref">TFrom</code> to <code class="typeparamref">TTo</code> type.</p>
@@ -324,7 +328,7 @@
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2023 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2024 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>
