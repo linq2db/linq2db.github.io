@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -2008,11 +2008,7 @@ In case of <code>null</code>, configuration from <a class="xref" href="LinqToDB.
 
   <div class="markdown level1 summary"><p>Trace function. By Default use <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.diagnostics.debug">Debug</a> class for logging, but could be replaced to log e.g. to your log file.
 will be ignored if <a class="xref" href="LinqToDB.DataOptionsExtensions.html#LinqToDB_DataOptionsExtensions_UseTraceWith_LinqToDB_DataOptions_System_Action_System_String_System_String_System_Diagnostics_TraceLevel__">UseTraceWith(DataOptions, Action&lt;string?, string?, TraceLevel&gt;)</a> is called on builder</p>
-<p>First parameter contains trace message.</p>
-<p>Second parameter contains trace message category (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.diagnostics.switch.displayname">DisplayName</a>).</p>
-<p>Third parameter contains trace level for message (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.diagnostics.tracelevel">TraceLevel</a>).</p>
-<a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_TraceSwitch">TraceSwitch</a>
-<remarks>Should only not use to write trace lines, only use <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_WriteTraceLineConnection">WriteTraceLineConnection</a>.</remarks>
+<p>First parameter contains trace message.</p><p>Second parameter contains trace message category (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.diagnostics.switch.displayname">DisplayName</a>).</p><p>Third parameter contains trace level for message (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.diagnostics.tracelevel">TraceLevel</a>).</p><a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_TraceSwitch">TraceSwitch</a><remarks>Should only not use to write trace lines, only use <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_WriteTraceLineConnection">WriteTraceLineConnection</a>.</remarks>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2212,9 +2208,7 @@ By default timeout is not set and default value for current provider used.</p>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets default connection configuration name. Used by <a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a> by default and could be set automatically from:</p>
-<p> - <a class="xref" href="LinqToDB.Configuration.ILinqToDBSettings.html#LinqToDB_Configuration_ILinqToDBSettings_DefaultConfiguration">DefaultConfiguration</a>;</p>
-<p> - first non-global connection string name from <a class="xref" href="LinqToDB.Configuration.ILinqToDBSettings.html#LinqToDB_Configuration_ILinqToDBSettings_ConnectionStrings">ConnectionStrings</a>;</p>
-<p> - first non-global connection string name passed to <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_SetConnectionStrings_System_Collections_Generic_IEnumerable_LinqToDB_Configuration_IConnectionStringSettings__">SetConnectionStrings(IEnumerable&lt;IConnectionStringSettings&gt;)</a> method.</p>
+<p> - <a class="xref" href="LinqToDB.Configuration.ILinqToDBSettings.html#LinqToDB_Configuration_ILinqToDBSettings_DefaultConfiguration">DefaultConfiguration</a>;</p><p> - first non-global connection string name from <a class="xref" href="LinqToDB.Configuration.ILinqToDBSettings.html#LinqToDB_Configuration_ILinqToDBSettings_ConnectionStrings">ConnectionStrings</a>;</p><p> - first non-global connection string name passed to <a class="xref" href="LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_SetConnectionStrings_System_Collections_Generic_IEnumerable_LinqToDB_Configuration_IConnectionStringSettings__">SetConnectionStrings(IEnumerable&lt;IConnectionStringSettings&gt;)</a> method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

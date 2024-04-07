@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -151,8 +151,8 @@ For more information on setting up dependency injection, see <a href="http://go.
 </dd>
     <dt><code>configure</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, <a class="xref" href="../linq2db/LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="../linq2db/LinqToDB.DataOptions.html">DataOptions</a>&gt;</dt>
     <dd><p>
-    An action to configure the <a class="xref" href="../linq2db/LinqToDB.DataOptions.html">DataOptions</a> for the context.
-</p>
+         An action to configure the <a class="xref" href="../linq2db/LinqToDB.DataOptions.html">DataOptions</a> for the context.
+     </p>
 </dd>
     <dt><code>lifetime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicelifetime">ServiceLifetime</a></dt>
     <dd><p>The lifetime with which to register the Context service in the container.
@@ -183,13 +183,13 @@ For one connection per request use <a class="xref" href="https://learn.microsoft
 
   <h4 class="section" id="LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDB_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_System_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__Microsoft_Extensions_DependencyInjection_ServiceLifetime__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-	This will only work when you have 1 database connection across your whole application.
-	If your application needs multiple different connections with different configurations
-	then use <a class="xref" href="LinqToDB.AspNet.ServiceConfigurationExtensions.html#LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_System_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__Microsoft_Extensions_DependencyInjection_ServiceLifetime_">AddLinqToDBContext&lt;TContext&gt;(IServiceCollection, Func&lt;IServiceProvider, DataOptions, DataOptions&gt;, ServiceLifetime)</a> or <a class="xref" href="LinqToDB.AspNet.ServiceConfigurationExtensions.html#LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_System_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__Microsoft_Extensions_DependencyInjection_ServiceLifetime_">AddLinqToDBContext&lt;TContext, TContextImplementation&gt;(IServiceCollection, Func&lt;IServiceProvider, DataOptions, DataOptions&gt;, ServiceLifetime)</a>.
-</p>
+ 		This will only work when you have 1 database connection across your whole application.
+ 		If your application needs multiple different connections with different configurations
+ 		then use <a class="xref" href="LinqToDB.AspNet.ServiceConfigurationExtensions.html#LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_System_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__Microsoft_Extensions_DependencyInjection_ServiceLifetime_">AddLinqToDBContext&lt;TContext&gt;(IServiceCollection, Func&lt;IServiceProvider, DataOptions, DataOptions&gt;, ServiceLifetime)</a> or <a class="xref" href="LinqToDB.AspNet.ServiceConfigurationExtensions.html#LinqToDB_AspNet_ServiceConfigurationExtensions_AddLinqToDBContext__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_System_IServiceProvider_LinqToDB_DataOptions_LinqToDB_DataOptions__Microsoft_Extensions_DependencyInjection_ServiceLifetime_">AddLinqToDBContext&lt;TContext, TContextImplementation&gt;(IServiceCollection, Func&lt;IServiceProvider, DataOptions, DataOptions&gt;, ServiceLifetime)</a>.
+ 	</p>
 <p>
-	To Resolve the connection inject <a class="xref" href="../linq2db/LinqToDB.IDataContext.html">IDataContext</a> into your services.
-</p>
+ 		To Resolve the connection inject <a class="xref" href="../linq2db/LinqToDB.IDataContext.html">IDataContext</a> into your services.
+ 	</p>
 </div>
 
 
@@ -219,12 +219,12 @@ For more information on setting up dependency injection, see <a href="http://go.
 </dd>
     <dt><code>configure</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, <a class="xref" href="../linq2db/LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="../linq2db/LinqToDB.DataOptions.html">DataOptions</a>&gt;</dt>
     <dd><p>
-    An action to configure the <a class="xref" href="../linq2db/LinqToDB.DataOptions.html">DataOptions</a> for the context.
-</p>
+         An action to configure the <a class="xref" href="../linq2db/LinqToDB.DataOptions.html">DataOptions</a> for the context.
+     </p>
 <p>
-    In order for the options to be passed into your context, you need to expose a constructor on your context that takes
-    <a class="xref" href="../linq2db/LinqToDB.DataContextOptions.html">DataContextOptions</a> and passes it to the base constructor of <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html">DataConnection</a>.
-</p>
+         In order for the options to be passed into your context, you need to expose a constructor on your context that takes
+         <a class="xref" href="../linq2db/LinqToDB.DataContextOptions.html">DataContextOptions</a> and passes it to the base constructor of <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html">DataConnection</a>.
+     </p>
 </dd>
     <dt><code>lifetime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicelifetime">ServiceLifetime</a></dt>
     <dd><p>The lifetime with which to register the Context service in the container.
@@ -293,12 +293,12 @@ For more information on setting up dependency injection, see <a href="http://go.
 </dd>
     <dt><code>configure</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, <a class="xref" href="../linq2db/LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="../linq2db/LinqToDB.DataOptions.html">DataOptions</a>&gt;</dt>
     <dd><p>
-    An action to configure the <a class="xref" href="../linq2db/LinqToDB.DataOptions.html">DataOptions</a> for the context.
-</p>
+         An action to configure the <a class="xref" href="../linq2db/LinqToDB.DataOptions.html">DataOptions</a> for the context.
+     </p>
 <p>
-    In order for the options to be passed into your context, you need to expose a constructor on your context that takes
-    <a class="xref" href="../linq2db/LinqToDB.DataContextOptions.html">DataContextOptions</a> and passes it to the base constructor of <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html">DataConnection</a>.
-</p>
+         In order for the options to be passed into your context, you need to expose a constructor on your context that takes
+         <a class="xref" href="../linq2db/LinqToDB.DataContextOptions.html">DataContextOptions</a> and passes it to the base constructor of <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html">DataConnection</a>.
+     </p>
 </dd>
     <dt><code>lifetime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicelifetime">ServiceLifetime</a></dt>
     <dd><p>The lifetime with which to register the Context service in the container.

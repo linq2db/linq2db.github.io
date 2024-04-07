@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class AzureSQLDatabaseSchema.DatabaseServiceObjective | Linq To DB ">
       
-      <meta name="description" content="sys.database_service_objectives (Azure SQL Database) Applies to: √ Azure SQL Database √ Azure SQL Managed Instance √ Azure Synapse Analytics Returns the edition (service tier), service objective (pricing tier) and elastic pool name, if any, for an Azure SQL database or an Azure Synapse Analytics. If logged on to the master database in an Azure SQL Database server, returns information on all databases. For Azure Synapse Analytics, you must be connected to the master database.   For information on pricing, see SQL Database options and performance: SQL Database Pricing and Azure Synapse Analytics Pricing.  To change the service settings, see ALTER DATABASE (Azure SQL Database) and ALTER DATABASE (Azure Synapse Analytics).  The sys.database_service_objectives view contains the following columns. See sys.database_service_objectives.">
+      <meta name="description" content="sys.database_service_objectives (Azure SQL Database)     Applies to: √ Azure SQL Database √ Azure SQL Managed Instance √ Azure Synapse Analytics Returns the edition (service tier), service objective (pricing tier) and elastic pool name, if any, for an Azure SQL database or an Azure Synapse Analytics. If logged on to the master database in an Azure SQL Database server, returns information on all databases. For Azure Synapse Analytics, you must be connected to the master database.  For information on pricing, see SQL Database options and performance: SQL Database Pricing and Azure Synapse Analytics Pricing.  To change the service settings, see ALTER DATABASE (Azure SQL Database) and ALTER DATABASE (Azure Synapse Analytics).  The sys.database_service_objectives view contains the following columns.  See sys.database_service_objectives.">
       <link rel="icon" href="../../images/icon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -97,13 +97,16 @@ Class AzureSQLDatabaseSchema.DatabaseServiceObjective  <a class="header-action l
   <dl><dt>Assembly</dt><dd>linq2db.Tools.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p><strong>sys.database_service_objectives (Azure SQL Database)</strong></p>
-<p><strong>Applies to:</strong> √ Azure SQL Database √ Azure SQL Managed Instance √ Azure Synapse Analytics</p>
-<p>Returns the edition (service tier), service objective (pricing tier) and elastic pool name, if any, for an Azure SQL database or an Azure Synapse Analytics. If logged on to the master database in an Azure SQL Database server, returns information on all databases. For Azure Synapse Analytics, you must be connected to the master database.<br>
-<br>
+  <div class="markdown summary"><p>
+  <strong>sys.database_service_objectives (Azure SQL Database)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ Azure SQL Database √ Azure SQL Managed Instance √ Azure Synapse Analytics</p>
+<p>Returns the edition (service tier), service objective (pricing tier) and elastic pool name, if any, for an Azure SQL database or an Azure Synapse Analytics. If logged on to the master database in an Azure SQL Database server, returns information on all databases. For Azure Synapse Analytics, you must be connected to the master database.<br><br>
  For information on pricing, see <a href="https://azure.microsoft.com/pricing/details/sql-database/">SQL Database options and performance: SQL Database Pricing</a> and <a href="https://azure.microsoft.com/pricing/details/sql-data-warehouse/">Azure Synapse Analytics Pricing</a>.<br>
  To change the service settings, see <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql">ALTER DATABASE (Azure SQL Database)</a> and <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&amp;preserve-view=true">ALTER DATABASE (Azure Synapse Analytics)</a>.<br>
- The sys.database_service_objectives view contains the following columns.</p><br>
+ The sys.database_service_objectives view contains the following columns.</p>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database">sys.database_service_objectives</a>.</p>
 </div>
   <div class="markdown conceptual"></div>
@@ -252,7 +255,7 @@ public string ElasticPoolName { get; set; }</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L832"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The pricing tier of the database. If the database is in an elastic pool, returns <strong>ElasticPool</strong>.<br><br> On the <strong>Basic</strong> tier, returns <strong>Basic</strong>.<br><br> <strong>Single database in a standard service tier</strong> returns one of the following: S0, S1, S2, S3, S4, S6, S7, S9 or S12.<br><br> <strong>Single database in a premium tier</strong> returns of the following: P1, P2, P4, P6, P11 or P15.<br><br> <strong>Azure Synapse Analytics</strong> returns DW100 through DW30000c.<br><br> For details, see <a href="https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-single-databases/">single databases</a>, <a href="https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools/">elastic pools</a>, <a href="https://docs.microsoft.com/en-us/azure/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu/">data warehouses</a></p>
+  <div class="markdown level1 summary"><p>The pricing tier of the database. If the database is in an elastic pool, returns <strong>ElasticPool</strong>.<br><br> On the <strong>Basic</strong> tier, returns <strong>Basic</strong>.<br><br><strong>Single database in a standard service tier</strong> returns one of the following: S0, S1, S2, S3, S4, S6, S7, S9 or S12.<br><br><strong>Single database in a premium tier</strong> returns of the following: P1, P2, P4, P6, P11 or P15.<br><br><strong>Azure Synapse Analytics</strong> returns DW100 through DW30000c.<br><br> For details, see <a href="https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-single-databases/">single databases</a>, <a href="https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools/">elastic pools</a>, <a href="https://docs.microsoft.com/en-us/azure/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu/">data warehouses</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

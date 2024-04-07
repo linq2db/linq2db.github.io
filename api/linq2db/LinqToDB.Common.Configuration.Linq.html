@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -205,13 +205,13 @@ select e1
 var filter = new [] {1, 2, 3};
 db.MyEntity.Where(e =&gt; ! filter.Contains(e.Value))</code></pre>
 <p>Would be converted to next queries:</p>
-<pre><code class="lang-csharp">SELECT Value FROM MyEntity WHERE Value IS NULL OR Value != 10
+ <pre><code class="lang-csharp">SELECT Value FROM MyEntity WHERE Value IS NULL OR Value != 10
 
-SELECT e1.Value
-FROM MyEntity e1
-INNER JOIN MyEntity e2 ON e1.Value = e2.Value OR (e1.Value IS NULL AND e2.Value IS NULL)
+ SELECT e1.Value
+ FROM MyEntity e1
+ INNER JOIN MyEntity e2 ON e1.Value = e2.Value OR (e1.Value IS NULL AND e2.Value IS NULL)
 
-SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code></pre>
+ SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code></pre>
 
 
 
@@ -236,8 +236,7 @@ Default value: <code>false</code>.
 <p></p>
 It is not recommended to enable this option as it could lead to severe slowdown. Better approach will be
 to call <a class="xref" href="LinqToDB.Linq.Query-1.html#LinqToDB_Linq_Query_1_ClearCache">ClearCache()</a> method to cleanup cache after queries, that produce severe memory leaks you need to fix.
-<p></p>
-<a href="https://github.com/linq2db/linq2db/issues/256">More details</a>.
+<p></p><a href="https://github.com/linq2db/linq2db/issues/256">More details</a>.
 </div>
   <div class="markdown level1 conceptual"></div>
 

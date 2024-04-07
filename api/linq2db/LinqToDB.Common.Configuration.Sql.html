@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -138,8 +138,7 @@ Class Configuration.Sql  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 summary"><p>Format for association alias.</p>
 <p>
 Default value: <code>"a_{0}"</code>.
-</p>
-<example>
+</p><example>
 In the following query
 <pre><code class="lang-csharp">var query = from child in db.Child
    select new
@@ -153,9 +152,7 @@ for association <code>Parent</code> will be generated association <code>A_Parent
    [a_Parent].[Value1]
 FROM
    [Child] [child]
-      LEFT JOIN [Parent] [a_Parent] ON ([child].[ParentID] = [a_Parent].[ParentID])</code></pre>
-</example>
-<remarks>
+      LEFT JOIN [Parent] [a_Parent] ON ([child].[ParentID] = [a_Parent].[ParentID])</code></pre></example><remarks>
 Set this value to <code>null</code> to disable special alias generation queries.
 </remarks>
 </div>
@@ -226,25 +223,22 @@ Default value: <code>false</code>.</p>
 It is not required for correct query processing but simplifies SQL analysis.</p>
 <p>
 Default value: <code>false</code>.
-</p>
-<example>
+</p><example>
 For the query
 <pre><code class="lang-csharp">var query = from child in db.Child
    select new
    {
       TrackId = child.ChildID,
    };</code></pre>
-When property is <code>true</code>
-<pre><code class="lang-csharp">SELECT
-   [child].[ChildID] as [TrackId]
-FROM
-   [Child] [child]</code></pre>
+When property is <code>true</code><pre><code class="lang-csharp">SELECT
+                                                        [child].[ChildID] as [TrackId]
+                                                     FROM
+                                                        [Child] [child]</code></pre>
 Otherwise alias will be removed
 <pre><code class="lang-csharp">SELECT
    [child].[ChildID]
 FROM
-   [Child] [child]</code></pre>
-</example>
+   [Child] [child]</code></pre></example>
 </div>
   <div class="markdown level1 conceptual"></div>
 

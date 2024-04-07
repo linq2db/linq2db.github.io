@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -2720,15 +2720,17 @@ public static ISqlServerSpecificQueryable&lt;TSource&gt; TablesInScopeHint&lt;TS
   </h3>
 
   <div class="markdown level1 summary"><p>
-See <a href="https://learn.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables">Temporal table</a>
-</p>
-<b>Expression</b><br><span class="term"></span>
+See <a href="https://learn.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables">Temporal table</a></p>
+<b>Expression</b>
+<br>
+<span class="term"></span>
 <b>ALL</b>
 <br>
-<b>Qualifying Rows</b><br><span class="term"></span>
-All rows
+<b>Qualifying Rows</b>
 <br>
-<b>Note</b><br>
+<span class="term"></span>
+All rows
+<br><b>Note</b><br>
 Returns the union of rows that belong to the current and the history table.
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -2774,15 +2776,17 @@ public static ISqlServerSpecificTable&lt;TSource&gt; TemporalTableAll&lt;TSource
   </h3>
 
   <div class="markdown level1 summary"><p>
-See <a href="https://learn.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables">Temporal table</a>
-</p>
-<b>Expression</b><br><span class="term"></span>
-<b>AS OF</b> <i>dateTime</i>
+See <a href="https://learn.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables">Temporal table</a></p>
+<b>Expression</b>
 <br>
-<b>Qualifying Rows</b><br><span class="term"></span>
-<code>ValidFrom</code> &lt;= <i>dateTime</i> AND <code>ValidTo</code> &gt; <i>dateTime</i>
+<span class="term"></span>
+<b>AS OF</b>
+<i>dateTime</i>
 <br>
-<b>Note</b><br>
+<b>Qualifying Rows</b>
+<br>
+<span class="term"></span>
+<code>ValidFrom</code> &lt;= <i>dateTime</i> AND <code>ValidTo</code> &gt; <i>dateTime</i><br><b>Note</b><br>
 Returns a table with rows containing the values that were current at the specified point in time in the past.
 Internally, a union is performed between the temporal table and its history table and the results are filtered
 to return the values in the row that was valid at the point in time specified by the <i>dateTime</i> parameter.
@@ -2807,7 +2811,7 @@ public static ISqlServerSpecificTable&lt;TSource&gt; TemporalTableAsOf&lt;TSourc
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.ISqlServerSpecificTable-1.html">ISqlServerSpecificTable</a>&lt;TSource&gt;</dt>
-    <dd><p>Table-like query source with <b>FOR SYSTEM_TIME AS OF</b> <i>dateTime</i> filter.</p>
+    <dd><p>Table-like query source with <b>FOR SYSTEM_TIME AS OF</b><i>dateTime</i> filter.</p>
 </dd>
   </dl>
 
@@ -2834,16 +2838,20 @@ public static ISqlServerSpecificTable&lt;TSource&gt; TemporalTableAsOf&lt;TSourc
   </h3>
 
   <div class="markdown level1 summary"><p>
-See <a href="https://learn.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables">Temporal table</a>
-</p>
-<b>Expression</b><br><span class="term"></span>
-<b>BETWEEN</b> <i>dateTime</i> <b>AND</b> <i>dateTime2</i>
+See <a href="https://learn.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables">Temporal table</a></p>
+<b>Expression</b>
 <br>
-<b>Qualifying Rows</b><br><span class="term"></span>
-<code>ValidFrom</code> &lt;= <i>dateTime2</i> AND <code>ValidTo</code> &gt; <i>dateTime</i>
+<span class="term"></span>
+<b>BETWEEN</b>
+<i>dateTime</i>
+<b>AND</b>
+<i>dateTime2</i>
 <br>
-<b>Note</b><br>
-Same as in the <b>FOR SYSTEM_TIME FROM</b> <i>dateTime</i> <b>TO</b> <i>dateTime2</i> description,
+<b>Qualifying Rows</b>
+<br>
+<span class="term"></span>
+<code>ValidFrom</code> &lt;= <i>dateTime2</i> AND <code>ValidTo</code> &gt; <i>dateTime</i><br><b>Note</b><br>
+Same as in the <b>FOR SYSTEM_TIME FROM</b><i>dateTime</i><b>TO</b><i>dateTime2</i> description,
 except the table of rows returned includes rows that became active on the upper boundary defined by the <i>dateTime2</i> endpoint.
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -2866,7 +2874,7 @@ public static ISqlServerSpecificTable&lt;TSource&gt; TemporalTableBetween&lt;TSo
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.ISqlServerSpecificTable-1.html">ISqlServerSpecificTable</a>&lt;TSource&gt;</dt>
-    <dd><p>Table-like query source with <b>FOR SYSTEM_TIME BETWEEN</b> <i>dateTime</i> <b>AND</b> <i>dateTime2</i> filter.</p>
+    <dd><p>Table-like query source with <b>FOR SYSTEM_TIME BETWEEN</b><i>dateTime</i><b>AND</b><i>dateTime2</i> filter.</p>
 </dd>
   </dl>
 
@@ -2893,15 +2901,12 @@ public static ISqlServerSpecificTable&lt;TSource&gt; TemporalTableBetween&lt;TSo
   </h3>
 
   <div class="markdown level1 summary"><p>
-See <a href="https://learn.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables">Temporal table</a>
-</p>
-<b>Expression</b><br><span class="term"></span>
+See <a href="https://learn.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables">Temporal table</a></p>
+<b>Expression</b>
+<br>
+<span class="term"></span>
 <b>CONTAINED IN</b> (<i>dateTime</i>, <i>dateTime2</i>)
-<br>
-<b>Qualifying Rows</b><br><span class="term"></span>
-<code>ValidFrom</code> &gt;= <i>dateTime</i> AND <code>ValidTo</code> &lt;= <i>dateTime2</i>
-<br>
-<b>Note</b><br>
+<br><b>Qualifying Rows</b><br><span class="term"></span><code>ValidFrom</code> &gt;= <i>dateTime</i> AND <code>ValidTo</code> &lt;= <i>dateTime2</i><br><b>Note</b><br>
 Returns a table with the values for all row versions that were opened and closed within the specified time range
 defined by the two period values for the <b>CONTAINED IN</b> argument. Rows that became active exactly on the lower
 boundary or ceased being active exactly on the upper boundary are included.
@@ -2953,15 +2958,19 @@ public static ISqlServerSpecificTable&lt;TSource&gt; TemporalTableContainedIn&lt
   </h3>
 
   <div class="markdown level1 summary"><p>
-See <a href="https://learn.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables">Temporal table</a>
-</p>
-<b>Expression</b><br><span class="term"></span>
-<b>FROM</b> <i>dateTime</i> <b>TO</b> <i>dateTime2</i>
+See <a href="https://learn.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables">Temporal table</a></p>
+<b>Expression</b>
 <br>
-<b>Qualifying Rows</b><br><span class="term"></span>
-<code>ValidFrom</code> &lt; <i>dateTime2</i> AND <code>ValidTo</code> &gt; <i>dateTime</i>
+<span class="term"></span>
+<b>FROM</b>
+<i>dateTime</i>
+<b>TO</b>
+<i>dateTime2</i>
 <br>
-<b>Note</b><br>
+<b>Qualifying Rows</b>
+<br>
+<span class="term"></span>
+<code>ValidFrom</code> &lt; <i>dateTime2</i> AND <code>ValidTo</code> &gt; <i>dateTime</i><br><b>Note</b><br>
 Returns a table with the values for all row versions that were active within the specified time range,
 regardless of whether they started being active before the <i>dateTime</i> parameter value for the <b>FROM</b> argument or
 ceased being active after the <i>dateTime2</i> parameter value for the <b>TO</b> argument.
@@ -2990,7 +2999,7 @@ public static ISqlServerSpecificTable&lt;TSource&gt; TemporalTableFromTo&lt;TSou
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="LinqToDB.DataProvider.SqlServer.ISqlServerSpecificTable-1.html">ISqlServerSpecificTable</a>&lt;TSource&gt;</dt>
-    <dd><p>Table-like query source with <b>FOR SYSTEM_TIME FROM</b> <i>dateTime</i> <b>TO</b> <i>dateTime2</i> filter.</p>
+    <dd><p>Table-like query source with <b>FOR SYSTEM_TIME FROM</b><i>dateTime</i><b>TO</b><i>dateTime2</i> filter.</p>
 </dd>
   </dl>
 

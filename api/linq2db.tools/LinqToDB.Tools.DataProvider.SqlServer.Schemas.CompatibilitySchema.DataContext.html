@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -176,12 +176,14 @@ Class CompatibilitySchema.DataContext  <a class="header-action link-secondary" t
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3246"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysaltfiles (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Under special circumstances, contains rows corresponding to the files in a database.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysaltfiles (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Under special circumstances, contains rows corresponding to the files in a database.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysaltfiles-transact-sql">sys.sysaltfiles</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -214,12 +216,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3256"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.syscacheobjects (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains information about how the cache is used.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.syscacheobjects (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains information about how the cache is used.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-syscacheobjects-transact-sql">sys.syscacheobjects</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -252,9 +256,13 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3263"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.syscharsets (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Database √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
-<p>Contains one row for each character set and sort order defined for use by the SQL Server Database Engine. One of the sort orders is marked in <strong>sysconfigures</strong> as the default sort order. This is the only one actually being used.</p><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.syscharsets (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Database √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
+<p>Contains one row for each character set and sort order defined for use by the SQL Server Database Engine. One of the sort orders is marked in <strong>sysconfigures</strong> as the default sort order. This is the only one actually being used.</p>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-syscharsets-transact-sql">sys.syscharsets</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -287,12 +295,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3273"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.syscolumns (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
-<p>Returns one row for every column in every table and view, and a row for each parameter in a stored procedure in the database.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.syscolumns (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
+<p>Returns one row for every column in every table and view, and a row for each parameter in a stored procedure in the database.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-syscolumns-transact-sql">sys.syscolumns</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -325,12 +335,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3283"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.syscomments (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains entries for each view, rule, default, trigger, CHECK constraint, DEFAULT constraint, and stored procedure within the database. The <strong>text</strong> column contains the original SQL definition statements.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature. We recommend that you use sys.sql_modules instead. For more information, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sql-modules-transact-sql">sys.sql_modules (Transact-SQL)</a>.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.syscomments (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains entries for each view, rule, default, trigger, CHECK constraint, DEFAULT constraint, and stored procedure within the database. The <strong>text</strong> column contains the original SQL definition statements.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature. We recommend that you use sys.sql_modules instead. For more information, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sql-modules-transact-sql">sys.sql_modules (Transact-SQL)</a>.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-syscomments-transact-sql">sys.syscomments</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -363,12 +375,14 @@ This feature will be removed in a future version of Microsoft SQL Server. Avoid 
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3293"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysconfigures (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains one row for each configuration option set by a user. <strong>sysconfigures</strong> contains the configuration options that are defined before the most recent startup of SQL Server, plus any dynamic configuration options set since then.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysconfigures (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains one row for each configuration option set by a user. <strong>sysconfigures</strong> contains the configuration options that are defined before the most recent startup of SQL Server, plus any dynamic configuration options set since then.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysconfigures-transact-sql">sys.sysconfigures</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -401,12 +415,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3303"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysconstraints (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains mappings of constraints to the objects that own the constraints within the database.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysconstraints (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains mappings of constraints to the objects that own the constraints within the database.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysconstraints-transact-sql">sys.sysconstraints</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -439,12 +455,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3313"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.syscurconfigs (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains an entry for each current configuration option. Also, this view contains four entries that describe the configuration structure. <strong>syscurconfigs</strong> is built dynamically when queried by a user. For more information, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysconfigures-transact-sql">sys.sysconfigures (Transact-SQL)</a>.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.syscurconfigs (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains an entry for each current configuration option. Also, this view contains four entries that describe the configuration structure. <strong>syscurconfigs</strong> is built dynamically when queried by a user. For more information, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysconfigures-transact-sql">sys.sysconfigures (Transact-SQL)</a>.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-syscurconfigs-transact-sql">sys.syscurconfigs</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -477,12 +495,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3323"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysdatabases (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
-<p>Contains one row for each database in an instance of Microsoft SQL Server. When SQL Server is first installed, <strong>sysdatabases</strong> contains entries for the <strong>master</strong>, <strong>model</strong>, <strong>msdb</strong>, and <strong>tempdb</strong> databases.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysdatabases (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
+<p>Contains one row for each database in an instance of Microsoft SQL Server. When SQL Server is first installed, <strong>sysdatabases</strong> contains entries for the <strong>master</strong>, <strong>model</strong>, <strong>msdb</strong>, and <strong>tempdb</strong> databases.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysdatabases-transact-sql">sys.sysdatabases</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -515,12 +535,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3333"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysdepends (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains dependency information between objects (views, procedures, and triggers) in the database, and the objects (tables, views, and procedures) that are contained in their definition.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysdepends (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains dependency information between objects (views, procedures, and triggers) in the database, and the objects (tables, views, and procedures) that are contained in their definition.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysdepends-transact-sql">sys.sysdepends</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -553,12 +575,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3343"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysdevices (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains one row for each disk backup file, tape backup file, and database file.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysdevices (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains one row for each disk backup file, tape backup file, and database file.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysdevices-transact-sql">sys.sysdevices</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -591,12 +615,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3373"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysfilegroups (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains one row for each file group in a database. There is at least one entry in this table that is for the primary file group.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysfilegroups (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains one row for each file group in a database. There is at least one entry in this table that is for the primary file group.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysfilegroups-transact-sql">sys.sysfilegroups</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -629,12 +655,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3363"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysfiles (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains one row for each file in a database.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysfiles (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains one row for each file in a database.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysfiles-transact-sql">sys.sysfiles</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -667,12 +695,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3383"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysforeignkeys (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains information about the FOREIGN KEY constraints that are in the definitions of tables in the database.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysforeignkeys (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains information about the FOREIGN KEY constraints that are in the definitions of tables in the database.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysforeignkeys-transact-sql">sys.sysforeignkeys</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -705,12 +735,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3393"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysfulltextcatalogs (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Managed Instance √ Analytics Platform System (PDW)</p>
-<p>Contains information about the full-text catalogs.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysfulltextcatalogs (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Managed Instance √ Analytics Platform System (PDW)</p>
+<p>Contains information about the full-text catalogs.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysfulltextcatalogs-transact-sql">sys.sysfulltextcatalogs</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -743,12 +775,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3413"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysindexkeys (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains information about the keys or columns in an index of the database.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysindexkeys (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains information about the keys or columns in an index of the database.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysindexkeys-transact-sql">sys.sysindexkeys</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -781,12 +815,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3403"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysindexes (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains one row for each index and table in the current database. XML indexes are not supported in this view. Partitioned tables and indexes are not fully supported in this view; use the <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql">sys.indexes</a> catalog view instead.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysindexes (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains one row for each index and table in the current database. XML indexes are not supported in this view. Partitioned tables and indexes are not fully supported in this view; use the <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql">sys.indexes</a> catalog view instead.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysindexes-transact-sql">sys.sysindexes</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -819,9 +855,13 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3420"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.syslanguages (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Database √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
-<p>Contains one row for each language present in the instance of SQL Server.</p><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.syslanguages (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Database √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
+<p>Contains one row for each language present in the instance of SQL Server.</p>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-syslanguages-transact-sql">sys.syslanguages</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -854,15 +894,15 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3433"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.syslockinfo (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains information about all granted, converting, and waiting lock requests.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This feature has changed from earlier versions of SQL Server. For more information, see <a href="https://docs.microsoft.com/en-us/sql/database-engine/breaking-changes-to-database-engine-features-in-sql-server-2016">Breaking Changes to Database Engine Features in SQL Server 2016</a>.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.syslockinfo (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains information about all granted, converting, and waiting lock requests.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div><br><div class="IMPORTANT"><h5>important</h5><p><br>
+This feature has changed from earlier versions of SQL Server. For more information, see <a href="https://docs.microsoft.com/en-us/sql/database-engine/breaking-changes-to-database-engine-features-in-sql-server-2016">Breaking Changes to Database Engine Features in SQL Server 2016</a>.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-syslockinfo-transact-sql">sys.syslockinfo</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -895,13 +935,14 @@ This feature has changed from earlier versions of SQL Server. For more informati
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3444"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.syslogins (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains one row for each login account.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
-<strong>Applies to</strong>: SQL Server ( SQL Server 2008 through [current version](/troubleshoot/sql/general/determine-version-edition-update-level)).<br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.syslogins (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains one row for each login account.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div><br><strong>Applies to</strong>: SQL Server ( SQL Server 2008 through [current version](/troubleshoot/sql/general/determine-version-edition-update-level)).
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-syslogins-transact-sql">sys.syslogins</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -934,12 +975,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3454"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysmembers (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains a row for each member of a database role.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysmembers (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains a row for each member of a database role.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysmembers-transact-sql">sys.sysmembers</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -972,12 +1015,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3464"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysmessages (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains one row for each system error or warning that can be returned by the SQL Server Database Engine. The Database Engine displays the error description on the user's screen.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysmessages (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains one row for each system error or warning that can be returned by the SQL Server Database Engine. The Database Engine displays the error description on the user's screen.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysmessages-transact-sql">sys.sysmessages</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1010,12 +1055,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3474"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysobjects (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
-<p>Contains one row for each object that is created within a database, such as a constraint, default, log, rule, and stored procedure.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysobjects (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
+<p>Contains one row for each object that is created within a database, such as a constraint, default, log, rule, and stored procedure.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysobjects-transact-sql">sys.sysobjects</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1048,13 +1095,19 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3485"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysoledbusers (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p><br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 (8.x) system table is included in SQL Server as a view for backward compatibility only. We recommend that you use <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/catalog-views-transact-sql">catalog views</a> instead.<br>
-</p></div><br>
- Contains one row for each user and password mapping for the specified linked server. <strong>sysoledbusers</strong> is stored in the <strong>master</strong> database.<br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysoledbusers (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>
+  <br>
+  <div class="IMPORTANT"><h5>important</h5><p>
+    <br>
+This SQL Server 2000 (8.x) system table is included in SQL Server as a view for backward compatibility only. We recommend that you use <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/catalog-views-transact-sql">catalog views</a> instead.<br></p></div>
+  <br>
+ Contains one row for each user and password mapping for the specified linked server. <strong>sysoledbusers</strong> is stored in the <strong>master</strong> database.
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysoledbusers-transact-sql">sys.sysoledbusers</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1087,12 +1140,14 @@ This SQL Server 2000 (8.x) system table is included in SQL Server as a view for 
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3495"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysperfinfo (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains a Microsoft SQL Server Database Engine representation of the internal performance counters that can be displayed through the Windows System Monitor.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysperfinfo (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains a Microsoft SQL Server Database Engine representation of the internal performance counters that can be displayed through the Windows System Monitor.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysperfinfo-transact-sql">sys.sysperfinfo</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1125,12 +1180,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3505"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.syspermissions (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains information about permissions granted and denied to users, groups, and roles in the database.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.syspermissions (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains information about permissions granted and denied to users, groups, and roles in the database.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-syspermissions-transact-sql">sys.syspermissions</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1163,12 +1220,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3515"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysprocesses (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains information about processes that are running on an instance of SQL Server. These processes can be client processes or system processes. To access sysprocesses, you must be in the master database context, or you must use the master.dbo.sysprocesses three-part name.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysprocesses (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains information about processes that are running on an instance of SQL Server. These processes can be client processes or system processes. To access sysprocesses, you must be in the master database context, or you must use the master.dbo.sysprocesses three-part name.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysprocesses-transact-sql">sys.sysprocesses</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1201,12 +1260,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3525"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysprotects (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains information about permissions that have been applied to security accounts in the database by using the GRANT and DENY statements.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysprotects (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains information about permissions that have been applied to security accounts in the database by using the GRANT and DENY statements.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysprotects-transact-sql">sys.sysprotects</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1239,12 +1300,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3535"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysreferences (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
-<p>Contains mappings of the FOREIGN KEY constraint definitions to the referenced columns within the database.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysreferences (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
+<p>Contains mappings of the FOREIGN KEY constraint definitions to the referenced columns within the database.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysreferences-transact-sql">sys.sysreferences</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1277,12 +1340,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3545"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysremotelogins (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains one row for each remote user that is permitted to call remote stored procedures on an instance of Microsoft SQL Server.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysremotelogins (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains one row for each remote user that is permitted to call remote stored procedures on an instance of Microsoft SQL Server.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysremotelogins-transact-sql">sys.sysremotelogins</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1315,12 +1380,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3555"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysservers (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Contains one row for each server that an instance of SQL Server can access as an OLE DB data source.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysservers (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Contains one row for each server that an instance of SQL Server can access as an OLE DB data source.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysservers-transact-sql">sys.sysservers</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1353,12 +1420,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3353"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.systypes (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Database √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
-<p>Returns one row for each system-supplied and each user-defined data type defined in the database.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.systypes (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Database √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
+<p>Returns one row for each system-supplied and each user-defined data type defined in the database.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-systypes-transact-sql">sys.systypes</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1391,12 +1460,14 @@ This SQL Server 2000 system table is included as a view for backward compatibili
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L3565"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.sysusers (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
-<p>Contains one row for each Microsoft Windows user, Windows group, Microsoft SQL Server user, or SQL Server role in the database.<br>
-<div class="IMPORTANT"><h5>important</h5><p><br>
-This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br>
-</p></div><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.sysusers (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
+<p>Contains one row for each Microsoft Windows user, Windows group, Microsoft SQL Server user, or SQL Server role in the database.<br><div class="IMPORTANT"><h5>important</h5><p><br>
+This SQL Server 2000 system table is included as a view for backward compatibility. We  recommend that you use the current SQL Server system views instead. To find the equivalent system view or views, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/relational-databases/system-tables/mapping-system-tables-to-system-views-transact-sql">Mapping System Tables to System Views (Transact-SQL)</a>. This feature will be removed in a future version of Microsoft SQL Server. Avoid using this feature in new development work, and plan to modify applications that currently use this feature.<br></p></div>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysusers-transact-sql">sys.sysusers</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>

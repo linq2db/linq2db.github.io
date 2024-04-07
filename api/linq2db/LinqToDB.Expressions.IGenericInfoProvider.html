@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IGenericInfoProvider | Linq To DB ">
       
-      <meta name="description" content="Generic conversions provider. Implementation class must be generic, as type parameters will be used for conversion initialization in  method.  // this conversion provider adds conversion from IEnumerable&amp;lt;T&amp;gt; to ImmutableList&amp;lt;T&amp;gt; for specific T type parameter class EnumerableToImmutableListConvertProvider&amp;lt;T&amp;gt; : IGenericInfoProvider {     public void SetInfo(MappingSchema mappingSchema)     {         mappingSchema.SetConvertExpression&amp;lt;IEnumerable&amp;lt;T&amp;gt;,ImmutableList&amp;lt;T&amp;gt;&amp;gt;(             t =&amp;gt; ImmutableList.Create(t.ToArray()));     } }   for more details.">
+      <meta name="description" content="Generic conversions provider. Implementation class must be generic, as type parameters will be used for conversion initialization in  method.  // this conversion provider adds conversion from IEnumerable&amp;lt;T&amp;gt; to ImmutableList&amp;lt;T&amp;gt; for specific T type parameter class EnumerableToImmutableListConvertProvider&amp;lt;T&amp;gt; : IGenericInfoProvider { public void SetInfo(MappingSchema mappingSchema) { mappingSchema.SetConvertExpression&amp;lt;IEnumerable&amp;lt;T&amp;gt;,ImmutableList&amp;lt;T&amp;gt;&amp;gt;( t =&amp;gt; ImmutableList.Create(t.ToArray())); } } for more details.">
       <link rel="icon" href="../../images/icon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -100,18 +100,16 @@ Interface IGenericInfoProvider  <a class="header-action link-secondary" title="V
   <div class="markdown summary"><p>Generic conversions provider.
 Implementation class must be generic, as type parameters will be used for conversion initialization in
 <a class="xref" href="LinqToDB.Expressions.IGenericInfoProvider.html#LinqToDB_Expressions_IGenericInfoProvider_SetInfo_LinqToDB_Mapping_MappingSchema_">SetInfo(MappingSchema)</a> method.
-<example></example></p>
+<example>
 <pre><code class="lang-csharp">// this conversion provider adds conversion from IEnumerable&lt;T&gt; to ImmutableList&lt;T&gt; for specific T type parameter
 class EnumerableToImmutableListConvertProvider&lt;T&gt; : IGenericInfoProvider
 {
-    public void SetInfo(MappingSchema mappingSchema)
-    {
-        mappingSchema.SetConvertExpression&lt;IEnumerable&lt;T&gt;,ImmutableList&lt;T&gt;&gt;(
-            t =&gt; ImmutableList.Create(t.ToArray()));
-    }
-}</code></pre>
-
-<a class="xref" href="LinqToDB.Mapping.MappingSchema.html#LinqToDB_Mapping_MappingSchema_SetGenericConvertProvider_System_Type_">SetGenericConvertProvider(Type)</a> for more details.
+public void SetInfo(MappingSchema mappingSchema)
+{
+mappingSchema.SetConvertExpression&lt;IEnumerable&lt;T&gt;,ImmutableList&lt;T&gt;&gt;(
+t =&gt; ImmutableList.Create(t.ToArray()));
+}
+}</code></pre></example><a class="xref" href="LinqToDB.Mapping.MappingSchema.html#LinqToDB_Mapping_MappingSchema_SetGenericConvertProvider_System_Type_">SetGenericConvertProvider(Type)</a> for more details.</p>
 </div>
   <div class="markdown conceptual"></div>
 

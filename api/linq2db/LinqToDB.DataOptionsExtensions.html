@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -1667,13 +1667,13 @@ select e1
 var filter = new [] {1, 2, 3};
 db.MyEntity.Where(e =&gt; ! filter.Contains(e.Value))</code></pre>
 <p>Would be converted to next queries:</p>
-<pre><code class="lang-csharp">SELECT Value FROM MyEntity WHERE Value IS NULL OR Value != 10
+ <pre><code class="lang-csharp">SELECT Value FROM MyEntity WHERE Value IS NULL OR Value != 10
 
-SELECT e1.Value
-FROM MyEntity e1
-INNER JOIN MyEntity e2 ON e1.Value = e2.Value OR (e1.Value IS NULL AND e2.Value IS NULL)
+ SELECT e1.Value
+ FROM MyEntity e1
+ INNER JOIN MyEntity e2 ON e1.Value = e2.Value OR (e1.Value IS NULL AND e2.Value IS NULL)
 
-SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code></pre>
+ SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code></pre>
 
 
 
@@ -2302,7 +2302,6 @@ SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code><
   <div class="markdown level1 remarks"><p>
 DB2 provider will be chosen automatically:
 <ul><li>if <a class="xref" href="LinqToDB.DataProvider.DB2.DB2Tools.html#LinqToDB_DataProvider_DB2_DB2Tools_AutoDetectProvider">AutoDetectProvider</a> (default: <code>true</code>) enabled, LinqToDB will query server for version</li><li>otherwise <code>DB2 LUW</code> provider will be chosen.</li></ul>
-
 For more fine-grained configuration see <a class="xref" href="LinqToDB.DataOptionsExtensions.html#LinqToDB_DataOptionsExtensions_UseDB2_LinqToDB_DataOptions_System_String_LinqToDB_DataProvider_DB2_DB2Version_System_Func_LinqToDB_DataProvider_DB2_DB2Options_LinqToDB_DataProvider_DB2_DB2Options__">UseDB2(DataOptions, string, DB2Version, Func&lt;DB2Options, DB2Options&gt;?)</a> overload.
 </div>
 
@@ -2442,8 +2441,7 @@ Default value: <code>false</code>.
 <p></p>
 It is not recommended to enable this option as it could lead to severe slowdown. Better approach will be
 to call <a class="xref" href="LinqToDB.Linq.Query-1.html#LinqToDB_Linq_Query_1_ClearCache">ClearCache()</a> method to cleanup cache after queries, that produce severe memory leaks you need to fix.
-<p></p>
-<a href="https://github.com/linq2db/linq2db/issues/256">More details</a>.
+<p></p><a href="https://github.com/linq2db/linq2db/issues/256">More details</a>.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2826,25 +2824,22 @@ Default value: <code>false</code>.</p>
 It is not required for correct query processing but simplifies SQL analysis.</p>
 <p>
 Default value: <code>false</code>.
-</p>
-<example>
+</p><example>
 For the query
 <pre><code class="lang-csharp">var query = from child in db.Child
    select new
    {
       TrackId = child.ChildID,
    };</code></pre>
-When property is <code>true</code>
-<pre><code class="lang-csharp">SELECT
-   [child].[ChildID] as [TrackId]
-FROM
-   [Child] [child]</code></pre>
+When property is <code>true</code><pre><code class="lang-csharp">SELECT
+                                                        [child].[ChildID] as [TrackId]
+                                                     FROM
+                                                        [Child] [child]</code></pre>
 Otherwise alias will be removed
 <pre><code class="lang-csharp">SELECT
    [child].[ChildID]
 FROM
-   [Child] [child]</code></pre>
-</example>
+   [Child] [child]</code></pre></example>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -4181,7 +4176,6 @@ Default value: <code>true</code>.</p>
   <div class="markdown level1 remarks"><p>
 PostgreSQL dialect will be chosen automatically:
 <ul><li>if <a class="xref" href="LinqToDB.DataProvider.PostgreSQL.PostgreSQLTools.html#LinqToDB_DataProvider_PostgreSQL_PostgreSQLTools_AutoDetectProvider">AutoDetectProvider</a> (default: <code>true</code>) enabled, LinqToDB will query server for version</li><li>otherwise <a class="xref" href="LinqToDB.DataProvider.PostgreSQL.PostgreSQLVersion.html#LinqToDB_DataProvider_PostgreSQL_PostgreSQLVersion_v92">v92</a> will be used as default dialect.</li></ul>
-
 For more fine-grained configuration see <a class="xref" href="LinqToDB.DataOptionsExtensions.html#LinqToDB_DataOptionsExtensions_UsePostgreSQL_LinqToDB_DataOptions_System_String_LinqToDB_DataProvider_PostgreSQL_PostgreSQLVersion_System_Func_LinqToDB_DataProvider_PostgreSQL_PostgreSQLOptions_LinqToDB_DataProvider_PostgreSQL_PostgreSQLOptions__">UsePostgreSQL(DataOptions, string, PostgreSQLVersion, Func&lt;PostgreSQLOptions, PostgreSQLOptions&gt;?)</a> overload.
 </div>
 
@@ -4235,9 +4229,7 @@ Default value: <code>true</code>.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/DataOptionsExtensions.cs/#L462"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Depending on this option <code>linq2db</code> generates different SQL for <code>sequence.Contains(value)</code>.<br>
-<code>true</code> - <code>EXISTS (SELECT * FROM sequence WHERE sequence.key = value)</code>.<br>
-<code>false</code> - <code>value IN (SELECT sequence.key FROM sequence)</code>.<br>
+  <div class="markdown level1 summary"><p>Depending on this option <code>linq2db</code> generates different SQL for <code>sequence.Contains(value)</code>.<br><code>true</code> - <code>EXISTS (SELECT * FROM sequence WHERE sequence.key = value)</code>.<br><code>false</code> - <code>value IN (SELECT sequence.key FROM sequence)</code>.<br>
 Default value: <code>false</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -5753,13 +5745,13 @@ select e1
 var filter = new [] {1, 2, 3};
 db.MyEntity.Where(e =&gt; ! filter.Contains(e.Value))</code></pre>
 <p>Would be converted to next queries:</p>
-<pre><code class="lang-csharp">SELECT Value FROM MyEntity WHERE Value IS NULL OR Value != 10
+ <pre><code class="lang-csharp">SELECT Value FROM MyEntity WHERE Value IS NULL OR Value != 10
 
-SELECT e1.Value
-FROM MyEntity e1
-INNER JOIN MyEntity e2 ON e1.Value = e2.Value OR (e1.Value IS NULL AND e2.Value IS NULL)
+ SELECT e1.Value
+ FROM MyEntity e1
+ INNER JOIN MyEntity e2 ON e1.Value = e2.Value OR (e1.Value IS NULL AND e2.Value IS NULL)
 
-SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code></pre>
+ SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code></pre>
 
 
 
@@ -6097,8 +6089,7 @@ Default value: <code>false</code>.
 <p></p>
 It is not recommended to enable this option as it could lead to severe slowdown. Better approach will be
 to call <a class="xref" href="LinqToDB.Linq.Query-1.html#LinqToDB_Linq_Query_1_ClearCache">ClearCache()</a> method to cleanup cache after queries, that produce severe memory leaks you need to fix.
-<p></p>
-<a href="https://github.com/linq2db/linq2db/issues/256">More details</a>.
+<p></p><a href="https://github.com/linq2db/linq2db/issues/256">More details</a>.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -6472,25 +6463,22 @@ Default value: <code>false</code>.</p>
 It is not required for correct query processing but simplifies SQL analysis.</p>
 <p>
 Default value: <code>false</code>.
-</p>
-<example>
+</p><example>
 For the query
 <pre><code class="lang-csharp">var query = from child in db.Child
    select new
    {
       TrackId = child.ChildID,
    };</code></pre>
-When property is <code>true</code>
-<pre><code class="lang-csharp">SELECT
-   [child].[ChildID] as [TrackId]
-FROM
-   [Child] [child]</code></pre>
+When property is <code>true</code><pre><code class="lang-csharp">SELECT
+                                                        [child].[ChildID] as [TrackId]
+                                                     FROM
+                                                        [Child] [child]</code></pre>
 Otherwise alias will be removed
 <pre><code class="lang-csharp">SELECT
    [child].[ChildID]
 FROM
-   [Child] [child]</code></pre>
-</example>
+   [Child] [child]</code></pre></example>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -7227,9 +7215,7 @@ Default value: <code>true</code>.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Extensions/DataOptionsExtensions.cs/#L240"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Depending on this option <code>linq2db</code> generates different SQL for <code>sequence.Contains(value)</code>.<br>
-<code>true</code> - <code>EXISTS (SELECT * FROM sequence WHERE sequence.key = value)</code>.<br>
-<code>false</code> - <code>value IN (SELECT sequence.key FROM sequence)</code>.<br>
+  <div class="markdown level1 summary"><p>Depending on this option <code>linq2db</code> generates different SQL for <code>sequence.Contains(value)</code>.<br><code>true</code> - <code>EXISTS (SELECT * FROM sequence WHERE sequence.key = value)</code>.<br><code>false</code> - <code>value IN (SELECT sequence.key FROM sequence)</code>.<br>
 Default value: <code>false</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>

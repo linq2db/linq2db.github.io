@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -176,9 +176,13 @@ Class XmlSchema.DataContext  <a class="header-action link-secondary" title="View
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L23319"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.column_xml_schema_collection_usages (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Returns a row for each column that is validated by an XML schema.</p><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.column_xml_schema_collection_usages (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Returns a row for each column that is validated by an XML schema.</p>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-column-xml-schema-collection-usages-transact-sql">sys.column_xml_schema_collection_usages</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -211,9 +215,13 @@ Class XmlSchema.DataContext  <a class="header-action link-secondary" title="View
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L23326"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.parameter_xml_schema_collection_usages (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)  √ Azure SQL Database</p>
-<p>Returns a row for each parameter that is validated by an XML schema.</p><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.parameter_xml_schema_collection_usages (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)  √ Azure SQL Database</p>
+<p>Returns a row for each parameter that is validated by an XML schema.</p>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-parameter-xml-schema-collection-usages-transact-sql">sys.parameter_xml_schema_collection_usages</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -246,15 +254,18 @@ Class XmlSchema.DataContext  <a class="header-action link-secondary" title="View
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L23341"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.selective_xml_index_paths (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.selective_xml_index_paths (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
 <p>Available beginning in SQL Server 2012 (11.x) Service Pack 1, each row in sys.selective_xml_index_paths represents one promoted path for particular selective xml index.<br>
-If you create a selective xml index on xmlcol of table T using following statement,<br>
-<pre><code class="lang-csharp">CREATE SELECTIVE XML INDEX sxi1 ON T(xmlcol) 
-FOR ( path1 = '/a/b/c' AS XQUERY 'xs:string',
-    path2 = '/a/b/d' AS XQUERY 'xs:double'
-  )</code></pre><br>
- There will be two new rows in sys.selective_xml_index_paths corresponding to the index sxi1.<br>
+If you create a selective xml index on xmlcol of table T using following statement,<br><pre><code class="lang-csharp">CREATE SELECTIVE XML INDEX sxi1 ON T(xmlcol) 
+                                                                                         FOR ( path1 = '/a/b/c' AS XQUERY 'xs:string',
+                                                                                             path2 = '/a/b/d' AS XQUERY 'xs:double'
+                                                                                           )</code></pre><br>
+ There will be two new rows in sys.selective_xml_index_paths corresponding to the index sxi1.
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-selective-xml-index-paths-transact-sql">sys.selective_xml_index_paths</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -287,9 +298,13 @@ FOR ( path1 = '/a/b/c' AS XQUERY 'xs:string',
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L23348"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.xml_indexes (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Returns one row per XML index.</p><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.xml_indexes (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Returns one row per XML index.</p>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-xml-indexes-transact-sql">sys.xml_indexes</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -322,9 +337,13 @@ FOR ( path1 = '/a/b/c' AS XQUERY 'xs:string',
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L23355"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.xml_schema_attributes (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Returns a row per XML schema component that is an attribute, <strong>symbol_space</strong> of <strong>A</strong>.</p><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.xml_schema_attributes (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Returns a row per XML schema component that is an attribute, <strong>symbol_space</strong> of <strong>A</strong>.</p>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-xml-schema-attributes-transact-sql">sys.xml_schema_attributes</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -357,9 +376,13 @@ FOR ( path1 = '/a/b/c' AS XQUERY 'xs:string',
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L23362"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.xml_schema_collections (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)  √ Azure SQL Database</p>
-<p>Returns a row per XML schema collection. An XML schema collection is a named set of XSD definitions. The XML schema collection itself is contained in a relational schema, and it is identified by a schema-scoped Transact\-SQL name. The following tuples are unique: xml_collection_id, and schema_id and name.</p><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.xml_schema_collections (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)  √ Azure SQL Database</p>
+<p>Returns a row per XML schema collection. An XML schema collection is a named set of XSD definitions. The XML schema collection itself is contained in a relational schema, and it is identified by a schema-scoped Transact\-SQL name. The following tuples are unique: xml_collection_id, and schema_id and name.</p>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-xml-schema-collections-transact-sql">sys.xml_schema_collections</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -392,9 +415,13 @@ FOR ( path1 = '/a/b/c' AS XQUERY 'xs:string',
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L23376"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.xml_schema_component_placements (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Returns a row per placement for XML schema components.</p><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.xml_schema_component_placements (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Returns a row per placement for XML schema components.</p>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-xml-schema-component-placements-transact-sql">sys.xml_schema_component_placements</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -427,9 +454,13 @@ FOR ( path1 = '/a/b/c' AS XQUERY 'xs:string',
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L23369"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.xml_schema_components (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Returns a row per component of an XML schema. The pair (<strong>collection_id</strong>, <strong>namespace_id</strong>) is a compound foreign key to the containing namespace. For named components, the values for <strong>symbol_space</strong>, <strong>name</strong>, <strong>scoping_xml_component_id</strong>, <strong>is_qualified</strong>, <strong>xml_namespace_id</strong>, <strong>xml_collection_id</strong> are unique.</p><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.xml_schema_components (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Returns a row per component of an XML schema. The pair (<strong>collection_id</strong>, <strong>namespace_id</strong>) is a compound foreign key to the containing namespace. For named components, the values for <strong>symbol_space</strong>, <strong>name</strong>, <strong>scoping_xml_component_id</strong>, <strong>is_qualified</strong>, <strong>xml_namespace_id</strong>, <strong>xml_collection_id</strong> are unique.</p>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-xml-schema-components-transact-sql">sys.xml_schema_components</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -462,9 +493,13 @@ FOR ( path1 = '/a/b/c' AS XQUERY 'xs:string',
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L23383"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.xml_schema_elements (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Returns a row per XML schema component that is a Type, <strong>symbol_space</strong> of <strong>E</strong>.</p><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.xml_schema_elements (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Returns a row per XML schema component that is a Type, <strong>symbol_space</strong> of <strong>E</strong>.</p>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-xml-schema-elements-transact-sql">sys.xml_schema_elements</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -497,9 +532,13 @@ FOR ( path1 = '/a/b/c' AS XQUERY 'xs:string',
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L23390"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.xml_schema_facets (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Returns a row per facet (restriction) of an xml-type definition (corresponds to <strong>sys.xml_types</strong>).</p><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.xml_schema_facets (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Returns a row per facet (restriction) of an xml-type definition (corresponds to <strong>sys.xml_types</strong>).</p>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-xml-schema-facets-transact-sql">sys.xml_schema_facets</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -532,9 +571,13 @@ FOR ( path1 = '/a/b/c' AS XQUERY 'xs:string',
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L23397"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.xml_schema_model_groups (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Returns a row per XML schema component that is a Model-Group, <strong>symbol_space</strong> of <strong>M</strong>..</p><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.xml_schema_model_groups (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Returns a row per XML schema component that is a Model-Group, <strong>symbol_space</strong> of <strong>M</strong>..</p>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-xml-schema-model-groups-transact-sql">sys.xml_schema_model_groups</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -567,9 +610,13 @@ FOR ( path1 = '/a/b/c' AS XQUERY 'xs:string',
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L23404"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.xml_schema_namespaces (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Returns a row per XSD-defined XML namespace. The following tuples are unique: <strong>collection_id</strong>, <strong>namespace_id</strong>, and <strong>collection_id</strong>, and <strong>name</strong>.</p><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.xml_schema_namespaces (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Returns a row per XSD-defined XML namespace. The following tuples are unique: <strong>collection_id</strong>, <strong>namespace_id</strong>, and <strong>collection_id</strong>, and <strong>name</strong>.</p>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-xml-schema-namespaces-transact-sql">sys.xml_schema_namespaces</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -602,9 +649,13 @@ FOR ( path1 = '/a/b/c' AS XQUERY 'xs:string',
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L23411"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.xml_schema_types (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Returns a row per XML schema component that is a Type, <strong>symbol_space</strong> of <strong>T</strong>.</p><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.xml_schema_types (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Returns a row per XML schema component that is a Type, <strong>symbol_space</strong> of <strong>T</strong>.</p>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-xml-schema-types-transact-sql">sys.xml_schema_types</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -637,9 +688,13 @@ FOR ( path1 = '/a/b/c' AS XQUERY 'xs:string',
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L23425"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.xml_schema_wildcard_namespaces (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Returns a row per enumerated namespace for an XML schema wildcard.</p><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.xml_schema_wildcard_namespaces (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Returns a row per enumerated namespace for an XML schema wildcard.</p>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-xml-schema-wildcard-namespaces-transact-sql">sys.xml_schema_wildcard_namespaces</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -672,9 +727,13 @@ FOR ( path1 = '/a/b/c' AS XQUERY 'xs:string',
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L23418"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>sys.xml_schema_wildcards (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Returns a row per XML schema component that is an Attribute-Wildcard (<strong>kind</strong> of <strong>V</strong>) or Element-Wildcard (<strong>kind</strong> of <strong>W</strong>), both with <strong>symbol_space</strong> of <strong>N</strong>.</p><br>
+  <div class="markdown level1 summary"><p>
+  <strong>sys.xml_schema_wildcards (Transact-SQL)</strong>
+</p>
+<p>
+  <strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p>Returns a row per XML schema component that is an Attribute-Wildcard (<strong>kind</strong> of <strong>V</strong>) or Element-Wildcard (<strong>kind</strong> of <strong>W</strong>), both with <strong>symbol_space</strong> of <strong>N</strong>.</p>
+<br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-xml-schema-wildcards-transact-sql">sys.xml_schema_wildcards</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>

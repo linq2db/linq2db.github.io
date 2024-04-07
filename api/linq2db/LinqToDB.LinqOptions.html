@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -308,15 +308,15 @@ Default value: <code>true</code>.</li>
 </dd>
     <dt><code>CompareNullsAsValues</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><summary>
-If set to true nullable fields would be checked for IS NULL in Equal/NotEqual comparisons.
-This affects: Equal, NotEqual, Not Contains
-Default value: <code>true</code>.
-</summary>
+ If set to true nullable fields would be checked for IS NULL in Equal/NotEqual comparisons.
+ This affects: Equal, NotEqual, Not Contains
+ Default value: <code>true</code>.
+ </summary>
 <example>
-<pre><code class="lang-csharp">public class MyEntity
-{
-    public int? Value;
-}
+  <pre><code class="lang-csharp">public class MyEntity
+  {
+      public int? Value;
+  }
 <p>db.MyEntity.Where(e =&gt; e.Value != 10)</p>
 <p>from e1 in db.MyEntity
 join e2 in db.MyEntity on e1.Value equals e2.Value
@@ -324,42 +324,40 @@ select e1</p>
 <p>var filter = new [] {1, 2, 3};
 db.MyEntity.Where(e =&gt; ! filter.Contains(e.Value))</p></code></pre>
 <p>Would be converted to next queries:</p>
-<pre><code class="lang-csharp">SELECT Value FROM MyEntity WHERE Value IS NULL OR Value != 10
+ <pre><code class="lang-csharp">SELECT Value FROM MyEntity WHERE Value IS NULL OR Value != 10
 
-SELECT e1.Value
-FROM MyEntity e1
-INNER JOIN MyEntity e2 ON e1.Value = e2.Value OR (e1.Value IS NULL AND e2.Value IS NULL)
+ SELECT e1.Value
+ FROM MyEntity e1
+ INNER JOIN MyEntity e2 ON e1.Value = e2.Value OR (e1.Value IS NULL AND e2.Value IS NULL)
 
-SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code></pre>
-</example>
+ SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code></pre></example>
 </dd>
     <dt><code>GuardGrouping</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><summary>
-Controls behavior of LINQ query, which ends with GroupBy call.
-- if <code>true</code> - <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown for such queries;
-- if <code>false</code> - behavior is controlled by <a class="xref" href="LinqToDB.LinqOptions.html#LinqToDB_LinqOptions_PreloadGroups">PreloadGroups</a> option.
-Default value: <code>true</code>.
-</summary>
+ Controls behavior of LINQ query, which ends with GroupBy call.
+ - if <code>true</code> - <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown for such queries;
+ - if <code>false</code> - behavior is controlled by <a class="xref" href="LinqToDB.LinqOptions.html#LinqToDB_LinqOptions_PreloadGroups">PreloadGroups</a> option.
+ Default value: <code>true</code>.
+ </summary>
 <remarks>
-<a href="https://github.com/linq2db/linq2db/issues/365">More details</a>.
-</remarks>
+  <a href="https://github.com/linq2db/linq2db/issues/365">More details</a>.
+ </remarks>
 </dd>
     <dt><code>DisableQueryCache</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><summary>
-Used to disable LINQ expressions caching for queries.
-This cache reduces time, required for query parsing but have several side-effects:
-<p></p>
-- cached LINQ expressions could contain references to external objects as parameters, which could lead to memory leaks if those objects are not used anymore by other code
-<p></p>
-- cache access synchronization could lead to bigger latencies than it saves.
-<p></p>
-Default value: <code>false</code>.
-<p></p>
-It is not recommended to enable this option as it could lead to severe slowdown. Better approach will be
-to call <a class="xref" href="LinqToDB.Linq.Query-1.html#LinqToDB_Linq_Query_1_ClearCache">ClearCache()</a> method to cleanup cache after queries, that produce severe memory leaks you need to fix.
-<p></p>
-<a href="https://github.com/linq2db/linq2db/issues/256">More details</a>.
-</summary>
+ Used to disable LINQ expressions caching for queries.
+ This cache reduces time, required for query parsing but have several side-effects:
+ <p></p>
+ - cached LINQ expressions could contain references to external objects as parameters, which could lead to memory leaks if those objects are not used anymore by other code
+ <p></p>
+ - cache access synchronization could lead to bigger latencies than it saves.
+ <p></p>
+ Default value: <code>false</code>.
+ <p></p>
+ It is not recommended to enable this option as it could lead to severe slowdown. Better approach will be
+ to call <a class="xref" href="LinqToDB.Linq.Query-1.html#LinqToDB_Linq_Query_1_ClearCache">ClearCache()</a> method to cleanup cache after queries, that produce severe memory leaks you need to fix.
+ <p></p><a href="https://github.com/linq2db/linq2db/issues/256">More details</a>.
+ </summary>
 </dd>
     <dt><code>CacheSlidingExpiration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
     <dd><p>Specifies timeout when query will be evicted from cache since last execution of query.
@@ -482,15 +480,15 @@ Default value is 1 hour.</p>
   </h3>
 
   <div class="markdown level1 summary"><summary>
-If set to true nullable fields would be checked for IS NULL in Equal/NotEqual comparisons.
-This affects: Equal, NotEqual, Not Contains
-Default value: <code>true</code>.
-</summary>
+ If set to true nullable fields would be checked for IS NULL in Equal/NotEqual comparisons.
+ This affects: Equal, NotEqual, Not Contains
+ Default value: <code>true</code>.
+ </summary>
 <example>
-<pre><code class="lang-csharp">public class MyEntity
-{
-    public int? Value;
-}
+  <pre><code class="lang-csharp">public class MyEntity
+  {
+      public int? Value;
+  }
 <p>db.MyEntity.Where(e =&gt; e.Value != 10)</p>
 <p>from e1 in db.MyEntity
 join e2 in db.MyEntity on e1.Value equals e2.Value
@@ -498,14 +496,13 @@ select e1</p>
 <p>var filter = new [] {1, 2, 3};
 db.MyEntity.Where(e =&gt; ! filter.Contains(e.Value))</p></code></pre>
 <p>Would be converted to next queries:</p>
-<pre><code class="lang-csharp">SELECT Value FROM MyEntity WHERE Value IS NULL OR Value != 10
+ <pre><code class="lang-csharp">SELECT Value FROM MyEntity WHERE Value IS NULL OR Value != 10
 
-SELECT e1.Value
-FROM MyEntity e1
-INNER JOIN MyEntity e2 ON e1.Value = e2.Value OR (e1.Value IS NULL AND e2.Value IS NULL)
+ SELECT e1.Value
+ FROM MyEntity e1
+ INNER JOIN MyEntity e2 ON e1.Value = e2.Value OR (e1.Value IS NULL AND e2.Value IS NULL)
 
-SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code></pre>
-</example>
+ SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code></pre></example>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -549,8 +546,7 @@ Default value: <code>false</code>.
 <p></p>
 It is not recommended to enable this option as it could lead to severe slowdown. Better approach will be
 to call <a class="xref" href="LinqToDB.Linq.Query-1.html#LinqToDB_Linq_Query_1_ClearCache">ClearCache()</a> method to cleanup cache after queries, that produce severe memory leaks you need to fix.
-<p></p>
-<a href="https://github.com/linq2db/linq2db/issues/256">More details</a>.
+<p></p><a href="https://github.com/linq2db/linq2db/issues/256">More details</a>.
 </summary>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -700,7 +696,7 @@ Controls behavior of LINQ query, which ends with GroupBy call.
 Default value: <code>true</code>.
 </summary>
 <remarks>
-<a href="https://github.com/linq2db/linq2db/issues/365">More details</a>.
+  <a href="https://github.com/linq2db/linq2db/issues/365">More details</a>.
 </remarks>
 </div>
   <div class="markdown level1 conceptual"></div>

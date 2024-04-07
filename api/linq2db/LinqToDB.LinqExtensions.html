@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -691,9 +691,7 @@ Useful for intercepting queries.</p>
 
   <div class="markdown level1 summary"><p>Overrides database name with new name for current query. This call will have effect only for databases that support
 database name in fully-qualified table name.</p>
-<p>Supported by: Access, DB2, MySQL, PostgreSQL, SAP HANA, SQLite, Informix, SQL Server, Sybase ASE.</p>
-<p>Requires schema name (see <a class="xref" href="LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_SchemaName__1_LinqToDB_ITable___0__System_String_">SchemaName&lt;T&gt;(ITable&lt;T&gt;, string?)</a>): DB2, SAP HANA, PostgreSQL.</p>
-<p>PostgreSQL supports only name of current database.</p>
+<p>Supported by: Access, DB2, MySQL, PostgreSQL, SAP HANA, SQLite, Informix, SQL Server, Sybase ASE.</p><p>Requires schema name (see <a class="xref" href="LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_SchemaName__1_LinqToDB_ITable___0__System_String_">SchemaName&lt;T&gt;(ITable&lt;T&gt;, string?)</a>): DB2, SAP HANA, PostgreSQL.</p><p>PostgreSQL supports only name of current database.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -7536,42 +7534,35 @@ Take into account that use of this method could require multiple queries to load
 
   <h4 class="section" id="LinqToDB_LinqExtensions_LoadWith__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Collections_Generic_IEnumerable___1____System_Linq_Expressions_Expression_System_Func_System_Linq_IQueryable___1__System_Linq_IQueryable___1_____examples">Examples</h4>
   <p>
-    <p>
+  <p>
         Following query loads records from Table1 with Reference association, loaded for each Table1 record.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference);</code></pre>
-    
-    <p>
+  <p>
         Following queries loads records from Table1 with Reference1 association and then loads records from Reference2 association for each loaded Reference1 record.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1.Reference2);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1).ThenLoad(r =&gt; r.Reference2);</code></pre>
-    
-    <p>
+  <p>
         Following query loads records from Table1 with References collection association loaded for each Table1 record.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References);</code></pre>
-    
-    <p>
+  <p>
         Following query loads records from Table1 with:
         - Reference1 collection association loaded for each Table1 record;
         - Reference2 collection association for each loaded Reference1 record;
         - Reference3 association for each loaded Reference2 record.
     <p>
         Note that a way you access collection association record (by index, using First() method) doesn't affect query results and always select all records.
-    </p>
-        <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
+    </p><pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1).ThenLoad(r =&gt; r.References2).ThenLoad(r =&gt; r.Reference3);</code></pre>
-    
-    <p>
+  <p>
         Following query loads records from Table1 with References collection association loaded for each Table1 record, where References record
         contains only records without "exclude" text in Name property.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References, r =&gt; r.Where(rr =&gt; !rr.Name.Contains("exclude")));</code></pre>
-    
-    <p>
+  <p>
         Following query loads records from Table1 with References1 collection association loaded for each Table1 record, where References1 record
         also load Reference2 association.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1, r =&gt; r.LoadWith(rr =&gt; rr.Reference2));</code></pre>
-    
 
 
 
@@ -7629,36 +7620,30 @@ Take into account that use of this method could require multiple queries to load
 
   <h4 class="section" id="LinqToDB_LinqExtensions_LoadWith__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1____examples">Examples</h4>
   <p>
-    <p>
+  <p>
         Following query loads records from Table1 with Reference association, loaded for each Table1 record.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference);</code></pre>
-    
-    <p>
+  <p>
         Following queries loads records from Table1 with Reference1 association and then loads records from Reference2 association for each loaded Reference1 record.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1.Reference2);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1).ThenLoad(r =&gt; r.Reference2);</code></pre>
-    
-    <p>
+  <p>
         Following query loads records from Table1 with References collection association loaded for each Table1 record.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References);</code></pre>
-    
-    <p>
+  <p>
         Following query loads records from Table1 with References collection association loaded for each Table1 record. Also it limits loaded records.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References.Where(e =&gt; !e.IsDeleted).Take(10));</code></pre>
-    
-    <p>
+  <p>
         Following query loads records from Table1 with:
         - Reference1 collection association loaded for each Table1 record;
         - Reference2 collection association for each loaded Reference1 record;
         - Reference3 association for each loaded Reference2 record.
     <p>
         Note that a way you access collection association record (by index, using First() method) doesn't affect query results and always select all records.
-    </p>
-        <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
+    </p><pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1).ThenLoad(r =&gt; r.References2).ThenLoad(r =&gt; r.Reference3);</code></pre>
-    
 
 
 
@@ -7720,42 +7705,35 @@ Take into account that use of this method could require multiple queries to load
 
   <h4 class="section" id="LinqToDB_LinqExtensions_LoadWith__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___System_Linq_Expressions_Expression_System_Func_System_Linq_IQueryable___1__System_Linq_IQueryable___1_____examples">Examples</h4>
   <p>
-    <p>
+  <p>
         Following query loads records from Table1 with Reference association, loaded for each Table1 record.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference);</code></pre>
-    
-    <p>
+  <p>
         Following queries loads records from Table1 with Reference1 association and then loads records from Reference2 association for each loaded Reference1 record.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1.Reference2);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1).ThenLoad(r =&gt; r.Reference2);</code></pre>
-    
-    <p>
+  <p>
         Following query loads records from Table1 with References collection association loaded for each Table1 record.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References);</code></pre>
-    
-    <p>
+  <p>
         Following query loads records from Table1 with:
         - Reference1 collection association loaded for each Table1 record;
         - Reference2 collection association for each loaded Reference1 record;
         - Reference3 association for each loaded Reference2 record.
     <p>
         Note that a way you access collection association record (by index, using First() method) doesn't affect query results and always select all records.
-    </p>
-        <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
+    </p><pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1).ThenLoad(r =&gt; r.References2).ThenLoad(r =&gt; r.Reference3);</code></pre>
-    
-    <p>
+  <p>
         Following query loads records from Table1 with References collection association loaded for each Table1 record, where References record
         contains only records without "exclude" text in Name property.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References, r =&gt; r.Where(rr =&gt; !rr.Name.Contains("exclude")));</code></pre>
-    
-    <p>
+  <p>
         Following query loads records from Table1 with References1 collection association loaded for each Table1 record, where References1 record
         also load Reference2 association.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1, r =&gt; r.LoadWith(rr =&gt; rr.Reference2));</code></pre>
-    
 
 
 
@@ -10819,26 +10797,23 @@ Take into account that use of this method could require multiple queries to load
 
   <h4 class="section" id="LinqToDB_LinqExtensions_ThenLoad__3_LinqToDB_ILoadWithQueryable___0_System_Collections_Generic_IEnumerable___1___System_Linq_Expressions_Expression_System_Func___1_System_Collections_Generic_IEnumerable___2____System_Linq_Expressions_Expression_System_Func_System_Linq_IQueryable___2__System_Linq_IQueryable___2_____examples">Examples</h4>
   <p>
-    <p>
+  <p>
         Following queries loads records from Table1 with Reference1 association and then loads records from Reference2 association for each loaded Reference1 record.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1.Reference2);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1).ThenLoad(r =&gt; r.Reference2);</code></pre>
-    
-    <p>
+  <p>
         Note that a way you access collection association record (by index, using First() method) doesn't affect query results and always select all records.
     </p>
-    <p>
-        <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
+  <p>
+    <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1).ThenLoad(r =&gt; r.References2).ThenLoad(r =&gt; r.Reference3);</code></pre>
-    
-    <p>
+  <p>
         Following query loads records from Table1 with References1 collection association loaded for each Table1 record with
         References2 collection association loaded for each record in References1, with filter over References2 record
         to include only records without "exclude" text in Name property.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1).ThenLoad(r1 =&gt; r1.References2, r2 =&gt; r2.Where(rr2 =&gt; !rr2.Name.Contains("exclude")));</code></pre>
-    
 
 
 
@@ -10899,20 +10874,18 @@ Take into account that use of this method could require multiple queries to load
 
   <h4 class="section" id="LinqToDB_LinqExtensions_ThenLoad__3_LinqToDB_ILoadWithQueryable___0_System_Collections_Generic_IEnumerable___1___System_Linq_Expressions_Expression_System_Func___1___2____examples">Examples</h4>
   <p>
-    <p>
+  <p>
         Following queries loads records from Table1 with Reference1 association and then loads records from Reference2 association for each loaded Reference1 record.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1.Reference2);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1).ThenLoad(r =&gt; r.Reference2);</code></pre>
-    
-    <p>
+  <p>
         Note that a way you access collection association record (by index, using First() method) doesn't affect query results and always select all records.
     </p>
-    <p>
-        <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
+  <p>
+    <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1).ThenLoad(r =&gt; r.References2).ThenLoad(r =&gt; r.Reference3);</code></pre>
-    
 
 
 
@@ -10977,26 +10950,23 @@ Take into account that use of this method could require multiple queries to load
 
   <h4 class="section" id="LinqToDB_LinqExtensions_ThenLoad__3_LinqToDB_ILoadWithQueryable___0_System_Collections_Generic_IEnumerable___1___System_Linq_Expressions_Expression_System_Func___1___2___System_Linq_Expressions_Expression_System_Func_System_Linq_IQueryable___2__System_Linq_IQueryable___2_____examples">Examples</h4>
   <p>
-    <p>
+  <p>
         Following queries loads records from Table1 with Reference1 association and then loads records from Reference2 association for each loaded Reference1 record.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1.Reference2);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1).ThenLoad(r =&gt; r.Reference2);</code></pre>
-    
-    <p>
+  <p>
         Note that a way you access collection association record (by index, using First() method) doesn't affect query results and always select all records.
     </p>
-    <p>
-        <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
+  <p>
+    <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1).ThenLoad(r =&gt; r.References2).ThenLoad(r =&gt; r.Reference3);</code></pre>
-    
-    <p>
+  <p>
         Following query loads records from Table1 with References1 collection association loaded for each Table1 record with
         References2 collection association loaded for each record in References1, with filter over References2 record
         to include only records without "exclude" text in Name property.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1).ThenLoad(r1 =&gt; r1.References2, r2 =&gt; r2.Where(rr2 =&gt; !rr2.Name.Contains("exclude")));</code></pre>
-    
 
 
 
@@ -11061,26 +11031,23 @@ Take into account that use of this method could require multiple queries to load
 
   <h4 class="section" id="LinqToDB_LinqExtensions_ThenLoad__3_LinqToDB_ILoadWithQueryable___0___1__System_Linq_Expressions_Expression_System_Func___1_System_Collections_Generic_IEnumerable___2____System_Linq_Expressions_Expression_System_Func_System_Linq_IQueryable___2__System_Linq_IQueryable___2_____examples">Examples</h4>
   <p>
-    <p>
+  <p>
         Following queries loads records from Table1 with Reference1 association and then loads records from Reference2 association for each loaded Reference1 record.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1.Reference2);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1).ThenLoad(r =&gt; r.Reference2);</code></pre>
-    
-    <p>
+  <p>
         Note that a way you access collection association record (by index, using First() method) doesn't affect query results and always select all records.
     </p>
-    <p>
-        <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
+  <p>
+    <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1).ThenLoad(r =&gt; r.References2).ThenLoad(r =&gt; r.Reference3);</code></pre>
-    
-    <p>
+  <p>
         Following query loads records from Table1 with References1 collection association loaded for each Table1 record with
         References2 collection association loaded for each record in References1, with filter over References2 record
         to include only records without "exclude" text in Name property.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1).ThenLoad(r1 =&gt; r1.References2, r2 =&gt; r2.Where(rr2 =&gt; !rr2.Name.Contains("exclude")));</code></pre>
-    
 
 
 
@@ -11141,20 +11108,18 @@ Take into account that use of this method could require multiple queries to load
 
   <h4 class="section" id="LinqToDB_LinqExtensions_ThenLoad__3_LinqToDB_ILoadWithQueryable___0___1__System_Linq_Expressions_Expression_System_Func___1___2____examples">Examples</h4>
   <p>
-    <p>
+  <p>
         Following queries loads records from Table1 with Reference1 association and then loads records from Reference2 association for each loaded Reference1 record.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1.Reference2);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1).ThenLoad(r =&gt; r.Reference2);</code></pre>
-    
-    <p>
+  <p>
         Note that a way you access collection association record (by index, using First() method) doesn't affect query results and always select all records.
     </p>
-    <p>
-        <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
+  <p>
+    <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1).ThenLoad(r =&gt; r.References2).ThenLoad(r =&gt; r.Reference3);</code></pre>
-    
 
 
 
@@ -11219,26 +11184,23 @@ Take into account that use of this method could require multiple queries to load
 
   <h4 class="section" id="LinqToDB_LinqExtensions_ThenLoad__3_LinqToDB_ILoadWithQueryable___0___1__System_Linq_Expressions_Expression_System_Func___1___2___System_Linq_Expressions_Expression_System_Func_System_Linq_IQueryable___2__System_Linq_IQueryable___2_____examples">Examples</h4>
   <p>
-    <p>
+  <p>
         Following queries loads records from Table1 with Reference1 association and then loads records from Reference2 association for each loaded Reference1 record.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1.Reference2);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.Reference1).ThenLoad(r =&gt; r.Reference2);</code></pre>
-    
-    <p>
+  <p>
         Note that a way you access collection association record (by index, using First() method) doesn't affect query results and always select all records.
     </p>
-    <p>
-        <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
+  <p>
+    <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1[0].References2.First().Reference3);</code></pre>
         Same query using ThenLoad extension.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1).ThenLoad(r =&gt; r.References2).ThenLoad(r =&gt; r.Reference3);</code></pre>
-    
-    <p>
+  <p>
         Following query loads records from Table1 with References1 collection association loaded for each Table1 record with
         References2 collection association loaded for each record in References1, with filter over References2 record
         to include only records without "exclude" text in Name property.
         <pre><code class="lang-csharp">db.Table1.LoadWith(r =&gt; r.References1).ThenLoad(r1 =&gt; r1.References2, r2 =&gt; r2.Where(rr2 =&gt; !rr2.Name.Contains("exclude")));</code></pre>
-    
 
 
 
@@ -15096,8 +15058,7 @@ Example below adds hint to a table. Also see <a class="xref" href="LinqToDB.Linq
 </dd>
     <dt><code>expression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>SQL template to use instead of table name. Template supports two parameters:
-<p> - {0} original table name;</p>
-<p> - {1} table alias.</p>
+<p> - {0} original table name;</p><p> - {1} table alias.</p>
 </dd>
   </dl>
 
