@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -205,13 +205,13 @@ select e1
 var filter = new [] {1, 2, 3};
 db.MyEntity.Where(e =&gt; ! filter.Contains(e.Value))</code></pre>
 <p>Would be converted to next queries:</p>
- <pre><code class="lang-csharp">SELECT Value FROM MyEntity WHERE Value IS NULL OR Value != 10
+<pre><code class="lang-csharp">SELECT Value FROM MyEntity WHERE Value IS NULL OR Value != 10
 
- SELECT e1.Value
- FROM MyEntity e1
- INNER JOIN MyEntity e2 ON e1.Value = e2.Value OR (e1.Value IS NULL AND e2.Value IS NULL)
+SELECT e1.Value
+FROM MyEntity e1
+INNER JOIN MyEntity e2 ON e1.Value = e2.Value OR (e1.Value IS NULL AND e2.Value IS NULL)
 
- SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code></pre>
+SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code></pre>
 
 
 
@@ -236,7 +236,8 @@ Default value: <code>false</code>.
 <p></p>
 It is not recommended to enable this option as it could lead to severe slowdown. Better approach will be
 to call <a class="xref" href="LinqToDB.Linq.Query-1.html#LinqToDB_Linq_Query_1_ClearCache">ClearCache()</a> method to cleanup cache after queries, that produce severe memory leaks you need to fix.
-<p></p><a href="https://github.com/linq2db/linq2db/issues/256">More details</a>.
+<p></p>
+<a href="https://github.com/linq2db/linq2db/issues/256">More details</a>.
 </div>
   <div class="markdown level1 conceptual"></div>
 

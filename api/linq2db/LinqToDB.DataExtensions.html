@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -422,7 +422,9 @@ Information about table name, columns names and types is taken from mapping clas
 </dd>
     <dt><code>defaultNullable</code> <a class="xref" href="LinqToDB.SqlQuery.DefaultNullable.html">DefaultNullable</a></dt>
     <dd><p>Defines how columns nullability flag should be generated:
-<p> - <a class="xref" href="LinqToDB.SqlQuery.DefaultNullable.html#LinqToDB_SqlQuery_DefaultNullable_Null">Null</a> - generate only <code>NOT NULL</code> for non-nullable fields. Missing nullability information treated as <code>NULL</code> by database.</p><p> - <a class="xref" href="LinqToDB.SqlQuery.DefaultNullable.html#LinqToDB_SqlQuery_DefaultNullable_NotNull">NotNull</a> - generate only <code>NULL</code> for nullable fields. Missing nullability information treated as <code>NOT NULL</code> by database.</p><p> - <a class="xref" href="LinqToDB.SqlQuery.DefaultNullable.html#LinqToDB_SqlQuery_DefaultNullable_None">None</a> - explicitly generate <code>NULL</code> and <code>NOT NULL</code> for all columns.</p>
+<p> - <a class="xref" href="LinqToDB.SqlQuery.DefaultNullable.html#LinqToDB_SqlQuery_DefaultNullable_Null">Null</a> - generate only <code>NOT NULL</code> for non-nullable fields. Missing nullability information treated as <code>NULL</code> by database.</p>
+<p> - <a class="xref" href="LinqToDB.SqlQuery.DefaultNullable.html#LinqToDB_SqlQuery_DefaultNullable_NotNull">NotNull</a> - generate only <code>NULL</code> for nullable fields. Missing nullability information treated as <code>NOT NULL</code> by database.</p>
+<p> - <a class="xref" href="LinqToDB.SqlQuery.DefaultNullable.html#LinqToDB_SqlQuery_DefaultNullable_None">None</a> - explicitly generate <code>NULL</code> and <code>NOT NULL</code> for all columns.</p>
 Default value: <a class="xref" href="LinqToDB.SqlQuery.DefaultNullable.html#LinqToDB_SqlQuery_DefaultNullable_None">None</a>.
 </dd>
     <dt><code>serverName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
@@ -497,7 +499,9 @@ Information about table name, columns names and types is taken from mapping clas
 </dd>
     <dt><code>defaultNullable</code> <a class="xref" href="LinqToDB.SqlQuery.DefaultNullable.html">DefaultNullable</a></dt>
     <dd><p>Defines how columns nullability flag should be generated:
-<p> - <a class="xref" href="LinqToDB.SqlQuery.DefaultNullable.html#LinqToDB_SqlQuery_DefaultNullable_Null">Null</a> - generate only <code>NOT NULL</code> for non-nullable fields. Missing nullability information treated as <code>NULL</code> by database.</p><p> - <a class="xref" href="LinqToDB.SqlQuery.DefaultNullable.html#LinqToDB_SqlQuery_DefaultNullable_NotNull">NotNull</a> - generate only <code>NULL</code> for nullable fields. Missing nullability information treated as <code>NOT NULL</code> by database.</p><p> - <a class="xref" href="LinqToDB.SqlQuery.DefaultNullable.html#LinqToDB_SqlQuery_DefaultNullable_None">None</a> - explicitly generate <code>NULL</code> and <code>NOT NULL</code> for all columns.</p>
+<p> - <a class="xref" href="LinqToDB.SqlQuery.DefaultNullable.html#LinqToDB_SqlQuery_DefaultNullable_Null">Null</a> - generate only <code>NOT NULL</code> for non-nullable fields. Missing nullability information treated as <code>NULL</code> by database.</p>
+<p> - <a class="xref" href="LinqToDB.SqlQuery.DefaultNullable.html#LinqToDB_SqlQuery_DefaultNullable_NotNull">NotNull</a> - generate only <code>NULL</code> for nullable fields. Missing nullability information treated as <code>NOT NULL</code> by database.</p>
+<p> - <a class="xref" href="LinqToDB.SqlQuery.DefaultNullable.html#LinqToDB_SqlQuery_DefaultNullable_None">None</a> - explicitly generate <code>NULL</code> and <code>NOT NULL</code> for all columns.</p>
 Default value: <a class="xref" href="LinqToDB.SqlQuery.DefaultNullable.html#LinqToDB_SqlQuery_DefaultNullable_None">None</a>.
 </dd>
     <dt><code>serverName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
@@ -2191,19 +2195,22 @@ Default value: <code>true</code>.</p>
   </h3>
 
   <div class="markdown level1 summary"><p>
-        Creates a LINQ query based on a raw SQL query.
-    </p>
+    Creates a LINQ query based on a raw SQL query.
+</p>
 <p>
-        If the database provider supports composing on the supplied SQL, you can compose on top of the raw SQL query using
-        LINQ operators - <pre><code class="lang-csharp">context.FromSql&lt;Blogs&gt;("SELECT * FROM dbo.Blogs").OrderBy(b =&gt; b.Name);</code></pre>
+    If the database provider supports composing on the supplied SQL, you can compose on top of the raw SQL query using
+    LINQ operators - <pre><code class="lang-csharp">context.FromSql&lt;Blogs&gt;("SELECT * FROM dbo.Blogs").OrderBy(b =&gt; b.Name);</code></pre>
+
 <p>
-        As with any API that accepts SQL it is important to parameterize any user input to protect against a SQL injection
-        attack. You can include parameter place holders in the SQL query string and then supply parameter values as additional
-        arguments. Any parameter values you supply will automatically be converted to a DbParameter -
-        <pre><code class="lang-csharp">context.FromSql&lt;Blogs&gt;("SELECT * FROM [dbo].[SearchBlogs]({0})", userSuppliedSearchTerm);</code></pre>
+    As with any API that accepts SQL it is important to parameterize any user input to protect against a SQL injection
+    attack. You can include parameter place holders in the SQL query string and then supply parameter values as additional
+    arguments. Any parameter values you supply will automatically be converted to a DbParameter -
+    <pre><code class="lang-csharp">context.FromSql&lt;Blogs&gt;("SELECT * FROM [dbo].[SearchBlogs]({0})", userSuppliedSearchTerm);</code></pre>
+
 <p>
-        This overload also accepts DbParameter instances as parameter values.
-        <pre><code class="lang-csharp">context.FromSql&lt;Blogs&gt;("SELECT * FROM [dbo].[SearchBlogs]({0})", new DataParameter("@searchTerm", userSuppliedSearchTerm, DataType.Int64));</code></pre>
+    This overload also accepts DbParameter instances as parameter values.
+    <pre><code class="lang-csharp">context.FromSql&lt;Blogs&gt;("SELECT * FROM [dbo].[SearchBlogs]({0})", new DataParameter("@searchTerm", userSuppliedSearchTerm, DataType.Int64));</code></pre>
+
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -4343,9 +4350,9 @@ Latter option is not recommended as it will affect performance significantly.</p
   </h3>
 
   <div class="markdown level1 summary"><p>
-        Creates a LINQ query based on expression. Returned <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1">IQueryable&lt;T&gt;</a> represents single record.<p></p>
-        Could be useful for function calls, querying of database variables, properties or sub-queries.
-    
+    Creates a LINQ query based on expression. Returned <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1">IQueryable&lt;T&gt;</a> represents single record.<p></p>
+    Could be useful for function calls, querying of database variables, properties or sub-queries.
+
 </div>
   <div class="markdown level1 conceptual"></div>
 

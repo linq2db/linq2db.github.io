@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -138,7 +138,8 @@ Class Configuration.Sql  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 summary"><p>Format for association alias.</p>
 <p>
 Default value: <code>"a_{0}"</code>.
-</p><example>
+</p>
+<example>
 In the following query
 <pre><code class="lang-csharp">var query = from child in db.Child
    select new
@@ -152,7 +153,9 @@ for association <code>Parent</code> will be generated association <code>A_Parent
    [a_Parent].[Value1]
 FROM
    [Child] [child]
-      LEFT JOIN [Parent] [a_Parent] ON ([child].[ParentID] = [a_Parent].[ParentID])</code></pre></example><remarks>
+      LEFT JOIN [Parent] [a_Parent] ON ([child].[ParentID] = [a_Parent].[ParentID])</code></pre>
+</example>
+<remarks>
 Set this value to <code>null</code> to disable special alias generation queries.
 </remarks>
 </div>
@@ -223,22 +226,25 @@ Default value: <code>false</code>.</p>
 It is not required for correct query processing but simplifies SQL analysis.</p>
 <p>
 Default value: <code>false</code>.
-</p><example>
+</p>
+<example>
 For the query
 <pre><code class="lang-csharp">var query = from child in db.Child
    select new
    {
       TrackId = child.ChildID,
    };</code></pre>
-When property is <code>true</code><pre><code class="lang-csharp">SELECT
-                                                        [child].[ChildID] as [TrackId]
-                                                     FROM
-                                                        [Child] [child]</code></pre>
-Otherwise alias will be removed
+When property is <code>true</code>
+<pre><code class="lang-csharp">SELECT
+   [child].[ChildID] as [TrackId]
+FROM
+   [Child] [child]</code></pre>
+<p>Otherwise alias will be removed</p>
 <pre><code class="lang-csharp">SELECT
    [child].[ChildID]
 FROM
-   [Child] [child]</code></pre></example>
+   [Child] [child]</code></pre>
+</example>
 </div>
   <div class="markdown level1 conceptual"></div>
 
