@@ -87,22 +87,17 @@
         <article data-uid="">
 <h1 id="how-to-teach-linq-to-db-to-convert-custom-net-methods-and-objects-to-sql">How to teach LINQ to DB to convert custom .NET methods and objects to SQL</h1>
 
-<p>You may run into a situation where LINQ to DB does not know how to convert some .NET method, property or object to SQL. But that is not a problem because LINQ to DB likes to learn. Just teach it :). In one of our previous blog posts we wrote about <a href="xref:using-mapvalue-attribute-to-control-mapping.md">Using this MapValueAttribute to control mapping with linq2db</a>. In this article we will go a little bit deeper.</p>
+<p>You may run into a situation where LINQ to DB does not know how to convert some .NET method, property or object to SQL. But that is not a problem because LINQ to DB likes to learn. Just teach it :). In another article we wrote about <a href="xref:using-mapvalue-attribute-to-control-mapping.md">Using this MapValueAttribute to control mapping with Linq To DB</a>. In this article we will go a little bit deeper.</p>
 <p>There are multiple ways to teach LINQ to DB how to convert custom properties and methods into SQL, but the primary ones are:</p>
 <ul>
-<li>
-<p><a href="#sqlexpression">LinqToDB.Sql.ExpressionAttribute</a> and <a href="#sqlfunction-attribute">LinqToDB.Sql.FunctionAttribute</a></p></li>
-<li>
-<p><a href="#expressionmethod">LinqToDB.ExpressionMethodAttribute</a></p>
-</li>
-<li>
-<p><a href="#mapmember">LinqToDB.Linq.Expressions.MapMember()</a> method</p>
-<li>
-<p><a href="#setvaluetosqlconverter">LinqToDB.Mapping.MappingSchema.SetValueToSqlConverter()</a> method</p>
-
+<li><a href="#sqlexpression">LinqToDB.Sql.ExpressionAttribute</a> and <a href="#sqlfunction-attribute">LinqToDB.Sql.FunctionAttribute</a></li>
+<li><a href="#expressionmethod">LinqToDB.ExpressionMethodAttribute</a></li>
+<li><a href="#mapmember">LinqToDB.Linq.Expressions.MapMember()</a> method</li>
+<li><a href="#setvaluetosqlconverter">LinqToDB.Mapping.MappingSchema.SetValueToSqlConverter()</a> method</li>
+</ul>
 <p>Let's see how to use each of these methods.</p>
-<h3 id="sqlexpression">Sql.Expression</h3>
-<p>Let's say you love SQL's BETWEEN operator and you find out that LINQ to DB does not have <code>Between()</code> method out of the box, so you have to write something like this:</p>
+<h2 id="sqlexpression">Sql.Expression</h2>
+<p>Let's say you love SQL's BETWEEN operator and you find out that LINQ to DB does not have <code>Between()</code> method (only as example, as we have it, check <code>Sql.Between</code> API) out of the box, so you have to write something like this:</p>
 <pre><code class="lang-cs">var query = db.Customers.Where(c =&gt; c.ID &gt;= 1000 &amp;&amp; c.ID &lt;= 2000);
 </code></pre>
 <p>Here is how the <code>Sql.Expression</code> attribute can help us bring Between to .NET:</p>
@@ -117,80 +112,80 @@ public static bool Between&lt;T&gt;(this T x, T low, T high) where T : IComparab
 <pre><code class="lang-cs">[Test]
 public void SqlExpressionAttributeTest()
 {
-  using (var db = new DataModel())
-  {
-    db.InlineParameters = true; // inlined parameters can be helpful when debugging
-    db.Customers.Where(c =&gt; c.DateOfBirth.Between(new DateTime(2000, 1, 1), new DateTime(2000, 12, 31))).ToList();
-  }
+    using (var db = new DataModel())
+    {
+        db.InlineParameters = true; // inlined parameters can be helpful when debugging
+        db.Customers.Where(c =&gt; c.DateOfBirth.Between(new DateTime(2000, 1, 1), new DateTime(2000, 12, 31))).ToList();
+    }
 }
 </code></pre>
 <p>The SQL generated for SQL Server 2012 is:</p>
 <pre><code class="lang-sql">SELECT
- [t1].[ID],
- [t1].[DateOfBirth],
- [t1].[FirstName],
- [t1].[LastName],
- [t1].[Email]
+    [t1].[ID],
+    [t1].[DateOfBirth],
+    [t1].[FirstName],
+    [t1].[LastName],
+    [t1].[Email]
 FROM
- [dbo].[Customer] [t1]
+    [dbo].[Customer] [t1]
 WHERE
- [t1].[DateOfBirth] BETWEEN '2000-01-01' AND '2000-12-31'
+    [t1].[DateOfBirth] BETWEEN '2000-01-01' AND '2000-12-31'
 </code></pre>
 <p>Notice the use of the <code>Sql.ExpressionAttribute.PreferServerSide</code> property set to true. <code>PreferServerSide = true</code> tells LINQ to DB to convert the method to SQL if possible, and if it's not possible for some reason - then to execute the method locally.</p>
-<p>There is another similar property � <code>ServerSideOnly</code>. If it's set to True, LINQ to DB will throw an exception if it can't convert a method to SQL. It can be set to true when you can't, don't need or don't want to write a client-side implementation.</p>
+<p>There is another similar property - <code>ServerSideOnly</code>. If it's set to True, LINQ to DB will throw an exception if it can't convert a method to SQL. It can be set to true when you can't, don't need or don't want to write a client-side implementation.</p>
 <p>You may have a valid question: When can't LINQ to DB generate SQL? How is that possible if we show LINQ to DB what we want to generate? Here is a simple example:</p>
 <pre><code class="lang-cs">var q =
-  from c in db.Customers
-  select
-    SomeServerSideOnlyMethod(SomeLocalApplicationMethod(c.ID));
+    from c in db.Customers
+    select
+        SomeServerSideOnlyMethod(SomeLocalApplicationMethod(c.ID));
 </code></pre>
 <p>Let's say <code>SomeServerSideOnlyMethod()</code> is a method with the <code>Sql.Expression</code> attribute and <code>ServerSideOnly = true</code>, and <code>SomeLocalApplicationMethod()</code> is an ordinary .NET method that can only be executed locally.</p>
 <p>Since <code>SomeLocalApplicationMethod()</code> must be executed locally, LINQ to DB has to first read the <code>Customer.ID</code> field values from the table to pass them to <code>SomeLocalApplicationMethod()</code> on the client side. From this moment the query, including the call to <code>SomeServerSideOnlyMethod()</code>, will have to be executed locally. But considering that <code>SomeServerSideOnlyMethod()</code> is marked as <code>ServerSideOnly = true</code>, LINQ to DB will throw an exception.</p>
-<h3 id="sqlfunction-attribute">Sql.Function attribute</h3>
+<h2 id="sqlfunction-attribute">Sql.Function attribute</h2>
 <p>Presume that we are using SQL Server and we want to check if a string contains a representation of a numeric value. SQL Server has the <code>IsNumeric()</code> function, but LINQ to DB does not support it out of the box. It's easy to fix:</p>
 <pre><code class="lang-cs">[Sql.Function(&quot;IsNumeric&quot;, ServerSideOnly = true)]
 public static bool IsNumeric(string s)
 {
-  throw new InvalidOperationException();
+    throw new InvalidOperationException();
 }
 
 [Test]
 public void SqlFunctionAttributeTest()
 {
-  using (var db = new DataModel())
-  {
-    db.InlineParameters = true;
-    db.Customers.Where(c =&gt; SqlFunctions.IsNumeric(c.LastName)).ToList();
-  }
+    using (var db = new DataModel())
+    {
+        db.InlineParameters = true;
+        db.Customers.Where(c =&gt; SqlFunctions.IsNumeric(c.LastName)).ToList();
+    }
 }
 </code></pre>
 <p>The generated SQL:</p>
 <pre><code class="lang-sql">SELECT
- [t1].[ID],
- [t1].[DateOfBirth],
- [t1].[FirstName],
- [t1].[LastName],
- [t1].[Email]
+    [t1].[ID],
+    [t1].[DateOfBirth],
+    [t1].[FirstName],
+    [t1].[LastName],
+    [t1].[Email]
 FROM
- [dbo].[Customer] [t1]
+    [dbo].[Customer] [t1]
 WHERE
- IsNumeric([t1].[LastName]) = 1
+    IsNumeric([t1].[LastName]) = 1
 </code></pre>
 <p>Please note, that you may omit specifying the function name in the attribute explicitly - in this case the method name (that the attribute is applied to) will be used as a function name.</p>
-<h3 id="expressionmethod">ExpressionMethod</h3>
+<h2 id="expressionmethod">ExpressionMethod</h2>
 <p>Let us now examine the next attribute - <code>LinqToDB.ExpressionMethodAttribute</code>, a very powerful one. The <code>ExpressionMethodAttribute</code> allows specifying an expression that LINQ to DB will translate into SQL.</p>
 <p>For those of us who are fans of the SQL's <code>IN</code> operator, let's show how we can make LINQ to DB support it:</p>
 <pre><code class="lang-cs">[ExpressionMethod(&quot;InImpl&quot;)]
 public static bool In&lt;T&gt;(this T item, IEnumerable&lt;T&gt; items)
 {
-  return items.Contains(item); // this code will run if we execute the method locally
+    return items.Contains(item); // this code will run if we execute the method locally
 }
  
 public static Expression&lt;Func&lt;T, IEnumerable&lt;T&gt;, bool&gt;&gt; InImpl&lt;T&gt;()
 {
-  // LINQ to DB will translate this expression into SQL
-  // (it knows out of the box how to translate Contains()
-  return (item, items) =&gt; items.Contains(item); 
+    // LINQ to DB will translate this expression into SQL
+    // (it knows out of the box how to translate Contains()
+    return (item, items) =&gt; items.Contains(item); 
 }
 </code></pre>
 <p>Here we are using the <code>ExpressionMethod</code> attribute to specify a method that will return an <code>Expression</code>, and LINQ to DB will convert that <code>Expression</code> into SQL (basically, LINQ to DB uses the expression tree returned by the method specified with the <code>ExpressionMethod</code> attribute to replace a part of a bigger expression tree that will later be converted to SQL). The generic type parameter of the <code>Expression</code> should be a <code>Func&lt;T&gt;</code> delegate, representing a function that takes the same parameters and returns the same type as a local method. For example, if a local method has this declaration:</p>
@@ -203,125 +198,124 @@ public static Expression&lt;Func&lt;T, IEnumerable&lt;T&gt;, bool&gt;&gt; InImpl
 <pre><code class="lang-cs">[Test]
 public void InTest()
 {
-  using (var db = new DataModel())
-  {
-    var customers = db.Customers.Where(c =&gt; c.FirstName.In(new[] {&quot;Pavel&quot;, &quot;John&quot;, &quot;Jack&quot;})).ToList();
-  }
+    using (var db = new DataModel())
+    {
+        var customers = db.Customers.Where(c =&gt; c.FirstName.In(new[] {&quot;Pavel&quot;, &quot;John&quot;, &quot;Jack&quot;})).ToList();
+    }
 }
 </code></pre>
 <p>This will generate the following SQL:</p>
 <pre><code class="lang-sql">SELECT
- [t1].[ID],
- [t1].[DateOfBirth],
- [t1].[FirstName],
- [t1].[LastName],
- [t1].[Email]
+    [t1].[ID],
+    [t1].[DateOfBirth],
+    [t1].[FirstName],
+    [t1].[LastName],
+    [t1].[Email]
 FROM
- [dbo].[Customer] [t1]
+    [dbo].[Customer] [t1]
 WHERE
- [t1].[FirstName] IN (N'Pavel', N'John', N'Jack')
+    [t1].[FirstName] IN (N'Pavel', N'John', N'Jack')
 </code></pre>
 <p>Another example, showing that <code>ExpressionMethod</code> can be applied to properties:</p>
 <pre><code class="lang-cs">public partial class Issue
 {
-  [ExpressionMethod(&quot;GetAgeExpression&quot;)]
-  public double AgeInDays
-  {
-    get { return (DateTime.Now - CreatedOn).TotalDays; }
-  }
- 
-  private static Expression&lt;Func&lt;Issue, double&gt;&gt; GetAgeExpression()
-  {
-    return issue =&gt; (Sql.CurrentTimestamp - issue.CreatedOn).TotalDays;
-  }
+    [ExpressionMethod(&quot;GetAgeExpression&quot;)]
+    public double AgeInDays
+    {
+        get { return (DateTime.Now - CreatedOn).TotalDays; }
+    }
+
+    private static Expression&lt;Func&lt;Issue, double&gt;&gt; GetAgeExpression()
+    {
+        return issue =&gt; (Sql.CurrentTimestamp - issue.CreatedOn).TotalDays;
+    }
 }
 </code></pre>
 <p>Test:</p>
 <pre><code class="lang-cs">[Test]
 public void ExpressionMethodTest2()
 {
-  using (var db = new DataModel())
-  {
-    var issues = db.Issues.Where(issue =&gt; issue.AgeInDays &gt; 30).ToList();
-  }
+    using (var db = new DataModel())
+    {
+        var issues = db.Issues.Where(issue =&gt; issue.AgeInDays &gt; 30).ToList();
+    }
 }
 </code></pre>
 <p>The generated SQL:</p>
 <pre><code class="lang-sql">SELECT
- [t1].[ID],
- [t1].[Subject],
- [t1].[Description],
- [t1].[Status],
- [t1].[CreatedOn]
+    [t1].[ID],
+    [t1].[Subject],
+    [t1].[Description],
+    [t1].[Status],
+    [t1].[CreatedOn]
 FROM
- [dbo].[Issue] [t1]
+    [dbo].[Issue] [t1]
 WHERE
- DateDiff(Day, [t1].[CreatedOn], CURRENT_TIMESTAMP) &gt; 30
+    DateDiff(Day, [t1].[CreatedOn], CURRENT_TIMESTAMP) &gt; 30
 </code></pre>
 <p>You can find more examples of ExpressionMethod usage (including a possible <code>LeftJoin()</code> implementation that may be of interest to you) here: <a href="https://github.com/linq2db/linq2db/blob/master/Tests/Linq/Linq/ExpressionsTests.cs">ExpressionTests.cs</a></p>
-<h3 id="mapmember">MapMember()</h3>
+<h2 id="mapmember">MapMember()</h2>
 <p>The next method we will discuss is the <code>LinqToDB.Linq.Expressions.MapMember()</code> method (having numerous overloads). It allows you to specify how to convert existing methods and properties. Basically, you provide the original method or property and the corresponding <code>Expression</code> that will be used by LINQ to DB instead of the original method. Internally LINQ to DB uses <code>MapMember()</code> to map hundreds of standard .NET framework methods and properties.</p>
 <p>For example, we would like to make LINQ to DB support the <code>String.IsNullOrWhitespace()</code> method and we can't add the <code>ExpressionMethod</code> attribute to <code>IsNullOrWhitespace()</code> because it's a framework's method and we can't change it.</p>
 <p>The <code>MapMember()</code> method comes to the rescue!</p>
 <pre><code class="lang-cs">public partial class DataModel
 {
-  static DataModel()
-  {
-    LinqToDB.Linq.Expressions.MapMember((string s) =&gt; string.IsNullOrWhiteSpace(s), s =&gt; s == null || s.TrimEnd() == string.Empty);
-  }
+    static DataModel()
+    {
+        LinqToDB.Linq.Expressions.MapMember((string s) =&gt; string.IsNullOrWhiteSpace(s), s =&gt; s == null || s.TrimEnd() == string.Empty);
+    }
 }
 
 [Test]
 public void MapMemberTest()
 {
-  using (var db = new DataModel())
-  {
-    var customers = db.Customers.Where(c =&gt; string.IsNullOrWhiteSpace(c.Email)).ToList();
-  }
+    using (var db = new DataModel())
+    {
+        var customers = db.Customers.Where(c =&gt; string.IsNullOrWhiteSpace(c.Email)).ToList();
+    }
 }
 </code></pre>
 <p>The generated SQL:</p>
 <pre><code class="lang-sql">SELECT
- [t1].[ID],
- [t1].[DateOfBirth],
- [t1].[FirstName],
- [t1].[LastName],
- [t1].[Email]
+    [t1].[ID],
+    [t1].[DateOfBirth],
+    [t1].[FirstName],
+    [t1].[LastName],
+    [t1].[Email]
 FROM
- [dbo].[Customer] [t1]
+    [dbo].[Customer] [t1]
 WHERE
- [t1].[Email] IS NULL OR RTrim([t1].[Email]) = N''
+    [t1].[Email] IS NULL OR RTrim([t1].[Email]) = N''
 </code></pre>
-<h3 id="setvaluetosqlconverter">SetValueToSqlConverter()</h3>
+<h2 id="setvaluetosqlconverter">SetValueToSqlConverter()</h2>
 <p>The last method we will examine is <code>LinqToDB.Mapping.MappingSchema.SetValueToSqlConverter()</code>. It is used to control exactly how a value will be converted to SQL. The two primary use cases for this method are:</p>
 <ol>
-<li>
-<p>When adding support for a new database provider. For example, when working with the <code>Boolean</code> data type in Informix RDBMS, <code>t</code> represents the logical value TRUE and <code>f</code> represents FALSE. Here is how this is implemented in LinqToDB as a part of its Informix support:</p>
+<li>When adding support for a new database provider. For example, when working with the <code>Boolean</code> data type in Informix RDBMS, <code>t</code> represents the logical value TRUE and <code>f</code> represents FALSE. Here is how this is implemented in LinqToDB as a part of its Informix support:</li>
+</ol>
 <pre><code class="lang-cs">public class InformixMappingSchema : MappingSchema
 {
- protected InformixMappingSchema(string configuration) : base(configuration)
- {
-  SetValueToSqlConverter(typeof(bool), (sb,dt,v) =&gt; sb.Append(&quot;'&quot;).Append((bool)v ? 't' : 'f').Append(&quot;'&quot;));
- }
+    protected InformixMappingSchema(string configuration) : base(configuration)
+    {
+        SetValueToSqlConverter(typeof(bool), (sb,dt,v) =&gt; sb.Append(&quot;'&quot;).Append((bool)v ? 't' : 'f').Append(&quot;'&quot;));
+    }
 } 
 </code></pre>
-</li>
-<li>
-<p>When adding support for a new data type. For example, here is how to teach LINQ to DB to consider the <code>SqlDecimal.IsNull</code> property and correctly convert <code>SqlDecimal</code> objects to SQL:</p>
+<ol start="2">
+<li>When adding support for a new data type. For example, here is how to teach LINQ to DB to consider the <code>SqlDecimal.IsNull</code> property and correctly convert <code>SqlDecimal</code> objects to SQL:</li>
+</ol>
 <pre><code class="lang-cs">MappingSchema.Default.SetValueToSqlConverter(
-  typeof(SqlDecimal),
-  (sb, dt, v) =&gt;
-  {
-    var value = (SqlDecimal)v;
+    typeof(SqlDecimal),
+    (sb, dt, v) =&gt;
+    {
+        var value = (SqlDecimal)v;
 
-    if (value.IsNull)
-      sb.Append(&quot;NULL&quot;);
-    else
-      sb.Append(v);
-  });
+        if (value.IsNull)
+            sb.Append(&quot;NULL&quot;);
+        else
+            sb.Append(v);
+    });
 </code></pre>
-</li>
-</ol></li></ul>
+
 </article>
 
 
