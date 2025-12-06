@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ExtendedEventsSchema.DatabaseEventSessionTarget | Linq To DB ">
       
-      <meta name="description" content="sys.database_event_session_targets (Azure SQL Database) Applies to: √ SQL Server 2016 (13.x) and later √ Azure SQL Database √ Azure SQL Managed Instance Returns a row for each event target for an event session. || |-| |Applies to: Azure SQL Database V12 and any later versions.| See sys.database_event_session_targets.">
+      <meta name="description" content="sys.database_event_session_targets (Azure SQL Database and Azure SQL Managed Instance) Applies to: √ SQL Server 2016 (13.x) and later √ Azure SQL Database √ Azure SQL Managed Instance Returns a row for each event target for a database-scoped event session. For information about *active* database-scoped sessions, see sys.dm_xe_database_session_targets. Azure SQL Database supports only database-scoped sessions. Azure SQL Managed Instance supports both database-scoped sessions and server-scoped sessions. Server-scoped sessions are recommended for managed instances: learn more in CREATE EVENT SESSION. See sys.database_event_session_targets.">
       <link rel="icon" href="../../images/icon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_DatabaseEventSessionTarget" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.DatabaseEventSessionTarget" class="text-break">
-Class ExtendedEventsSchema.DatabaseEventSessionTarget  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L8970"><i class="bi bi-code-slash"></i></a>
+Class ExtendedEventsSchema.DatabaseEventSessionTarget  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10708"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,12 +97,10 @@ Class ExtendedEventsSchema.DatabaseEventSessionTarget  <a class="header-action l
   <dl><dt>Assembly</dt><dd>linq2db.Tools.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p><strong>sys.database_event_session_targets (Azure SQL Database)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server 2016 (13.x) and later √ Azure SQL Database √ Azure SQL Managed Instance</p>
-<p>Returns a row for each event target for an event session.<br>
-||<br>
-|-|<br>
-|<strong>Applies to</strong>: Azure SQL Database V12 and any later versions.|</p><br>
+  <div class="markdown summary"><p><strong>sys.database_event_session_targets (Azure SQL Database and Azure SQL Managed Instance)</strong></p>
+<p><strong>Applies to:</strong> √ SQL Server 2016 (13.x) and later √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure SQL Database</a> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure SQL Managed Instance</a></p>
+<p>Returns a row for each event target for a database-scoped event session. For information about *active* database-scoped sessions, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-xe-database-session-targets-azure-sql-database">sys.dm_xe_database_session_targets</a>.<br>
+Azure SQL Database supports only <a href="https://docs.microsoft.com/en-us/azure/azure-sql/database/xevent-db-diff-from-svr">database-scoped sessions</a>. Azure SQL Managed Instance supports both database-scoped sessions and <a href="https://docs.microsoft.com/en-us/sql/relational-databases/extended-events/extended-events">server-scoped sessions</a>. Server-scoped sessions are recommended for managed instances: learn more in <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/create-event-session-transact-sql#code-examples-can-differ-for-azure-sql-database-and-sql-managed-instance">CREATE EVENT SESSION</a>.</p><br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-database-event-session-targets-azure-sql-database">sys.database_event_session_targets</a>.</p>
 </div>
   <div class="markdown conceptual"></div>
@@ -125,6 +123,31 @@ public class ExtendedEventsSchema.DatabaseEventSessionTarget</code></pre>
 
 
 
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
 
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
@@ -146,10 +169,11 @@ public class ExtendedEventsSchema.DatabaseEventSessionTarget</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_DatabaseEventSessionTarget_EventSessionID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.DatabaseEventSessionTarget.EventSessionID">
   EventSessionID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L8976"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10715"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The ID of the event session. Is not nullable.</p>
+  <div class="markdown level1 summary"><p><strong>event_session_id</strong> NOT NULL <strong>int</strong></p>
+The ID of the event session. Is not nullable.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -180,10 +204,11 @@ public int EventSessionID { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_DatabaseEventSessionTarget_Module" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.DatabaseEventSessionTarget.Module">
   Module
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L8992"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10735"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The name of the module that contains the event target. Is not nullable.</p>
+  <div class="markdown level1 summary"><p><strong>module</strong> NOT NULL <strong>sysname</strong></p>
+The name of the module that contains the event target. Is not nullable.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -214,10 +239,11 @@ public string Module { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_DatabaseEventSessionTarget_Name" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.DatabaseEventSessionTarget.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L8984"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10725"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The name of the event target. Is not nullable.</p>
+  <div class="markdown level1 summary"><p><strong>name</strong> NOT NULL <strong>sysname</strong></p>
+The name of the event target. Is not nullable.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -248,10 +274,11 @@ public string Name { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_DatabaseEventSessionTarget_Package" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.DatabaseEventSessionTarget.Package">
   Package
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L8988"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10730"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The name of the event package that contains the event target. Is not nullable.</p>
+  <div class="markdown level1 summary"><p><strong>package</strong> NOT NULL <strong>sysname</strong></p>
+The name of the event package that contains the event target. Is not nullable.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -282,10 +309,11 @@ public string Package { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_DatabaseEventSessionTarget_TargetID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.DatabaseEventSessionTarget.TargetID">
   TargetID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L8980"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10720"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The ID of the target. ID is unique within the event session object. Is not nullable.</p>
+  <div class="markdown level1 summary"><p><strong>target_id</strong> NOT NULL <strong>int</strong></p>
+The ID of the target. ID is unique within the event session object. Is not nullable.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -329,7 +357,7 @@ public int TargetID { get; set; }</code></pre>
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2024 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

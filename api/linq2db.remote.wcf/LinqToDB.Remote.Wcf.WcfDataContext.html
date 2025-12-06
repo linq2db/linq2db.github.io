@@ -102,7 +102,7 @@ Class WcfDataContext  <a class="header-action link-secondary" title="View source
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class WcfDataContext : RemoteDataContextBase, IDataContext, IConfigurationID, IDisposable, IAsyncDisposable, IInterceptable&lt;IDataContextInterceptor&gt;, IInterceptable&lt;IEntityServiceInterceptor&gt;, IInterceptable&lt;IUnwrapDataObjectInterceptor&gt;, IInterceptable</code></pre>
+    <pre><code class="lang-csharp hljs">public class WcfDataContext : RemoteDataContextBase, IDataContext, IConfigurationID, IDisposable, IAsyncDisposable, IInfrastructure&lt;IServiceProvider&gt;</code></pre>
   </div>
 
 
@@ -121,13 +121,10 @@ Class WcfDataContext  <a class="header-action link-secondary" title="View source
     <dt>Implements</dt>
     <dd>
       <div><a class="xref" href="../linq2db/LinqToDB.IDataContext.html">IDataContext</a></div>
-      <div><a class="xref" href="../linq2db/LinqToDB.Common.Internal.IConfigurationID.html">IConfigurationID</a></div>
+      <div><a class="xref" href="../linq2db/LinqToDB.Internal.Common.IConfigurationID.html">IConfigurationID</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
-      <div><a class="xref" href="../linq2db/LinqToDB.Async.IAsyncDisposable.html">IAsyncDisposable</a></div>
-      <div><a class="xref" href="../linq2db/LinqToDB.Interceptors.IInterceptable-1.html">IInterceptable</a>&lt;<a class="xref" href="../linq2db/LinqToDB.Interceptors.IDataContextInterceptor.html">IDataContextInterceptor</a>&gt;</div>
-      <div><a class="xref" href="../linq2db/LinqToDB.Interceptors.IInterceptable-1.html">IInterceptable</a>&lt;<a class="xref" href="../linq2db/LinqToDB.Interceptors.IEntityServiceInterceptor.html">IEntityServiceInterceptor</a>&gt;</div>
-      <div><a class="xref" href="../linq2db/LinqToDB.Interceptors.IInterceptable-1.html">IInterceptable</a>&lt;<a class="xref" href="../linq2db/LinqToDB.Interceptors.IUnwrapDataObjectInterceptor.html">IUnwrapDataObjectInterceptor</a>&gt;</div>
-      <div><a class="xref" href="../linq2db/LinqToDB.Interceptors.IInterceptable.html">IInterceptable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
+      <div><a class="xref" href="../linq2db/LinqToDB.Internal.Infrastructure.IInfrastructure-1.html">IInfrastructure</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>&gt;</div>
     </dd>
   </dl>
 
@@ -136,10 +133,16 @@ Class WcfDataContext  <a class="header-action link-secondary" title="View source
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_Configuration">RemoteDataContextBase.Configuration</a>
+      <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_ConfigurationString">RemoteDataContextBase.ConfigurationString</a>
     </div>
     <div>
-      <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_ConfigurationString">RemoteDataContextBase.ConfigurationString</a>
+      <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_AddMappingSchema_LinqToDB_Mapping_MappingSchema_">RemoteDataContextBase.AddMappingSchema(MappingSchema)</a>
+    </div>
+    <div>
+      <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_InitServiceProvider_LinqToDB_Internal_DataProvider_SimpleServiceProvider_">RemoteDataContextBase.InitServiceProvider(SimpleServiceProvider)</a>
+    </div>
+    <div>
+      <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_ConfigureAsync_System_Threading_CancellationToken_">RemoteDataContextBase.ConfigureAsync(CancellationToken)</a>
     </div>
     <div>
       <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_MappingSchema">RemoteDataContextBase.MappingSchema</a>
@@ -166,16 +169,13 @@ Class WcfDataContext  <a class="header-action link-secondary" title="View source
       <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_Options">RemoteDataContextBase.Options</a>
     </div>
     <div>
-      <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_GetSqlOptimizer">RemoteDataContextBase.GetSqlOptimizer</a>
-    </div>
-    <div>
       <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_BeginBatch">RemoteDataContextBase.BeginBatch()</a>
     </div>
     <div>
       <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_CommitBatch">RemoteDataContextBase.CommitBatch()</a>
     </div>
     <div>
-      <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_CommitBatchAsync">RemoteDataContextBase.CommitBatchAsync()</a>
+      <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_CommitBatchAsync_System_Threading_CancellationToken_">RemoteDataContextBase.CommitBatchAsync(CancellationToken)</a>
     </div>
     <div>
       <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_Disposed">RemoteDataContextBase.Disposed</a>
@@ -190,10 +190,37 @@ Class WcfDataContext  <a class="header-action link-secondary" title="View source
       <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_DisposeAsync">RemoteDataContextBase.DisposeAsync()</a>
     </div>
     <div>
+      <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_UseOptions_System_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__">RemoteDataContextBase.UseOptions(Func&lt;DataOptions, DataOptions&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_UseMappingSchema_LinqToDB_Mapping_MappingSchema_">RemoteDataContextBase.UseMappingSchema(MappingSchema)</a>
+    </div>
+    <div>
       <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_AddInterceptor_LinqToDB_Interceptors_IInterceptor_">RemoteDataContextBase.AddInterceptor(IInterceptor)</a>
     </div>
     <div>
       <a class="xref" href="../linq2db/LinqToDB.Remote.RemoteDataContextBase.html#LinqToDB_Remote_RemoteDataContextBase_RemoveInterceptor_LinqToDB_Interceptors_IInterceptor_">RemoteDataContextBase.RemoveInterceptor(IInterceptor)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
   </dd></dl>
 
@@ -377,7 +404,7 @@ Class WcfDataContext  <a class="header-action link-secondary" title="View source
 
   <h3 id="LinqToDB_Remote_Wcf_WcfDataContext_ContextIDPrefix" data-uid="LinqToDB.Remote.Wcf.WcfDataContext.ContextIDPrefix">
   ContextIDPrefix
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Remote.Wcf/WcfDataContext.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Remote.Wcf/WcfDataContext.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -406,37 +433,6 @@ Class WcfDataContext  <a class="header-action link-secondary" title="View source
 
   <h2 class="section" id="methods">Methods
 </h2>
-
-
-  <a id="LinqToDB_Remote_Wcf_WcfDataContext_Clone_" data-uid="LinqToDB.Remote.Wcf.WcfDataContext.Clone*"></a>
-
-  <h3 id="LinqToDB_Remote_Wcf_WcfDataContext_Clone" data-uid="LinqToDB.Remote.Wcf.WcfDataContext.Clone">
-  Clone()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Remote.Wcf/WcfDataContext.cs/#L71"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override IDataContext Clone()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="../linq2db/LinqToDB.IDataContext.html">IDataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
 
 
   <a id="LinqToDB_Remote_Wcf_WcfDataContext_GetClient_" data-uid="LinqToDB.Remote.Wcf.WcfDataContext.GetClient*"></a>
@@ -487,7 +483,7 @@ Class WcfDataContext  <a class="header-action link-secondary" title="View source
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2024 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

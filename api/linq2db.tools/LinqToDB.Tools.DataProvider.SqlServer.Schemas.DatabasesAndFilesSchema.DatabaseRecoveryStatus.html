@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class DatabasesAndFilesSchema.DatabaseRecoveryStatus | Linq To DB ">
       
-      <meta name="description" content="sys.database_recovery_status (Transact-SQL) Applies to: √ SQL Server (all supported versions) Contains one row per database. If the database is not opened, the SQL Server Database Engine tries to start it.  To see the row for a database other than master or tempdb, one of the following must apply: -   Be the owner of the database. -   Have ALTER ANY DATABASE or VIEW ANY DATABASE server-level permissions. -   Have CREATE DATABASE permission in the master database. See sys.database_recovery_status.">
+      <meta name="description" content="sys.database_recovery_status (Transact-SQL) Applies to: √ SQL Server √ Azure SQL Managed Instance Contains one row per database. If the database is not opened, the SQL Server Database Engine tries to start it.  To see the row for a database other than master or tempdb, one of the following must apply: -   Be the owner of the database. -   Have ALTER ANY DATABASE or VIEW ANY DATABASE server-level permissions. -   Have CREATE DATABASE permission in the master database. See sys.database_recovery_status.">
       <link rel="icon" href="../../images/icon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_DatabasesAndFilesSchema_DatabaseRecoveryStatus" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DatabasesAndFilesSchema.DatabaseRecoveryStatus" class="text-break">
-Class DatabasesAndFilesSchema.DatabaseRecoveryStatus  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L7317"><i class="bi bi-code-slash"></i></a>
+Class DatabasesAndFilesSchema.DatabaseRecoveryStatus  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L8829"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -98,7 +98,7 @@ Class DatabasesAndFilesSchema.DatabaseRecoveryStatus  <a class="header-action li
   </div>
 
   <div class="markdown summary"><p><strong>sys.database_recovery_status (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p><strong>Applies to:</strong> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">SQL Server</a> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure SQL Managed Instance</a></p>
 <p>Contains one row per database. If the database is not opened, the SQL Server Database Engine tries to start it.<br>
  To see the row for a database other than <strong>master</strong> or <strong>tempdb</strong>, one of the following must apply:<br>
 -   Be the owner of the database.<br>
@@ -126,6 +126,31 @@ public class DatabasesAndFilesSchema.DatabaseRecoveryStatus</code></pre>
 
 
 
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
 
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
@@ -147,10 +172,11 @@ public class DatabasesAndFilesSchema.DatabaseRecoveryStatus</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_DatabasesAndFilesSchema_DatabaseRecoveryStatus_DatabaseGuid" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DatabasesAndFilesSchema.DatabaseRecoveryStatus.DatabaseGuid">
   DatabaseGuid
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L7327"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L8841"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Used to relate all the database files of a database together. All files must have this GUID in their header page for the database to start as expected. Only one database should ever have this GUID, but duplicates can be created by copying and attaching databases. RESTORE always generates a new GUID when you restore a database that does not yet exist.<br><br> NULL= Database is offline, or the database will not start.</p>
+  <div class="markdown level1 summary"><p><strong>database_guid</strong> NULL <strong>uniqueidentifier</strong></p>
+Used to relate all the database files of a database together. All files must have this GUID in their header page for the database to start as expected. Only one database should ever have this GUID, but duplicates can be created by copying and attaching databases. RESTORE always generates a new GUID when you restore a database that does not yet exist.<br><br> NULL= Database is offline, or the database will not start.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -181,10 +207,11 @@ public Guid? DatabaseGuid { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_DatabasesAndFilesSchema_DatabaseRecoveryStatus_DatabaseID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DatabasesAndFilesSchema.DatabaseRecoveryStatus.DatabaseID">
   DatabaseID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L7323"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L8836"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>ID of the database, unique within an instance of SQL Server.</p>
+  <div class="markdown level1 summary"><p><strong>database_id</strong> NOT NULL <strong>int</strong></p>
+ID of the database, unique within an instance of SQL Server.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -215,10 +242,11 @@ public int DatabaseID { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_DatabasesAndFilesSchema_DatabaseRecoveryStatus_FamilyGuid" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DatabasesAndFilesSchema.DatabaseRecoveryStatus.FamilyGuid">
   FamilyGuid
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L7331"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L8846"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Identifier of the 'backup family' for the database for detecting matching restore states.<br><br> NULL= Database is offline or the database will not start.</p>
+  <div class="markdown level1 summary"><p><strong>family_guid</strong> NULL <strong>uniqueidentifier</strong></p>
+Identifier of the 'backup family' for the database for detecting matching restore states.<br><br> NULL= Database is offline or the database will not start.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -249,10 +277,11 @@ public Guid? FamilyGuid { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_DatabasesAndFilesSchema_DatabaseRecoveryStatus_FirstRecoveryForkGuid" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DatabasesAndFilesSchema.DatabaseRecoveryStatus.FirstRecoveryForkGuid">
   FirstRecoveryForkGuid
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L7343"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L8861"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Identifier of the starting recovery fork.<br><br> NULL= Database is offline, or the database will not start.</p>
+  <div class="markdown level1 summary"><p><strong>first_recovery_fork_guid</strong> NULL <strong>uniqueidentifier</strong></p>
+Identifier of the starting recovery fork.<br><br> NULL= Database is offline, or the database will not start.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -283,10 +312,11 @@ public Guid? FirstRecoveryForkGuid { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_DatabasesAndFilesSchema_DatabaseRecoveryStatus_ForkPointLsn" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DatabasesAndFilesSchema.DatabaseRecoveryStatus.ForkPointLsn">
   ForkPointLsn
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L7347"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L8866"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>If <strong>first_recovery_fork_guid</strong> is not equal (!=) to <strong>recovery_fork_guid</strong>, <strong>fork_point_lsn</strong> is the log sequence number of the current fork point. Otherwise, the value is NULL.</p>
+  <div class="markdown level1 summary"><p><strong>fork_point_lsn</strong> NULL <strong>numeric(25,0)</strong></p>
+If <strong>first_recovery_fork_guid</strong> is not equal (!=) to <strong>recovery_fork_guid</strong>, <strong>fork_point_lsn</strong> is the log sequence number of the current fork point. Otherwise, the value is NULL.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -317,10 +347,11 @@ public decimal? ForkPointLsn { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_DatabasesAndFilesSchema_DatabaseRecoveryStatus_LastLogBackupLsn" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DatabasesAndFilesSchema.DatabaseRecoveryStatus.LastLogBackupLsn">
   LastLogBackupLsn
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L7335"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L8851"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The starting log sequence number of the next log backup.<br><br> If NULL, a transaction log back up cannot be performed because either the database is in SIMPLE recovery or there is no current database backup.</p>
+  <div class="markdown level1 summary"><p><strong>last_log_backup_lsn</strong> NULL <strong>numeric(25,0)</strong></p>
+The starting log sequence number of the next log backup.<br><br>If NULL, a transaction log back up cannot be performed because either the database is in SIMPLE recovery or there is no current full or differential database backup.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -351,10 +382,11 @@ public decimal? LastLogBackupLsn { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_DatabasesAndFilesSchema_DatabaseRecoveryStatus_RecoveryForkGuid" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DatabasesAndFilesSchema.DatabaseRecoveryStatus.RecoveryForkGuid">
   RecoveryForkGuid
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L7339"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L8856"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Identifies the current recovery fork on which the database is currently active.<br><br> NULL= Database is offline, or the database will not start.</p>
+  <div class="markdown level1 summary"><p><strong>recovery_fork_guid</strong> NULL <strong>uniqueidentifier</strong></p>
+Identifies the current recovery fork on which the database is currently active.<br><br> NULL= Database is offline, or the database will not start.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -398,7 +430,7 @@ public Guid? RecoveryForkGuid { get; set; }</code></pre>
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2024 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

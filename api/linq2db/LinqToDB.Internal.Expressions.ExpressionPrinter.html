@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ExpressionPrinter | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ExpressionPrinter | Linq To DB ">
+      
+      <meta name="description" content="A class to create a printable string representation of expression.">
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter">
+
+
+
+  <h1 id="LinqToDB_Internal_Expressions_ExpressionPrinter" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter" class="text-break">
+Class ExpressionPrinter  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Internal.html">Internal</a>.<a class="xref" href="LinqToDB.Internal.Expressions.html">Expressions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>
+    A class to create a printable string representation of expression.
+</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ExpressionPrinter : ExpressionVisitorBase</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor">ExpressionVisitor</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.Expressions.ExpressionVisitorBase.html">ExpressionVisitorBase</a></div>
+      <div><span class="xref">ExpressionPrinter</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.Expressions.ExpressionVisitorBase.html#LinqToDB_Internal_Expressions_ExpressionVisitorBase_VisitSqlPlaceholderExpression_LinqToDB_Internal_Expressions_SqlPlaceholderExpression_">ExpressionVisitorBase.VisitSqlPlaceholderExpression(SqlPlaceholderExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.Expressions.ExpressionVisitorBase.html#LinqToDB_Internal_Expressions_ExpressionVisitorBase_VisitChangeTypeExpression_LinqToDB_Internal_Expressions_ChangeTypeExpression_">ExpressionVisitorBase.VisitChangeTypeExpression(ChangeTypeExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.Expressions.ExpressionVisitorBase.html#LinqToDB_Internal_Expressions_ExpressionVisitorBase_VisitDefaultValueExpression_LinqToDB_Internal_Expressions_DefaultValueExpression_">ExpressionVisitorBase.VisitDefaultValueExpression(DefaultValueExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.Expressions.ExpressionVisitorBase.html#LinqToDB_Internal_Expressions_ExpressionVisitorBase_VisitSqlGenericConstructorExpression_LinqToDB_Internal_Expressions_SqlGenericConstructorExpression_">ExpressionVisitorBase.VisitSqlGenericConstructorExpression(SqlGenericConstructorExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.Expressions.ExpressionVisitorBase.html#LinqToDB_Internal_Expressions_ExpressionVisitorBase_Cleanup">ExpressionVisitorBase.Cleanup()</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.Expressions.ExpressionVisitorBase.html#LinqToDB_Internal_Expressions_ExpressionVisitorBase_VisitMarkerExpression_LinqToDB_Internal_Expressions_MarkerExpression_">ExpressionVisitorBase.VisitMarkerExpression(MarkerExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.Expressions.ExpressionVisitorBase.html#LinqToDB_Internal_Expressions_ExpressionVisitorBase_VisitTagExpression_LinqToDB_Internal_Expressions_TagExpression_">ExpressionVisitorBase.VisitTagExpression(TagExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.Expressions.ExpressionVisitorBase.html#LinqToDB_Internal_Expressions_ExpressionVisitorBase_VisitSqlDefaultIfEmptyExpression_LinqToDB_Internal_Expressions_SqlDefaultIfEmptyExpression_">ExpressionVisitorBase.VisitSqlDefaultIfEmptyExpression(SqlDefaultIfEmptyExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.Expressions.ExpressionVisitorBase.html#LinqToDB_Internal_Expressions_ExpressionVisitorBase_VisitSqlValidateExpression_LinqToDB_Internal_Expressions_SqlValidateExpression_">ExpressionVisitorBase.VisitSqlValidateExpression(SqlValidateExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.Expressions.ExpressionVisitorBase.html#LinqToDB_Internal_Expressions_ExpressionVisitorBase_VisitSqlQueryRootExpression_LinqToDB_Internal_Expressions_SqlQueryRootExpression_">ExpressionVisitorBase.VisitSqlQueryRootExpression(SqlQueryRootExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.Expressions.ExpressionVisitorBase.html#LinqToDB_Internal_Expressions_ExpressionVisitorBase_VisitConstantPlaceholder_LinqToDB_Internal_Expressions_ConstantPlaceholderExpression_">ExpressionVisitorBase.VisitConstantPlaceholder(ConstantPlaceholderExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visit#system-linq-expressions-expressionvisitor-visit(system-collections-objectmodel-readonlycollection((system-linq-expressions-expression)))">ExpressionVisitor.Visit(ReadOnlyCollection&lt;Expression&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visit#system-linq-expressions-expressionvisitor-visit-1(system-collections-objectmodel-readonlycollection((-0))-system-func((-0-0)))">ExpressionVisitor.Visit&lt;T&gt;(ReadOnlyCollection&lt;T&gt;, Func&lt;T, T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitandconvert#system-linq-expressions-expressionvisitor-visitandconvert-1(-0-system-string)">ExpressionVisitor.VisitAndConvert&lt;T&gt;(T, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitandconvert#system-linq-expressions-expressionvisitor-visitandconvert-1(system-collections-objectmodel-readonlycollection((-0))-system-string)">ExpressionVisitor.VisitAndConvert&lt;T&gt;(ReadOnlyCollection&lt;T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter__ctor_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.#ctor*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter__ctor" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.#ctor">
+  ExpressionPrinter()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of the <a class="xref" href="LinqToDB.Internal.Expressions.ExpressionPrinter.html">ExpressionPrinter</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExpressionPrinter()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_Append_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.Append*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_Append_System_String_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.Append(System.String)">
+  Append(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Appends the given string to current output being built.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExpressionPrinter Append(string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The string to append.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.Expressions.ExpressionPrinter.html">ExpressionPrinter</a></dt>
+    <dd><p>This printer so additional calls can be chained.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_AppendLine_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.AppendLine*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_AppendLine" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.AppendLine">
+  AppendLine()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Appends a new line to current output being built.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExpressionPrinter AppendLine()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.Expressions.ExpressionPrinter.html">ExpressionPrinter</a></dt>
+    <dd><p>This printer so additional calls can be chained.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_AppendLine_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.AppendLine*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_AppendLine_System_String_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.AppendLine(System.String)">
+  AppendLine(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Appends the given string and a new line to current output being built.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExpressionVisitor AppendLine(string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The string to append.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor">ExpressionVisitor</a></dt>
+    <dd><p>This printer so additional calls can be chained.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_AppendLines_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.AppendLines*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_AppendLines_System_String_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.AppendLines(System.String)">
+  AppendLines(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Appends all the lines to current output being built.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExpressionPrinter AppendLines(string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The string to append.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.Expressions.ExpressionPrinter.html">ExpressionPrinter</a></dt>
+    <dd><p>This printer so additional calls can be chained.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_GenerateBinaryOperator_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.GenerateBinaryOperator*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_GenerateBinaryOperator_System_Linq_Expressions_ExpressionType_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.GenerateBinaryOperator(System.Linq.Expressions.ExpressionType)">
+  GenerateBinaryOperator(ExpressionType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns binary operator string corresponding to given <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressiontype">ExpressionType</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GenerateBinaryOperator(ExpressionType expressionType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expressionType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressiontype">ExpressionType</a></dt>
+    <dd><p>The expression type to generate binary operator for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The binary operator string.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_Indent_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.Indent*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_Indent" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.Indent">
+  Indent()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a scoped indenter that will increment the indent, then decrement it when disposed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDisposable Indent()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></dt>
+    <dd><p>An indenter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_Print_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.Print*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_Print_System_Linq_Expressions_Expression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.Print(System.Linq.Expressions.Expression)">
+  Print(Expression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a printable string representation of the given expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Print(Expression expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd><p>The expression to print.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The printable representation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_PrintDebug_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.PrintDebug*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_PrintDebug_System_Linq_Expressions_Expression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.PrintDebug(System.Linq.Expressions.Expression)">
+  PrintDebug(Expression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a printable verbose string representation of the given expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string PrintDebug(Expression expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd><p>The expression to print.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The printable representation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_PrintExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.PrintExpression*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_PrintExpression_System_Linq_Expressions_Expression_System_Nullable_System_Int32__" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.PrintExpression(System.Linq.Expressions.Expression,System.Nullable{System.Int32})">
+  PrintExpression(Expression, int?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a printable string representation of the given expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string PrintExpression(Expression expression, int? characterLimit = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd><p>The expression to print.</p>
+</dd>
+    <dt><code>characterLimit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>An optional limit to the number of characters included. Additional output will be truncated.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The printable representation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_PrintExpressionDebug_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.PrintExpressionDebug*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_PrintExpressionDebug_System_Linq_Expressions_Expression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.PrintExpressionDebug(System.Linq.Expressions.Expression)">
+  PrintExpressionDebug(Expression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a printable verbose string representation of the given expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string PrintExpressionDebug(Expression expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd><p>The expression to print.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The printable representation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_ToString_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.ToString*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_ToString" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_Visit_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.Visit*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_Visit_System_Linq_Expressions_Expression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.Visit(System.Linq.Expressions.Expression)">
+  Visit(Expression?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Expression? Visit(Expression? expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitBinary_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitBinary*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitBinary_System_Linq_Expressions_BinaryExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitBinary(System.Linq.Expressions.BinaryExpression)">
+  VisitBinary(BinaryExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitBinary(BinaryExpression binaryExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>binaryExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.binaryexpression">BinaryExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitBlock_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitBlock*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitBlock_System_Linq_Expressions_BlockExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitBlock(System.Linq.Expressions.BlockExpression)">
+  VisitBlock(BlockExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitBlock(BlockExpression blockExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>blockExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.blockexpression">BlockExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitCollection_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitCollection*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitCollection__1_System_Collections_Generic_IReadOnlyCollection___0__System_Action_LinqToDB_Internal_Expressions_ExpressionPrinter__" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitCollection``1(System.Collections.Generic.IReadOnlyCollection{``0},System.Action{LinqToDB.Internal.Expressions.ExpressionPrinter})">
+  VisitCollection&lt;T&gt;(IReadOnlyCollection&lt;T&gt;, Action&lt;ExpressionPrinter&gt;?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Visit given readonly collection of expression for printing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void VisitCollection&lt;T&gt;(IReadOnlyCollection&lt;T&gt; items, Action&lt;ExpressionPrinter&gt;? joinAction = null) where T : Expression</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>items</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;T&gt;</dt>
+    <dd><p>A collection of items to print.</p>
+</dd>
+    <dt><code>joinAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="LinqToDB.Internal.Expressions.ExpressionPrinter.html">ExpressionPrinter</a>&gt;</dt>
+    <dd><p>A join action to use when joining printout of individual item in the collection.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitConditional_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitConditional*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitConditional_System_Linq_Expressions_ConditionalExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitConditional(System.Linq.Expressions.ConditionalExpression)">
+  VisitConditional(ConditionalExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitConditional(ConditionalExpression conditionalExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>conditionalExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.conditionalexpression">ConditionalExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitConstant_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitConstant*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitConstant_System_Linq_Expressions_ConstantExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitConstant(System.Linq.Expressions.ConstantExpression)">
+  VisitConstant(ConstantExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitConstant(ConstantExpression constantExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>constantExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.constantexpression">ConstantExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitDefault_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitDefault*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitDefault_System_Linq_Expressions_DefaultExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitDefault(System.Linq.Expressions.DefaultExpression)">
+  VisitDefault(DefaultExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitDefault(DefaultExpression defaultExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>defaultExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.defaultexpression">DefaultExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitExtension_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitExtension*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitExtension_System_Linq_Expressions_Expression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitExtension(System.Linq.Expressions.Expression)">
+  VisitExtension(Expression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitExtension(Expression extensionExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>extensionExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitGoto_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitGoto*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitGoto_System_Linq_Expressions_GotoExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitGoto(System.Linq.Expressions.GotoExpression)">
+  VisitGoto(GotoExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitGoto(GotoExpression gotoExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gotoExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.gotoexpression">GotoExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitIndex_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitIndex*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitIndex_System_Linq_Expressions_IndexExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitIndex(System.Linq.Expressions.IndexExpression)">
+  VisitIndex(IndexExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitIndex(IndexExpression indexExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>indexExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.indexexpression">IndexExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitInvocation_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitInvocation*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitInvocation_System_Linq_Expressions_InvocationExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitInvocation(System.Linq.Expressions.InvocationExpression)">
+  VisitInvocation(InvocationExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitInvocation(InvocationExpression invocationExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>invocationExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.invocationexpression">InvocationExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitLabel_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitLabel*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitLabel_System_Linq_Expressions_LabelExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitLabel(System.Linq.Expressions.LabelExpression)">
+  VisitLabel(LabelExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitLabel(LabelExpression labelExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>labelExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.labelexpression">LabelExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitLambda_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitLambda*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitLambda__1_System_Linq_Expressions_Expression___0__" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitLambda``1(System.Linq.Expressions.Expression{``0})">
+  VisitLambda&lt;T&gt;(Expression&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitLambda&lt;T&gt;(Expression&lt;T&gt; lambdaExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lambdaExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitLoop_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitLoop*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitLoop_System_Linq_Expressions_LoopExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitLoop(System.Linq.Expressions.LoopExpression)">
+  VisitLoop(LoopExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitLoop(LoopExpression loopExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>loopExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.loopexpression">LoopExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitMember_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitMember*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitMember_System_Linq_Expressions_MemberExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitMember(System.Linq.Expressions.MemberExpression)">
+  VisitMember(MemberExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitMember(MemberExpression memberExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>memberExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.memberexpression">MemberExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitMemberInit_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitMemberInit*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitMemberInit_System_Linq_Expressions_MemberInitExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitMemberInit(System.Linq.Expressions.MemberInitExpression)">
+  VisitMemberInit(MemberInitExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitMemberInit(MemberInitExpression memberInitExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>memberInitExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.memberinitexpression">MemberInitExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitMethodCall_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitMethodCall*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitMethodCall_System_Linq_Expressions_MethodCallExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitMethodCall(System.Linq.Expressions.MethodCallExpression)">
+  VisitMethodCall(MethodCallExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitMethodCall(MethodCallExpression methodCallExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>methodCallExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.methodcallexpression">MethodCallExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitNew_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitNew*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitNew_System_Linq_Expressions_NewExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitNew(System.Linq.Expressions.NewExpression)">
+  VisitNew(NewExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitNew(NewExpression newExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.newexpression">NewExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitNewArray_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitNewArray*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitNewArray_System_Linq_Expressions_NewArrayExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitNewArray(System.Linq.Expressions.NewArrayExpression)">
+  VisitNewArray(NewArrayExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitNewArray(NewArrayExpression newArrayExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newArrayExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.newarrayexpression">NewArrayExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitParameter_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitParameter*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitParameter_System_Linq_Expressions_ParameterExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitParameter(System.Linq.Expressions.ParameterExpression)">
+  VisitParameter(ParameterExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitParameter(ParameterExpression parameterExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameterExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.parameterexpression">ParameterExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitSwitch_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitSwitch*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitSwitch_System_Linq_Expressions_SwitchExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitSwitch(System.Linq.Expressions.SwitchExpression)">
+  VisitSwitch(SwitchExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitSwitch(SwitchExpression switchExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>switchExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.switchexpression">SwitchExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitTry_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitTry*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitTry_System_Linq_Expressions_TryExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitTry(System.Linq.Expressions.TryExpression)">
+  VisitTry(TryExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitTry(TryExpression tryExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tryExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.tryexpression">TryExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitTypeBinary_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitTypeBinary*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitTypeBinary_System_Linq_Expressions_TypeBinaryExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitTypeBinary(System.Linq.Expressions.TypeBinaryExpression)">
+  VisitTypeBinary(TypeBinaryExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitTypeBinary(TypeBinaryExpression typeBinaryExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>typeBinaryExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.typebinaryexpression">TypeBinaryExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitUnary_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitUnary*"></a>
+
+  <h3 id="LinqToDB_Internal_Expressions_ExpressionPrinter_VisitUnary_System_Linq_Expressions_UnaryExpression_" data-uid="LinqToDB.Internal.Expressions.ExpressionPrinter.VisitUnary(System.Linq.Expressions.UnaryExpression)">
+  VisitUnary(UnaryExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitUnary(UnaryExpression unaryExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>unaryExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.unaryexpression">UnaryExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

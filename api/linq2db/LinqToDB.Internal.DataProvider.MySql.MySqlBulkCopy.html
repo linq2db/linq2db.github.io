@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class MySqlBulkCopy | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MySqlBulkCopy | Linq To DB ">
+      
+      
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy">
+
+
+
+  <h1 id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy" class="text-break">
+Class MySqlBulkCopy  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Internal.html">Internal</a>.<a class="xref" href="LinqToDB.Internal.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.Internal.DataProvider.MySql.html">MySql</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class MySqlBulkCopy : BasicBulkCopy</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html">BasicBulkCopy</a></div>
+      <div><span class="xref">MySqlBulkCopy</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_CastLiteral_LinqToDB_Mapping_ColumnDescriptor_">BasicBulkCopy.CastLiteral(ColumnDescriptor)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_BulkCopy__1_LinqToDB_Data_BulkCopyType_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IEnumerable___0__">BasicBulkCopy.BulkCopy&lt;T&gt;(BulkCopyType, ITable&lt;T&gt;, DataOptions, IEnumerable&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_BulkCopyAsync__1_LinqToDB_Data_BulkCopyType_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IEnumerable___0__System_Threading_CancellationToken_">BasicBulkCopy.BulkCopyAsync&lt;T&gt;(BulkCopyType, ITable&lt;T&gt;, DataOptions, IEnumerable&lt;T&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_BulkCopyAsync__1_LinqToDB_Data_BulkCopyType_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_CancellationToken_">BasicBulkCopy.BulkCopyAsync&lt;T&gt;(BulkCopyType, ITable&lt;T&gt;, DataOptions, IAsyncEnumerable&lt;T&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_RowByRowCopy__1_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IEnumerable___0__">BasicBulkCopy.RowByRowCopy&lt;T&gt;(ITable&lt;T&gt;, DataOptions, IEnumerable&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_RowByRowCopyAsync__1_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IEnumerable___0__System_Threading_CancellationToken_">BasicBulkCopy.RowByRowCopyAsync&lt;T&gt;(ITable&lt;T&gt;, DataOptions, IEnumerable&lt;T&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_RowByRowCopyAsync__1_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_CancellationToken_">BasicBulkCopy.RowByRowCopyAsync&lt;T&gt;(ITable&lt;T&gt;, DataOptions, IAsyncEnumerable&lt;T&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_GetTableName__1_LinqToDB_Internal_SqlProvider_ISqlBuilder_LinqToDB_Data_BulkCopyOptions_LinqToDB_ITable___0__System_Boolean_">BasicBulkCopy.GetTableName&lt;T&gt;(ISqlBuilder, BulkCopyOptions, ITable&lt;T&gt;, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_TraceAction_LinqToDB_Data_DataConnection_System_Func_System_String__System_Func_System_Int32__">BasicBulkCopy.TraceAction(DataConnection, Func&lt;string&gt;, Func&lt;int&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_TraceActionAsync_LinqToDB_Data_DataConnection_System_Func_System_String__System_Func_System_Threading_Tasks_Task_System_Int32___">BasicBulkCopy.TraceActionAsync(DataConnection, Func&lt;string&gt;, Func&lt;Task&lt;int&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopyHelper_LinqToDB_Internal_DataProvider_MultipleRowsHelper_System_Collections_IEnumerable_System_String_System_Action_LinqToDB_Internal_DataProvider_MultipleRowsHelper__System_Action_LinqToDB_Internal_DataProvider_MultipleRowsHelper_System_Object_System_String__System_Action_LinqToDB_Internal_DataProvider_MultipleRowsHelper__System_Int32_System_Int32_">BasicBulkCopy.MultipleRowsCopyHelper(MultipleRowsHelper, IEnumerable, string, Action&lt;MultipleRowsHelper&gt;, Action&lt;MultipleRowsHelper, object, string&gt;, Action&lt;MultipleRowsHelper&gt;, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopyHelperAsync_LinqToDB_Internal_DataProvider_MultipleRowsHelper_System_Collections_IEnumerable_System_String_System_Action_LinqToDB_Internal_DataProvider_MultipleRowsHelper__System_Action_LinqToDB_Internal_DataProvider_MultipleRowsHelper_System_Object_System_String__System_Action_LinqToDB_Internal_DataProvider_MultipleRowsHelper__System_Threading_CancellationToken_System_Int32_System_Int32_">BasicBulkCopy.MultipleRowsCopyHelperAsync(MultipleRowsHelper, IEnumerable, string, Action&lt;MultipleRowsHelper&gt;, Action&lt;MultipleRowsHelper, object, string&gt;, Action&lt;MultipleRowsHelper&gt;, CancellationToken, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopyHelperAsync__1_LinqToDB_Internal_DataProvider_MultipleRowsHelper_System_Collections_Generic_IAsyncEnumerable___0__System_String_System_Action_LinqToDB_Internal_DataProvider_MultipleRowsHelper__System_Action_LinqToDB_Internal_DataProvider_MultipleRowsHelper_System_Object_System_String__System_Action_LinqToDB_Internal_DataProvider_MultipleRowsHelper__System_Threading_CancellationToken_System_Int32_System_Int32_">BasicBulkCopy.MultipleRowsCopyHelperAsync&lt;T&gt;(MultipleRowsHelper, IAsyncEnumerable&lt;T&gt;, string, Action&lt;MultipleRowsHelper&gt;, Action&lt;MultipleRowsHelper, object, string&gt;, Action&lt;MultipleRowsHelper&gt;, CancellationToken, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopy1__1_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IEnumerable___0__">BasicBulkCopy.MultipleRowsCopy1&lt;T&gt;(ITable&lt;T&gt;, DataOptions, IEnumerable&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopy1_LinqToDB_Internal_DataProvider_MultipleRowsHelper_System_Collections_IEnumerable_">BasicBulkCopy.MultipleRowsCopy1(MultipleRowsHelper, IEnumerable)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopy1Async__1_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IEnumerable___0__System_Threading_CancellationToken_">BasicBulkCopy.MultipleRowsCopy1Async&lt;T&gt;(ITable&lt;T&gt;, DataOptions, IEnumerable&lt;T&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopy1Async_LinqToDB_Internal_DataProvider_MultipleRowsHelper_System_Collections_IEnumerable_System_Threading_CancellationToken_">BasicBulkCopy.MultipleRowsCopy1Async(MultipleRowsHelper, IEnumerable, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopy1Async__1_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_CancellationToken_">BasicBulkCopy.MultipleRowsCopy1Async&lt;T&gt;(ITable&lt;T&gt;, DataOptions, IAsyncEnumerable&lt;T&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopy1Async__1_LinqToDB_Internal_DataProvider_MultipleRowsHelper_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_CancellationToken_">BasicBulkCopy.MultipleRowsCopy1Async&lt;T&gt;(MultipleRowsHelper, IAsyncEnumerable&lt;T&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopy2__1_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IEnumerable___0__System_String_">BasicBulkCopy.MultipleRowsCopy2&lt;T&gt;(ITable&lt;T&gt;, DataOptions, IEnumerable&lt;T&gt;, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopy2_LinqToDB_Internal_DataProvider_MultipleRowsHelper_System_Collections_IEnumerable_System_String_">BasicBulkCopy.MultipleRowsCopy2(MultipleRowsHelper, IEnumerable, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopy2Async__1_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IEnumerable___0__System_String_System_Threading_CancellationToken_">BasicBulkCopy.MultipleRowsCopy2Async&lt;T&gt;(ITable&lt;T&gt;, DataOptions, IEnumerable&lt;T&gt;, string, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopy2Async_LinqToDB_Internal_DataProvider_MultipleRowsHelper_System_Collections_IEnumerable_System_String_System_Threading_CancellationToken_">BasicBulkCopy.MultipleRowsCopy2Async(MultipleRowsHelper, IEnumerable, string, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopy2Async__1_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IAsyncEnumerable___0__System_String_System_Threading_CancellationToken_">BasicBulkCopy.MultipleRowsCopy2Async&lt;T&gt;(ITable&lt;T&gt;, DataOptions, IAsyncEnumerable&lt;T&gt;, string, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopy2Async__1_LinqToDB_Internal_DataProvider_MultipleRowsHelper_System_Collections_Generic_IAsyncEnumerable___0__System_String_System_Threading_CancellationToken_">BasicBulkCopy.MultipleRowsCopy2Async&lt;T&gt;(MultipleRowsHelper, IAsyncEnumerable&lt;T&gt;, string, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopy3_LinqToDB_Internal_DataProvider_MultipleRowsHelper_System_Collections_IEnumerable_System_String_">BasicBulkCopy.MultipleRowsCopy3(MultipleRowsHelper, IEnumerable, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopy3Async_LinqToDB_Internal_DataProvider_MultipleRowsHelper_System_Collections_IEnumerable_System_String_System_Threading_CancellationToken_">BasicBulkCopy.MultipleRowsCopy3Async(MultipleRowsHelper, IEnumerable, string, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MultipleRowsCopy3Async__1_LinqToDB_Internal_DataProvider_MultipleRowsHelper_System_Collections_Generic_IAsyncEnumerable___0__System_String_System_Threading_CancellationToken_">BasicBulkCopy.MultipleRowsCopy3Async&lt;T&gt;(MultipleRowsHelper, IAsyncEnumerable&lt;T&gt;, string, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_MaxMultipleRows">BasicBulkCopy.MaxMultipleRows</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_CastFirstRowLiteralOnUnionAll">BasicBulkCopy.CastFirstRowLiteralOnUnionAll</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_CastFirstRowParametersOnUnionAll">BasicBulkCopy.CastFirstRowParametersOnUnionAll</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.DataProvider.BasicBulkCopy.html#LinqToDB_Internal_DataProvider_BasicBulkCopy_CastAllRowsParametersOnUnionAll">BasicBulkCopy.CastAllRowsParametersOnUnionAll</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy__ctor_" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.#ctor*"></a>
+
+  <h3 id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy__ctor_LinqToDB_Internal_DataProvider_MySql_MySqlDataProvider_" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.#ctor(LinqToDB.Internal.DataProvider.MySql.MySqlDataProvider)">
+  MySqlBulkCopy(MySqlDataProvider)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MySqlBulkCopy(MySqlDataProvider provider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>provider</code> <a class="xref" href="LinqToDB.Internal.DataProvider.MySql.MySqlDataProvider.html">MySqlDataProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy_MaxParameters_" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.MaxParameters*"></a>
+
+  <h3 id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy_MaxParameters" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.MaxParameters">
+  MaxParameters
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Settings based on <a href="https://www.jooq.org/doc/3.12/manual/sql-building/dsl-context/custom-settings/settings-inline-threshold/">https://www.jooq.org/doc/3.12/manual/sql-building/dsl-context/custom-settings/settings-inline-threshold/</a>
+MySQL supports more but realistically this might be too much already for practical cases.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override int MaxParameters { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy_MaxSqlLength_" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.MaxSqlLength*"></a>
+
+  <h3 id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy_MaxSqlLength" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.MaxSqlLength">
+  MaxSqlLength
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>MySQL can support much larger sizes, based on
+<a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet">https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet</a>
+But we keep a smaller number here to avoid choking the network.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override int MaxSqlLength { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy_MultipleRowsCopyAsync_" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.MultipleRowsCopyAsync*"></a>
+
+  <h3 id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy_MultipleRowsCopyAsync__1_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_CancellationToken_" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.MultipleRowsCopyAsync``1(LinqToDB.ITable{``0},LinqToDB.DataOptions,System.Collections.Generic.IAsyncEnumerable{``0},System.Threading.CancellationToken)">
+  MultipleRowsCopyAsync&lt;T&gt;(ITable&lt;T&gt;, DataOptions, IAsyncEnumerable&lt;T&gt;, CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task&lt;BulkCopyRowsCopied&gt; MultipleRowsCopyAsync&lt;T&gt;(ITable&lt;T&gt; table, DataOptions options, IAsyncEnumerable&lt;T&gt; source, CancellationToken cancellationToken) where T : notnull</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>table</code> <a class="xref" href="LinqToDB.ITable-1.html">ITable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.Data.BulkCopyRowsCopied.html">BulkCopyRowsCopied</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy_MultipleRowsCopyAsync_" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.MultipleRowsCopyAsync*"></a>
+
+  <h3 id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy_MultipleRowsCopyAsync__1_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IEnumerable___0__System_Threading_CancellationToken_" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.MultipleRowsCopyAsync``1(LinqToDB.ITable{``0},LinqToDB.DataOptions,System.Collections.Generic.IEnumerable{``0},System.Threading.CancellationToken)">
+  MultipleRowsCopyAsync&lt;T&gt;(ITable&lt;T&gt;, DataOptions, IEnumerable&lt;T&gt;, CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task&lt;BulkCopyRowsCopied&gt; MultipleRowsCopyAsync&lt;T&gt;(ITable&lt;T&gt; table, DataOptions options, IEnumerable&lt;T&gt; source, CancellationToken cancellationToken) where T : notnull</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>table</code> <a class="xref" href="LinqToDB.ITable-1.html">ITable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.Data.BulkCopyRowsCopied.html">BulkCopyRowsCopied</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy_MultipleRowsCopy_" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.MultipleRowsCopy*"></a>
+
+  <h3 id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy_MultipleRowsCopy__1_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IEnumerable___0__" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.MultipleRowsCopy``1(LinqToDB.ITable{``0},LinqToDB.DataOptions,System.Collections.Generic.IEnumerable{``0})">
+  MultipleRowsCopy&lt;T&gt;(ITable&lt;T&gt;, DataOptions, IEnumerable&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override BulkCopyRowsCopied MultipleRowsCopy&lt;T&gt;(ITable&lt;T&gt; table, DataOptions options, IEnumerable&lt;T&gt; source) where T : notnull</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>table</code> <a class="xref" href="LinqToDB.ITable-1.html">ITable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Data.BulkCopyRowsCopied.html">BulkCopyRowsCopied</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy_ProviderSpecificCopyAsync_" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.ProviderSpecificCopyAsync*"></a>
+
+  <h3 id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy_ProviderSpecificCopyAsync__1_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_CancellationToken_" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.ProviderSpecificCopyAsync``1(LinqToDB.ITable{``0},LinqToDB.DataOptions,System.Collections.Generic.IAsyncEnumerable{``0},System.Threading.CancellationToken)">
+  ProviderSpecificCopyAsync&lt;T&gt;(ITable&lt;T&gt;, DataOptions, IAsyncEnumerable&lt;T&gt;, CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task&lt;BulkCopyRowsCopied&gt; ProviderSpecificCopyAsync&lt;T&gt;(ITable&lt;T&gt; table, DataOptions options, IAsyncEnumerable&lt;T&gt; source, CancellationToken cancellationToken) where T : notnull</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>table</code> <a class="xref" href="LinqToDB.ITable-1.html">ITable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.Data.BulkCopyRowsCopied.html">BulkCopyRowsCopied</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy_ProviderSpecificCopyAsync_" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.ProviderSpecificCopyAsync*"></a>
+
+  <h3 id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy_ProviderSpecificCopyAsync__1_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IEnumerable___0__System_Threading_CancellationToken_" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.ProviderSpecificCopyAsync``1(LinqToDB.ITable{``0},LinqToDB.DataOptions,System.Collections.Generic.IEnumerable{``0},System.Threading.CancellationToken)">
+  ProviderSpecificCopyAsync&lt;T&gt;(ITable&lt;T&gt;, DataOptions, IEnumerable&lt;T&gt;, CancellationToken)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task&lt;BulkCopyRowsCopied&gt; ProviderSpecificCopyAsync&lt;T&gt;(ITable&lt;T&gt; table, DataOptions options, IEnumerable&lt;T&gt; source, CancellationToken cancellationToken) where T : notnull</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>table</code> <a class="xref" href="LinqToDB.ITable-1.html">ITable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.Data.BulkCopyRowsCopied.html">BulkCopyRowsCopied</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy_ProviderSpecificCopy_" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.ProviderSpecificCopy*"></a>
+
+  <h3 id="LinqToDB_Internal_DataProvider_MySql_MySqlBulkCopy_ProviderSpecificCopy__1_LinqToDB_ITable___0__LinqToDB_DataOptions_System_Collections_Generic_IEnumerable___0__" data-uid="LinqToDB.Internal.DataProvider.MySql.MySqlBulkCopy.ProviderSpecificCopy``1(LinqToDB.ITable{``0},LinqToDB.DataOptions,System.Collections.Generic.IEnumerable{``0})">
+  ProviderSpecificCopy&lt;T&gt;(ITable&lt;T&gt;, DataOptions, IEnumerable&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override BulkCopyRowsCopied ProviderSpecificCopy&lt;T&gt;(ITable&lt;T&gt; table, DataOptions options, IEnumerable&lt;T&gt; source) where T : notnull</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>table</code> <a class="xref" href="LinqToDB.ITable-1.html">ITable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Data.BulkCopyRowsCopied.html">BulkCopyRowsCopied</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

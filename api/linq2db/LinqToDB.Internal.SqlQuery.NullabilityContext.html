@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class NullabilityContext | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class NullabilityContext | Linq To DB ">
+      
+      <meta name="description" content="Provides information about expression nullability in current (sub)query context based on nullability annotations on expressions and outer joins.">
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext">
+
+
+
+  <h1 id="LinqToDB_Internal_SqlQuery_NullabilityContext" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext" class="text-break">
+Class NullabilityContext  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Internal.html">Internal</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.html">SqlQuery</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides information about expression nullability in current (sub)query context based on nullability annotations on expressions and outer joins.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class NullabilityContext</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">NullabilityContext</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LinqToDB_Internal_SqlQuery_NullabilityContext__ctor_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.#ctor*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlQuery_NullabilityContext__ctor_LinqToDB_Internal_SqlQuery_NullabilityContext_System_Collections_Generic_Dictionary_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Boolean__" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.#ctor(LinqToDB.Internal.SqlQuery.NullabilityContext,System.Collections.Generic.Dictionary{LinqToDB.Internal.SqlQuery.ISqlExpression,System.Boolean})">
+  NullabilityContext(NullabilityContext, Dictionary&lt;ISqlExpression, bool&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NullabilityContext(NullabilityContext parentContext, Dictionary&lt;ISqlExpression, bool&gt; nullabilityOverrides)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parentContext</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.NullabilityContext.html">NullabilityContext</a></dt>
+    <dd></dd>
+    <dt><code>nullabilityOverrides</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlQuery_NullabilityContext__ctor_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.#ctor*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlQuery_NullabilityContext__ctor_LinqToDB_Internal_SqlQuery_SelectQuery_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.#ctor(LinqToDB.Internal.SqlQuery.SelectQuery)">
+  NullabilityContext(SelectQuery)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates nullability context for provided query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NullabilityContext(SelectQuery inQuery)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inQuery</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SelectQuery.html">SelectQuery</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LinqToDB_Internal_SqlQuery_NullabilityContext_IsEmpty_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.IsEmpty*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlQuery_NullabilityContext_IsEmpty" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.IsEmpty">
+  IsEmpty
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MemberNotNullWhen(false, &quot;Queries&quot;)]
+public bool IsEmpty { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlQuery_NullabilityContext_JoinSource_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.JoinSource*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlQuery_NullabilityContext_JoinSource" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.JoinSource">
+  JoinSource
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Current Join table source. Used for excluding source from nullable sources check</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISqlTableSource? JoinSource { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlTableSource.html">ISqlTableSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlQuery_NullabilityContext_NonQuery_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.NonQuery*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlQuery_NullabilityContext_NonQuery" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.NonQuery">
+  NonQuery
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Context for non-select queries of places where we don't know select query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NullabilityContext NonQuery { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.NullabilityContext.html">NullabilityContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlQuery_NullabilityContext_Queries_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.Queries*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlQuery_NullabilityContext_Queries" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.Queries">
+  Queries
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Current context query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SelectQuery[] Queries { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.SelectQuery.html">SelectQuery</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LinqToDB_Internal_SqlQuery_NullabilityContext_CanBeNull_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.CanBeNull*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlQuery_NullabilityContext_CanBeNull_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.CanBeNull(LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  CanBeNull(ISqlExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns wether expression could contain null values or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanBeNull(ISqlExpression expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlQuery_NullabilityContext_CanBeNullSource_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.CanBeNullSource*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlQuery_NullabilityContext_CanBeNullSource_LinqToDB_Internal_SqlQuery_ISqlTableSource_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.CanBeNullSource(LinqToDB.Internal.SqlQuery.ISqlTableSource)">
+  CanBeNullSource(ISqlTableSource)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? CanBeNullSource(ISqlTableSource source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlTableSource.html">ISqlTableSource</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlQuery_NullabilityContext_GetContext_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.GetContext*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlQuery_NullabilityContext_GetContext_LinqToDB_Internal_SqlQuery_SelectQuery_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.GetContext(LinqToDB.Internal.SqlQuery.SelectQuery)">
+  GetContext(SelectQuery?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates nullability context for provided query or empty context if query is <code>null</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NullabilityContext GetContext(SelectQuery? selectQuery)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>selectQuery</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SelectQuery.html">SelectQuery</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.NullabilityContext.html">NullabilityContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlQuery_NullabilityContext_WithJoinSource_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.WithJoinSource*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlQuery_NullabilityContext_WithJoinSource_LinqToDB_Internal_SqlQuery_ISqlTableSource_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.WithJoinSource(LinqToDB.Internal.SqlQuery.ISqlTableSource)">
+  WithJoinSource(ISqlTableSource?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NullabilityContext WithJoinSource(ISqlTableSource? joinSource)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joinSource</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlTableSource.html">ISqlTableSource</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.NullabilityContext.html">NullabilityContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlQuery_NullabilityContext_WithQuery_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.WithQuery*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlQuery_NullabilityContext_WithQuery_LinqToDB_Internal_SqlQuery_SelectQuery_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.WithQuery(LinqToDB.Internal.SqlQuery.SelectQuery)">
+  WithQuery(SelectQuery)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NullabilityContext WithQuery(SelectQuery inQuery)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inQuery</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SelectQuery.html">SelectQuery</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.NullabilityContext.html">NullabilityContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlQuery_NullabilityContext_WithTransformationInfo_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.WithTransformationInfo*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlQuery_NullabilityContext_WithTransformationInfo_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_IVisitorTransformationInfo_" data-uid="LinqToDB.Internal.SqlQuery.NullabilityContext.WithTransformationInfo(LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.IVisitorTransformationInfo)">
+  WithTransformationInfo(IVisitorTransformationInfo?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NullabilityContext WithTransformationInfo(SqlQueryVisitor.IVisitorTransformationInfo? transformationInfo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transformationInfo</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html">SqlQueryVisitor</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.IVisitorTransformationInfo.html">IVisitorTransformationInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.NullabilityContext.html">NullabilityContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

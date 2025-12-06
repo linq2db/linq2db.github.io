@@ -1,4 +1,4 @@
-dotnet linq2db - Linq To DB command-line utilities. Version: 5.2.1.0
+dotnet linq2db - Linq To DB command-line utilities. Version: 6.0.0.0
 
 Usage:
         dotnet linq2db scaffold <options>
@@ -66,7 +66,8 @@ Options:
       Allows user to specify path to database provider for some databases.
       Supported databases:
       - SQL Server Compact Edition : value is a full path to System.Data.SqlServerCe.dll assembly from Private folder of SQL CE installation
-      - SAP HANA                   : value is a full path to Sap.Data.Hana.Core.v2.1.dll assembly from HDB client installation folder
+      - SAP HANA                   : value is a full path to Sap.Data.Hana.Core.v2.1.dll, Sap.Data.Hana.Net.v6.0.dll or Sap.Data.Hana.Net.v8.0.dll assembly from HDB client installation fol
+      der
       - IBM DB2 and Informix       : value is a full path to IBM.Data.DB2.Core.dll assembly in DB2 provider folder
 
    -c, --connection                          : database connection string
@@ -124,9 +125,9 @@ Options:
       If you choose T4, you can create initial empty template using 'dotnet linq2db template' command. It will generate initial template file with pre-generated extension points which you 
       can modify to implement required customizations.
       Customization using compiled assembly has several requirements:
-      - it should be compatible with current runtime, used by 'dotnet linq2db' tool (netcoreapp3.1 by default);
+      - it should be compatible with current runtime, used by 'dotnet linq2db' tool;
       - assembly should contain exactly one interceptor class with customization logic. It should be inherited from ScaffoldInterceptors and has default public constructor;
-      - linq2db.Tools version should match tool's version to avoid possible compatibility issues/errors.
+      - linq2db.Scaffold version should match tool's version to avoid possible compatibility issues/errors.
 
 === Database Schema : database schema load
 
@@ -229,7 +230,7 @@ Options:
                --include-tables Users,Roles,Permissions
          JSON examples:
                { "schema": { "include-tables": [ "Users", { "name": "Roles", "schema": "dbo" } ] } } // Users and dbo.Roles tables
-               { "schema": { "include-tables": [ { "regex": "^audit_.$+", "schema": "dbo" } ] } } // all tables starting from audit_ prefix
+               { "schema": { "include-tables": [ { "regex": "^audit_.+$", "schema": "dbo" } ] } } // all tables starting from audit_ prefix
 
       Provided table names should have same casing as actual table name in database. Specifying this option in command line has several limitations and it is recommended to use JSON for it
        instead:
@@ -260,7 +261,7 @@ Options:
                --exclude-tables Users,Roles,Permissions
          JSON examples:
                { "schema": { "exclude-tables": [ "Users", { "name": "Roles", "schema": "dbo" } ] } } // Users and dbo.Roles tables ignored
-               { "schema": { "exclude-tables": [ { "regex": "^audit_.$+", "schema": "dbo" } ] } } // all tables starting from audit_ prefix ignored
+               { "schema": { "exclude-tables": [ { "regex": "^audit_.+$", "schema": "dbo" } ] } } // all tables starting from audit_ prefix ignored
 
       Provided table names should have same casing as actual table name in database. Specifying this option in command line has several limitations and it is recommended to use JSON for it
        instead:
@@ -291,7 +292,7 @@ Options:
                --include-views Users,Roles,Permissions
          JSON examples:
                { "schema": { "include-views": [ "Users", { "name": "Roles", "schema": "dbo" } ] } } // Users and dbo.Roles views
-               { "schema": { "include-views": [ { "regex": "^audit_.$+", "schema": "dbo" } ] } } // all views starting from audit_ prefix
+               { "schema": { "include-views": [ { "regex": "^audit_.+$", "schema": "dbo" } ] } } // all views starting from audit_ prefix
 
       Provided view names should have same casing as actual view name in database. Specifying this option in command line has several limitations and it is recommended to use JSON for it i
       nstead:
@@ -322,7 +323,7 @@ Options:
                --exclude-views Users,Roles,Permissions
          JSON examples:
                { "schema": { "exclude-views": [ "Users", { "name": "Roles", "schema": "dbo" } ] } } // Users and dbo.Roles views ignored
-               { "schema": { "exclude-views": [ { "regex": "^audit_.$+", "schema": "dbo" } ] } } // all views starting from audit_ prefix ignored
+               { "schema": { "exclude-views": [ { "regex": "^audit_.+$", "schema": "dbo" } ] } } // all views starting from audit_ prefix ignored
 
       Provided view names should have same casing as actual view name in database. Specifying this option in command line has several limitations and it is recommended to use JSON for it i
       nstead:
@@ -353,7 +354,7 @@ Options:
                --procedures-with-schema GetUsers,GetRoles,LoadPermissions
          JSON examples:
                { "schema": { "procedures-with-schema": [ "GetUsers", { "name": "LoadPermissions", "schema": "dbo" } ] } } // GetUsers and dbo.LoadPermissions procedures
-               { "schema": { "procedures-with-schema": [ { "regex": "^Load.$+", "schema": "dbo" } ] } } // all procedures starting from Load prefix
+               { "schema": { "procedures-with-schema": [ { "regex": "^Load.+$", "schema": "dbo" } ] } } // all procedures starting from Load prefix
 
       Provided stored procedure names should have same casing as actual procedure name in database. Specifying this option in command line has several limitations and it is recommended to 
       use JSON for it instead:
@@ -384,7 +385,7 @@ Options:
                --procedures-without-schema FormatAllDrives,DropAllTables
          JSON examples:
                { "schema": { "procedures-without-schema": [ "DropAllTables", { "name": "FormatAllDrives", "schema": "dbo" } ] } } // DropAllTables and dbo.FormatAllDrives procedures schema not loaded
-               { "schema": { "procedures-without-schema": [ { "regex": "^Delete.$+", "schema": "dbo" } ] } } // all procedures starting from Delete prefix
+               { "schema": { "procedures-without-schema": [ { "regex": "^Delete.+$", "schema": "dbo" } ] } } // all procedures starting from Delete prefix
 
       Provided stored procedure names should have same casing as actual procedure name in database. Specifying this option in command line has several limitations and it is recommended to 
       use JSON for it instead:
@@ -415,7 +416,7 @@ Options:
                --include-stored-procedures GetUsers,GetRoles,LoadPermissions
          JSON examples:
                { "schema": { "include-stored-procedures": [ "ActiveUsers", { "name": "InactiveUsers", "schema": "dbo" } ] } } // ActiveUsers and dbo.InactiveUsers procedures
-               { "schema": { "include-stored-procedures": [ { "regex": "^Query.$+", "schema": "dbo" } ] } } // all stored procedures starting from Query prefix
+               { "schema": { "include-stored-procedures": [ { "regex": "^Query.+$", "schema": "dbo" } ] } } // all stored procedures starting from Query prefix
 
       Provided stored procedures names should have same casing as actual procedure name in database. Specifying this option in command line has several limitations and it is recommended to
        use JSON for it instead:
@@ -446,7 +447,7 @@ Options:
                --exclude-stored-procedure GetUsers,GetRoles,LoadPermissions
          JSON examples:
                { "schema": { "exclude-stored-procedure": [ "TestProcedure", { "name": "CheckDb", "schema": "dbo" } ] } } // TestProcedure and dbo.CheckDb procedures ignored
-               { "schema": { "exclude-stored-procedure": [ { "regex": "^Audit.$+", "schema": "dbo" } ] } } // all stored procedures starting from Audit prefix ignored
+               { "schema": { "exclude-stored-procedure": [ { "regex": "^Audit.+$", "schema": "dbo" } ] } } // all stored procedures starting from Audit prefix ignored
 
       Provided stored procedures names should have same casing as actual procedure name in database. Specifying this option in command line has several limitations and it is recommended to
        use JSON for it instead:
@@ -477,7 +478,7 @@ Options:
                --include-table-functions GetUsers,GetRoles,LoadPermissions
          JSON examples:
                { "schema": { "include-table-functions": [ "ActiveUsers", { "name": "InactiveUsers", "schema": "dbo" } ] } } // ActiveUsers and dbo.InactiveUsers functions
-               { "schema": { "include-table-functions": [ { "regex": "^Query.$+", "schema": "dbo" } ] } } // all table functions starting from Query prefix
+               { "schema": { "include-table-functions": [ { "regex": "^Query.+$", "schema": "dbo" } ] } } // all table functions starting from Query prefix
 
       Provided table functions names should have same casing as actual function name in database. Specifying this option in command line has several limitations and it is recommended to us
       e JSON for it instead:
@@ -508,7 +509,7 @@ Options:
                --exclude-table-functions GetUsers,GetRoles,LoadPermissions
          JSON examples:
                { "schema": { "exclude-table-functions": [ "TestFunction", { "name": "CheckDb", "schema": "dbo" } ] } } // TestFunction and dbo.CheckDb functions ignored
-               { "schema": { "exclude-table-functions": [ { "regex": "^Audit.$+", "schema": "dbo" } ] } } // all table functions starting from Audit prefix ignored
+               { "schema": { "exclude-table-functions": [ { "regex": "^Audit.+$", "schema": "dbo" } ] } } // all table functions starting from Audit prefix ignored
 
       Provided table functions names should have same casing as actual function name in database. Specifying this option in command line has several limitations and it is recommended to us
       e JSON for it instead:
@@ -539,7 +540,7 @@ Options:
                --include-scalar-functions GetUsers,GetRoles,LoadPermissions
          JSON examples:
                { "schema": { "include-scalar-functions": [ "ActiveUsers", { "name": "InactiveUsers", "schema": "dbo" } ] } } // ActiveUsers and dbo.InactiveUsers functions
-               { "schema": { "include-scalar-functions": [ { "regex": "^Query.$+", "schema": "dbo" } ] } } // all scalar functions starting from Query prefix
+               { "schema": { "include-scalar-functions": [ { "regex": "^Query.+$", "schema": "dbo" } ] } } // all scalar functions starting from Query prefix
 
       Provided scalar functions names should have same casing as actual function name in database. Specifying this option in command line has several limitations and it is recommended to u
       se JSON for it instead:
@@ -570,7 +571,7 @@ Options:
                --exclude-scalar-functions GetUsers,GetRoles,LoadPermissions
          JSON examples:
                { "schema": { "exclude-scalar-functions": [ "TestFunction", { "name": "CheckDb", "schema": "dbo" } ] } } // TestFunction and dbo.CheckDb functions ignored
-               { "schema": { "exclude-scalar-functions": [ { "regex": "^Audit.$+", "schema": "dbo" } ] } } // all scalar functions starting from Audit prefix ignored
+               { "schema": { "exclude-scalar-functions": [ { "regex": "^Audit.+$", "schema": "dbo" } ] } } // all scalar functions starting from Audit prefix ignored
 
       Provided scalar functions names should have same casing as actual function name in database. Specifying this option in command line has several limitations and it is recommended to u
       se JSON for it instead:
@@ -601,7 +602,7 @@ Options:
                --include-aggregate-functions GetUsers,GetRoles,LoadPermissions
          JSON examples:
                { "schema": { "include-aggregate-functions": [ "ActiveUsers", { "name": "InactiveUsers", "schema": "dbo" } ] } } // ActiveUsers and dbo.InactiveUsers functions
-               { "schema": { "include-aggregate-functions": [ { "regex": "^Query.$+", "schema": "dbo" } ] } } // all aggregate functions starting from Query prefix
+               { "schema": { "include-aggregate-functions": [ { "regex": "^Query.+$", "schema": "dbo" } ] } } // all aggregate functions starting from Query prefix
 
       Provided aggregate functions names should have same casing as actual function name in database. Specifying this option in command line has several limitations and it is recommended t
       o use JSON for it instead:
@@ -632,7 +633,7 @@ Options:
                --exclude-aggregate-functions GetUsers,GetRoles,LoadPermissions
          JSON examples:
                { "schema": { "exclude-aggregate-functions": [ "TestFunction", { "name": "CheckDb", "schema": "dbo" } ] } } // TestFunction and dbo.CheckDb functions ignored
-               { "schema": { "exclude-aggregate-functions": [ { "regex": "^Audit.$+", "schema": "dbo" } ] } } // all aggregate functions starting from Audit prefix ignored
+               { "schema": { "exclude-aggregate-functions": [ { "regex": "^Audit.+$", "schema": "dbo" } ] } } // all aggregate functions starting from Audit prefix ignored
 
       Provided aggregate functions names should have same casing as actual function name in database. Specifying this option in command line has several limitations and it is recommended t
       o use JSON for it instead:
@@ -775,6 +776,34 @@ Options:
          JSON examples:
                { "dataModel": { "base-context": "LinqToDB.DataContext" } }
 
+   --context-modifier                        : access modifier for generated data context
+         type: string (optional)
+         json: dataModel.context-modifier
+         default: public
+         default (T4 mode): public
+         supported values:
+               private  : applies 'public' to data context class
+               internal : applies 'internal' to data context class
+               public   : applies 'private' to data context class
+         examples:
+               --context-modifier internal
+         JSON examples:
+               { "dataModel": { "context-modifier": "internal" } }
+
+   --add-init-context                        : generate InitDataContext partial method on data context for custom context setup
+         type: bool (optional)
+         json: dataModel.add-init-context
+         default: true
+         default (T4 mode): true
+
+   --add-static-init-context                 : generate StaticInitDataContext partial method on data context for custom context setup
+         type: bool (optional)
+         json: dataModel.add-static-init-context
+         default: false
+         default (T4 mode): false
+
+      Method will be called from generated context's static constructor after all other code. Enabling this option will force static constructor generation.
+
    --add-associations                        : generate association properties on entities
          type: bool (optional)
          json: dataModel.add-associations
@@ -903,6 +932,30 @@ Options:
 
       Without this option schema name will be used as base name to generate schema context/property names. Specifying this option in command line has limitations and it is recommended to u
       se JSON for it instead because names in CLI cannot contain comma (,) or equality (=) characters, as they used as separators.
+
+   --fluent-entity-type-helpers              : Enables generation of entity builder extension method calls for each fluent entity builder.
+         type: string list (optional)
+         json: dataModel.fluent-entity-type-helpers
+         default: 
+         default (T4 mode): 
+
+      Enabling this requires one or more extension methods, with same name, taking "this EntityMappingBuilder<T> builder" as first parameter and nullable entity value (passed as null) as s
+      econd parameter. Entity parameter type could be specific or generic type.
+      E.g. following example defines two fluent mapping helpers:
+       - ConfigureEntity is a set of methods, with entity parameter constrained to specific type or interface and optional fallback method to handle other types.
+       - ConfigureAllEntities is a single method that accept any entity
+      static class CustomFluentExtensions
+      {
+          // called for builder of specific entity type or it's childs only
+      	internal static EntityMappingBuilder<T> ConfigureEntity<T>(this EntityMappingBuilder<T> builder, Person? _) where T : Person => ...;
+          // called for builder of entities with specific interface
+      	internal static EntityMappingBuilder<T> ConfigureEntity<T>(this EntityMappingBuilder<T> builder, Child? _) where T : IEntities => ...;
+      	// called for all other entities. As example it annotated with Obsolete attribute to catch new entities not convered by methods above in build-time
+      	[Obsolete("Define ConfigureEntity method for this entity type")]
+      	internal static EntityMappingBuilder<T> ConfigureEntity<T>(this EntityMappingBuilder<T> builder, T? _) where T : class => ...;
+      	// single method to call for all entity builder to perform generic configuration or dispatch entity configuration by type dynamically by method itself
+      	internal static EntityMappingBuilder<T> ConfigureAllEntities<T>(this EntityMappingBuilder<T> builder, T? _) where T : class => ...;
+      	}
 
      data-context-class-name                 : (allowed only in JSON) data context class naming options (for auto-generated names only)
          type: object (optional)
@@ -1657,66 +1710,6 @@ Options:
   "dataModel":
   {
     "proc-or-func-result-property-name":
-    {
-      "case"         : "pascal_case",
-      "pluralization": "singular",
-      "suffix"       : "Record"
-    }
-  }
-}
-
-      Naming options could be specified only in JSON file and defined as object with following properties:
-      - case                             : string  : specify name casing (see values below)
-          + "none"          : no casing applied to identifier
-          + "pascal_case"   : identifier cased using PascalCase
-          + "camel_case"    : identifier cased using camelCase
-          + "snake_case"    : identifier cased using snake_case
-          + "lower_case"    : identifier cased using lowercase
-          + "upper_case"    : identifier cased using UPPERCASE
-          + "t4_pluralized" : emulation of casing logic for pluralized names used by T4 templates (compat. option)
-          + "t4"            : emulation of casing logic for non-pluralized names used by T4 templates (compat. option)
-      - pluralization                    : string  : specify name pluralization (see values below)
-          + "none"                       : don't pluralize identifier
-          + "singular"                   : singularize identifier
-          + "plural"                     : pluralize identifier
-          + "plural_multiple_characters" : pluralize identifier only when last word is longer than one character
-      - prefix                           : string? : optional name prefix
-      - suffix                           : string? : optional name suffix
-      - transformation                   : string  : base name transformation logic (see values below)
-          + "none"                : no transformations applied, treat whole identifier as one word
-          + "split_by_underscore" : split base name, got from database object name, into separate words by underscore (_)
-          + "association"         : emulation of identifier generation logic for association name used by T4 templates (compat. option)
-      - pluralize_if_ends_with_word_only : bool    : when set, pluralization not applied if name ends with non-word (e.g. with digit)
-      - ignore_all_caps                  : bool    : when set, casing not applied to names that contain only uppercase letters
-      If you don't specify some property, CLI will use default value for current option. This allows you to override only some properties without need to specify all properties.
-
-     table-function-methodinfo-field-name    : (allowed only in JSON) table function FieldInfo field naming options
-         type: object (optional)
-         json: dataModel.table-function-methodinfo-field-name
-         default: {
-                      "case"                            : "camel_case",
-                      "pluralization"                   : "none",
-                      "prefix"                          : "_",
-                      "suffix"                          : null,
-                      "transformation"                  : "split_by_underscore",
-                      "pluralize_if_ends_with_word_only": false,
-                      "ignore_all_caps"                 : false,
-                  }
-         default (T4 mode): {
-                      "case"                            : "camel_case",
-                      "pluralization"                   : "none",
-                      "prefix"                          : "_",
-                      "suffix"                          : null,
-                      "transformation"                  : "split_by_underscore",
-                      "pluralize_if_ends_with_word_only": false,
-                      "ignore_all_caps"                 : false,
-                  }
-         JSON examples:
-               
-{
-  "dataModel":
-  {
-    "table-function-methodinfo-field-name":
     {
       "case"         : "pascal_case",
       "pluralization": "singular",

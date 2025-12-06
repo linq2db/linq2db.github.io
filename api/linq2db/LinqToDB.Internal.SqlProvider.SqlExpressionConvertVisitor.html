@@ -1,0 +1,4708 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SqlExpressionConvertVisitor | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SqlExpressionConvertVisitor | Linq To DB ">
+      
+      
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor">
+
+
+
+  <h1 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor" class="text-break">
+Class SqlExpressionConvertVisitor  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Internal.html">Internal</a>.<a class="xref" href="LinqToDB.Internal.SqlProvider.html">SqlProvider</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SqlExpressionConvertVisitor : SqlQueryVisitor</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html">QueryElementVisitor</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html">SqlQueryVisitor</a></div>
+      <div><span class="xref">SqlExpressionConvertVisitor</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.html">AccessSqlExpressionConvertVisitor</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.DataProvider.ClickHouse.ClickHouseSqlExpressionConvertVisitor.html">ClickHouseSqlExpressionConvertVisitor</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.DataProvider.DB2.DB2SqlExpressionConvertVisitor.html">DB2SqlExpressionConvertVisitor</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.DataProvider.Firebird.FirebirdSqlExpressionConvertVisitor.html">FirebirdSqlExpressionConvertVisitor</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.DataProvider.Informix.InformixSqlExpressionConvertVisitor.html">InformixSqlExpressionConvertVisitor</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.DataProvider.MySql.MySqlSqlExpressionConvertVisitor.html">MySqlSqlExpressionConvertVisitor</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.DataProvider.Oracle.OracleSqlExpressionConvertVisitor.html">OracleSqlExpressionConvertVisitor</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.PostgreSQLSqlExpressionConvertVisitor.html">PostgreSQLSqlExpressionConvertVisitor</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.DataProvider.SQLite.SQLiteSqlExpressionConvertVisitor.html">SQLiteSqlExpressionConvertVisitor</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.DataProvider.SapHana.SapHanaSqlExpressionConvertVisitor.html">SapHanaSqlExpressionConvertVisitor</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.DataProvider.SqlCe.SqlCeSqlExpressionConvertVisitor.html">SqlCeSqlExpressionConvertVisitor</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.DataProvider.SqlServer.SqlServerSqlExpressionConvertVisitor.html">SqlServerSqlExpressionConvertVisitor</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.DataProvider.Sybase.SybaseSqlExpressionConvertVisitor.html">SybaseSqlExpressionConvertVisitor</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.DataProvider.Ydb.YdbSqlExpressionConvertVisitor.html">YdbSqlExpressionConvertVisitor</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_SetTransformationInfo_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_IVisitorTransformationInfo_">SqlQueryVisitor.SetTransformationInfo(SqlQueryVisitor.IVisitorTransformationInfo)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_GetVisitMode_LinqToDB_Internal_SqlQuery_IQueryElement_">SqlQueryVisitor.GetVisitMode(IQueryElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_ProcessElement_LinqToDB_Internal_SqlQuery_IQueryElement_">SqlQueryVisitor.ProcessElement(IQueryElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_VisitCteClauseReference_LinqToDB_Internal_SqlQuery_CteClause_">SqlQueryVisitor.VisitCteClauseReference(CteClause)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_NotifyReplaced_LinqToDB_Internal_SqlQuery_IQueryElement_LinqToDB_Internal_SqlQuery_IQueryElement_">SqlQueryVisitor.NotifyReplaced(IQueryElement, IQueryElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_GetTransformationInfo">SqlQueryVisitor.GetTransformationInfo()</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_AddReplacements_System_Collections_Generic_IReadOnlyDictionary_LinqToDB_Internal_SqlQuery_IQueryElement_LinqToDB_Internal_SqlQuery_IQueryElement__">SqlQueryVisitor.AddReplacements(IReadOnlyDictionary&lt;IQueryElement, IQueryElement&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_GetReplacement_LinqToDB_Internal_SqlQuery_IQueryElement_LinqToDB_Internal_SqlQuery_IQueryElement__">SqlQueryVisitor.GetReplacement(IQueryElement, out IQueryElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_GetReplacements_System_Collections_Generic_Dictionary_LinqToDB_Internal_SqlQuery_IQueryElement_LinqToDB_Internal_SqlQuery_IQueryElement__">SqlQueryVisitor.GetReplacements(Dictionary&lt;IQueryElement, IQueryElement&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_ShouldReplace_LinqToDB_Internal_SqlQuery_IQueryElement_">QueryElementVisitor.ShouldReplace(IQueryElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitCteClause_LinqToDB_Internal_SqlQuery_CteClause_">QueryElementVisitor.VisitCteClause(CteClause)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlFunctionArgument_LinqToDB_SqlQuery_SqlFunctionArgument_">QueryElementVisitor.VisitSqlFunctionArgument(SqlFunctionArgument)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlWindowOrderItem_LinqToDB_SqlQuery_SqlWindowOrderItem_">QueryElementVisitor.VisitSqlWindowOrderItem(SqlWindowOrderItem)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlFrameClause_LinqToDB_SqlQuery_SqlFrameClause_">QueryElementVisitor.VisitSqlFrameClause(SqlFrameClause)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlFrameBoundary_LinqToDB_SqlQuery_SqlFrameBoundary_">QueryElementVisitor.VisitSqlFrameBoundary(SqlFrameBoundary)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlComment_LinqToDB_Internal_SqlQuery_SqlComment_">QueryElementVisitor.VisitSqlComment(SqlComment)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlGroupingSet_LinqToDB_Internal_SqlQuery_SqlGroupingSet_">QueryElementVisitor.VisitSqlGroupingSet(SqlGroupingSet)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlMergeOperationClause_LinqToDB_Internal_SqlQuery_SqlMergeOperationClause_">QueryElementVisitor.VisitSqlMergeOperationClause(SqlMergeOperationClause)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlTableLikeSource_LinqToDB_Internal_SqlQuery_SqlTableLikeSource_">QueryElementVisitor.VisitSqlTableLikeSource(SqlTableLikeSource)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlTruncateTableStatement_LinqToDB_Internal_SqlQuery_SqlTruncateTableStatement_">QueryElementVisitor.VisitSqlTruncateTableStatement(SqlTruncateTableStatement)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlDropTableStatement_LinqToDB_Internal_SqlQuery_SqlDropTableStatement_">QueryElementVisitor.VisitSqlDropTableStatement(SqlDropTableStatement)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlCreateTableStatement_LinqToDB_Internal_SqlQuery_SqlCreateTableStatement_">QueryElementVisitor.VisitSqlCreateTableStatement(SqlCreateTableStatement)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlConditionalInsertClause_LinqToDB_Internal_SqlQuery_SqlConditionalInsertClause_">QueryElementVisitor.VisitSqlConditionalInsertClause(SqlConditionalInsertClause)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlMultiInsertStatement_LinqToDB_Internal_SqlQuery_SqlMultiInsertStatement_">QueryElementVisitor.VisitSqlMultiInsertStatement(SqlMultiInsertStatement)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlMergeStatement_LinqToDB_Internal_SqlQuery_SqlMergeStatement_">QueryElementVisitor.VisitSqlMergeStatement(SqlMergeStatement)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlDeleteStatement_LinqToDB_Internal_SqlQuery_SqlDeleteStatement_">QueryElementVisitor.VisitSqlDeleteStatement(SqlDeleteStatement)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlUpdateStatement_LinqToDB_Internal_SqlQuery_SqlUpdateStatement_">QueryElementVisitor.VisitSqlUpdateStatement(SqlUpdateStatement)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlInsertOrUpdateStatement_LinqToDB_Internal_SqlQuery_SqlInsertOrUpdateStatement_">QueryElementVisitor.VisitSqlInsertOrUpdateStatement(SqlInsertOrUpdateStatement)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlInsertStatement_LinqToDB_Internal_SqlQuery_SqlInsertStatement_">QueryElementVisitor.VisitSqlInsertStatement(SqlInsertStatement)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlSelectStatement_LinqToDB_Internal_SqlQuery_SqlSelectStatement_">QueryElementVisitor.VisitSqlSelectStatement(SqlSelectStatement)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlValuesTable_LinqToDB_Internal_SqlQuery_SqlValuesTable_">QueryElementVisitor.VisitSqlValuesTable(SqlValuesTable)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlRawSqlTable_LinqToDB_Internal_SqlQuery_SqlRawSqlTable_">QueryElementVisitor.VisitSqlRawSqlTable(SqlRawSqlTable)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlCteTable_LinqToDB_Internal_SqlQuery_SqlCteTable_">QueryElementVisitor.VisitSqlCteTable(SqlCteTable)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlWithClause_LinqToDB_Internal_SqlQuery_SqlWithClause_">QueryElementVisitor.VisitSqlWithClause(SqlWithClause)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlSetOperator_LinqToDB_Internal_SqlQuery_SqlSetOperator_">QueryElementVisitor.VisitSqlSetOperator(SqlSetOperator)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlFragment_LinqToDB_Internal_SqlQuery_SqlFragment_">QueryElementVisitor.VisitSqlFragment(SqlFragment)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlOrderByClause_LinqToDB_Internal_SqlQuery_SqlOrderByClause_">QueryElementVisitor.VisitSqlOrderByClause(SqlOrderByClause)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlGroupByClause_LinqToDB_Internal_SqlQuery_SqlGroupByClause_">QueryElementVisitor.VisitSqlGroupByClause(SqlGroupByClause)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlWhereClause_LinqToDB_Internal_SqlQuery_SqlWhereClause_">QueryElementVisitor.VisitSqlWhereClause(SqlWhereClause)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlHavingClause_LinqToDB_Internal_SqlQuery_SqlHavingClause_">QueryElementVisitor.VisitSqlHavingClause(SqlHavingClause)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlFromClause_LinqToDB_Internal_SqlQuery_SqlFromClause_">QueryElementVisitor.VisitSqlFromClause(SqlFromClause)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlUpdateClause_LinqToDB_Internal_SqlQuery_SqlUpdateClause_">QueryElementVisitor.VisitSqlUpdateClause(SqlUpdateClause)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlInsertClause_LinqToDB_Internal_SqlQuery_SqlInsertClause_">QueryElementVisitor.VisitSqlInsertClause(SqlInsertClause)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlTableSource_LinqToDB_Internal_SqlQuery_SqlTableSource_">QueryElementVisitor.VisitSqlTableSource(SqlTableSource)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlSearchCondition_LinqToDB_Internal_SqlQuery_SqlSearchCondition_">QueryElementVisitor.VisitSqlSearchCondition(SqlSearchCondition)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlSelectClause_LinqToDB_Internal_SqlQuery_SqlSelectClause_">QueryElementVisitor.VisitSqlSelectClause(SqlSelectClause)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitExistsPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_Exists_">QueryElementVisitor.VisitExistsPredicate(SqlPredicate.Exists)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitIsTruePredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_IsTrue_">QueryElementVisitor.VisitIsTruePredicate(SqlPredicate.IsTrue)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlRow_LinqToDB_Internal_SqlQuery_SqlRowExpression_">QueryElementVisitor.VisitSqlRow(SqlRowExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitTruePredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_TruePredicate_">QueryElementVisitor.VisitTruePredicate(SqlPredicate.TruePredicate)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitFalsePredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_FalsePredicate_">QueryElementVisitor.VisitFalsePredicate(SqlPredicate.FalsePredicate)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlAliasPlaceholder_LinqToDB_Internal_SqlQuery_SqlAliasPlaceholder_">QueryElementVisitor.VisitSqlAliasPlaceholder(SqlAliasPlaceholder)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlTable_LinqToDB_Internal_SqlQuery_SqlTable_">QueryElementVisitor.VisitSqlTable(SqlTable)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlDataType_LinqToDB_SqlQuery_SqlDataType_">QueryElementVisitor.VisitSqlDataType(SqlDataType)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlObjectExpression_LinqToDB_Internal_SqlQuery_SqlObjectExpression_">QueryElementVisitor.VisitSqlObjectExpression(SqlObjectExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlAnchor_LinqToDB_Internal_SqlQuery_SqlAnchor_">QueryElementVisitor.VisitSqlAnchor(SqlAnchor)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlNullabilityExpression_LinqToDB_Internal_SqlQuery_SqlNullabilityExpression_">QueryElementVisitor.VisitSqlNullabilityExpression(SqlNullabilityExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlParameter_LinqToDB_Internal_SqlQuery_SqlParameter_">QueryElementVisitor.VisitSqlParameter(SqlParameter)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlQueryExtension_LinqToDB_Internal_SqlQuery_SqlQueryExtension_">QueryElementVisitor.VisitSqlQueryExtension(SqlQueryExtension)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_CopyFields_System_Collections_Generic_IReadOnlyList_LinqToDB_Internal_SqlQuery_SqlField__">QueryElementVisitor.CopyFields(IReadOnlyList&lt;SqlField&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_CreateInvalidVisitModeException_System_String_">QueryElementVisitor.CreateInvalidVisitModeException(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitElements__1___0___LinqToDB_Internal_SqlQuery_Visitors_VisitMode_">QueryElementVisitor.VisitElements&lt;T&gt;(T[], VisitMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitElements__1_System_Collections_Generic_List___0__LinqToDB_Internal_SqlQuery_Visitors_VisitMode_">QueryElementVisitor.VisitElements&lt;T&gt;(List&lt;T&gt;, VisitMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitElements__1_System_Collections_Generic_List___0__LinqToDB_Internal_SqlQuery_Visitors_VisitMode_System_Func___0___0__">QueryElementVisitor.VisitElements&lt;T&gt;(List&lt;T&gt;, VisitMode, Func&lt;T, T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitListOfArrays__1_System_Collections_Generic_List___0____LinqToDB_Internal_SqlQuery_Visitors_VisitMode_">QueryElementVisitor.VisitListOfArrays&lt;T&gt;(List&lt;T[]&gt;, VisitMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitListOfLists__1_System_Collections_Generic_List_System_Collections_Generic_List___0___LinqToDB_Internal_SqlQuery_Visitors_VisitMode_">QueryElementVisitor.VisitListOfLists&lt;T&gt;(List&lt;List&lt;T&gt;&gt;, VisitMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitMode">QueryElementVisitor.VisitMode</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Sql.html#LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.SqlExtensions.html#LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="LinqToDB.Internal.Common.Utils.html#LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor__ctor_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.#ctor*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor__ctor_System_Boolean_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.#ctor(System.Boolean)">
+  SqlExpressionConvertVisitor(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SqlExpressionConvertVisitor(bool allowModify)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>allowModify</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_NullabilityContext" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.NullabilityContext">
+  NullabilityContext
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected NullabilityContext NullabilityContext</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.NullabilityContext.html">NullabilityContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_OptimizationContext" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.OptimizationContext">
+  OptimizationContext
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected OptimizationContext OptimizationContext</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlProvider.OptimizationContext.html">OptimizationContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_StandardLikeCharactersToEscape" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.StandardLikeCharactersToEscape">
+  StandardLikeCharactersToEscape
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static string[] StandardLikeCharactersToEscape</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitQueries" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitQueries">
+  VisitQueries
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool VisitQueries</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_DataOptions_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.DataOptions*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_DataOptions" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.DataOptions">
+  DataOptions
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DataOptions DataOptions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_EvaluationContext_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.EvaluationContext*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_EvaluationContext" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.EvaluationContext">
+  EvaluationContext
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected EvaluationContext EvaluationContext { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Factory_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Factory*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Factory" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Factory">
+  Factory
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ISqlExpressionFactory Factory { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Linq.Translation.ISqlExpressionFactory.html">ISqlExpressionFactory</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_IsInsidePredicate_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.IsInsidePredicate*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_IsInsidePredicate" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.IsInsidePredicate">
+  IsInsidePredicate
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool IsInsidePredicate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeCharactersToEscape_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.LikeCharactersToEscape*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeCharactersToEscape" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.LikeCharactersToEscape">
+  LikeCharactersToEscape
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Characters with special meaning in LIKE predicate (defined by <a class="xref" href="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeCharactersToEscape">LikeCharactersToEscape</a>) that should be escaped to be used as matched character.
+Default: <code>[&quot;%&quot;, &quot;_&quot;, &quot;?&quot;, &quot;*&quot;, &quot;#&quot;, &quot;[&quot;, &quot;]&quot;]</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string[] LikeCharactersToEscape { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeEscapeCharacter_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.LikeEscapeCharacter*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeEscapeCharacter" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.LikeEscapeCharacter">
+  LikeEscapeCharacter
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Escape sequence/character to escape special characters in LIKE predicate (defined by <a class="xref" href="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeCharactersToEscape">LikeCharactersToEscape</a>).
+Default: <code>&quot;~&quot;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string LikeEscapeCharacter { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeIsEscapeSupported_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.LikeIsEscapeSupported*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeIsEscapeSupported" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.LikeIsEscapeSupported">
+  LikeIsEscapeSupported
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Should be <code>true</code> for provider with <code>LIKE ... ESCAPE</code> modifier support.
+Default: <code>true</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool LikeIsEscapeSupported { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikePatternParameterSupport_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.LikePatternParameterSupport*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikePatternParameterSupport" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.LikePatternParameterSupport">
+  LikePatternParameterSupport
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool LikePatternParameterSupport { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeValueParameterSupport_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.LikeValueParameterSupport*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeValueParameterSupport" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.LikeValueParameterSupport">
+  LikeValueParameterSupport
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool LikeValueParameterSupport { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeWildcardCharacter_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.LikeWildcardCharacter*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeWildcardCharacter" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.LikeWildcardCharacter">
+  LikeWildcardCharacter
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string LikeWildcardCharacter { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_MappingSchema_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.MappingSchema*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_MappingSchema" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.MappingSchema">
+  MappingSchema
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MappingSchema MappingSchema { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_SqlProviderFlags_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.SqlProviderFlags*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_SqlProviderFlags" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.SqlProviderFlags">
+  SqlProviderFlags
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SqlProviderFlags SqlProviderFlags { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlProvider.SqlProviderFlags.html">SqlProviderFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_SupportsBooleanInColumn_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.SupportsBooleanInColumn*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_SupportsBooleanInColumn" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.SupportsBooleanInColumn">
+  SupportsBooleanInColumn
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool SupportsBooleanInColumn { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_SupportsDistinctAsExistsIntersect_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.SupportsDistinctAsExistsIntersect*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_SupportsDistinctAsExistsIntersect" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.SupportsDistinctAsExistsIntersect">
+  SupportsDistinctAsExistsIntersect
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool SupportsDistinctAsExistsIntersect { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_SupportsNullIf_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.SupportsNullIf*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_SupportsNullIf" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.SupportsNullIf">
+  SupportsNullIf
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool SupportsNullIf { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_SupportsNullInColumn_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.SupportsNullInColumn*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_SupportsNullInColumn" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.SupportsNullInColumn">
+  SupportsNullInColumn
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool SupportsNullInColumn { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Add_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Add*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Add_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Type_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Add(LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression,System.Type)">
+  Add(ISqlExpression, ISqlExpression, Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISqlExpression Add(ISqlExpression expr1, ISqlExpression expr2, Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr1</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>expr2</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Add_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Add*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Add_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Int32_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Add(LinqToDB.Internal.SqlQuery.ISqlExpression,System.Int32)">
+  Add(ISqlExpression, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISqlExpression Add(ISqlExpression expr1, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr1</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Add_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Add*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Add__1_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Add``1(LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  Add&lt;T&gt;(ISqlExpression, ISqlExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISqlExpression Add&lt;T&gt;(ISqlExpression expr1, ISqlExpression expr2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr1</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>expr2</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Cleanup_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Cleanup*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Cleanup" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Cleanup">
+  Cleanup()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets visitor to initial state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Cleanup()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Convert_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Convert*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Convert_LinqToDB_Internal_SqlProvider_OptimizationContext_LinqToDB_Internal_SqlQuery_NullabilityContext_LinqToDB_Internal_SqlQuery_IQueryElement_System_Boolean_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Convert(LinqToDB.Internal.SqlProvider.OptimizationContext,LinqToDB.Internal.SqlQuery.NullabilityContext,LinqToDB.Internal.SqlQuery.IQueryElement,System.Boolean)">
+  Convert(OptimizationContext, NullabilityContext, IQueryElement, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IQueryElement Convert(OptimizationContext optimizationContext, NullabilityContext nullabilityContext, IQueryElement element, bool visitQueries)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optimizationContext</code> <a class="xref" href="LinqToDB.Internal.SqlProvider.OptimizationContext.html">OptimizationContext</a></dt>
+    <dd></dd>
+    <dt><code>nullabilityContext</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.NullabilityContext.html">NullabilityContext</a></dt>
+    <dd></dd>
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+    <dt><code>visitQueries</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertBetweenPredicate_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertBetweenPredicate*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertBetweenPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_Between_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertBetweenPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.Between)">
+  ConvertBetweenPredicate(Between)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISqlPredicate ConvertBetweenPredicate(SqlPredicate.Between between)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>between</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.Between.html">Between</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlPredicate.html">ISqlPredicate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertBooleanToCase_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertBooleanToCase*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertBooleanToCase_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_DbDataType_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertBooleanToCase(LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.DbDataType)">
+  ConvertBooleanToCase(ISqlExpression, DbDataType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ISqlExpression ConvertBooleanToCase(ISqlExpression expr, DbDataType toType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>toType</code> <a class="xref" href="LinqToDB.DbDataType.html">DbDataType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertCaseItem_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertCaseItem*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertCaseItem_LinqToDB_Internal_SqlQuery_SqlCaseExpression_CaseItem_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertCaseItem(LinqToDB.Internal.SqlQuery.SqlCaseExpression.CaseItem)">
+  ConvertCaseItem(CaseItem)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual SqlCaseExpression.CaseItem ConvertCaseItem(SqlCaseExpression.CaseItem newElement)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newElement</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCaseExpression.html">SqlCaseExpression</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCaseExpression.CaseItem.html">CaseItem</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCaseExpression.html">SqlCaseExpression</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCaseExpression.CaseItem.html">CaseItem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertCastToPredicate_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertCastToPredicate*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertCastToPredicate_LinqToDB_Internal_SqlQuery_SqlCastExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertCastToPredicate(LinqToDB.Internal.SqlQuery.SqlCastExpression)">
+  ConvertCastToPredicate(SqlCastExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IQueryElement ConvertCastToPredicate(SqlCastExpression castExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>castExpression</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCastExpression.html">SqlCastExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertCoalesce_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertCoalesce*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertCoalesce_LinqToDB_Internal_SqlQuery_SqlCoalesceExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertCoalesce(LinqToDB.Internal.SqlQuery.SqlCoalesceExpression)">
+  ConvertCoalesce(SqlCoalesceExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISqlExpression ConvertCoalesce(SqlCoalesceExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCoalesceExpression.html">SqlCoalesceExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertCoalesceToBinaryFunc_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertCoalesceToBinaryFunc*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertCoalesceToBinaryFunc_LinqToDB_Internal_SqlQuery_SqlCoalesceExpression_System_String_System_Boolean_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertCoalesceToBinaryFunc(LinqToDB.Internal.SqlQuery.SqlCoalesceExpression,System.String,System.Boolean)">
+  ConvertCoalesceToBinaryFunc(SqlCoalesceExpression, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ISqlExpression ConvertCoalesceToBinaryFunc(SqlCoalesceExpression coalesce, string funcName, bool supportsParameters = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>coalesce</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCoalesceExpression.html">SqlCoalesceExpression</a></dt>
+    <dd></dd>
+    <dt><code>funcName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>supportsParameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertConversion_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertConversion*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertConversion_LinqToDB_Internal_SqlQuery_SqlCastExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertConversion(LinqToDB.Internal.SqlQuery.SqlCastExpression)">
+  ConvertConversion(SqlCastExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Implements <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCastExpression.html">SqlCastExpression</a> conversion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual ISqlExpression ConvertConversion(SqlCastExpression cast)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cast</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCastExpression.html">SqlCastExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertExprExprPredicate_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertExprExprPredicate*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertExprExprPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_ExprExpr_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertExprExprPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.ExprExpr)">
+  ConvertExprExprPredicate(ExprExpr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IQueryElement ConvertExprExprPredicate(SqlPredicate.ExprExpr predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.ExprExpr.html">ExprExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertIsDistinctPredicate_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertIsDistinctPredicate*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertIsDistinctPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_IsDistinct_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertIsDistinctPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.IsDistinct)">
+  ConvertIsDistinctPredicate(IsDistinct)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IQueryElement ConvertIsDistinctPredicate(SqlPredicate.IsDistinct predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.IsDistinct.html">IsDistinct</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertIsDistinctPredicateAsIntersect_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertIsDistinctPredicateAsIntersect*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertIsDistinctPredicateAsIntersect_LinqToDB_Internal_SqlQuery_SqlPredicate_IsDistinct_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertIsDistinctPredicateAsIntersect(LinqToDB.Internal.SqlQuery.SqlPredicate.IsDistinct)">
+  ConvertIsDistinctPredicateAsIntersect(IsDistinct)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual IQueryElement ConvertIsDistinctPredicateAsIntersect(SqlPredicate.IsDistinct predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.IsDistinct.html">IsDistinct</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertLikePredicate_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertLikePredicate*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertLikePredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_Like_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertLikePredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.Like)">
+  ConvertLikePredicate(Like)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISqlPredicate ConvertLikePredicate(SqlPredicate.Like predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.Like.html">Like</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlPredicate.html">ISqlPredicate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertRowExprExpr_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertRowExprExpr*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertRowExprExpr_LinqToDB_Internal_SqlQuery_SqlPredicate_ExprExpr_LinqToDB_Internal_SqlQuery_EvaluationContext_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertRowExprExpr(LinqToDB.Internal.SqlQuery.SqlPredicate.ExprExpr,LinqToDB.Internal.SqlQuery.EvaluationContext)">
+  ConvertRowExprExpr(ExprExpr, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ISqlPredicate ConvertRowExprExpr(SqlPredicate.ExprExpr predicate, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.ExprExpr.html">ExprExpr</a></dt>
+    <dd></dd>
+    <dt><code>context</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlPredicate.html">ISqlPredicate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertRowInList_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertRowInList*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertRowInList_LinqToDB_Internal_SqlQuery_SqlPredicate_InList_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertRowInList(LinqToDB.Internal.SqlQuery.SqlPredicate.InList)">
+  ConvertRowInList(InList)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual ISqlPredicate ConvertRowInList(SqlPredicate.InList predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.InList.html">InList</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlPredicate.html">ISqlPredicate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSearchStringPredicate_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertSearchStringPredicate*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSearchStringPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_SearchString_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertSearchStringPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.SearchString)">
+  ConvertSearchStringPredicate(SearchString)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISqlPredicate ConvertSearchStringPredicate(SqlPredicate.SearchString predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.SearchString.html">SearchString</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlPredicate.html">ISqlPredicate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSearchStringPredicateViaLike_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertSearchStringPredicateViaLike*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSearchStringPredicateViaLike_LinqToDB_Internal_SqlQuery_SqlPredicate_SearchString_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertSearchStringPredicateViaLike(LinqToDB.Internal.SqlQuery.SqlPredicate.SearchString)">
+  ConvertSearchStringPredicateViaLike(SearchString)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ISqlPredicate ConvertSearchStringPredicateViaLike(SqlPredicate.SearchString predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.SearchString.html">SearchString</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlPredicate.html">ISqlPredicate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSqlBinaryExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertSqlBinaryExpression*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSqlBinaryExpression_LinqToDB_Internal_SqlQuery_SqlBinaryExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertSqlBinaryExpression(LinqToDB.Internal.SqlQuery.SqlBinaryExpression)">
+  ConvertSqlBinaryExpression(SqlBinaryExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IQueryElement ConvertSqlBinaryExpression(SqlBinaryExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlBinaryExpression.html">SqlBinaryExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSqlCaseExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertSqlCaseExpression*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSqlCaseExpression_LinqToDB_Internal_SqlQuery_SqlCaseExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertSqlCaseExpression(LinqToDB.Internal.SqlQuery.SqlCaseExpression)">
+  ConvertSqlCaseExpression(SqlCaseExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual ISqlExpression ConvertSqlCaseExpression(SqlCaseExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCaseExpression.html">SqlCaseExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSqlCondition_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertSqlCondition*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSqlCondition_LinqToDB_Internal_SqlQuery_SqlConditionExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertSqlCondition(LinqToDB.Internal.SqlQuery.SqlConditionExpression)">
+  ConvertSqlCondition(SqlConditionExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual ISqlExpression ConvertSqlCondition(SqlConditionExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlConditionExpression.html">SqlConditionExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertSqlExpression*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSqlExpression_LinqToDB_Internal_SqlQuery_SqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertSqlExpression(LinqToDB.Internal.SqlQuery.SqlExpression)">
+  ConvertSqlExpression(SqlExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISqlExpression ConvertSqlExpression(SqlExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlExpression.html">SqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSqlExtendedFunction_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertSqlExtendedFunction*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSqlExtendedFunction_LinqToDB_SqlQuery_SqlExtendedFunction_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertSqlExtendedFunction(LinqToDB.SqlQuery.SqlExtendedFunction)">
+  ConvertSqlExtendedFunction(SqlExtendedFunction)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISqlExpression ConvertSqlExtendedFunction(SqlExtendedFunction func)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <a class="xref" href="LinqToDB.SqlQuery.SqlExtendedFunction.html">SqlExtendedFunction</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSqlFunction_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertSqlFunction*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSqlFunction_LinqToDB_Internal_SqlQuery_SqlFunction_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertSqlFunction(LinqToDB.Internal.SqlQuery.SqlFunction)">
+  ConvertSqlFunction(SqlFunction)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISqlExpression ConvertSqlFunction(SqlFunction func)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlFunction.html">SqlFunction</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertToBooleanSearchCondition_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertToBooleanSearchCondition*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertToBooleanSearchCondition_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.ConvertToBooleanSearchCondition(LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  ConvertToBooleanSearchCondition(ISqlExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SqlSearchCondition ConvertToBooleanSearchCondition(ISqlExpression expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.SqlSearchCondition.html">SqlSearchCondition</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_CreateLikeEscapeCharacter_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.CreateLikeEscapeCharacter*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_CreateLikeEscapeCharacter" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.CreateLikeEscapeCharacter">
+  CreateLikeEscapeCharacter()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISqlExpression CreateLikeEscapeCharacter()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Dec_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Dec*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Dec_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Dec(LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  Dec(ISqlExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISqlExpression Dec(ISqlExpression expr1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr1</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Div_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Div*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Div_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Type_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Div(LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression,System.Type)">
+  Div(ISqlExpression, ISqlExpression, Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISqlExpression Div(ISqlExpression expr1, ISqlExpression expr2, Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr1</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>expr2</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Div_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Div*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Div_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Int32_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Div(LinqToDB.Internal.SqlQuery.ISqlExpression,System.Int32)">
+  Div(ISqlExpression, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISqlExpression Div(ISqlExpression expr1, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr1</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Div_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Div*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Div__1_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Div``1(LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  Div&lt;T&gt;(ISqlExpression, ISqlExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISqlExpression Div&lt;T&gt;(ISqlExpression expr1, ISqlExpression expr2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr1</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>expr2</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_EscapeLikeCharacters_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.EscapeLikeCharacters*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_EscapeLikeCharacters_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression__" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.EscapeLikeCharacters(LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression@)">
+  EscapeLikeCharacters(ISqlExpression, ref ISqlExpression?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISqlExpression EscapeLikeCharacters(ISqlExpression expression, ref ISqlExpression? escape)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>escape</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_EscapeLikeCharacters_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.EscapeLikeCharacters*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_EscapeLikeCharacters_System_String_System_String_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.EscapeLikeCharacters(System.String,System.String)">
+  EscapeLikeCharacters(string, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string EscapeLikeCharacters(string str, string escape)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>escape</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_EscapeLikePattern_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.EscapeLikePattern*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_EscapeLikePattern_System_String_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.EscapeLikePattern(System.String)">
+  EscapeLikePattern(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Implements LIKE pattern escaping logic for provider without ESCAPE clause support (<a class="xref" href="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeIsEscapeSupported">LikeIsEscapeSupported</a> is <code>false</code>).
+Default logic prefix characters from <a class="xref" href="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeCharactersToEscape">LikeCharactersToEscape</a> with <a class="xref" href="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeEscapeCharacter">LikeEscapeCharacter</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual string EscapeLikePattern(string str)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Raw pattern value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Escaped pattern value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_FloorBeforeConvert_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.FloorBeforeConvert*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_FloorBeforeConvert_LinqToDB_Internal_SqlQuery_SqlCastExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.FloorBeforeConvert(LinqToDB.Internal.SqlQuery.SqlCastExpression)">
+  FloorBeforeConvert(SqlCastExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SqlCastExpression FloorBeforeConvert(SqlCastExpression cast)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cast</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCastExpression.html">SqlCastExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCastExpression.html">SqlCastExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_GetMaxDisplaySize_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.GetMaxDisplaySize*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_GetMaxDisplaySize_LinqToDB_DbDataType_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.GetMaxDisplaySize(LinqToDB.DbDataType)">
+  GetMaxDisplaySize(DbDataType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual int? GetMaxDisplaySize(DbDataType type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="LinqToDB.DbDataType.html">DbDataType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_GetMaxLength_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.GetMaxLength*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_GetMaxLength_LinqToDB_DbDataType_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.GetMaxLength(LinqToDB.DbDataType)">
+  GetMaxLength(DbDataType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual int? GetMaxLength(DbDataType type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="LinqToDB.DbDataType.html">DbDataType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_GetMaxPrecision_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.GetMaxPrecision*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_GetMaxPrecision_LinqToDB_DbDataType_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.GetMaxPrecision(LinqToDB.DbDataType)">
+  GetMaxPrecision(DbDataType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual int? GetMaxPrecision(DbDataType type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="LinqToDB.DbDataType.html">DbDataType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_GetMaxScale_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.GetMaxScale*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_GetMaxScale_LinqToDB_DbDataType_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.GetMaxScale(LinqToDB.DbDataType)">
+  GetMaxScale(DbDataType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual int? GetMaxScale(DbDataType type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="LinqToDB.DbDataType.html">DbDataType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Inc_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Inc*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Inc_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Inc(LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  Inc(ISqlExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISqlExpression Inc(ISqlExpression expr1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr1</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_IsDateDataOffsetType_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.IsDateDataOffsetType*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_IsDateDataOffsetType_LinqToDB_DbDataType_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.IsDateDataOffsetType(LinqToDB.DbDataType)">
+  IsDateDataOffsetType(DbDataType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static bool IsDateDataOffsetType(DbDataType dataType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataType</code> <a class="xref" href="LinqToDB.DbDataType.html">DbDataType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_IsDateDataType_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.IsDateDataType*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_IsDateDataType_LinqToDB_DbDataType_System_String_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.IsDateDataType(LinqToDB.DbDataType,System.String)">
+  IsDateDataType(DbDataType, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static bool IsDateDataType(DbDataType dataType, string typeName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataType</code> <a class="xref" href="LinqToDB.DbDataType.html">DbDataType</a></dt>
+    <dd></dd>
+    <dt><code>typeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_IsDateTime2Type_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.IsDateTime2Type*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_IsDateTime2Type_LinqToDB_DbDataType_System_String_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.IsDateTime2Type(LinqToDB.DbDataType,System.String)">
+  IsDateTime2Type(DbDataType, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static bool IsDateTime2Type(DbDataType dataType, string typeName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataType</code> <a class="xref" href="LinqToDB.DbDataType.html">DbDataType</a></dt>
+    <dd></dd>
+    <dt><code>typeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_IsDateTimeType_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.IsDateTimeType*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_IsDateTimeType_LinqToDB_DbDataType_System_String_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.IsDateTimeType(LinqToDB.DbDataType,System.String)">
+  IsDateTimeType(DbDataType, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static bool IsDateTimeType(DbDataType dataType, string typeName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataType</code> <a class="xref" href="LinqToDB.DbDataType.html">DbDataType</a></dt>
+    <dd></dd>
+    <dt><code>typeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_IsSmallDateTimeType_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.IsSmallDateTimeType*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_IsSmallDateTimeType_LinqToDB_DbDataType_System_String_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.IsSmallDateTimeType(LinqToDB.DbDataType,System.String)">
+  IsSmallDateTimeType(DbDataType, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static bool IsSmallDateTimeType(DbDataType dataType, string typeName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataType</code> <a class="xref" href="LinqToDB.DbDataType.html">DbDataType</a></dt>
+    <dd></dd>
+    <dt><code>typeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_IsTimeDataType_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.IsTimeDataType*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_IsTimeDataType_LinqToDB_DbDataType_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.IsTimeDataType(LinqToDB.DbDataType)">
+  IsTimeDataType(DbDataType)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static bool IsTimeDataType(DbDataType dataType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataType</code> <a class="xref" href="LinqToDB.DbDataType.html">DbDataType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Mul_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Mul*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Mul_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Type_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Mul(LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression,System.Type)">
+  Mul(ISqlExpression, ISqlExpression, Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISqlExpression Mul(ISqlExpression expr1, ISqlExpression expr2, Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr1</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>expr2</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Mul_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Mul*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Mul_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Int32_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Mul(LinqToDB.Internal.SqlQuery.ISqlExpression,System.Int32)">
+  Mul(ISqlExpression, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISqlExpression Mul(ISqlExpression expr1, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr1</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Mul_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Mul*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Mul__1_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Mul``1(LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  Mul&lt;T&gt;(ISqlExpression, ISqlExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISqlExpression Mul&lt;T&gt;(ISqlExpression expr1, ISqlExpression expr2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr1</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>expr2</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Optimize_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Optimize*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Optimize_LinqToDB_Internal_SqlQuery_IQueryElement_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Optimize(LinqToDB.Internal.SqlQuery.IQueryElement)">
+  Optimize(IQueryElement)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IQueryElement Optimize(IQueryElement element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_RowComparisonFallback_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.RowComparisonFallback*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_RowComparisonFallback_LinqToDB_Internal_SqlQuery_SqlPredicate_Operator_LinqToDB_Internal_SqlQuery_SqlRowExpression_LinqToDB_Internal_SqlQuery_SqlRowExpression_LinqToDB_Internal_SqlQuery_EvaluationContext_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.RowComparisonFallback(LinqToDB.Internal.SqlQuery.SqlPredicate.Operator,LinqToDB.Internal.SqlQuery.SqlRowExpression,LinqToDB.Internal.SqlQuery.SqlRowExpression,LinqToDB.Internal.SqlQuery.EvaluationContext)">
+  RowComparisonFallback(Operator, SqlRowExpression, SqlRowExpression, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ISqlPredicate RowComparisonFallback(SqlPredicate.Operator op, SqlRowExpression row1, SqlRowExpression row2, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>op</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.Operator.html">Operator</a></dt>
+    <dd></dd>
+    <dt><code>row1</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlRowExpression.html">SqlRowExpression</a></dt>
+    <dd></dd>
+    <dt><code>row2</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlRowExpression.html">SqlRowExpression</a></dt>
+    <dd></dd>
+    <dt><code>context</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlPredicate.html">ISqlPredicate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_RowIsNullFallback_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.RowIsNullFallback*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_RowIsNullFallback_LinqToDB_Internal_SqlQuery_SqlRowExpression_System_Boolean_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.RowIsNullFallback(LinqToDB.Internal.SqlQuery.SqlRowExpression,System.Boolean)">
+  RowIsNullFallback(SqlRowExpression, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ISqlPredicate RowIsNullFallback(SqlRowExpression row, bool isNot)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>row</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlRowExpression.html">SqlRowExpression</a></dt>
+    <dd></dd>
+    <dt><code>isNot</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlPredicate.html">ISqlPredicate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Sub_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Sub*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Sub_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Type_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Sub(LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression,System.Type)">
+  Sub(ISqlExpression, ISqlExpression, Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISqlExpression Sub(ISqlExpression expr1, ISqlExpression expr2, Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr1</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>expr2</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Sub_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Sub*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Sub_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Int32_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Sub(LinqToDB.Internal.SqlQuery.ISqlExpression,System.Int32)">
+  Sub(ISqlExpression, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISqlExpression Sub(ISqlExpression expr1, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr1</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Sub_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Sub*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Sub__1_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Sub``1(LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  Sub&lt;T&gt;(ISqlExpression, ISqlExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISqlExpression Sub&lt;T&gt;(ISqlExpression expr1, ISqlExpression expr2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr1</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>expr2</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_TryConvertToValue_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.TryConvertToValue*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_TryConvertToValue_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_EvaluationContext_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.TryConvertToValue(LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.EvaluationContext)">
+  TryConvertToValue(ISqlExpression, EvaluationContext)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ISqlExpression TryConvertToValue(ISqlExpression expr, EvaluationContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>context</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.EvaluationContext.html">EvaluationContext</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Visit_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Visit*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_Visit_LinqToDB_Internal_SqlQuery_IQueryElement_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.Visit(LinqToDB.Internal.SqlQuery.IQueryElement)">
+  Visit(IQueryElement?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Visitor dispatch method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IQueryElement? Visit(IQueryElement? element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitBetweenPredicate_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitBetweenPredicate*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitBetweenPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_Between_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitBetweenPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.Between)">
+  VisitBetweenPredicate(Between)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitBetweenPredicate(SqlPredicate.Between predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.Between.html">Between</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitCaseItem_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitCaseItem*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitCaseItem_LinqToDB_Internal_SqlQuery_SqlCaseExpression_CaseItem_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitCaseItem(LinqToDB.Internal.SqlQuery.SqlCaseExpression.CaseItem)">
+  VisitCaseItem(CaseItem)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override SqlCaseExpression.CaseItem VisitCaseItem(SqlCaseExpression.CaseItem element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCaseExpression.html">SqlCaseExpression</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCaseExpression.CaseItem.html">CaseItem</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCaseExpression.html">SqlCaseExpression</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCaseExpression.CaseItem.html">CaseItem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitExprExprPredicate_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitExprExprPredicate*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitExprExprPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_ExprExpr_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitExprExprPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.ExprExpr)">
+  VisitExprExprPredicate(ExprExpr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitExprExprPredicate(SqlPredicate.ExprExpr predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.ExprExpr.html">ExprExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitExprPredicate_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitExprPredicate*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitExprPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_Expr_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitExprPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.Expr)">
+  VisitExprPredicate(Expr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitExprPredicate(SqlPredicate.Expr predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.Expr.html">Expr</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitInListPredicate_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitInListPredicate*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitInListPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_InList_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitInListPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.InList)">
+  VisitInListPredicate(InList)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitInListPredicate(SqlPredicate.InList predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.InList.html">InList</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitInSubQueryPredicate_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitInSubQueryPredicate*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitInSubQueryPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_InSubQuery_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitInSubQueryPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.InSubQuery)">
+  VisitInSubQueryPredicate(InSubQuery)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitInSubQueryPredicate(SqlPredicate.InSubQuery predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.InSubQuery.html">InSubQuery</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitIsDistinctPredicate_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitIsDistinctPredicate*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitIsDistinctPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_IsDistinct_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitIsDistinctPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.IsDistinct)">
+  VisitIsDistinctPredicate(IsDistinct)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitIsDistinctPredicate(SqlPredicate.IsDistinct predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.IsDistinct.html">IsDistinct</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitIsNullPredicate_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitIsNullPredicate*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitIsNullPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_IsNull_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitIsNullPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.IsNull)">
+  VisitIsNullPredicate(IsNull)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitIsNullPredicate(SqlPredicate.IsNull predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.IsNull.html">IsNull</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitLikePredicate_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitLikePredicate*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitLikePredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_Like_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitLikePredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.Like)">
+  VisitLikePredicate(Like)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitLikePredicate(SqlPredicate.Like predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.Like.html">Like</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitNotPredicate_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitNotPredicate*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitNotPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_Not_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitNotPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.Not)">
+  VisitNotPredicate(Not)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitNotPredicate(SqlPredicate.Not predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.Not.html">Not</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSearchStringPredicate_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSearchStringPredicate*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSearchStringPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_SearchString_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSearchStringPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.SearchString)">
+  VisitSearchStringPredicate(SearchString)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSearchStringPredicate(SqlPredicate.SearchString predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.SearchString.html">SearchString</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlBinaryExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlBinaryExpression*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlBinaryExpression_LinqToDB_Internal_SqlQuery_SqlBinaryExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlBinaryExpression(LinqToDB.Internal.SqlQuery.SqlBinaryExpression)">
+  VisitSqlBinaryExpression(SqlBinaryExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlBinaryExpression(SqlBinaryExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlBinaryExpression.html">SqlBinaryExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlCaseExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlCaseExpression*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlCaseExpression_LinqToDB_Internal_SqlQuery_SqlCaseExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlCaseExpression(LinqToDB.Internal.SqlQuery.SqlCaseExpression)">
+  VisitSqlCaseExpression(SqlCaseExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlCaseExpression(SqlCaseExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCaseExpression.html">SqlCaseExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlCastExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlCastExpression*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlCastExpression_LinqToDB_Internal_SqlQuery_SqlCastExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlCastExpression(LinqToDB.Internal.SqlQuery.SqlCastExpression)">
+  VisitSqlCastExpression(SqlCastExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlCastExpression(SqlCastExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCastExpression.html">SqlCastExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlCoalesceExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlCoalesceExpression*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlCoalesceExpression_LinqToDB_Internal_SqlQuery_SqlCoalesceExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlCoalesceExpression(LinqToDB.Internal.SqlQuery.SqlCoalesceExpression)">
+  VisitSqlCoalesceExpression(SqlCoalesceExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlCoalesceExpression(SqlCoalesceExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCoalesceExpression.html">SqlCoalesceExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlColumnExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlColumnExpression*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlColumnExpression_LinqToDB_Internal_SqlQuery_SqlColumn_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlColumnExpression(LinqToDB.Internal.SqlQuery.SqlColumn,LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  VisitSqlColumnExpression(SqlColumn, ISqlExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Visit of column expression from owner table. For column references visitor see <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlColumnReference_LinqToDB_Internal_SqlQuery_SqlColumn_">VisitSqlColumnReference(SqlColumn)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override ISqlExpression VisitSqlColumnExpression(SqlColumn column, ISqlExpression expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>column</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlColumn.html">SqlColumn</a></dt>
+    <dd></dd>
+    <dt><code>expression</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlColumnReference_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlColumnReference*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlColumnReference_LinqToDB_Internal_SqlQuery_SqlColumn_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlColumnReference(LinqToDB.Internal.SqlQuery.SqlColumn)">
+  VisitSqlColumnReference(SqlColumn)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Used to visit columns as references in other expressions.
+Actual visit of table column happens in <a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlColumnExpression_LinqToDB_Internal_SqlQuery_SqlColumn_LinqToDB_Internal_SqlQuery_ISqlExpression_">VisitSqlColumnExpression(SqlColumn, ISqlExpression)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlColumnReference(SqlColumn element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlColumn.html">SqlColumn</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlCompareToExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlCompareToExpression*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlCompareToExpression_LinqToDB_Internal_SqlQuery_SqlCompareToExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlCompareToExpression(LinqToDB.Internal.SqlQuery.SqlCompareToExpression)">
+  VisitSqlCompareToExpression(SqlCompareToExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlCompareToExpression(SqlCompareToExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCompareToExpression.html">SqlCompareToExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlConditionExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlConditionExpression*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlConditionExpression_LinqToDB_Internal_SqlQuery_SqlConditionExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlConditionExpression(LinqToDB.Internal.SqlQuery.SqlConditionExpression)">
+  VisitSqlConditionExpression(SqlConditionExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlConditionExpression(SqlConditionExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlConditionExpression.html">SqlConditionExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlExpression*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlExpression_LinqToDB_Internal_SqlQuery_SqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlExpression(LinqToDB.Internal.SqlQuery.SqlExpression)">
+  VisitSqlExpression(SqlExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlExpression(SqlExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlExpression.html">SqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlExtendedFunction_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlExtendedFunction*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlExtendedFunction_LinqToDB_SqlQuery_SqlExtendedFunction_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlExtendedFunction(LinqToDB.SqlQuery.SqlExtendedFunction)">
+  VisitSqlExtendedFunction(SqlExtendedFunction)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Visitor for <a class="xref" href="LinqToDB.SqlQuery.SqlExtendedFunction.html">SqlExtendedFunction</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlExtendedFunction(SqlExtendedFunction element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.SqlQuery.SqlExtendedFunction.html">SqlExtendedFunction</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlFieldReference_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlFieldReference*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlFieldReference_LinqToDB_Internal_SqlQuery_SqlField_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlFieldReference(LinqToDB.Internal.SqlQuery.SqlField)">
+  VisitSqlFieldReference(SqlField)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Visitor for <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlField.html">SqlField</a> reference from query expressions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlFieldReference(SqlField element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlField.html">SqlField</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlFunction_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlFunction*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlFunction_LinqToDB_Internal_SqlQuery_SqlFunction_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlFunction(LinqToDB.Internal.SqlQuery.SqlFunction)">
+  VisitSqlFunction(SqlFunction)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlFunction(SqlFunction element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlFunction.html">SqlFunction</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlGroupByItem_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlGroupByItem*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlGroupByItem_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlGroupByItem(LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  VisitSqlGroupByItem(ISqlExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override ISqlExpression VisitSqlGroupByItem(ISqlExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlInlinedSqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlInlinedSqlExpression*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlInlinedSqlExpression_LinqToDB_Internal_SqlQuery_SqlInlinedSqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlInlinedSqlExpression(LinqToDB.Internal.SqlQuery.SqlInlinedSqlExpression)">
+  VisitSqlInlinedSqlExpression(SqlInlinedSqlExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlInlinedSqlExpression(SqlInlinedSqlExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlInlinedSqlExpression.html">SqlInlinedSqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlInlinedToSqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlInlinedToSqlExpression*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlInlinedToSqlExpression_LinqToDB_Internal_SqlQuery_SqlInlinedToSqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlInlinedToSqlExpression(LinqToDB.Internal.SqlQuery.SqlInlinedToSqlExpression)">
+  VisitSqlInlinedToSqlExpression(SqlInlinedToSqlExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlInlinedToSqlExpression(SqlInlinedToSqlExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlInlinedToSqlExpression.html">SqlInlinedToSqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlJoinedTable_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlJoinedTable*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlJoinedTable_LinqToDB_Internal_SqlQuery_SqlJoinedTable_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlJoinedTable(LinqToDB.Internal.SqlQuery.SqlJoinedTable)">
+  VisitSqlJoinedTable(SqlJoinedTable)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlJoinedTable(SqlJoinedTable element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlJoinedTable.html">SqlJoinedTable</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlOrderByItem_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlOrderByItem*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlOrderByItem_LinqToDB_Internal_SqlQuery_SqlOrderByItem_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlOrderByItem(LinqToDB.Internal.SqlQuery.SqlOrderByItem)">
+  VisitSqlOrderByItem(SqlOrderByItem)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlOrderByItem(SqlOrderByItem element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlOrderByItem.html">SqlOrderByItem</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlOutputClause_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlOutputClause*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlOutputClause_LinqToDB_Internal_SqlQuery_SqlOutputClause_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlOutputClause(LinqToDB.Internal.SqlQuery.SqlOutputClause)">
+  VisitSqlOutputClause(SqlOutputClause)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlOutputClause(SqlOutputClause element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlOutputClause.html">SqlOutputClause</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlQuery_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlQuery*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlQuery_LinqToDB_Internal_SqlQuery_SelectQuery_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlQuery(LinqToDB.Internal.SqlQuery.SelectQuery)">
+  VisitSqlQuery(SelectQuery)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlQuery(SelectQuery selectQuery)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>selectQuery</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SelectQuery.html">SelectQuery</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlSetExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlSetExpression*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlSetExpression_LinqToDB_Internal_SqlQuery_SqlSetExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlSetExpression(LinqToDB.Internal.SqlQuery.SqlSetExpression)">
+  VisitSqlSetExpression(SqlSetExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlSetExpression(SqlSetExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlSetExpression.html">SqlSetExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlValue_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlValue*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlValue_LinqToDB_Internal_SqlQuery_SqlValue_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.VisitSqlValue(LinqToDB.Internal.SqlQuery.SqlValue)">
+  VisitSqlValue(SqlValue)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlValue(SqlValue element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlValue.html">SqlValue</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_WrapBooleanCoalesceItems_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.WrapBooleanCoalesceItems*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_WrapBooleanCoalesceItems_LinqToDB_Internal_SqlQuery_SqlCoalesceExpression_LinqToDB_Internal_SqlQuery_IQueryElement_System_Boolean_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.WrapBooleanCoalesceItems(LinqToDB.Internal.SqlQuery.SqlCoalesceExpression,LinqToDB.Internal.SqlQuery.IQueryElement,System.Boolean)">
+  WrapBooleanCoalesceItems(SqlCoalesceExpression, IQueryElement, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual SqlCoalesceExpression? WrapBooleanCoalesceItems(SqlCoalesceExpression element, IQueryElement newElement, bool forceConvert = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCoalesceExpression.html">SqlCoalesceExpression</a></dt>
+    <dd></dd>
+    <dt><code>newElement</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+    <dt><code>forceConvert</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCoalesceExpression.html">SqlCoalesceExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_WrapBooleanExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.WrapBooleanExpression*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_WrapBooleanExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Boolean_System_Boolean_System_Boolean_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.WrapBooleanExpression(LinqToDB.Internal.SqlQuery.ISqlExpression,System.Boolean,System.Boolean,System.Boolean)">
+  WrapBooleanExpression(ISqlExpression, bool, bool, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual ISqlExpression WrapBooleanExpression(ISqlExpression expr, bool includeFields, bool forceConvert = false, bool withNull = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>includeFields</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>forceConvert</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>withNull</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_WrapColumnExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.WrapColumnExpression*"></a>
+
+  <h3 id="LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_WrapColumnExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.WrapColumnExpression(LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  WrapColumnExpression(ISqlExpression)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual ISqlExpression WrapColumnExpression(ISqlExpression expr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

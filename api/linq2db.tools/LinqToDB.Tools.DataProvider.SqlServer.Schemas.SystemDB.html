@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class SystemDB | Linq To DB ">
       
-      <meta name="description" content="Database       : master Data Source    : . Server Version : 15.00.2101">
+      
       <link rel="icon" href="../../images/icon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB" class="text-break">
-Class SystemDB  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L25"><i class="bi bi-code-slash"></i></a>
+Class SystemDB  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/SystemDB.cs/#L5"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,14 +97,11 @@ Class SystemDB  <a class="header-action link-secondary" title="View source" href
   <dl><dt>Assembly</dt><dd>linq2db.Tools.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Database       : master
-Data Source    : .
-Server Version : 15.00.2101</p>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SystemDB : DataConnection, IDataContext, IConfigurationID, IDisposable, IAsyncDisposable, ICloneable, IInterceptable&lt;ICommandInterceptor&gt;, IInterceptable&lt;IConnectionInterceptor&gt;, IInterceptable&lt;IDataContextInterceptor&gt;, IInterceptable&lt;IEntityServiceInterceptor&gt;, IInterceptable&lt;IUnwrapDataObjectInterceptor&gt;, IInterceptable</code></pre>
+    <pre><code class="lang-csharp hljs">public class SystemDB : DataConnection, IInfrastructure&lt;IServiceProvider&gt;, ISystemSchemaData, IDataContext, IConfigurationID, IDisposable, IAsyncDisposable</code></pre>
   </div>
 
 
@@ -122,17 +119,12 @@ Server Version : 15.00.2101</p>
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
+      <div><a class="xref" href="../linq2db/LinqToDB.Internal.Infrastructure.IInfrastructure-1.html">IInfrastructure</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>&gt;</div>
+      <div><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ISystemSchemaData.html">ISystemSchemaData</a></div>
       <div><a class="xref" href="../linq2db/LinqToDB.IDataContext.html">IDataContext</a></div>
-      <div><a class="xref" href="../linq2db/LinqToDB.Common.Internal.IConfigurationID.html">IConfigurationID</a></div>
+      <div><a class="xref" href="../linq2db/LinqToDB.Internal.Common.IConfigurationID.html">IConfigurationID</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
-      <div><a class="xref" href="../linq2db/LinqToDB.Async.IAsyncDisposable.html">IAsyncDisposable</a></div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icloneable">ICloneable</a></div>
-      <div><a class="xref" href="../linq2db/LinqToDB.Interceptors.IInterceptable-1.html">IInterceptable</a>&lt;<a class="xref" href="../linq2db/LinqToDB.Interceptors.ICommandInterceptor.html">ICommandInterceptor</a>&gt;</div>
-      <div><a class="xref" href="../linq2db/LinqToDB.Interceptors.IInterceptable-1.html">IInterceptable</a>&lt;<a class="xref" href="../linq2db/LinqToDB.Interceptors.IConnectionInterceptor.html">IConnectionInterceptor</a>&gt;</div>
-      <div><a class="xref" href="../linq2db/LinqToDB.Interceptors.IInterceptable-1.html">IInterceptable</a>&lt;<a class="xref" href="../linq2db/LinqToDB.Interceptors.IDataContextInterceptor.html">IDataContextInterceptor</a>&gt;</div>
-      <div><a class="xref" href="../linq2db/LinqToDB.Interceptors.IInterceptable-1.html">IInterceptable</a>&lt;<a class="xref" href="../linq2db/LinqToDB.Interceptors.IEntityServiceInterceptor.html">IEntityServiceInterceptor</a>&gt;</div>
-      <div><a class="xref" href="../linq2db/LinqToDB.Interceptors.IInterceptable-1.html">IInterceptable</a>&lt;<a class="xref" href="../linq2db/LinqToDB.Interceptors.IUnwrapDataObjectInterceptor.html">IUnwrapDataObjectInterceptor</a>&gt;</div>
-      <div><a class="xref" href="../linq2db/LinqToDB.Interceptors.IInterceptable.html">IInterceptable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
     </dd>
   </dl>
 
@@ -141,13 +133,16 @@ Server Version : 15.00.2101</p>
     <dt>Inherited Members</dt>
     <dd>
     <div>
+      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_ResetCommandTimeoutAsync">DataConnection.ResetCommandTimeoutAsync()</a>
+    </div>
+    <div>
       <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_BeginTransactionAsync_System_Threading_CancellationToken_">DataConnection.BeginTransactionAsync(CancellationToken)</a>
     </div>
     <div>
       <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_BeginTransactionAsync_System_Data_IsolationLevel_System_Threading_CancellationToken_">DataConnection.BeginTransactionAsync(IsolationLevel, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_EnsureConnectionAsync_System_Threading_CancellationToken_">DataConnection.EnsureConnectionAsync(CancellationToken)</a>
+      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_OpenDbConnectionAsync_System_Threading_CancellationToken_">DataConnection.OpenDbConnectionAsync(CancellationToken)</a>
     </div>
     <div>
       <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_CommitTransactionAsync_System_Threading_CancellationToken_">DataConnection.CommitTransactionAsync(CancellationToken)</a>
@@ -243,7 +238,7 @@ Server Version : 15.00.2101</p>
       <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_RetryPolicy">DataConnection.RetryPolicy</a>
     </div>
     <div>
-      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_IsMarsEnabled">DataConnection.IsMarsEnabled</a>
+      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_Tag">DataConnection.Tag</a>
     </div>
     <div>
       <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_DefaultOnTraceConnection">DataConnection.DefaultOnTraceConnection</a>
@@ -267,7 +262,10 @@ Server Version : 15.00.2101</p>
       <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_WriteTraceLineConnection">DataConnection.WriteTraceLineConnection</a>
     </div>
     <div>
-      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_Connection">DataConnection.Connection</a>
+      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_TryGetDbConnection">DataConnection.TryGetDbConnection()</a>
+    </div>
+    <div>
+      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_OpenDbConnection">DataConnection.OpenDbConnection()</a>
     </div>
     <div>
       <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_Close">DataConnection.Close()</a>
@@ -279,10 +277,7 @@ Server Version : 15.00.2101</p>
       <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_CommandTimeout">DataConnection.CommandTimeout</a>
     </div>
     <div>
-      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_CreateCommand">DataConnection.CreateCommand()</a>
-    </div>
-    <div>
-      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_DisposeCommand">DataConnection.DisposeCommand()</a>
+      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_ResetCommandTimeout">DataConnection.ResetCommandTimeout()</a>
     </div>
     <div>
       <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_ExecuteNonQuery_System_Data_Common_DbCommand_">DataConnection.ExecuteNonQuery(DbCommand)</a>
@@ -292,9 +287,6 @@ Server Version : 15.00.2101</p>
     </div>
     <div>
       <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_ExecuteReader_System_Data_CommandBehavior_">DataConnection.ExecuteReader(CommandBehavior)</a>
-    </div>
-    <div>
-      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_ClearObjectReaderCache">DataConnection.ClearObjectReaderCache()</a>
     </div>
     <div>
       <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_Transaction">DataConnection.Transaction</a>
@@ -333,19 +325,19 @@ Server Version : 15.00.2101</p>
       <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_AddMappingSchema_LinqToDB_Mapping_MappingSchema_">DataConnection.AddMappingSchema(MappingSchema)</a>
     </div>
     <div>
-      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_Clone">DataConnection.Clone()</a>
-    </div>
-    <div>
       <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_Disposed">DataConnection.Disposed</a>
-    </div>
-    <div>
-      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_ThrowOnDisposed">DataConnection.ThrowOnDisposed</a>
     </div>
     <div>
       <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_CheckAndThrowOnDisposed">DataConnection.CheckAndThrowOnDisposed()</a>
     </div>
     <div>
       <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_Dispose">DataConnection.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_UseOptions_System_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__">DataConnection.UseOptions(Func&lt;DataOptions, DataOptions&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_UseMappingSchema_LinqToDB_Mapping_MappingSchema_">DataConnection.UseMappingSchema(MappingSchema)</a>
     </div>
     <div>
       <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_AddInterceptor_LinqToDB_Interceptors_IInterceptor_">DataConnection.AddInterceptor(IInterceptor)</a>
@@ -357,7 +349,28 @@ Server Version : 15.00.2101</p>
       <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_RemoveInterceptor_LinqToDB_Interceptors_IInterceptor_">DataConnection.RemoveInterceptor(IInterceptor)</a>
     </div>
     <div>
-      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_ProcessQuery_LinqToDB_SqlQuery_SqlStatement_LinqToDB_SqlQuery_EvaluationContext_">DataConnection.ProcessQuery(SqlStatement, EvaluationContext)</a>
+      <a class="xref" href="../linq2db/LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_ProcessQuery_LinqToDB_Internal_SqlQuery_SqlStatement_LinqToDB_Internal_SqlQuery_EvaluationContext_">DataConnection.ProcessQuery(SqlStatement, EvaluationContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
   </dd></dl>
 
@@ -374,6 +387,9 @@ Server Version : 15.00.2101</p>
       <a class="xref" href="LinqToDB.Tools.MappingSchemaExtensions.html#LinqToDB_Tools_MappingSchemaExtensions_GetKeyEqualityComparer__1_LinqToDB_IDataContext_">MappingSchemaExtensions.GetKeyEqualityComparer&lt;T&gt;(IDataContext)</a>
   </div>
   <div>
+      <a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemSchemaExtensions.html#LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemSchemaExtensions_GetTableRowCountInfo_LinqToDB_Tools_DataProvider_SqlServer_Schemas_ISystemSchemaData_">SystemSchemaExtensions.GetTableRowCountInfo(ISystemSchemaData)</a>
+  </div>
+  <div>
       <a class="xref" href="LinqToDB.Tools.Mapper.Map.html#LinqToDB_Tools_Mapper_Map_DeepCopy__1___0_">Map.DeepCopy&lt;T&gt;(T)</a>
   </div>
   </dd></dl>
@@ -388,35 +404,9 @@ Server Version : 15.00.2101</p>
 
   <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB__ctor_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.#ctor*"></a>
 
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB__ctor" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.#ctor">
-  SystemDB()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L99"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SystemDB()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB__ctor_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.#ctor*"></a>
-
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB__ctor_LinqToDB_DataOptions_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.#ctor(LinqToDB.DataOptions)">
   SystemDB(DataOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/SystemDB.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -447,7 +437,7 @@ Server Version : 15.00.2101</p>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB__ctor_LinqToDB_DataOptions_LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB__" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.#ctor(LinqToDB.DataOptions{LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB})">
   SystemDB(DataOptions&lt;SystemDB&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/SystemDB.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -478,7 +468,7 @@ Server Version : 15.00.2101</p>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB__ctor_System_String_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.#ctor(System.String)">
   SystemDB(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/SystemDB.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -509,18 +499,18 @@ Server Version : 15.00.2101</p>
 </h2>
 
 
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_Availability_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.Availability*"></a>
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_System_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.System*"></a>
 
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_Availability" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.Availability">
-  Availability
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_System" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.System">
+  System
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/SystemDB.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AvailabilitySchema.DataContext Availability { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public SystemSchemaModel System { get; }</code></pre>
   </div>
 
 
@@ -529,969 +519,9 @@ Server Version : 15.00.2101</p>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AvailabilitySchema.html">AvailabilitySchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AvailabilitySchema.DataContext.html">DataContext</a></dt>
+    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemSchemaModel.html">SystemSchemaModel</a></dt>
     <dd></dd>
   </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_AzureSQLDatabase_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.AzureSQLDatabase*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_AzureSQLDatabase" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.AzureSQLDatabase">
-  AzureSQLDatabase
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L31"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AzureSQLDatabaseSchema.DataContext AzureSQLDatabase { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.html">AzureSQLDatabaseSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_AzureSynapseAnalytics_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.AzureSynapseAnalytics*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_AzureSynapseAnalytics" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.AzureSynapseAnalytics">
-  AzureSynapseAnalytics
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L32"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AzureSynapseAnalyticsSchema.DataContext AzureSynapseAnalytics { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSynapseAnalyticsSchema.html">AzureSynapseAnalyticsSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSynapseAnalyticsSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_CLRAssembly_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.CLRAssembly*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_CLRAssembly" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.CLRAssembly">
-  CLRAssembly
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L34"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CLRAssemblySchema.DataContext CLRAssembly { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.CLRAssemblySchema.html">CLRAssemblySchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.CLRAssemblySchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_ChangeTracking_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.ChangeTracking*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_ChangeTracking" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.ChangeTracking">
-  ChangeTracking
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L33"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ChangeTrackingSchema.DataContext ChangeTracking { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ChangeTrackingSchema.html">ChangeTrackingSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ChangeTrackingSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_Compatibility_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.Compatibility*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_Compatibility" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.Compatibility">
-  Compatibility
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L35"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CompatibilitySchema.DataContext Compatibility { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.CompatibilitySchema.html">CompatibilitySchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.CompatibilitySchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_DataCollector_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.DataCollector*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_DataCollector" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.DataCollector">
-  DataCollector
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L39"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DataCollectorSchema.DataContext DataCollector { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DataCollectorSchema.html">DataCollectorSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DataCollectorSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_DataSpaces_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.DataSpaces*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_DataSpaces" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.DataSpaces">
-  DataSpaces
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L40"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DataSpacesSchema.DataContext DataSpaces { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DataSpacesSchema.html">DataSpacesSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DataSpacesSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_DataTierApplications_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.DataTierApplications*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_DataTierApplications" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.DataTierApplications">
-  DataTierApplications
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L41"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DataTierApplicationsSchema.DataContext DataTierApplications { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DataTierApplicationsSchema.html">DataTierApplicationsSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DataTierApplicationsSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_DatabaseMail_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.DatabaseMail*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_DatabaseMail" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.DatabaseMail">
-  DatabaseMail
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L36"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DatabaseMailSchema.DataContext DatabaseMail { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DatabaseMailSchema.html">DatabaseMailSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DatabaseMailSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_DatabaseMirroring_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.DatabaseMirroring*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_DatabaseMirroring" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.DatabaseMirroring">
-  DatabaseMirroring
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L37"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DatabaseMirroringSchema.DataContext DatabaseMirroring { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DatabaseMirroringSchema.html">DatabaseMirroringSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DatabaseMirroringSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_DatabasesAndFiles_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.DatabasesAndFiles*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_DatabasesAndFiles" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.DatabasesAndFiles">
-  DatabasesAndFiles
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L38"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DatabasesAndFilesSchema.DataContext DatabasesAndFiles { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DatabasesAndFilesSchema.html">DatabasesAndFilesSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.DatabasesAndFilesSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_Endpoints_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.Endpoints*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_Endpoints" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.Endpoints">
-  Endpoints
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L42"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public EndpointsSchema.DataContext Endpoints { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.EndpointsSchema.html">EndpointsSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.EndpointsSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_ExtendedEvents_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.ExtendedEvents*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_ExtendedEvents" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.ExtendedEvents">
-  ExtendedEvents
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L43"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ExtendedEventsSchema.DataContext ExtendedEvents { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.html">ExtendedEventsSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_ExternalOperations_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.ExternalOperations*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_ExternalOperations" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.ExternalOperations">
-  ExternalOperations
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L44"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ExternalOperationsSchema.DataContext ExternalOperations { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExternalOperationsSchema.html">ExternalOperationsSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExternalOperationsSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_FilestreamAndFileTable_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.FilestreamAndFileTable*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_FilestreamAndFileTable" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.FilestreamAndFileTable">
-  FilestreamAndFileTable
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L45"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FilestreamAndFileTableSchema.DataContext FilestreamAndFileTable { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.FilestreamAndFileTableSchema.html">FilestreamAndFileTableSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.FilestreamAndFileTableSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_FullTextSearch_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.FullTextSearch*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_FullTextSearch" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.FullTextSearch">
-  FullTextSearch
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L46"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FullTextSearchSchema.DataContext FullTextSearch { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.FullTextSearchSchema.html">FullTextSearchSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.FullTextSearchSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_Information_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.Information*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_Information" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.Information">
-  Information
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L47"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public InformationSchema.DataContext Information { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.html">InformationSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_LinkedServers_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.LinkedServers*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_LinkedServers" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.LinkedServers">
-  LinkedServers
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L48"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LinkedServersSchema.DataContext LinkedServers { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.LinkedServersSchema.html">LinkedServersSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.LinkedServersSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_Object_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.Object*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_Object" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.Object">
-  Object
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L49"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ObjectSchema.DataContext Object { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.html">ObjectSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_PartitionFunction_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.PartitionFunction*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_PartitionFunction" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.PartitionFunction">
-  PartitionFunction
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L50"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PartitionFunctionSchema.DataContext PartitionFunction { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.PartitionFunctionSchema.html">PartitionFunctionSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.PartitionFunctionSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_PolicyBasedManagement_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.PolicyBasedManagement*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_PolicyBasedManagement" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.PolicyBasedManagement">
-  PolicyBasedManagement
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L51"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PolicyBasedManagementSchema.DataContext PolicyBasedManagement { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.PolicyBasedManagementSchema.html">PolicyBasedManagementSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.PolicyBasedManagementSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_QueryStore_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.QueryStore*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_QueryStore" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.QueryStore">
-  QueryStore
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L52"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public QueryStoreSchema.DataContext QueryStore { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.QueryStoreSchema.html">QueryStoreSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.QueryStoreSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_ResourceGovernor_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.ResourceGovernor*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_ResourceGovernor" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.ResourceGovernor">
-  ResourceGovernor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L53"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ResourceGovernorSchema.DataContext ResourceGovernor { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ResourceGovernorSchema.html">ResourceGovernorSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ResourceGovernorSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_ScalarTypes_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.ScalarTypes*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_ScalarTypes" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.ScalarTypes">
-  ScalarTypes
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L54"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ScalarTypesSchema.DataContext ScalarTypes { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ScalarTypesSchema.html">ScalarTypesSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ScalarTypesSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_Security_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.Security*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_Security" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.Security">
-  Security
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L55"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SecuritySchema.DataContext Security { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.html">SecuritySchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SecuritySchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_ServerWideConfiguration_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.ServerWideConfiguration*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_ServerWideConfiguration" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.ServerWideConfiguration">
-  ServerWideConfiguration
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L56"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ServerWideConfigurationSchema.DataContext ServerWideConfiguration { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ServerWideConfigurationSchema.html">ServerWideConfigurationSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ServerWideConfigurationSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_ServiceBroker_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.ServiceBroker*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_ServiceBroker" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.ServiceBroker">
-  ServiceBroker
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L57"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ServiceBrokerSchema.DataContext ServiceBroker { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ServiceBrokerSchema.html">ServiceBrokerSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ServiceBrokerSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_SpatialData_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.SpatialData*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_SpatialData" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.SpatialData">
-  SpatialData
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L58"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SpatialDataSchema.DataContext SpatialData { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SpatialDataSchema.html">SpatialDataSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SpatialDataSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_StretchDatabase_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.StretchDatabase*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_StretchDatabase" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.StretchDatabase">
-  StretchDatabase
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L59"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StretchDatabaseSchema.DataContext StretchDatabase { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.StretchDatabaseSchema.html">StretchDatabaseSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.StretchDatabaseSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_Xml_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.Xml*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_Xml" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.Xml">
-  Xml
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L60"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public XmlSchema.DataContext Xml { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.html">XmlSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.DataContext.html">DataContext</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h2 class="section" id="methods">Methods
-</h2>
-
-
-  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_InitSchemas_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.InitSchemas*"></a>
-
-  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_SystemDB_InitSchemas" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.SystemDB.InitSchemas">
-  InitSchemas()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L62"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void InitSchemas()</code></pre>
-  </div>
-
-
-
-
-
 
 
 
@@ -1517,7 +547,7 @@ Server Version : 15.00.2101</p>
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2024 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

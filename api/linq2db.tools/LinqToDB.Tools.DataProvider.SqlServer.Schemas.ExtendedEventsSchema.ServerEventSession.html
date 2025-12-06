@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ExtendedEventsSchema.ServerEventSession | Linq To DB ">
       
-      <meta name="description" content="sys.server_event_sessions (Transact-SQL) Applies to: √ SQL Server (all supported versions) Lists all the event session definitions that exist in SQL Server. See sys.server_event_sessions.">
+      <meta name="description" content="sys.server_event_sessions (Transact-SQL) Applies to: √ SQL Server √ Azure SQL Managed Instance Lists all the server-scoped event session definitions that exist in SQL Server or Azure SQL Managed Instance. note 		Azure SQL Database supports only database-scoped event sessions. See the related view, sys.database_event_sessions.  See sys.server_event_sessions.">
       <link rel="icon" href="../../images/icon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_ServerEventSession" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.ServerEventSession" class="text-break">
-Class ExtendedEventsSchema.ServerEventSession  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L9001"><i class="bi bi-code-slash"></i></a>
+Class ExtendedEventsSchema.ServerEventSession  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10747"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -98,8 +98,11 @@ Class ExtendedEventsSchema.ServerEventSession  <a class="header-action link-seco
   </div>
 
   <div class="markdown summary"><p><strong>sys.server_event_sessions (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Lists all the event session definitions that exist in SQL Server.</p><br>
+<p><strong>Applies to:</strong> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">SQL Server</a> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure SQL Managed Instance</a></p>
+<p>Lists all the server-scoped event session definitions that exist in SQL Server or Azure SQL Managed Instance.<br>
+<div class="NOTE"><h5>note</h5><p><br>
+		Azure SQL Database supports only database-scoped event sessions. See the related view, <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-database-event-sessions-azure-sql-database">sys.database_event_sessions</a>.<br>
+</p></div><br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-server-event-sessions-transact-sql">sys.server_event_sessions</a>.</p>
 </div>
   <div class="markdown conceptual"></div>
@@ -122,6 +125,31 @@ public class ExtendedEventsSchema.ServerEventSession</code></pre>
 
 
 
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
 
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
@@ -143,10 +171,11 @@ public class ExtendedEventsSchema.ServerEventSession</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_ServerEventSession_EventRetentionMode" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.ServerEventSession.EventRetentionMode">
   EventRetentionMode
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L9015"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10764"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Determines how event loss is handled. The default is S. Is not nullable. Is one of the following:<br><br> S. Maps to event_retention_mode_desc = ALLOW_SINGLE_EVENT_LOSS<br><br> M. Maps to event_retention_mode_desc = ALLOW_MULTIPLE_EVENT_LOSS<br><br> N. Maps to event_retention_mode_desc = NO_EVENT_LOSS</p>
+  <div class="markdown level1 summary"><p><strong>event_retention_mode</strong> NULL <strong>nchar(1)</strong></p>
+Determines how event loss is handled. The default is <code>S</code>. Not nullable. Can be one of the following values:<br><br><code>S</code>. Maps to <code>event_retention_mode_desc = ALLOW_SINGLE_EVENT_LOSS</code><br><br><code>M</code>. Maps to <code>event_retention_mode_desc = ALLOW_MULTIPLE_EVENT_LOSS</code><br><br><code>N</code>. Maps to <code>event_retention_mode_desc = NO_EVENT_LOSS</code>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -177,10 +206,11 @@ public string? EventRetentionMode { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_ServerEventSession_EventRetentionModeDesc" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.ServerEventSession.EventRetentionModeDesc">
   EventRetentionModeDesc
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L9019"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10769"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Describes how event loss is handled. The default is ALLOW_SINGLE_EVENT_LOSS. Is not nullable. Is one of the following:<br><br> ALLOW_SINGLE_EVENT_LOSS. Events can be lost from the session. Single events are dropped only when all event buffers are full. Losing single events when buffers are full allows for acceptable SQL Server performance characteristics, while minimizing the loss in the processed event stream.<br><br> ALLOW_MULTIPLE_EVENT_LOSS. Full event buffers can be lost from the session. The number of events lost depends on the memory size allocated to the session, the partitioning of the memory, and the size of the events in the buffer. This option minimizes performance impact on the server when event buffers are quickly filled. However, large numbers of events can be lost from the session.<br><br> NO_EVENT_LOSS. No event loss is allowed. This option ensures that all events raised are retained. Using this option forces all the tasks that fire events to wait until space is available in an event buffer. This may lead to detectable performance degradation while the event session is active.</p>
+  <div class="markdown level1 summary"><p><strong>event_retention_mode_desc</strong> NULL <strong>sysname</strong></p>
+Describes how event loss is handled. The default is <code>ALLOW_SINGLE_EVENT_LOSS</code>. Not nullable. Can be one of the following values:<br><br><code>ALLOW_SINGLE_EVENT_LOSS</code>. Events can be lost from the session. Single events are dropped only when all event buffers are full. Losing single events when buffers are full allows for acceptable SQL Server performance characteristics, while minimizing the loss in the processed event stream.<br><br><code>ALLOW_MULTIPLE_EVENT_LOSS</code>. Full event buffers can be lost from the session. The number of events lost depends on the memory size allocated to the session, the partitioning of the memory, and the size of the events in the buffer. This option minimizes the performance impact on the server when event buffers are quickly filled. However, large numbers of events can be lost from the session.<br><br><code>NO_EVENT_LOSS</code>. No event loss is allowed. This option ensures that all events raised are retained. Using this option forces all the tasks that fire events to wait until space is available in an event buffer. This might lead to detectable performance degradation while the event session is active.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -211,10 +241,11 @@ public string? EventRetentionModeDesc { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_ServerEventSession_EventSessionID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.ServerEventSession.EventSessionID">
   EventSessionID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L9007"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10754"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The unique ID of the event session. Is not nullable.</p>
+  <div class="markdown level1 summary"><p><strong>event_session_id</strong> NOT NULL <strong>int</strong></p>
+The unique ID of the event session. Not nullable.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -245,10 +276,11 @@ public int EventSessionID { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_ServerEventSession_MaxDispatchLatency" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.ServerEventSession.MaxDispatchLatency">
   MaxDispatchLatency
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L9023"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10774"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The amount of time, in milliseconds, that events will be buffered in memory before they are served to session targets. Valid values are from 0 to 2147483648, and 0. A value of 0 indicates that dispatch latency is infinite. Is nullable.</p>
+  <div class="markdown level1 summary"><p><strong>max_dispatch_latency</strong> NULL <strong>int</strong></p>
+The amount of time, in milliseconds, that events are buffered in memory before they're served to session targets. Valid values are from 0 to 2,147,483,648, and 0. A value of <code>0</code> indicates that dispatch latency is infinite. Nullable.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -279,10 +311,11 @@ public int? MaxDispatchLatency { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_ServerEventSession_MaxEventSize" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.ServerEventSession.MaxEventSize">
   MaxEventSize
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L9031"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10784"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The amount of memory set aside for events that do not fit in event session buffers. If max_event_size exceeds the calculated buffer size, two additional buffers of max_event_size are allocated to the event session. Is nullable.</p>
+  <div class="markdown level1 summary"><p><strong>max_event_size</strong> NULL <strong>int</strong></p>
+The amount of memory set aside for events that don't fit in event session buffers. If <code>max_event_size</code> exceeds the calculated buffer size, two additional buffers of <code>max_event_size</code> are allocated to the event session. Nullable.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -313,10 +346,11 @@ public int? MaxEventSize { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_ServerEventSession_MaxMemory" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.ServerEventSession.MaxMemory">
   MaxMemory
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L9027"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10779"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The amount of memory allocated to the session for event buffering. The default value is 4 MB. Is nullable.</p>
+  <div class="markdown level1 summary"><p><strong>max_memory</strong> NULL <strong>int</strong></p>
+The amount of memory allocated to the session for event buffering. The default value is 4 MB. Nullable.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -347,10 +381,11 @@ public int? MaxMemory { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_ServerEventSession_MemoryPartitionMode" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.ServerEventSession.MemoryPartitionMode">
   MemoryPartitionMode
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L9035"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10789"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The location in memory where event buffers are created. The default partition mode is G. Is not nullable. memory_partition_mode is one of:<br><br> G - NONE<br><br> C - PER_CPU<br><br> N - PER_NODE</p>
+  <div class="markdown level1 summary"><p><strong>memory_partition_mode</strong> NULL <strong>nchar(1)</strong></p>
+The location in memory where event buffers are created. The default partition mode is <code>G</code>. Not nullable. <code>memory_partition_mode</code> is one of:<br><br><code>G</code> - <code>NONE</code><br><code>C</code> - <code>PER_CPU</code><br><code>N</code> - <code>PER_NODE</code>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -381,10 +416,11 @@ public string? MemoryPartitionMode { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_ServerEventSession_MemoryPartitionModeDesc" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.ServerEventSession.MemoryPartitionModeDesc">
   MemoryPartitionModeDesc
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L9039"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10794"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The default is NONE. Is not nullable. Is one of the following:<br><br> NONE. A single set of buffers are created within a SQL Server instance.<br><br> PER_CPU. A set of buffers is created for each CPU.<br><br> PER_NODE. A set of buffers is created for each non-uniform memory access (NUMA) node.</p>
+  <div class="markdown level1 summary"><p><strong>memory_partition_mode_desc</strong> NULL <strong>sysname</strong></p>
+The default is <code>NONE</code>. Not nullable. Can be one of the following values:<br><br><code>NONE</code>. A single set of buffers are created within a SQL Server instance.<br><br><code>PER_CPU</code>. A set of buffers is created for each CPU.<br><br><code>PER_NODE</code>. A set of buffers is created for each non-uniform memory access (NUMA) node.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -415,10 +451,11 @@ public string? MemoryPartitionModeDesc { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_ServerEventSession_Name" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.ServerEventSession.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L9011"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10759"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The user-defined name for identifying the event session. name is unique. Is not nullable.</p>
+  <div class="markdown level1 summary"><p><strong>name</strong> NULL <strong>sysname</strong></p>
+The user-defined name for identifying the event session. name is unique. Not nullable.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -449,10 +486,11 @@ public string? Name { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_ServerEventSession_StartupState" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.ServerEventSession.StartupState">
   StartupState
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L9047"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10804"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Value determines whether or not session is started automatically when the server starts. The default is 0. Is not nullable. Is one of:<br><br> 0 (OFF). The session does not start when the server starts.<br><br> 1 (ON). The event session starts when the server starts.</p>
+  <div class="markdown level1 summary"><p><strong>startup_state</strong> NULL <strong>bit</strong></p>
+Value determines whether or not session is started automatically when the server starts. The default is <code>0</code>. Not nullable. Can be one of:<br><br><code>0</code> (<code>OFF</code>). The session doesn't start when the server starts.<br><br><code>1</code> (<code>ON</code>). The event session starts when the server starts.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -483,10 +521,11 @@ public bool? StartupState { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ExtendedEventsSchema_ServerEventSession_TrackCausality" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ExtendedEventsSchema.ServerEventSession.TrackCausality">
   TrackCausality
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L9043"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L10799"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Enable or disable causality tracking. If set to 1 (ON), tracking is enabled and related events on different server connections can be correlated. The default setting is 0 (OFF). Is not nullable.</p>
+  <div class="markdown level1 summary"><p><strong>track_causality</strong> NULL <strong>bit</strong></p>
+Enable or disable causality tracking. If set to <code>1</code> (<code>ON</code>), tracking is enabled and related events on different server connections can be correlated. The default setting is <code>0</code> (<code>OFF</code>). Not nullable.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -530,7 +569,7 @@ public bool? TrackCausality { get; set; }</code></pre>
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2024 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

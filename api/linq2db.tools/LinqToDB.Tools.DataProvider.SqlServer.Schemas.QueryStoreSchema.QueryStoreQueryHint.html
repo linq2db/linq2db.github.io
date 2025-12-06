@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class QueryStoreSchema.QueryStoreQueryHint | Linq To DB ">
       
-      <meta name="description" content="sys.query_store_query_hints (Transact-SQL) Applies to: √ Azure SQL Database √ Azure SQL Managed Instance  Contains query hints from the Query Store hints (Preview) feature. See sys.query_store_query_hints.">
+      <meta name="description" content="sys.query_store_query_hints (Transact-SQL) Applies to: √ SQL Server 2022 (16.x) √ Azure SQL Database √ Azure SQL Managed Instance Returns query hints from Query Store hints. See sys.query_store_query_hints.">
       <link rel="icon" href="../../images/icon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_QueryStoreSchema_QueryStoreQueryHint" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.QueryStoreSchema.QueryStoreQueryHint" class="text-break">
-Class QueryStoreSchema.QueryStoreQueryHint  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L18853"><i class="bi bi-code-slash"></i></a>
+Class QueryStoreSchema.QueryStoreQueryHint  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L22310"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -98,8 +98,8 @@ Class QueryStoreSchema.QueryStoreQueryHint  <a class="header-action link-seconda
   </div>
 
   <div class="markdown summary"><p><strong>sys.query_store_query_hints (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ Azure SQL Database √ Azure SQL Managed Instance</p>
-<p> Contains query hints from the <a href="https://docs.microsoft.com/en-us/sql/relational-databases/performance/query-store-hints">Query Store hints (Preview)</a> feature.</p><br>
+<p><strong>Applies to:</strong> √ SQL Server 2022 (16.x) √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure SQL Database</a> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure SQL Managed Instance</a></p>
+<p>Returns query hints from <a href="https://docs.microsoft.com/en-us/sql/relational-databases/performance/query-store-hints">Query Store hints</a>.</p><br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-query-hints-transact-sql">sys.query_store_query_hints</a>.</p>
 </div>
   <div class="markdown conceptual"></div>
@@ -122,6 +122,31 @@ public class QueryStoreSchema.QueryStoreQueryHint</code></pre>
 
 
 
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
 
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
@@ -143,17 +168,18 @@ public class QueryStoreSchema.QueryStoreQueryHint</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_QueryStoreSchema_QueryStoreQueryHint_Comment" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.QueryStoreSchema.QueryStoreQueryHint.Comment">
   Comment
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L18891"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L22357"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Internal use only.</p>
+  <div class="markdown level1 summary"><p><strong>comment</strong> NULL <strong>nvarchar(max)</strong></p>
+Internal use only.
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Column(&quot;comment&quot;)]
-[NotNull]
-public string Comment { get; set; }</code></pre>
+[Nullable]
+public string? Comment { get; set; }</code></pre>
   </div>
 
 
@@ -177,10 +203,11 @@ public string Comment { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_QueryStoreSchema_QueryStoreQueryHint_LastQueryHintFailureReason" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.QueryStoreSchema.QueryStoreQueryHint.LastQueryHintFailureReason">
   LastQueryHintFailureReason
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L18871"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L22332"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Error code returned when if applying hints failed. Will include the message_id of the error message.</p>
+  <div class="markdown level1 summary"><p><strong>last_query_hint_failure_reason</strong> NOT NULL <strong>int</strong></p>
+Error code returned when if applying hints failed. Includes the <code>message_id</code> of the error message.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -211,17 +238,18 @@ public int LastQueryHintFailureReason { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_QueryStoreSchema_QueryStoreQueryHint_LastQueryHintFailureReasonDesc" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.QueryStoreSchema.QueryStoreQueryHint.LastQueryHintFailureReasonDesc">
   LastQueryHintFailureReasonDesc
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L18875"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L22337"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Will include the error description of the error message.</p>
+  <div class="markdown level1 summary"><p><strong>last_query_hint_failure_reason_desc</strong> NULL <strong>nvarchar(128)</strong></p>
+Includes the error description of the error message.
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Column(&quot;last_query_hint_failure_reason_desc&quot;)]
-[NotNull]
-public string LastQueryHintFailureReasonDesc { get; set; }</code></pre>
+[Nullable]
+public string? LastQueryHintFailureReasonDesc { get; set; }</code></pre>
   </div>
 
 
@@ -245,10 +273,11 @@ public string LastQueryHintFailureReasonDesc { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_QueryStoreSchema_QueryStoreQueryHint_QueryHintFailureCount" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.QueryStoreSchema.QueryStoreQueryHint.QueryHintFailureCount">
   QueryHintFailureCount
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L18879"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L22342"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Number of times that the query hint application has failed since the query hint was created or last modified.</p>
+  <div class="markdown level1 summary"><p><strong>query_hint_failure_count</strong> NOT NULL <strong>bigint</strong></p>
+Number of times that the query hint application failed since the query hint was created or last modified.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -279,10 +308,11 @@ public long QueryHintFailureCount { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_QueryStoreSchema_QueryStoreQueryHint_QueryHintID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.QueryStoreSchema.QueryStoreQueryHint.QueryHintID">
   QueryHintID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L18859"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L22317"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Unique identifier of a query hint.</p>
+  <div class="markdown level1 summary"><p><strong>query_hint_id</strong> NOT NULL <strong>bigint</strong></p>
+Unique identifier of a query hint.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -309,21 +339,57 @@ public long QueryHintID { get; set; }</code></pre>
 
 
 
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_QueryStoreSchema_QueryStoreQueryHint_QueryHintScope_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.QueryStoreSchema.QueryStoreQueryHint.QueryHintScope*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_QueryStoreSchema_QueryStoreQueryHint_QueryHintScope" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.QueryStoreSchema.QueryStoreQueryHint.QueryHintScope">
+  QueryHintScope
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L22362"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>query_hint_scope</strong> NOT NULL <strong>tinyint</strong></p>
+Determines the scope at which the hint is applied, as per the <code>replica_group_id</code> column in <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-replicas">sys.query_store_replicas</a>.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;query_hint_scope&quot;)]
+[NotNull]
+public byte QueryHintScope { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_QueryStoreSchema_QueryStoreQueryHint_QueryHintText_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.QueryStoreSchema.QueryStoreQueryHint.QueryHintText*"></a>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_QueryStoreSchema_QueryStoreQueryHint_QueryHintText" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.QueryStoreSchema.QueryStoreQueryHint.QueryHintText">
   QueryHintText
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L18867"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L22327"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Hint definition in form of  N'OPTION (…)</p>
+  <div class="markdown level1 summary"><p><strong>query_hint_text</strong> NULL <strong>nvarchar(max)</strong></p>
+Hint definition in form of <code>N'OPTION (...)</code>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Column(&quot;query_hint_text&quot;)]
-[NotNull]
-public string QueryHintText { get; set; }</code></pre>
+[Nullable]
+public string? QueryHintText { get; set; }</code></pre>
   </div>
 
 
@@ -347,10 +413,11 @@ public string QueryHintText { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_QueryStoreSchema_QueryStoreQueryHint_QueryID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.QueryStoreSchema.QueryStoreQueryHint.QueryID">
   QueryID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L18863"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L22322"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Unique identifier of a query in the Query Store. Foreign key to <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-query-transact-sql">sys.query_store_query</a>.query_id.)</p>
+  <div class="markdown level1 summary"><p><strong>query_id</strong> NOT NULL <strong>bigint</strong></p>
+Unique identifier of a query in the Query Store. Foreign key to the <code>query_id</code> column in <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-query-transact-sql">sys.query_store_query</a>.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -381,17 +448,18 @@ public long QueryID { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_QueryStoreSchema_QueryStoreQueryHint_Source" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.QueryStoreSchema.QueryStoreQueryHint.Source">
   Source
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L18883"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L22347"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Source of Query Store hint: user source is zero and system-generated is non-zero.</p>
+  <div class="markdown level1 summary"><p><strong>source</strong> NULL <strong>int</strong></p>
+Source of Query Store hint: user source is zero and system-generated is non-zero.
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Column(&quot;source&quot;)]
-[NotNull]
-public int Source { get; set; }</code></pre>
+[Nullable]
+public int? Source { get; set; }</code></pre>
   </div>
 
 
@@ -400,7 +468,7 @@ public int Source { get; set; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
     <dd></dd>
   </dl>
 
@@ -415,17 +483,18 @@ public int Source { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_QueryStoreSchema_QueryStoreQueryHint_SourceDesc" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.QueryStoreSchema.QueryStoreQueryHint.SourceDesc">
   SourceDesc
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L18887"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L22352"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Description of source of Query Store hint.</p>
+  <div class="markdown level1 summary"><p><strong>source_desc</strong> NULL <strong>nvarchar(128)</strong></p>
+Description of source of Query Store hint.
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Column(&quot;source_desc&quot;)]
-[NotNull]
-public string SourceDesc { get; set; }</code></pre>
+[Nullable]
+public string? SourceDesc { get; set; }</code></pre>
   </div>
 
 
@@ -462,7 +531,7 @@ public string SourceDesc { get; set; }</code></pre>
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2024 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

@@ -114,24 +114,64 @@
 <td>Binaries, unavailable officially at NuGet, used by tests and nugets</td>
 </tr>
 <tr>
-<td>.\Source\LinqToDB</td>
-<td>LINQ to DB source code</td>
+<td>.\Source\CodeGenerators</td>
+<td>LINQ to DB internal source generators source code</td>
 </tr>
 <tr>
-<td>.\Source\LinqToDB.AspNet</td>
-<td>LINQ to DB ASP.NET Core integration library source code</td>
+<td>.\Source\LinqToDB</td>
+<td>LINQ to DB source code</td>
 </tr>
 <tr>
 <td>.\Source\LinqToDB.CLI</td>
 <td>LINQ to DB CLI scaffold tool source code</td>
 </tr>
 <tr>
+<td>.\Source\LinqToDB.Compat</td>
+<td>LINQ to DB Compat library source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.EntityFrameworkCore</td>
+<td>LINQ to DB integration with Entity Framework Core source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Extensions</td>
+<td>LINQ to DB Dependency Injection and Logging extensions library source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.FSharp</td>
+<td>F# support extension for Linq To DB</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.LINQPad</td>
+<td>LINQPad driver for Linq To DB</td>
+</tr>
+<tr>
 <td>.\Source\LinqToDB.Remote.Grpc</td>
 <td>LINQ to DB Remote Context GRPC client/server source code</td>
 </tr>
 <tr>
+<td>.\Source\LinqToDB.Remote.HttpClient.Client</td>
+<td>LINQ to DB Remote Context HttpClient client source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Remote.HttpClient.Server</td>
+<td>LINQ to DB Remote Context HttpClient server source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Remote.SignalR.Client</td>
+<td>LINQ to DB Remote Context Signal/R client source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Remote.SignalR.Server</td>
+<td>LINQ to DB Remote Context Signal/R server source code</td>
+</tr>
+<tr>
 <td>.\Source\LinqToDB.Remote.Wcf</td>
 <td>LINQ to DB Remote Context WCF client/server source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Scaffold</td>
+<td>LINQ to DB scaffold framework for cli and T4</td>
 </tr>
 <tr>
 <td>.\Source\LinqToDB.Templates</td>
@@ -150,6 +190,14 @@
 <td>LINQ to DB testing framework</td>
 </tr>
 <tr>
+<td>.\Tests\EntityFrameworkCore</td>
+<td>LINQ to DB EF.Core integration tests</td>
+</tr>
+<tr>
+<td>.\Tests\EntityFrameworkCore.FSharp</td>
+<td>LINQ to DB EF.Core F# integration tests</td>
+</tr>
+<tr>
 <td>.\Tests\FSharp</td>
 <td>F# models and tests</td>
 </tr>
@@ -162,16 +210,20 @@
 <td>Model classes for tests</td>
 </tr>
 <tr>
-<td>.\Tests\Tests.T4</td>
-<td>T4 templates test project</td>
-</tr>
-<tr>
 <td>.\Tests\Tests.Benchmarks</td>
 <td>Benchmarks</td>
 </tr>
 <tr>
 <td>.\Tests\Tests.PLayground</td>
-<td>Test project for use with linq2db.playground.sln lite test solution<br>Used for work on specific test without full solution load</td>
+<td>Test project for use with linq2db.playground.slnf lite test solution. Used for work on specific test without full solution load</td>
+</tr>
+<tr>
+<td>.\Tests\Tests.T4</td>
+<td>T4 templates test project</td>
+</tr>
+<tr>
+<td>.\Tests\Tests.T4.Nugets</td>
+<td>T4 nugets test project</td>
 </tr>
 <tr>
 <td>.\Tests\VisualBasic</td>
@@ -181,42 +233,24 @@
 </table>
 <h4 id="solutions">Solutions</h4>
 <ul>
-<li><code>.\linq2db.sln</code> - full linq2db solution</li>
+<li><code>.\linq2db.slnx</code> - full linq2db solution</li>
 <li><code>.\linq2db.playground.slnf</code> - ligthweight linq2db test solution. Used to work on specific test without loading of all payload of full solution</li>
 <li><code>.\linq2db.Benchmarks.slnf</code> - ligthweight linq2db benchmarks solution. Used to work on benchmarks without loading of all payload of full solution</li>
+<li><code>.\Tests\Tests.T4.Nugets\Tests.T4.Nugets.slnx</code> - separate solution for T4 nugets testing</li>
 </ul>
 <h4 id="source-projects">Source projects</h4>
-<p>Preferred target defines:</p>
+<p>Custom feature symbols:</p>
 <ul>
-<li><code>NETFRAMEWORK</code> - <code>net45</code>, <code>net46</code> and <code>net472</code> target ifdef</li>
-<li><code>NETSTANDARD2_1PLUS</code> - targets with <code>netstandard2.1</code> support (<code>netstandard2.1</code>, <code>netcoreapp3.1</code>, <code>net6.0</code>, <code>net7.0</code>). Don't use this define in test projects!</li>
-<li><code>NATIVE_ASYNC</code> - ifdef with native support for <code>ValueTask</code>, <code>IAsyncEnumerable&lt;T&gt;</code> and <code>IAsyncDisposable</code> types</li>
+<li><code>SUPPORTS_COMPOSITE_FORMAT</code>: for code that use <code>System.Text.CompositeFormat</code> class</li>
 </ul>
-<p>Other allowed target defines:</p>
+<p>Custom debugging symbols:</p>
 <ul>
-<li><code>NETSTANDARD2_1</code> - <code>netstandard2.1</code> target ifdef</li>
-<li><code>NETCOREAPP3_1</code> - <code>netcoreapp3.1</code> target ifdef</li>
-<li><code>NETSTANDARD2_0</code> - <code>netstandard2.0</code> target ifdef</li>
-<li><code>NET6_0</code> - <code>net6.0</code> target ifdef</li>
-<li><code>NET7_0</code> - <code>net7.0</code> target ifdef</li>
-<li><code>NET45</code> - <code>net45</code> target ifdef</li>
-<li><code>NET46</code> - <code>net46</code> target ifdef</li>
-<li><code>NET472</code> - <code>net472</code> target ifdef</li>
-</ul>
-<p>Allowed debugging defines:</p>
-<ul>
-<li><code>TRACK_BUILD</code> - ???</li>
-<li><code>DEBUG</code> - for debug code in debug build. To disable debug code use <code>DEBUG1</code> rename</li>
-<li><code>OVERRIDETOSTRING</code> - enables <code>ToString()</code> overrides for AST model (must be enabled in LinqToDB.csproj by renaming existing <code>OVERRIDETOSTRING1</code> define)</li>
+<li><code>BUGCHECK</code> - enables extra bugchecks in debug and ci test builds</li>
 </ul>
 <h4 id="test-projects">Test projects</h4>
-<p>Tests targets: <code>net472</code>, <code>netcoreapp31</code>, <code>net6.0</code>, <code>net7.0</code></p>
-<p>Allowed target defines:</p>
+<p>Tests targets: <code>net462</code>, <code>net8.0</code>, <code>net9.0</code>, <code>net10.0</code>. In general we test 3 configurations: lowest supported .NET Framework, lowest supported .NET version, highest supported .NET version.</p>
+<p>Custom symbols:</p>
 <ul>
-<li><code>NETCOREAPP3_1</code> - <code>netcoreapp3.1</code> target ifdef</li>
-<li><code>NET6_0</code> - <code>net6.0</code> target ifdef</li>
-<li><code>NET7_0</code> - <code>net7.0</code> target ifdef</li>
-<li><code>NET472</code> - <code>net472</code> target ifdef</li>
 <li><code>AZURE</code> - for Azure Pipelines CI builds</li>
 </ul>
 <h2 id="build">Build</h2>
@@ -225,10 +259,10 @@
 <li><code>.\Build.cmd</code> - builds all the projects in the solution for Debug, Release and Azure configurations</li>
 <li><code>.\Compile.cmd</code> - builds LinqToDB project for Debug and Release configurations</li>
 <li><code>.\Clean.cmd</code> - cleanups solution projects for Debug, Release and Azure configurations</li>
-<li><code>.\Test.cmd</code> - build <code>Debug</code> configuration and run tests for <code>net472</code>, <code>netcoreapp3.1</code>, <code>net6.0</code> and <code>net7.0</code> targets. You can set other configuration by passing it as first parameter, disable test targets by passing 0 to second (for <code>net472</code>),  third (for <code>netcoreapp3.1</code>), fourth (for <code>net6.0</code>) or fifth (for <code>net7.0</code>) parameter and format (default:html) as 7th parameter.</li>
+<li><code>.\Test.cmd</code> - builds and runs tests with <code>Debug</code> configuration for all supported TFMs and produce HTML report. Parameters supported to change build configuration, logger type and executed TFMs</li>
 </ul>
-<p>Example of running <code>Release</code> build tests for <code>netcoreapp3.1</code> only with trx as output:</p>
-<pre><code>test.cmd Release 0 1 0 0 0 trx
+<p>Example of running <code>Release</code> build tests for <code>net9.0</code> only with <code>trx</code> as output:</p>
+<pre><code class="lang-cmd">test.cmd Release 0 0 1 0 trx
 </code></pre>
 <h3 id="different-platforms-support">Different platforms support</h3>
 <p>Because we target different TFMs, we use:</p>
@@ -255,21 +289,18 @@ public class Test: TestBase
         // TestBase.GetDataContext - creates new IDataContext
         // also supports creation of remote client and server
         // for remote contexts
-        using(var db = GetDataContext(context))
-        {
-            // Here is the most interesting
-            // this.Person - list of persons, corresponding Person table in database (derived from TestBase)
-            // db.Person - database table
-            // So test checks that LINQ to Objects query produces the same result as executed database query
-            AreEqual(this.Person.Where(_ =&gt; _.Name == &quot;John&quot;), db.Person.Where(_ =&gt; _.Name == &quot;John&quot;));
-        }
+        using var db = GetDataContext(context);
+
+        // AssertQuery method will execute query against both DB and memory-based collections
+        // and check that both return same results
+        AssertQuery(db.Person.Where(_ =&gt; _.Name == &quot;John&quot;));
     }
 
 }
 </code></pre>
 <h3 id="configure-data-providers-for-tests">Configure data providers for tests</h3>
 <p><code>DataSourcesAttribute</code> generates tests for each enabled data provider. Configuration is taken
-from <code>.\Tests\DataProviders.json</code> and <code>.\Tests\UserDataProviders.json</code> (used first, if exists).</p>
+from <code>.\DataProviders.json</code> and <code>.\UserDataProviders.json</code> (used first, if exists).</p>
 <p>Repository already contains pre-configured <code>UserDataProviders.json.template</code> configuration with basic setup for SQLite-based testing and all you need is to rename it to <code>UserDataProviders.json</code>, add connection string for other databases you want to test.
 <code>UserDataProviders.json</code> will be ignored by git, so you can edit it freely.</p>
 <p>Configuration file is used to specify user-specific settings such as connection strings to test databases and
@@ -277,8 +308,8 @@ list of providers to test.</p>
 <p>The <code>[User]DataProviders.json</code> is a regular JSON file:</p>
 <h4 id="userdataprovidersjson-example-with-description">UserDataProviders.json example (with description)</h4>
 <pre><code class="lang-js">{
-    // .net framework 4.7.2 test configuration
-    &quot;NET472&quot; :
+    // .net framework 4.6.2 test configuration
+    &quot;NETFX&quot; :
     {
         // base configuration to inherit settings from
         // Inheritance rules:
@@ -288,7 +319,7 @@ list of providers to test.</p>
 
         // default provider, used as a source of reference data
         // LINQ to DB uses SQLite for it and you hardly need to change it
-        &quot;DefaultConfiguration&quot; : &quot;SQLite.Classic&quot;,
+        &quot;DefaultConfiguration&quot; : &quot;SQLite.MS&quot;,
 
         // (optional) contains full or relative (from test assembly location) path to test baselines directory.
         // When path is set and specified directory exists - enables baselines generation for tests.
@@ -302,7 +333,7 @@ list of providers to test.</p>
         // list of database providers, enabled for current test configuration
         &quot;Providers&quot;            :
         [
-            &quot;Access&quot;,
+            &quot;Access.Ace.OleDb&quot;,
             &quot;SqlCe&quot;,
             &quot;SQLite.Classic&quot;,
             &quot;SQLite.MS&quot;,
@@ -314,10 +345,10 @@ list of providers to test.</p>
             &quot;SqlServer.2005&quot;,
             &quot;SqlServer.Azure&quot;,
             &quot;DB2&quot;,
-            &quot;Firebird&quot;,
+            &quot;Firebird.5&quot;,
             &quot;Informix&quot;,
-            &quot;MySql&quot;,
-            &quot;MariaDB&quot;,
+            &quot;MySql.8.0&quot;,
+            &quot;MariaDB.11&quot;,
             &quot;Oracle.Native&quot;,
             &quot;Oracle.Managed&quot;,
             &quot;PostgreSQL&quot;,
@@ -335,8 +366,8 @@ list of providers to test.</p>
 
     },
 
-    // .net 6.0 test configuration
-    &quot;NET60&quot; :
+    // .net 8.0 test configuration
+    &quot;NET80&quot; :
     {
         &quot;BasedOn&quot;              : &quot;LocalConnectionStrings&quot;,
         &quot;Providers&quot;            :
@@ -348,17 +379,17 @@ list of providers to test.</p>
             &quot;SqlServer.2008&quot;,
             &quot;SqlServer.2005&quot;,
             &quot;SqlServer.Azure&quot;,
-            &quot;Firebird&quot;,
-            &quot;MySql&quot;,
-            &quot;MariaDB&quot;,
+            &quot;Firebird.5&quot;,
+            &quot;MySql.8.0&quot;,
+            &quot;MariaDB.11&quot;,
             &quot;PostgreSQL&quot;,
             &quot;SqlServer.Northwind&quot;,
             &quot;TestNoopProvider&quot;
         ]
     },
 
-    // .net 7.0 test configuration
-    &quot;NET70&quot; :
+    // .net 9.0 test configuration
+    &quot;NET90&quot; :
     {
         &quot;BasedOn&quot;              : &quot;LocalConnectionStrings&quot;,
         &quot;Providers&quot;            :
@@ -370,9 +401,31 @@ list of providers to test.</p>
             &quot;SqlServer.2008&quot;,
             &quot;SqlServer.2005&quot;,
             &quot;SqlServer.Azure&quot;,
-            &quot;Firebird&quot;,
-            &quot;MySql&quot;,
-            &quot;MariaDB&quot;,
+            &quot;Firebird.5&quot;,
+            &quot;MySql.8.0&quot;,
+            &quot;MariaDB.11&quot;,
+            &quot;PostgreSQL&quot;,
+            &quot;SqlServer.Northwind&quot;,
+            &quot;TestNoopProvider&quot;
+        ]
+    },
+
+    // .net 10.0 test configuration
+    &quot;NET100&quot; :
+    {
+        &quot;BasedOn&quot;              : &quot;LocalConnectionStrings&quot;,
+        &quot;Providers&quot;            :
+        [
+            &quot;SQLite.MS&quot;,
+            &quot;Northwind.SQLite.MS&quot;,
+            &quot;SqlServer.2014&quot;,
+            &quot;SqlServer.2012&quot;,
+            &quot;SqlServer.2008&quot;,
+            &quot;SqlServer.2005&quot;,
+            &quot;SqlServer.Azure&quot;,
+            &quot;Firebird.5&quot;,
+            &quot;MySql.8.0&quot;,
+            &quot;MariaDB.11&quot;,
             &quot;PostgreSQL&quot;,
             &quot;SqlServer.Northwind&quot;,
             &quot;TestNoopProvider&quot;
@@ -396,7 +449,7 @@ list of providers to test.</p>
     }
 }
 </code></pre>
-<p>To define your own configurations <strong>DO NOT EDIT</strong> <code>DataProviders.json</code> - create <code>.\Tests\Linq\UserDataProviders.json</code> and define needed configurations.</p>
+<p>To define your own configurations <strong>DO NOT EDIT</strong> <code>DataProviders.json</code> - create <code>.\UserDataProviders.json</code> and define needed configurations.</p>
 <p>Tests execution depends on <code>_CreateData.*</code> tests executed first. Those tests recreate test databases and populate them with test data, so if you are going to run one test be sure to run <code>_CreateData</code> before it manually.</p>
 <p>Also - if your test changes database data, be sure to revert those changes (!) to avoid side effects for other tests.</p>
 <h2 id="continuous-integration">Continuous Integration</h2>
@@ -405,10 +458,10 @@ list of providers to test.</p>
 <li><a href="https://dev.azure.com/linq2db/linq2db/_build?definitionId=3">Azure Pipelines</a> <a href="https://github.com/linq2db/linq2db/blob/master/Build/Azure/pipelines/default.yml">pipelines/default.yml</a>.
 It builds solution, generate and publish nugets and runs tests for:
 <ul>
-<li>.Net 4.7.2</li>
-<li>.Net Core 3.1 (Windows, Linux and MacOS)</li>
-<li>.Net 6.0 (Windows, Linux and MacOS)</li>
-<li>.Net 7.0 (Windows, Linux and MacOS)
+<li>.NET Framework 4.6.2</li>
+<li>.NET 8 (Windows, Linux and MacOS)</li>
+<li>.NET 9 (Windows, Linux and MacOS)</li>
+<li>.NET 10 (Windows, Linux and MacOS)
 For more details check <a href="https://github.com/linq2db/linq2db/blob/master/Build/Azure/README.md">readme</a></li>
 </ul>
 </li>
@@ -452,6 +505,15 @@ For more details check <a href="https://github.com/linq2db/linq2db/blob/master/B
 <li>Read issues and help users</li>
 <li>Do not EF :)</li>
 </ul>
+<h2 id="other-topics">Other Topics</h2>
+<h3 id="linqpad-testing">LINQPad Testing</h3>
+<p>To test LINQPad nuget you need to build it and add test nuget source to LINQPad, but because LINQPad expects driver to have tags, it cannot be file-based source.</p>
+<ol>
+<li>Install local nuget server using <a href="https://learn.microsoft.com/en-us/nuget/hosting-packages/nuget-server">this guide</a></li>
+<li>Build nugets using command <code>nuget\packlocal.cmd &lt;version&gt;</code> where version should be release version (e.g. <code>1.2.3</code>) as LINQPad ignores non-release versions</li>
+<li>Push built nugets to your custom nuget server using this command <code>dotnet nuget push .build/nugets/*.nupkg -s https://&lt;your local nuget server addres&gt;/nuget --skip-duplicate</code>. If will produce 406 error for some unsupported nugets - you need to remove them and rerun command</li>
+<li>add your feed (<code>https://&lt;your local nuget server addres&gt;/nuget</code>) to LINQPad</li>
+</ol>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a class="xref" href="Issue-reporting.html">Issue reporting</a></li>
@@ -474,7 +536,7 @@ For more details check <a href="https://github.com/linq2db/linq2db/blob/master/B
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2024 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

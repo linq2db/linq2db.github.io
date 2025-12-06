@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AzureSQLDatabaseSchema.DmHsDatabaseLogRate | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AzureSQLDatabaseSchema.DmHsDatabaseLogRate | Linq To DB ">
+      
+      <meta name="description" content="sys.dm_hs_database_log_rate (Transact-SQL) Applies to: √ Azure SQL Database Each resultset row returns a component that controls (reduces) log generation rate in a Hyperscale database. There are multiple components in Hyperscale tier architecture that could contribute to the reducing log generation rate. Certain types of components, such as secondary compute replicas or page servers, can temporarily reduce log generation rate on the primary compute replica to ensure the overall database health and stability. If log generation rate is not reduced by any component, a row is returned for the primary compute replica component, showing the maximum allowed log generation rate for the database. This dynamic management function returns rows only when the session is connected to the primary replica. note 		The sys.dm_hs_database_log_rate dynamic management function currently applies to Azure SQL Database Hyperscale tier only.  		 ## Syntax syntaxsql sys.dm_hs_database_log_rate (  { database_id | NULL }                                    )                             ## Arguments #### database_id *database_id*&#160;is an integer representing the database ID, with no default value. Valid inputs are either a database ID or NULL. Specified database_id: Returns a row for that specific database. NULL: For a single database, returns a row for the current database. For a database in an elastic pool, returns rows for all databases in the pool where the caller has sufficient [permissions](#permissions). The built-in function&#160;DB_ID&#160;can be specified. ## Table Returned See sys.dm_hs_database_log_rate.">
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate.md&amp;value=---%0Auid%3A%20LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate">
+
+
+
+  <h1 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate" class="text-break">
+Class AzureSQLDatabaseSchema.DmHsDatabaseLogRate  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1102"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Tools.html">Tools</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.html">SqlServer</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.html">Schemas</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.Tools.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p><strong>sys.dm_hs_database_log_rate (Transact-SQL)</strong></p>
+<p><strong>Applies to:</strong> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure SQL Database</a></p>
+<p>Each resultset row returns a component that controls (reduces) log generation rate in a Hyperscale database. There are multiple <a href="https://docs.microsoft.com/en-us/azure/azure-sql/database/hyperscale-architecture">components in Hyperscale tier architecture</a> that could contribute to the reducing log generation rate.<br>
+Certain types of components, such as secondary compute replicas or page servers, can temporarily reduce log generation rate on the primary compute replica to ensure the overall database health and stability.<br>
+If log generation rate is not reduced by any component, a row is returned for the primary compute replica component, showing the maximum allowed log generation rate for the database.<br>
+This dynamic management function returns rows only when the session is connected to the primary replica.<br>
+<div class="NOTE"><h5>note</h5><p><br>
+		The <code>sys.dm_hs_database_log_rate</code> dynamic management function currently applies to Azure SQL Database Hyperscale tier only.<br>
+</p></div><br>
+		<br>
+## Syntax<br>
+<code>syntaxsql<br>
+sys.dm_hs_database_log_rate ( <br>
+{ database_id | NULL }                                   <br>
+)                           <br>
+</code><br>
+## Arguments<br>
+#### database_id<br>
+*database_id* is an <strong>integer</strong> representing the database ID, with no default value. Valid inputs are either a database ID or <code>NULL</code>.<br>
+Specified <code>database_id</code>: Returns a row for that specific database.<br>
+<code>NULL</code>: For a single database, returns a row for the current database. For a database in an elastic pool, returns rows for all databases in the pool where the caller has sufficient [permissions](#permissions).<br>
+The built-in function <a href="https://docs.microsoft.com/en-us/sql/t-sql/functions/db-id-transact-sql">DB_ID</a> can be specified.<br>
+## Table Returned<br>
+<p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-hs-database-log-rate">sys.dm_hs_database_log_rate</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Table(Schema = &quot;sys&quot;, Name = &quot;dm_hs_database_log_rate&quot;, IsView = true)]
+public class AzureSQLDatabaseSchema.DmHsDatabaseLogRate</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">AzureSQLDatabaseSchema.DmHsDatabaseLogRate</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="LinqToDB.Tools.Mapper.Map.html#LinqToDB_Tools_Mapper_Map_DeepCopy__1___0_">Map.DeepCopy&lt;T&gt;(T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_CatchupBytes_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.CatchupBytes*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_CatchupBytes" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.CatchupBytes">
+  CatchupBytes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>catchup_bytes</strong> NOT NULL <strong>bigint</strong></p>
+The amount of transaction log, in bytes, that a component must apply to catch up with the primary compute replica. Returns <code>0</code> when the component is caught up.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;catchup_bytes&quot;)]
+[NotNull]
+public long CatchupBytes { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_CatchupRate_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.CatchupRate*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_CatchupRate" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.CatchupRate">
+  CatchupRate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>catchup_rate</strong> NOT NULL <strong>bigint</strong></p>
+Catchup Rate in bytes/sec. Returns zero when log rate is not reduced.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;catchup_rate&quot;)]
+[NotNull]
+public long CatchupRate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_ComponentID_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.ComponentID*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_ComponentID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.ComponentID">
+  ComponentID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>component_id</strong> NOT NULL <strong>uniqueidentifier</strong></p>
+A unique identifier of a Hyperscale component such as a page server or a compute replica.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;component_id&quot;)]
+[NotNull]
+public Guid ComponentID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_CurrentMaxLogRate_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.CurrentMaxLogRate*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_CurrentMaxLogRate" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.CurrentMaxLogRate">
+  CurrentMaxLogRate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>current_max_log_rate</strong> NOT NULL <strong>bigint</strong></p>
+The current max log rate limit for log generation rate on the primary compute replica, in bytes/sec. If no component is reducing log generation rate, reports the log generation rate limit for a Hyperscale database.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;current_max_log_rate&quot;)]
+[NotNull]
+public long CurrentMaxLogRate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_DatabaseID_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.DatabaseID*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_DatabaseID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.DatabaseID">
+  DatabaseID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>database_id</strong> NOT NULL <strong>int</strong></p>
+Identifier of the database. The values are unique within a single database or an elastic pool, but not within a logical server.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;database_id&quot;)]
+[NotNull]
+public int DatabaseID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_FileID_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.FileID*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_FileID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.FileID">
+  FileID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>file_id</strong> NOT NULL <strong>int</strong></p>
+ID of database file within the database that corresponds to the page server limiting the log generation rate. Will be populated only if the role is page server, otherwise returns <code>NULL</code>. This value corresponds to the <code>file_id</code> column in <code>sys.database_files</code>.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;file_id&quot;)]
+[NotNull]
+public int FileID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_LastReportedTime_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.LastReportedTime*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_LastReportedTime" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.LastReportedTime">
+  LastReportedTime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>last_reported_time</strong> NOT NULL <strong>datetime</strong></p>
+The last time the Hyperscale log service reported values.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;last_reported_time&quot;)]
+[NotNull]
+public DateTime LastReportedTime { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_ReplicaID_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.ReplicaID*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_ReplicaID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.ReplicaID">
+  ReplicaID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>replica_id</strong> NOT NULL <strong>uniqueidentifier</strong></p>
+Identifier of a compute replica which corresponds to the <code>replica_id</code> column in <code>sys.dm_database_replica_states</code>. <code>NULL</code> when <code>component_id</code> corresponds to a Hyperscale page server.<br><br>This value is returned by the <code>DATABASEPROPERTYEX(DB_NAME(), 'ReplicaID')</code> function call when connected to the replica.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;replica_id&quot;)]
+[NotNull]
+public Guid ReplicaID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_Role_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.Role*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_Role" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.Role">
+  Role
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>role</strong> NOT NULL <strong>smallint</strong></p>
+All existing component roles that can reduce log generation.<br><br><code>Unknown</code> = 0<br><code>Storage</code> = 1<br><code>Primary</code> = 2<br><code>Replica</code> = 4<br><code>LocalDestage</code> = 5<br><code>Destage</code> = 6 <br><code>GeoReplica</code> = 10<br><code>StorageCheckpoint</code> = 12<br><code>MigrationTarget</code> = 14<br>When log generation rate is limited, the following wait types corresponding to each role might be observed on the primary compute replica:<br>1 - RBIO_RG_STORAGE <br>4 - RBIO_RG_REPLICA <br>5 - RBIO_RG_LOCALDESTAGE  <br>6 - RBIO_RG_DESTAGE <br>10 - RBIO_RG_GEOREPLICA <br>12 - RBIO_RG_STORAGE_CHECKPOINT <br>14 - RBIO_RG_MIGRATION_TARGET <br>For more information, see <a href="https://docs.microsoft.com/en-us/azure/azure-sql/database/hyperscale-performance-diagnostics#log-rate-throttling-waits">Log rate throttling waits</a>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;role&quot;)]
+[NotNull]
+public short Role { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_RoleDesc_" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.RoleDesc*"></a>
+
+  <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmHsDatabaseLogRate_RoleDesc" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmHsDatabaseLogRate.RoleDesc">
+  RoleDesc
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>role_desc</strong> NOT NULL <strong>nvarchar(60)</strong></p>
+<code>Unknown</code> = The component role is not known<br><code>Storage</code> = Page server(s)<br><code>Primary</code> = Primary compute replica<br><code>Replica</code> = Secondary compute replica such as a high availability (HA) replica or a named replica.<br><code>LocalDestage</code> = Log service<br><code>Destage</code> = Long term log storage<br><code>GeoReplica</code> = Geo-secondary replica<br><code>StorageCheckpoint</code> = A checkpoint on a page server<br><code>MigrationTarget</code> = The target database during reverse migration from Hyperscale to a non-Hyperscale database.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;role_desc&quot;)]
+[NotNull]
+public string RoleDesc { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

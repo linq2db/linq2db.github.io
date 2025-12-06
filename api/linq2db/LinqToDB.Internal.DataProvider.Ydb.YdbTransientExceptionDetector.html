@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class YdbTransientExceptionDetector | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class YdbTransientExceptionDetector | Linq To DB ">
+      
+      <meta name="description" content="Detector for identifying whether an exception represents a transient YDB error, implemented without a hard dependency on Ydb.Sdk.  Works by inspecting two properties of YdbException: bool IsTransient — indicates if the error is transient (temporary).enum Code — contains the YDB status code for the error.">
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LinqToDB.Internal.DataProvider.Ydb.YdbTransientExceptionDetector">
+
+
+
+  <h1 id="LinqToDB_Internal_DataProvider_Ydb_YdbTransientExceptionDetector" data-uid="LinqToDB.Internal.DataProvider.Ydb.YdbTransientExceptionDetector" class="text-break">
+Class YdbTransientExceptionDetector  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Internal.html">Internal</a>.<a class="xref" href="LinqToDB.Internal.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.Internal.DataProvider.Ydb.html">Ydb</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Detector for identifying whether an exception represents a transient YDB error,
+implemented without a hard dependency on <code>Ydb.Sdk</code>.</p>
+<p>
+Works by inspecting two properties of <code>YdbException</code>:
+<ul><li><code>bool IsTransient</code> — indicates if the error is transient (temporary).</li><li><code>enum Code</code> — contains the YDB status code for the error.</li></ul>
+
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class YdbTransientExceptionDetector</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">YdbTransientExceptionDetector</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LinqToDB_Internal_DataProvider_Ydb_YdbTransientExceptionDetector_ShouldRetryOn_" data-uid="LinqToDB.Internal.DataProvider.Ydb.YdbTransientExceptionDetector.ShouldRetryOn*"></a>
+
+  <h3 id="LinqToDB_Internal_DataProvider_Ydb_YdbTransientExceptionDetector_ShouldRetryOn_System_Exception_System_Boolean_" data-uid="LinqToDB.Internal.DataProvider.Ydb.YdbTransientExceptionDetector.ShouldRetryOn(System.Exception,System.Boolean)">
+  ShouldRetryOn(Exception, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the given exception should trigger a retry attempt
+according to minimal YDB retry strategy rules.</p>
+<p>
+The logic closely follows the official YDB SDK:
+it considers transient statuses and certain service-level timeouts.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ShouldRetryOn(Exception ex, bool enableRetryIdempotence)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></dt>
+    <dd><p>The exception to evaluate.</p>
+</dd>
+    <dt><code>enableRetryIdempotence</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <code>true</code>, adds additional YDB codes that should be retried based on SDK retry schemes.
+If <code>false</code>, only the <code>IsTransient</code> flag is considered.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the operation should be retried; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_DataProvider_Ydb_YdbTransientExceptionDetector_TryGetCodeAndTransient_" data-uid="LinqToDB.Internal.DataProvider.Ydb.YdbTransientExceptionDetector.TryGetCodeAndTransient*"></a>
+
+  <h3 id="LinqToDB_Internal_DataProvider_Ydb_YdbTransientExceptionDetector_TryGetCodeAndTransient_System_Exception_System_String__System_Boolean__" data-uid="LinqToDB.Internal.DataProvider.Ydb.YdbTransientExceptionDetector.TryGetCodeAndTransient(System.Exception,System.String@,System.Boolean@)">
+  TryGetCodeAndTransient(Exception, out string?, out bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads the YDB <code>Code</code> property (status enum) as a string and also retrieves the <code>IsTransient</code> flag.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryGetCodeAndTransient(Exception ydbEx, out string? codeName, out bool isTransient)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ydbEx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></dt>
+    <dd><p>The YDB exception instance to inspect.</p>
+</dd>
+    <dt><code>codeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Outputs the name of the status code as a string.</p>
+</dd>
+    <dt><code>isTransient</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Outputs whether the error is transient.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the <code>Code</code> property was successfully read, otherwise <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LinqToDB_Internal_DataProvider_Ydb_YdbTransientExceptionDetector_TryGetYdbException_" data-uid="LinqToDB.Internal.DataProvider.Ydb.YdbTransientExceptionDetector.TryGetYdbException*"></a>
+
+  <h3 id="LinqToDB_Internal_DataProvider_Ydb_YdbTransientExceptionDetector_TryGetYdbException_System_Exception_System_Exception__" data-uid="LinqToDB.Internal.DataProvider.Ydb.YdbTransientExceptionDetector.TryGetYdbException(System.Exception,System.Exception@)">
+  TryGetYdbException(Exception, out Exception?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks whether there is a YDB exception either at the top level
+or nested inside the provided exception hierarchy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryGetYdbException(Exception ex, out Exception? ydbEx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></dt>
+    <dd><p>The exception to search.</p>
+</dd>
+    <dt><code>ydbEx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></dt>
+    <dd><p>When this method returns <code>true</code>, contains the first discovered YDB exception.
+Otherwise, <code>null</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if a <code>YdbException</code> was found, otherwise <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

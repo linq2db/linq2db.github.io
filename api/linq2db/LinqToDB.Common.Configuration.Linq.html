@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=LinqToDB_Common_Configuration_Linq.md&amp;value=---%0Auid%3A%20LinqToDB.Common.Configuration.Linq%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="LinqToDB_Common_Configuration_Linq" data-uid="LinqToDB.Common.Configuration.Linq" class="text-break">
-Class Configuration.Linq  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Configuration.cs/#L165"><i class="bi bi-code-slash"></i></a>
+Class Configuration.Linq  
   </h1>
 
   <div class="facts text-secondary">
@@ -118,6 +118,31 @@ Class Configuration.Linq  <a class="header-action link-secondary" title="View so
 
 
 
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
 
 
 
@@ -132,7 +157,7 @@ Class Configuration.Linq  <a class="header-action link-secondary" title="View so
 
   <h3 id="LinqToDB_Common_Configuration_Linq_CacheSlidingExpiration" data-uid="LinqToDB.Common.Configuration.Linq.CacheSlidingExpiration">
   CacheSlidingExpiration
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Configuration.cs/#L374"><i class="bi bi-code-slash"></i></a>
+  
   </h3>
 
   <div class="markdown level1 summary"><p>Specifies timeout when query will be evicted from cache since last execution of query.
@@ -161,21 +186,95 @@ Default value is 1 hour.</p>
 
 
 
-  <a id="LinqToDB_Common_Configuration_Linq_CompareNullsAsValues_" data-uid="LinqToDB.Common.Configuration.Linq.CompareNullsAsValues*"></a>
+  <a id="LinqToDB_Common_Configuration_Linq_CompareNulls_" data-uid="LinqToDB.Common.Configuration.Linq.CompareNulls*"></a>
 
-  <h3 id="LinqToDB_Common_Configuration_Linq_CompareNullsAsValues" data-uid="LinqToDB.Common.Configuration.Linq.CompareNullsAsValues">
-  CompareNullsAsValues
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Configuration.cs/#L316"><i class="bi bi-code-slash"></i></a>
+  <h3 id="LinqToDB_Common_Configuration_Linq_CompareNulls" data-uid="LinqToDB.Common.Configuration.Linq.CompareNulls">
+  CompareNulls
+  
   </h3>
 
-  <div class="markdown level1 summary"><p>If set to true nullable fields would be checked for IS NULL in Equal/NotEqual comparisons.
+  <div class="markdown level1 summary"><p>If set to <a class="xref" href="LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeClr">LikeClr</a> nullable fields would be checked for <code>IS NULL</code> in Equal/NotEqual comparisons.
+If set to <a class="xref" href="LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeSql">LikeSql</a> comparisons are compiled straight to equivalent SQL operators,
+which consider nulls values as not equal.
+<a class="xref" href="LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeSqlExceptParameters">LikeSqlExceptParameters</a> is a backward compatible option that works mostly as <a class="xref" href="LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeSql">LikeSql</a>,
+but sniffs parameters value and changes = into <code>IS NULL</code> when parameters are null.
+Comparisons to literal null are always compiled into <code>IS NULL</code>.
 This affects: Equal, NotEqual, Not Contains
-Default value: <code>true</code>.</p>
+Default value: <a class="xref" href="LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeClr">LikeClr</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool CompareNullsAsValues { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public static CompareNulls CompareNulls { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.CompareNulls.html">CompareNulls</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="LinqToDB_Common_Configuration_Linq_CompareNulls_examples">Examples</h4>
+  <pre><code class="lang-csharp">public class MyEntity
+{
+    public int? Value;
+}
+
+db.MyEntity.Where(e =&gt; e.Value != 10)
+
+from e1 in db.MyEntity
+join e2 in db.MyEntity on e1.Value equals e2.Value
+select e1
+
+var filter = new [] {1, 2, 3};
+db.MyEntity.Where(e =&gt; ! filter.Contains(e.Value))</code></pre>
+<p>Would be converted to next queries under <a class="xref" href="LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeClr">LikeClr</a>:</p>
+<pre><code class="lang-csharp">SELECT Value FROM MyEntity WHERE Value IS NULL OR Value != 10
+
+SELECT e1.Value
+FROM MyEntity e1
+INNER JOIN MyEntity e2 ON e1.Value = e2.Value OR (e1.Value IS NULL AND e2.Value IS NULL)
+
+SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code></pre>
+
+
+
+
+
+
+  <a id="LinqToDB_Common_Configuration_Linq_ConcatenateOrderBy_" data-uid="LinqToDB.Common.Configuration.Linq.ConcatenateOrderBy*"></a>
+
+  <h3 id="LinqToDB_Common_Configuration_Linq_ConcatenateOrderBy" data-uid="LinqToDB.Common.Configuration.Linq.ConcatenateOrderBy">
+  ConcatenateOrderBy
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Controls behavior, when LINQ query chain contains multiple <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.queryable.orderby#system-linq-queryable-orderby-2(system-linq-iqueryable((-0))-system-linq-expressions-expression((system-func((-0-1)))))">OrderBy&lt;TSource, TKey&gt;(IQueryable&lt;TSource&gt;, Expression&lt;Func&lt;TSource, TKey&gt;&gt;)</a> or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.queryable.orderbydescending#system-linq-queryable-orderbydescending-2(system-linq-iqueryable((-0))-system-linq-expressions-expression((system-func((-0-1)))))">OrderByDescending&lt;TSource, TKey&gt;(IQueryable&lt;TSource&gt;, Expression&lt;Func&lt;TSource, TKey&gt;&gt;)</a> calls:</p>
+<ul><li>if <code>true</code> - non-first OrderBy* call will be treated as ThenBy* call;</li><li>if <code>false</code> - OrderBy* call will place sort specifications, added by previous OrderBy* and ThenBy* calls, after current call.</li></ul>
+Default value: <code>false</code>.
+<p>
+Example:
+<pre><code class="lang-csharp">query.OrderBy(r =&gt; r.FirstName).OrderBy(r =&gt; r.LastName)
+<p>// =true - non-first OrderBy* calls treated as ordering continuation (non-standard)
+ORDER BY p.FIRST_NAME, p.LAST_NAME</p>
+<p>// =false - last OrderBy* calls have higher priority like they should per API documentation
+ORDER BY p.LAST_NAME, p.FIRST_NAME</p>
+<p>// to completely discard old sort specification, use  API:
+query.OrderBy(r =&gt; r.FirstName).RemoveOrderBy().OrderBy(r =&gt; r.LastName)</p>
+<p>// for any  value will produce
+ORDER BY p.LAST_NAME</p></code></pre>
+
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ConcatenateOrderBy { get; set; }</code></pre>
   </div>
 
 
@@ -190,29 +289,6 @@ Default value: <code>true</code>.</p>
 
 
 
-  <h4 class="section" id="LinqToDB_Common_Configuration_Linq_CompareNullsAsValues_examples">Examples</h4>
-  <pre><code class="lang-csharp">public class MyEntity
-{
-    public int? Value;
-}
-
-db.MyEntity.Where(e =&gt; e.Value != 10)
-
-from e1 in db.MyEntity
-join e2 in db.MyEntity on e1.Value equals e2.Value
-select e1
-
-var filter = new [] {1, 2, 3};
-db.MyEntity.Where(e =&gt; ! filter.Contains(e.Value))</code></pre>
-<p>Would be converted to next queries:</p>
-<pre><code class="lang-csharp">SELECT Value FROM MyEntity WHERE Value IS NULL OR Value != 10
-
-SELECT e1.Value
-FROM MyEntity e1
-INNER JOIN MyEntity e2 ON e1.Value = e2.Value OR (e1.Value IS NULL AND e2.Value IS NULL)
-
-SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code></pre>
-
 
 
 
@@ -222,7 +298,7 @@ SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code><
 
   <h3 id="LinqToDB_Common_Configuration_Linq_DisableQueryCache" data-uid="LinqToDB.Common.Configuration.Linq.DisableQueryCache">
   DisableQueryCache
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Configuration.cs/#L360"><i class="bi bi-code-slash"></i></a>
+  
   </h3>
 
   <div class="markdown level1 summary"><p>Used to disable LINQ expressions caching for queries.
@@ -235,7 +311,7 @@ This cache reduces time, required for query parsing but have several side-effect
 Default value: <code>false</code>.
 <p></p>
 It is not recommended to enable this option as it could lead to severe slowdown. Better approach will be
-to call <a class="xref" href="LinqToDB.Linq.Query-1.html#LinqToDB_Linq_Query_1_ClearCache">ClearCache()</a> method to cleanup cache after queries, that produce severe memory leaks you need to fix.
+to use <a class="xref" href="LinqToDB.Linq.NoLinqCache.html">NoLinqCache</a> scope around queries, that produce severe memory leaks you need to fix.
 <p></p>
 <a href="https://github.com/linq2db/linq2db/issues/256">More details</a>.
 </div>
@@ -262,48 +338,11 @@ to call <a class="xref" href="LinqToDB.Linq.Query-1.html#LinqToDB_Linq_Query_1_C
 
 
 
-  <a id="LinqToDB_Common_Configuration_Linq_DoNotClearOrderBys_" data-uid="LinqToDB.Common.Configuration.Linq.DoNotClearOrderBys*"></a>
-
-  <h3 id="LinqToDB_Common_Configuration_Linq_DoNotClearOrderBys" data-uid="LinqToDB.Common.Configuration.Linq.DoNotClearOrderBys">
-  DoNotClearOrderBys
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Configuration.cs/#L255"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Controls behavior, when LINQ query chain contains multiple <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.queryable.orderby#system-linq-queryable-orderby-2(system-linq-iqueryable((-0))-system-linq-expressions-expression((system-func((-0-1)))))">OrderBy&lt;TSource, TKey&gt;(IQueryable&lt;TSource&gt;, Expression&lt;Func&lt;TSource, TKey&gt;&gt;)</a> or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.queryable.orderbydescending#system-linq-queryable-orderbydescending-2(system-linq-iqueryable((-0))-system-linq-expressions-expression((system-func((-0-1)))))">OrderByDescending&lt;TSource, TKey&gt;(IQueryable&lt;TSource&gt;, Expression&lt;Func&lt;TSource, TKey&gt;&gt;)</a> calls:</p>
-<ul>
-<li>if <code>true</code> - non-first OrderBy* call will be treated as ThenBy* call;</li>
-<li>if <code>false</code> - OrderBy* call will discard sort specifications, added by previous OrderBy* and ThenBy* calls.
-Default value: <code>false</code>.</li>
-</ul>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool DoNotClearOrderBys { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <a id="LinqToDB_Common_Configuration_Linq_EnableContextSchemaEdit_" data-uid="LinqToDB.Common.Configuration.Linq.EnableContextSchemaEdit*"></a>
 
   <h3 id="LinqToDB_Common_Configuration_Linq_EnableContextSchemaEdit" data-uid="LinqToDB.Common.Configuration.Linq.EnableContextSchemaEdit">
   EnableContextSchemaEdit
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Configuration.cs/#L435"><i class="bi bi-code-slash"></i></a>
+  
   </h3>
 
   <div class="markdown level1 summary"><p>If <code>true</code>, user could add new mappings to context mapping schems (<a class="xref" href="LinqToDB.IDataContext.html#LinqToDB_IDataContext_MappingSchema">MappingSchema</a>).
@@ -339,7 +378,7 @@ Default value: <code>false</code>.</p>
 
   <h3 id="LinqToDB_Common_Configuration_Linq_GenerateExpressionTest" data-uid="LinqToDB.Common.Configuration.Linq.GenerateExpressionTest">
   GenerateExpressionTest
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Configuration.cs/#L224"><i class="bi bi-code-slash"></i></a>
+  
   </h3>
 
   <div class="markdown level1 summary"><p>Enables generation of test class for each LINQ query, executed while this option is enabled.
@@ -376,13 +415,13 @@ Default value: <code>false</code>.</p>
 
   <h3 id="LinqToDB_Common_Configuration_Linq_GuardGrouping" data-uid="LinqToDB.Common.Configuration.Linq.GuardGrouping">
   GuardGrouping
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Configuration.cs/#L335"><i class="bi bi-code-slash"></i></a>
+  
   </h3>
 
   <div class="markdown level1 summary"><p>Controls behavior of LINQ query, which ends with GroupBy call.</p>
 <ul>
 <li>if <code>true</code> - <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown for such queries;</li>
-<li>if <code>false</code> - behavior is controlled by <a class="xref" href="LinqToDB.Common.Configuration.Linq.html#LinqToDB_Common_Configuration_Linq_PreloadGroups">PreloadGroups</a> option.
+<li>if <code>false</code> - eager loading used.
 Default value: <code>true</code>.</li>
 </ul>
 </div>
@@ -416,13 +455,13 @@ Default value: <code>true</code>.</li>
 
   <h3 id="LinqToDB_Common_Configuration_Linq_IgnoreEmptyUpdate" data-uid="LinqToDB.Common.Configuration.Linq.IgnoreEmptyUpdate">
   IgnoreEmptyUpdate
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Configuration.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  
   </h3>
 
   <div class="markdown level1 summary"><p>Controls behavior of linq2db when there is no updateable fields in Update query:</p>
 <ul>
 <li>if <code>true</code> - query not executed and Update operation returns 0 as number of affected records;</li>
-<li>if <code>false</code> - <a class="xref" href="LinqToDB.Linq.LinqException.html">LinqException</a> will be thrown.
+<li>if <code>false</code> - <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown.
 Default value: <code>false</code>.</li>
 </ul>
 </div>
@@ -449,46 +488,11 @@ Default value: <code>false</code>.</li>
 
 
 
-  <a id="LinqToDB_Common_Configuration_Linq_KeepDistinctOrdered_" data-uid="LinqToDB.Common.Configuration.Linq.KeepDistinctOrdered*"></a>
-
-  <h3 id="LinqToDB_Common_Configuration_Linq_KeepDistinctOrdered" data-uid="LinqToDB.Common.Configuration.Linq.KeepDistinctOrdered">
-  KeepDistinctOrdered
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Configuration.cs/#L404"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Allows SQL generation to automatically transform</p>
-<pre><code class="lang-csharp">SELECT DISTINCT value FROM Table ORDER BY date</code></pre>
-<p>Into GROUP BY equivalent if syntax is not supported
-Default value: <code>true</code>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool KeepDistinctOrdered { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <a id="LinqToDB_Common_Configuration_Linq_OptimizeJoins_" data-uid="LinqToDB.Common.Configuration.Linq.OptimizeJoins*"></a>
 
   <h3 id="LinqToDB_Common_Configuration_Linq_OptimizeJoins" data-uid="LinqToDB.Common.Configuration.Linq.OptimizeJoins">
   OptimizeJoins
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Configuration.cs/#L273"><i class="bi bi-code-slash"></i></a>
+  
   </h3>
 
   <div class="markdown level1 summary"><p>If enabled, linq2db will try to reduce number of generated SQL JOINs for LINQ query.
@@ -527,7 +531,7 @@ Default value: <code>true</code>.</li>
 
   <h3 id="LinqToDB_Common_Configuration_Linq_Options" data-uid="LinqToDB.Common.Configuration.Linq.Options">
   Options
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Configuration.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  
   </h3>
 
   <div class="markdown level1 summary"><p>Default <a class="xref" href="LinqToDB.LinqOptions.html">LinqOptions</a> options. Automatically synchronized with other settings in <a class="xref" href="LinqToDB.Common.Configuration.Linq.html">Configuration.Linq</a> class.</p>
@@ -559,7 +563,7 @@ Default value: <code>true</code>.</li>
 
   <h3 id="LinqToDB_Common_Configuration_Linq_ParameterizeTakeSkip" data-uid="LinqToDB.Common.Configuration.Linq.ParameterizeTakeSkip">
   ParameterizeTakeSkip
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Configuration.cs/#L418"><i class="bi bi-code-slash"></i></a>
+  
   </h3>
 
   <div class="markdown level1 summary"><p>Enables Take/Skip parameterization.
@@ -588,81 +592,11 @@ Default value: <code>true</code>.</p>
 
 
 
-  <a id="LinqToDB_Common_Configuration_Linq_PreferApply_" data-uid="LinqToDB.Common.Configuration.Linq.PreferApply*"></a>
-
-  <h3 id="LinqToDB_Common_Configuration_Linq_PreferApply" data-uid="LinqToDB.Common.Configuration.Linq.PreferApply">
-  PreferApply
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Configuration.cs/#L388"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Used to generate CROSS APPLY or OUTER APPLY if possible.
-Default value: <code>true</code>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool PreferApply { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="LinqToDB_Common_Configuration_Linq_PreloadGroups_" data-uid="LinqToDB.Common.Configuration.Linq.PreloadGroups*"></a>
-
-  <h3 id="LinqToDB_Common_Configuration_Linq_PreloadGroups" data-uid="LinqToDB.Common.Configuration.Linq.PreloadGroups">
-  PreloadGroups
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Configuration.cs/#L190"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Controls how group data for LINQ queries ended with GroupBy will be loaded:</p>
-<ul>
-<li>if <code>true</code> - group data will be loaded together with main query, resulting in 1 + N queries, where N - number of groups;</li>
-<li>if <code>false</code> - group data will be loaded when you call enumerator for specific group <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.igrouping-2">IGrouping&lt;TKey, TElement&gt;</a>.
-Default value: <code>false</code>.</li>
-</ul>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool PreloadGroups { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <a id="LinqToDB_Common_Configuration_Linq_TraceMapperExpression_" data-uid="LinqToDB.Common.Configuration.Linq.TraceMapperExpression*"></a>
 
   <h3 id="LinqToDB_Common_Configuration_Linq_TraceMapperExpression" data-uid="LinqToDB.Common.Configuration.Linq.TraceMapperExpression">
   TraceMapperExpression
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Common/Configuration.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  
   </h3>
 
   <div class="markdown level1 summary"><p>Enables logging of generated mapping expression to data connection tracing infrastructure.
@@ -709,7 +643,7 @@ Default value: <code>false</code>.</p>
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2024 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

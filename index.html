@@ -73,15 +73,15 @@
         <article data-uid="">
 <h1 id="linq-to-db">LINQ to DB</h1>
 
-<p><a href="https://discord.gg/PcV6pTXt4s"><img src="https://img.shields.io/discord/1089930409577545948?label=discord" alt="Discord"></a> <a href="https://www.nuget.org/profiles/LinqToDB"><img src="https://buildstats.info/nuget/linq2db?includePreReleases=true" alt="NuGet Version and Downloads count"></a> <a href="https://github.com/linq2db/linq2db/blob/master/MIT-LICENSE.txt"><img src="https://img.shields.io/github/license/linq2db/linq2db" alt="License"></a>
+<p><a href="https://discord.gg/PcV6pTXt4s"><img src="https://img.shields.io/discord/1089930409577545948?label=discord" alt="Discord"></a> <a href="https://www.nuget.org/profiles/LinqToDB"><img src="https://img.shields.io/nuget/vpre/linq2db" alt="NuGet Version"></a> <a href="https://github.com/linq2db/linq2db/blob/master/MIT-LICENSE.txt"><img src="https://img.shields.io/github/license/linq2db/linq2db" alt="License"></a>
 <a href="https://github.com/linq2db/linq2db/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22"><img src="https://img.shields.io/github/issues/linq2db/linq2db/good%20first%20issue.svg" alt="&quot;good first issue&quot; tasks"></a></p>
 <p><a href="https://dev.azure.com/linq2db/linq2db/_build?definitionId=5&amp;_a=summary"><img src="https://img.shields.io/azure-devops/build/linq2db/linq2db/5/master?label=build%20(master)" alt="Master branch build"></a> <a href="https://dev.azure.com/linq2db/linq2db/_build?definitionId=5&amp;_a=summary"><img src="https://img.shields.io/azure-devops/build/linq2db/linq2db/5?label=build%20(latest)" alt="Latest build"></a></p>
-<p>LINQ to DB is the fastest LINQ database access library offering a simple, light, fast, and type-safe layer between your POCO objects and your database.</p>
+<p>LINQ to DB is the fastest LINQ database access library offering a simple, light, fast, and type-safe layer between your POCOs and your database.</p>
 <p>Architecturally it is one step above micro-ORMs like Dapper, Massive, or PetaPoco, in that you work with LINQ expressions, not with magic strings, while maintaining a thin abstraction layer between your code and the database. Your queries are checked by the C# compiler and allow for easy refactoring.</p>
 <p>However, it's not as heavy as LINQ to SQL or Entity Framework. There is no change-tracking, so you have to manage that yourself, but on the positive side you get more control and faster access to your data.</p>
 <p>In other words <strong>LINQ to DB is type-safe SQL</strong>.</p>
-<p>Development version nuget <a href="https://pkgs.dev.azure.com/linq2db/linq2db/_packaging/linq2db/nuget/v3/index.json">feed</a> (<a href="https://docs.microsoft.com/en-us/nuget/consume-packages/install-use-packages-visual-studio#package-sources">how to use</a>)</p>
-<p>You can follow our <a href="https://twitter.com/linq2db">twitter bot</a> to receive notifications about new releases. Note that currently it is only release notification bot and we don't monitor questions there.</p>
+<p><strong>LINQ to DB</strong> also very nice for F# developers (see Tests/FSharp and Source/LinqToDB.FSharp project for details).</p>
+<p>Development version nugets <a href="https://dev.azure.com/linq2db/linq2db/_artifacts/feed/linq2db">feeds</a> (<a href="https://docs.microsoft.com/en-us/nuget/consume-packages/install-use-packages-visual-studio#package-sources">how to use</a>)</p>
 <h2 id="standout-features">Standout Features</h2>
 <ul>
 <li>Rich Querying API:
@@ -105,13 +105,11 @@
 <p><a href="https://github.com/linq2db/linq2db/wiki/Releases-and-Roadmap">Release notes</a> page.</p>
 <h3 id="related-linq-to-db-and-3rd-party-projects">Related Linq To DB and 3rd-party projects</h3>
 <ul>
-<li><a href="https://github.com/linq2db/linq2db.EntityFrameworkCore">linq2db.EntityFrameworkCore</a> (adds support for linq2db functionality in EF.Core projects)</li>
+<li><a href="https://github.com/linq2db/linq2db/tree/master/Source/LinqToDB.EntityFrameworkCore">linq2db.EntityFrameworkCore</a> (adds support for linq2db functionality in EF.Core projects)</li>
 <li><a href="https://github.com/linq2db/LinqToDB.Identity">LinqToDB.Identity</a> - ASP.NET Core Identity provider using Linq To DB</li>
-<li><a href="https://github.com/linq2db/linq2db.LINQPad">LINQPad Driver</a></li>
+<li><a href="https://github.com/linq2db/linq2db/tree/master/Source/LinqToDB.LINQPad">LINQPad Driver</a></li>
 <li><a href="https://github.com/LinqToDB4iSeries/Linq2DB4iSeries">DB2 iSeries Provider</a></li>
-<li><a href="https://github.com/David-Mawer/LINQ2DB-MVC-Core-2/tree/master/LINQ2DB-MVC-Core-2">ASP.NET CORE 2 Template</a></li>
-<li><a href="https://github.com/David-Mawer/LINQ2DB-AngularWebApp-Core-3">ASP.NET CORE 3 Template with Angular</a></li>
-<li><a href="https://github.com/David-Mawer/LINQ2DB-MVC-Core-5">ASP.NET CORE 5 Template</a></li>
+<li><a href="https://github.com/David-Mawer/LINQ2DB-MVC-Core-5">ASP.NET Core Template</a></li>
 <li><a href="https://github.com/apdevelop/linq2db-postgis-extensions">PostGIS extensions for linq2db</a></li>
 </ul>
 <p>Notable open-source users:</p>
@@ -197,7 +195,7 @@ public class MySettings : ILinqToDBSettings
 <p>And later just set on program startup before the first query is done (Startup.cs for example):</p>
 <pre><code class="lang-cs">DataConnection.DefaultSettings = new MySettings();
 </code></pre>
-<h3 id="use-with-aspnet-core">Use with ASP.NET Core</h3>
+<h3 id="use-with-aspnet-core-and-dependency-injection">Use with ASP.NET Core and Dependency Injection</h3>
 <p>See <a href="https://linq2db.github.io/articles/get-started/asp-dotnet-core/index.html">article</a>.</p>
 <h2 id="define-poco-class">Define <strong>POCO</strong> class</h2>
 <p>You can generate POCO classes from your database using <a href="https://www.nuget.org/packages/linq2db.cli">linq2db.cli</a>  <code>dotnet tool</code>.</p>
@@ -246,7 +244,7 @@ public class Product
 // Never create new mapping schema for each connection as
 // it will seriously harm performance
 var myFluentMappings = new MappingSchema();
-var builder       = mappingSchema.GetFluentMappingBuilder();
+var builder       = new FluentMappingBuilder(mappingSchema);
 
 builder.Entity&lt;Product&gt;()
     .HasTableName(&quot;Products&quot;)
@@ -281,7 +279,6 @@ var db = new DataConnection(option);
 <li>associations will not be automatically configured.</li>
 </ul>
 <pre><code class="lang-c#">using System;
-using LinqToDB.Mapping;
 
 public class Product
 {
@@ -313,7 +310,6 @@ public class Product
 <p>We call the base constructor with the &quot;Northwind&quot; parameter. This parameter (called <code>configuration name</code>) has to match the <code>name=&quot;Northwind&quot;</code> we defined above as name of our connection string. We also added convenience properties for <code>Product</code> and <code>Category</code> mapping classes to write LINQ queries.</p>
 <p>And now let's get some data:</p>
 <pre><code class="lang-cs">using LinqToDB;
-using LinqToDB.Common;
 
 public static List&lt;Product&gt; GetProducts()
 {
@@ -662,6 +658,20 @@ public class DbDataContext : DataConnection
 #endif
 }
 </code></pre>
+<h2 id="f">F#</h2>
+<h3 id="sample-query-with-load-child-relations">Sample query with load child relations</h3>
+<pre><code class="lang-fsharp">let getPerson (db: IDataContext) (id: int) =
+    let persons = db.GetTable&lt;Person&gt;().LoadWith(fun x -&gt; x.Patient)
+
+    let person =
+        query {
+            for p in persons do
+                where (p.ID = id)
+                exactlyOne
+        }
+
+    person
+</code></pre>
 <h2 id="more">More</h2>
 <p>Still have questions left? Check out our <a href="https://linq2db.github.io">documentation site</a> and <a href="https://linq2db.github.io/articles/FAQ.html">FAQ</a></p>
 
@@ -682,7 +692,7 @@ public class DbDataContext : DataConnection
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2024 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

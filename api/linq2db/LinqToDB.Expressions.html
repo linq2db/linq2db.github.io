@@ -95,86 +95,11 @@
 Classes
 </h3>
     <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.CustomMapperAttribute.html">CustomMapperAttribute</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.DefaultValueExpression.html">DefaultValueExpression</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.ExpressionEvaluator.html">ExpressionEvaluator</a></dt>
-      <dd><p>Internal API.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
       <dt><a class="xref" href="LinqToDB.Expressions.ExpressionExtensions.html">ExpressionExtensions</a></dt>
       <dd></dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.ExpressionGenerator.html">ExpressionGenerator</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.ExpressionHelper.html">ExpressionHelper</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.ExpressionInstances.html">ExpressionInstances</a></dt>
-      <dd><p>Contains pre-created instances of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.constantexpression">ConstantExpression</a> object for often used constants.
-Using those instances we avoid unnecessary allocations of same constant instances and avoid boxing for
-value constants (e.g. booleans, integers).</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.IsQueryableAttribute.html">IsQueryableAttribute</a></dt>
-      <dd><p>Used to define queryable members.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
       <dt><a class="xref" href="LinqToDB.Expressions.MemberHelper.html">MemberHelper</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.SqlQueryDependentAttribute.html">SqlQueryDependentAttribute</a></dt>
-      <dd><p>Used for controlling query caching of custom SQL Functions.
-Parameter with this attribute will be evaluated on client side before generating SQL.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.SqlQueryDependentParamsAttribute.html">SqlQueryDependentParamsAttribute</a></dt>
-      <dd><p>Used for controlling query caching of custom SQL Functions.
-Parameter with this attribute will be evaluated on client side before generating SQL.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.TypeMapper.html">TypeMapper</a></dt>
-      <dd><p>Implements typed mappings support for dynamically loaded types.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.TypeMapper.MemberBuilder-2.html">TypeMapper.MemberBuilder&lt;T, TV&gt;</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.TypeMapper.TypeBuilder-1.html">TypeMapper.TypeBuilder&lt;T&gt;</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.TypeWrapper.html">TypeWrapper</a></dt>
-      <dd><p>Implements base class for typed wrappers over provider-specific type.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.TypeWrapperNameAttribute.html">TypeWrapperNameAttribute</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.ValueTaskToTaskMapper.html">ValueTaskToTaskMapper</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.WrapperAttribute.html">WrapperAttribute</a></dt>
       <dd></dd>
     </dl>
     <h3 id="structs">
@@ -184,35 +109,12 @@ Structs
       <dt><a class="xref" href="LinqToDB.Expressions.MemberHelper.MemberInfoWithType.html">MemberHelper.MemberInfoWithType</a></dt>
       <dd></dd>
     </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.TransformInfo.html">TransformInfo</a></dt>
-      <dd></dd>
-    </dl>
     <h3 id="interfaces">
 Interfaces
 </h3>
     <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.ICustomMapper.html">ICustomMapper</a></dt>
+      <dt><a class="xref" href="LinqToDB.Expressions.IExpressionEvaluator.html">IExpressionEvaluator</a></dt>
       <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="LinqToDB.Expressions.IGenericInfoProvider.html">IGenericInfoProvider</a></dt>
-      <dd><p>Generic conversions provider.
-Implementation class must be generic, as type parameters will be used for conversion initialization in
-<a class="xref" href="LinqToDB.Expressions.IGenericInfoProvider.html#LinqToDB_Expressions_IGenericInfoProvider_SetInfo_LinqToDB_Mapping_MappingSchema_">SetInfo(MappingSchema)</a> method.
-<example></example></p>
-<pre><code class="lang-csharp">// this conversion provider adds conversion from IEnumerable&lt;T&gt; to ImmutableList&lt;T&gt; for specific T type parameter
-class EnumerableToImmutableListConvertProvider&lt;T&gt; : IGenericInfoProvider
-{
-    public void SetInfo(MappingSchema mappingSchema)
-    {
-        mappingSchema.SetConvertExpression&lt;IEnumerable&lt;T&gt;,ImmutableList&lt;T&gt;&gt;(
-            t =&gt; ImmutableList.Create(t.ToArray()));
-    }
-}</code></pre>
-
-<a class="xref" href="LinqToDB.Mapping.MappingSchema.html#LinqToDB_Mapping_MappingSchema_SetGenericConvertProvider_System_Type_">SetGenericConvertProvider(Type)</a> for more details.
-</dd>
     </dl>
 
 
@@ -232,7 +134,7 @@ class EnumerableToImmutableListConvertProvider&lt;T&gt; : IGenericInfoProvider
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2024 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

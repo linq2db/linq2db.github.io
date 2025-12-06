@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ObjectSchema.IndexColumn | Linq To DB ">
       
-      <meta name="description" content="sys.index_columns (Transact-SQL) Applies to: √ SQL Server (all supported versions) √ Azure SQL Database √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW) Contains one row per column that is part of a sys.indexes index or unordered table (heap). See sys.index_columns.">
+      <meta name="description" content="sys.index_columns (Transact-SQL) Applies to: √ SQL Server √ Azure SQL Database √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW) √ SQL database in Microsoft Fabric Contains one row per column that is part of an index or unordered table (heap). See sys.index_columns.">
       <link rel="icon" href="../../images/icon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_IndexColumn" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.IndexColumn" class="text-break">
-Class ObjectSchema.IndexColumn  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14601"><i class="bi bi-code-slash"></i></a>
+Class ObjectSchema.IndexColumn  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L17301"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -98,8 +98,8 @@ Class ObjectSchema.IndexColumn  <a class="header-action link-secondary" title="V
   </div>
 
   <div class="markdown summary"><p><strong>sys.index_columns (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions) √ Azure SQL Database √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW)</p>
-<p>Contains one row per column that is part of a <strong>sys.indexes</strong> index or unordered table (heap).</p><br>
+<p><strong>Applies to:</strong> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">SQL Server</a> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure SQL Database</a> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure SQL Managed Instance</a> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure Synapse Analytics</a> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Analytics Platform System (PDW)</a> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">SQL database in Microsoft Fabric</a></p>
+<p>Contains one row per column that is part of an index or unordered table (heap).</p><br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-index-columns-transact-sql">sys.index_columns</a>.</p>
 </div>
   <div class="markdown conceptual"></div>
@@ -122,6 +122,31 @@ public class ObjectSchema.IndexColumn</code></pre>
 
 
 
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
 
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
@@ -143,10 +168,11 @@ public class ObjectSchema.IndexColumn</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_IndexColumn_ColumnID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.IndexColumn.ColumnID">
   ColumnID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14619"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L17323"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>ID of the column in <strong>object_id</strong>.<br><br> 0 = Row Identifier (RID) in a nonclustered index.<br><br> <strong>column_id</strong> is unique only within <strong>object_id</strong>.</p>
+  <div class="markdown level1 summary"><p><strong>column_id</strong> NOT NULL <strong>int</strong></p>
+ID of the column in <code>object_id</code>.<br><br><code>0</code> = Row Identifier (RID) in a nonclustered index.<br><br><code>column_id</code> is unique only within <code>object_id</code>.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -177,10 +203,11 @@ public int ColumnID { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_IndexColumn_ColumnStoreOrderOrdinal" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.IndexColumn.ColumnStoreOrderOrdinal">
   ColumnStoreOrderOrdinal
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14639"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L17348"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Ordinal (1-based) within set of order columns in an ordered clustered columnstore index.</p>
+  <div class="markdown level1 summary"><p><strong>column_store_order_ordinal</strong> NOT NULL <strong>tinyint</strong></p>
+<strong>Applies to</strong>: Azure Synapse Analytics, SQL Server 2022 (16.x), Azure SQL Database, and Azure SQL Managed Instance with the <a href="https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/update-policy#always-up-to-date-update-policy">Always-up-to-date update policy</a><br><br>Ordinal (1-based) within set of order columns in an ordered columnstore index. For more on ordered columnstore indexes, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/indexes/ordered-columnstore-indexes">Performance tuning with ordered columnstore indexes</a>.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -211,10 +238,11 @@ public byte ColumnStoreOrderOrdinal { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_IndexColumn_IndexColumnID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.IndexColumn.IndexColumnID">
   IndexColumnID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14615"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L17318"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>ID of the index column. <strong>index_column_id</strong> is unique only within <strong>index_id</strong>.</p>
+  <div class="markdown level1 summary"><p><strong>index_column_id</strong> NOT NULL <strong>int</strong></p>
+ID of the index column. <code>index_column_id</code> is unique only within <code>index_id</code>.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -245,10 +273,11 @@ public int IndexColumnID { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_IndexColumn_IndexID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.IndexColumn.IndexID">
   IndexID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14611"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L17313"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>ID of the index in which the column is defined.</p>
+  <div class="markdown level1 summary"><p><strong>index_id</strong> NOT NULL <strong>int</strong></p>
+ID of the index in which the column is defined.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -279,10 +308,11 @@ public int IndexID { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_IndexColumn_IsDescendingKey" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.IndexColumn.IsDescendingKey">
   IsDescendingKey
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14631"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L17338"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>1 = Index key column has a descending sort direction.<br><br> 0 = Index key column has an ascending sort direction, or the column is part of a columnstore or hash index.</p>
+  <div class="markdown level1 summary"><p><strong>is_descending_key</strong> NULL <strong>bit</strong></p>
+<code>1</code> = Index key column has a descending sort direction.<br><br><code>0</code> = Index key column has an ascending sort direction, or the column is part of a columnstore or hash index.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -313,10 +343,11 @@ public bool? IsDescendingKey { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_IndexColumn_IsIncludedColumn" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.IndexColumn.IsIncludedColumn">
   IsIncludedColumn
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14635"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L17343"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>1 = Column is a nonkey column added to the index by using the CREATE INDEX INCLUDE clause, or the column is part of a columnstore index.<br><br> 0 = Column is not an included column.<br><br> Columns implicitly added because they are part of the clustering key are not listed in <strong>sys.index_columns</strong>.<br><br> Columns implicitly added because they are a partitioning column are returned as 0.</p>
+  <div class="markdown level1 summary"><p><strong>is_included_column</strong> NULL <strong>bit</strong></p>
+<code>1</code> = Column is a nonkey column added to the index by using the CREATE INDEX INCLUDE clause, or the column is part of a columnstore index.<br><br><code>0</code> = Column isn't an included column.<br><br>Columns implicitly added because they're part of the clustering key aren't listed in <code>sys.index_columns</code>.<br><br>Columns implicitly added because they're a partitioning column are returned as <code>0</code>.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -347,10 +378,11 @@ public bool? IsIncludedColumn { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_IndexColumn_KeyOrdinal" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.IndexColumn.KeyOrdinal">
   KeyOrdinal
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14623"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L17328"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Ordinal (1-based) within set of key-columns.<br><br> 0 = Not a key column, or is an XML index, a columnstore index, or a spatial index.<br><br> Note: An XML or spatial index cannot be a key because the underlying columns are not comparable, meaning that their values cannot be ordered.</p>
+  <div class="markdown level1 summary"><p><strong>key_ordinal</strong> NOT NULL <strong>tinyint</strong></p>
+Ordinal (1-based) within set of key-columns.<br><br>0 = Not a key column, or is an XML index, a columnstore index, or a spatial index.<br><br>Note: An XML or spatial index can't be a key because the underlying columns aren't comparable, meaning that their values can't be ordered.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -381,7 +413,7 @@ public byte KeyOrdinal { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_IndexColumn_Object" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.IndexColumn.Object">
   Object
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14646"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L17355"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>objects (sys.objects)</p>
@@ -414,10 +446,11 @@ public ObjectSchema.Object Object { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_IndexColumn_ObjectID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.IndexColumn.ObjectID">
   ObjectID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14607"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L17308"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>ID of the object the index is defined on.</p>
+  <div class="markdown level1 summary"><p><strong>object_id</strong> NOT NULL <strong>int</strong></p>
+ID of the object the index is defined on.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -448,10 +481,11 @@ public int ObjectID { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_IndexColumn_PartitionOrdinal" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.IndexColumn.PartitionOrdinal">
   PartitionOrdinal
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L14627"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L17333"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Ordinal (1-based) within set of partitioning columns. A clustered columnstore index can have at most 1 partitioning column.<br><br> 0 = Not a partitioning column.</p>
+  <div class="markdown level1 summary"><p><strong>partition_ordinal</strong> NOT NULL <strong>tinyint</strong></p>
+Ordinal (1-based) within set of partitioning columns. A clustered columnstore index can have at most one partitioning column.<br><br>0 = Not a partitioning column.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -495,7 +529,7 @@ public byte PartitionOrdinal { get; set; }</code></pre>
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2024 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

@@ -124,45 +124,52 @@
 <p>All loaded schema information is used for mappings generation, so if you want to limit generated mappings, it is the best place to do it.</p>
 <pre><code class="lang-cs">// Enables loading of tables and views information
 GetSchemaOptions.GetTables             = true;
+
 // Enables loading of foreign key relations for associations
 GetSchemaOptions.GetForeignKeys        = true;
+
 // Enables loading of functions and procedures information
 GetSchemaOptions.GetProcedures         = true;
+
 // Enables use of System.Char type in generated model for text types
 // with length 1 instead of System.String
 GetSchemaOptions.GenerateChar1AsString = false;
+
 // Enables generation of provider-specific type for column or parameter mapping
 // when both common .net type and provider-specific type supported.
 GetSchemaOptions.PreferProviderSpecificTypes = false;
 
 // (string[]) List of schemas to select.
-// Option applied only if is is not empty
+// Option applied only if is not empty
 GetSchemaOptions.IncludedSchemas = null;
+
 // (string[]) List of schemas to exclude from select.
-// Option applied only if is is not empty
+// Option applied only if is not empty
 GetSchemaOptions.ExcludedSchemas = null;
+
 // (string) explicit name of default schema.
 // If not specified, use default schema for current connection.
 GetSchemaOptions.DefaultSchema = null;
 
 // Option makes sense only for providers that return schema for several databases
 // (string[]) List of databases/catalogs to select.
-// Option applied only if is is not empty
+// Option applied only if is not empty
 GetSchemaOptions.IncludedCatalogs = null;
+
 // Option makes sense only for providers that return schema for several databases
 // (string[]) List of databases/catalogs to exclude from select.
-// Option applied only if is is not empty
+// Option applied only if is not empty
 GetSchemaOptions.ExcludedCatalogs = null;
 
 // Custom filter for table/view schema load
 // Can be used to exclude views or tables from generation based in their descriptor.
-// This filter especially usefull, when you wan't to exclude table, referenced by other generated
+// This filter especially useful, when you want to exclude table, referenced by other generated
 // tables using associations, or by procedures using excluded table as result. Doing it in filter
 // will automatically prevent associations generation and will trigger generation of procedure-specific
 // result classes.
 // LoadTableData type:
 // https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SchemaProvider/LoadTableData.cs
-Func&lt;LoadTableData, bool&gt; GetSchemaOptions.LoadTable = null;
+Func&lt;LoadTableData,bool&gt; GetSchemaOptions.LoadTable = null;
 
 // Comparer, used for IncludedSchemas/ExcludedSchemas/IncludedCatalogs/ExcludedCatalogs lookups
 StringComparer                    = StringComparer.OrdinalIgnoreCase;
@@ -172,13 +179,14 @@ StringComparer                    = StringComparer.OrdinalIgnoreCase;
 // Also check GenerateProcedureErrors option below
 // ProcedureSchema type:
 // https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SchemaProvider/ProcedureSchema.cs
-GetSchemaOptions.LoadProcedure     = (ProcedureSchema p) =&gt; true;
+GetSchemaOptions.LoadProcedure    = (ProcedureSchema p) =&gt; true;
+
 // SQL Server 2012+ only
 // true: use sp_describe_first_result_set procedure to load procedure schema
-// false: use CommandBehavior.SchemaOnly  to load procedure schema
-GetSchemaOptions.UseSchemaOnly     = Common.Configuration.SqlServer.UseSchemaOnlyToGetSchema = false;
+// false: use CommandBehavior.SchemaOnly to load procedure schema
+GetSchemaOptions.UseSchemaOnly    = Common.Configuration.SqlServer.UseSchemaOnlyToGetSchema = false;
 
-// type: Func&lt;ForeignKeySchema, string&gt;
+// type: Func&lt;ForeignKeySchema,string&gt;
 // Defines custom association naming logic
 // https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/SchemaProvider/ForeignKeySchema.cs
 GetSchemaOptions.GetAssociationMemberName = null;
@@ -189,13 +197,16 @@ GetSchemaOptions.ProcedureLoadingProgress = (int total, int current) =&gt; {};
 </code></pre>
 <h2 id="configuring-generation-process">Configuring generation process</h2>
 <p>Use the following initialization <strong>before</strong> you call the <code>LoadMetadata()</code> method.</p>
-<pre><code class="lang-cs">/* Global/generic options */
-// Namespace to use for generated model
-NamespaceName                  = &quot;DataModels&quot;;
+<h3 id="globalgeneric-options">Global/generic options</h3>
+<pre><code class="lang-cs">// Namespace to use for generated model
+NamespaceName                = &quot;DataModels&quot;;
+
 // Enables generation of nullable reference type annotations
-EnableNullableReferenceTypes   = false;
+EnableNullableReferenceTypes = true;
+
 // Disable CS8618 for uninitialized model columns and references of non-nullable reference type
-EnforceModelNullability        = true;
+EnforceModelNullability      = true;
+
 // Defines method to distinguish value types from reference types by type name
 // used by nullable reference types feature to detect reference types, when only type name available
 // If EnableNullableReferenceTypes enabled, but value type not recognized properly
@@ -208,151 +219,205 @@ EnforceModelNullability        = true;
 //    }
 // };
 // by default resolve unknown types, ending with ? as value types and other types as reference types
-Func&lt;string, boolean&gt; IsValueType = IsValueTypeDefault;
-
-/* Data context configuration */
-// (string) Name of base class for generated data context class.
-// Default: LinqToDB.Data.DataConnection.
-BaseDataContextClass           = null;
+Func&lt;string,boolean&gt; IsValueType = IsValueTypeDefault;
+</code></pre>
+<h3 id="datacontext-configuration">DataContext configuration</h3>
+<pre><code class="lang-c#">
 // (string) Name of data context class.
 // Default: &lt;DATABASE_NAME&gt; + &quot;DB&quot;
-DataContextName                = null;
-// Enables generation of constructors for data context class.
-// Disabling could be usefull if you need to have custom implementation
-// of constructors in partial class
-GenerateConstructors          = true;               // Enforce generating DataContext constructors.
-// (string) Defines name of default configuration to use with default data context constructor
-DefaultConfiguration          = null;
-// Enables generation of data context comment with database name, data source and database version
-GenerateDatabaseInfo          = true;
+DataContextName                 = null;
 
-/* Schemas configuration */
-// Enables generation of mappings for each schema in separate type
-GenerateSchemaAsType            = false;
+// (string) Name of base class for generated data context class.
+// Default: LinqToDB.Data.DataConnection or LinqToDB.IDataContext.
+BaseDataContextClass            = null;
+
+// Enables generation of constructors for data context class.
+// Disabling could be useful if you need to have custom implementation
+// of constructors in partial class
+GenerateConstructors            = true;
+
+// (string) Defines name of default configuration to use with default data context constructor
+DefaultConfiguration            = null;
+
+// Enables generation of data model only without data context class.
+GenerateModelOnly               = false;
+
+// Enables generation of data model as an interface.
+GenerateModelInterface          = false;
+
+// Enables generation of data context comment with database name, data source and database version
+GenerateDatabaseInfo            = true;
+
+// Generates constructors that call user-defined methods returning DataOptions
+GetDataOptionsMethod            = &quot;GetDataOptions({0})&quot;;
+
+// Generates data options constructors
+GenerateDataOptionsConstructors = true;
+</code></pre>
+<h3 id="schemas-configuration">Schemas configuration</h3>
+<pre><code class="lang-c#">// Enables generation of mappings for each schema in separate type (db.MySchema.MyTable)
+GenerateSchemaAsType      = false;
+
 // Contains mapping of schema name to corresponding schema class name
 // By default is empty and class name generated from schema name
 // Requires GenerateSchemaAsType=true set
-SchemaNameMapping               = Dictionary&lt;string,string&gt;();
+SchemaNameMapping         = Dictionary&lt;string,string&gt;();
+
 // Suffix, added to schema class name
 // Requires GenerateSchemaAsType=true set
-SchemaNameSuffix                = &quot;Schema&quot;
+SchemaNameSuffix          = &quot;Schema&quot;;
+
 // Name of data context class for schema.
 // Requires GenerateSchemaAsType=true set
-SchemaDataContextTypeName       = &quot;DataContext&quot;
+SchemaDataContextTypeName = &quot;DataContext&quot;
+</code></pre>
+<h3 id="table-mappings-configuration">Table mappings configuration</h3>
+<pre><code class="lang-c#">// (string) Specify base class (or comma-separated list of class and/or interfaces) for table mappings
+BaseEntityClass                    = null;
 
-/* Table mappings configuration */
-// (string) Specify base class (or comma-separated list of class and/or interfaces) for table mappings
-BaseEntityClass               = null;
 // Enables generation of TableAttribute.Database property using database name, returned by schema loader
-GenerateDatabaseName          = false;
+GenerateDatabaseName               = false;
+
 // Enables generation of TableAttribute.Database property with provided name value.
 // (string) If set, overrides GenerateDatabaseName behavior
-DatabaseName                  = null;
+DatabaseName                       = null;
+
 // Enables generation of TableAttribute.Server property with provided name value.
-ServerName                    = null;
+ServerName                         = null;
+
 // Enables generation of TableAttribute.Schema property for default schema
-IncludeDefaultSchema          = true;
+IncludeDefaultSchema               = true;
+
 // Enables generation of mappings for views
-GenerateViews                 = true;
+GenerateViews                      = true;
+
 // Enables prefixing mapping classes for tables in non-default schema with schema name
 // E.g. MySchema.MyTable -&gt; MySchema_MyTable
 // Applicable only if GenerateSchemaAsType = false
-PrefixTableMappingWithSchema  = true;
+PrefixTableMappingWithSchema       = true;
+
 // Enables prefixing mapping classes for tables in default schema with schema name
 // E.g. dbo.MyTable -&gt; dbo_MyTable
 // Applicable only if IncludeDefaultSchema = true &amp;&amp; GenerateSchemaAsType = false &amp;&amp; PrefixTableMappingWithSchema = true
 PrefixTableMappingForDefaultSchema = false;
 
-/* Columns comfiguration */
-// Enables compact generation of column properties
-IsCompactColumns              = true;
+// Generates database name from TableSchema.CatalogName
+GenerateDatabaseNameFromTable      = false;
+
+</code></pre>
+<h3 id="columns-configuration">Columns configuration</h3>
+<pre><code class="lang-c#">// Enables compact generation of column properties
+IsCompactColumns                    = true;
+
 // Enables compact generation of aliased column properties
 IsCompactColumnAliases              = true;
-// Enables generation of DataType, Length, Precision and Scale properties of ColumnAttribute.
-// Could be overriden (except DataType) by options below
+
+// Enables generation of DataType, Length, Precision and Scale properties 
+// of ColumnAttribute. Could be overridden (except DataType) by options below
 GenerateDataTypes                   = false;
+
 // (boolean) Enables or disables generation of ColumnAttribute.Length property.
 // If null, GenerateDataTypes value is used
 GenerateLengthProperty              = null;
+
 // (boolean) Enables or disables generation of ColumnAttribute.Precision property.
 // If null, GenerateDataTypes value is used
 GeneratePrecisionProperty           = null;
+
 // (boolean) Enables or disables generation of ColumnAttribute.Scale property.
 // If null, GenerateDataTypes value is used
 GenerateScaleProperty               = null;
+
 // Enables generation of ColumnAttribute.DbType property.
 GenerateDbTypes                     = false;
+
 // Enables generation of ObsoleteAttribute for column aliases
 GenerateObsoleteAttributeForAliases = false;
-
-/* Associations configuration */
-// Defines type template for one-to-many association, when it is generated as a member of table mapping.
+</code></pre>
+<h3 id="associations-configuration">Associations configuration</h3>
+<pre><code class="lang-c#">// Defines type template for one-to-many association, when it is generated as a member of table mapping.
 // Some other options: &quot;{0}[]&quot;, &quot;List&lt;{0}&gt;&quot;.
 OneToManyAssociationType      = &quot;IEnumerable&lt;{0}&gt;&quot;;
+
 // Enables generation of associations in table mappings
 GenerateAssociations          = true;
+
 // Enables generation of back side of association. Applies to both table mapping members and extension
 // associations
 GenerateBackReferences        = true;
+
 // Enables generation of associations as extension methods for related table mapping classes
 GenerateAssociationExtensions = false;
+
 // Defines method to generate name for &quot;one&quot; side of association
 Func&lt;ForeignKey, string&gt; GetAssociationExtensionSingularName
     = GetAssociationExtensionSingularNameDefault;
+
 // Defines method to generate name for &quot;many&quot; side of association
 Func&lt;ForeignKey, string&gt; GetAssociationExtensionPluralName
     = GetAssociationExtensionPluralNameDefault;
 
-/* Procedures and functions configuration */
-// Enables use of existing table mappings for procedures and functions that return same results as
+// Enables generation of association columns using 'nameof' expression
+GenerateNameOf = true;
+</code></pre>
+<h3 id="procedures-and-functions-configuration">Procedures and functions configuration</h3>
+<pre><code class="lang-c#">// Enables use of existing table mappings for procedures and functions that return same results as
 // defined by mapping
-ReplaceSimilarTables          = true;
+ReplaceSimilarTables             = true;
+
 // If enabled, procedure schema load error will be generated as #error directive and fail build
 // of output file. Useful for initial generation to highlight places, that require review or
 // additional hints for schema loader
 // Also check GetSchemaOptions.LoadProcedure option above
-GenerateProcedureErrors       = true;
+GenerateProcedureErrors          = true;
+
 // If enabled, methods for procedures that return table will be generated with List&lt;T&gt; return type and
 // IMPORTANT: this will lead to load of all procedure results into list and could lead
 // to performance issues on big results
-GenerateProcedureResultAsList = false;
+GenerateProcedureResultAsList    = false;
+
 // Enables stored procedure methods to accept generated context object or DataConnection type
 GenerateProceduresOnTypedContext = true;
-
-/* Other generated functionality */
-// Enables generation of Find(pk fields) extension methods for record selection by primary key value
-GenerateFindExtensions        = true;
-
-/* Pluralization services */
-// Enables pluralization of table mapping classes
+</code></pre>
+<h3 id="other-generated-functionality">Other generated functionality</h3>
+<pre><code class="lang-c#">// Enables generation of Find(pk fields) extension methods for record selection by primary key value
+GenerateFindExtensions = true;
+</code></pre>
+<h3 id="pluralization-services">Pluralization services</h3>
+<pre><code class="lang-c#">// Enables pluralization of table mapping classes
 PluralizeClassNames                 = false;
+
 // Enables singularization of table mapping classes
 SingularizeClassNames               = true;
+
 // Enables pluralization of ITable&lt;&gt; properties in data context
 PluralizeDataContextPropertyNames   = true;
+
 // Enables singularization of ITable&lt;&gt; properties in data context
 SingularizeDataContextPropertyNames = false;
 
-/* Naming configuration */
-// Enables normalization of of type and member names.
+// Enables pluralization of foreign key names
+PluralizeForeignKeyNames            = true;
+
+// Enables singularization of foreign key names
+SingularizeForeignKeyNames          = true;
+</code></pre>
+<h3 id="naming-configuration">Naming configuration</h3>
+<pre><code class="lang-c#">// Enables normalization of type and member names.
 // Default normalization removes underscores and capitalize first letter.
-// Could be overriden using ToValidName option below.
+// Could be overridden using ToValidName option below.
 // By default doesn't normalize names without underscores.
 // see NormalizeNamesWithoutUnderscores setting
-NormalizeNames                      = true;
-// enables parameter name normalization for procedures/functions
-NormalizeParameterName              = true;
-// enables column property name normalization for procedure/table function result table
-NormalizeProcedureColumnName        = true;
+NormalizeNames                                 = true;
+
 // enables normalization of names without underscores.
-NormalizeNamesWithoutUnderscores    = false;
+NormalizeNamesWithoutUnderscores               = false;
+
 // Defines logic to convert type/member name, derived from database object name, to C# identifier.
 Func&lt;string, bool, string&gt; ToValidName         = ToValidNameDefault;
+
 // Makes C# identifier valid by removing unsupported symbols and calling ToValidName
 Func&lt;string, bool, string&gt; ConvertToCompilable = ConvertToCompilableDefault;
-// Defines C# identifier normalization logic.
-// Default implementation calls ConvertToCompilable and then escape names equal to C# identifiers
-Func&lt;string, bool, string&gt; NormalizeName       = NormalizeNameDefault;
 </code></pre>
 <h2 id="provider-specific-options">Provider specific options</h2>
 <h3 id="sql-server">SQL Server</h3>
@@ -401,21 +466,25 @@ GetFK(&quot;Orders&quot;, &quot;FK_Orders_Customers&quot;).MemberName      = &qu
 GetFK(&quot;Orders&quot;, &quot;FK_Orders_Customers&quot;).AssociationType = AssociationType.OneToMany;
 
 SetTable(string tableName,
-	string TypeName = null,
-	string DataContextPropertyName = null)
+    string TypeName = null,
+    string DataContextPropertyName = null)
 
-	.Column(string columnName, string MemberName = null, string Type = null, bool? IsNullable = null)
-	.FK    (string fkName,     string MemberName = null, AssociationType? AssociationType = null)
-	;
+    .Column(string columnName, string MemberName = null, string Type = null, bool? IsNullable = null)
+    .FK    (string fkName,     string MemberName = null, AssociationType? AssociationType = null)
+    ;
 
 // Adds extra namespace to usings
 Model.Usings.Add(&quot;MyNamespace&quot;);
 
-// Replaces all property names for columns where name is '&lt;TableName&gt;' + 'ID' with 'ID'.
+// Replaces all property names for columns where name is '&lt;TableName&gt;' + 'ID' with 'ID' 
+// and adds a base interface to the generated class.
 foreach (var t in Tables.Values)
-	foreach (var c in t.Columns.Values)
-		if (c.IsPrimaryKey &amp;&amp; c.MemberName == t.TypeName + &quot;ID&quot;)
-			c.MemberName = &quot;ID&quot;;
+    foreach (var c in t.Columns.Values)
+        if (c.IsPrimaryKey &amp;&amp; c.MemberName == t.TypeName + &quot;ID&quot;)
+        {
+            c.MemberName = &quot;ID&quot;;
+            t.Interfaces.Add(&quot;IIdentifiable&quot;);
+        }
 </code></pre>
 <h2 id="useful-members-and-data-structures">Useful members and data structures</h2>
 <pre><code class="lang-c#">Dictionary&lt;string,Table&gt;     Tables     = new Dictionary&lt;string,Table&gt;    ();
@@ -429,82 +498,82 @@ ForeignKey GetForeignKey(string tableName, string fkName);
 
 public class Table
 {
-	public string Schema;
-	public string TableName;
-	public string DataContextPropertyName;
-	public bool   IsView;
-	public string Description;
-	public string AliasPropertyName;
-	public string AliasTypeName;
-	public string TypeName;
+    public string Schema;
+    public string TableName;
+    public string DataContextPropertyName;
+    public bool   IsView;
+    public string Description;
+    public string AliasPropertyName;
+    public string AliasTypeName;
+    public string TypeName;
 
-	public Dictionary&lt;string,Column&gt;     Columns;
-	public Dictionary&lt;string,ForeignKey&gt; ForeignKeys;
+    public Dictionary&lt;string,Column&gt;     Columns;
+    public Dictionary&lt;string,ForeignKey&gt; ForeignKeys;
 }
 
 public partial class Column : Property
 {
-	public string    ColumnName; // Column name in database
-	public bool      IsNullable;
-	public bool      IsIdentity;
-	public string    ColumnType; // Type of the column in database
-	public DbType    DbType;
-	public string    Description;
-	public bool      IsPrimaryKey;
-	public int       PrimaryKeyOrder;
-	public bool      SkipOnUpdate;
-	public bool      SkipOnInsert;
-	public bool      IsDuplicateOrEmpty;
-	public string    AliasName;
-	public string    MemberName;
+    public string    ColumnName; // Column name in database
+    public bool      IsNullable;
+    public bool      IsIdentity;
+    public string    ColumnType; // Type of the column in database
+    public DbType    DbType;
+    public string    Description;
+    public bool      IsPrimaryKey;
+    public int       PrimaryKeyOrder;
+    public bool      SkipOnUpdate;
+    public bool      SkipOnInsert;
+    public bool      IsDuplicateOrEmpty;
+    public string    AliasName;
+    public string    MemberName;
 }
 
 public enum AssociationType
 {
-	Auto,
-	OneToOne,
-	OneToMany,
-	ManyToOne,
+    Auto,
+    OneToOne,
+    OneToMany,
+    ManyToOne,
 }
 
 public partial class ForeignKey : Property
 {
-	public string           KeyName;
-	public Table            OtherTable;
-	public List&lt;Column&gt;     ThisColumns;
-	public List&lt;Column&gt;     OtherColumns;
-	public bool             CanBeNull;
-	public ForeignKey       BackReference;
-	public string           MemberName;
-	public AssociationType  AssociationType;
+    public string           KeyName;
+    public Table            OtherTable;
+    public List&lt;Column&gt;     ThisColumns;
+    public List&lt;Column&gt;     OtherColumns;
+    public bool             CanBeNull;
+    public ForeignKey       BackReference;
+    public string           MemberName;
+    public AssociationType  AssociationType;
 }
 
 public partial class Procedure : Method
 {
-	public string          Schema;
-	public string          ProcedureName;
-	public bool            IsFunction;
-	public bool            IsTableFunction;
-	public bool            IsDefaultSchema;
+    public string          Schema;
+    public string          ProcedureName;
+    public bool            IsFunction;
+    public bool            IsTableFunction;
+    public bool            IsDefaultSchema;
 
-	public Table           ResultTable;
-	public Exception       ResultException;
-	public List&lt;Table&gt;     SimilarTables;
-	public List&lt;Parameter&gt; ProcParameters;
+    public Table           ResultTable;
+    public Exception       ResultException;
+    public List&lt;Table&gt;     SimilarTables;
+    public List&lt;Parameter&gt; ProcParameters;
 }
 
 public class Parameter
 {
-	public string   SchemaName;
-	public string   SchemaType;
-	public bool     IsIn;
-	public bool     IsOut;
-	public bool     IsResult;
-	public int?     Size;
-	public string   ParameterName;
-	public string   ParameterType;
-	public Type     SystemType;
-	public string   DataType;
+    public string   SchemaName;
+    public string   SchemaType;
+    public bool     IsIn;
+    public bool     IsOut;
+    public bool     IsResult;
+    public int?     Size;
+    public string   ParameterName;
+    public string   ParameterType;
+    public Type     SystemType;
+    public string   DataType;
 }
 </code></pre>
 <h2 id="iequatable-interface-implementation-equatablettinclude">IEquatable interface implementation (Equatable.ttinclude)</h2>
@@ -551,7 +620,7 @@ static bool EqualityPropertiesFilterDefault(Class cl, Property prop)
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2024 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

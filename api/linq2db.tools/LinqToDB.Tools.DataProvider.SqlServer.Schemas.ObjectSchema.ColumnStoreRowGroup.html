@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ObjectSchema.ColumnStoreRowGroup | Linq To DB ">
       
-      <meta name="description" content="sys.column_store_row_groups (Transact-SQL) Applies to: √ SQL Server (all supported versions) Provides clustered columnstore index information on a per-segment basis to help the administrator make system management decisions. sys.column_store_row_groups has a column for the total number of rows physically stored (including those marked as deleted) and a column for the number of rows marked as deleted. Use sys.column_store_row_groups to determine which row groups have a high percentage of deleted rows and should be rebuilt. See sys.column_store_row_groups.">
+      <meta name="description" content="sys.column_store_row_groups (Transact-SQL) Applies to: √ SQL Server 2012 (11.x) and later √ Azure SQL Managed Instance Provides clustered columnstore index information on a per-segment basis to help the administrator make system management decisions. sys.column_store_row_groups has a column for the total number of rows physically stored (including those marked as deleted) and a column for the number of rows marked as deleted. Use sys.column_store_row_groups to determine which row groups have a high percentage of deleted rows and should be rebuilt. See sys.column_store_row_groups.">
       <link rel="icon" href="../../images/icon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_ColumnStoreRowGroup" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.ColumnStoreRowGroup" class="text-break">
-Class ObjectSchema.ColumnStoreRowGroup  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13253"><i class="bi bi-code-slash"></i></a>
+Class ObjectSchema.ColumnStoreRowGroup  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L15735"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -98,7 +98,7 @@ Class ObjectSchema.ColumnStoreRowGroup  <a class="header-action link-secondary" 
   </div>
 
   <div class="markdown summary"><p><strong>sys.column_store_row_groups (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
+<p><strong>Applies to:</strong> √ SQL Server 2012 (11.x) and later √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure SQL Managed Instance</a></p>
 <p>Provides clustered columnstore index information on a per-segment basis to help the administrator make system management decisions. <strong>sys.column_store_row_groups</strong> has a column for the total number of rows physically stored (including those marked as deleted) and a column for the number of rows marked as deleted. Use <strong>sys.column_store_row_groups</strong> to determine which row groups have a high percentage of deleted rows and should be rebuilt.</p><br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-column-store-row-groups-transact-sql">sys.column_store_row_groups</a>.</p>
 </div>
@@ -122,6 +122,31 @@ public class ObjectSchema.ColumnStoreRowGroup</code></pre>
 
 
 
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
 
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
@@ -143,10 +168,11 @@ public class ObjectSchema.ColumnStoreRowGroup</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_ColumnStoreRowGroup_DeletedRows" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.ColumnStoreRowGroup.DeletedRows">
   DeletedRows
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13291"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L15782"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Total rows in the row group marked deleted. This is always 0 for DELTA row groups.</p>
+  <div class="markdown level1 summary"><p><strong>deleted_rows</strong> NULL <strong>bigint</strong></p>
+Total rows in the row group marked deleted. This is always 0 for DELTA row groups.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -177,10 +203,11 @@ public long? DeletedRows { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_ColumnStoreRowGroup_DeltaStoreHoBTID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.ColumnStoreRowGroup.DeltaStoreHoBTID">
   DeltaStoreHoBTID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13275"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L15762"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The hobt_id for OPEN row group in the delta store.<br><br> NULL if the row group is not in the delta store.<br><br> NULL for the tail of an in-memory table.</p>
+  <div class="markdown level1 summary"><p><strong>delta_store_hobt_id</strong> NULL <strong>bigint</strong></p>
+The hobt_id for OPEN row group in the delta store.<br><br> NULL if the row group is not in the delta store.<br><br> NULL for the tail of an in-memory table.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -211,10 +238,11 @@ public long? DeltaStoreHoBTID { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_ColumnStoreRowGroup_IndexID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.ColumnStoreRowGroup.IndexID">
   IndexID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13263"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L15747"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>ID of the index for the table that has this columnstore index.</p>
+  <div class="markdown level1 summary"><p><strong>index_id</strong> NULL <strong>int</strong></p>
+ID of the index for the table that has this columnstore index.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -245,7 +273,7 @@ public int? IndexID { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_ColumnStoreRowGroup_Object" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.ColumnStoreRowGroup.Object">
   Object
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13302"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L15794"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>objects (sys.objects)</p>
@@ -278,10 +306,11 @@ public ObjectSchema.Object Object { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_ColumnStoreRowGroup_ObjectID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.ColumnStoreRowGroup.ObjectID">
   ObjectID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13259"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L15742"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The id of the table on which this index is defined.</p>
+  <div class="markdown level1 summary"><p><strong>object_id</strong> NULL <strong>int</strong></p>
+The id of the table on which this index is defined.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -312,10 +341,11 @@ public int? ObjectID { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_ColumnStoreRowGroup_PartitionNumber" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.ColumnStoreRowGroup.PartitionNumber">
   PartitionNumber
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13267"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L15752"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>ID of the table partition that holds row group row_group_id. You can use partition_number to join this DMV to sys.partitions.</p>
+  <div class="markdown level1 summary"><p><strong>partition_number</strong> NULL <strong>int</strong></p>
+ID of the table partition that holds row group row_group_id. You can use partition_number to join this DMV to sys.partitions.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -346,10 +376,11 @@ public int? PartitionNumber { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_ColumnStoreRowGroup_RowGroupID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.ColumnStoreRowGroup.RowGroupID">
   RowGroupID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13271"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L15757"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The row group number associated with this row group. This is unique within the partition.<br><br> -1 = tail of an in-memory table.</p>
+  <div class="markdown level1 summary"><p><strong>row_group_id</strong> NULL <strong>int</strong></p>
+The row group number associated with this row group. This is unique within the partition.<br><br> -1 = tail of an in-memory table.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -380,10 +411,11 @@ public int? RowGroupID { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_ColumnStoreRowGroup_SizeInBytes" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.ColumnStoreRowGroup.SizeInBytes">
   SizeInBytes
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13295"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L15787"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Size in bytes of all the data in this row group (not including metadata or shared dictionaries), for both DELTA and COLUMNSTORE rowgroups.</p>
+  <div class="markdown level1 summary"><p><strong>size_in_bytes</strong> NULL <strong>bigint</strong></p>
+Size in bytes of all the data in this row group (not including metadata or shared dictionaries), for both DELTA and COLUMNSTORE rowgroups.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -414,10 +446,11 @@ public long? SizeInBytes { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_ColumnStoreRowGroup_State" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.ColumnStoreRowGroup.State">
   State
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13279"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L15767"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>ID number associated with the state_description.<br><br> 0 = INVISIBLE<br><br> 1 = OPEN<br><br> 2 = CLOSED<br><br> 3 = COMPRESSED <br><br> 4 = TOMBSTONE</p>
+  <div class="markdown level1 summary"><p><strong>state</strong> NULL <strong>tinyint</strong></p>
+ID number associated with the state_description.<br><br> 0 = INVISIBLE<br><br> 1 = OPEN<br><br> 2 = CLOSED<br><br> 3 = COMPRESSED <br><br> 4 = TOMBSTONE
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -448,10 +481,11 @@ public byte? State { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_ColumnStoreRowGroup_StateDescription" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.ColumnStoreRowGroup.StateDescription">
   StateDescription
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13283"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L15772"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Description of the persistent state of the row group:<br><br> INVISIBLE -A hidden compressed segment in the process of being built from data in a delta store. Read actions will use the delta store until the invisible compressed segment is completed. Then the new segment is made visible, and the source delta store is removed.<br><br> OPEN - A read/write row group that is accepting new records. An open row group is still in rowstore format and has not been compressed to columnstore format.<br><br> CLOSED - A row group that has been filled, but not yet compressed by the tuple mover process.<br><br> COMPRESSED - A row group that has filled and compressed.</p>
+  <div class="markdown level1 summary"><p><strong>state_description</strong> NOT NULL <strong>nvarchar(60)</strong></p>
+Description of the persistent state of the row group:<br><br> INVISIBLE -A hidden compressed segment in the process of being built from data in a delta store. Read actions will use the delta store until the invisible compressed segment is completed. Then the new segment is made visible, and the source delta store is removed.<br><br> OPEN - A read/write row group that is accepting new records. An open row group is still in rowstore format and has not been compressed to columnstore format.<br><br> CLOSED - A row group that has been filled, but not yet compressed by the tuple mover process.<br><br> COMPRESSED - A row group that has filled and compressed.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -482,10 +516,11 @@ public string StateDescription { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ObjectSchema_ColumnStoreRowGroup_TotalRows" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.ColumnStoreRowGroup.TotalRows">
   TotalRows
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13287"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L15777"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Total rows physically stored in the row group. Some may have been deleted but they are still stored. The maximum number of rows in a row group is 1,048,576 (hexadecimal FFFFF).</p>
+  <div class="markdown level1 summary"><p><strong>total_rows</strong> NULL <strong>bigint</strong></p>
+Total rows physically stored in the row group. Some may have been deleted but they are still stored. The maximum number of rows in a row group is 1,048,576 (hexadecimal FFFFF).
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -529,7 +564,7 @@ public long? TotalRows { get; set; }</code></pre>
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2024 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

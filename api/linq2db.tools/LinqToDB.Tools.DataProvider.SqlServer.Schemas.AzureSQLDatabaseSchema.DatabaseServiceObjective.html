@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class AzureSQLDatabaseSchema.DatabaseServiceObjective | Linq To DB ">
       
-      <meta name="description" content="sys.database_service_objectives (Azure SQL Database) Applies to: √ Azure SQL Database √ Azure SQL Managed Instance √ Azure Synapse Analytics Returns the edition (service tier), service objective (pricing tier) and elastic pool name, if any, for an Azure SQL database or an Azure Synapse Analytics. If logged on to the master database in an Azure SQL Database server, returns information on all databases. For Azure Synapse Analytics, you must be connected to the master database.   For information on pricing, see SQL Database options and performance: SQL Database Pricing and Azure Synapse Analytics Pricing.  To change the service settings, see ALTER DATABASE (Azure SQL Database) and ALTER DATABASE (Azure Synapse Analytics).  The sys.database_service_objectives view contains the following columns. See sys.database_service_objectives.">
+      <meta name="description" content="sys.database_service_objectives (Azure SQL Database) Applies to: √ Azure SQL Database √ Azure Synapse Analytics Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for an Azure SQL database or a dedicated SQL pool in Azure Synapse Analytics. - If logged on to the master database in an Azure SQL Database server, returns information on all databases. - For dedicated SQL pools in Azure Synapse Analytics, you must be connected to the master database. This applies to both dedicated SQL pools in Azure Synapse workspaces and dedicated SQL pools (formerly SQL DW). ## Result set See sys.database_service_objectives.">
       <link rel="icon" href="../../images/icon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DatabaseServiceObjective" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DatabaseServiceObjective" class="text-break">
-Class AzureSQLDatabaseSchema.DatabaseServiceObjective  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L818"><i class="bi bi-code-slash"></i></a>
+Class AzureSQLDatabaseSchema.DatabaseServiceObjective  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L924"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -98,12 +98,11 @@ Class AzureSQLDatabaseSchema.DatabaseServiceObjective  <a class="header-action l
   </div>
 
   <div class="markdown summary"><p><strong>sys.database_service_objectives (Azure SQL Database)</strong></p>
-<p><strong>Applies to:</strong> √ Azure SQL Database √ Azure SQL Managed Instance √ Azure Synapse Analytics</p>
-<p>Returns the edition (service tier), service objective (pricing tier) and elastic pool name, if any, for an Azure SQL database or an Azure Synapse Analytics. If logged on to the master database in an Azure SQL Database server, returns information on all databases. For Azure Synapse Analytics, you must be connected to the master database.<br>
-<br>
- For information on pricing, see <a href="https://azure.microsoft.com/pricing/details/sql-database/">SQL Database options and performance: SQL Database Pricing</a> and <a href="https://azure.microsoft.com/pricing/details/sql-data-warehouse/">Azure Synapse Analytics Pricing</a>.<br>
- To change the service settings, see <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql">ALTER DATABASE (Azure SQL Database)</a> and <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&amp;preserve-view=true">ALTER DATABASE (Azure Synapse Analytics)</a>.<br>
- The sys.database_service_objectives view contains the following columns.</p><br>
+<p><strong>Applies to:</strong> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure SQL Database</a> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure Synapse Analytics</a></p>
+<p>Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for an Azure SQL database or a dedicated SQL pool in Azure Synapse Analytics.<br>
+- If logged on to the <code>master</code> database in an Azure SQL Database server, returns information on all databases.<br>
+- For dedicated SQL pools in Azure Synapse Analytics, you must be connected to the <code>master</code> database. This applies to both dedicated SQL pools in Azure Synapse workspaces and dedicated SQL pools (formerly SQL DW).<br>
+## Result set</p><br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database">sys.database_service_objectives</a>.</p>
 </div>
   <div class="markdown conceptual"></div>
@@ -126,6 +125,31 @@ public class AzureSQLDatabaseSchema.DatabaseServiceObjective</code></pre>
 
 
 
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
 
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
@@ -147,10 +171,11 @@ public class AzureSQLDatabaseSchema.DatabaseServiceObjective</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DatabaseServiceObjective_DatabaseID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DatabaseServiceObjective.DatabaseID">
   DatabaseID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L824"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L931"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The ID of the database, unique within an instance of Azure SQL Database server. Joinable with <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-databases-transact-sql">sys.databases (Transact-SQL)</a>.</p>
+  <div class="markdown level1 summary"><p><strong>database_id</strong> NOT NULL <strong>int</strong></p>
+The ID of the database, unique within the logical server. Joinable with <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-databases-transact-sql">sys.databases</a> on the <code>database_id</code> column, but with not other system views where the <code>database_id</code> column is present. For details, see <a href="https://docs.microsoft.com/en-us/sql/t-sql/functions/db-id-transact-sql#remarks">DB_ID</a>.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -181,10 +206,11 @@ public int DatabaseID { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DatabaseServiceObjective_Edition" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DatabaseServiceObjective.Edition">
   Edition
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L828"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L936"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The service tier for the database or data warehouse: <strong>Basic</strong>, <strong>Standard</strong>, <strong>Premium</strong> or <strong>Data Warehouse</strong>.</p>
+  <div class="markdown level1 summary"><p><strong>edition</strong> NOT NULL <strong>sysname</strong></p>
+The service tier for the database or data warehouse: <strong>Basic</strong>, <strong>Standard</strong>, <strong>Premium</strong> or <strong>Data Warehouse</strong>.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -215,10 +241,11 @@ public string Edition { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DatabaseServiceObjective_ElasticPoolName" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DatabaseServiceObjective.ElasticPoolName">
   ElasticPoolName
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L836"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L946"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The name of the <a href="https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview">elastic pool</a> that the database belongs to. Returns <strong>NULL</strong> if the database is a single database or a data warehouse.</p>
+  <div class="markdown level1 summary"><p><strong>elastic_pool_name</strong> NOT NULL <strong>sysname</strong></p>
+The name of the <a href="https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview">elastic pool</a> that the database belongs to. Returns <code>NULL</code> if the database is a single database or a dedicated SQL pool.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -249,10 +276,11 @@ public string ElasticPoolName { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DatabaseServiceObjective_ServiceObjective" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DatabaseServiceObjective.ServiceObjective">
   ServiceObjective
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L832"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L941"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The pricing tier of the database. If the database is in an elastic pool, returns <strong>ElasticPool</strong>.<br><br> On the <strong>Basic</strong> tier, returns <strong>Basic</strong>.<br><br> <strong>Single database in a standard service tier</strong> returns one of the following: S0, S1, S2, S3, S4, S6, S7, S9 or S12.<br><br> <strong>Single database in a premium tier</strong> returns of the following: P1, P2, P4, P6, P11 or P15.<br><br> <strong>Azure Synapse Analytics</strong> returns DW100 through DW30000c.<br><br> For details, see <a href="https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-single-databases/">single databases</a>, <a href="https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools/">elastic pools</a>, <a href="https://docs.microsoft.com/en-us/azure/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu/">data warehouses</a></p>
+  <div class="markdown level1 summary"><p><strong>service_objective</strong> NOT NULL <strong>sysname</strong></p>
+The pricing tier of the database. If the database is in an elastic pool, returns <strong>ElasticPool</strong>.<br><br> On the <strong>Basic</strong> tier, returns <strong>Basic</strong>.<br> <strong>Single database in a standard service tier</strong> returns one of the following: S0, S1, S2, S3, S4, S6, S7, S9 or S12.<br> <strong>Single database in a premium tier</strong> returns of the following: P1, P2, P4, P6, P11 or P15.<br> <strong>Azure Synapse Analytics</strong> returns DW100 through DW30000c.<br> For details, see <a href="https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-single-databases/">single databases</a>, <a href="https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools/">elastic pools</a>, <a href="https://docs.microsoft.com/en-us/azure/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu/">data warehouses</a>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -296,7 +324,7 @@ public string ServiceObjective { get; set; }</code></pre>
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2024 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

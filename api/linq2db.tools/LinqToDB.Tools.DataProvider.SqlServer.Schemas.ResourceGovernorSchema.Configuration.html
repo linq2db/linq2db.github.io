@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ResourceGovernorSchema.Configuration | Linq To DB ">
       
-      <meta name="description" content="sys.resource_governor_configuration (Transact-SQL) Applies to: √ SQL Server (all supported versions) Returns the stored Resource Governor state. See sys.resource_governor_configuration.">
+      <meta name="description" content="sys.resource_governor_configuration (Transact-SQL) Applies to: √ SQL Server √ Azure SQL Managed Instance Returns the stored resource governor configuration. See sys.resource_governor_configuration.">
       <link rel="icon" href="../../images/icon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ResourceGovernorSchema_Configuration" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ResourceGovernorSchema.Configuration" class="text-break">
-Class ResourceGovernorSchema.Configuration  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L19363"><i class="bi bi-code-slash"></i></a>
+Class ResourceGovernorSchema.Configuration  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L22990"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -98,8 +98,8 @@ Class ResourceGovernorSchema.Configuration  <a class="header-action link-seconda
   </div>
 
   <div class="markdown summary"><p><strong>sys.resource_governor_configuration (Transact-SQL)</strong></p>
-<p><strong>Applies to:</strong> √ SQL Server (all supported versions)</p>
-<p>Returns the stored Resource Governor state.</p><br>
+<p><strong>Applies to:</strong> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">SQL Server</a> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure SQL Managed Instance</a></p>
+<p>Returns the stored resource governor configuration.</p><br>
 <p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-resource-governor-configuration-transact-sql">sys.resource_governor_configuration</a>.</p>
 </div>
   <div class="markdown conceptual"></div>
@@ -122,6 +122,31 @@ public class ResourceGovernorSchema.Configuration</code></pre>
 
 
 
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
 
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
@@ -143,10 +168,11 @@ public class ResourceGovernorSchema.Configuration</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ResourceGovernorSchema_Configuration_ClassifierFunctionID" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ResourceGovernorSchema.Configuration.ClassifierFunctionID">
   ClassifierFunctionID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L19369"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L22997"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The ID of the classifier function as it is stored in the metadata. Is not nullable.<br><br> <strong>Note</strong> This function is used to classify new sessions and uses rules to route the workload to the appropriate workload group. For more information, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor">Resource Governor</a>.</p>
+  <div class="markdown level1 summary"><p><strong>classifier_function_id</strong> NOT NULL <strong>int</strong></p>
+The object ID of the classifier function in <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-objects-transact-sql">sys.objects</a>. Not nullable.<br><br> <strong>Note</strong> This function is used to classify new sessions and uses rules to route the workload to the appropriate workload group. For more information, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor">Resource governor</a>.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -177,10 +203,11 @@ public int ClassifierFunctionID { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ResourceGovernorSchema_Configuration_IsEnabled" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ResourceGovernorSchema.Configuration.IsEnabled">
   IsEnabled
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L19373"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L23002"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Indicates the current state of the Resource Governor:<br><br> 0 = Resource Governor is not enabled.<br><br> 1 = Resource Governor is enabled.<br><br> Is not nullable.</p>
+  <div class="markdown level1 summary"><p><strong>is_enabled</strong> NOT NULL <strong>bit</strong></p>
+Indicates the current state of resource governor:<br><br> 0 = is not enabled.<br><br> 1 = is enabled.<br><br> Not nullable.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -211,10 +238,11 @@ public bool IsEnabled { get; set; }</code></pre>
 
   <h3 id="LinqToDB_Tools_DataProvider_SqlServer_Schemas_ResourceGovernorSchema_Configuration_MaxOutstandingIoPerVolume" data-uid="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ResourceGovernorSchema.Configuration.MaxOutstandingIoPerVolume">
   MaxOutstandingIoPerVolume
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L19377"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L23007"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p><strong>Applies to</strong>: SQL Server 2014 (12.x) and later.<br><br> The maximum number of outstanding I/O per volume.</p>
+  <div class="markdown level1 summary"><p><strong>max_outstanding_io_per_volume</strong> NOT NULL <strong>int</strong></p>
+<strong>Applies to</strong>: SQL Server 2014 (12.x) and later.<br><br> The maximum number of outstanding I/O requests per volume.
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -258,7 +286,7 @@ public int MaxOutstandingIoPerVolume { get; set; }</code></pre>
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2024 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>
