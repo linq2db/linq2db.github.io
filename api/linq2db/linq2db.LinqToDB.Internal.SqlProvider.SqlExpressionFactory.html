@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SqlExpressionFactory | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SqlExpressionFactory | Linq To DB ">
+      
+      
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionFactory.md&amp;value=---%0Auid%3A%20linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionFactory%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionFactory">
+
+
+
+  <h1 id="linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionFactory" data-uid="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionFactory" class="text-break">
+Class SqlExpressionFactory  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlProvider/SqlExpressionFactory.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Internal.html">Internal</a>.<a class="xref" href="LinqToDB.Internal.SqlProvider.html">SqlProvider</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SqlExpressionFactory : ISqlExpressionFactory</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">SqlExpressionFactory</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="linq2db.LinqToDB.Linq.Translation.ISqlExpressionFactory.html">ISqlExpressionFactory</a></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.Common.Utils.html#linq2db_LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Add_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.Add(ISqlExpressionFactory, DbDataType, ISqlExpression, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Binary_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_LinqToDB_Internal_SqlQuery_ISqlExpression_System_String_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.Binary(ISqlExpressionFactory, DbDataType, ISqlExpression, string, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Cast_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_DbDataType_LinqToDB_SqlQuery_SqlDataType_System_Boolean_">SqlExpressionFactoryExtensions.Cast(ISqlExpressionFactory, ISqlExpression, DbDataType, SqlDataType?, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Cast_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_DbDataType_System_Boolean_">SqlExpressionFactoryExtensions.Cast(ISqlExpressionFactory, ISqlExpression, DbDataType, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Coalesce_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression___">SqlExpressionFactoryExtensions.Coalesce(ISqlExpressionFactory, params ISqlExpression[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Concat_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.Concat(ISqlExpressionFactory, DbDataType, ISqlExpression, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Concat_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_LinqToDB_Internal_SqlQuery_ISqlExpression_System_String_">SqlExpressionFactoryExtensions.Concat(ISqlExpressionFactory, DbDataType, ISqlExpression, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Concat_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.Concat(ISqlExpressionFactory, ISqlExpression, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Concat_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_System_String_">SqlExpressionFactoryExtensions.Concat(ISqlExpressionFactory, ISqlExpression, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Concat_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression___">SqlExpressionFactoryExtensions.Concat(ISqlExpressionFactory, params ISqlExpression[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Condition_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlPredicate_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.Condition(ISqlExpressionFactory, ISqlPredicate, ISqlExpression, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Decrement_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.Decrement(ISqlExpressionFactory, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Decrement__1_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression___0_">SqlExpressionFactoryExtensions.Decrement&lt;T&gt;(ISqlExpressionFactory, ISqlExpression, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Div_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.Div(ISqlExpressionFactory, DbDataType, ISqlExpression, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Div__1_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_LinqToDB_Internal_SqlQuery_ISqlExpression___0_">SqlExpressionFactoryExtensions.Div&lt;T&gt;(ISqlExpressionFactory, DbDataType, ISqlExpression, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_EnsureType_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_DbDataType_">SqlExpressionFactoryExtensions.EnsureType(ISqlExpressionFactory, ISqlExpression, DbDataType)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Equal_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.Equal(ISqlExpressionFactory, ISqlExpression, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Equal_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Nullable_System_Boolean__">SqlExpressionFactoryExtensions.Equal(ISqlExpressionFactory, ISqlExpression, ISqlExpression, bool?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_ExprPredicate_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.ExprPredicate(ISqlExpressionFactory, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Expression_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_System_Int32_System_String_LinqToDB_Internal_SqlQuery_ISqlExpression___">SqlExpressionFactoryExtensions.Expression(ISqlExpressionFactory, DbDataType, int, string, params ISqlExpression[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Expression_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_System_Int32_System_String_System_Nullable_System_Boolean__LinqToDB_Internal_SqlQuery_ISqlExpression___">SqlExpressionFactoryExtensions.Expression(ISqlExpressionFactory, DbDataType, int, string, bool?, params ISqlExpression[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Expression_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_System_String_LinqToDB_Internal_SqlQuery_ISqlExpression___">SqlExpressionFactoryExtensions.Expression(ISqlExpressionFactory, DbDataType, string, params ISqlExpression[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Expression_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_System_String_System_Int32_LinqToDB_Internal_SqlQuery_ISqlExpression___">SqlExpressionFactoryExtensions.Expression(ISqlExpressionFactory, DbDataType, string, int, params ISqlExpression[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Fragment_LinqToDB_Linq_Translation_ISqlExpressionFactory_System_String_LinqToDB_Internal_SqlQuery_ISqlExpression___">SqlExpressionFactoryExtensions.Fragment(ISqlExpressionFactory, string, params ISqlExpression[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Fragment_LinqToDB_Linq_Translation_ISqlExpressionFactory_System_String_System_Int32_LinqToDB_Internal_SqlQuery_ISqlExpression___">SqlExpressionFactoryExtensions.Fragment(ISqlExpressionFactory, string, int, params ISqlExpression[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Function_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_System_String_LinqToDB_Internal_SqlQuery_ISqlExpression___">SqlExpressionFactoryExtensions.Function(ISqlExpressionFactory, DbDataType, string, params ISqlExpression[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Function_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_System_String_LinqToDB_Internal_SqlQuery_ParametersNullabilityType_LinqToDB_Internal_SqlQuery_ISqlExpression___">SqlExpressionFactoryExtensions.Function(ISqlExpressionFactory, DbDataType, string, ParametersNullabilityType, params ISqlExpression[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Function_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_System_String_LinqToDB_SqlQuery_SqlFunctionArgument___System_Boolean___System_Nullable_System_Boolean__System_Collections_Generic_IEnumerable_LinqToDB_SqlQuery_SqlWindowOrderItem__System_Collections_Generic_IEnumerable_LinqToDB_Internal_SqlQuery_ISqlExpression__System_Collections_Generic_IEnumerable_LinqToDB_SqlQuery_SqlWindowOrderItem__LinqToDB_SqlQuery_SqlFrameClause_LinqToDB_Internal_SqlQuery_SqlSearchCondition_System_Boolean_System_Boolean_">SqlExpressionFactoryExtensions.Function(ISqlExpressionFactory, DbDataType, string, SqlFunctionArgument[], bool[], bool?, IEnumerable&lt;SqlWindowOrderItem&gt;?, IEnumerable&lt;ISqlExpression&gt;?, IEnumerable&lt;SqlWindowOrderItem&gt;?, SqlFrameClause?, SqlSearchCondition?, bool, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Greater_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.Greater(ISqlExpressionFactory, ISqlExpression, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_GreaterOrEqual_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.GreaterOrEqual(ISqlExpressionFactory, ISqlExpression, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Increment_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.Increment(ISqlExpressionFactory, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Increment__1_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression___0_">SqlExpressionFactoryExtensions.Increment&lt;T&gt;(ISqlExpressionFactory, ISqlExpression, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_IsNull_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Boolean_">SqlExpressionFactoryExtensions.IsNull(ISqlExpressionFactory, ISqlExpression, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_IsNullPredicate_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Boolean_">SqlExpressionFactoryExtensions.IsNullPredicate(ISqlExpressionFactory, ISqlExpression, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Length_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.Length(ISqlExpressionFactory, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Less_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.Less(ISqlExpressionFactory, ISqlExpression, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_LessOrEqual_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.LessOrEqual(ISqlExpressionFactory, ISqlExpression, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_LikePredicate_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Boolean_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_System_String_">SqlExpressionFactoryExtensions.LikePredicate(ISqlExpressionFactory, ISqlExpression, bool, ISqlExpression, ISqlExpression?, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Mod_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.Mod(ISqlExpressionFactory, ISqlExpression, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Mod__1_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression___0_">SqlExpressionFactoryExtensions.Mod&lt;T&gt;(ISqlExpressionFactory, ISqlExpression, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Multiply_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.Multiply(ISqlExpressionFactory, DbDataType, ISqlExpression, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Multiply__1_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_LinqToDB_Internal_SqlQuery_ISqlExpression___0_">SqlExpressionFactoryExtensions.Multiply&lt;T&gt;(ISqlExpressionFactory, DbDataType, ISqlExpression, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Multiply__1_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression___0_">SqlExpressionFactoryExtensions.Multiply&lt;T&gt;(ISqlExpressionFactory, ISqlExpression, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Negate_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.Negate(ISqlExpressionFactory, DbDataType, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_NonPureExpression_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_System_String_LinqToDB_Internal_SqlQuery_ISqlExpression___">SqlExpressionFactoryExtensions.NonPureExpression(ISqlExpressionFactory, DbDataType, string, params ISqlExpression[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_NonPureFunction_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_System_String_LinqToDB_Internal_SqlQuery_ISqlExpression___">SqlExpressionFactoryExtensions.NonPureFunction(ISqlExpressionFactory, DbDataType, string, params ISqlExpression[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_NotEqual_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.NotEqual(ISqlExpressionFactory, ISqlExpression, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_NotNull_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.NotNull(ISqlExpressionFactory, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_NotNullExpression_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_System_Int32_System_String_LinqToDB_Internal_SqlQuery_ISqlExpression___">SqlExpressionFactoryExtensions.NotNullExpression(ISqlExpressionFactory, DbDataType, int, string, params ISqlExpression[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_NotNullExpression_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_System_String_LinqToDB_Internal_SqlQuery_ISqlExpression___">SqlExpressionFactoryExtensions.NotNullExpression(ISqlExpressionFactory, DbDataType, string, params ISqlExpression[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Null_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_">SqlExpressionFactoryExtensions.Null(ISqlExpressionFactory, DbDataType)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_NullValue_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_">SqlExpressionFactoryExtensions.NullValue(ISqlExpressionFactory, DbDataType)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Replace_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.Replace(ISqlExpressionFactory, ISqlExpression, ISqlExpression, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_SearchCondition_LinqToDB_Linq_Translation_ISqlExpressionFactory_System_Boolean_">SqlExpressionFactoryExtensions.SearchCondition(ISqlExpressionFactory, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_SqlDataType_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DataType_">SqlExpressionFactoryExtensions.SqlDataType(ISqlExpressionFactory, DataType)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_SqlDataType_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_">SqlExpressionFactoryExtensions.SqlDataType(ISqlExpressionFactory, DbDataType)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Sub_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.Sub(ISqlExpressionFactory, DbDataType, ISqlExpression, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_ToLower_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.ToLower(ISqlExpressionFactory, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_ToUpper_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_Internal_SqlQuery_ISqlExpression_">SqlExpressionFactoryExtensions.ToUpper(ISqlExpressionFactory, ISqlExpression)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_TypeExpression_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_">SqlExpressionFactoryExtensions.TypeExpression(ISqlExpressionFactory, DbDataType)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Value__1_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType___0_">SqlExpressionFactoryExtensions.Value&lt;T&gt;(ISqlExpressionFactory, DbDataType, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.SqlExpressionFactoryExtensions.html#linq2db_LinqToDB_Internal_DataProvider_Translation_SqlExpressionFactoryExtensions_Value__1_LinqToDB_Linq_Translation_ISqlExpressionFactory___0_">SqlExpressionFactoryExtensions.Value&lt;T&gt;(ISqlExpressionFactory, T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionFactory__ctor_" data-uid="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionFactory.#ctor*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionFactory__ctor_LinqToDB_Mapping_MappingSchema_LinqToDB_DataOptions_" data-uid="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionFactory.#ctor(LinqToDB.Mapping.MappingSchema,LinqToDB.DataOptions)">
+  SqlExpressionFactory(MappingSchema, DataOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlProvider/SqlExpressionFactory.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SqlExpressionFactory(MappingSchema mappingSchema, DataOptions dataOptions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mappingSchema</code> <a class="xref" href="linq2db.LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></dt>
+    <dd></dd>
+    <dt><code>dataOptions</code> <a class="xref" href="linq2db.LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionFactory_DataOptions_" data-uid="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionFactory.DataOptions*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionFactory_DataOptions" data-uid="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionFactory.DataOptions">
+  DataOptions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlProvider/SqlExpressionFactory.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataOptions DataOptions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionFactory_MappingSchema_" data-uid="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionFactory.MappingSchema*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionFactory_MappingSchema" data-uid="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionFactory.MappingSchema">
+  MappingSchema
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlProvider/SqlExpressionFactory.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MappingSchema MappingSchema { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionFactory_GetDbDataType_" data-uid="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionFactory.GetDbDataType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionFactory_GetDbDataType_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionFactory.GetDbDataType(LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  GetDbDataType(ISqlExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlProvider/SqlExpressionFactory.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DbDataType GetDbDataType(ISqlExpression expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expression</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.DbDataType.html">DbDataType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionFactory_GetDbDataType_" data-uid="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionFactory.GetDbDataType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionFactory_GetDbDataType_System_Type_" data-uid="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionFactory.GetDbDataType(System.Type)">
+  GetDbDataType(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlProvider/SqlExpressionFactory.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DbDataType GetDbDataType(Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.DbDataType.html">DbDataType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

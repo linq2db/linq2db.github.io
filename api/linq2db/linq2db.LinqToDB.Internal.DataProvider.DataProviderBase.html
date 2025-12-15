@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DataProviderBase | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DataProviderBase | Linq To DB ">
+      
+      
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=linq2db_LinqToDB_Internal_DataProvider_DataProviderBase.md&amp;value=---%0Auid%3A%20linq2db.LinqToDB.Internal.DataProvider.DataProviderBase%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase">
+
+
+
+  <h1 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase" class="text-break">
+Class DataProviderBase  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Internal.html">Internal</a>.<a class="xref" href="LinqToDB.Internal.DataProvider.html">DataProvider</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class DataProviderBase : IDataProvider, IInfrastructure&lt;IServiceProvider&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">DataProviderBase</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="linq2db.LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.Infrastructure.IInfrastructure-1.html">IInfrastructure</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>&gt;</div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DynamicDataProviderBase-1.html">DynamicDataProviderBase&lt;TProviderMappings&gt;</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.Common.Utils.html#linq2db_LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderExtensions.html#linq2db_LinqToDB_Internal_DataProvider_DataProviderExtensions_SetFieldReaderExpression__2_LinqToDB_DataProvider_IDataProvider_System_Boolean_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___">DataProviderExtensions.SetFieldReaderExpression&lt;TDbDataReader, T&gt;(IDataProvider, bool, Expression&lt;Func&lt;TDbDataReader, int, T&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderExtensions.html#linq2db_LinqToDB_Internal_DataProvider_DataProviderExtensions_SetFieldReaderExpression__2_LinqToDB_DataProvider_IDataProvider_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___">DataProviderExtensions.SetFieldReaderExpression&lt;TDbDataReader, T&gt;(IDataProvider, Expression&lt;Func&lt;TDbDataReader, int, T&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderExtensions.html#linq2db_LinqToDB_Internal_DataProvider_DataProviderExtensions_SetFieldReaderExpression__2_LinqToDB_DataProvider_IDataProvider_System_String_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___">DataProviderExtensions.SetFieldReaderExpression&lt;TDbDataReader, T&gt;(IDataProvider, string, Expression&lt;Func&lt;TDbDataReader, int, T&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderExtensions.html#linq2db_LinqToDB_Internal_DataProvider_DataProviderExtensions_SetFieldReaderExpression__2_LinqToDB_DataProvider_IDataProvider_System_Type_System_String_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___">DataProviderExtensions.SetFieldReaderExpression&lt;TDbDataReader, T&gt;(IDataProvider, Type, string, Expression&lt;Func&lt;TDbDataReader, int, T&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderExtensions.html#linq2db_LinqToDB_Internal_DataProvider_DataProviderExtensions_SetFieldReaderExpression__2_LinqToDB_DataProvider_IDataProvider_System_Type_System_Type_System_Type_System_Type_System_String_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___">DataProviderExtensions.SetFieldReaderExpression&lt;TDbDataReader, T&gt;(IDataProvider, Type?, Type?, Type?, Type?, string?, Expression&lt;Func&lt;TDbDataReader, int, T&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase__ctor_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.#ctor*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase__ctor_System_String_LinqToDB_Mapping_MappingSchema_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.#ctor(System.String,LinqToDB.Mapping.MappingSchema)">
+  DataProviderBase(string, MappingSchema)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DataProviderBase(string name, MappingSchema mappingSchema)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>mappingSchema</code> <a class="xref" href="linq2db.LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_ReaderExpressions" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.ReaderExpressions">
+  ReaderExpressions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly ConcurrentDictionary&lt;ReaderInfo, Expression&gt; ReaderExpressions</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.concurrent.concurrentdictionary-2">ConcurrentDictionary</a>&lt;<a class="xref" href="LinqToDB.Internal.DataProvider.ReaderInfo.html">ReaderInfo</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_ConnectionNamespace_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.ConnectionNamespace*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_ConnectionNamespace" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.ConnectionNamespace">
+  ConnectionNamespace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract string? ConnectionNamespace { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_DataReaderType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.DataReaderType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_DataReaderType" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.DataReaderType">
+  DataReaderType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Type DataReaderType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_ID_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.ID*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_ID" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.ID">
+  ID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ID { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_MappingSchema_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.MappingSchema*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_MappingSchema" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.MappingSchema">
+  MappingSchema
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual MappingSchema MappingSchema { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_Name_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.Name*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_Name" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_OnConnectionCreated_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.OnConnectionCreated*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_OnConnectionCreated" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.OnConnectionCreated">
+  OnConnectionCreated
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Func&lt;IDataProvider, DbConnection, DbConnection&gt;? OnConnectionCreated { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SqlProviderFlags_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SqlProviderFlags*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SqlProviderFlags" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SqlProviderFlags">
+  SqlProviderFlags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SqlProviderFlags SqlProviderFlags { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlProviderFlags.html">SqlProviderFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SupportedTableOptions_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SupportedTableOptions*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SupportedTableOptions" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SupportedTableOptions">
+  SupportedTableOptions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TableOptions SupportedTableOptions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.TableOptions.html">TableOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_TransactionsSupported_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.TransactionsSupported*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_TransactionsSupported" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.TransactionsSupported">
+  TransactionsSupported
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool TransactionsSupported { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_BulkCopyAsync_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.BulkCopyAsync*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_BulkCopyAsync__1_LinqToDB_DataOptions_LinqToDB_ITable___0__System_Collections_Generic_IAsyncEnumerable___0__System_Threading_CancellationToken_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.BulkCopyAsync``1(LinqToDB.DataOptions,LinqToDB.ITable{``0},System.Collections.Generic.IAsyncEnumerable{``0},System.Threading.CancellationToken)">
+  BulkCopyAsync&lt;T&gt;(DataOptions, ITable&lt;T&gt;, IAsyncEnumerable&lt;T&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L462"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;BulkCopyRowsCopied&gt; BulkCopyAsync&lt;T&gt;(DataOptions options, ITable&lt;T&gt; table, IAsyncEnumerable&lt;T&gt; source, CancellationToken cancellationToken) where T : notnull</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="linq2db.LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+    <dt><code>table</code> <a class="xref" href="LinqToDB.ITable-1.html">ITable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.Data.BulkCopyRowsCopied.html">BulkCopyRowsCopied</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_BulkCopyAsync_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.BulkCopyAsync*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_BulkCopyAsync__1_LinqToDB_DataOptions_LinqToDB_ITable___0__System_Collections_Generic_IEnumerable___0__System_Threading_CancellationToken_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.BulkCopyAsync``1(LinqToDB.DataOptions,LinqToDB.ITable{``0},System.Collections.Generic.IEnumerable{``0},System.Threading.CancellationToken)">
+  BulkCopyAsync&lt;T&gt;(DataOptions, ITable&lt;T&gt;, IEnumerable&lt;T&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L455"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;BulkCopyRowsCopied&gt; BulkCopyAsync&lt;T&gt;(DataOptions options, ITable&lt;T&gt; table, IEnumerable&lt;T&gt; source, CancellationToken cancellationToken) where T : notnull</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="linq2db.LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+    <dt><code>table</code> <a class="xref" href="LinqToDB.ITable-1.html">ITable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.Data.BulkCopyRowsCopied.html">BulkCopyRowsCopied</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_BulkCopy_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.BulkCopy*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_BulkCopy__1_LinqToDB_DataOptions_LinqToDB_ITable___0__System_Collections_Generic_IEnumerable___0__" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.BulkCopy``1(LinqToDB.DataOptions,LinqToDB.ITable{``0},System.Collections.Generic.IEnumerable{``0})">
+  BulkCopy&lt;T&gt;(DataOptions, ITable&lt;T&gt;, IEnumerable&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L449"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual BulkCopyRowsCopied BulkCopy&lt;T&gt;(DataOptions options, ITable&lt;T&gt; table, IEnumerable&lt;T&gt; source) where T : notnull</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="linq2db.LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+    <dt><code>table</code> <a class="xref" href="LinqToDB.ITable-1.html">ITable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Data.BulkCopyRowsCopied.html">BulkCopyRowsCopied</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_ClearCommandParameters_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.ClearCommandParameters*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_ClearCommandParameters_System_Data_Common_DbCommand_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.ClearCommandParameters(System.Data.Common.DbCommand)">
+  ClearCommandParameters(DbCommand)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void ClearCommandParameters(DbCommand command)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_ConvertParameterType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.ConvertParameterType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_ConvertParameterType_System_Type_LinqToDB_DbDataType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.ConvertParameterType(System.Type,LinqToDB.DbDataType)">
+  ConvertParameterType(Type, DbDataType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L372"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Type ConvertParameterType(Type type, DbDataType dataType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>dataType</code> <a class="xref" href="linq2db.LinqToDB.DbDataType.html">DbDataType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_CreateConnection_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.CreateConnection*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_CreateConnection_System_String_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.CreateConnection(System.String)">
+  CreateConnection(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DbConnection CreateConnection(string connectionString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connectionString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_CreateConnectionInternal_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.CreateConnectionInternal*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_CreateConnectionInternal_System_String_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.CreateConnectionInternal(System.String)">
+  CreateConnectionInternal(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract DbConnection CreateConnectionInternal(string connectionString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connectionString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_CreateIdentifierService_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.CreateIdentifierService*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_CreateIdentifierService" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.CreateIdentifierService">
+  CreateIdentifierService()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L475"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual IIdentifierService CreateIdentifierService()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.IIdentifierService.html">IIdentifierService</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_CreateMemberConverter_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.CreateMemberConverter*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_CreateMemberConverter" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.CreateMemberConverter">
+  CreateMemberConverter()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L474"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual IMemberConverter CreateMemberConverter()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.IMemberConverter.html">IMemberConverter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_CreateMemberTranslator_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.CreateMemberTranslator*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_CreateMemberTranslator" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.CreateMemberTranslator">
+  CreateMemberTranslator()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L473"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract IMemberTranslator CreateMemberTranslator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Linq.Translation.IMemberTranslator.html">IMemberTranslator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_CreateSqlBuilder_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.CreateSqlBuilder*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_CreateSqlBuilder_LinqToDB_Mapping_MappingSchema_LinqToDB_DataOptions_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.CreateSqlBuilder(LinqToDB.Mapping.MappingSchema,LinqToDB.DataOptions)">
+  CreateSqlBuilder(MappingSchema, DataOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ISqlBuilder CreateSqlBuilder(MappingSchema mappingSchema, DataOptions dataOptions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mappingSchema</code> <a class="xref" href="linq2db.LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></dt>
+    <dd></dd>
+    <dt><code>dataOptions</code> <a class="xref" href="linq2db.LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.ISqlBuilder.html">ISqlBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_DisposeCommand_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.DisposeCommand*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_DisposeCommand_System_Data_Common_DbCommand_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.DisposeCommand(System.Data.Common.DbCommand)">
+  DisposeCommand(DbCommand)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void DisposeCommand(DbCommand command)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_DisposeCommandAsync_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.DisposeCommandAsync*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_DisposeCommandAsync_System_Data_Common_DbCommand_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.DisposeCommandAsync(System.Data.Common.DbCommand)">
+  DisposeCommandAsync(DbCommand)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ValueTask DisposeCommandAsync(DbCommand command)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_ExecuteScope_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.ExecuteScope*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_ExecuteScope_LinqToDB_Data_DataConnection_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.ExecuteScope(LinqToDB.Data.DataConnection)">
+  ExecuteScope(DataConnection)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates disposable object, which should be disposed by caller after database query execution completed.
+Could be used to execute provider's method with scope-specific settings, e.g. with Invariant culture to
+workaround incorrect culture handling in provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IExecutionScope? ExecuteScope(DataConnection dataConnection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataConnection</code> <a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
+    <dd><p>Current data connection object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.IExecutionScope.html">IExecutionScope</a></dt>
+    <dd><p>Scoped execution disposable object or <code>null</code> if provider doesn't need scoped configuration.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_FindExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.FindExpression*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_FindExpression_LinqToDB_Internal_DataProvider_ReaderInfo_System_Linq_Expressions_Expression__" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.FindExpression(LinqToDB.Internal.DataProvider.ReaderInfo,System.Linq.Expressions.Expression@)">
+  FindExpression(ReaderInfo, out Expression?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L297"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool FindExpression(ReaderInfo info, out Expression? expr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>info</code> <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.ReaderInfo.html">ReaderInfo</a></dt>
+    <dd></dd>
+    <dt><code>expr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_GetCommandBehavior_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.GetCommandBehavior*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_GetCommandBehavior_System_Data_CommandBehavior_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.GetCommandBehavior(System.Data.CommandBehavior)">
+  GetCommandBehavior(CommandBehavior)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual CommandBehavior GetCommandBehavior(CommandBehavior commandBehavior)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandBehavior</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.commandbehavior">CommandBehavior</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.commandbehavior">CommandBehavior</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_GetQueryParameterNormalizer_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.GetQueryParameterNormalizer*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_GetQueryParameterNormalizer" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.GetQueryParameterNormalizer">
+  GetQueryParameterNormalizer()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L471"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns instance of <a class="xref" href="LinqToDB.Internal.DataProvider.IQueryParametersNormalizer.html">IQueryParametersNormalizer</a>, which implements normalization logic for parameters of single query.
+E.g. it could include:</p>
+<ul><li>trimming names that are too long</li><li>removing/replacing unsupported characters</li><li>name deduplication for parameters with same name</li></ul>.
+For implementation without state it is recommended to return static instance.
+E.g. this could be done for providers with positional parameters that ignore names.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IQueryParametersNormalizer GetQueryParameterNormalizer()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.IQueryParametersNormalizer.html">IQueryParametersNormalizer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_GetReaderExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.GetReaderExpression*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_GetReaderExpression_System_Data_Common_DbDataReader_System_Int32_System_Linq_Expressions_Expression_System_Type_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.GetReaderExpression(System.Data.Common.DbDataReader,System.Int32,System.Linq.Expressions.Expression,System.Type)">
+  GetReaderExpression(DbDataReader, int, Expression, Type?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Expression GetReaderExpression(DbDataReader reader, int idx, Expression readerExpression, Type? toType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>readerExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+    <dt><code>toType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_GetSchemaProvider_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.GetSchemaProvider*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_GetSchemaProvider" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.GetSchemaProvider">
+  GetSchemaProvider()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L402"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ISchemaProvider GetSchemaProvider()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.SchemaProvider.ISchemaProvider.html">ISchemaProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_GetSqlOptimizer_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.GetSqlOptimizer*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_GetSqlOptimizer_LinqToDB_DataOptions_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.GetSqlOptimizer(LinqToDB.DataOptions)">
+  GetSqlOptimizer(DataOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ISqlOptimizer GetSqlOptimizer(DataOptions dataOptions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataOptions</code> <a class="xref" href="linq2db.LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.ISqlOptimizer.html">ISqlOptimizer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_InitCommand_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.InitCommand*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_InitCommand_LinqToDB_Data_DataConnection_System_Data_Common_DbCommand_System_Data_CommandType_System_String_LinqToDB_Data_DataParameter___System_Boolean_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.InitCommand(LinqToDB.Data.DataConnection,System.Data.Common.DbCommand,System.Data.CommandType,System.String,LinqToDB.Data.DataParameter[],System.Boolean)">
+  InitCommand(DataConnection, DbCommand, CommandType, string, DataParameter[]?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes <a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a> command object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DbCommand InitCommand(DataConnection dataConnection, DbCommand command, CommandType commandType, string commandText, DataParameter[]? parameters, bool withParameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataConnection</code> <a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
+    <dd><p>Data connection instance to initialize with new command.</p>
+</dd>
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></dt>
+    <dd><p>Command instance to initialize.</p>
+</dd>
+    <dt><code>commandType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.commandtype">CommandType</a></dt>
+    <dd><p>Type of command.</p>
+</dd>
+    <dt><code>commandText</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Command SQL.</p>
+</dd>
+    <dt><code>parameters</code> <a class="xref" href="LinqToDB.Data.DataParameter.html">DataParameter</a>[]</dt>
+    <dd><p>Optional list of parameters to add to initialized command.</p>
+</dd>
+    <dt><code>withParameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Flag to indicate that command has parameters. Used to configure parameters support when method called without parameters and parameters added later to command.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a></dt>
+    <dd><p>Initialized command instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_InitContext_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.InitContext*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_InitContext_LinqToDB_IDataContext_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.InitContext(LinqToDB.IDataContext)">
+  InitContext(IDataContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void InitContext(IDataContext dataContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataContext</code> <a class="xref" href="linq2db.LinqToDB.IDataContext.html">IDataContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_InitServiceProvider_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.InitServiceProvider*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_InitServiceProvider_LinqToDB_Internal_DataProvider_SimpleServiceProvider_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.InitServiceProvider(LinqToDB.Internal.DataProvider.SimpleServiceProvider)">
+  InitServiceProvider(SimpleServiceProvider)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L477"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void InitServiceProvider(SimpleServiceProvider serviceProvider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceProvider</code> <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.SimpleServiceProvider.html">SimpleServiceProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_IsDBNullAllowed_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.IsDBNullAllowed*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_IsDBNullAllowed_LinqToDB_DataOptions_System_Data_Common_DbDataReader_System_Int32_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.IsDBNullAllowed(LinqToDB.DataOptions,System.Data.Common.DbDataReader,System.Int32)">
+  IsDBNullAllowed(DataOptions, DbDataReader, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L307"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool? IsDBNullAllowed(DataOptions options, DbDataReader reader, int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="linq2db.LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+    <dt><code>reader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a></dt>
+    <dd></dd>
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_NormalizeTypeName_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.NormalizeTypeName*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_NormalizeTypeName_System_String_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.NormalizeTypeName(System.String)">
+  NormalizeTypeName(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual string? NormalizeTypeName(string? typeName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>typeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetCharField_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetCharField*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetCharField_System_String_System_Linq_Expressions_Expression_System_Func_System_Data_Common_DbDataReader_System_Int32_System_String___" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetCharField(System.String,System.Linq.Expressions.Expression{System.Func{System.Data.Common.DbDataReader,System.Int32,System.String}})">
+  SetCharField(string, Expression&lt;Func&lt;DbDataReader, int, string&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L186"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetCharField(string dataTypeName, Expression&lt;Func&lt;DbDataReader, int, string&gt;&gt; expr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataTypeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>expr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetCharFieldToType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetCharFieldToType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetCharFieldToType__1_System_String_System_Linq_Expressions_Expression_System_Func_System_Data_Common_DbDataReader_System_Int32_System_String___" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetCharFieldToType``1(System.String,System.Linq.Expressions.Expression{System.Func{System.Data.Common.DbDataReader,System.Int32,System.String}})">
+  SetCharFieldToType&lt;T&gt;(string, Expression&lt;Func&lt;DbDataReader, int, string&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetCharFieldToType&lt;T&gt;(string dataTypeName, Expression&lt;Func&lt;DbDataReader, int, string&gt;&gt; expr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataTypeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>expr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetField_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetField*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetField__2_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetField``2(System.Linq.Expressions.Expression{System.Func{``0,System.Int32,``1}})">
+  SetField&lt;TP, T&gt;(Expression&lt;Func&lt;TP, int, T&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetField&lt;TP, T&gt;(Expression&lt;Func&lt;TP, int, T&gt;&gt; expr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TP, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, T&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TP</code></dt>
+    <dd></dd>
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetField_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetField*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetField__2_System_String_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetField``2(System.String,System.Linq.Expressions.Expression{System.Func{``0,System.Int32,``1}})">
+  SetField&lt;TP, T&gt;(string, Expression&lt;Func&lt;TP, int, T&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetField&lt;TP, T&gt;(string dataTypeName, Expression&lt;Func&lt;TP, int, T&gt;&gt; expr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataTypeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>expr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TP, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, T&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TP</code></dt>
+    <dd></dd>
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetField_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetField*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetField__2_System_String_System_Type_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetField``2(System.String,System.Type,System.Linq.Expressions.Expression{System.Func{``0,System.Int32,``1}})">
+  SetField&lt;TP, T&gt;(string, Type, Expression&lt;Func&lt;TP, int, T&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetField&lt;TP, T&gt;(string dataTypeName, Type fieldType, Expression&lt;Func&lt;TP, int, T&gt;&gt; expr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataTypeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>fieldType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>expr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TP, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, T&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TP</code></dt>
+    <dd></dd>
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetParameter_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetParameter*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetParameter_LinqToDB_Data_DataConnection_System_Data_Common_DbParameter_System_String_LinqToDB_DbDataType_System_Object_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetParameter(LinqToDB.Data.DataConnection,System.Data.Common.DbParameter,System.String,LinqToDB.DbDataType,System.Object)">
+  SetParameter(DataConnection, DbParameter, string, DbDataType, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L317"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void SetParameter(DataConnection dataConnection, DbParameter parameter, string name, DbDataType dataType, object? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataConnection</code> <a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
+    <dd></dd>
+    <dt><code>parameter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>dataType</code> <a class="xref" href="linq2db.LinqToDB.DbDataType.html">DbDataType</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetParameterType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetParameterType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetParameterType_LinqToDB_Data_DataConnection_System_Data_Common_DbParameter_LinqToDB_DbDataType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetParameterType(LinqToDB.Data.DataConnection,System.Data.Common.DbParameter,LinqToDB.DbDataType)">
+  SetParameterType(DataConnection, DbParameter, DbDataType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L404"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void SetParameterType(DataConnection dataConnection, DbParameter parameter, DbDataType dataType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataConnection</code> <a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
+    <dd></dd>
+    <dt><code>parameter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a></dt>
+    <dd></dd>
+    <dt><code>dataType</code> <a class="xref" href="linq2db.LinqToDB.DbDataType.html">DbDataType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetProviderField_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetProviderField*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetProviderField__2_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___System_String_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetProviderField``2(System.Linq.Expressions.Expression{System.Func{``0,System.Int32,``1}},System.String)">
+  SetProviderField&lt;TP, T&gt;(Expression&lt;Func&lt;TP, int, T&gt;&gt;, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetProviderField&lt;TP, T&gt;(Expression&lt;Func&lt;TP, int, T&gt;&gt; expr, string? dataTypeName = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TP, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, T&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>dataTypeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TP</code></dt>
+    <dd></dd>
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetProviderField_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetProviderField*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetProviderField__2_System_Type_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___System_String_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetProviderField``2(System.Type,System.Linq.Expressions.Expression{System.Func{``0,System.Int32,``1}},System.String)">
+  SetProviderField&lt;TP, T&gt;(Type, Expression&lt;Func&lt;TP, int, T&gt;&gt;, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L216"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetProviderField&lt;TP, T&gt;(Type providerFieldType, Expression&lt;Func&lt;TP, int, T&gt;&gt; expr, string? dataTypeName = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>providerFieldType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>expr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TP, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, T&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>dataTypeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TP</code></dt>
+    <dd></dd>
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetProviderField_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetProviderField*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetProviderField__3_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___System_String_System_Type_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetProviderField``3(System.Linq.Expressions.Expression{System.Func{``0,System.Int32,``1}},System.String,System.Type)">
+  SetProviderField&lt;TP, T, TS&gt;(Expression&lt;Func&lt;TP, int, T&gt;&gt;, string?, Type?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetProviderField&lt;TP, T, TS&gt;(Expression&lt;Func&lt;TP, int, T&gt;&gt; expr, string? dataTypeName = null, Type? dataReaderType = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TP, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, T&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>dataTypeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>dataReaderType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TP</code></dt>
+    <dd></dd>
+    <dt><code>T</code></dt>
+    <dd></dd>
+    <dt><code>TS</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetToType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetToType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetToType__3_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetToType``3(System.Linq.Expressions.Expression{System.Func{``0,System.Int32,``1}})">
+  SetToType&lt;TP, T, TF&gt;(Expression&lt;Func&lt;TP, int, T&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetToType&lt;TP, T, TF&gt;(Expression&lt;Func&lt;TP, int, T&gt;&gt; expr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>expr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TP, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, T&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TP</code></dt>
+    <dd></dd>
+    <dt><code>T</code></dt>
+    <dd></dd>
+    <dt><code>TF</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetToType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetToType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DataProviderBase_SetToType__3_System_String_System_Linq_Expressions_Expression_System_Func___0_System_Int32___1___" data-uid="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.SetToType``3(System.String,System.Linq.Expressions.Expression{System.Func{``0,System.Int32,``1}})">
+  SetToType&lt;TP, T, TF&gt;(string, Expression&lt;Func&lt;TP, int, T&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DataProviderBase.cs/#L231"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetToType&lt;TP, T, TF&gt;(string dataTypeName, Expression&lt;Func&lt;TP, int, T&gt;&gt; expr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataTypeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>expr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TP, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, T&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TP</code></dt>
+    <dd></dd>
+    <dt><code>T</code></dt>
+    <dd></dd>
+    <dt><code>TF</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

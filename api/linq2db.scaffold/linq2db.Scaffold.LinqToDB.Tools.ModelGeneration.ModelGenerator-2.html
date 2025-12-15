@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ModelGenerator&lt;TTable, TProcedure&gt; | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ModelGenerator&lt;TTable, TProcedure&gt; | Linq To DB ">
+      
+      <meta name="description" content="For internal use.">
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2.md&amp;value=---%0Auid%3A%20linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2">
+
+
+
+  <h1 id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2" class="text-break">
+Class ModelGenerator&lt;TTable, TProcedure&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Scaffold/ModelGeneration/ModelGenerator.LinqToDB.cs/#L188"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Tools.html">Tools</a>.<a class="xref" href="LinqToDB.Tools.ModelGeneration.html">ModelGeneration</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.Scaffold.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>For internal use.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ModelGenerator&lt;TTable, TProcedure&gt; : ModelGenerator where TTable : class, ITable, new() where TProcedure : IProcedure&lt;TTable&gt;, new()</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TTable</code></dt>
+    <dd></dd>
+    <dt><code>TProcedure</code></dt>
+    <dd></dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html">ModelGenerator</a></div>
+      <div><span class="xref">ModelGenerator&lt;TTable, TProcedure&gt;</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_Model">ModelGenerator.Model</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerationEnvironment">ModelGenerator.GenerationEnvironment</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_Write">ModelGenerator.Write</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_WriteLine">ModelGenerator.WriteLine</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_PushIndent">ModelGenerator.PushIndent</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_PopIndent">ModelGenerator.PopIndent</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_Error">ModelGenerator.Error</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_WriteUsing">ModelGenerator.WriteUsing</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_WriteComment">ModelGenerator.WriteComment</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_WriteBeginNamespace">ModelGenerator.WriteBeginNamespace</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_WriteEndNamespace">ModelGenerator.WriteEndNamespace</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_BeforeGenerateModel">ModelGenerator.BeforeGenerateModel</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_WriteBeginClass">ModelGenerator.WriteBeginClass</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_WriteEndClass">ModelGenerator.WriteEndClass</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_WriteAttribute">ModelGenerator.WriteAttribute</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_BeginRegion">ModelGenerator.BeginRegion</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_EndRegion">ModelGenerator.EndRegion</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_WriteProperty">ModelGenerator.WriteProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_WriteField">ModelGenerator.WriteField</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_WriteEvent">ModelGenerator.WriteEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_WriteMethod">ModelGenerator.WriteMethod</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateProcedureErrors">ModelGenerator.GenerateProcedureErrors</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_EnableNullableReferenceTypes">ModelGenerator.EnableNullableReferenceTypes</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateModel">ModelGenerator.GenerateModel()</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_LenDiff_System_Int32_System_String_">ModelGenerator.LenDiff(int, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_RemoveSpace">ModelGenerator.RemoveSpace()</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_RenderUsings_System_Collections_Generic_HashSet_System_String__">ModelGenerator.RenderUsings(HashSet&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_Trim">ModelGenerator.Trim()</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_SkipSpacesAndInsert_System_String_">ModelGenerator.SkipSpacesAndInsert(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GetTreeNodes_LinqToDB_Tools_ModelGeneration_ITree_">ModelGenerator.GetTreeNodes(ITree)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_WriteSpaces_System_Int32_">ModelGenerator.WriteSpaces(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_ToStringLiteral_System_String_">ModelGenerator.ToStringLiteral(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_ToCamelCase_System_String_">ModelGenerator.ToCamelCase(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_BaseDataContextClass">ModelGenerator.BaseDataContextClass</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_EnforceModelNullability">ModelGenerator.EnforceModelNullability</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GetDataOptionsMethod">ModelGenerator.GetDataOptionsMethod</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_ServerName">ModelGenerator.ServerName</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_DatabaseName">ModelGenerator.DatabaseName</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_DataContextName">ModelGenerator.DataContextName</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_BaseEntityClass">ModelGenerator.BaseEntityClass</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_OneToManyAssociationType">ModelGenerator.OneToManyAssociationType</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateModelOnly">ModelGenerator.GenerateModelOnly</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateModelInterface">ModelGenerator.GenerateModelInterface</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateDatabaseInfo">ModelGenerator.GenerateDatabaseInfo</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateDatabaseName">ModelGenerator.GenerateDatabaseName</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateDatabaseNameFromTable">ModelGenerator.GenerateDatabaseNameFromTable</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateConstructors">ModelGenerator.GenerateConstructors</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_DefaultConfiguration">ModelGenerator.DefaultConfiguration</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateAssociations">ModelGenerator.GenerateAssociations</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateBackReferences">ModelGenerator.GenerateBackReferences</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateAssociationExtensions">ModelGenerator.GenerateAssociationExtensions</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_ReplaceSimilarTables">ModelGenerator.ReplaceSimilarTables</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_IncludeDefaultSchema">ModelGenerator.IncludeDefaultSchema</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_DataContextObject">ModelGenerator.DataContextObject</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_PluralizeClassNames">ModelGenerator.PluralizeClassNames</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_SingularizeClassNames">ModelGenerator.SingularizeClassNames</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_PluralizeDataContextPropertyNames">ModelGenerator.PluralizeDataContextPropertyNames</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_SingularizeDataContextPropertyNames">ModelGenerator.SingularizeDataContextPropertyNames</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_PluralizeForeignKeyNames">ModelGenerator.PluralizeForeignKeyNames</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_SingularizeForeignKeyNames">ModelGenerator.SingularizeForeignKeyNames</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_NormalizeParameterName">ModelGenerator.NormalizeParameterName</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_NormalizeProcedureColumnName">ModelGenerator.NormalizeProcedureColumnName</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_NormalizeNames">ModelGenerator.NormalizeNames</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_NormalizeNamesWithoutUnderscores">ModelGenerator.NormalizeNamesWithoutUnderscores</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_ConvertUpperNamesToLower">ModelGenerator.ConvertUpperNamesToLower</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_ToValidName">ModelGenerator.ToValidName</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_ConvertToCompilable">ModelGenerator.ConvertToCompilable</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_NormalizeName">ModelGenerator.NormalizeName</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GetAssociationExtensionPluralName">ModelGenerator.GetAssociationExtensionPluralName</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GetAssociationExtensionSingularName">ModelGenerator.GetAssociationExtensionSingularName</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GetSchemaOptions">ModelGenerator.GetSchemaOptions</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_LoadDatabaseSchema">ModelGenerator.LoadDatabaseSchema</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_SetPropertyValueAction">ModelGenerator.SetPropertyValueAction</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_SetPropertyValue_LinqToDB_Tools_ModelGeneration_IProperty_System_String_System_Object_">ModelGenerator.SetPropertyValue(IProperty, string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_ToPlural">ModelGenerator.ToPlural</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_ToSingular">ModelGenerator.ToSingular</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_IsValueType">ModelGenerator.IsValueType</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_ConvertColumnMemberType">ModelGenerator.ConvertColumnMemberType</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_ConvertTableColumnMemberType">ModelGenerator.ConvertTableColumnMemberType</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_ConvertProcedureColumnMemberType">ModelGenerator.ConvertProcedureColumnMemberType</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_AfterLoadMetadata">ModelGenerator.AfterLoadMetadata</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_KeyWords">ModelGenerator.KeyWords</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_IsParameter">ModelGenerator.IsParameter</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_IsProcedureColumn">ModelGenerator.IsProcedureColumn</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_ToValidNameDefault_System_String_System_Boolean_">ModelGenerator.ToValidNameDefault(string, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_ConvertToCompilableDefault_System_String_System_Boolean_">ModelGenerator.ConvertToCompilableDefault(string, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_SqlBuilder">ModelGenerator.SqlBuilder</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_ToDictionary__2_System_Collections_Generic_IEnumerable___0__System_Func___0_System_String__System_Func___0___1__System_Func___1_System_Int32_System_String__">ModelGenerator.ToDictionary&lt;T, TR&gt;(IEnumerable&lt;T&gt;, Func&lt;T, string&gt;, Func&lt;T, TR&gt;, Func&lt;TR, int, string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_CheckType_System_Type_System_String_">ModelGenerator.CheckType(Type, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_CheckColumnName_System_String_">ModelGenerator.CheckColumnName(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_CheckParameterName_System_String_">ModelGenerator.CheckParameterName(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_SuggestNoDuplicate_System_Collections_Generic_IEnumerable_System_String__System_String_System_String_">ModelGenerator.SuggestNoDuplicate(IEnumerable&lt;string&gt;, string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_EditableObjectImplementation__4">ModelGenerator.EditableObjectImplementation&lt;TMemberGroup, TMethod, TProperty, TField&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_BeforeGenerateLinqToDBModel">ModelGenerator.BeforeGenerateLinqToDBModel</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_AfterGenerateLinqToDBModel">ModelGenerator.AfterGenerateLinqToDBModel</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateProviderSpecificTable">ModelGenerator.GenerateProviderSpecificTable</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateProcedureDbType">ModelGenerator.GenerateProcedureDbType</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateDataOptionsConstructors">ModelGenerator.GenerateDataOptionsConstructors</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateObsoleteAttributeForAliases">ModelGenerator.GenerateObsoleteAttributeForAliases</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateFindExtensions">ModelGenerator.GenerateFindExtensions</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_IsCompactColumns">ModelGenerator.IsCompactColumns</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_IsCompactColumnAliases">ModelGenerator.IsCompactColumnAliases</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateDataTypes">ModelGenerator.GenerateDataTypes</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateLengthProperty">ModelGenerator.GenerateLengthProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GeneratePrecisionProperty">ModelGenerator.GeneratePrecisionProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateScaleProperty">ModelGenerator.GenerateScaleProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateDbTypes">ModelGenerator.GenerateDbTypes</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateSchemaAsType">ModelGenerator.GenerateSchemaAsType</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateViews">ModelGenerator.GenerateViews</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateProcedureResultAsList">ModelGenerator.GenerateProcedureResultAsList</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateProceduresOnTypedContext">ModelGenerator.GenerateProceduresOnTypedContext</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_PrefixTableMappingWithSchema">ModelGenerator.PrefixTableMappingWithSchema</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_PrefixTableMappingForDefaultSchema">ModelGenerator.PrefixTableMappingForDefaultSchema</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_SchemaNameSuffix">ModelGenerator.SchemaNameSuffix</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_SchemaDataContextTypeName">ModelGenerator.SchemaDataContextTypeName</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateNameOf">ModelGenerator.GenerateNameOf</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GenerateTableRegion">ModelGenerator.GenerateTableRegion</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_SchemaNameMapping">ModelGenerator.SchemaNameMapping</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_GetConstructors">ModelGenerator.GetConstructors</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_BuildColumnComparison">ModelGenerator.BuildColumnComparison</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_MakeTypeMembersNamesUnique_LinqToDB_Tools_ModelGeneration_IClass_System_String_System_String___">ModelGenerator.MakeTypeMembersNamesUnique(IClass, string, params string[])</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_CreateXmlCommentFromText_System_String_System_String_System_String_">ModelGenerator.CreateXmlCommentFromText(string, string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_MakeMembersNamesUnique_System_Collections_Generic_IEnumerable_LinqToDB_Tools_ModelGeneration_IClassMember__System_String_System_String___">ModelGenerator.MakeMembersNamesUnique(IEnumerable&lt;IClassMember&gt;, string, params string[])</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_NormalizeStringName_System_String_">ModelGenerator.NormalizeStringName(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_NotifyDataErrorInfoImplementation__6">ModelGenerator.NotifyDataErrorInfoImplementation&lt;TMemberGroup, TMethod, TProperty, TField, TEvent, TAttribute&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_ImplementNotifyPropertyChanging">ModelGenerator.ImplementNotifyPropertyChanging</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_SkipNotifyPropertyChangedImplementation">ModelGenerator.SkipNotifyPropertyChangedImplementation</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_NotifyPropertyChangedImplementation__5">ModelGenerator.NotifyPropertyChangedImplementation&lt;TMemberGroup, TMethod, TField, TEvent, TAttribute&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_OnPropertyChangedBody">ModelGenerator.OnPropertyChangedBody</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_OnPropertyChangedArgBody">ModelGenerator.OnPropertyChangedArgBody</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_OnPropertyChangingBody">ModelGenerator.OnPropertyChangingBody</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_OnPropertyChangingArgBody">ModelGenerator.OnPropertyChangingArgBody</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator.html#linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_ValidationImplementation__5">ModelGenerator.ValidationImplementation&lt;TClass, TMemberGroup, TMethod, TField, TAttribute&gt;()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2__ctor_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.#ctor*"></a>
+
+  <h3 id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2__ctor_LinqToDB_Tools_ModelGeneration_IModelSource_System_Text_StringBuilder_System_Action_System_String__System_Action_System_String__System_Action_System_String__System_Func_System_String__System_Action_System_String__" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.#ctor(LinqToDB.Tools.ModelGeneration.IModelSource,System.Text.StringBuilder,System.Action{System.String},System.Action{System.String},System.Action{System.String},System.Func{System.String},System.Action{System.String})">
+  ModelGenerator(IModelSource, StringBuilder, Action&lt;string?&gt;, Action&lt;string?&gt;, Action&lt;string&gt;, Func&lt;string&gt;, Action&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Scaffold/ModelGeneration/ModelGenerator.DataModel.cs/#L458"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModelGenerator(IModelSource model, StringBuilder generationEnvironment, Action&lt;string?&gt; write, Action&lt;string?&gt; writeLine, Action&lt;string&gt; pushIndent, Func&lt;string&gt; popIndent, Action&lt;string&gt; error)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>model</code> <a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.IModelSource.html">IModelSource</a></dt>
+    <dd></dd>
+    <dt><code>generationEnvironment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></dt>
+    <dd></dd>
+    <dt><code>write</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>writeLine</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>pushIndent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>popIndent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>error</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_LoadProviderSpecificTable" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.LoadProviderSpecificTable">
+  LoadProviderSpecificTable
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Scaffold/ModelGeneration/ModelGenerator.DataModel.cs/#L473"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Func&lt;TableSchema, TTable?&gt; LoadProviderSpecificTable</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="../linq2db/linq2db.LinqToDB.SchemaProvider.TableSchema.html">TableSchema</a>, TTable&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_Procedures_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.Procedures*"></a>
+
+  <h3 id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_Procedures" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.Procedures">
+  Procedures
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Scaffold/ModelGeneration/ModelGenerator.DataModel.cs/#L471"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, TProcedure&gt; Procedures { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, TProcedure&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_Tables_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.Tables*"></a>
+
+  <h3 id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_Tables" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.Tables">
+  Tables
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Scaffold/ModelGeneration/ModelGenerator.DataModel.cs/#L470"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, TTable&gt; Tables { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, TTable&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_GenerateTypesFromMetadata_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.GenerateTypesFromMetadata*"></a>
+
+  <h3 id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_GenerateTypesFromMetadata__6" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.GenerateTypesFromMetadata``6">
+  GenerateTypesFromMetadata&lt;TMemberGroup, TClass, TAttribute, TMethod, TProperty, TField&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Scaffold/ModelGeneration/ModelGenerator.LinqToDB.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GenerateTypesFromMetadata&lt;TMemberGroup, TClass, TAttribute, TMethod, TProperty, TField&gt;() where TMemberGroup : MemberGroup&lt;TMemberGroup&gt;, new() where TClass : Class&lt;TClass&gt;, new() where TAttribute : Attribute&lt;TAttribute&gt;, new() where TMethod : Method&lt;TMethod&gt;, new() where TProperty : Property&lt;TProperty&gt;, new() where TField : Field&lt;TField&gt;, new()</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMemberGroup</code></dt>
+    <dd></dd>
+    <dt><code>TClass</code></dt>
+    <dd></dd>
+    <dt><code>TAttribute</code></dt>
+    <dd></dd>
+    <dt><code>TMethod</code></dt>
+    <dd></dd>
+    <dt><code>TProperty</code></dt>
+    <dd></dd>
+    <dt><code>TField</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_GetColumn_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.GetColumn*"></a>
+
+  <h3 id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_GetColumn_System_String_System_String_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.GetColumn(System.String,System.String)">
+  GetColumn(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Scaffold/ModelGeneration/ModelGenerator.DataModel.cs/#L779"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IColumn GetColumn(string tableName, string columnName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tableName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>columnName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.IColumn.html">IColumn</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_GetFK_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.GetFK*"></a>
+
+  <h3 id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_GetFK_System_String_System_String_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.GetFK(System.String,System.String)">
+  GetFK(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Scaffold/ModelGeneration/ModelGenerator.DataModel.cs/#L802"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IForeignKey GetFK(string tableName, string fkName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tableName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>fkName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.IForeignKey.html">IForeignKey</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_GetForeignKey_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.GetForeignKey*"></a>
+
+  <h3 id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_GetForeignKey_System_String_System_String_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.GetForeignKey(System.String,System.String)">
+  GetForeignKey(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Scaffold/ModelGeneration/ModelGenerator.DataModel.cs/#L807"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IForeignKey GetForeignKey(string tableName, string fkName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tableName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>fkName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.IForeignKey.html">IForeignKey</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_GetProcedure_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.GetProcedure*"></a>
+
+  <h3 id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_GetProcedure_System_String_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.GetProcedure(System.String)">
+  GetProcedure(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Scaffold/ModelGeneration/ModelGenerator.DataModel.cs/#L758"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TProcedure GetProcedure(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TProcedure</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_GetTable_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.GetTable*"></a>
+
+  <h3 id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_GetTable_System_String_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.GetTable(System.String)">
+  GetTable(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Scaffold/ModelGeneration/ModelGenerator.DataModel.cs/#L738"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TTable GetTable(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TTable</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_LoadMetadata_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.LoadMetadata*"></a>
+
+  <h3 id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_LoadMetadata__3_LinqToDB_Data_DataConnection_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.LoadMetadata``3(LinqToDB.Data.DataConnection)">
+  LoadMetadata&lt;TClass, TForeignKey, TColumn&gt;(DataConnection)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Scaffold/ModelGeneration/ModelGenerator.DataModel.cs/#L848"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void LoadMetadata&lt;TClass, TForeignKey, TColumn&gt;(DataConnection dataConnection) where TClass : Class&lt;TClass&gt;, new() where TForeignKey : ForeignKey&lt;TForeignKey&gt;, new() where TColumn : IColumn, new()</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataConnection</code> <a class="xref" href="../linq2db/linq2db.LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TClass</code></dt>
+    <dd></dd>
+    <dt><code>TForeignKey</code></dt>
+    <dd></dd>
+    <dt><code>TColumn</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_LoadServerMetadata_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.LoadServerMetadata*"></a>
+
+  <h3 id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_LoadServerMetadata__2_LinqToDB_Data_DataConnection_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.LoadServerMetadata``2(LinqToDB.Data.DataConnection)">
+  LoadServerMetadata&lt;TForeignKey, TColumn&gt;(DataConnection)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Scaffold/ModelGeneration/ModelGenerator.DataModel.cs/#L475"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void LoadServerMetadata&lt;TForeignKey, TColumn&gt;(DataConnection dataConnection) where TForeignKey : ForeignKey&lt;TForeignKey&gt;, new() where TColumn : IColumn, new()</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataConnection</code> <a class="xref" href="../linq2db/linq2db.LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TForeignKey</code></dt>
+    <dd></dd>
+    <dt><code>TColumn</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_SetTable_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.SetTable*"></a>
+
+  <h3 id="linq2db_Scaffold_LinqToDB_Tools_ModelGeneration_ModelGenerator_2_SetTable_System_String_System_String_System_String_" data-uid="linq2db.Scaffold.LinqToDB.Tools.ModelGeneration.ModelGenerator`2.SetTable(System.String,System.String,System.String)">
+  SetTable(string, string?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Scaffold/ModelGeneration/ModelGenerator.DataModel.cs/#L830"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TableContext&lt;TTable, TProcedure&gt; SetTable(string tableName, string? TypeName = null, string? DataContextPropertyName = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tableName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>TypeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>DataContextPropertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Tools.ModelGeneration.TableContext-2.html">TableContext</a>&lt;TTable, TProcedure&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

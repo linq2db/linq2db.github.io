@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class XmlSchema.SelectiveXmlIndexPath | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class XmlSchema.SelectiveXmlIndexPath | Linq To DB ">
+      
+      <meta name="description" content="sys.selective_xml_index_paths (Transact-SQL) Applies to: √ SQL Server Available beginning in SQL Server 2012 (11.x) Service Pack 1, each row in sys.selective_xml_index_paths represents one promoted path for particular selective xml index. If you create a selective xml index on xmlcol of table T using following statement, CREATE SELECTIVE XML INDEX sxi1 ON T(xmlcol)  FOR ( path1 = &#39;/a/b/c&#39; AS XQUERY &#39;xs:string&#39;,     path2 = &#39;/a/b/d&#39; AS XQUERY &#39;xs:double&#39;   ) There will be two new rows in sys.selective_xml_index_paths corresponding to the index sxi1. See sys.selective_xml_index_paths.">
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath.md&amp;value=---%0Auid%3A%20linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath">
+
+
+
+  <h1 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath" class="text-break">
+Class XmlSchema.SelectiveXmlIndexPath  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27670"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Tools.html">Tools</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.html">SqlServer</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.html">Schemas</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.Tools.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p><strong>sys.selective_xml_index_paths (Transact-SQL)</strong></p>
+<p><strong>Applies to:</strong> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">SQL Server</a></p>
+<p>Available beginning in SQL Server 2012 (11.x) Service Pack 1, each row in sys.selective_xml_index_paths represents one promoted path for particular selective xml index.<br>
+If you create a selective xml index on xmlcol of table T using following statement,<br>
+<pre><code class="lang-csharp">CREATE SELECTIVE XML INDEX sxi1 ON T(xmlcol) 
+FOR ( path1 = '/a/b/c' AS XQUERY 'xs:string',
+    path2 = '/a/b/d' AS XQUERY 'xs:double'
+  )</code></pre><br>
+<p>There will be two new rows in sys.selective_xml_index_paths corresponding to the index sxi1.</p><br>
+<p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-selective-xml-index-paths-transact-sql">sys.selective_xml_index_paths</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Table(Schema = &quot;sys&quot;, Name = &quot;selective_xml_index_paths&quot;, IsView = true)]
+public class XmlSchema.SelectiveXmlIndexPath</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">XmlSchema.SelectiveXmlIndexPath</span></div>
+    </dd>
+  </dl>
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="linq2db.Tools.LinqToDB.Tools.Mapper.Map.html#linq2db_Tools_LinqToDB_Tools_Mapper_Map_DeepCopy__1___0_">Map.DeepCopy&lt;T&gt;(T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_CollationName_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.CollationName*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_CollationName" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.CollationName">
+  CollationName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27767"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>collation_name</strong> NULL <strong>sysname</strong></p>
+Name of the collation of the type if it is character-based. Otherwise, NULL.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;collation_name&quot;)]
+[Nullable]
+public string? CollationName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_IndexID_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.IndexID*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_IndexID" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.IndexID">
+  IndexID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27682"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>index_id</strong> NOT NULL <strong>int</strong></p>
+Unique id of the selective xml index.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;index_id&quot;)]
+[NotNull]
+public int IndexID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_IsNode_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.IsNode*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_IsNode" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.IsNode">
+  IsNode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27737"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>is_node</strong> NULL <strong>bit</strong></p>
+0 = node() hint not present.<br><br> 1 = node() optimization hint applied.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;is_node&quot;)]
+[Nullable]
+public bool? IsNode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_IsSingleton_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.IsSingleton*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_IsSingleton" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.IsSingleton">
+  IsSingleton
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27772"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>is_singleton</strong> NULL <strong>bit</strong></p>
+0 = SINGLETON hint not present.<br><br> 1 = SINGLETON optimization hint applied.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;is_singleton&quot;)]
+[Nullable]
+public bool? IsSingleton { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_IsXqueryMaxLengthInferred_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.IsXqueryMaxLengthInferred*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_IsXqueryMaxLengthInferred" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.IsXqueryMaxLengthInferred">
+  IsXqueryMaxLengthInferred
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27732"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>is_xquery_max_length_inferred</strong> NULL <strong>bit</strong></p>
+1 = maximum length is inferred.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;is_xquery_max_length_inferred&quot;)]
+[Nullable]
+public bool? IsXqueryMaxLengthInferred { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_IsXqueryTypeInferred_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.IsXqueryTypeInferred*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_IsXqueryTypeInferred" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.IsXqueryTypeInferred">
+  IsXqueryTypeInferred
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27722"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>is_xquery_type_inferred</strong> NULL <strong>bit</strong></p>
+1 = type is inferred.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;is_xquery_type_inferred&quot;)]
+[Nullable]
+public bool? IsXqueryTypeInferred { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_MaxLength_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.MaxLength*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_MaxLength" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.MaxLength">
+  MaxLength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27752"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>max_length</strong> NULL <strong>smallint</strong></p>
+Max Length (in bytes) of the type.<br><br> -1 = Column data type is varchar(max), nvarchar(max), varbinary(max), or xml.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;max_length&quot;)]
+[Nullable]
+public short? MaxLength { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_Name_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.Name*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_Name" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27697"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>name</strong> NULL <strong>sysname</strong></p>
+Path name.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;name&quot;)]
+[Nullable]
+public string? Name { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_Object_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.Object*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_Object" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.Object">
+  Object
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27779"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>objects (sys.objects)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Association(ThisKey = &quot;ObjectID&quot;, OtherKey = &quot;ObjectID&quot;, CanBeNull = false)]
+public ObjectSchema.Object Object { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.html">ObjectSchema</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.ObjectSchema.Object.html">Object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_ObjectID_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.ObjectID*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_ObjectID" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.ObjectID">
+  ObjectID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27677"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>object_id</strong> NOT NULL <strong>int</strong></p>
+ID of table with XML column.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;object_id&quot;)]
+[NotNull]
+public int ObjectID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_Path_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.Path*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_Path" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.Path">
+  Path
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27692"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>path</strong> NULL <strong>nvarchar(4000)</strong></p>
+Promoted path. For example, '/a/b/c/d/e'.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;path&quot;)]
+[Nullable]
+public string? Path { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_PathID_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.PathID*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_PathID" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.PathID">
+  PathID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27687"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>path_id</strong> NULL <strong>int</strong></p>
+Promoted XML path id.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;path_id&quot;)]
+[Nullable]
+public int? PathID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_PathType_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.PathType*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_PathType" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.PathType">
+  PathType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27702"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>path_type</strong> NULL <strong>tinyint</strong></p>
+0 = XQUERY<br><br> 1 = SQL
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;path_type&quot;)]
+[Nullable]
+public byte? PathType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_PathTypeDesc_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.PathTypeDesc*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_PathTypeDesc" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.PathTypeDesc">
+  PathTypeDesc
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27707"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>path_type_desc</strong> NULL <strong>sysname</strong></p>
+Based on <strong>path_type</strong> value 'XQUERY' or 'SQL'.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;path_type_desc&quot;)]
+[Nullable]
+public string? PathTypeDesc { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_Precision_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.Precision*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_Precision" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.Precision">
+  Precision
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27757"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>precision</strong> NULL <strong>tinyint</strong></p>
+Maximum precision of the type if it is numeric-based. Otherwise 0.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;precision&quot;)]
+[Nullable]
+public byte? Precision { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_Scale_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.Scale*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_Scale" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.Scale">
+  Scale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27762"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>scale</strong> NULL <strong>tinyint</strong></p>
+Maximum scale of the type if it is numeric-based. Otherwise, 0.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;scale&quot;)]
+[Nullable]
+public byte? Scale { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_SystemTypeID_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.SystemTypeID*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_SystemTypeID" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.SystemTypeID">
+  SystemTypeID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27742"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>system_type_id</strong> NULL <strong>tinyint</strong></p>
+ID of the system type of the column.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;system_type_id&quot;)]
+[Nullable]
+public byte? SystemTypeID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_UserTypeID_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.UserTypeID*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_UserTypeID" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.UserTypeID">
+  UserTypeID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27747"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>user_type_id</strong> NULL <strong>tinyint</strong></p>
+ID of the user type of the column.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;user_type_id&quot;)]
+[Nullable]
+public byte? UserTypeID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_XmlComponentID_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.XmlComponentID*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_XmlComponentID" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.XmlComponentID">
+  XmlComponentID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27712"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>xml_component_id</strong> NULL <strong>int</strong></p>
+Unique ID of the XML schema component in the database.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;xml_component_id&quot;)]
+[Nullable]
+public int? XmlComponentID { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_XqueryMaxLength_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.XqueryMaxLength*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_XqueryMaxLength" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.XqueryMaxLength">
+  XqueryMaxLength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27727"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>xquery_max_length</strong> NULL <strong>smallint</strong></p>
+Max length (in character of xsd type).
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;xquery_max_length&quot;)]
+[Nullable]
+public short? XqueryMaxLength { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_XqueryTypeDescription_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.XqueryTypeDescription*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_XmlSchema_SelectiveXmlIndexPath_XqueryTypeDescription" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.XmlSchema.SelectiveXmlIndexPath.XqueryTypeDescription">
+  XqueryTypeDescription
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L27717"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>xquery_type_description</strong> NULL <strong>nvarchar(4000)</strong></p>
+Name of the specified xsd type.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;xquery_type_description&quot;)]
+[Nullable]
+public string? XqueryTypeDescription { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

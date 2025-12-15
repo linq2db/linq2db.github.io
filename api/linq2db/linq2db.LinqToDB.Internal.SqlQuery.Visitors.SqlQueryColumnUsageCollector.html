@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SqlQueryColumnUsageCollector | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SqlQueryColumnUsageCollector | Linq To DB ">
+      
+      
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector.md&amp;value=---%0Auid%3A%20linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector">
+
+
+
+  <h1 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector" class="text-break">
+Class SqlQueryColumnUsageCollector  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnUsageCollector.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Internal.html">Internal</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.html">SqlQuery</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.Visitors.html">Visitors</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class SqlQueryColumnUsageCollector : SqlQueryVisitor</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html">QueryElementVisitor</a></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html">SqlQueryVisitor</a></div>
+      <div><span class="xref">SqlQueryColumnUsageCollector</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_Visit_LinqToDB_Internal_SqlQuery_IQueryElement_">SqlQueryVisitor.Visit(IQueryElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_GetVisitMode_LinqToDB_Internal_SqlQuery_IQueryElement_">SqlQueryVisitor.GetVisitMode(IQueryElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_ProcessElement_LinqToDB_Internal_SqlQuery_IQueryElement_">SqlQueryVisitor.ProcessElement(IQueryElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_NotifyReplaced_LinqToDB_Internal_SqlQuery_IQueryElement_LinqToDB_Internal_SqlQuery_IQueryElement_">SqlQueryVisitor.NotifyReplaced(IQueryElement, IQueryElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_GetReplacements_System_Collections_Generic_Dictionary_LinqToDB_Internal_SqlQuery_IQueryElement_LinqToDB_Internal_SqlQuery_IQueryElement__">SqlQueryVisitor.GetReplacements(Dictionary&lt;IQueryElement, IQueryElement&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitMode">QueryElementVisitor.VisitMode</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.Common.Utils.html#linq2db_LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector__ctor_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.#ctor*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector__ctor" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.#ctor">
+  SqlQueryColumnUsageCollector()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnUsageCollector.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SqlQueryColumnUsageCollector()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_UsedColumns_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.UsedColumns*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_UsedColumns" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.UsedColumns">
+  UsedColumns
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnUsageCollector.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyCollection&lt;SqlColumn&gt; UsedColumns { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlColumn.html">SqlColumn</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_Cleanup_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.Cleanup*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_Cleanup" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.Cleanup">
+  Cleanup()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnUsageCollector.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets visitor to initial state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Cleanup()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_CollectUsedColumns_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.CollectUsedColumns*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_CollectUsedColumns_LinqToDB_Internal_SqlQuery_IQueryElement_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.CollectUsedColumns(LinqToDB.Internal.SqlQuery.IQueryElement)">
+  CollectUsedColumns(IQueryElement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnUsageCollector.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IQueryElement CollectUsedColumns(IQueryElement element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitCteClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitCteClause*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitCteClause_LinqToDB_Internal_SqlQuery_CteClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitCteClause(LinqToDB.Internal.SqlQuery.CteClause)">
+  VisitCteClause(CteClause)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnUsageCollector.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Visitor of <a class="xref" href="LinqToDB.Internal.SqlQuery.CteClause.html">CteClause</a> definition from <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlWithClause.html">SqlWithClause</a> visitor (owner).
+For visitor of <a class="xref" href="LinqToDB.Internal.SqlQuery.CteClause.html">CteClause</a> in queries see <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitCteClauseReference_LinqToDB_Internal_SqlQuery_CteClause_">VisitCteClauseReference(CteClause)</a> visitor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitCteClause(CteClause element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.CteClause.html">CteClause</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitExprExprPredicate_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitExprExprPredicate*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitExprExprPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_ExprExpr_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitExprExprPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.ExprExpr)">
+  VisitExprExprPredicate(ExprExpr)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnUsageCollector.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitExprExprPredicate(SqlPredicate.ExprExpr predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.ExprExpr.html">ExprExpr</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitSqlColumnExpression_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitSqlColumnExpression*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitSqlColumnExpression_LinqToDB_Internal_SqlQuery_SqlColumn_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitSqlColumnExpression(LinqToDB.Internal.SqlQuery.SqlColumn,LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  VisitSqlColumnExpression(SqlColumn, ISqlExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnUsageCollector.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Visit of column expression from owner table. For column references visitor see <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlColumnReference_LinqToDB_Internal_SqlQuery_SqlColumn_">VisitSqlColumnReference(SqlColumn)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override ISqlExpression VisitSqlColumnExpression(SqlColumn column, ISqlExpression expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>column</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlColumn.html">SqlColumn</a></dt>
+    <dd></dd>
+    <dt><code>expression</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitSqlColumnReference_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitSqlColumnReference*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitSqlColumnReference_LinqToDB_Internal_SqlQuery_SqlColumn_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitSqlColumnReference(LinqToDB.Internal.SqlQuery.SqlColumn)">
+  VisitSqlColumnReference(SqlColumn)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnUsageCollector.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Used to visit columns as references in other expressions.
+Actual visit of table column happens in <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlColumnExpression_LinqToDB_Internal_SqlQuery_SqlColumn_LinqToDB_Internal_SqlQuery_ISqlExpression_">VisitSqlColumnExpression(SqlColumn, ISqlExpression)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlColumnReference(SqlColumn element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlColumn.html">SqlColumn</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitSqlFieldReference_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitSqlFieldReference*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitSqlFieldReference_LinqToDB_Internal_SqlQuery_SqlField_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitSqlFieldReference(LinqToDB.Internal.SqlQuery.SqlField)">
+  VisitSqlFieldReference(SqlField)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnUsageCollector.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Visitor for <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlField.html">SqlField</a> reference from query expressions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlFieldReference(SqlField element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlField.html">SqlField</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitSqlGroupByClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitSqlGroupByClause*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitSqlGroupByClause_LinqToDB_Internal_SqlQuery_SqlGroupByClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitSqlGroupByClause(LinqToDB.Internal.SqlQuery.SqlGroupByClause)">
+  VisitSqlGroupByClause(SqlGroupByClause)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnUsageCollector.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlGroupByClause(SqlGroupByClause element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlGroupByClause.html">SqlGroupByClause</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitSqlOrderByClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitSqlOrderByClause*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitSqlOrderByClause_LinqToDB_Internal_SqlQuery_SqlOrderByClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitSqlOrderByClause(LinqToDB.Internal.SqlQuery.SqlOrderByClause)">
+  VisitSqlOrderByClause(SqlOrderByClause)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnUsageCollector.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlOrderByClause(SqlOrderByClause element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlOrderByClause.html">SqlOrderByClause</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitSqlQuery_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitSqlQuery*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitSqlQuery_LinqToDB_Internal_SqlQuery_SelectQuery_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitSqlQuery(LinqToDB.Internal.SqlQuery.SelectQuery)">
+  VisitSqlQuery(SelectQuery)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnUsageCollector.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlQuery(SelectQuery selectQuery)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>selectQuery</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SelectQuery.html">SelectQuery</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitSqlSearchCondition_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitSqlSearchCondition*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitSqlSearchCondition_LinqToDB_Internal_SqlQuery_SqlSearchCondition_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitSqlSearchCondition(LinqToDB.Internal.SqlQuery.SqlSearchCondition)">
+  VisitSqlSearchCondition(SqlSearchCondition)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnUsageCollector.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlSearchCondition(SqlSearchCondition element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlSearchCondition.html">SqlSearchCondition</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitSqlTableLikeSource_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitSqlTableLikeSource*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnUsageCollector_VisitSqlTableLikeSource_LinqToDB_Internal_SqlQuery_SqlTableLikeSource_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.VisitSqlTableLikeSource(LinqToDB.Internal.SqlQuery.SqlTableLikeSource)">
+  VisitSqlTableLikeSource(SqlTableLikeSource)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnUsageCollector.cs/#L274"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlTableLikeSource(SqlTableLikeSource element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlTableLikeSource.html">SqlTableLikeSource</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

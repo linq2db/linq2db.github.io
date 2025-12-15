@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CompiledQuery | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CompiledQuery | Linq To DB ">
+      
+      <meta name="description" content="Provides API for compilation and caching of queries for reuse.">
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=linq2db_LinqToDB_CompiledQuery.md&amp;value=---%0Auid%3A%20linq2db.LinqToDB.CompiledQuery%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="linq2db.LinqToDB.CompiledQuery">
+
+
+
+  <h1 id="linq2db_LinqToDB_CompiledQuery" data-uid="linq2db.LinqToDB.CompiledQuery" class="text-break">
+Class CompiledQuery  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/CompiledQuery.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="linq2db.LinqToDB.html">LinqToDB</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides API for compilation and caching of queries for reuse.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CompiledQuery</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">CompiledQuery</span></div>
+    </dd>
+  </dl>
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.Common.Utils.html#linq2db_LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="linq2db_LinqToDB_CompiledQuery__ctor_" data-uid="linq2db.LinqToDB.CompiledQuery.#ctor*"></a>
+
+  <h3 id="linq2db_LinqToDB_CompiledQuery__ctor_System_Linq_Expressions_LambdaExpression_" data-uid="linq2db.LinqToDB.CompiledQuery.#ctor(System.Linq.Expressions.LambdaExpression)">
+  CompiledQuery(LambdaExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/CompiledQuery.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected CompiledQuery(LambdaExpression query)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>query</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.lambdaexpression">LambdaExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="linq2db_LinqToDB_CompiledQuery_Compile_" data-uid="linq2db.LinqToDB.CompiledQuery.Compile*"></a>
+
+  <h3 id="linq2db_LinqToDB_CompiledQuery_Compile__2_System_Linq_Expressions_Expression_System_Func___0___1___" data-uid="linq2db.LinqToDB.CompiledQuery.Compile``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+  Compile&lt;TDC, TResult&gt;(Expression&lt;Func&lt;TDC, TResult&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/CompiledQuery.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compiles the query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Func&lt;TDC, TResult&gt; Compile&lt;TDC, TResult&gt;(Expression&lt;Func&lt;TDC, TResult&gt;&gt; query) where TDC : IDataContext</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>query</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TDC, TResult&gt;&gt;</dt>
+    <dd><p>The query expression to be compiled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TDC, TResult&gt;</dt>
+    <dd><p>A generic delegate that represents the compiled query.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TDC</code></dt>
+    <dd><p>Type of data context parameter, passed to compiled query.</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>Query result type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_CompiledQuery_Compile_" data-uid="linq2db.LinqToDB.CompiledQuery.Compile*"></a>
+
+  <h3 id="linq2db_LinqToDB_CompiledQuery_Compile__3_System_Linq_Expressions_Expression_System_Func___0___1___2___" data-uid="linq2db.LinqToDB.CompiledQuery.Compile``3(System.Linq.Expressions.Expression{System.Func{``0,``1,``2}})">
+  Compile&lt;TDC, TArg1, TResult&gt;(Expression&lt;Func&lt;TDC, TArg1, TResult&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/CompiledQuery.cs/#L288"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compiles the query with parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Func&lt;TDC, TArg1, TResult&gt; Compile&lt;TDC, TArg1, TResult&gt;(Expression&lt;Func&lt;TDC, TArg1, TResult&gt;&gt; query) where TDC : IDataContext</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>query</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TDC, TArg1, TResult&gt;&gt;</dt>
+    <dd><p>The query expression to be compiled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TDC, TArg1, TResult&gt;</dt>
+    <dd><p>A generic delegate that represents the compiled query.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TDC</code></dt>
+    <dd><p>Type of data context parameter, passed to compiled query.</p>
+</dd>
+    <dt><code>TArg1</code></dt>
+    <dd><p>Type of parameter for compiled query.</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>Query result type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_CompiledQuery_Compile_" data-uid="linq2db.LinqToDB.CompiledQuery.Compile*"></a>
+
+  <h3 id="linq2db_LinqToDB_CompiledQuery_Compile__4_System_Linq_Expressions_Expression_System_Func___0___1___2___3___" data-uid="linq2db.LinqToDB.CompiledQuery.Compile``4(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3}})">
+  Compile&lt;TDC, TArg1, TArg2, TResult&gt;(Expression&lt;Func&lt;TDC, TArg1, TArg2, TResult&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/CompiledQuery.cs/#L307"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compiles the query with two parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Func&lt;TDC, TArg1, TArg2, TResult&gt; Compile&lt;TDC, TArg1, TArg2, TResult&gt;(Expression&lt;Func&lt;TDC, TArg1, TArg2, TResult&gt;&gt; query) where TDC : IDataContext</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>query</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;TDC, TArg1, TArg2, TResult&gt;&gt;</dt>
+    <dd><p>The query expression to be compiled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;TDC, TArg1, TArg2, TResult&gt;</dt>
+    <dd><p>A generic delegate that represents the compiled query.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TDC</code></dt>
+    <dd><p>Type of data context parameter, passed to compiled query.</p>
+</dd>
+    <dt><code>TArg1</code></dt>
+    <dd><p>Type of first parameter for compiled query.</p>
+</dd>
+    <dt><code>TArg2</code></dt>
+    <dd><p>Type of second parameter for compiled query.</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>Query result type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_CompiledQuery_Compile_" data-uid="linq2db.LinqToDB.CompiledQuery.Compile*"></a>
+
+  <h3 id="linq2db_LinqToDB_CompiledQuery_Compile__5_System_Linq_Expressions_Expression_System_Func___0___1___2___3___4___" data-uid="linq2db.LinqToDB.CompiledQuery.Compile``5(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4}})">
+  Compile&lt;TDC, TArg1, TArg2, TArg3, TResult&gt;(Expression&lt;Func&lt;TDC, TArg1, TArg2, TArg3, TResult&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/CompiledQuery.cs/#L327"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compiles the query with three parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Func&lt;TDC, TArg1, TArg2, TArg3, TResult&gt; Compile&lt;TDC, TArg1, TArg2, TArg3, TResult&gt;(Expression&lt;Func&lt;TDC, TArg1, TArg2, TArg3, TResult&gt;&gt; query) where TDC : IDataContext</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>query</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-5">Func</a>&lt;TDC, TArg1, TArg2, TArg3, TResult&gt;&gt;</dt>
+    <dd><p>The query expression to be compiled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-5">Func</a>&lt;TDC, TArg1, TArg2, TArg3, TResult&gt;</dt>
+    <dd><p>A generic delegate that represents the compiled query.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TDC</code></dt>
+    <dd><p>Type of data context parameter, passed to compiled query.</p>
+</dd>
+    <dt><code>TArg1</code></dt>
+    <dd><p>Type of first parameter for compiled query.</p>
+</dd>
+    <dt><code>TArg2</code></dt>
+    <dd><p>Type of second parameter for compiled query.</p>
+</dd>
+    <dt><code>TArg3</code></dt>
+    <dd><p>Type of third parameter for compiled query.</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>Query result type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_CompiledQuery_Compile_" data-uid="linq2db.LinqToDB.CompiledQuery.Compile*"></a>
+
+  <h3 id="linq2db_LinqToDB_CompiledQuery_Compile__6_System_Linq_Expressions_Expression_System_Func___0___1___2___3___4___5___" data-uid="linq2db.LinqToDB.CompiledQuery.Compile``6(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5}})">
+  Compile&lt;TDC, TArg1, TArg2, TArg3, TArg4, TResult&gt;(Expression&lt;Func&lt;TDC, TArg1, TArg2, TArg3, TArg4, TResult&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/CompiledQuery.cs/#L348"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compiles the query with four parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Func&lt;TDC, TArg1, TArg2, TArg3, TArg4, TResult&gt; Compile&lt;TDC, TArg1, TArg2, TArg3, TArg4, TResult&gt;(Expression&lt;Func&lt;TDC, TArg1, TArg2, TArg3, TArg4, TResult&gt;&gt; query) where TDC : IDataContext</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>query</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-6">Func</a>&lt;TDC, TArg1, TArg2, TArg3, TArg4, TResult&gt;&gt;</dt>
+    <dd><p>The query expression to be compiled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-6">Func</a>&lt;TDC, TArg1, TArg2, TArg3, TArg4, TResult&gt;</dt>
+    <dd><p>A generic delegate that represents the compiled query.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TDC</code></dt>
+    <dd><p>Type of data context parameter, passed to compiled query.</p>
+</dd>
+    <dt><code>TArg1</code></dt>
+    <dd><p>Type of first parameter for compiled query.</p>
+</dd>
+    <dt><code>TArg2</code></dt>
+    <dd><p>Type of second parameter for compiled query.</p>
+</dd>
+    <dt><code>TArg3</code></dt>
+    <dd><p>Type of third parameter for compiled query.</p>
+</dd>
+    <dt><code>TArg4</code></dt>
+    <dd><p>Type of forth parameter for compiled query.</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>Query result type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_CompiledQuery_Compile_" data-uid="linq2db.LinqToDB.CompiledQuery.Compile*"></a>
+
+  <h3 id="linq2db_LinqToDB_CompiledQuery_Compile__7_System_Linq_Expressions_Expression_System_Func___0___1___2___3___4___5___6___" data-uid="linq2db.LinqToDB.CompiledQuery.Compile``7(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6}})">
+  Compile&lt;TDC, TArg1, TArg2, TArg3, TArg4, TArg5, TResult&gt;(Expression&lt;Func&lt;TDC, TArg1, TArg2, TArg3, TArg4, TArg5, TResult&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/CompiledQuery.cs/#L370"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compiles the query with five parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Func&lt;TDC, TArg1, TArg2, TArg3, TArg4, TArg5, TResult&gt; Compile&lt;TDC, TArg1, TArg2, TArg3, TArg4, TArg5, TResult&gt;(Expression&lt;Func&lt;TDC, TArg1, TArg2, TArg3, TArg4, TArg5, TResult&gt;&gt; query) where TDC : IDataContext</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>query</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-7">Func</a>&lt;TDC, TArg1, TArg2, TArg3, TArg4, TArg5, TResult&gt;&gt;</dt>
+    <dd><p>The query expression to be compiled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-7">Func</a>&lt;TDC, TArg1, TArg2, TArg3, TArg4, TArg5, TResult&gt;</dt>
+    <dd><p>A generic delegate that represents the compiled query.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TDC</code></dt>
+    <dd><p>Type of data context parameter, passed to compiled query.</p>
+</dd>
+    <dt><code>TArg1</code></dt>
+    <dd><p>Type of first parameter for compiled query.</p>
+</dd>
+    <dt><code>TArg2</code></dt>
+    <dd><p>Type of second parameter for compiled query.</p>
+</dd>
+    <dt><code>TArg3</code></dt>
+    <dd><p>Type of third parameter for compiled query.</p>
+</dd>
+    <dt><code>TArg4</code></dt>
+    <dd><p>Type of forth parameter for compiled query.</p>
+</dd>
+    <dt><code>TArg5</code></dt>
+    <dd><p>Type of fifth parameter for compiled query.</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>Query result type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_CompiledQuery_Invoke_" data-uid="linq2db.LinqToDB.CompiledQuery.Invoke*"></a>
+
+  <h3 id="linq2db_LinqToDB_CompiledQuery_Invoke__2___0_" data-uid="linq2db.LinqToDB.CompiledQuery.Invoke``2(``0)">
+  Invoke&lt;TDC, TResult&gt;(TDC)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/CompiledQuery.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes compiled query against provided database connection context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResult Invoke&lt;TDC, TResult&gt;(TDC dataContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataContext</code> <span class="xref">TDC</span></dt>
+    <dd><p>Database connection context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResult</span></dt>
+    <dd><p>Query execution result.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TDC</code></dt>
+    <dd><p>Database connection context type.</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>Query result type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_CompiledQuery_Invoke_" data-uid="linq2db.LinqToDB.CompiledQuery.Invoke*"></a>
+
+  <h3 id="linq2db_LinqToDB_CompiledQuery_Invoke__3___0___1_" data-uid="linq2db.LinqToDB.CompiledQuery.Invoke``3(``0,``1)">
+  Invoke&lt;TDC, T1, TResult&gt;(TDC, T1)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/CompiledQuery.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes compiled query with one parameter against provided database connection context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResult Invoke&lt;TDC, T1, TResult&gt;(TDC dataContext, T1 arg1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataContext</code> <span class="xref">TDC</span></dt>
+    <dd><p>Database connection context.</p>
+</dd>
+    <dt><code>arg1</code> <span class="xref">T1</span></dt>
+    <dd><p>Query parameter value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResult</span></dt>
+    <dd><p>Query execution result.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TDC</code></dt>
+    <dd><p>Database connection context type.</p>
+</dd>
+    <dt><code>T1</code></dt>
+    <dd><p>Query parameter type.</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>Query result type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_CompiledQuery_Invoke_" data-uid="linq2db.LinqToDB.CompiledQuery.Invoke*"></a>
+
+  <h3 id="linq2db_LinqToDB_CompiledQuery_Invoke__4___0___1___2_" data-uid="linq2db.LinqToDB.CompiledQuery.Invoke``4(``0,``1,``2)">
+  Invoke&lt;TDC, T1, T2, TResult&gt;(TDC, T1, T2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/CompiledQuery.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes compiled query with two parameters against provided database connection context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResult Invoke&lt;TDC, T1, T2, TResult&gt;(TDC dataContext, T1 arg1, T2 arg2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataContext</code> <span class="xref">TDC</span></dt>
+    <dd><p>Database connection context.</p>
+</dd>
+    <dt><code>arg1</code> <span class="xref">T1</span></dt>
+    <dd><p>First query parameter value.</p>
+</dd>
+    <dt><code>arg2</code> <span class="xref">T2</span></dt>
+    <dd><p>Second query parameter value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResult</span></dt>
+    <dd><p>Query execution result.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TDC</code></dt>
+    <dd><p>Database connection context type.</p>
+</dd>
+    <dt><code>T1</code></dt>
+    <dd><p>First query parameter type.</p>
+</dd>
+    <dt><code>T2</code></dt>
+    <dd><p>Second query parameter type.</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>Query result type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_CompiledQuery_Invoke_" data-uid="linq2db.LinqToDB.CompiledQuery.Invoke*"></a>
+
+  <h3 id="linq2db_LinqToDB_CompiledQuery_Invoke__5___0___1___2___3_" data-uid="linq2db.LinqToDB.CompiledQuery.Invoke``5(``0,``1,``2,``3)">
+  Invoke&lt;TDC, T1, T2, T3, TResult&gt;(TDC, T1, T2, T3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/CompiledQuery.cs/#L210"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes compiled query with three parameters against provided database connection context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResult Invoke&lt;TDC, T1, T2, T3, TResult&gt;(TDC dataContext, T1 arg1, T2 arg2, T3 arg3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataContext</code> <span class="xref">TDC</span></dt>
+    <dd><p>Database connection context.</p>
+</dd>
+    <dt><code>arg1</code> <span class="xref">T1</span></dt>
+    <dd><p>First query parameter value.</p>
+</dd>
+    <dt><code>arg2</code> <span class="xref">T2</span></dt>
+    <dd><p>Second query parameter value.</p>
+</dd>
+    <dt><code>arg3</code> <span class="xref">T3</span></dt>
+    <dd><p>Third query parameter value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResult</span></dt>
+    <dd><p>Query execution result.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TDC</code></dt>
+    <dd><p>Database connection context type.</p>
+</dd>
+    <dt><code>T1</code></dt>
+    <dd><p>First query parameter type.</p>
+</dd>
+    <dt><code>T2</code></dt>
+    <dd><p>Second query parameter type.</p>
+</dd>
+    <dt><code>T3</code></dt>
+    <dd><p>Third query parameter type.</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>Query result type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_CompiledQuery_Invoke_" data-uid="linq2db.LinqToDB.CompiledQuery.Invoke*"></a>
+
+  <h3 id="linq2db_LinqToDB_CompiledQuery_Invoke__6___0___1___2___3___4_" data-uid="linq2db.LinqToDB.CompiledQuery.Invoke``6(``0,``1,``2,``3,``4)">
+  Invoke&lt;TDC, T1, T2, T3, T4, TResult&gt;(TDC, T1, T2, T3, T4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/CompiledQuery.cs/#L230"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes compiled query with four parameters against provided database connection context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResult Invoke&lt;TDC, T1, T2, T3, T4, TResult&gt;(TDC dataContext, T1 arg1, T2 arg2, T3 arg3, T4 arg4)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataContext</code> <span class="xref">TDC</span></dt>
+    <dd><p>Database connection context.</p>
+</dd>
+    <dt><code>arg1</code> <span class="xref">T1</span></dt>
+    <dd><p>First query parameter value.</p>
+</dd>
+    <dt><code>arg2</code> <span class="xref">T2</span></dt>
+    <dd><p>Second query parameter value.</p>
+</dd>
+    <dt><code>arg3</code> <span class="xref">T3</span></dt>
+    <dd><p>Third query parameter value.</p>
+</dd>
+    <dt><code>arg4</code> <span class="xref">T4</span></dt>
+    <dd><p>Forth query parameter value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResult</span></dt>
+    <dd><p>Query execution result.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TDC</code></dt>
+    <dd><p>Database connection context type.</p>
+</dd>
+    <dt><code>T1</code></dt>
+    <dd><p>First query parameter type.</p>
+</dd>
+    <dt><code>T2</code></dt>
+    <dd><p>Second query parameter type.</p>
+</dd>
+    <dt><code>T3</code></dt>
+    <dd><p>Third query parameter type.</p>
+</dd>
+    <dt><code>T4</code></dt>
+    <dd><p>Forth query parameter type.</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>Query result type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_CompiledQuery_Invoke_" data-uid="linq2db.LinqToDB.CompiledQuery.Invoke*"></a>
+
+  <h3 id="linq2db_LinqToDB_CompiledQuery_Invoke__7___0___1___2___3___4___5_" data-uid="linq2db.LinqToDB.CompiledQuery.Invoke``7(``0,``1,``2,``3,``4,``5)">
+  Invoke&lt;TDC, T1, T2, T3, T4, T5, TResult&gt;(TDC, T1, T2, T3, T4, T5)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/CompiledQuery.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes compiled query with five parameters against provided database connection context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResult Invoke&lt;TDC, T1, T2, T3, T4, T5, TResult&gt;(TDC dataContext, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataContext</code> <span class="xref">TDC</span></dt>
+    <dd><p>Database connection context.</p>
+</dd>
+    <dt><code>arg1</code> <span class="xref">T1</span></dt>
+    <dd><p>First query parameter value.</p>
+</dd>
+    <dt><code>arg2</code> <span class="xref">T2</span></dt>
+    <dd><p>Second query parameter value.</p>
+</dd>
+    <dt><code>arg3</code> <span class="xref">T3</span></dt>
+    <dd><p>Third query parameter value.</p>
+</dd>
+    <dt><code>arg4</code> <span class="xref">T4</span></dt>
+    <dd><p>Forth query parameter value.</p>
+</dd>
+    <dt><code>arg5</code> <span class="xref">T5</span></dt>
+    <dd><p>Fifth query parameter value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResult</span></dt>
+    <dd><p>Query execution result.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TDC</code></dt>
+    <dd><p>Database connection context type.</p>
+</dd>
+    <dt><code>T1</code></dt>
+    <dd><p>First query parameter type.</p>
+</dd>
+    <dt><code>T2</code></dt>
+    <dd><p>Second query parameter type.</p>
+</dd>
+    <dt><code>T3</code></dt>
+    <dd><p>Third query parameter type.</p>
+</dd>
+    <dt><code>T4</code></dt>
+    <dd><p>Forth query parameter type.</p>
+</dd>
+    <dt><code>T5</code></dt>
+    <dd><p>Fifth query parameter type.</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>Query result type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

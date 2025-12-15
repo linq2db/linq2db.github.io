@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class NpgsqlProviderAdapter | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class NpgsqlProviderAdapter | Linq To DB ">
+      
+      
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter.md&amp;value=---%0Auid%3A%20linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter">
+
+
+
+  <h1 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter" class="text-break">
+Class NpgsqlProviderAdapter  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Internal.html">Internal</a>.<a class="xref" href="LinqToDB.Internal.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.html">PostgreSQL</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class NpgsqlProviderAdapter : IDynamicProviderAdapter</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">NpgsqlProviderAdapter</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.IDynamicProviderAdapter.html">IDynamicProviderAdapter</a></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.Common.Utils.html#linq2db_LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_AssemblyName" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.AssemblyName">
+  AssemblyName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string AssemblyName = &quot;Npgsql&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_ClientNamespace" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.ClientNamespace">
+  ClientNamespace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string ClientNamespace = &quot;Npgsql&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_TypesNamespace" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.TypesNamespace">
+  TypesNamespace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string TypesNamespace = &quot;NpgsqlTypes&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_BeginBinaryImport_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.BeginBinaryImport*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_BeginBinaryImport" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.BeginBinaryImport">
+  BeginBinaryImport
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Func&lt;DbConnection, string, NpgsqlProviderAdapter.NpgsqlBinaryImporter&gt; BeginBinaryImport { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.html">NpgsqlProviderAdapter</a>.<a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlBinaryImporter.html">NpgsqlBinaryImporter</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_BeginBinaryImportAsync_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.BeginBinaryImportAsync*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_BeginBinaryImportAsync" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.BeginBinaryImportAsync">
+  BeginBinaryImportAsync
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L197"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Func&lt;DbConnection, string, CancellationToken, Task&lt;NpgsqlProviderAdapter.NpgsqlBinaryImporter&gt;&gt;? BeginBinaryImportAsync { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.html">NpgsqlProviderAdapter</a>.<a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlBinaryImporter.html">NpgsqlBinaryImporter</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_CommandType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.CommandType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_CommandType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.CommandType">
+  CommandType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets type, that implements <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbcommand">DbCommand</a> for current ADO.NET provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type CommandType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_ConnectionType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.ConnectionType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_ConnectionType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.ConnectionType">
+  ConnectionType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets type, that implements <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a> for current ADO.NET provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type ConnectionType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_ConnectionWrapper_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.ConnectionWrapper*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_ConnectionWrapper" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.ConnectionWrapper">
+  ConnectionWrapper
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Func&lt;DbConnection, NpgsqlProviderAdapter.NpgsqlConnection&gt; ConnectionWrapper { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a>, <a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.html">NpgsqlProviderAdapter</a>.<a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlConnection.html">NpgsqlConnection</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_DataReaderType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.DataReaderType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_DataReaderType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.DataReaderType">
+  DataReaderType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets type, that implements <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbdatareader">DbDataReader</a> for current ADO.NET provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type DataReaderType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_GetDateReaderMethod_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.GetDateReaderMethod*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_GetDateReaderMethod" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.GetDateReaderMethod">
+  GetDateReaderMethod
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GetDateReaderMethod { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_GetDbType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.GetDbType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_GetDbType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.GetDbType">
+  GetDbType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Func&lt;DbParameter, NpgsqlProviderAdapter.NpgsqlDbType&gt; GetDbType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a>, <a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.html">NpgsqlProviderAdapter</a>.<a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlDbType.html">NpgsqlDbType</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_GetIntervalReaderMethod_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.GetIntervalReaderMethod*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_GetIntervalReaderMethod" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.GetIntervalReaderMethod">
+  GetIntervalReaderMethod
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GetIntervalReaderMethod { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_GetTimeStampReaderMethod_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.GetTimeStampReaderMethod*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_GetTimeStampReaderMethod" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.GetTimeStampReaderMethod">
+  GetTimeStampReaderMethod
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GetTimeStampReaderMethod { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_MappingSchema_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.MappingSchema*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_MappingSchema" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.MappingSchema">
+  MappingSchema
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L199"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MappingSchema MappingSchema { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlBoxType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlBoxType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlBoxType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlBoxType">
+  NpgsqlBoxType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type NpgsqlBoxType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlCidrType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlCidrType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlCidrType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlCidrType">
+  NpgsqlCidrType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type? NpgsqlCidrType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlCircleType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlCircleType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlCircleType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlCircleType">
+  NpgsqlCircleType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type NpgsqlCircleType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlCubeType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlCubeType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlCubeType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlCubeType">
+  NpgsqlCubeType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type? NpgsqlCubeType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlDateTimeType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlDateTimeType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlDateTimeType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlDateTimeType">
+  NpgsqlDateTimeType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L148"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type? NpgsqlDateTimeType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlDateType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlDateType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlDateType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlDateType">
+  NpgsqlDateType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type? NpgsqlDateType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlInetType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlInetType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlInetType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlInetType">
+  NpgsqlInetType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type NpgsqlInetType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlIntervalReader_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlIntervalReader*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlIntervalReader" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlIntervalReader">
+  NpgsqlIntervalReader
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Expression? NpgsqlIntervalReader { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlIntervalType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlIntervalType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlIntervalType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlIntervalType">
+  NpgsqlIntervalType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type? NpgsqlIntervalType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlLSegType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlLSegType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlLSegType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlLSegType">
+  NpgsqlLSegType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type NpgsqlLSegType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlLineType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlLineType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlLineType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlLineType">
+  NpgsqlLineType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type NpgsqlLineType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlPathType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlPathType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlPathType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlPathType">
+  NpgsqlPathType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type NpgsqlPathType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlPointType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlPointType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlPointType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlPointType">
+  NpgsqlPointType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type NpgsqlPointType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlPolygonType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlPolygonType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlPolygonType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlPolygonType">
+  NpgsqlPolygonType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type NpgsqlPolygonType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlRangeTType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlRangeTType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlRangeTType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlRangeTType">
+  NpgsqlRangeTType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type NpgsqlRangeTType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlTimeSpanType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlTimeSpanType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlTimeSpanType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlTimeSpanType">
+  NpgsqlTimeSpanType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type? NpgsqlTimeSpanType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_ParameterType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.ParameterType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_ParameterType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.ParameterType">
+  ParameterType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets type, that implements <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a> for current ADO.NET provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type ParameterType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_ProviderTypesNamespace_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.ProviderTypesNamespace*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_ProviderTypesNamespace" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.ProviderTypesNamespace">
+  ProviderTypesNamespace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ProviderTypesNamespace { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_SetDbType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.SetDbType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_SetDbType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.SetDbType">
+  SetDbType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;DbParameter, NpgsqlProviderAdapter.NpgsqlDbType&gt; SetDbType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbparameter">DbParameter</a>, <a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.html">NpgsqlProviderAdapter</a>.<a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlDbType.html">NpgsqlDbType</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_SupportsBigInteger_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.SupportsBigInteger*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_SupportsBigInteger" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.SupportsBigInteger">
+  SupportsBigInteger
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L175"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SupportsBigInteger { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_TransactionType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.TransactionType*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_TransactionType" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.TransactionType">
+  TransactionType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets type, that implements <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbtransaction">DbTransaction</a> for current ADO.NET provider.
+For providers/databases without transaction support contains <code>null</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type TransactionType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_ApplyDbTypeFlags_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.ApplyDbTypeFlags*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_ApplyDbTypeFlags_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlDbType_System_Boolean_System_Boolean_System_Boolean_System_Boolean_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.ApplyDbTypeFlags(LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlDbType,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+  ApplyDbTypeFlags(NpgsqlDbType, bool, bool, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NpgsqlProviderAdapter.NpgsqlDbType ApplyDbTypeFlags(NpgsqlProviderAdapter.NpgsqlDbType type, bool isArray, bool isRange, bool isMultiRange, bool convertAlways)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.html">NpgsqlProviderAdapter</a>.<a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlDbType.html">NpgsqlDbType</a></dt>
+    <dd></dd>
+    <dt><code>isArray</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isRange</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isMultiRange</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>convertAlways</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.html">NpgsqlProviderAdapter</a>.<a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlDbType.html">NpgsqlDbType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_CreateConnection_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.CreateConnection*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_CreateConnection_System_String_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.CreateConnection(System.String)">
+  CreateConnection(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates instance of database provider connection class using provided connection string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DbConnection CreateConnection(string connectionString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connectionString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Connection string to use with created connection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a></dt>
+    <dd><p>Connection instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_GetInstance_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.GetInstance*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_GetInstance" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.GetInstance">
+  GetInstance()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NpgsqlProviderAdapter GetInstance()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.html">NpgsqlProviderAdapter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_IsDbTypeSupported_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.IsDbTypeSupported*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_IsDbTypeSupported_LinqToDB_Internal_DataProvider_PostgreSQL_NpgsqlProviderAdapter_NpgsqlDbType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.IsDbTypeSupported(LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlDbType)">
+  IsDbTypeSupported(NpgsqlDbType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/PostgreSQL/NpgsqlProviderAdapter.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDbTypeSupported(NpgsqlProviderAdapter.NpgsqlDbType type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.html">NpgsqlProviderAdapter</a>.<a class="xref" href="LinqToDB.Internal.DataProvider.PostgreSQL.NpgsqlProviderAdapter.NpgsqlDbType.html">NpgsqlDbType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AzureSQLDatabaseSchema.DmElasticPoolResourceStat | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AzureSQLDatabaseSchema.DmElasticPoolResourceStat | Linq To DB ">
+      
+      <meta name="description" content="sys.dm_elastic_pool_resource_stats (Azure SQL Database) Applies to: √ Azure SQL Database Returns resource usage statistics for the elastic pool containing the current database on an Azure SQL Database logical server. This includes CPU, Data IO, Log IO, storage consumption and concurrent request/session utilization by the pool. The view returns the same data in any database in the same elastic pool. The sys.dm_elastic_pool_resource_stats dynamic management view is similar to sys.elastic_pool_resource_stats (Azure SQL Database), with the following differences: |sys.elastic_pool_resource_stats|sys.dm_elastic_pool_resource_stats| |---|---| | Available in the master database | Available in any user database in an elastic pool | | Provides data for all elastic pools on a logical server | Provides data for the elastic pool containing the current database | | Populated asynchronously, data may appear with a few minutes delay | Populated in real time. A new row is added every few seconds. | | Retains data for 14 days | Retains data for approximately 40 minutes | | Intended for historical monitoring and trend analysis | Intended for real-time monitoring and troubleshooting | See sys.dm_elastic_pool_resource_stats.">
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat.md&amp;value=---%0Auid%3A%20linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat">
+
+
+
+  <h1 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat" class="text-break">
+Class AzureSQLDatabaseSchema.DmElasticPoolResourceStat  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L991"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Tools.html">Tools</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.html">SqlServer</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.html">Schemas</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.Tools.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p><strong>sys.dm_elastic_pool_resource_stats (Azure SQL Database)</strong></p>
+<p><strong>Applies to:</strong> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure SQL Database</a></p>
+<p>Returns resource usage statistics for the <a href="https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview">elastic pool</a> containing the current database on an Azure SQL Database <a href="https://docs.microsoft.com/en-us/azure/azure-sql/database/logical-servers">logical server</a>. This includes CPU, Data IO, Log IO, storage consumption and concurrent request/session utilization by the pool. The view returns the same data in any database in the same elastic pool.<br>
+The <code>sys.dm_elastic_pool_resource_stats</code> dynamic management view is similar to <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database">sys.elastic_pool_resource_stats (Azure SQL Database)</a>, with the following differences:<br>
+|sys.elastic_pool_resource_stats|sys.dm_elastic_pool_resource_stats|<br>
+|---|---|<br>
+| Available in the <code>master</code> database | Available in any user database in an elastic pool |<br>
+| Provides data for all elastic pools on a logical server | Provides data for the elastic pool containing the current database |<br>
+| Populated asynchronously, data may appear with a few minutes delay | Populated in real time. A new row is added every few seconds. |<br>
+| Retains data for 14 days | Retains data for approximately 40 minutes |<br>
+| Intended for historical monitoring and trend analysis | Intended for real-time monitoring and troubleshooting |</p><br>
+<p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-elastic-pool-resource-stats-azure-sql-database">sys.dm_elastic_pool_resource_stats</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Table(Schema = &quot;sys&quot;, Name = &quot;dm_elastic_pool_resource_stats&quot;, IsView = true)]
+public class AzureSQLDatabaseSchema.DmElasticPoolResourceStat</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">AzureSQLDatabaseSchema.DmElasticPoolResourceStat</span></div>
+    </dd>
+  </dl>
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="linq2db.Tools.LinqToDB.Tools.Mapper.Map.html#linq2db_Tools_LinqToDB_Tools_Mapper_Map_DeepCopy__1___0_">Map.DeepCopy&lt;T&gt;(T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AllocatedStorageMB_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AllocatedStorageMB*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AllocatedStorageMB" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AllocatedStorageMB">
+  AllocatedStorageMB
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1058"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>allocated_storage_mb</strong> NOT NULL <strong>bigint</strong></p>
+The amount of storage allocated for all data files in all databases in the pool, in megabytes.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;allocated_storage_mb&quot;)]
+[NotNull]
+public long AllocatedStorageMB { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AllocatedStoragePercent_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AllocatedStoragePercent*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AllocatedStoragePercent" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AllocatedStoragePercent">
+  AllocatedStoragePercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1073"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>allocated_storage_percent</strong> NOT NULL <strong>decimal(5,2)</strong></p>
+The amount of storage allocated for all data files in all databases in the pool, as a percentage of pool storage limit (maximum data size).
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;allocated_storage_percent&quot;)]
+[NotNull]
+public object AllocatedStoragePercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AvgCpuPercent_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AvgCpuPercent*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AvgCpuPercent" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AvgCpuPercent">
+  AvgCpuPercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1003"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>avg_cpu_percent</strong> NOT NULL <strong>decimal(5,2)</strong></p>
+Average CPU utilization as a percentage of pool limit.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;avg_cpu_percent&quot;)]
+[NotNull]
+public object AvgCpuPercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AvgDataIoPercent_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AvgDataIoPercent*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AvgDataIoPercent" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AvgDataIoPercent">
+  AvgDataIoPercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1008"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>avg_data_io_percent</strong> NOT NULL <strong>decimal(5,2)</strong></p>
+Average IOPS utilization as a percentage of pool limit.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;avg_data_io_percent&quot;)]
+[NotNull]
+public object AvgDataIoPercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AvgEdtuPercent_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AvgEdtuPercent*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AvgEdtuPercent" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AvgEdtuPercent">
+  AvgEdtuPercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1043"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>avg_edtu_percent</strong> NOT NULL <strong>decimal(5,2)</strong></p>
+For DTU elastic pools, average eDTU utilization as a percentage of pool limit.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;avg_edtu_percent&quot;)]
+[NotNull]
+public object AvgEdtuPercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AvgInstanceCpuPercent_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AvgInstanceCpuPercent*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AvgInstanceCpuPercent" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AvgInstanceCpuPercent">
+  AvgInstanceCpuPercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1038"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>avg_instance_cpu_percent</strong> NOT NULL <strong>decimal(5,2)</strong></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;avg_instance_cpu_percent&quot;)]
+[NotNull]
+public object AvgInstanceCpuPercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AvgInstanceMemoryPercent_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AvgInstanceMemoryPercent*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AvgInstanceMemoryPercent" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AvgInstanceMemoryPercent">
+  AvgInstanceMemoryPercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1033"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>avg_instance_memory_percent</strong> NOT NULL <strong>decimal(5,2)</strong></p>
+Average consumption of memory by the database engine instance hosting the pool, as a percentage of instance limit.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;avg_instance_memory_percent&quot;)]
+[NotNull]
+public object AvgInstanceMemoryPercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AvgLogWritePercent_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AvgLogWritePercent*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AvgLogWritePercent" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AvgLogWritePercent">
+  AvgLogWritePercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1013"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>avg_log_write_percent</strong> NOT NULL <strong>decimal(5,2)</strong></p>
+Average log write throughput utilization as a percentage of pool limit.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;avg_log_write_percent&quot;)]
+[NotNull]
+public object AvgLogWritePercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AvgStoragePercent_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AvgStoragePercent*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_AvgStoragePercent" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.AvgStoragePercent">
+  AvgStoragePercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1018"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>avg_storage_percent</strong> NOT NULL <strong>decimal(5,2)</strong></p>
+Not supported and may be removed in a future update. Use <strong>used_storage_percent</strong>.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;avg_storage_percent&quot;)]
+[NotNull]
+public object AvgStoragePercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_EndTime_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.EndTime*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_EndTime" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.EndTime">
+  EndTime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L998"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>end_time</strong> NOT NULL <strong>datetime</strong></p>
+UTC time indicating the end of the reporting interval.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;end_time&quot;)]
+[NotNull]
+public DateTime EndTime { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_InstanceVcores_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.InstanceVcores*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_InstanceVcores" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.InstanceVcores">
+  InstanceVcores
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1048"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>instance_vcores</strong> NOT NULL <strong>decimal(5,2)</strong></p>
+The number of vCores provisioned for the database engine instance hosting the pool.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;instance_vcores&quot;)]
+[NotNull]
+public object InstanceVcores { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_MaxSessionPercent_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.MaxSessionPercent*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_MaxSessionPercent" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.MaxSessionPercent">
+  MaxSessionPercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1028"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>max_session_percent</strong> NOT NULL <strong>decimal(5,2)</strong></p>
+Maximum concurrent sessions as a percentage of pool limit.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;max_session_percent&quot;)]
+[NotNull]
+public object MaxSessionPercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_MaxWorkerPercent_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.MaxWorkerPercent*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_MaxWorkerPercent" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.MaxWorkerPercent">
+  MaxWorkerPercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1023"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>max_worker_percent</strong> NOT NULL <strong>decimal(5,2)</strong></p>
+Maximum concurrent workers as a percentage of pool limit.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;max_worker_percent&quot;)]
+[NotNull]
+public object MaxWorkerPercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_StorageLimitMB_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.StorageLimitMB*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_StorageLimitMB" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.StorageLimitMB">
+  StorageLimitMB
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1063"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>storage_limit_mb</strong> NOT NULL <strong>bigint</strong></p>
+The maximum data size limit of the pool, in megabytes.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;storage_limit_mb&quot;)]
+[NotNull]
+public long StorageLimitMB { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_UsedStorageMB_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.UsedStorageMB*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_UsedStorageMB" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.UsedStorageMB">
+  UsedStorageMB
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1053"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>used_storage_mb</strong> NOT NULL <strong>bigint</strong></p>
+The amount of used storage in all databases in the pool, in megabytes.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;used_storage_mb&quot;)]
+[NotNull]
+public long UsedStorageMB { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_UsedStoragePercent_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.UsedStoragePercent*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_AzureSQLDatabaseSchema_DmElasticPoolResourceStat_UsedStoragePercent" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.AzureSQLDatabaseSchema.DmElasticPoolResourceStat.UsedStoragePercent">
+  UsedStoragePercent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L1068"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>used_storage_percent</strong> NOT NULL <strong>decimal(5,2)</strong></p>
+Used data storage utilization in all databases in the pool, as a percentage of pool storage limit (maximum data size).
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;used_storage_percent&quot;)]
+[NotNull]
+public object UsedStoragePercent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

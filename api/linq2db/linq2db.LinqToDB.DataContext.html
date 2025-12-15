@@ -1,0 +1,2250 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DataContext | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DataContext | Linq To DB ">
+      
+      <meta name="description" content="Implements abstraction over non-persistent database connection that could be released after query or transaction execution.">
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=linq2db_LinqToDB_DataContext.md&amp;value=---%0Auid%3A%20linq2db.LinqToDB.DataContext%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="linq2db.LinqToDB.DataContext">
+
+
+
+  <h1 id="linq2db_LinqToDB_DataContext" data-uid="linq2db.LinqToDB.DataContext" class="text-break">
+Class DataContext  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.Interceptors.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="linq2db.LinqToDB.html">LinqToDB</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Implements abstraction over non-persistent database connection that could be released after query or transaction execution.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DataContext : IDataContext, IConfigurationID, IDisposable, IAsyncDisposable, IInfrastructure&lt;IServiceProvider&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">DataContext</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="linq2db.LinqToDB.IDataContext.html">IDataContext</a></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.Common.IConfigurationID.html">IConfigurationID</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
+      <div><a class="xref" href="LinqToDB.Internal.Infrastructure.IInfrastructure-1.html">IInfrastructure</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.Common.Utils.html#linq2db_LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Interceptors.InterceptorExtensions.html#linq2db_LinqToDB_Interceptors_InterceptorExtensions_OnNextCommandInitialized_LinqToDB_DataContext_System_Func_LinqToDB_Interceptors_CommandEventData_System_Data_Common_DbCommand_System_Data_Common_DbCommand__">InterceptorExtensions.OnNextCommandInitialized(DataContext, Func&lt;CommandEventData, DbCommand, DbCommand&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Concurrency.ConcurrencyExtensions.html#linq2db_LinqToDB_Concurrency_ConcurrencyExtensions_DeleteOptimisticAsync__1_LinqToDB_IDataContext___0_System_Threading_CancellationToken_">ConcurrencyExtensions.DeleteOptimisticAsync&lt;T&gt;(IDataContext, T, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Concurrency.ConcurrencyExtensions.html#linq2db_LinqToDB_Concurrency_ConcurrencyExtensions_DeleteOptimistic__1_LinqToDB_IDataContext___0_">ConcurrencyExtensions.DeleteOptimistic&lt;T&gt;(IDataContext, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Concurrency.ConcurrencyExtensions.html#linq2db_LinqToDB_Concurrency_ConcurrencyExtensions_UpdateOptimisticAsync__1_LinqToDB_IDataContext___0_System_Threading_CancellationToken_">ConcurrencyExtensions.UpdateOptimisticAsync&lt;T&gt;(IDataContext, T, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Concurrency.ConcurrencyExtensions.html#linq2db_LinqToDB_Concurrency_ConcurrencyExtensions_UpdateOptimistic__1_LinqToDB_IDataContext___0_">ConcurrencyExtensions.UpdateOptimistic&lt;T&gt;(IDataContext, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_BulkCopyAsync__1_LinqToDB_IDataContext_LinqToDB_Data_BulkCopyOptions_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_CancellationToken_">DataContextExtensions.BulkCopyAsync&lt;T&gt;(IDataContext, BulkCopyOptions, IAsyncEnumerable&lt;T&gt;, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_BulkCopyAsync__1_LinqToDB_IDataContext_LinqToDB_Data_BulkCopyOptions_System_Collections_Generic_IEnumerable___0__System_Threading_CancellationToken_">DataContextExtensions.BulkCopyAsync&lt;T&gt;(IDataContext, BulkCopyOptions, IEnumerable&lt;T&gt;, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_BulkCopyAsync__1_LinqToDB_IDataContext_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_CancellationToken_">DataContextExtensions.BulkCopyAsync&lt;T&gt;(IDataContext, IAsyncEnumerable&lt;T&gt;, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_BulkCopyAsync__1_LinqToDB_IDataContext_System_Collections_Generic_IEnumerable___0__System_Threading_CancellationToken_">DataContextExtensions.BulkCopyAsync&lt;T&gt;(IDataContext, IEnumerable&lt;T&gt;, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_BulkCopyAsync__1_LinqToDB_IDataContext_System_Int32_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_CancellationToken_">DataContextExtensions.BulkCopyAsync&lt;T&gt;(IDataContext, int, IAsyncEnumerable&lt;T&gt;, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_BulkCopyAsync__1_LinqToDB_IDataContext_System_Int32_System_Collections_Generic_IEnumerable___0__System_Threading_CancellationToken_">DataContextExtensions.BulkCopyAsync&lt;T&gt;(IDataContext, int, IEnumerable&lt;T&gt;, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_BulkCopy__1_LinqToDB_IDataContext_LinqToDB_Data_BulkCopyOptions_System_Collections_Generic_IEnumerable___0__">DataContextExtensions.BulkCopy&lt;T&gt;(IDataContext, BulkCopyOptions, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_BulkCopy__1_LinqToDB_IDataContext_System_Collections_Generic_IEnumerable___0__">DataContextExtensions.BulkCopy&lt;T&gt;(IDataContext, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_BulkCopy__1_LinqToDB_IDataContext_System_Int32_System_Collections_Generic_IEnumerable___0__">DataContextExtensions.BulkCopy&lt;T&gt;(IDataContext, int, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_Execute_LinqToDB_IDataContext_System_String_">DataContextExtensions.Execute(IDataContext, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_Execute_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.Execute(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_Execute_LinqToDB_IDataContext_System_String_System_Object_">DataContextExtensions.Execute(IDataContext, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteAsync_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteAsync(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteAsync_LinqToDB_IDataContext_System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.ExecuteAsync(IDataContext, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteAsync_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_">DataContextExtensions.ExecuteAsync(IDataContext, string, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteAsync_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteAsync(IDataContext, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteAsync__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter_System_Threading_CancellationToken_">DataContextExtensions.ExecuteAsync&lt;T&gt;(IDataContext, string, DataParameter, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteAsync__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteAsync&lt;T&gt;(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteAsync__1_LinqToDB_IDataContext_System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.ExecuteAsync&lt;T&gt;(IDataContext, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteAsync__1_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_">DataContextExtensions.ExecuteAsync&lt;T&gt;(IDataContext, string, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteAsync__1_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteAsync&lt;T&gt;(IDataContext, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteProc_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteProc(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteProc_LinqToDB_IDataContext_System_String_System_Object_">DataContextExtensions.ExecuteProc(IDataContext, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteProcAsync_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteProcAsync(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteProcAsync_LinqToDB_IDataContext_System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.ExecuteProcAsync(IDataContext, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteProcAsync_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteProcAsync(IDataContext, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteProcAsync__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteProcAsync&lt;T&gt;(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteProcAsync__1_LinqToDB_IDataContext_System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.ExecuteProcAsync&lt;T&gt;(IDataContext, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteProcAsync__1_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteProcAsync&lt;T&gt;(IDataContext, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteProc__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteProc&lt;T&gt;(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteProc__1_LinqToDB_IDataContext_System_String_System_Object_">DataContextExtensions.ExecuteProc&lt;T&gt;(IDataContext, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteReader_LinqToDB_IDataContext_System_String_">DataContextExtensions.ExecuteReader(IDataContext, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteReader_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter_">DataContextExtensions.ExecuteReader(IDataContext, string, DataParameter)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteReader_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteReader(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteReader_LinqToDB_IDataContext_System_String_System_Data_CommandType_System_Data_CommandBehavior_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteReader(IDataContext, string, CommandType, CommandBehavior, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteReader_LinqToDB_IDataContext_System_String_System_Object_">DataContextExtensions.ExecuteReader(IDataContext, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteReaderAsync_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter_System_Threading_CancellationToken_">DataContextExtensions.ExecuteReaderAsync(IDataContext, string, DataParameter, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteReaderAsync_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteReaderAsync(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteReaderAsync_LinqToDB_IDataContext_System_String_System_Data_CommandType_System_Data_CommandBehavior_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteReaderAsync(IDataContext, string, CommandType, CommandBehavior, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteReaderAsync_LinqToDB_IDataContext_System_String_System_Data_CommandType_System_Data_CommandBehavior_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteReaderAsync(IDataContext, string, CommandType, CommandBehavior, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteReaderAsync_LinqToDB_IDataContext_System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.ExecuteReaderAsync(IDataContext, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteReaderAsync_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_">DataContextExtensions.ExecuteReaderAsync(IDataContext, string, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteReaderAsync_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteReaderAsync(IDataContext, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteReaderProc_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteReaderProc(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteReaderProc_LinqToDB_IDataContext_System_String_System_Object_">DataContextExtensions.ExecuteReaderProc(IDataContext, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteReaderProcAsync_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteReaderProcAsync(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteReaderProcAsync_LinqToDB_IDataContext_System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.ExecuteReaderProcAsync(IDataContext, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_ExecuteReaderProcAsync_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.ExecuteReaderProcAsync(IDataContext, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_Execute__1_LinqToDB_IDataContext_System_String_">DataContextExtensions.Execute&lt;T&gt;(IDataContext, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_Execute__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter_">DataContextExtensions.Execute&lt;T&gt;(IDataContext, string, DataParameter)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_Execute__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.Execute&lt;T&gt;(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_Execute__1_LinqToDB_IDataContext_System_String_System_Object_">DataContextExtensions.Execute&lt;T&gt;(IDataContext, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryAsync__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryAsync&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryAsync__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.QueryAsync&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryAsync__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_System_Threading_CancellationToken_">DataContextExtensions.QueryAsync&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryAsync__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryAsync&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryAsync__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter_System_Threading_CancellationToken_">DataContextExtensions.QueryAsync&lt;T&gt;(IDataContext, string, DataParameter, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryAsync__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryAsync&lt;T&gt;(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryAsync__1_LinqToDB_IDataContext_System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.QueryAsync&lt;T&gt;(IDataContext, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryAsync__1_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_">DataContextExtensions.QueryAsync&lt;T&gt;(IDataContext, string, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryAsync__1_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryAsync&lt;T&gt;(IDataContext, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryAsync__1_LinqToDB_IDataContext___0_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryAsync&lt;T&gt;(IDataContext, T, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryAsync__1_LinqToDB_IDataContext___0_System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.QueryAsync&lt;T&gt;(IDataContext, T, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryAsync__1_LinqToDB_IDataContext___0_System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryAsync&lt;T&gt;(IDataContext, T, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryMultipleAsync__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryMultipleAsync&lt;T&gt;(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryMultipleAsync__1_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryMultipleAsync&lt;T&gt;(IDataContext, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryMultiple__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryMultiple&lt;T&gt;(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProcAsync__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryProcAsync&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProcAsync__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.QueryProcAsync&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProcAsync__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryProcAsync&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProcAsync__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryProcAsync&lt;T&gt;(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProcAsync__1_LinqToDB_IDataContext_System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.QueryProcAsync&lt;T&gt;(IDataContext, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProcAsync__1_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryProcAsync&lt;T&gt;(IDataContext, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProcAsync__1_LinqToDB_IDataContext___0_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryProcAsync&lt;T&gt;(IDataContext, T, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProcAsync__1_LinqToDB_IDataContext___0_System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.QueryProcAsync&lt;T&gt;(IDataContext, T, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProcAsync__1_LinqToDB_IDataContext___0_System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryProcAsync&lt;T&gt;(IDataContext, T, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProcMultipleAsync__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryProcMultipleAsync&lt;T&gt;(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProcMultipleAsync__1_LinqToDB_IDataContext_System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.QueryProcMultipleAsync&lt;T&gt;(IDataContext, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProcMultipleAsync__1_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryProcMultipleAsync&lt;T&gt;(IDataContext, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProcMultiple__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryProcMultiple&lt;T&gt;(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProcMultiple__1_LinqToDB_IDataContext_System_String_System_Object_">DataContextExtensions.QueryProcMultiple&lt;T&gt;(IDataContext, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProc__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryProc&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProc__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_System_Object_">DataContextExtensions.QueryProc&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProc__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryProc&lt;T&gt;(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProc__1_LinqToDB_IDataContext_System_String_System_Object_">DataContextExtensions.QueryProc&lt;T&gt;(IDataContext, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProc__1_LinqToDB_IDataContext___0_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryProc&lt;T&gt;(IDataContext, T, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryProc__1_LinqToDB_IDataContext___0_System_String_System_Object_">DataContextExtensions.QueryProc&lt;T&gt;(IDataContext, T, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToArrayAsync__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryToArrayAsync&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToArrayAsync__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.QueryToArrayAsync&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToArrayAsync__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_System_Threading_CancellationToken_">DataContextExtensions.QueryToArrayAsync&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToArrayAsync__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryToArrayAsync&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToArrayAsync__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter_System_Threading_CancellationToken_">DataContextExtensions.QueryToArrayAsync&lt;T&gt;(IDataContext, string, DataParameter, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToArrayAsync__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryToArrayAsync&lt;T&gt;(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToArrayAsync__1_LinqToDB_IDataContext_System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.QueryToArrayAsync&lt;T&gt;(IDataContext, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToArrayAsync__1_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_">DataContextExtensions.QueryToArrayAsync&lt;T&gt;(IDataContext, string, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToArrayAsync__1_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryToArrayAsync&lt;T&gt;(IDataContext, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToArrayAsync__1_LinqToDB_IDataContext___0_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryToArrayAsync&lt;T&gt;(IDataContext, T, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToArrayAsync__1_LinqToDB_IDataContext___0_System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.QueryToArrayAsync&lt;T&gt;(IDataContext, T, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToArrayAsync__1_LinqToDB_IDataContext___0_System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryToArrayAsync&lt;T&gt;(IDataContext, T, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToAsyncEnumerable__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_">DataContextExtensions.QueryToAsyncEnumerable&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToAsyncEnumerable__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryToAsyncEnumerable&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToAsyncEnumerable__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_System_Object_">DataContextExtensions.QueryToAsyncEnumerable&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToAsyncEnumerable__1_LinqToDB_IDataContext_System_String_">DataContextExtensions.QueryToAsyncEnumerable&lt;T&gt;(IDataContext, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToAsyncEnumerable__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter_">DataContextExtensions.QueryToAsyncEnumerable&lt;T&gt;(IDataContext, string, DataParameter)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToAsyncEnumerable__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryToAsyncEnumerable&lt;T&gt;(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToAsyncEnumerable__1_LinqToDB_IDataContext_System_String_System_Object_">DataContextExtensions.QueryToAsyncEnumerable&lt;T&gt;(IDataContext, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToAsyncEnumerable__1_LinqToDB_IDataContext___0_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryToAsyncEnumerable&lt;T&gt;(IDataContext, T, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToAsyncEnumerable__1_LinqToDB_IDataContext___0_System_String_System_Object_">DataContextExtensions.QueryToAsyncEnumerable&lt;T&gt;(IDataContext, T, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToListAsync__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryToListAsync&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToListAsync__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.QueryToListAsync&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToListAsync__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_System_Threading_CancellationToken_">DataContextExtensions.QueryToListAsync&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToListAsync__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryToListAsync&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToListAsync__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter_System_Threading_CancellationToken_">DataContextExtensions.QueryToListAsync&lt;T&gt;(IDataContext, string, DataParameter, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToListAsync__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryToListAsync&lt;T&gt;(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToListAsync__1_LinqToDB_IDataContext_System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.QueryToListAsync&lt;T&gt;(IDataContext, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToListAsync__1_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_">DataContextExtensions.QueryToListAsync&lt;T&gt;(IDataContext, string, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToListAsync__1_LinqToDB_IDataContext_System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryToListAsync&lt;T&gt;(IDataContext, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToListAsync__1_LinqToDB_IDataContext___0_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryToListAsync&lt;T&gt;(IDataContext, T, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToListAsync__1_LinqToDB_IDataContext___0_System_String_System_Object_System_Threading_CancellationToken_">DataContextExtensions.QueryToListAsync&lt;T&gt;(IDataContext, T, string, object?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_QueryToListAsync__1_LinqToDB_IDataContext___0_System_String_System_Threading_CancellationToken_LinqToDB_Data_DataParameter___">DataContextExtensions.QueryToListAsync&lt;T&gt;(IDataContext, T, string, CancellationToken, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_Query__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_">DataContextExtensions.Query&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_Query__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.Query&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_Query__1_LinqToDB_IDataContext_System_Func_System_Data_Common_DbDataReader___0__System_String_System_Object_">DataContextExtensions.Query&lt;T&gt;(IDataContext, Func&lt;DbDataReader, T&gt;, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_Query__1_LinqToDB_IDataContext_System_String_">DataContextExtensions.Query&lt;T&gt;(IDataContext, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_Query__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter_">DataContextExtensions.Query&lt;T&gt;(IDataContext, string, DataParameter)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_Query__1_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.Query&lt;T&gt;(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_Query__1_LinqToDB_IDataContext_System_String_System_Object_">DataContextExtensions.Query&lt;T&gt;(IDataContext, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_Query__1_LinqToDB_IDataContext___0_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.Query&lt;T&gt;(IDataContext, T, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_Query__1_LinqToDB_IDataContext___0_System_String_System_Object_">DataContextExtensions.Query&lt;T&gt;(IDataContext, T, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_SetCommand_LinqToDB_IDataContext_System_String_">DataContextExtensions.SetCommand(IDataContext, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_SetCommand_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter_">DataContextExtensions.SetCommand(IDataContext, string, DataParameter)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_SetCommand_LinqToDB_IDataContext_System_String_LinqToDB_Data_DataParameter___">DataContextExtensions.SetCommand(IDataContext, string, params DataParameter[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Data.DataContextExtensions.html#linq2db_LinqToDB_Data_DataContextExtensions_SetCommand_LinqToDB_IDataContext_System_String_System_Object_">DataContextExtensions.SetCommand(IDataContext, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_Compile__2_LinqToDB_IDataContext_System_Linq_Expressions_Expression_System_Func___0___1___">DataExtensions.Compile&lt;TDc, TResult&gt;(IDataContext, Expression&lt;Func&lt;TDc, TResult&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_Compile__3_LinqToDB_IDataContext_System_Linq_Expressions_Expression_System_Func___0___1___2___">DataExtensions.Compile&lt;TDc, TArg1, TResult&gt;(IDataContext, Expression&lt;Func&lt;TDc, TArg1, TResult&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_Compile__4_LinqToDB_IDataContext_System_Linq_Expressions_Expression_System_Func___0___1___2___3___">DataExtensions.Compile&lt;TDc, TArg1, TArg2, TResult&gt;(IDataContext, Expression&lt;Func&lt;TDc, TArg1, TArg2, TResult&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_Compile__5_LinqToDB_IDataContext_System_Linq_Expressions_Expression_System_Func___0___1___2___3___4___">DataExtensions.Compile&lt;TDc, TArg1, TArg2, TArg3, TResult&gt;(IDataContext, Expression&lt;Func&lt;TDc, TArg1, TArg2, TArg3, TResult&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTableAsync__1_LinqToDB_IDataContext_LinqToDB_CreateTableOptions_System_Threading_CancellationToken_">DataExtensions.CreateTableAsync&lt;T&gt;(IDataContext, CreateTableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTableAsync__1_LinqToDB_IDataContext_System_String_System_String_System_String_System_String_System_String_LinqToDB_SqlQuery_DefaultNullable_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.CreateTableAsync&lt;T&gt;(IDataContext, string?, string?, string?, string?, string?, DefaultNullable, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTable__1_LinqToDB_IDataContext_LinqToDB_CreateTableOptions_">DataExtensions.CreateTable&lt;T&gt;(IDataContext, CreateTableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTable__1_LinqToDB_IDataContext_System_String_System_String_System_String_System_String_System_String_LinqToDB_SqlQuery_DefaultNullable_System_String_LinqToDB_TableOptions_">DataExtensions.CreateTable&lt;T&gt;(IDataContext, string?, string?, string?, string?, string?, DefaultNullable, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTableAsync__1_LinqToDB_IDataContext_LinqToDB_CreateTempTableOptions_System_Collections_Generic_IEnumerable___0__LinqToDB_Data_BulkCopyOptions_System_Threading_CancellationToken_">DataExtensions.CreateTempTableAsync&lt;T&gt;(IDataContext, CreateTempTableOptions?, IEnumerable&lt;T&gt;, BulkCopyOptions?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTableAsync__1_LinqToDB_IDataContext_LinqToDB_CreateTempTableOptions_System_Collections_Generic_IEnumerable___0__System_Action_LinqToDB_Mapping_EntityMappingBuilder___0___LinqToDB_Data_BulkCopyOptions_System_Threading_CancellationToken_">DataExtensions.CreateTempTableAsync&lt;T&gt;(IDataContext, CreateTempTableOptions?, IEnumerable&lt;T&gt;, Action&lt;EntityMappingBuilder&lt;T&gt;&gt;, BulkCopyOptions?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTableAsync__1_LinqToDB_IDataContext_LinqToDB_CreateTempTableOptions_System_Linq_IQueryable___0__System_Action_LinqToDB_Mapping_EntityMappingBuilder___0___System_Func_LinqToDB_ITable___0__System_Threading_Tasks_Task__System_Threading_CancellationToken_">DataExtensions.CreateTempTableAsync&lt;T&gt;(IDataContext, CreateTempTableOptions?, IQueryable&lt;T&gt;, Action&lt;EntityMappingBuilder&lt;T&gt;&gt;, Func&lt;ITable&lt;T&gt;, Task&gt;?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTableAsync__1_LinqToDB_IDataContext_LinqToDB_CreateTempTableOptions_System_Linq_IQueryable___0__System_Func_LinqToDB_ITable___0__System_Threading_Tasks_Task__System_Threading_CancellationToken_">DataExtensions.CreateTempTableAsync&lt;T&gt;(IDataContext, CreateTempTableOptions?, IQueryable&lt;T&gt;, Func&lt;ITable&lt;T&gt;, Task&gt;?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTableAsync__1_LinqToDB_IDataContext_LinqToDB_CreateTempTableOptions_System_Threading_CancellationToken_">DataExtensions.CreateTempTableAsync&lt;T&gt;(IDataContext, CreateTempTableOptions?, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTableAsync__1_LinqToDB_IDataContext_System_Collections_Generic_IEnumerable___0__LinqToDB_Data_BulkCopyOptions_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.CreateTempTableAsync&lt;T&gt;(IDataContext, IEnumerable&lt;T&gt;, BulkCopyOptions?, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTableAsync__1_LinqToDB_IDataContext_System_Collections_Generic_IEnumerable___0__System_Action_LinqToDB_Mapping_EntityMappingBuilder___0___LinqToDB_Data_BulkCopyOptions_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.CreateTempTableAsync&lt;T&gt;(IDataContext, IEnumerable&lt;T&gt;, Action&lt;EntityMappingBuilder&lt;T&gt;&gt;, BulkCopyOptions?, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTableAsync__1_LinqToDB_IDataContext_System_Linq_IQueryable___0__System_Action_LinqToDB_Mapping_EntityMappingBuilder___0___System_String_System_String_System_String_System_Func_LinqToDB_ITable___0__System_Threading_Tasks_Task__System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.CreateTempTableAsync&lt;T&gt;(IDataContext, IQueryable&lt;T&gt;, Action&lt;EntityMappingBuilder&lt;T&gt;&gt;, string?, string?, string?, Func&lt;ITable&lt;T&gt;, Task&gt;?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTableAsync__1_LinqToDB_IDataContext_System_Linq_IQueryable___0__System_String_System_String_System_String_System_Func_LinqToDB_ITable___0__System_Threading_Tasks_Task__System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.CreateTempTableAsync&lt;T&gt;(IDataContext, IQueryable&lt;T&gt;, string?, string?, string?, Func&lt;ITable&lt;T&gt;, Task&gt;?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTableAsync__1_LinqToDB_IDataContext_System_String_System_Collections_Generic_IEnumerable___0__LinqToDB_Data_BulkCopyOptions_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.CreateTempTableAsync&lt;T&gt;(IDataContext, string, IEnumerable&lt;T&gt;, BulkCopyOptions?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTableAsync__1_LinqToDB_IDataContext_System_String_System_Collections_Generic_IEnumerable___0__System_Action_LinqToDB_Mapping_EntityMappingBuilder___0___LinqToDB_Data_BulkCopyOptions_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.CreateTempTableAsync&lt;T&gt;(IDataContext, string, IEnumerable&lt;T&gt;, Action&lt;EntityMappingBuilder&lt;T&gt;&gt;, BulkCopyOptions?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTableAsync__1_LinqToDB_IDataContext_System_String_System_Linq_IQueryable___0__System_Action_LinqToDB_Mapping_EntityMappingBuilder___0___System_String_System_String_System_Func_LinqToDB_ITable___0__System_Threading_Tasks_Task__System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.CreateTempTableAsync&lt;T&gt;(IDataContext, string?, IQueryable&lt;T&gt;, Action&lt;EntityMappingBuilder&lt;T&gt;&gt;, string?, string?, Func&lt;ITable&lt;T&gt;, Task&gt;?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTableAsync__1_LinqToDB_IDataContext_System_String_System_Linq_IQueryable___0__System_String_System_String_System_Func_LinqToDB_ITable___0__System_Threading_Tasks_Task__System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.CreateTempTableAsync&lt;T&gt;(IDataContext, string?, IQueryable&lt;T&gt;, string?, string?, Func&lt;ITable&lt;T&gt;, Task&gt;?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTableAsync__1_LinqToDB_IDataContext_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.CreateTempTableAsync&lt;T&gt;(IDataContext, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTable__1_LinqToDB_IDataContext_LinqToDB_CreateTempTableOptions_">DataExtensions.CreateTempTable&lt;T&gt;(IDataContext, CreateTempTableOptions?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTable__1_LinqToDB_IDataContext_LinqToDB_CreateTempTableOptions_System_Collections_Generic_IEnumerable___0__LinqToDB_Data_BulkCopyOptions_">DataExtensions.CreateTempTable&lt;T&gt;(IDataContext, CreateTempTableOptions?, IEnumerable&lt;T&gt;, BulkCopyOptions?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTable__1_LinqToDB_IDataContext_LinqToDB_CreateTempTableOptions_System_Collections_Generic_IEnumerable___0__System_Action_LinqToDB_Mapping_EntityMappingBuilder___0___LinqToDB_Data_BulkCopyOptions_">DataExtensions.CreateTempTable&lt;T&gt;(IDataContext, CreateTempTableOptions?, IEnumerable&lt;T&gt;, Action&lt;EntityMappingBuilder&lt;T&gt;&gt;, BulkCopyOptions?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTable__1_LinqToDB_IDataContext_LinqToDB_CreateTempTableOptions_System_Linq_IQueryable___0__System_Action_LinqToDB_ITable___0___">DataExtensions.CreateTempTable&lt;T&gt;(IDataContext, CreateTempTableOptions?, IQueryable&lt;T&gt;, Action&lt;ITable&lt;T&gt;&gt;?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTable__1_LinqToDB_IDataContext_LinqToDB_CreateTempTableOptions_System_Linq_IQueryable___0__System_Action_LinqToDB_Mapping_EntityMappingBuilder___0___System_Action_LinqToDB_ITable___0___">DataExtensions.CreateTempTable&lt;T&gt;(IDataContext, CreateTempTableOptions?, IQueryable&lt;T&gt;, Action&lt;EntityMappingBuilder&lt;T&gt;&gt;, Action&lt;ITable&lt;T&gt;&gt;?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTable__1_LinqToDB_IDataContext_System_Collections_Generic_IEnumerable___0__LinqToDB_Data_BulkCopyOptions_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.CreateTempTable&lt;T&gt;(IDataContext, IEnumerable&lt;T&gt;, BulkCopyOptions?, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTable__1_LinqToDB_IDataContext_System_Collections_Generic_IEnumerable___0__System_Action_LinqToDB_Mapping_EntityMappingBuilder___0___LinqToDB_Data_BulkCopyOptions_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.CreateTempTable&lt;T&gt;(IDataContext, IEnumerable&lt;T&gt;, Action&lt;EntityMappingBuilder&lt;T&gt;&gt;, BulkCopyOptions?, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTable__1_LinqToDB_IDataContext_System_Linq_IQueryable___0__System_Action_LinqToDB_Mapping_EntityMappingBuilder___0___System_String_System_String_System_String_System_Action_LinqToDB_ITable___0___System_String_LinqToDB_TableOptions_">DataExtensions.CreateTempTable&lt;T&gt;(IDataContext, IQueryable&lt;T&gt;, Action&lt;EntityMappingBuilder&lt;T&gt;&gt;, string?, string?, string?, Action&lt;ITable&lt;T&gt;&gt;?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTable__1_LinqToDB_IDataContext_System_Linq_IQueryable___0__System_String_System_String_System_String_System_Action_LinqToDB_ITable___0___System_String_LinqToDB_TableOptions_">DataExtensions.CreateTempTable&lt;T&gt;(IDataContext, IQueryable&lt;T&gt;, string?, string?, string?, Action&lt;ITable&lt;T&gt;&gt;?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTable__1_LinqToDB_IDataContext_System_String_System_Collections_Generic_IEnumerable___0__LinqToDB_Data_BulkCopyOptions_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.CreateTempTable&lt;T&gt;(IDataContext, string, IEnumerable&lt;T&gt;, BulkCopyOptions?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTable__1_LinqToDB_IDataContext_System_String_System_Collections_Generic_IEnumerable___0__System_Action_LinqToDB_Mapping_EntityMappingBuilder___0___LinqToDB_Data_BulkCopyOptions_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.CreateTempTable&lt;T&gt;(IDataContext, string, IEnumerable&lt;T&gt;, Action&lt;EntityMappingBuilder&lt;T&gt;&gt;, BulkCopyOptions?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTable__1_LinqToDB_IDataContext_System_String_System_Linq_IQueryable___0__System_Action_LinqToDB_Mapping_EntityMappingBuilder___0___System_String_System_String_System_Action_LinqToDB_ITable___0___System_String_LinqToDB_TableOptions_">DataExtensions.CreateTempTable&lt;T&gt;(IDataContext, string?, IQueryable&lt;T&gt;, Action&lt;EntityMappingBuilder&lt;T&gt;&gt;, string?, string?, Action&lt;ITable&lt;T&gt;&gt;?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTable__1_LinqToDB_IDataContext_System_String_System_Linq_IQueryable___0__System_String_System_String_System_Action_LinqToDB_ITable___0___System_String_LinqToDB_TableOptions_">DataExtensions.CreateTempTable&lt;T&gt;(IDataContext, string?, IQueryable&lt;T&gt;, string?, string?, Action&lt;ITable&lt;T&gt;&gt;?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTempTable__1_LinqToDB_IDataContext_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.CreateTempTable&lt;T&gt;(IDataContext, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_DeleteAsync__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.DeleteAsync&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_Delete__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.Delete&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_DropTableAsync__1_LinqToDB_IDataContext_System_String_System_String_System_String_System_Nullable_System_Boolean__System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.DropTableAsync&lt;T&gt;(IDataContext, string?, string?, string?, bool?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_DropTable__1_LinqToDB_IDataContext_System_String_System_String_System_String_System_Nullable_System_Boolean__System_String_LinqToDB_TableOptions_">DataExtensions.DropTable&lt;T&gt;(IDataContext, string?, string?, string?, bool?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_FromSqlScalar__1_LinqToDB_IDataContext_System_FormattableString_">DataExtensions.FromSqlScalar&lt;TEntity&gt;(IDataContext, FormattableString)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_FromSql__1_LinqToDB_IDataContext_LinqToDB_RawSqlString_System_Object___">DataExtensions.FromSql&lt;TEntity&gt;(IDataContext, RawSqlString, params object?[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_FromSql__1_LinqToDB_IDataContext_System_FormattableString_">DataExtensions.FromSql&lt;TEntity&gt;(IDataContext, FormattableString)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_GetCte__1_LinqToDB_IDataContext_System_Func_System_Linq_IQueryable___0__System_Linq_IQueryable___0___System_String_">DataExtensions.GetCte&lt;T&gt;(IDataContext, Func&lt;IQueryable&lt;T&gt;, IQueryable&lt;T&gt;&gt;, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_GetCte__1_LinqToDB_IDataContext_System_String_System_Func_System_Linq_IQueryable___0__System_Linq_IQueryable___0___">DataExtensions.GetCte&lt;T&gt;(IDataContext, string?, Func&lt;IQueryable&lt;T&gt;, IQueryable&lt;T&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_GetTable__1_LinqToDB_IDataContext_">DataExtensions.GetTable&lt;T&gt;(IDataContext)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_GetTable__1_LinqToDB_IDataContext_System_Object_System_Reflection_MethodInfo_System_Object___">DataExtensions.GetTable&lt;T&gt;(IDataContext, object?, MethodInfo, params object?[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertAsync__1_LinqToDB_IDataContext___0_LinqToDB_InsertColumnFilter___0__System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.InsertAsync&lt;T&gt;(IDataContext, T, InsertColumnFilter&lt;T&gt;?, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertAsync__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.InsertAsync&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertOrReplaceAsync__1_LinqToDB_IDataContext___0_LinqToDB_InsertOrUpdateColumnFilter___0__System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.InsertOrReplaceAsync&lt;T&gt;(IDataContext, T, InsertOrUpdateColumnFilter&lt;T&gt;?, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertOrReplaceAsync__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.InsertOrReplaceAsync&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertOrReplace__1_LinqToDB_IDataContext___0_LinqToDB_InsertOrUpdateColumnFilter___0__System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.InsertOrReplace&lt;T&gt;(IDataContext, T, InsertOrUpdateColumnFilter&lt;T&gt;?, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertOrReplace__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.InsertOrReplace&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertWithDecimalIdentityAsync__1_LinqToDB_IDataContext___0_LinqToDB_InsertColumnFilter___0__System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.InsertWithDecimalIdentityAsync&lt;T&gt;(IDataContext, T, InsertColumnFilter&lt;T&gt;?, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertWithDecimalIdentityAsync__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.InsertWithDecimalIdentityAsync&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertWithDecimalIdentity__1_LinqToDB_IDataContext___0_LinqToDB_InsertColumnFilter___0__System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.InsertWithDecimalIdentity&lt;T&gt;(IDataContext, T, InsertColumnFilter&lt;T&gt;?, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertWithDecimalIdentity__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.InsertWithDecimalIdentity&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertWithIdentityAsync__1_LinqToDB_IDataContext___0_LinqToDB_InsertColumnFilter___0__System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.InsertWithIdentityAsync&lt;T&gt;(IDataContext, T, InsertColumnFilter&lt;T&gt;?, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertWithIdentityAsync__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.InsertWithIdentityAsync&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertWithIdentity__1_LinqToDB_IDataContext___0_LinqToDB_InsertColumnFilter___0__System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.InsertWithIdentity&lt;T&gt;(IDataContext, T, InsertColumnFilter&lt;T&gt;?, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertWithIdentity__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.InsertWithIdentity&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertWithInt32IdentityAsync__1_LinqToDB_IDataContext___0_LinqToDB_InsertColumnFilter___0__System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.InsertWithInt32IdentityAsync&lt;T&gt;(IDataContext, T, InsertColumnFilter&lt;T&gt;?, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertWithInt32IdentityAsync__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.InsertWithInt32IdentityAsync&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertWithInt32Identity__1_LinqToDB_IDataContext___0_LinqToDB_InsertColumnFilter___0__System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.InsertWithInt32Identity&lt;T&gt;(IDataContext, T, InsertColumnFilter&lt;T&gt;?, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertWithInt32Identity__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.InsertWithInt32Identity&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertWithInt64IdentityAsync__1_LinqToDB_IDataContext___0_LinqToDB_InsertColumnFilter___0__System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.InsertWithInt64IdentityAsync&lt;T&gt;(IDataContext, T, InsertColumnFilter&lt;T&gt;?, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertWithInt64IdentityAsync__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.InsertWithInt64IdentityAsync&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertWithInt64Identity__1_LinqToDB_IDataContext___0_LinqToDB_InsertColumnFilter___0__System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.InsertWithInt64Identity&lt;T&gt;(IDataContext, T, InsertColumnFilter&lt;T&gt;?, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_InsertWithInt64Identity__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.InsertWithInt64Identity&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_Insert__1_LinqToDB_IDataContext___0_LinqToDB_InsertColumnFilter___0__System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.Insert&lt;T&gt;(IDataContext, T, InsertColumnFilter&lt;T&gt;?, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_Insert__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.Insert&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_QueryFromExpression__1_LinqToDB_IDataContext_System_Linq_Expressions_Expression_System_Func_System_Linq_IQueryable___0____">DataExtensions.QueryFromExpression&lt;TResult&gt;(IDataContext, Expression&lt;Func&lt;IQueryable&lt;TResult&gt;&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_SelectQuery__1_LinqToDB_IDataContext_System_Linq_Expressions_Expression_System_Func___0___">DataExtensions.SelectQuery&lt;TEntity&gt;(IDataContext, Expression&lt;Func&lt;TEntity&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_TableFromExpression__1_LinqToDB_IDataContext_System_Linq_Expressions_Expression_System_Func_LinqToDB_ITable___0____">DataExtensions.TableFromExpression&lt;TResult&gt;(IDataContext, Expression&lt;Func&lt;ITable&lt;TResult&gt;&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_UpdateAsync__1_LinqToDB_IDataContext___0_LinqToDB_UpdateColumnFilter___0__System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.UpdateAsync&lt;T&gt;(IDataContext, T, UpdateColumnFilter&lt;T&gt;?, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_UpdateAsync__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_System_Threading_CancellationToken_">DataExtensions.UpdateAsync&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_Update__1_LinqToDB_IDataContext___0_LinqToDB_UpdateColumnFilter___0__System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.Update&lt;T&gt;(IDataContext, T, UpdateColumnFilter&lt;T&gt;?, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_Update__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">DataExtensions.Update&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_UseBulkCopyOptions_LinqToDB_IDataContext_System_Func_LinqToDB_Data_BulkCopyOptions_LinqToDB_Data_BulkCopyOptions__">DataExtensions.UseBulkCopyOptions(IDataContext, Func&lt;BulkCopyOptions, BulkCopyOptions&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_UseConnectionOptions_LinqToDB_IDataContext_System_Func_LinqToDB_Data_ConnectionOptions_LinqToDB_Data_ConnectionOptions__">DataExtensions.UseConnectionOptions(IDataContext, Func&lt;ConnectionOptions, ConnectionOptions&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_UseDataContextOptions_LinqToDB_IDataContext_System_Func_LinqToDB_DataContextOptions_LinqToDB_DataContextOptions__">DataExtensions.UseDataContextOptions(IDataContext, Func&lt;DataContextOptions, DataContextOptions&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_UseLinqOptions_LinqToDB_IDataContext_System_Func_LinqToDB_LinqOptions_LinqToDB_LinqOptions__">DataExtensions.UseLinqOptions(IDataContext, Func&lt;LinqOptions, LinqOptions&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_UseOptions__1_LinqToDB_IDataContext_System_Func___0___0__">DataExtensions.UseOptions&lt;TSet&gt;(IDataContext, Func&lt;TSet, TSet&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_UseQueryTraceOptions_LinqToDB_IDataContext_System_Func_LinqToDB_Data_QueryTraceOptions_LinqToDB_Data_QueryTraceOptions__">DataExtensions.UseQueryTraceOptions(IDataContext, Func&lt;QueryTraceOptions, QueryTraceOptions&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_UseRetryPolicyOptions_LinqToDB_IDataContext_System_Func_LinqToDB_Data_RetryPolicy_RetryPolicyOptions_LinqToDB_Data_RetryPolicy_RetryPolicyOptions__">DataExtensions.UseRetryPolicyOptions(IDataContext, Func&lt;RetryPolicyOptions, RetryPolicyOptions&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_UseSqlOptions_LinqToDB_IDataContext_System_Func_LinqToDB_SqlOptions_LinqToDB_SqlOptions__">DataExtensions.UseSqlOptions(IDataContext, Func&lt;SqlOptions, SqlOptions&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.Oracle.OracleTools.html#linq2db_LinqToDB_DataProvider_Oracle_OracleTools_OracleXmlTable__1_LinqToDB_IDataContext_System_Collections_Generic_IEnumerable___0__">OracleTools.OracleXmlTable&lt;T&gt;(IDataContext, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.Oracle.OracleTools.html#linq2db_LinqToDB_DataProvider_Oracle_OracleTools_OracleXmlTable__1_LinqToDB_IDataContext_System_Func_System_String__">OracleTools.OracleXmlTable&lt;T&gt;(IDataContext, Func&lt;string&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.Oracle.OracleTools.html#linq2db_LinqToDB_DataProvider_Oracle_OracleTools_OracleXmlTable__1_LinqToDB_IDataContext_System_String_">OracleTools.OracleXmlTable&lt;T&gt;(IDataContext, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.PostgreSQL.PostgreSQLExtensions.html#linq2db_LinqToDB_DataProvider_PostgreSQL_PostgreSQLExtensions_GenerateSeries_LinqToDB_IDataContext_System_DateTime_System_DateTime_System_TimeSpan_">PostgreSQLExtensions.GenerateSeries(IDataContext, DateTime, DateTime, TimeSpan)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.PostgreSQL.PostgreSQLExtensions.html#linq2db_LinqToDB_DataProvider_PostgreSQL_PostgreSQLExtensions_GenerateSeries_LinqToDB_IDataContext_System_Int32_System_Int32_">PostgreSQLExtensions.GenerateSeries(IDataContext, int, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.PostgreSQL.PostgreSQLExtensions.html#linq2db_LinqToDB_DataProvider_PostgreSQL_PostgreSQLExtensions_GenerateSeries_LinqToDB_IDataContext_System_Int32_System_Int32_System_Int32_">PostgreSQLExtensions.GenerateSeries(IDataContext, int, int, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.PostgreSQL.PostgreSQLExtensions.html#linq2db_LinqToDB_DataProvider_PostgreSQL_PostgreSQLExtensions_GenerateSubscripts__1_LinqToDB_IDataContext___0___System_Int32_">PostgreSQLExtensions.GenerateSubscripts&lt;T&gt;(IDataContext, T[], int)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.PostgreSQL.PostgreSQLExtensions.html#linq2db_LinqToDB_DataProvider_PostgreSQL_PostgreSQLExtensions_GenerateSubscripts__1_LinqToDB_IDataContext___0___System_Int32_System_Boolean_">PostgreSQLExtensions.GenerateSubscripts&lt;T&gt;(IDataContext, T[], int, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.PostgreSQL.PostgreSQLExtensions.html#linq2db_LinqToDB_DataProvider_PostgreSQL_PostgreSQLExtensions_UnnestWithOrdinality__1_LinqToDB_IDataContext___0___">PostgreSQLExtensions.UnnestWithOrdinality&lt;T&gt;(IDataContext, T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.PostgreSQL.PostgreSQLExtensions.html#linq2db_LinqToDB_DataProvider_PostgreSQL_PostgreSQLExtensions_Unnest__1_LinqToDB_IDataContext___0___">PostgreSQLExtensions.Unnest&lt;T&gt;(IDataContext, T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS3AutoMergeAsync__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Int32_System_Threading_CancellationToken_">SQLiteExtensions.FTS3AutoMergeAsync&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, int, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS3AutoMerge__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Int32_">SQLiteExtensions.FTS3AutoMerge&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS3IntegrityCheckAsync__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Threading_CancellationToken_">SQLiteExtensions.FTS3IntegrityCheckAsync&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS3IntegrityCheck__1_LinqToDB_IDataContext_LinqToDB_ITable___0__">SQLiteExtensions.FTS3IntegrityCheck&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS3MergeAsync__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Int32_System_Int32_System_Threading_CancellationToken_">SQLiteExtensions.FTS3MergeAsync&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, int, int, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS3Merge__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Int32_System_Int32_">SQLiteExtensions.FTS3Merge&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, int, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS3OptimizeAsync__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Threading_CancellationToken_">SQLiteExtensions.FTS3OptimizeAsync&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS3Optimize__1_LinqToDB_IDataContext_LinqToDB_ITable___0__">SQLiteExtensions.FTS3Optimize&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS3RebuildAsync__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Threading_CancellationToken_">SQLiteExtensions.FTS3RebuildAsync&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS3Rebuild__1_LinqToDB_IDataContext_LinqToDB_ITable___0__">SQLiteExtensions.FTS3Rebuild&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5AutoMergeAsync__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Int32_System_Threading_CancellationToken_">SQLiteExtensions.FTS5AutoMergeAsync&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, int, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5AutoMerge__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Int32_">SQLiteExtensions.FTS5AutoMerge&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5CrisisMergeAsync__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Int32_System_Threading_CancellationToken_">SQLiteExtensions.FTS5CrisisMergeAsync&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, int, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5CrisisMerge__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Int32_">SQLiteExtensions.FTS5CrisisMerge&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5DeleteAllAsync__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Threading_CancellationToken_">SQLiteExtensions.FTS5DeleteAllAsync&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5DeleteAll__1_LinqToDB_IDataContext_LinqToDB_ITable___0__">SQLiteExtensions.FTS5DeleteAll&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5DeleteAsync__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Int32___0_System_Threading_CancellationToken_">SQLiteExtensions.FTS5DeleteAsync&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, int, TEntity, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5Delete__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Int32___0_">SQLiteExtensions.FTS5Delete&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, int, TEntity)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5IntegrityCheckAsync__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Threading_CancellationToken_">SQLiteExtensions.FTS5IntegrityCheckAsync&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5IntegrityCheck__1_LinqToDB_IDataContext_LinqToDB_ITable___0__">SQLiteExtensions.FTS5IntegrityCheck&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5MergeAsync__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Int32_System_Threading_CancellationToken_">SQLiteExtensions.FTS5MergeAsync&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, int, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5Merge__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Int32_">SQLiteExtensions.FTS5Merge&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5OptimizeAsync__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Threading_CancellationToken_">SQLiteExtensions.FTS5OptimizeAsync&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5Optimize__1_LinqToDB_IDataContext_LinqToDB_ITable___0__">SQLiteExtensions.FTS5Optimize&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5PgszAsync__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Int32_System_Threading_CancellationToken_">SQLiteExtensions.FTS5PgszAsync&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, int, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5Pgsz__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Int32_">SQLiteExtensions.FTS5Pgsz&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5RankAsync__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_String_System_Threading_CancellationToken_">SQLiteExtensions.FTS5RankAsync&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, string, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5Rank__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_String_">SQLiteExtensions.FTS5Rank&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5RebuildAsync__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Threading_CancellationToken_">SQLiteExtensions.FTS5RebuildAsync&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5Rebuild__1_LinqToDB_IDataContext_LinqToDB_ITable___0__">SQLiteExtensions.FTS5Rebuild&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5UserMergeAsync__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Int32_System_Threading_CancellationToken_">SQLiteExtensions.FTS5UserMergeAsync&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, int, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SQLite.SQLiteExtensions.html#linq2db_LinqToDB_DataProvider_SQLite_SQLiteExtensions_FTS5UserMerge__1_LinqToDB_IDataContext_LinqToDB_ITable___0__System_Int32_">SQLiteExtensions.FTS5UserMerge&lt;TEntity&gt;(IDataContext, ITable&lt;TEntity&gt;, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SqlServer.SqlFn.html#linq2db_LinqToDB_DataProvider_SqlServer_SqlFn_OpenJson_LinqToDB_IDataContext_System_String_">SqlFn.OpenJson(IDataContext, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.DataProvider.SqlServer.SqlFn.html#linq2db_LinqToDB_DataProvider_SqlServer_SqlFn_OpenJson_LinqToDB_IDataContext_System_String_System_String_">SqlFn.OpenJson(IDataContext, string?, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.Logging.LoggingExtensions.html#linq2db_LinqToDB_Internal_Logging_LoggingExtensions_GetTraceSwitch_LinqToDB_IDataContext_">LoggingExtensions.GetTraceSwitch(IDataContext)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.Logging.LoggingExtensions.html#linq2db_LinqToDB_Internal_Logging_LoggingExtensions_WriteTraceLine_LinqToDB_IDataContext_System_String_System_String_System_Diagnostics_TraceLevel_">LoggingExtensions.WriteTraceLine(IDataContext, string, string, TraceLevel)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.LinqExtensions.html#linq2db_LinqToDB_LinqExtensions_Into__1_LinqToDB_IDataContext_LinqToDB_ITable___0__">LinqExtensions.Into&lt;T&gt;(IDataContext, ITable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.LinqExtensions.html#linq2db_LinqToDB_LinqExtensions_SelectAsync__1_LinqToDB_IDataContext_System_Linq_Expressions_Expression_System_Func___0___System_Threading_CancellationToken_">LinqExtensions.SelectAsync&lt;T&gt;(IDataContext, Expression&lt;Func&lt;T&gt;&gt;, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.LinqExtensions.html#linq2db_LinqToDB_LinqExtensions_Select__1_LinqToDB_IDataContext_System_Linq_Expressions_Expression_System_Func___0___">LinqExtensions.Select&lt;T&gt;(IDataContext, Expression&lt;Func&lt;T&gt;&gt;)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="linq2db_LinqToDB_DataContext__ctor_" data-uid="linq2db.LinqToDB.DataContext.#ctor*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext__ctor" data-uid="linq2db.LinqToDB.DataContext.#ctor">
+  DataContext()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates data context using default database configuration.
+<a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_DefaultConfiguration">DefaultConfiguration</a> for more details.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataContext()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext__ctor_" data-uid="linq2db.LinqToDB.DataContext.#ctor*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext__ctor_LinqToDB_DataOptions_" data-uid="linq2db.LinqToDB.DataContext.#ctor(LinqToDB.DataOptions)">
+  DataContext(DataOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates database context object that uses a <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a> to configure the connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataContext(DataOptions options)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="linq2db.LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd><p>Options, setup ahead of time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext__ctor_" data-uid="linq2db.LinqToDB.DataContext.#ctor*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext__ctor_System_String_" data-uid="linq2db.LinqToDB.DataContext.#ctor(System.String)">
+  DataContext(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates data context using specific database configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataContext(string? configurationString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configurationString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Connection configuration name.
+In case of <code>null</code> value, context will use default configuration.
+<a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_DefaultConfiguration">DefaultConfiguration</a> for more details.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="linq2db_LinqToDB_DataContext_CloseAfterUse_" data-uid="linq2db.LinqToDB.DataContext.CloseAfterUse*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_CloseAfterUse" data-uid="linq2db.LinqToDB.DataContext.CloseAfterUse">
+  CloseAfterUse
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L299"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets flag to close context after query execution or leave it open.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CloseAfterUse { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_CommandTimeout_" data-uid="linq2db.LinqToDB.DataContext.CommandTimeout*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_CommandTimeout" data-uid="linq2db.LinqToDB.DataContext.CommandTimeout">
+  CommandTimeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L314"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets command execution timeout in seconds.
+Negative timeout value means that default timeout will be used.
+0 timeout value corresponds to infinite timeout.
+By default timeout is not set and default value for current provider used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CommandTimeout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_ConfigurationString_" data-uid="linq2db.LinqToDB.DataContext.ConfigurationString*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_ConfigurationString" data-uid="linq2db.LinqToDB.DataContext.ConfigurationString">
+  ConfigurationString
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets initial value for database connection configuration name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ConfigurationString { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_ConnectionString_" data-uid="linq2db.LinqToDB.DataContext.ConnectionString*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_ConnectionString" data-uid="linq2db.LinqToDB.DataContext.ConnectionString">
+  ConnectionString
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets initial value for database connection string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ConnectionString { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_ContextName_" data-uid="linq2db.LinqToDB.DataContext.ContextName*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_ContextName" data-uid="linq2db.LinqToDB.DataContext.ContextName">
+  ContextName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets context identifier. Uses provider's name by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ContextName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_DataProvider_" data-uid="linq2db.LinqToDB.DataContext.DataProvider*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_DataProvider" data-uid="linq2db.LinqToDB.DataContext.DataProvider">
+  DataProvider
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets database provider implementation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDataProvider DataProvider { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_InlineParameters_" data-uid="linq2db.LinqToDB.DataContext.InlineParameters*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_InlineParameters" data-uid="linq2db.LinqToDB.DataContext.InlineParameters">
+  InlineParameters
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets option to force inline parameter values as literals into command text. If parameter inlining not supported
+for specific value type, it will be used as parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool InlineParameters { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_KeepConnectionAlive_" data-uid="linq2db.LinqToDB.DataContext.KeepConnectionAlive*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_KeepConnectionAlive" data-uid="linq2db.LinqToDB.DataContext.KeepConnectionAlive">
+  KeepConnectionAlive
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L197"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets flag indicating wether context should dispose underlying connection after use or not.
+Default value: <code>false</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool KeepConnectionAlive { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_LastQuery_" data-uid="linq2db.LinqToDB.DataContext.LastQuery*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_LastQuery" data-uid="linq2db.LinqToDB.DataContext.LastQuery">
+  LastQuery
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Contains text of last command, sent to database using current context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? LastQuery { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_MappingSchema_" data-uid="linq2db.LinqToDB.DataContext.MappingSchema*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_MappingSchema" data-uid="linq2db.LinqToDB.DataContext.MappingSchema">
+  MappingSchema
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets mapping schema. Uses provider's mapping schema by default.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MappingSchema MappingSchema { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_NextQueryHints_" data-uid="linq2db.LinqToDB.DataContext.NextQueryHints*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_NextQueryHints" data-uid="linq2db.LinqToDB.DataContext.NextQueryHints">
+  NextQueryHints
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L281"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets list of query hints (writable collection), that will be used only for next query, executed through current context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; NextQueryHints { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_OnTraceConnection_" data-uid="linq2db.LinqToDB.DataContext.OnTraceConnection*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_OnTraceConnection" data-uid="linq2db.LinqToDB.DataContext.OnTraceConnection">
+  OnTraceConnection
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets trace handler, used for data connection instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;TraceInfo&gt;? OnTraceConnection { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="LinqToDB.Data.TraceInfo.html">TraceInfo</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_Options_" data-uid="linq2db.LinqToDB.DataContext.Options*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_Options" data-uid="linq2db.LinqToDB.DataContext.Options">
+  Options
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Current DataContext options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataOptions Options { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_QueryHints_" data-uid="linq2db.LinqToDB.DataContext.QueryHints*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_QueryHints" data-uid="linq2db.LinqToDB.DataContext.QueryHints">
+  QueryHints
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L263"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets list of query hints (writable collection), that will be used for all queries, executed through current context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; QueryHints { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="linq2db_LinqToDB_DataContext_AddInterceptor_" data-uid="linq2db.LinqToDB.DataContext.AddInterceptor*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_AddInterceptor_LinqToDB_Interceptors_IInterceptor_" data-uid="linq2db.LinqToDB.DataContext.AddInterceptor(LinqToDB.Interceptors.IInterceptor)">
+  AddInterceptor(IInterceptor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.Interceptors.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds interceptor instance to context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddInterceptor(IInterceptor interceptor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>interceptor</code> <a class="xref" href="linq2db.LinqToDB.Interceptors.IInterceptor.html">IInterceptor</a></dt>
+    <dd><p>Interceptor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_AddMappingSchema_" data-uid="linq2db.LinqToDB.DataContext.AddMappingSchema*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_AddMappingSchema_LinqToDB_Mapping_MappingSchema_" data-uid="linq2db.LinqToDB.DataContext.AddMappingSchema(LinqToDB.Mapping.MappingSchema)">
+  AddMappingSchema(MappingSchema)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds mapping schema to current context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddMappingSchema(MappingSchema mappingSchema)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mappingSchema</code> <a class="xref" href="linq2db.LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></dt>
+    <dd><p>Mapping schema to add.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_BeginTransaction_" data-uid="linq2db.LinqToDB.DataContext.BeginTransaction*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_BeginTransaction" data-uid="linq2db.LinqToDB.DataContext.BeginTransaction">
+  BeginTransaction()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L594"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts new transaction for current context with default isolation level.
+If connection already has transaction, it will throw <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DataContextTransaction BeginTransaction()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.DataContextTransaction.html">DataContextTransaction</a></dt>
+    <dd><p>Database transaction object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown when connection already has a transaction.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_BeginTransaction_" data-uid="linq2db.LinqToDB.DataContext.BeginTransaction*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_BeginTransaction_System_Data_IsolationLevel_" data-uid="linq2db.LinqToDB.DataContext.BeginTransaction(System.Data.IsolationLevel)">
+  BeginTransaction(IsolationLevel)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L577"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts new transaction for current context with specified isolation level.
+If connection already has transaction, it will throw <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DataContextTransaction BeginTransaction(IsolationLevel level)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>level</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.isolationlevel">IsolationLevel</a></dt>
+    <dd><p>Transaction isolation level.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.DataContextTransaction.html">DataContextTransaction</a></dt>
+    <dd><p>Database transaction object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown when connection already has a transaction.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_BeginTransactionAsync_" data-uid="linq2db.LinqToDB.DataContext.BeginTransactionAsync*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_BeginTransactionAsync_System_Data_IsolationLevel_System_Threading_CancellationToken_" data-uid="linq2db.LinqToDB.DataContext.BeginTransactionAsync(System.Data.IsolationLevel,System.Threading.CancellationToken)">
+  BeginTransactionAsync(IsolationLevel, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L613"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts new transaction asynchronously for current context with specified isolation level.
+If connection already has transaction, it will throw <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;DataContextTransaction&gt; BeginTransactionAsync(IsolationLevel level, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>level</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.isolationlevel">IsolationLevel</a></dt>
+    <dd><p>Transaction isolation level.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Asynchronous operation cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.DataContextTransaction.html">DataContextTransaction</a>&gt;</dt>
+    <dd><p>Database transaction object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown when connection already has a transaction.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_BeginTransactionAsync_" data-uid="linq2db.LinqToDB.DataContext.BeginTransactionAsync*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_BeginTransactionAsync_System_Threading_CancellationToken_" data-uid="linq2db.LinqToDB.DataContext.BeginTransactionAsync(System.Threading.CancellationToken)">
+  BeginTransactionAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L631"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts new transaction asynchronously for current context with default isolation level.
+If connection already has transaction, it will throw <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;DataContextTransaction&gt; BeginTransactionAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Asynchronous operation cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="LinqToDB.DataContextTransaction.html">DataContextTransaction</a>&gt;</dt>
+    <dd><p>Database transaction object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown when connection already has a transaction.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_CreateDataConnection_" data-uid="linq2db.LinqToDB.DataContext.CreateDataConnection*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_CreateDataConnection_LinqToDB_DataOptions_" data-uid="linq2db.LinqToDB.DataContext.CreateDataConnection(LinqToDB.DataOptions)">
+  CreateDataConnection(DataOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L374"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates instance of <a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a> class, used by context internally.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual DataConnection CreateDataConnection(DataOptions options)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="linq2db.LinqToDB.DataOptions.html">DataOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
+    <dd><p>New <a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a> instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_Dispose_" data-uid="linq2db.LinqToDB.DataContext.Dispose*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_Dispose" data-uid="linq2db.LinqToDB.DataContext.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L496"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_Dispose_" data-uid="linq2db.LinqToDB.DataContext.Dispose*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_Dispose_System_Boolean_" data-uid="linq2db.LinqToDB.DataContext.Dispose(System.Boolean)">
+  Dispose(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L504"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Closes underlying connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>disposing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_DisposeAsync_" data-uid="linq2db.LinqToDB.DataContext.DisposeAsync*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_DisposeAsync" data-uid="linq2db.LinqToDB.DataContext.DisposeAsync">
+  DisposeAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L511"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or
+resetting unmanaged resources asynchronously.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueTask DisposeAsync()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_DisposeAsync_" data-uid="linq2db.LinqToDB.DataContext.DisposeAsync*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_DisposeAsync_System_Boolean_" data-uid="linq2db.LinqToDB.DataContext.DisposeAsync(System.Boolean)">
+  DisposeAsync(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L519"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Closes underlying connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual ValueTask DisposeAsync(bool disposing)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>disposing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_RemoveInterceptor_" data-uid="linq2db.LinqToDB.DataContext.RemoveInterceptor*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_RemoveInterceptor_LinqToDB_Interceptors_IInterceptor_" data-uid="linq2db.LinqToDB.DataContext.RemoveInterceptor(LinqToDB.Interceptors.IInterceptor)">
+  RemoveInterceptor(IInterceptor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.Interceptors.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes interceptor instance from context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveInterceptor(IInterceptor interceptor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>interceptor</code> <a class="xref" href="linq2db.LinqToDB.Interceptors.IInterceptor.html">IInterceptor</a></dt>
+    <dd><p>Interceptor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_ResetCommandTimeout_" data-uid="linq2db.LinqToDB.DataContext.ResetCommandTimeout*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_ResetCommandTimeout" data-uid="linq2db.LinqToDB.DataContext.ResetCommandTimeout">
+  ResetCommandTimeout()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L338"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets command timeout to provider or connection defaults.
+Note that default provider/connection timeout is not the same value as timeout value you can specify upon context configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ResetCommandTimeout()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_ResetCommandTimeoutAsync_" data-uid="linq2db.LinqToDB.DataContext.ResetCommandTimeoutAsync*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_ResetCommandTimeoutAsync" data-uid="linq2db.LinqToDB.DataContext.ResetCommandTimeoutAsync">
+  ResetCommandTimeoutAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L354"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets command timeout to default connection value.
+Note that default provider/connection timeout is not the same value as timeout value you can specify upon context configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueTask ResetCommandTimeoutAsync()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_SetKeepConnectionAlive_" data-uid="linq2db.LinqToDB.DataContext.SetKeepConnectionAlive*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_SetKeepConnectionAlive_System_Boolean_" data-uid="linq2db.LinqToDB.DataContext.SetKeepConnectionAlive(System.Boolean)">
+  SetKeepConnectionAlive(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L208"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets connection management behavior to specify if context should dispose underlying connection after use or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetKeepConnectionAlive(bool keepAlive)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keepAlive</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_SetKeepConnectionAliveAsync_" data-uid="linq2db.LinqToDB.DataContext.SetKeepConnectionAliveAsync*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_SetKeepConnectionAliveAsync_System_Boolean_" data-uid="linq2db.LinqToDB.DataContext.SetKeepConnectionAliveAsync(System.Boolean)">
+  SetKeepConnectionAliveAsync(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets connection management behavior to specify if context should dispose underlying connection after use or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueTask SetKeepConnectionAliveAsync(bool keepAlive)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keepAlive</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_UseMappingSchema_" data-uid="linq2db.LinqToDB.DataContext.UseMappingSchema*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_UseMappingSchema_LinqToDB_Mapping_MappingSchema_" data-uid="linq2db.LinqToDB.DataContext.UseMappingSchema(LinqToDB.Mapping.MappingSchema)">
+  UseMappingSchema(MappingSchema)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L944"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets new mapping schema for current data context.</p>
+<p>
+<b>Implements the Disposable pattern, which must be used to properly restore previous settings.</b>
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDisposable? UseMappingSchema(MappingSchema mappingSchema)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mappingSchema</code> <a class="xref" href="linq2db.LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></dt>
+    <dd><p>Mapping schema to set.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataContext_UseOptions_" data-uid="linq2db.LinqToDB.DataContext.UseOptions*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataContext_UseOptions_System_Func_LinqToDB_DataOptions_LinqToDB_DataOptions__" data-uid="linq2db.LinqToDB.DataContext.UseOptions(System.Func{LinqToDB.DataOptions,LinqToDB.DataOptions})">
+  UseOptions(Func&lt;DataOptions, DataOptions&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataContext.cs/#L914"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets new options for current data context.</p>
+<p>
+<b>Implements the Disposable pattern, which must be used to properly restore previous options.</b>
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDisposable? UseOptions(Func&lt;DataOptions, DataOptions&gt; optionsSetter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionsSetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>, <a class="xref" href="LinqToDB.DataOptions.html">DataOptions</a>&gt;</dt>
+    <dd><p>Options setter function.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></dt>
+    <dd><p>Returns disposable object, which could be used to restore previous options.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="linq2db_LinqToDB_DataContext_UseOptions_System_Func_LinqToDB_DataOptions_LinqToDB_DataOptions___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>For <a class="xref" href="LinqToDB.Data.ConnectionOptions.html">ConnectionOptions</a> we update only mapping schema and connection interceptor. Connection string, configuration, data provider, etc. are not updatable.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

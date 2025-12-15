@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class InformationSchema.Routine | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class InformationSchema.Routine | Linq To DB ">
+      
+      <meta name="description" content="ROUTINES (Transact-SQL) Applies to: √ SQL Server √ Azure SQL Database √ Azure SQL Managed Instance √ Azure Synapse Analytics √ Analytics Platform System (PDW) √ SQL analytics endpoint in Microsoft Fabric √ Warehouse in Microsoft Fabric Returns one row for each stored procedure and function that can be accessed by the current user in the current database. The columns that describe the return value apply only to functions. For stored procedures, these columns will be NULL.  To retrieve information from these views, specify the fully qualified name of INFORMATION_SCHEMA.*view_name*. note 		The ROUTINE_DEFINITION column contains the source statements that created the function or stored procedure. These source statements are likely to contain embedded carriage returns. If you are returning this column to an application that displays the results in a text format, the embedded carriage returns in the ROUTINE_DEFINITION results may affect the formatting of the overall result set. If you select the ROUTINE_DEFINITION column, you must adjust for the embedded carriage returns; for example, by returning the result set into a grid or returning ROUTINE_DEFINITION into its own text box.  See INFORMATION_SCHEMA.ROUTINES.">
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine.md&amp;value=---%0Auid%3A%20linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine">
+
+
+
+  <h1 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine" class="text-break">
+Class InformationSchema.Routine  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13075"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Tools.html">Tools</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.html">SqlServer</a>.<a class="xref" href="LinqToDB.Tools.DataProvider.SqlServer.Schemas.html">Schemas</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.Tools.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p><strong>ROUTINES (Transact-SQL)</strong></p>
+<p><strong>Applies to:</strong> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">SQL Server</a> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure SQL Database</a> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure SQL Managed Instance</a> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Azure Synapse Analytics</a> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Analytics Platform System (PDW)</a> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">SQL analytics endpoint in Microsoft Fabric</a> √ <a href="https://docs.microsoft.com/en-us/sql/sql-server/sql-docs-navigation-guide#applies-to">Warehouse in Microsoft Fabric</a></p>
+<p>Returns one row for each stored procedure and function that can be accessed by the current user in the current database. The columns that describe the return value apply only to functions. For stored procedures, these columns will be NULL.<br>
+ To retrieve information from these views, specify the fully qualified name of INFORMATION_SCHEMA.*view_name*.<br>
+<div class="NOTE"><h5>note</h5><p><br>
+		The ROUTINE_DEFINITION column contains the source statements that created the function or stored procedure. These source statements are likely to contain embedded carriage returns. If you are returning this column to an application that displays the results in a text format, the embedded carriage returns in the ROUTINE_DEFINITION results may affect the formatting of the overall result set. If you select the ROUTINE_DEFINITION column, you must adjust for the embedded carriage returns; for example, by returning the result set into a grid or returning ROUTINE_DEFINITION into its own text box.<br>
+</p></div><br>
+<p>See <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-information-schema-views/routines-transact-sql">INFORMATION_SCHEMA.ROUTINES</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Table(Schema = &quot;INFORMATION_SCHEMA&quot;, Name = &quot;ROUTINES&quot;, IsView = true)]
+public class InformationSchema.Routine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">InformationSchema.Routine</span></div>
+    </dd>
+  </dl>
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="linq2db.Tools.LinqToDB.Tools.Mapper.Map.html#linq2db_Tools_LinqToDB_Tools_Mapper_Map_DeepCopy__1___0_">Map.DeepCopy&lt;T&gt;(T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_CharacterMaximumLength_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.CharacterMaximumLength*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_CharacterMaximumLength" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.CharacterMaximumLength">
+  CharacterMaximumLength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>CHARACTER_MAXIMUM_LENGTH</strong> NULL <strong>int</strong></p>
+Maximum length in characters, if the return type is a character type.<br><br> -1 for <strong>xml</strong> and large-value type data.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;CHARACTER_MAXIMUM_LENGTH&quot;)]
+[Nullable]
+public int? CharacterMaximumLength { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_CharacterOctetLength_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.CharacterOctetLength*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_CharacterOctetLength" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.CharacterOctetLength">
+  CharacterOctetLength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>CHARACTER_OCTET_LENGTH</strong> NULL <strong>int</strong></p>
+Maximum length in bytes, if the return type is a character type.<br><br> -1 for <strong>xml</strong> and large-value type data.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;CHARACTER_OCTET_LENGTH&quot;)]
+[Nullable]
+public int? CharacterOctetLength { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_CharacterSetCatalog_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.CharacterSetCatalog*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_CharacterSetCatalog" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.CharacterSetCatalog">
+  CharacterSetCatalog
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>CHARACTER_SET_CATALOG</strong> NULL <strong>nvarchar(</strong></p>
+Always returns NULL.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;CHARACTER_SET_CATALOG&quot;)]
+[Nullable]
+public string? CharacterSetCatalog { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_CharacterSetName_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.CharacterSetName*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_CharacterSetName" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.CharacterSetName">
+  CharacterSetName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>CHARACTER_SET_NAME</strong> NULL <strong>nvarchar(</strong></p>
+Name of the character set of the return value. For noncharacter types, returns NULL.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;CHARACTER_SET_NAME&quot;)]
+[Nullable]
+public string? CharacterSetName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_CharacterSetSchema_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.CharacterSetSchema*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_CharacterSetSchema" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.CharacterSetSchema">
+  CharacterSetSchema
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13182"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>CHARACTER_SET_SCHEMA</strong> NULL <strong>nvarchar(</strong></p>
+Always returns NULL.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;CHARACTER_SET_SCHEMA&quot;)]
+[Nullable]
+public string? CharacterSetSchema { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_CollationCatalog_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.CollationCatalog*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_CollationCatalog" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.CollationCatalog">
+  CollationCatalog
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>COLLATION_CATALOG</strong> NULL <strong>nvarchar(</strong></p>
+Always returns NULL.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;COLLATION_CATALOG&quot;)]
+[Nullable]
+public string? CollationCatalog { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_CollationName_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.CollationName*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_CollationName" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.CollationName">
+  CollationName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13172"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>COLLATION_NAME</strong> NULL <strong>nvarchar(</strong></p>
+Collation name of the return value. For noncharacter types, returns NULL.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;COLLATION_NAME&quot;)]
+[Nullable]
+public string? CollationName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_CollationSchema_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.CollationSchema*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_CollationSchema" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.CollationSchema">
+  CollationSchema
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>COLLATION_SCHEMA</strong> NULL <strong>nvarchar(</strong></p>
+Always returns NULL.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;COLLATION_SCHEMA&quot;)]
+[Nullable]
+public string? CollationSchema { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_Created_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.Created*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_Created" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.Created">
+  Created
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13327"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>CREATED</strong> NOT NULL <strong>datetime</strong></p>
+Time when the routine was created.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;CREATED&quot;)]
+[NotNull]
+public DateTime Created { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_DataType_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.DataType*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_DataType" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.DataType">
+  DataType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>DATA_TYPE</strong> NULL <strong>nvarchar(</strong></p>
+Data type of the return value of the function. Returns <strong>table</strong> if a table-valued function.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;DATA_TYPE&quot;)]
+[Nullable]
+public string? DataType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_DatetimePrecision_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.DatetimePrecision*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_DatetimePrecision" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.DatetimePrecision">
+  DatetimePrecision
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13207"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>DATETIME_PRECISION</strong> NULL <strong>smallint</strong></p>
+Fractional precision of a second if the return value is of type <strong>datetime</strong>. Otherwise, returns NULL.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;DATETIME_PRECISION&quot;)]
+[Nullable]
+public short? DatetimePrecision { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_DtdIdentifier_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.DtdIdentifier*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_DtdIdentifier" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.DtdIdentifier">
+  DtdIdentifier
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13257"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>DTD_IDENTIFIER</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;DTD_IDENTIFIER&quot;)]
+[Nullable]
+public string? DtdIdentifier { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ExternalLanguage_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ExternalLanguage*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ExternalLanguage" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ExternalLanguage">
+  ExternalLanguage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13277"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>EXTERNAL_LANGUAGE</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;EXTERNAL_LANGUAGE&quot;)]
+[Nullable]
+public string? ExternalLanguage { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ExternalName_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ExternalName*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ExternalName" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ExternalName">
+  ExternalName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13272"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>EXTERNAL_NAME</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;EXTERNAL_NAME&quot;)]
+[Nullable]
+public string? ExternalName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_IntervalPrecision_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.IntervalPrecision*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_IntervalPrecision" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.IntervalPrecision">
+  IntervalPrecision
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13217"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>INTERVAL_PRECISION</strong> NULL <strong>smallint</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;INTERVAL_PRECISION&quot;)]
+[Nullable]
+public short? IntervalPrecision { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_IntervalType_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.IntervalType*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_IntervalType" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.IntervalType">
+  IntervalType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13212"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>INTERVAL_TYPE</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;INTERVAL_TYPE&quot;)]
+[Nullable]
+public string? IntervalType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_IsDeterministic_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.IsDeterministic*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_IsDeterministic" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.IsDeterministic">
+  IsDeterministic
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13287"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>IS_DETERMINISTIC</strong> NULL <strong>nvarchar(</strong></p>
+Returns YES if the routine is deterministic.<br><br> Returns NO if the routine is nondeterministic.<br><br> Always returns NO for stored procedures.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;IS_DETERMINISTIC&quot;)]
+[Nullable]
+public string? IsDeterministic { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_IsImplicitlyInvocable_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.IsImplicitlyInvocable*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_IsImplicitlyInvocable" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.IsImplicitlyInvocable">
+  IsImplicitlyInvocable
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13322"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>IS_IMPLICITLY_INVOCABLE</strong> NULL <strong>nvarchar(</strong></p>
+Returns YES if the routine can be implicitly invoked, and NO if function cannot be implicitly invoked.<br><br> Always returns NO.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;IS_IMPLICITLY_INVOCABLE&quot;)]
+[Nullable]
+public string? IsImplicitlyInvocable { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_IsNullCall_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.IsNullCall*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_IsNullCall" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.IsNullCall">
+  IsNullCall
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13297"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>IS_NULL_CALL</strong> NULL <strong>nvarchar(</strong></p>
+Indicates whether the routine will be called if any one of its arguments is NULL.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;IS_NULL_CALL&quot;)]
+[Nullable]
+public string? IsNullCall { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_IsUserDefinedCast_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.IsUserDefinedCast*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_IsUserDefinedCast" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.IsUserDefinedCast">
+  IsUserDefinedCast
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13317"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>IS_USER_DEFINED_CAST</strong> NULL <strong>nvarchar(</strong></p>
+Returns YES if user-defined cast function, and NO if not a user-defined cast function.<br><br> Always returns NO.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;IS_USER_DEFINED_CAST&quot;)]
+[Nullable]
+public string? IsUserDefinedCast { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_LastAltered_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.LastAltered*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_LastAltered" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.LastAltered">
+  LastAltered
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13332"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>LAST_ALTERED</strong> NOT NULL <strong>datetime</strong></p>
+The last time the function was modified.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;LAST_ALTERED&quot;)]
+[NotNull]
+public DateTime LastAltered { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_MaxDynamicResultSets_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.MaxDynamicResultSets*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_MaxDynamicResultSets" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.MaxDynamicResultSets">
+  MaxDynamicResultSets
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13312"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>MAX_DYNAMIC_RESULT_SETS</strong> NULL <strong>smallint</strong></p>
+Maximum number of dynamic result sets returned by routine.<br><br> Returns 0 if functions.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;MAX_DYNAMIC_RESULT_SETS&quot;)]
+[Nullable]
+public short? MaxDynamicResultSets { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_MaximumCardinality_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.MaximumCardinality*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_MaximumCardinality" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.MaximumCardinality">
+  MaximumCardinality
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13252"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>MAXIMUM_CARDINALITY</strong> NULL <strong>bigint</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;MAXIMUM_CARDINALITY&quot;)]
+[Nullable]
+public long? MaximumCardinality { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ModuleCatalog_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ModuleCatalog*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ModuleCatalog" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ModuleCatalog">
+  ModuleCatalog
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>MODULE_CATALOG</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;MODULE_CATALOG&quot;)]
+[Nullable]
+public string? ModuleCatalog { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ModuleName_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ModuleName*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ModuleName" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ModuleName">
+  ModuleName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>MODULE_NAME</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;MODULE_NAME&quot;)]
+[Nullable]
+public string? ModuleName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ModuleSchema_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ModuleSchema*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ModuleSchema" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ModuleSchema">
+  ModuleSchema
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>MODULE_SCHEMA</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;MODULE_SCHEMA&quot;)]
+[Nullable]
+public string? ModuleSchema { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_NumericPrecision_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.NumericPrecision*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_NumericPrecision" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.NumericPrecision">
+  NumericPrecision
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>NUMERIC_PRECISION</strong> NULL <strong>smallint</strong></p>
+Numeric precision of the return value. For the nonnumeric types, returns NULL.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;NUMERIC_PRECISION&quot;)]
+[Nullable]
+public short? NumericPrecision { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_NumericPrecisionRadix_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.NumericPrecisionRadix*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_NumericPrecisionRadix" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.NumericPrecisionRadix">
+  NumericPrecisionRadix
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13197"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>NUMERIC_PRECISION_RADIX</strong> NULL <strong>smallint</strong></p>
+Numeric precision radix of the return value. For nonnumeric types, returns NULL.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;NUMERIC_PRECISION_RADIX&quot;)]
+[Nullable]
+public short? NumericPrecisionRadix { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_NumericScale_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.NumericScale*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_NumericScale" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.NumericScale">
+  NumericScale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13202"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>NUMERIC_SCALE</strong> NULL <strong>smallint</strong></p>
+Scale of the return value. For nonnumeric types, returns NULL.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;NUMERIC_SCALE&quot;)]
+[Nullable]
+public short? NumericScale { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ParameterStyle_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ParameterStyle*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ParameterStyle" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ParameterStyle">
+  ParameterStyle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13282"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>PARAMETER_STYLE</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;PARAMETER_STYLE&quot;)]
+[Nullable]
+public string? ParameterStyle { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_RoutineBody_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.RoutineBody*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_RoutineBody" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.RoutineBody">
+  RoutineBody
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>ROUTINE_BODY</strong> NULL <strong>nvarchar(</strong></p>
+Returns SQL for a Transact-SQL function and EXTERNAL for an externally written function.<br><br> Functions will always be SQL.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;ROUTINE_BODY&quot;)]
+[Nullable]
+public string? RoutineBody { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_RoutineCatalog_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.RoutineCatalog*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_RoutineCatalog" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.RoutineCatalog">
+  RoutineCatalog
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13097"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>ROUTINE_CATALOG</strong> NULL <strong>nvarchar(</strong></p>
+Catalog name of the function.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;ROUTINE_CATALOG&quot;)]
+[Nullable]
+public string? RoutineCatalog { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_RoutineDefinition_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.RoutineDefinition*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_RoutineDefinition" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.RoutineDefinition">
+  RoutineDefinition
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13267"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>ROUTINE_DEFINITION</strong> NULL <strong>nvarchar(</strong></p>
+Returns the first 4000 characters of the definition text of the function or stored procedure if the function or stored procedure is not encrypted. Otherwise, returns NULL.<br><br> To ensure that you obtain the complete definition, query the <a href="https://docs.microsoft.com/en-us/sql/t-sql/functions/object-definition-transact-sql">OBJECT_DEFINITION</a> function or the definition column in the <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sql-modules-transact-sql">sys.sql_modules</a> catalog view.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;ROUTINE_DEFINITION&quot;)]
+[Nullable]
+public string? RoutineDefinition { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_RoutineName_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.RoutineName*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_RoutineName" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.RoutineName">
+  RoutineName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>ROUTINE_NAME</strong> NOT NULL <strong>nvarchar(</strong></p>
+Name of the function.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;ROUTINE_NAME&quot;)]
+[NotNull]
+public string RoutineName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_RoutineSchema_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.RoutineSchema*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_RoutineSchema" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.RoutineSchema">
+  RoutineSchema
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>ROUTINE_SCHEMA</strong> NULL <strong>nvarchar(</strong></p>
+Name of the schema that contains this function.<br><br> <strong> Important \*\</strong>* Do not use INFORMATION_SCHEMA views to determine the schema of an object. INFORMATION_SCHEMA views only represent a subset of the metadata of an object. The only reliable way to find the schema of an object is to query the <code>sys.objects</code> catalog view.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;ROUTINE_SCHEMA&quot;)]
+[Nullable]
+public string? RoutineSchema { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_RoutineType_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.RoutineType*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_RoutineType" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.RoutineType">
+  RoutineType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>ROUTINE_TYPE</strong> NULL <strong>nvarchar(</strong></p>
+Returns PROCEDURE for stored procedures, and FUNCTION for functions.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;ROUTINE_TYPE&quot;)]
+[Nullable]
+public string? RoutineType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_SchemaLevelRoutine_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.SchemaLevelRoutine*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_SchemaLevelRoutine" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.SchemaLevelRoutine">
+  SchemaLevelRoutine
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13307"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>SCHEMA_LEVEL_ROUTINE</strong> NULL <strong>nvarchar(</strong></p>
+Returns YES if schema-level function, or NO if not a schema-level function.<br><br> Always returns YES.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;SCHEMA_LEVEL_ROUTINE&quot;)]
+[Nullable]
+public string? SchemaLevelRoutine { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ScopeCatalog_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ScopeCatalog*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ScopeCatalog" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ScopeCatalog">
+  ScopeCatalog
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13237"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>SCOPE_CATALOG</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;SCOPE_CATALOG&quot;)]
+[Nullable]
+public string? ScopeCatalog { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ScopeName_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ScopeName*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ScopeName" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ScopeName">
+  ScopeName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13247"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>SCOPE_NAME</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;SCOPE_NAME&quot;)]
+[Nullable]
+public string? ScopeName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ScopeSchema_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ScopeSchema*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_ScopeSchema" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.ScopeSchema">
+  ScopeSchema
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13242"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>SCOPE_SCHEMA</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;SCOPE_SCHEMA&quot;)]
+[Nullable]
+public string? ScopeSchema { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_SpecificCatalog_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.SpecificCatalog*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_SpecificCatalog" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.SpecificCatalog">
+  SpecificCatalog
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13082"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>SPECIFIC_CATALOG</strong> NULL <strong>nvarchar(</strong></p>
+Specific name of the catalog. This name is the same as ROUTINE_CATALOG.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;SPECIFIC_CATALOG&quot;)]
+[Nullable]
+public string? SpecificCatalog { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_SpecificName_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.SpecificName*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_SpecificName" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.SpecificName">
+  SpecificName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13092"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>SPECIFIC_NAME</strong> NOT NULL <strong>nvarchar(</strong></p>
+Specific name of the catalog. This name is the same as ROUTINE_NAME.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;SPECIFIC_NAME&quot;)]
+[NotNull]
+public string SpecificName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_SpecificSchema_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.SpecificSchema*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_SpecificSchema" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.SpecificSchema">
+  SpecificSchema
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13087"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>SPECIFIC_SCHEMA</strong> NULL <strong>nvarchar(</strong></p>
+Specific name of the schema.<br><br> <strong> Important \*\</strong>* Do not use INFORMATION_SCHEMA views to determine the schema of an object. INFORMATION_SCHEMA views only represent a subset of the metadata of an object. The only reliable way to find the schema of an object is to query the <code>sys.objects</code> catalog view.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;SPECIFIC_SCHEMA&quot;)]
+[Nullable]
+public string? SpecificSchema { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_SqlDataAccess_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.SqlDataAccess*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_SqlDataAccess" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.SqlDataAccess">
+  SqlDataAccess
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13292"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>SQL_DATA_ACCESS</strong> NULL <strong>nvarchar(</strong></p>
+Returns one of the following values:<br><br> NONE = Function does not contain SQL.<br><br> CONTAINS = Function possibly contains SQL.<br><br> READS = Function possibly reads SQL data.<br><br> MODIFIES = Function possibly modifies SQL data.<br><br> Returns READS for all functions, and MODIFIES for all stored procedures.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;SQL_DATA_ACCESS&quot;)]
+[Nullable]
+public string? SqlDataAccess { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_SqlPath_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.SqlPath*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_SqlPath" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.SqlPath">
+  SqlPath
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13302"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>SQL_PATH</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;SQL_PATH&quot;)]
+[Nullable]
+public string? SqlPath { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_TypeUdtCatalog_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.TypeUdtCatalog*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_TypeUdtCatalog" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.TypeUdtCatalog">
+  TypeUdtCatalog
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13222"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>TYPE_UDT_CATALOG</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;TYPE_UDT_CATALOG&quot;)]
+[Nullable]
+public string? TypeUdtCatalog { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_TypeUdtName_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.TypeUdtName*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_TypeUdtName" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.TypeUdtName">
+  TypeUdtName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13232"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>TYPE_UDT_NAME</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;TYPE_UDT_NAME&quot;)]
+[Nullable]
+public string? TypeUdtName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_TypeUdtSchema_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.TypeUdtSchema*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_TypeUdtSchema" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.TypeUdtSchema">
+  TypeUdtSchema
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13227"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>TYPE_UDT_SCHEMA</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;TYPE_UDT_SCHEMA&quot;)]
+[Nullable]
+public string? TypeUdtSchema { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_UdtCatalog_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.UdtCatalog*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_UdtCatalog" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.UdtCatalog">
+  UdtCatalog
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>UDT_CATALOG</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;UDT_CATALOG&quot;)]
+[Nullable]
+public string? UdtCatalog { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_UdtName_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.UdtName*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_UdtName" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.UdtName">
+  UdtName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>UDT_NAME</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;UDT_NAME&quot;)]
+[Nullable]
+public string? UdtName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_UdtSchema_" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.UdtSchema*"></a>
+
+  <h3 id="linq2db_Tools_LinqToDB_Tools_DataProvider_SqlServer_Schemas_InformationSchema_Routine_UdtSchema" data-uid="linq2db.Tools.LinqToDB.Tools.DataProvider.SqlServer.Schemas.InformationSchema.Routine.UdtSchema">
+  UdtSchema
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB.Tools/DataProvider/SqlServer/Schemas/Schemas.generated.cs/#L13137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><strong>UDT_SCHEMA</strong> NULL <strong>nvarchar(</strong></p>
+NULL. Reserved for future use.
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Column(&quot;UDT_SCHEMA&quot;)]
+[Nullable]
+public string? UdtSchema { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
