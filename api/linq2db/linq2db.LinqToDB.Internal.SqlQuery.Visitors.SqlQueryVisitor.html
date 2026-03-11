@@ -128,10 +128,8 @@ Class SqlQueryVisitor  <a class="header-action link-secondary" title="View sourc
       <div><a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionOptimizerVisitor.html">SqlExpressionOptimizerVisitor</a></div>
       <div><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SelectQueryOptimizerVisitor.html">SelectQueryOptimizerVisitor</a></div>
       <div><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryCloneVisitorBase.html">SqlQueryCloneVisitorBase</a></div>
-      <div><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnNestingCorrector.html">SqlQueryColumnNestingCorrector</a></div>
       <div><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnUsageCollector.html">SqlQueryColumnUsageCollector</a></div>
       <div><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryConvertVisitorBase.html">SqlQueryConvertVisitorBase</a></div>
-      <div><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.html">SqlQueryOrderByOptimizer</a></div>
     </dd>
   </dl>
 
@@ -349,6 +347,9 @@ Class SqlQueryVisitor  <a class="header-action link-secondary" title="View sourc
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlBinaryExpression_LinqToDB_Internal_SqlQuery_SqlBinaryExpression_">QueryElementVisitor.VisitSqlBinaryExpression(SqlBinaryExpression)</a>
     </div>
     <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlUnaryExpression_LinqToDB_Internal_SqlQuery_SqlUnaryExpression_">QueryElementVisitor.VisitSqlUnaryExpression(SqlUnaryExpression)</a>
+    </div>
+    <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlObjectExpression_LinqToDB_Internal_SqlQuery_SqlObjectExpression_">QueryElementVisitor.VisitSqlObjectExpression(SqlObjectExpression)</a>
     </div>
     <div>
@@ -391,7 +392,7 @@ Class SqlQueryVisitor  <a class="header-action link-secondary" title="View sourc
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_CopyFields_System_Collections_Generic_IReadOnlyList_LinqToDB_Internal_SqlQuery_SqlField__">QueryElementVisitor.CopyFields(IReadOnlyList&lt;SqlField&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_CreateInvalidVisitModeException_System_String_">QueryElementVisitor.CreateInvalidVisitModeException(string)</a>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_ThrowInvalidVisitModeException_System_String_">QueryElementVisitor.ThrowInvalidVisitModeException(string)</a>
     </div>
     <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitElements__1___0___LinqToDB_Internal_SqlQuery_Visitors_VisitMode_">QueryElementVisitor.VisitElements&lt;T&gt;(T[], VisitMode)</a>
@@ -413,9 +414,6 @@ Class SqlQueryVisitor  <a class="header-action link-secondary" title="View sourc
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
     <dd>
-  <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.Common.Utils.html#linq2db_LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
-  </div>
   <div>
       <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
   </div>
@@ -503,7 +501,7 @@ Class SqlQueryVisitor  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_AddReplacements_System_Collections_Generic_IReadOnlyDictionary_LinqToDB_Internal_SqlQuery_IQueryElement_LinqToDB_Internal_SqlQuery_IQueryElement__" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.AddReplacements(System.Collections.Generic.IReadOnlyDictionary{LinqToDB.Internal.SqlQuery.IQueryElement,LinqToDB.Internal.SqlQuery.IQueryElement})">
   AddReplacements(IReadOnlyDictionary&lt;IQueryElement, IQueryElement&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L137"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds explicit replacement map.</p>
@@ -543,7 +541,7 @@ Class SqlQueryVisitor  <a class="header-action link-secondary" title="View sourc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void Cleanup()</code></pre>
+    <pre><code class="lang-csharp hljs">public override void Cleanup()</code></pre>
   </div>
 
 
@@ -562,7 +560,7 @@ Class SqlQueryVisitor  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_GetReplacement_LinqToDB_Internal_SqlQuery_IQueryElement_LinqToDB_Internal_SqlQuery_IQueryElement__" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.GetReplacement(LinqToDB.Internal.SqlQuery.IQueryElement,LinqToDB.Internal.SqlQuery.IQueryElement@)">
   GetReplacement(IQueryElement, out IQueryElement?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L153"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns replacement element for <code class="paramref">element</code> if it was registered as replaced.</p>
@@ -601,7 +599,7 @@ Class SqlQueryVisitor  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_GetReplacements_System_Collections_Generic_Dictionary_LinqToDB_Internal_SqlQuery_IQueryElement_LinqToDB_Internal_SqlQuery_IQueryElement__" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.GetReplacements(System.Collections.Generic.Dictionary{LinqToDB.Internal.SqlQuery.IQueryElement,LinqToDB.Internal.SqlQuery.IQueryElement})">
   GetReplacements(Dictionary&lt;IQueryElement, IQueryElement&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L167"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Writes registered replacement pairs to <code class="paramref">objectTree</code> dictionary.</p>
@@ -633,7 +631,7 @@ Class SqlQueryVisitor  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_GetTransformationInfo" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.GetTransformationInfo">
   GetTransformationInfo()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L129"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -664,7 +662,7 @@ Class SqlQueryVisitor  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_GetVisitMode_LinqToDB_Internal_SqlQuery_IQueryElement_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.GetVisitMode(LinqToDB.Internal.SqlQuery.IQueryElement)">
   GetVisitMode(IQueryElement)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L63"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets visit mode for query element.
@@ -702,7 +700,7 @@ Could be overridden to enable element visit mode, which differ from visitor-leve
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_NotifyReplaced_LinqToDB_Internal_SqlQuery_IQueryElement_LinqToDB_Internal_SqlQuery_IQueryElement_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.NotifyReplaced(LinqToDB.Internal.SqlQuery.IQueryElement,LinqToDB.Internal.SqlQuery.IQueryElement)">
   NotifyReplaced(IQueryElement, IQueryElement)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L122"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Remembers element replacement.</p>
@@ -741,7 +739,7 @@ Could be overridden to enable element visit mode, which differ from visitor-leve
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_ProcessElement_LinqToDB_Internal_SqlQuery_IQueryElement_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.ProcessElement(LinqToDB.Internal.SqlQuery.IQueryElement)">
   ProcessElement(IQueryElement)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Visits <code class="paramref">element</code> and correct it, if it contains old replaced elements.</p>
@@ -778,7 +776,7 @@ Could be overridden to enable element visit mode, which differ from visitor-leve
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_SetTransformationInfo_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_IVisitorTransformationInfo_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.SetTransformationInfo(LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.IVisitorTransformationInfo)">
   SetTransformationInfo(IVisitorTransformationInfo?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -809,7 +807,7 @@ Could be overridden to enable element visit mode, which differ from visitor-leve
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_Visit_LinqToDB_Internal_SqlQuery_IQueryElement_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.Visit(LinqToDB.Internal.SqlQuery.IQueryElement)">
   Visit(IQueryElement?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Visitor dispatch method.</p>
@@ -846,7 +844,7 @@ Could be overridden to enable element visit mode, which differ from visitor-leve
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_VisitCteClauseReference_LinqToDB_Internal_SqlQuery_CteClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.VisitCteClauseReference(LinqToDB.Internal.SqlQuery.CteClause)">
   VisitCteClauseReference(CteClause)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryVisitor.cs/#L111"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Main <a class="xref" href="LinqToDB.Internal.SqlQuery.CteClause.html">CteClause</a> visitor is <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitCteClause_LinqToDB_Internal_SqlQuery_CteClause_">VisitCteClause(CteClause)</a> and called for it from <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlWithClause.html">SqlWithClause</a>.
@@ -897,7 +895,7 @@ This by-ref visitor used for references from <a class="xref" href="LinqToDB.Inte
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2026 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

@@ -167,7 +167,7 @@ Class InformixSqlBuilder  <a class="header-action link-secondary" title="View so
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_SqlOptimizer">BasicSqlBuilder.SqlOptimizer</a>
     </div>
     <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_SkipAlias">BasicSqlBuilder.SkipAlias</a>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_AliasMode">BasicSqlBuilder.AliasMode</a>
     </div>
     <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_IsNestedJoinSupported">BasicSqlBuilder.IsNestedJoinSupported</a>
@@ -218,7 +218,7 @@ Class InformixSqlBuilder  <a class="header-action link-secondary" title="View so
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_FinalizeBuildQuery_LinqToDB_Internal_SqlQuery_SqlStatement_">BasicSqlBuilder.FinalizeBuildQuery(SqlStatement)</a>
     </div>
     <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_BuildSqlBuilder_LinqToDB_Internal_SqlQuery_SelectQuery_System_Int32_System_Boolean_">BasicSqlBuilder.BuildSqlBuilder(SelectQuery, int, bool)</a>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_BuildSqlBuilder_LinqToDB_Internal_SqlQuery_SelectQuery_System_Int32_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_ColumnAliasMode_">BasicSqlBuilder.BuildSqlBuilder(SelectQuery, int, BasicSqlBuilder.ColumnAliasMode)</a>
     </div>
     <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_WithStringBuilderBuildExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_">BasicSqlBuilder.WithStringBuilderBuildExpression(ISqlExpression)</a>
@@ -563,6 +563,9 @@ Class InformixSqlBuilder  <a class="header-action link-secondary" title="View so
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_BuildBinaryExpression_LinqToDB_Internal_SqlQuery_SqlBinaryExpression_">BasicSqlBuilder.BuildBinaryExpression(SqlBinaryExpression)</a>
     </div>
     <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_BuildUnaryExpression_LinqToDB_Internal_SqlQuery_SqlUnaryExpression_">BasicSqlBuilder.BuildUnaryExpression(SqlUnaryExpression)</a>
+    </div>
+    <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_BuildFunction_LinqToDB_Internal_SqlQuery_SqlFunction_">BasicSqlBuilder.BuildFunction(SqlFunction)</a>
     </div>
     <div>
@@ -570,6 +573,9 @@ Class InformixSqlBuilder  <a class="header-action link-secondary" title="View so
     </div>
     <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_BuildDataType_LinqToDB_DbDataType_System_Boolean_System_Boolean_">BasicSqlBuilder.BuildDataType(DbDataType, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_CorrectDecimalFacets_LinqToDB_DbDataType_System_Decimal_System_Boolean_">BasicSqlBuilder.CorrectDecimalFacets(DbDataType, decimal, bool)</a>
     </div>
     <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_GetPrecedence_LinqToDB_Internal_SqlQuery_ISqlPredicate_">BasicSqlBuilder.GetPrecedence(ISqlPredicate)</a>
@@ -711,9 +717,6 @@ Class InformixSqlBuilder  <a class="header-action link-secondary" title="View so
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
     <dd>
-  <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.Common.Utils.html#linq2db_LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
-  </div>
   <div>
       <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
   </div>
@@ -873,7 +876,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_SkipFormat" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.SkipFormat">
   SkipFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L104"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -908,7 +911,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildCommand_LinqToDB_Internal_SqlQuery_SqlStatement_System_Int32_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildCommand(LinqToDB.Internal.SqlQuery.SqlStatement,System.Int32)">
   BuildCommand(SqlStatement, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -941,7 +944,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildCreateTableCommand_LinqToDB_Internal_SqlQuery_SqlTable_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildCreateTableCommand(LinqToDB.Internal.SqlQuery.SqlTable)">
   BuildCreateTableCommand(SqlTable)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L295"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L318"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -972,7 +975,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildCreateTableFieldType_LinqToDB_Internal_SqlQuery_SqlField_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildCreateTableFieldType(LinqToDB.Internal.SqlQuery.SqlField)">
   BuildCreateTableFieldType(SqlField)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L202"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L218"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1003,7 +1006,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildCreateTablePrimaryKey_LinqToDB_Internal_SqlQuery_SqlCreateTableStatement_System_String_System_Collections_Generic_IEnumerable_System_String__" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildCreateTablePrimaryKey(LinqToDB.Internal.SqlQuery.SqlCreateTableStatement,System.String,System.Collections.Generic.IEnumerable{System.String})">
   BuildCreateTablePrimaryKey(SqlCreateTableStatement, string, IEnumerable&lt;string&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L222"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L238"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1038,7 +1041,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildDataTypeFromDataType_LinqToDB_DbDataType_System_Boolean_System_Boolean_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildDataTypeFromDataType(LinqToDB.DbDataType,System.Boolean,System.Boolean)">
   BuildDataTypeFromDataType(DbDataType, bool, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L126"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1074,7 +1077,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildDropTableStatement_LinqToDB_Internal_SqlQuery_SqlDropTableStatement_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildDropTableStatement(LinqToDB.Internal.SqlQuery.SqlDropTableStatement)">
   BuildDropTableStatement(SqlDropTableStatement)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L327"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L344"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1105,7 +1108,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildInListPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_InList_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildInListPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.InList)">
   BuildInListPredicate(InList)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L402"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L414"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1136,7 +1139,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildInSubQueryPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_InSubQuery_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildInSubQueryPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.InSubQuery)">
   BuildInSubQueryPredicate(InSubQuery)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L418"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L430"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1167,7 +1170,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildIsDistinctPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_IsDistinct_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildIsDistinctPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.IsDistinct)">
   BuildIsDistinctPredicate(IsDistinct)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L106"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1198,7 +1201,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildLikePredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_Like_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildLikePredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.Like)">
   BuildLikePredicate(Like)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L108"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1262,7 +1265,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildObjectName_System_Text_StringBuilder_LinqToDB_SqlQuery_SqlObjectName_LinqToDB_Internal_SqlProvider_ConvertType_System_Boolean_LinqToDB_TableOptions_System_Boolean_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildObjectName(System.Text.StringBuilder,LinqToDB.SqlQuery.SqlObjectName,LinqToDB.Internal.SqlProvider.ConvertType,System.Boolean,LinqToDB.TableOptions,System.Boolean)">
   BuildObjectName(StringBuilder, SqlObjectName, ConvertType, bool, TableOptions, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L231"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L247"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Writes database object name into provided <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.ISqlBuilder.html#LinqToDB_Internal_SqlProvider_ISqlBuilder_StringBuilder">StringBuilder</a> instance.</p>
@@ -1270,7 +1273,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override StringBuilder BuildObjectName(StringBuilder sb, SqlObjectName name, ConvertType objectType, bool escape, TableOptions tableOptions, bool withoutSuffix = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public override StringBuilder BuildObjectName(StringBuilder sb, SqlObjectName name, ConvertType objectType = ConvertType.NameToQueryTable, bool escape = true, TableOptions tableOptions = TableOptions.NotSet, bool withoutSuffix = false)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1285,7 +1288,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
     <dd><p>Type of database object, used to select proper name converter.</p>
 </dd>
     <dt><code>escape</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>If <code>true</code>, apply required escaping to name components. Must be <code>true</code> except rare cases when escaping is not needed.</p>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, apply required escaping to name components. Must be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> except rare cases when escaping is not needed.</p>
 </dd>
     <dt><code>tableOptions</code> <a class="xref" href="linq2db.LinqToDB.TableOptions.html">TableOptions</a></dt>
     <dd><p>Table options if called for table. Used to properly generate names for temporary tables.</p>
@@ -1316,7 +1319,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildParameter_LinqToDB_Internal_SqlQuery_SqlParameter_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildParameter(LinqToDB.Internal.SqlQuery.SqlParameter)">
   BuildParameter(SqlParameter)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L352"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L369"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1347,7 +1350,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildSelectClause_LinqToDB_Internal_SqlQuery_SelectQuery_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildSelectClause(LinqToDB.Internal.SqlQuery.SelectQuery)">
   BuildSelectClause(SelectQuery)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L82"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1376,16 +1379,16 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <a id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildSql_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildSql*"></a>
 
-  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildSql_System_Int32_LinqToDB_Internal_SqlQuery_SqlStatement_System_Text_StringBuilder_LinqToDB_Internal_SqlProvider_OptimizationContext_System_Int32_System_Boolean_LinqToDB_Internal_SqlQuery_NullabilityContext_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildSql(System.Int32,LinqToDB.Internal.SqlQuery.SqlStatement,System.Text.StringBuilder,LinqToDB.Internal.SqlProvider.OptimizationContext,System.Int32,System.Boolean,LinqToDB.Internal.SqlQuery.NullabilityContext)">
-  BuildSql(int, SqlStatement, StringBuilder, OptimizationContext, int, bool, NullabilityContext?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildSql_System_Int32_LinqToDB_Internal_SqlQuery_SqlStatement_System_Text_StringBuilder_LinqToDB_Internal_SqlProvider_OptimizationContext_System_Int32_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_ColumnAliasMode_LinqToDB_Internal_SqlQuery_NullabilityContext_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildSql(System.Int32,LinqToDB.Internal.SqlQuery.SqlStatement,System.Text.StringBuilder,LinqToDB.Internal.SqlProvider.OptimizationContext,System.Int32,LinqToDB.Internal.SqlProvider.BasicSqlBuilder.ColumnAliasMode,LinqToDB.Internal.SqlQuery.NullabilityContext)">
+  BuildSql(int, SqlStatement, StringBuilder, OptimizationContext, int, ColumnAliasMode, NullabilityContext?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L65"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void BuildSql(int commandNumber, SqlStatement statement, StringBuilder sb, OptimizationContext optimizationContext, int indent, bool skipAlias, NullabilityContext? nullabilityContext)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override void BuildSql(int commandNumber, SqlStatement statement, StringBuilder sb, OptimizationContext optimizationContext, int indent, BasicSqlBuilder.ColumnAliasMode aliasMode, NullabilityContext? nullabilityContext)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1400,7 +1403,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
     <dd></dd>
     <dt><code>indent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>skipAlias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dt><code>aliasMode</code> <a class="xref" href="LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html">BasicSqlBuilder</a>.<a class="xref" href="LinqToDB.Internal.SqlProvider.BasicSqlBuilder.ColumnAliasMode.html">ColumnAliasMode</a></dt>
     <dd></dd>
     <dt><code>nullabilityContext</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.NullabilityContext.html">NullabilityContext</a></dt>
     <dd></dd>
@@ -1421,7 +1424,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildSqlRow_LinqToDB_Internal_SqlQuery_SqlRowExpression_System_Boolean_System_Boolean_System_Boolean_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildSqlRow(LinqToDB.Internal.SqlQuery.SqlRowExpression,System.Boolean,System.Boolean,System.Boolean)">
   BuildSqlRow(SqlRowExpression, bool, bool, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L332"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L349"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1458,7 +1461,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildTruncateTable_LinqToDB_Internal_SqlQuery_SqlTruncateTableStatement_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildTruncateTable(LinqToDB.Internal.SqlQuery.SqlTruncateTableStatement)">
   BuildTruncateTable(SqlTruncateTableStatement)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1489,7 +1492,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_BuildTypedExpression_LinqToDB_DbDataType_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.BuildTypedExpression(LinqToDB.DbDataType,LinqToDB.Internal.SqlQuery.ISqlExpression)">
   BuildTypedExpression(DbDataType, ISqlExpression)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L280"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L303"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1558,7 +1561,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_Convert_System_Text_StringBuilder_System_String_LinqToDB_Internal_SqlProvider_ConvertType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.Convert(System.Text.StringBuilder,System.String,LinqToDB.Internal.SqlProvider.ConvertType)">
   Convert(StringBuilder, string, ConvertType)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L181"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1629,7 +1632,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_FirstFormat_LinqToDB_Internal_SqlQuery_SelectQuery_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.FirstFormat(LinqToDB.Internal.SqlQuery.SelectQuery)">
   FirstFormat(SelectQuery)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L103"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1665,7 +1668,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_GetProviderTypeName_LinqToDB_IDataContext_System_Data_Common_DbParameter_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.GetProviderTypeName(LinqToDB.IDataContext,System.Data.Common.DbParameter)">
   GetProviderTypeName(IDataContext, DbParameter)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L265"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L288"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1703,7 +1706,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Informix_InformixSqlBuilder_IsReserved_System_String_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Informix.InformixSqlBuilder.IsReserved(System.String)">
   IsReserved(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L347"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Informix/InformixSqlBuilder.cs/#L364"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1769,7 +1772,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>Returns <code>true</code>, if generated SQL should include type information for value at specified position, otherwise <code>false</code> returned.</p>
+    <dd><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, if generated SQL should include type information for value at specified position, otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> returned.</p>
 </dd>
   </dl>
 
@@ -1800,7 +1803,7 @@ IMPORTANT: as this property could return SQL, we don't escape it, so it should c
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2026 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

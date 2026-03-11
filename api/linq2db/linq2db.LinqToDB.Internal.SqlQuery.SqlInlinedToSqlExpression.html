@@ -89,7 +89,7 @@
 
 
   <h1 id="linq2db_LinqToDB_Internal_SqlQuery_SqlInlinedToSqlExpression" data-uid="linq2db.LinqToDB.Internal.SqlQuery.SqlInlinedToSqlExpression" class="text-break">
-Class SqlInlinedToSqlExpression  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/SqlInlinedToSqlExpression.cs/#L8"><i class="bi bi-code-slash"></i></a>
+Class SqlInlinedToSqlExpression  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/SqlInlinedToSqlExpression.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -161,9 +161,6 @@ Class SqlInlinedToSqlExpression  <a class="header-action link-secondary" title="
     <dt>Extension Methods</dt>
     <dd>
   <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.Common.Utils.html#linq2db_LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
-  </div>
-  <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.QueryHelper.html#linq2db_LinqToDB_Internal_SqlQuery_QueryHelper_CanBeEvaluated_LinqToDB_Internal_SqlQuery_IQueryElement_LinqToDB_Internal_SqlQuery_EvaluationContext_">QueryHelper.CanBeEvaluated(IQueryElement, EvaluationContext)</a>
   </div>
   <div>
@@ -231,9 +228,6 @@ Class SqlInlinedToSqlExpression  <a class="header-action link-secondary" title="
   </div>
   <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.QueryHelper.html#linq2db_LinqToDB_Internal_SqlQuery_QueryHelper_CanBeNullableOrUnknown_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_NullabilityContext_System_Boolean_">QueryHelper.CanBeNullableOrUnknown(ISqlExpression, NullabilityContext, bool)</a>
-  </div>
-  <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.QueryHelper.html#linq2db_LinqToDB_Internal_SqlQuery_QueryHelper_IsNullValue_LinqToDB_Internal_SqlQuery_ISqlExpression_">QueryHelper.IsNullValue(ISqlExpression)</a>
   </div>
   <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.QueryHelper.html#linq2db_LinqToDB_Internal_SqlQuery_QueryHelper_IsPredicate_LinqToDB_Internal_SqlQuery_ISqlExpression_">QueryHelper.IsPredicate(ISqlExpression)</a>
@@ -339,7 +333,7 @@ Class SqlInlinedToSqlExpression  <a class="header-action link-secondary" title="
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_SqlInlinedToSqlExpression__ctor_LinqToDB_Internal_SqlQuery_SqlParameter_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.SqlInlinedToSqlExpression.#ctor(LinqToDB.Internal.SqlQuery.SqlParameter,LinqToDB.Internal.SqlQuery.ISqlExpression)">
   SqlInlinedToSqlExpression(SqlParameter, ISqlExpression)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/SqlInlinedToSqlExpression.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/SqlInlinedToSqlExpression.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -376,7 +370,7 @@ Class SqlInlinedToSqlExpression  <a class="header-action link-secondary" title="
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_SqlInlinedToSqlExpression_ElementType" data-uid="linq2db.LinqToDB.Internal.SqlQuery.SqlInlinedToSqlExpression.ElementType">
   ElementType
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/SqlInlinedToSqlExpression.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/SqlInlinedToSqlExpression.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>AST node type.</p>
@@ -408,11 +402,48 @@ Class SqlInlinedToSqlExpression  <a class="header-action link-secondary" title="
 </h2>
 
 
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_SqlInlinedToSqlExpression_Accept_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.SqlInlinedToSqlExpression.Accept*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_SqlInlinedToSqlExpression_Accept_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.SqlInlinedToSqlExpression.Accept(LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor)">
+  Accept(QueryElementVisitor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/SqlInlinedToSqlExpression.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Visitor support.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IQueryElement Accept(QueryElementVisitor visitor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>visitor</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html">QueryElementVisitor</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="linq2db_LinqToDB_Internal_SqlQuery_SqlInlinedToSqlExpression_Equals_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.SqlInlinedToSqlExpression.Equals*"></a>
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_SqlInlinedToSqlExpression_Equals_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Func_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Boolean__" data-uid="linq2db.LinqToDB.Internal.SqlQuery.SqlInlinedToSqlExpression.Equals(LinqToDB.Internal.SqlQuery.ISqlExpression,System.Func{LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression,System.Boolean})">
   Equals(ISqlExpression, Func&lt;ISqlExpression, ISqlExpression, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/SqlInlinedToSqlExpression.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/SqlInlinedToSqlExpression.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -450,7 +481,7 @@ Class SqlInlinedToSqlExpression  <a class="header-action link-secondary" title="
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_SqlInlinedToSqlExpression_GetElementHashCode" data-uid="linq2db.LinqToDB.Internal.SqlQuery.SqlInlinedToSqlExpression.GetElementHashCode">
   GetElementHashCode()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/SqlInlinedToSqlExpression.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/SqlInlinedToSqlExpression.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -481,7 +512,7 @@ Class SqlInlinedToSqlExpression  <a class="header-action link-secondary" title="
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_SqlInlinedToSqlExpression_GetSqlExpression_LinqToDB_Internal_SqlQuery_EvaluationContext_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.SqlInlinedToSqlExpression.GetSqlExpression(LinqToDB.Internal.SqlQuery.EvaluationContext)">
   GetSqlExpression(EvaluationContext)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/SqlInlinedToSqlExpression.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/SqlInlinedToSqlExpression.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -517,7 +548,7 @@ Class SqlInlinedToSqlExpression  <a class="header-action link-secondary" title="
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_SqlInlinedToSqlExpression_ToString_LinqToDB_Internal_SqlQuery_QueryElementTextWriter_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.SqlInlinedToSqlExpression.ToString(LinqToDB.Internal.SqlQuery.QueryElementTextWriter)">
   ToString(QueryElementTextWriter)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/SqlInlinedToSqlExpression.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/SqlInlinedToSqlExpression.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Generates debug text representation of AST node.</p>
@@ -567,7 +598,7 @@ Class SqlInlinedToSqlExpression  <a class="header-action link-secondary" title="
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2026 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

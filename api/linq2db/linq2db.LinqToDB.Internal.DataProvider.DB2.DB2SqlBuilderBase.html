@@ -178,7 +178,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_SqlOptimizer">BasicSqlBuilder.SqlOptimizer</a>
     </div>
     <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_SkipAlias">BasicSqlBuilder.SkipAlias</a>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_AliasMode">BasicSqlBuilder.AliasMode</a>
     </div>
     <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_IsNestedJoinSupported">BasicSqlBuilder.IsNestedJoinSupported</a>
@@ -226,7 +226,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_FinalizeBuildQuery_LinqToDB_Internal_SqlQuery_SqlStatement_">BasicSqlBuilder.FinalizeBuildQuery(SqlStatement)</a>
     </div>
     <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_BuildSqlBuilder_LinqToDB_Internal_SqlQuery_SelectQuery_System_Int32_System_Boolean_">BasicSqlBuilder.BuildSqlBuilder(SelectQuery, int, bool)</a>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_BuildSqlBuilder_LinqToDB_Internal_SqlQuery_SelectQuery_System_Int32_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_ColumnAliasMode_">BasicSqlBuilder.BuildSqlBuilder(SelectQuery, int, BasicSqlBuilder.ColumnAliasMode)</a>
     </div>
     <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_CreateSqlBuilder">BasicSqlBuilder.CreateSqlBuilder()</a>
@@ -571,6 +571,9 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_BuildBinaryExpression_LinqToDB_Internal_SqlQuery_SqlBinaryExpression_">BasicSqlBuilder.BuildBinaryExpression(SqlBinaryExpression)</a>
     </div>
     <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_BuildUnaryExpression_LinqToDB_Internal_SqlQuery_SqlUnaryExpression_">BasicSqlBuilder.BuildUnaryExpression(SqlUnaryExpression)</a>
+    </div>
+    <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_BuildFunction_LinqToDB_Internal_SqlQuery_SqlFunction_">BasicSqlBuilder.BuildFunction(SqlFunction)</a>
     </div>
     <div>
@@ -578,6 +581,9 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
     </div>
     <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_BuildDataType_LinqToDB_DbDataType_System_Boolean_System_Boolean_">BasicSqlBuilder.BuildDataType(DbDataType, bool, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_CorrectDecimalFacets_LinqToDB_DbDataType_System_Decimal_System_Boolean_">BasicSqlBuilder.CorrectDecimalFacets(DbDataType, decimal, bool)</a>
     </div>
     <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html#linq2db_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_GetPrecedence_LinqToDB_Internal_SqlQuery_ISqlPredicate_">BasicSqlBuilder.GetPrecedence(ISqlPredicate)</a>
@@ -732,9 +738,6 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
     <dt>Extension Methods</dt>
     <dd>
   <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.Common.Utils.html#linq2db_LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
-  </div>
-  <div>
       <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
   </div>
   <div>
@@ -862,7 +865,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
   </h3>
 
   <div class="markdown level1 summary"><p>Identifies CTE clause location:</p>
-<ul><li><code>CteFirst = true</code> (default): WITH clause goes first in query</li><li><code>CteFirst = false</code>: WITH clause goes before SELECT</li></ul>
+<ul><li><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> (default): WITH clause goes first in query</li><li><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>: WITH clause goes before SELECT</li></ul>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -891,7 +894,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_OffsetFirst" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.OffsetFirst">
   OffsetFirst
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L144"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -990,7 +993,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_BuildCreateTableCommand_LinqToDB_Internal_SqlQuery_SqlTable_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.BuildCreateTableCommand(LinqToDB.Internal.SqlQuery.SqlTable)">
   BuildCreateTableCommand(SqlTable)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L318"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L340"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1021,7 +1024,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_BuildCreateTableIdentityAttribute1_LinqToDB_Internal_SqlQuery_SqlField_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.BuildCreateTableIdentityAttribute1(LinqToDB.Internal.SqlQuery.SqlField)">
   BuildCreateTableIdentityAttribute1(SqlField)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L244"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L252"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1052,7 +1055,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_BuildCreateTableNullAttribute_LinqToDB_Internal_SqlQuery_SqlField_LinqToDB_SqlQuery_DefaultNullable_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.BuildCreateTableNullAttribute(LinqToDB.Internal.SqlQuery.SqlField,LinqToDB.SqlQuery.DefaultNullable)">
   BuildCreateTableNullAttribute(SqlField, DefaultNullable)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L187"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1085,7 +1088,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_BuildCreateTablePrimaryKey_LinqToDB_Internal_SqlQuery_SqlCreateTableStatement_System_String_System_Collections_Generic_IEnumerable_System_String__" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.BuildCreateTablePrimaryKey(LinqToDB.Internal.SqlQuery.SqlCreateTableStatement,System.String,System.Collections.Generic.IEnumerable{System.String})">
   BuildCreateTablePrimaryKey(SqlCreateTableStatement, string, IEnumerable&lt;string&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L395"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L411"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1120,7 +1123,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_BuildDataTypeFromDataType_LinqToDB_DbDataType_System_Boolean_System_Boolean_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.BuildDataTypeFromDataType(LinqToDB.DbDataType,System.Boolean,System.Boolean)">
   BuildDataTypeFromDataType(DbDataType, bool, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L157"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1156,7 +1159,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_BuildDropTableStatement_LinqToDB_Internal_SqlQuery_SqlDropTableStatement_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.BuildDropTableStatement(LinqToDB.Internal.SqlQuery.SqlDropTableStatement)">
   BuildDropTableStatement(SqlDropTableStatement)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L294"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L309"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1187,7 +1190,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_BuildEmptyInsert_LinqToDB_Internal_SqlQuery_SqlInsertClause_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.BuildEmptyInsert(LinqToDB.Internal.SqlQuery.SqlInsertClause)">
   BuildEmptyInsert(SqlInsertClause)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L234"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L242"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1218,7 +1221,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_BuildEndCreateTableStatement_LinqToDB_Internal_SqlQuery_SqlCreateTableStatement_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.BuildEndCreateTableStatement(LinqToDB.Internal.SqlQuery.SqlCreateTableStatement)">
   BuildEndCreateTableStatement(SqlCreateTableStatement)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L368"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L384"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1249,7 +1252,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_BuildGetIdentity_LinqToDB_Internal_SqlQuery_SqlInsertClause_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.BuildGetIdentity(LinqToDB.Internal.SqlQuery.SqlInsertClause)">
   BuildGetIdentity(SqlInsertClause)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L122"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1280,7 +1283,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_BuildInsertOrUpdateQuery_LinqToDB_Internal_SqlQuery_SqlInsertOrUpdateStatement_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.BuildInsertOrUpdateQuery(LinqToDB.Internal.SqlQuery.SqlInsertOrUpdateStatement)">
   BuildInsertOrUpdateQuery(SqlInsertOrUpdateStatement)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L229"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L237"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1311,7 +1314,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_BuildObjectName_System_Text_StringBuilder_LinqToDB_SqlQuery_SqlObjectName_LinqToDB_Internal_SqlProvider_ConvertType_System_Boolean_LinqToDB_TableOptions_System_Boolean_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.BuildObjectName(System.Text.StringBuilder,LinqToDB.SqlQuery.SqlObjectName,LinqToDB.Internal.SqlProvider.ConvertType,System.Boolean,LinqToDB.TableOptions,System.Boolean)">
   BuildObjectName(StringBuilder, SqlObjectName, ConvertType, bool, TableOptions, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L249"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L257"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Writes database object name into provided <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.ISqlBuilder.html#LinqToDB_Internal_SqlProvider_ISqlBuilder_StringBuilder">StringBuilder</a> instance.</p>
@@ -1319,7 +1322,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override StringBuilder BuildObjectName(StringBuilder sb, SqlObjectName name, ConvertType objectType, bool escape, TableOptions tableOptions, bool withoutSuffix = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public override StringBuilder BuildObjectName(StringBuilder sb, SqlObjectName name, ConvertType objectType = ConvertType.NameToQueryTable, bool escape = true, TableOptions tableOptions = TableOptions.NotSet, bool withoutSuffix = false)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1334,7 +1337,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
     <dd><p>Type of database object, used to select proper name converter.</p>
 </dd>
     <dt><code>escape</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>If <code>true</code>, apply required escaping to name components. Must be <code>true</code> except rare cases when escaping is not needed.</p>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, apply required escaping to name components. Must be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> except rare cases when escaping is not needed.</p>
 </dd>
     <dt><code>tableOptions</code> <a class="xref" href="linq2db.LinqToDB.TableOptions.html">TableOptions</a></dt>
     <dd><p>Table options if called for table. Used to properly generate names for temporary tables.</p>
@@ -1365,7 +1368,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_BuildParameter_LinqToDB_Internal_SqlQuery_SqlParameter_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.BuildParameter(LinqToDB.Internal.SqlQuery.SqlParameter)">
   BuildParameter(SqlParameter)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L411"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L427"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1396,7 +1399,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_BuildSelectClause_LinqToDB_Internal_SqlQuery_SelectQuery_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.BuildSelectClause(LinqToDB.Internal.SqlQuery.SelectQuery)">
   BuildSelectClause(SelectQuery)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L132"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1425,8 +1428,8 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <a id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_BuildSql_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.BuildSql*"></a>
 
-  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_BuildSql_System_Int32_LinqToDB_Internal_SqlQuery_SqlStatement_System_Text_StringBuilder_LinqToDB_Internal_SqlProvider_OptimizationContext_System_Int32_System_Boolean_LinqToDB_Internal_SqlQuery_NullabilityContext_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.BuildSql(System.Int32,LinqToDB.Internal.SqlQuery.SqlStatement,System.Text.StringBuilder,LinqToDB.Internal.SqlProvider.OptimizationContext,System.Int32,System.Boolean,LinqToDB.Internal.SqlQuery.NullabilityContext)">
-  BuildSql(int, SqlStatement, StringBuilder, OptimizationContext, int, bool, NullabilityContext?)
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_BuildSql_System_Int32_LinqToDB_Internal_SqlQuery_SqlStatement_System_Text_StringBuilder_LinqToDB_Internal_SqlProvider_OptimizationContext_System_Int32_LinqToDB_Internal_SqlProvider_BasicSqlBuilder_ColumnAliasMode_LinqToDB_Internal_SqlQuery_NullabilityContext_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.BuildSql(System.Int32,LinqToDB.Internal.SqlQuery.SqlStatement,System.Text.StringBuilder,LinqToDB.Internal.SqlProvider.OptimizationContext,System.Int32,LinqToDB.Internal.SqlProvider.BasicSqlBuilder.ColumnAliasMode,LinqToDB.Internal.SqlQuery.NullabilityContext)">
+  BuildSql(int, SqlStatement, StringBuilder, OptimizationContext, int, ColumnAliasMode, NullabilityContext?)
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L85"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -1434,7 +1437,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void BuildSql(int commandNumber, SqlStatement statement, StringBuilder sb, OptimizationContext optimizationContext, int indent, bool skipAlias, NullabilityContext? nullabilityContext)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override void BuildSql(int commandNumber, SqlStatement statement, StringBuilder sb, OptimizationContext optimizationContext, int indent, BasicSqlBuilder.ColumnAliasMode aliasMode, NullabilityContext? nullabilityContext)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1449,7 +1452,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
     <dd></dd>
     <dt><code>indent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>skipAlias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dt><code>aliasMode</code> <a class="xref" href="LinqToDB.Internal.SqlProvider.BasicSqlBuilder.html">BasicSqlBuilder</a>.<a class="xref" href="LinqToDB.Internal.SqlProvider.BasicSqlBuilder.ColumnAliasMode.html">ColumnAliasMode</a></dt>
     <dd></dd>
     <dt><code>nullabilityContext</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.NullabilityContext.html">NullabilityContext</a></dt>
     <dd></dd>
@@ -1470,7 +1473,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_BuildStartCreateTableStatement_LinqToDB_Internal_SqlQuery_SqlCreateTableStatement_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.BuildStartCreateTableStatement(LinqToDB.Internal.SqlQuery.SqlCreateTableStatement)">
   BuildStartCreateTableStatement(SqlCreateTableStatement)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L351"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L367"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1568,7 +1571,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_Convert_System_Text_StringBuilder_System_String_LinqToDB_Internal_SqlProvider_ConvertType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.Convert(System.Text.StringBuilder,System.String,LinqToDB.Internal.SqlProvider.ConvertType)">
   Convert(StringBuilder, string, ConvertType)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L195"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1608,7 +1611,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_GetProviderTypeName_LinqToDB_IDataContext_System_Data_Common_DbParameter_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.GetProviderTypeName(LinqToDB.IDataContext,System.Data.Common.DbParameter)">
   GetProviderTypeName(IDataContext, DbParameter)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L276"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L291"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1676,7 +1679,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>Returns <code>true</code>, if generated SQL should include type information for value at specified position, otherwise <code>false</code> returned.</p>
+    <dd><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, if generated SQL should include type information for value at specified position, otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> returned.</p>
 </dd>
   </dl>
 
@@ -1694,7 +1697,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_LimitFormat_LinqToDB_Internal_SqlQuery_SelectQuery_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.LimitFormat(LinqToDB.Internal.SqlQuery.SelectQuery)">
   LimitFormat(SelectQuery)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L146"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1730,7 +1733,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_DB2_DB2SqlBuilderBase_OffsetFormat_LinqToDB_Internal_SqlQuery_SelectQuery_" data-uid="linq2db.LinqToDB.Internal.DataProvider.DB2.DB2SqlBuilderBase.OffsetFormat(LinqToDB.Internal.SqlQuery.SelectQuery)">
   OffsetFormat(SelectQuery)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/DB2/DB2SqlBuilderBase.cs/#L152"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1779,7 +1782,7 @@ Class DB2SqlBuilderBase  <a class="header-action link-secondary" title="View sou
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2026 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

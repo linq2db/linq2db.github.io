@@ -101,7 +101,7 @@ Interface ISqlServerSpecificQueryable&lt;TSource&gt;  <a class="header-action li
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ISqlServerSpecificQueryable&lt;out TSource&gt; : IQueryable&lt;TSource&gt;, IEnumerable&lt;TSource&gt;, IQueryable, IEnumerable</code></pre>
+    <pre><code class="lang-csharp hljs">public interface ISqlServerSpecificQueryable&lt;out TSource&gt; : IExpressionQuery&lt;TSource&gt;, IOrderedQueryable&lt;TSource&gt;, IQueryable&lt;TSource&gt;, IEnumerable&lt;TSource&gt;, IOrderedQueryable, IQueryable, IEnumerable, IQueryProviderAsync, IQueryProvider, IExpressionQuery</code></pre>
   </div>
 
 
@@ -119,16 +119,43 @@ Interface ISqlServerSpecificQueryable&lt;TSource&gt;  <a class="header-action li
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator">IEnumerable&lt;TSource&gt;.GetEnumerator()</a>
+      <a class="xref" href="linq2db.LinqToDB.Internal.Linq.IExpressionQuery-1.html#linq2db_LinqToDB_Internal_Linq_IExpressionQuery_1_Expression">IExpressionQuery&lt;TSource&gt;.Expression</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.iqueryable.expression">IQueryable.Expression</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator">IEnumerable&lt;TSource&gt;.GetEnumerator()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.iqueryable.elementtype">IQueryable.ElementType</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.iqueryable.provider">IQueryable.Provider</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.Async.IQueryProviderAsync.html#linq2db_LinqToDB_Internal_Async_IQueryProviderAsync_ExecuteAsyncEnumerable__1_System_Linq_Expressions_Expression_System_Threading_CancellationToken_">IQueryProviderAsync.ExecuteAsyncEnumerable&lt;TResult&gt;(Expression, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.Async.IQueryProviderAsync.html#linq2db_LinqToDB_Internal_Async_IQueryProviderAsync_ExecuteAsync__1_System_Linq_Expressions_Expression_System_Threading_CancellationToken_">IQueryProviderAsync.ExecuteAsync&lt;TResult&gt;(Expression, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.iqueryprovider.createquery#system-linq-iqueryprovider-createquery(system-linq-expressions-expression)">IQueryProvider.CreateQuery(Expression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.iqueryprovider.createquery#system-linq-iqueryprovider-createquery-1(system-linq-expressions-expression)">IQueryProvider.CreateQuery&lt;TElement&gt;(Expression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.iqueryprovider.execute#system-linq-iqueryprovider-execute(system-linq-expressions-expression)">IQueryProvider.Execute(Expression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.iqueryprovider.execute#system-linq-iqueryprovider-execute-1(system-linq-expressions-expression)">IQueryProvider.Execute&lt;TResult&gt;(Expression)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.Linq.IExpressionQuery.html#linq2db_LinqToDB_Internal_Linq_IExpressionQuery_DataContext">IExpressionQuery.DataContext</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.Linq.IExpressionQuery.html#linq2db_LinqToDB_Internal_Linq_IExpressionQuery_DebugView">IExpressionQuery.DebugView</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.Linq.IExpressionQuery.html#linq2db_LinqToDB_Internal_Linq_IExpressionQuery_GetSqlQueries_LinqToDB_SqlGenerationOptions_">IExpressionQuery.GetSqlQueries(SqlGenerationOptions)</a>
     </div>
   </dd></dl>
 
@@ -811,9 +838,6 @@ Interface ISqlServerSpecificQueryable&lt;TSource&gt;  <a class="header-action li
       <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_StringAggregate__1_System_Linq_IQueryable___0__System_String_System_Linq_Expressions_Expression_System_Func___0_System_String___">Sql.StringAggregate&lt;T&gt;(IQueryable&lt;T&gt;, string, Expression&lt;Func&lt;T, string?&gt;&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.Common.Utils.html#linq2db_LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
-  </div>
-  <div>
       <a class="xref" href="linq2db.LinqToDB.DataProvider.SqlServer.SqlServerHints.html#linq2db_LinqToDB_DataProvider_SqlServer_SqlServerHints_JoinHashHint__1_LinqToDB_DataProvider_SqlServer_ISqlServerSpecificQueryable___0__">SqlServerHints.JoinHashHint&lt;TSource&gt;(ISqlServerSpecificQueryable&lt;TSource&gt;)</a>
   </div>
   <div>
@@ -1067,7 +1091,7 @@ Interface ISqlServerSpecificQueryable&lt;TSource&gt;  <a class="header-action li
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2026 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

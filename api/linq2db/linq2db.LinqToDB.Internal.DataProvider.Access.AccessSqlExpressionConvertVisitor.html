@@ -89,7 +89,7 @@
 
 
   <h1 id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor" class="text-break">
-Class AccessSqlExpressionConvertVisitor  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L10"><i class="bi bi-code-slash"></i></a>
+Class AccessSqlExpressionConvertVisitor  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -277,6 +277,9 @@ Class AccessSqlExpressionConvertVisitor  <a class="header-action link-secondary"
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlBinaryExpression_LinqToDB_Internal_SqlQuery_SqlBinaryExpression_">SqlExpressionConvertVisitor.VisitSqlBinaryExpression(SqlBinaryExpression)</a>
     </div>
     <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlUnaryExpression_LinqToDB_Internal_SqlQuery_SqlUnaryExpression_">SqlExpressionConvertVisitor.VisitSqlUnaryExpression(SqlUnaryExpression)</a>
+    </div>
+    <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlInlinedSqlExpression_LinqToDB_Internal_SqlQuery_SqlInlinedSqlExpression_">SqlExpressionConvertVisitor.VisitSqlInlinedSqlExpression(SqlInlinedSqlExpression)</a>
     </div>
     <div>
@@ -314,9 +317,6 @@ Class AccessSqlExpressionConvertVisitor  <a class="header-action link-secondary"
     </div>
     <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertBetweenPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_Between_">SqlExpressionConvertVisitor.ConvertBetweenPredicate(SqlPredicate.Between)</a>
-    </div>
-    <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSqlBinaryExpression_LinqToDB_Internal_SqlQuery_SqlBinaryExpression_">SqlExpressionConvertVisitor.ConvertSqlBinaryExpression(SqlBinaryExpression)</a>
     </div>
     <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_ConvertSqlCondition_LinqToDB_Internal_SqlQuery_SqlConditionExpression_">SqlExpressionConvertVisitor.ConvertSqlCondition(SqlConditionExpression)</a>
@@ -616,7 +616,7 @@ Class AccessSqlExpressionConvertVisitor  <a class="header-action link-secondary"
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_CopyFields_System_Collections_Generic_IReadOnlyList_LinqToDB_Internal_SqlQuery_SqlField__">QueryElementVisitor.CopyFields(IReadOnlyList&lt;SqlField&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_CreateInvalidVisitModeException_System_String_">QueryElementVisitor.CreateInvalidVisitModeException(string)</a>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_ThrowInvalidVisitModeException_System_String_">QueryElementVisitor.ThrowInvalidVisitModeException(string)</a>
     </div>
     <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitElements__1___0___LinqToDB_Internal_SqlQuery_Visitors_VisitMode_">QueryElementVisitor.VisitElements&lt;T&gt;(T[], VisitMode)</a>
@@ -638,9 +638,6 @@ Class AccessSqlExpressionConvertVisitor  <a class="header-action link-secondary"
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
     <dd>
-  <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.Common.Utils.html#linq2db_LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
-  </div>
   <div>
       <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
   </div>
@@ -691,7 +688,7 @@ Class AccessSqlExpressionConvertVisitor  <a class="header-action link-secondary"
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor__ctor_System_Boolean_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.#ctor(System.Boolean)">
   AccessSqlExpressionConvertVisitor(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -726,7 +723,7 @@ Class AccessSqlExpressionConvertVisitor  <a class="header-action link-secondary"
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor_LikeCharactersToEscape" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.LikeCharactersToEscape">
   LikeCharactersToEscape
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Characters with special meaning in LIKE predicate (defined by <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeCharactersToEscape">LikeCharactersToEscape</a>) that should be escaped to be used as matched character.
@@ -759,11 +756,11 @@ Default: <code>[&quot;%&quot;, &quot;_&quot;, &quot;?&quot;, &quot;*&quot;, &quo
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor_LikeIsEscapeSupported" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.LikeIsEscapeSupported">
   LikeIsEscapeSupported
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Should be <code>true</code> for provider with <code>LIKE ... ESCAPE</code> modifier support.
-Default: <code>true</code>.</p>
+  <div class="markdown level1 summary"><p>Should be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> for provider with <code>LIKE ... ESCAPE</code> modifier support.
+Default: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -792,7 +789,7 @@ Default: <code>true</code>.</p>
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor_SupportsNullIf" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.SupportsNullIf">
   SupportsNullIf
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -827,7 +824,7 @@ Default: <code>true</code>.</p>
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor_ConvertCoalesce_LinqToDB_Internal_SqlQuery_SqlCoalesceExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.ConvertCoalesce(LinqToDB.Internal.SqlQuery.SqlCoalesceExpression)">
   ConvertCoalesce(SqlCoalesceExpression)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L132"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -863,7 +860,7 @@ Default: <code>true</code>.</p>
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor_ConvertConversion_LinqToDB_Internal_SqlQuery_SqlCastExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.ConvertConversion(LinqToDB.Internal.SqlQuery.SqlCastExpression)">
   ConvertConversion(SqlCastExpression)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L186"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L189"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Implements <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCastExpression.html">SqlCastExpression</a> conversion.</p>
@@ -900,7 +897,7 @@ Default: <code>true</code>.</p>
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor_ConvertLikePredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_Like_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.ConvertLikePredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.Like)">
   ConvertLikePredicate(Like)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -936,7 +933,7 @@ Default: <code>true</code>.</p>
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor_ConvertSearchStringPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_SearchString_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.ConvertSearchStringPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.SearchString)">
   ConvertSearchStringPredicate(SearchString)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -968,11 +965,47 @@ Default: <code>true</code>.</p>
 
 
 
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor_ConvertSqlBinaryExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.ConvertSqlBinaryExpression*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor_ConvertSqlBinaryExpression_LinqToDB_Internal_SqlQuery_SqlBinaryExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.ConvertSqlBinaryExpression(LinqToDB.Internal.SqlQuery.SqlBinaryExpression)">
+  ConvertSqlBinaryExpression(SqlBinaryExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L224"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IQueryElement ConvertSqlBinaryExpression(SqlBinaryExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlBinaryExpression.html">SqlBinaryExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor_ConvertSqlFunction_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.ConvertSqlFunction*"></a>
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor_ConvertSqlFunction_LinqToDB_Internal_SqlQuery_SqlFunction_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.ConvertSqlFunction(LinqToDB.Internal.SqlQuery.SqlFunction)">
   ConvertSqlFunction(SqlFunction)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L157"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1004,11 +1037,47 @@ Default: <code>true</code>.</p>
 
 
 
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor_ConvertSqlUnaryExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.ConvertSqlUnaryExpression*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor_ConvertSqlUnaryExpression_LinqToDB_Internal_SqlQuery_SqlUnaryExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.ConvertSqlUnaryExpression(LinqToDB.Internal.SqlQuery.SqlUnaryExpression)">
+  ConvertSqlUnaryExpression(SqlUnaryExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ISqlExpression ConvertSqlUnaryExpression(SqlUnaryExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlUnaryExpression.html">SqlUnaryExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor_EscapeLikeCharacters_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.EscapeLikeCharacters*"></a>
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor_EscapeLikeCharacters_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression__" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.EscapeLikeCharacters(LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression@)">
   EscapeLikeCharacters(ISqlExpression, ref ISqlExpression?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1046,10 +1115,10 @@ Default: <code>true</code>.</p>
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Access_AccessSqlExpressionConvertVisitor_EscapeLikePattern_System_String_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Access.AccessSqlExpressionConvertVisitor.EscapeLikePattern(System.String)">
   EscapeLikePattern(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Access/AccessSqlExpressionConvertVisitor.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Implements LIKE pattern escaping logic for provider without ESCAPE clause support (<a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeIsEscapeSupported">LikeIsEscapeSupported</a> is <code>false</code>).
+  <div class="markdown level1 summary"><p>Implements LIKE pattern escaping logic for provider without ESCAPE clause support (<a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeIsEscapeSupported">LikeIsEscapeSupported</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>).
 Default logic prefix characters from <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeCharactersToEscape">LikeCharactersToEscape</a> with <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_LikeEscapeCharacter">LikeEscapeCharacter</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1099,7 +1168,7 @@ Default logic prefix characters from <a class="xref" href="linq2db.LinqToDB.Inte
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2026 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

@@ -289,6 +289,9 @@ Class SapHanaSqlExpressionConvertVisitor  <a class="header-action link-secondary
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlBinaryExpression_LinqToDB_Internal_SqlQuery_SqlBinaryExpression_">SqlExpressionConvertVisitor.VisitSqlBinaryExpression(SqlBinaryExpression)</a>
     </div>
     <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlUnaryExpression_LinqToDB_Internal_SqlQuery_SqlUnaryExpression_">SqlExpressionConvertVisitor.VisitSqlUnaryExpression(SqlUnaryExpression)</a>
+    </div>
+    <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlExpressionConvertVisitor.html#linq2db_LinqToDB_Internal_SqlProvider_SqlExpressionConvertVisitor_VisitSqlInlinedSqlExpression_LinqToDB_Internal_SqlQuery_SqlInlinedSqlExpression_">SqlExpressionConvertVisitor.VisitSqlInlinedSqlExpression(SqlInlinedSqlExpression)</a>
     </div>
     <div>
@@ -634,7 +637,7 @@ Class SapHanaSqlExpressionConvertVisitor  <a class="header-action link-secondary
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_CopyFields_System_Collections_Generic_IReadOnlyList_LinqToDB_Internal_SqlQuery_SqlField__">QueryElementVisitor.CopyFields(IReadOnlyList&lt;SqlField&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_CreateInvalidVisitModeException_System_String_">QueryElementVisitor.CreateInvalidVisitModeException(string)</a>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_ThrowInvalidVisitModeException_System_String_">QueryElementVisitor.ThrowInvalidVisitModeException(string)</a>
     </div>
     <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitElements__1___0___LinqToDB_Internal_SqlQuery_Visitors_VisitMode_">QueryElementVisitor.VisitElements&lt;T&gt;(T[], VisitMode)</a>
@@ -656,9 +659,6 @@ Class SapHanaSqlExpressionConvertVisitor  <a class="header-action link-secondary
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
     <dd>
-  <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.Common.Utils.html#linq2db_LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
-  </div>
   <div>
       <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
   </div>
@@ -812,7 +812,7 @@ Default: <code>[&quot;%&quot;, &quot;_&quot;, &quot;?&quot;, &quot;*&quot;, &quo
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_SapHana_SapHanaSqlExpressionConvertVisitor_ConvertSqlBinaryExpression_LinqToDB_Internal_SqlQuery_SqlBinaryExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.SapHana.SapHanaSqlExpressionConvertVisitor.ConvertSqlBinaryExpression(LinqToDB.Internal.SqlQuery.SqlBinaryExpression)">
   ConvertSqlBinaryExpression(SqlBinaryExpression)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/SapHana/SapHanaSqlExpressionConvertVisitor.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/SapHana/SapHanaSqlExpressionConvertVisitor.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -844,11 +844,47 @@ Default: <code>[&quot;%&quot;, &quot;_&quot;, &quot;?&quot;, &quot;*&quot;, &quo
 
 
 
+  <a id="linq2db_LinqToDB_Internal_DataProvider_SapHana_SapHanaSqlExpressionConvertVisitor_ConvertSqlUnaryExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.SapHana.SapHanaSqlExpressionConvertVisitor.ConvertSqlUnaryExpression*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_SapHana_SapHanaSqlExpressionConvertVisitor_ConvertSqlUnaryExpression_LinqToDB_Internal_SqlQuery_SqlUnaryExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.SapHana.SapHanaSqlExpressionConvertVisitor.ConvertSqlUnaryExpression(LinqToDB.Internal.SqlQuery.SqlUnaryExpression)">
+  ConvertSqlUnaryExpression(SqlUnaryExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/SapHana/SapHanaSqlExpressionConvertVisitor.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ISqlExpression ConvertSqlUnaryExpression(SqlUnaryExpression element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlUnaryExpression.html">SqlUnaryExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="linq2db_LinqToDB_Internal_DataProvider_SapHana_SapHanaSqlExpressionConvertVisitor_WrapColumnExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.SapHana.SapHanaSqlExpressionConvertVisitor.WrapColumnExpression*"></a>
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_SapHana_SapHanaSqlExpressionConvertVisitor_WrapColumnExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.SapHana.SapHanaSqlExpressionConvertVisitor.WrapColumnExpression(LinqToDB.Internal.SqlQuery.ISqlExpression)">
   WrapColumnExpression(ISqlExpression)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/SapHana/SapHanaSqlExpressionConvertVisitor.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/SapHana/SapHanaSqlExpressionConvertVisitor.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -897,7 +933,7 @@ Default: <code>[&quot;%&quot;, &quot;_&quot;, &quot;?&quot;, &quot;*&quot;, &quo
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2026 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

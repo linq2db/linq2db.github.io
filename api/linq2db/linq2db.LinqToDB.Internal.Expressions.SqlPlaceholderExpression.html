@@ -101,7 +101,7 @@ Class SqlPlaceholderExpression  <a class="header-action link-secondary" title="V
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class SqlPlaceholderExpression : Expression</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class SqlPlaceholderExpression : Expression, IEquatable&lt;SqlPlaceholderExpression&gt;</code></pre>
   </div>
 
 
@@ -116,6 +116,12 @@ Class SqlPlaceholderExpression  <a class="header-action link-secondary" title="V
     </dd>
   </dl>
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LinqToDB.Internal.Expressions.SqlPlaceholderExpression.html">SqlPlaceholderExpression</a>&gt;</div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
@@ -1066,6 +1072,9 @@ Class SqlPlaceholderExpression  <a class="header-action link-secondary" title="V
     <dt>Extension Methods</dt>
     <dd>
   <div>
+      <a class="xref" href="linq2db.LinqToDB.Expressions.ExpressionExtensions.html#linq2db_LinqToDB_Expressions_ExpressionExtensions_Find_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Boolean__">ExpressionExtensions.Find(Expression?, Func&lt;Expression, bool&gt;)</a>
+  </div>
+  <div>
       <a class="xref" href="linq2db.LinqToDB.Expressions.ExpressionExtensions.html#linq2db_LinqToDB_Expressions_ExpressionExtensions_Find_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression_">ExpressionExtensions.Find(Expression?, Expression)</a>
   </div>
   <div>
@@ -1102,6 +1111,12 @@ Class SqlPlaceholderExpression  <a class="header-action link-secondary" title="V
       <a class="xref" href="linq2db.LinqToDB.Expressions.ExpressionExtensions.html#linq2db_LinqToDB_Expressions_ExpressionExtensions_Transform__1_System_Linq_Expressions_Expression___0_System_Func___0_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression__">ExpressionExtensions.Transform&lt;TContext&gt;(Expression?, TContext, Func&lt;TContext, Expression, Expression&gt;)</a>
   </div>
   <div>
+      <a class="xref" href="linq2db.LinqToDB.Expressions.ExpressionExtensions.html#linq2db_LinqToDB_Expressions_ExpressionExtensions_Visit_System_Linq_Expressions_Expression_System_Action_System_Linq_Expressions_Expression__">ExpressionExtensions.Visit(Expression, Action&lt;Expression&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Expressions.ExpressionExtensions.html#linq2db_LinqToDB_Expressions_ExpressionExtensions_Visit_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Boolean__">ExpressionExtensions.Visit(Expression, Func&lt;Expression, bool&gt;)</a>
+  </div>
+  <div>
       <a class="xref" href="linq2db.LinqToDB.Expressions.ExpressionExtensions.html#linq2db_LinqToDB_Expressions_ExpressionExtensions_Visit__1_System_Linq_Expressions_Expression___0_System_Action___0_System_Linq_Expressions_Expression__">ExpressionExtensions.Visit&lt;TContext&gt;(Expression, TContext, Action&lt;TContext, Expression&gt;)</a>
   </div>
   <div>
@@ -1112,9 +1127,6 @@ Class SqlPlaceholderExpression  <a class="header-action link-secondary" title="V
   </div>
   <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.Expressions.ExpressionEvaluator.html#linq2db_LinqToDB_Internal_Expressions_ExpressionEvaluator_EvaluateExpression__1_System_Linq_Expressions_Expression_">ExpressionEvaluator.EvaluateExpression&lt;T&gt;(Expression?)</a>
-  </div>
-  <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.Common.Utils.html#linq2db_LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
   </div>
   <div>
       <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
@@ -1500,7 +1512,7 @@ Class SqlPlaceholderExpression  <a class="header-action link-secondary" title="V
 
   <h3 id="linq2db_LinqToDB_Internal_Expressions_SqlPlaceholderExpression_Accept_System_Linq_Expressions_ExpressionVisitor_" data-uid="linq2db.LinqToDB.Internal.Expressions.SqlPlaceholderExpression.Accept(System.Linq.Expressions.ExpressionVisitor)">
   Accept(ExpressionVisitor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Expressions/SqlPlaceholderExpression.cs/#L256"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Expressions/SqlPlaceholderExpression.cs/#L258"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Dispatches to the specific visit method for this node type. For example, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.methodcallexpression">MethodCallExpression</a> calls the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitmethodcall">VisitMethodCall(MethodCallExpression)</a>.</p>
@@ -1538,27 +1550,30 @@ Class SqlPlaceholderExpression  <a class="header-action link-secondary" title="V
   <a id="linq2db_LinqToDB_Internal_Expressions_SqlPlaceholderExpression_Equals_" data-uid="linq2db.LinqToDB.Internal.Expressions.SqlPlaceholderExpression.Equals*"></a>
 
   <h3 id="linq2db_LinqToDB_Internal_Expressions_SqlPlaceholderExpression_Equals_LinqToDB_Internal_Expressions_SqlPlaceholderExpression_" data-uid="linq2db.LinqToDB.Internal.Expressions.SqlPlaceholderExpression.Equals(LinqToDB.Internal.Expressions.SqlPlaceholderExpression)">
-  Equals(SqlPlaceholderExpression)
+  Equals(SqlPlaceholderExpression?)
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Expressions/SqlPlaceholderExpression.cs/#L204"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Indicates whether the current object is equal to another object of the same type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Equals(SqlPlaceholderExpression other)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool Equals(SqlPlaceholderExpression? other)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>other</code> <a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlPlaceholderExpression.html">SqlPlaceholderExpression</a></dt>
-    <dd></dd>
+    <dd><p>An object to compare with this object.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>true if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, false.</p>
+</dd>
   </dl>
 
 
@@ -1575,7 +1590,7 @@ Class SqlPlaceholderExpression  <a class="header-action link-secondary" title="V
 
   <h3 id="linq2db_LinqToDB_Internal_Expressions_SqlPlaceholderExpression_Equals_System_Object_" data-uid="linq2db.LinqToDB.Internal.Expressions.SqlPlaceholderExpression.Equals(System.Object)">
   Equals(object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Expressions/SqlPlaceholderExpression.cs/#L212"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Expressions/SqlPlaceholderExpression.cs/#L214"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Determines whether the specified object is equal to the current object.</p>
@@ -1614,7 +1629,7 @@ Class SqlPlaceholderExpression  <a class="header-action link-secondary" title="V
 
   <h3 id="linq2db_LinqToDB_Internal_Expressions_SqlPlaceholderExpression_GetHashCode" data-uid="linq2db.LinqToDB.Internal.Expressions.SqlPlaceholderExpression.GetHashCode">
   GetHashCode()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Expressions/SqlPlaceholderExpression.cs/#L232"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Expressions/SqlPlaceholderExpression.cs/#L234"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
@@ -1922,7 +1937,7 @@ Class SqlPlaceholderExpression  <a class="header-action link-secondary" title="V
 
   <h3 id="linq2db_LinqToDB_Internal_Expressions_SqlPlaceholderExpression_WithType_System_Type_" data-uid="linq2db.LinqToDB.Internal.Expressions.SqlPlaceholderExpression.WithType(System.Type)">
   WithType(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Expressions/SqlPlaceholderExpression.cs/#L242"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Expressions/SqlPlaceholderExpression.cs/#L244"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1971,7 +1986,7 @@ Class SqlPlaceholderExpression  <a class="header-action link-secondary" title="V
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2026 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

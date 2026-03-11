@@ -89,7 +89,7 @@
 
 
   <h1 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer" class="text-break">
-Class SqlQueryOrderByOptimizer  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L8"><i class="bi bi-code-slash"></i></a>
+Class SqlQueryOrderByOptimizer  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -101,7 +101,7 @@ Class SqlQueryOrderByOptimizer  <a class="header-action link-secondary" title="V
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class SqlQueryOrderByOptimizer : SqlQueryVisitor</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class SqlQueryOrderByOptimizer : QueryElementVisitor</code></pre>
   </div>
 
 
@@ -112,7 +112,6 @@ Class SqlQueryOrderByOptimizer  <a class="header-action link-secondary" title="V
     <dd>
       <div><span class="xref">object</span></div>
       <div><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html">QueryElementVisitor</a></div>
-      <div><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html">SqlQueryVisitor</a></div>
       <div><span class="xref">SqlQueryOrderByOptimizer</span></div>
     </dd>
   </dl>
@@ -123,31 +122,22 @@ Class SqlQueryOrderByOptimizer  <a class="header-action link-secondary" title="V
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_Visit_LinqToDB_Internal_SqlQuery_IQueryElement_">SqlQueryVisitor.Visit(IQueryElement)</a>
-    </div>
-    <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_GetVisitMode_LinqToDB_Internal_SqlQuery_IQueryElement_">SqlQueryVisitor.GetVisitMode(IQueryElement)</a>
-    </div>
-    <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_ProcessElement_LinqToDB_Internal_SqlQuery_IQueryElement_">SqlQueryVisitor.ProcessElement(IQueryElement)</a>
-    </div>
-    <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_NotifyReplaced_LinqToDB_Internal_SqlQuery_IQueryElement_LinqToDB_Internal_SqlQuery_IQueryElement_">SqlQueryVisitor.NotifyReplaced(IQueryElement, IQueryElement)</a>
-    </div>
-    <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_GetReplacements_System_Collections_Generic_Dictionary_LinqToDB_Internal_SqlQuery_IQueryElement_LinqToDB_Internal_SqlQuery_IQueryElement__">SqlQueryVisitor.GetReplacements(Dictionary&lt;IQueryElement, IQueryElement&gt;)</a>
-    </div>
-    <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitMode">QueryElementVisitor.VisitMode</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_GetVisitMode_LinqToDB_Internal_SqlQuery_IQueryElement_">QueryElementVisitor.GetVisitMode(IQueryElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_NotifyReplaced_LinqToDB_Internal_SqlQuery_IQueryElement_LinqToDB_Internal_SqlQuery_IQueryElement_">QueryElementVisitor.NotifyReplaced(IQueryElement, IQueryElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#linq2db_LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_Visit_LinqToDB_Internal_SqlQuery_IQueryElement_">QueryElementVisitor.Visit(IQueryElement)</a>
     </div>
   </dd></dl>
 
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
     <dd>
-  <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.Common.Utils.html#linq2db_LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
-  </div>
   <div>
       <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
   </div>
@@ -198,7 +188,7 @@ Class SqlQueryOrderByOptimizer  <a class="header-action link-secondary" title="V
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer__ctor" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.#ctor">
   SqlQueryOrderByOptimizer()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -228,7 +218,7 @@ Class SqlQueryOrderByOptimizer  <a class="header-action link-secondary" title="V
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_IsOptimized" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.IsOptimized">
   IsOptimized
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -236,37 +226,6 @@ Class SqlQueryOrderByOptimizer  <a class="header-action link-secondary" title="V
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsOptimized { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_NeedsNestingUpdate_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.NeedsNestingUpdate*"></a>
-
-  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_NeedsNestingUpdate" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.NeedsNestingUpdate">
-  NeedsNestingUpdate
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L17"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool NeedsNestingUpdate { get; }</code></pre>
   </div>
 
 
@@ -294,7 +253,7 @@ Class SqlQueryOrderByOptimizer  <a class="header-action link-secondary" title="V
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_Cleanup" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.Cleanup">
   Cleanup()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Resets visitor to initial state.</p>
@@ -319,16 +278,16 @@ Class SqlQueryOrderByOptimizer  <a class="header-action link-secondary" title="V
 
   <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_OptimizeOrderBy_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.OptimizeOrderBy*"></a>
 
-  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_OptimizeOrderBy_LinqToDB_Internal_SqlQuery_IQueryElement_LinqToDB_Internal_SqlProvider_SqlProviderFlags_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.OptimizeOrderBy(LinqToDB.Internal.SqlQuery.IQueryElement,LinqToDB.Internal.SqlProvider.SqlProviderFlags)">
-  OptimizeOrderBy(IQueryElement, SqlProviderFlags)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_OptimizeOrderBy_LinqToDB_Internal_SqlQuery_IQueryElement_LinqToDB_Internal_SqlProvider_SqlProviderFlags_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnNestingCorrector_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.OptimizeOrderBy(LinqToDB.Internal.SqlQuery.IQueryElement,LinqToDB.Internal.SqlProvider.SqlProviderFlags,LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnNestingCorrector)">
+  OptimizeOrderBy(IQueryElement, SqlProviderFlags, SqlQueryColumnNestingCorrector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void OptimizeOrderBy(IQueryElement element, SqlProviderFlags providerFlags)</code></pre>
+    <pre><code class="lang-csharp hljs">public void OptimizeOrderBy(IQueryElement element, SqlProviderFlags providerFlags, SqlQueryColumnNestingCorrector columnNestingCorrector)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -336,6 +295,8 @@ Class SqlQueryOrderByOptimizer  <a class="header-action link-secondary" title="V
     <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
     <dd></dd>
     <dt><code>providerFlags</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlProviderFlags.html">SqlProviderFlags</a></dt>
+    <dd></dd>
+    <dt><code>columnNestingCorrector</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnNestingCorrector.html">SqlQueryColumnNestingCorrector</a></dt>
     <dd></dd>
   </dl>
 
@@ -354,7 +315,7 @@ Class SqlQueryOrderByOptimizer  <a class="header-action link-secondary" title="V
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitCteClause_LinqToDB_Internal_SqlQuery_CteClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitCteClause(LinqToDB.Internal.SqlQuery.CteClause)">
   VisitCteClause(CteClause)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L271"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L246"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Visitor of <a class="xref" href="LinqToDB.Internal.SqlQuery.CteClause.html">CteClause</a> definition from <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlWithClause.html">SqlWithClause</a> visitor (owner).
@@ -392,7 +353,7 @@ For visitor of <a class="xref" href="LinqToDB.Internal.SqlQuery.CteClause.html">
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitExistsPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_Exists_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitExistsPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.Exists)">
   VisitExistsPredicate(Exists)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L261"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -424,194 +385,11 @@ For visitor of <a class="xref" href="LinqToDB.Internal.SqlQuery.CteClause.html">
 
 
 
-  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitInSubQueryPredicate_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitInSubQueryPredicate*"></a>
-
-  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitInSubQueryPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_InSubQuery_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitInSubQueryPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.InSubQuery)">
-  VisitInSubQueryPredicate(InSubQuery)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L284"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitInSubQueryPredicate(SqlPredicate.InSubQuery predicate)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>predicate</code> <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.html">SqlPredicate</a>.<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlPredicate.InSubQuery.html">InSubQuery</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitSqlColumnExpression_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitSqlColumnExpression*"></a>
-
-  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitSqlColumnExpression_LinqToDB_Internal_SqlQuery_SqlColumn_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitSqlColumnExpression(LinqToDB.Internal.SqlQuery.SqlColumn,LinqToDB.Internal.SqlQuery.ISqlExpression)">
-  VisitSqlColumnExpression(SqlColumn, ISqlExpression)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L258"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Visit of column expression from owner table. For column references visitor see <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlColumnReference_LinqToDB_Internal_SqlQuery_SqlColumn_">VisitSqlColumnReference(SqlColumn)</a></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override ISqlExpression VisitSqlColumnExpression(SqlColumn column, ISqlExpression expression)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>column</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlColumn.html">SqlColumn</a></dt>
-    <dd></dd>
-    <dt><code>expression</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitSqlFromClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitSqlFromClause*"></a>
-
-  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitSqlFromClause_LinqToDB_Internal_SqlQuery_SqlFromClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitSqlFromClause(LinqToDB.Internal.SqlQuery.SqlFromClause)">
-  VisitSqlFromClause(SqlFromClause)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L213"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlFromClause(SqlFromClause element)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlFromClause.html">SqlFromClause</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitSqlGroupByClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitSqlGroupByClause*"></a>
-
-  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitSqlGroupByClause_LinqToDB_Internal_SqlQuery_SqlGroupByClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitSqlGroupByClause(LinqToDB.Internal.SqlQuery.SqlGroupByClause)">
-  VisitSqlGroupByClause(SqlGroupByClause)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L245"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlGroupByClause(SqlGroupByClause element)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlGroupByClause.html">SqlGroupByClause</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitSqlJoinedTable_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitSqlJoinedTable*"></a>
-
-  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitSqlJoinedTable_LinqToDB_Internal_SqlQuery_SqlJoinedTable_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitSqlJoinedTable(LinqToDB.Internal.SqlQuery.SqlJoinedTable)">
-  VisitSqlJoinedTable(SqlJoinedTable)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L111"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlJoinedTable(SqlJoinedTable element)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlJoinedTable.html">SqlJoinedTable</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitSqlQuery_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitSqlQuery*"></a>
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitSqlQuery_LinqToDB_Internal_SqlQuery_SelectQuery_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitSqlQuery(LinqToDB.Internal.SqlQuery.SelectQuery)">
   VisitSqlQuery(SelectQuery)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L148"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -624,78 +402,6 @@ For visitor of <a class="xref" href="LinqToDB.Internal.SqlQuery.CteClause.html">
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>selectQuery</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SelectQuery.html">SelectQuery</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitSqlSetOperator_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitSqlSetOperator*"></a>
-
-  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitSqlSetOperator_LinqToDB_Internal_SqlQuery_SqlSetOperator_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitSqlSetOperator(LinqToDB.Internal.SqlQuery.SqlSetOperator)">
-  VisitSqlSetOperator(SqlSetOperator)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L77"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlSetOperator(SqlSetOperator element)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlSetOperator.html">SqlSetOperator</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitSqlWhereClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitSqlWhereClause*"></a>
-
-  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryOrderByOptimizer_VisitSqlWhereClause_LinqToDB_Internal_SqlQuery_SqlWhereClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryOrderByOptimizer.VisitSqlWhereClause(LinqToDB.Internal.SqlQuery.SqlWhereClause)">
-  VisitSqlWhereClause(SqlWhereClause)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryOrderByOptimizer.cs/#L232"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlWhereClause(SqlWhereClause element)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlWhereClause.html">SqlWhereClause</a></dt>
     <dd></dd>
   </dl>
 
@@ -732,7 +438,7 @@ For visitor of <a class="xref" href="LinqToDB.Internal.SqlQuery.CteClause.html">
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2026 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>

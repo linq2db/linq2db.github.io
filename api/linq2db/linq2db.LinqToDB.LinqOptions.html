@@ -130,9 +130,6 @@ Class LinqOptions  <a class="header-action link-secondary" title="View source" h
     <dt>Extension Methods</dt>
     <dd>
   <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.Common.Utils.html#linq2db_LinqToDB_Internal_Common_Utils_IsNullValue_System_Object_">Utils.IsNullValue(object?)</a>
-  </div>
-  <div>
       <a class="xref" href="linq2db.LinqToDB.DataOptionsExtensions.html#linq2db_LinqToDB_DataOptionsExtensions_WithCacheSlidingExpiration_LinqToDB_LinqOptions_System_Nullable_System_TimeSpan__">DataOptionsExtensions.WithCacheSlidingExpiration(LinqOptions, TimeSpan?)</a>
   </div>
   <div>
@@ -259,17 +256,17 @@ Class LinqOptions  <a class="header-action link-secondary" title="View source" h
     <dt><code>PreloadGroups</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Controls how group data for LINQ queries ended with GroupBy will be loaded:</p>
 <ul>
-<li>if <code>true</code> - group data will be loaded together with main query, resulting in 1 + N queries, where N - number of groups;</li>
-<li>if <code>false</code> - group data will be loaded when you call enumerator for specific group <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.igrouping-2">IGrouping&lt;TKey, TElement&gt;</a>.
-Default value: <code>false</code>.</li>
+<li>if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> - group data will be loaded together with main query, resulting in 1 + N queries, where N - number of groups;</li>
+<li>if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> - group data will be loaded when you call enumerator for specific group <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.igrouping-2">IGrouping&lt;TKey, TElement&gt;</a>.
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</li>
 </ul>
 </dd>
     <dt><code>IgnoreEmptyUpdate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Controls behavior of linq2db when there is no updateable fields in Update query:</p>
 <ul>
-<li>if <code>true</code> - query not executed and Update operation returns 0 as number of affected records;</li>
-<li>if <code>false</code> - <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown.
-Default value: <code>false</code>.</li>
+<li>if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> - query not executed and Update operation returns 0 as number of affected records;</li>
+<li>if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> - <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown.
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</li>
 </ul>
 </dd>
     <dt><code>GenerateExpressionTest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
@@ -278,19 +275,19 @@ This option could be useful for issue reporting, when you need to provide reprod
 Test file will be placed to <code>linq2db</code> subfolder of temp folder and exact file path will be logged
 to data connection tracing infrastructure.
 See <a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_TraceSwitch">TraceSwitch</a> for more details.
-Default value: <code>false</code>.</p>
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </dd>
     <dt><code>TraceMapperExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Enables logging of generated mapping expression to data connection tracing infrastructure.
 See <a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_TraceSwitch">TraceSwitch</a> for more details.
-Default value: <code>false</code>.</p>
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </dd>
     <dt><code>ConcatenateOrderBy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Controls behavior, when LINQ query chain contains multiple <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.queryable.orderby#system-linq-queryable-orderby-2(system-linq-iqueryable((-0))-system-linq-expressions-expression((system-func((-0-1)))))">OrderBy&lt;TSource, TKey&gt;(IQueryable&lt;TSource&gt;, Expression&lt;Func&lt;TSource, TKey&gt;&gt;)</a> or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.queryable.orderbydescending#system-linq-queryable-orderbydescending-2(system-linq-iqueryable((-0))-system-linq-expressions-expression((system-func((-0-1)))))">OrderByDescending&lt;TSource, TKey&gt;(IQueryable&lt;TSource&gt;, Expression&lt;Func&lt;TSource, TKey&gt;&gt;)</a> calls:</p>
 <ul>
-<li>if <code>true</code> - non-first OrderBy* call will be treated as ThenBy* call;</li>
-<li>if <code>false</code> - OrderBy* call will discard sort specifications, added by previous OrderBy* and ThenBy* calls.
-Default value: <code>false</code>.</li>
+<li>if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> - non-first OrderBy* call will be treated as ThenBy* call;</li>
+<li>if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> - OrderBy* call will discard sort specifications, added by previous OrderBy* and ThenBy* calls.
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</li>
 </ul>
 </dd>
     <dt><code>OptimizeJoins</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
@@ -300,7 +297,7 @@ Attempted optimizations:</p>
 <li>removes duplicate joins by unique target table key;</li>
 <li>removes self-joins by unique key;</li>
 <li>removes left joins if joined table is not used in query.
-Default value: <code>true</code>.</li>
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</li>
 </ul>
 </dd>
     <dt><code>CompareNulls</code> <a class="xref" href="linq2db.LinqToDB.CompareNulls.html">CompareNulls</a></dt>
@@ -341,9 +338,9 @@ SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code><
     <dt><code>GuardGrouping</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><summary>
 Controls behavior of LINQ query, which ends with GroupBy call.
-- if <code>true</code> - <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown for such queries;
-- if <code>false</code> - eager loading used.
-Default value: <code>true</code>.
+- if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> - <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown for such queries;
+- if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> - eager loading used.
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
 </summary>
 <remarks>
 <a href="https://github.com/linq2db/linq2db/issues/365">More details</a>.
@@ -358,7 +355,7 @@ This cache reduces time, required for query parsing but have several side-effect
 <p></p>
 - cache access synchronization could lead to bigger latencies than it saves.
 <p></p>
-Default value: <code>false</code>.
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
 <p></p>
 It is not recommended to enable this option as it could lead to severe slowdown. Better approach will be
 to use <a class="xref" href="LinqToDB.Linq.NoLinqCache.html">NoLinqCache</a> scope around queries, that produce severe memory leaks you need to fix.
@@ -372,31 +369,31 @@ Default value is 1 hour.</p>
 </dd>
     <dt><code>PreferApply</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Used to generate CROSS APPLY or OUTER APPLY if possible.
-Default value: <code>true</code>.</p>
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </dd>
     <dt><code>KeepDistinctOrdered</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Allows SQL generation to automatically transform</p>
 <pre><code class="lang-csharp">SELECT DISTINCT value FROM Table ORDER BY date</code></pre>
 <p>Into GROUP BY equivalent if syntax is not supported
-Default value: <code>true</code>.</p>
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </dd>
     <dt><code>ParameterizeTakeSkip</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Enables Take/Skip parameterization.
-Default value: <code>true</code>.</p>
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </dd>
     <dt><code>EnableContextSchemaEdit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>If <code>true</code>, user could add new mappings to context mapping schems (<a class="xref" href="linq2db.LinqToDB.IDataContext.html#LinqToDB_IDataContext_MappingSchema">MappingSchema</a>).
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, user could add new mappings to context mapping schems (<a class="xref" href="linq2db.LinqToDB.IDataContext.html#LinqToDB_IDataContext_MappingSchema">MappingSchema</a>).
 Otherwise, <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be generated on locked mapping schema edit attempt.
 It is not recommended to enable this option as it has performance implications.
 Proper approach is to create single <a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a> instance once, configure mappings for it and use this <a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a> instance for all context instances.
-Default value: <code>false</code>.</p>
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </dd>
     <dt><code>PreferExistsForScalar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>If <code>true</code>, EXISTS operator will be generated instead of IN operator for scalar values.</p>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, EXISTS operator will be generated instead of IN operator for scalar values.</p>
 <pre><code class="lang-csharp">SELECT Value FROM MyEntity e WHERE EXISTS(SELECT * FROM MyEntity2 e2 WHERE e2.Value = e.Value)</code></pre>
 <p>vs</p>
 <pre><code class="lang-csharp">SELECT Value FROM MyEntity e WHERE Value IN (SELECT Value FROM MyEntity2 e2)</code></pre>
-<p>Default value: <code>false</code>.</p>
+<p>Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </dd>
   </dl>
 
@@ -552,9 +549,9 @@ SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code><
 
   <div class="markdown level1 summary"><p>Controls behavior, when LINQ query chain contains multiple <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.queryable.orderby#system-linq-queryable-orderby-2(system-linq-iqueryable((-0))-system-linq-expressions-expression((system-func((-0-1)))))">OrderBy&lt;TSource, TKey&gt;(IQueryable&lt;TSource&gt;, Expression&lt;Func&lt;TSource, TKey&gt;&gt;)</a> or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.queryable.orderbydescending#system-linq-queryable-orderbydescending-2(system-linq-iqueryable((-0))-system-linq-expressions-expression((system-func((-0-1)))))">OrderByDescending&lt;TSource, TKey&gt;(IQueryable&lt;TSource&gt;, Expression&lt;Func&lt;TSource, TKey&gt;&gt;)</a> calls:</p>
 <ul>
-<li>if <code>true</code> - non-first OrderBy* call will be treated as ThenBy* call;</li>
-<li>if <code>false</code> - OrderBy* call will discard sort specifications, added by previous OrderBy* and ThenBy* calls.
-Default value: <code>false</code>.</li>
+<li>if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> - non-first OrderBy* call will be treated as ThenBy* call;</li>
+<li>if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> - OrderBy* call will discard sort specifications, added by previous OrderBy* and ThenBy* calls.
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</li>
 </ul>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -627,7 +624,7 @@ This cache reduces time, required for query parsing but have several side-effect
 <p></p>
 - cache access synchronization could lead to bigger latencies than it saves.
 <p></p>
-Default value: <code>false</code>.
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
 <p></p>
 It is not recommended to enable this option as it could lead to severe slowdown. Better approach will be
 to use <a class="xref" href="LinqToDB.Linq.NoLinqCache.html">NoLinqCache</a> scope around queries, that produce severe memory leaks you need to fix.
@@ -665,11 +662,11 @@ to use <a class="xref" href="LinqToDB.Linq.NoLinqCache.html">NoLinqCache</a> sco
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L176"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>If <code>true</code>, user could add new mappings to context mapping schems (<a class="xref" href="linq2db.LinqToDB.IDataContext.html#LinqToDB_IDataContext_MappingSchema">MappingSchema</a>).
+  <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, user could add new mappings to context mapping schems (<a class="xref" href="linq2db.LinqToDB.IDataContext.html#LinqToDB_IDataContext_MappingSchema">MappingSchema</a>).
 Otherwise, <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be generated on locked mapping schema edit attempt.
 It is not recommended to enable this option as it has performance implications.
 Proper approach is to create single <a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a> instance once, configure mappings for it and use this <a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a> instance for all context instances.
-Default value: <code>false</code>.</p>
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -706,7 +703,7 @@ This option could be useful for issue reporting, when you need to provide reprod
 Test file will be placed to <code>linq2db</code> subfolder of temp folder and exact file path will be logged
 to data connection tracing infrastructure.
 See <a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_TraceSwitch">TraceSwitch</a> for more details.
-Default value: <code>false</code>.</p>
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -740,9 +737,9 @@ Default value: <code>false</code>.</p>
 
   <div class="markdown level1 summary"><summary>
 Controls behavior of LINQ query, which ends with GroupBy call.
-- if <code>true</code> - <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown for such queries;
-- if <code>false</code> - eager loading used.
-Default value: <code>true</code>.
+- if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> - <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown for such queries;
+- if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> - eager loading used.
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
 </summary>
 <remarks>
 <a href="https://github.com/linq2db/linq2db/issues/365">More details</a>.
@@ -780,9 +777,9 @@ Default value: <code>true</code>.
 
   <div class="markdown level1 summary"><p>Controls behavior of linq2db when there is no updateable fields in Update query:</p>
 <ul>
-<li>if <code>true</code> - query not executed and Update operation returns 0 as number of affected records;</li>
-<li>if <code>false</code> - <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown.
-Default value: <code>false</code>.</li>
+<li>if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> - query not executed and Update operation returns 0 as number of affected records;</li>
+<li>if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> - <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown.
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</li>
 </ul>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -821,7 +818,7 @@ Attempted optimizations:</p>
 <li>removes duplicate joins by unique target table key;</li>
 <li>removes self-joins by unique key;</li>
 <li>removes left joins if joined table is not used in query.
-Default value: <code>true</code>.</li>
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</li>
 </ul>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -855,7 +852,7 @@ Default value: <code>true</code>.</li>
   </h3>
 
   <div class="markdown level1 summary"><p>Enables Take/Skip parameterization.
-Default value: <code>true</code>.</p>
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -887,11 +884,11 @@ Default value: <code>true</code>.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L177"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>If <code>true</code>, EXISTS operator will be generated instead of IN operator for scalar values.</p>
+  <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, EXISTS operator will be generated instead of IN operator for scalar values.</p>
 <pre><code class="lang-csharp">SELECT Value FROM MyEntity e WHERE EXISTS(SELECT * FROM MyEntity2 e2 WHERE e2.Value = e.Value)</code></pre>
 <p>vs</p>
 <pre><code class="lang-csharp">SELECT Value FROM MyEntity e WHERE Value IN (SELECT Value FROM MyEntity2 e2)</code></pre>
-<p>Default value: <code>false</code>.</p>
+<p>Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -925,7 +922,7 @@ Default value: <code>true</code>.</p>
 
   <div class="markdown level1 summary"><p>Enables logging of generated mapping expression to data connection tracing infrastructure.
 See <a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_TraceSwitch">TraceSwitch</a> for more details.
-Default value: <code>false</code>.</p>
+Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1043,7 +1040,7 @@ Default value: <code>false</code>.</p>
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          © 2011-2025 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+          © 2011-2026 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
         </div>
       </div>
     </footer>
