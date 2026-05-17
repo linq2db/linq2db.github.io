@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Contributing guide | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Contributing guide | Linq To DB ">
+      
+      
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/docs/blob/master/source/articles/project/contrib.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="contrib">
+<h1 id="contributing-guide">Contributing guide</h1>
+
+<h2 id="project-structure">Project structure</h2>
+<h3 id="solution-and-folder-structure">Solution and folder structure</h3>
+<table>
+<thead>
+<tr>
+<th>Folder</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.\Build</td>
+<td>Build and CI files, check readme.md in that folder</td>
+</tr>
+<tr>
+<td>.\Data</td>
+<td>Databases and database creation scripts for tests</td>
+</tr>
+<tr>
+<td>.\NuGet</td>
+<td>LINQ to DB NuGet packages build files</td>
+</tr>
+<tr>
+<td>.\Redist</td>
+<td>Binaries, unavailable officially at NuGet, used by tests and nugets</td>
+</tr>
+<tr>
+<td>.\Source\CodeGenerators</td>
+<td>LINQ to DB internal source generators source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB</td>
+<td>LINQ to DB source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.CLI</td>
+<td>LINQ to DB CLI scaffold tool source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Compat</td>
+<td>LINQ to DB Compat library source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.EntityFrameworkCore</td>
+<td>LINQ to DB integration with Entity Framework Core source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Extensions</td>
+<td>LINQ to DB Dependency Injection and Logging extensions library source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.FSharp</td>
+<td>F# support extension for Linq To DB</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.LINQPad</td>
+<td>LINQPad driver for Linq To DB</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Remote.Grpc</td>
+<td>LINQ to DB Remote Context GRPC client/server source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Remote.HttpClient.Client</td>
+<td>LINQ to DB Remote Context HttpClient client source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Remote.HttpClient.Server</td>
+<td>LINQ to DB Remote Context HttpClient server source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Remote.SignalR.Client</td>
+<td>LINQ to DB Remote Context Signal/R client source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Remote.SignalR.Server</td>
+<td>LINQ to DB Remote Context Signal/R server source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Remote.Wcf</td>
+<td>LINQ to DB Remote Context WCF client/server source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Scaffold</td>
+<td>LINQ to DB scaffold framework for cli and T4</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Templates</td>
+<td>LINQ to DB t4models source code</td>
+</tr>
+<tr>
+<td>.\Source\LinqToDB.Tools</td>
+<td>LINQ to DB Tools source code</td>
+</tr>
+<tr>
+<td>.\Tests</td>
+<td>Unit test projects folder</td>
+</tr>
+<tr>
+<td>.\Tests\Base</td>
+<td>LINQ to DB testing framework</td>
+</tr>
+<tr>
+<td>.\Tests\EntityFrameworkCore</td>
+<td>LINQ to DB EF.Core integration tests</td>
+</tr>
+<tr>
+<td>.\Tests\EntityFrameworkCore.FSharp</td>
+<td>LINQ to DB EF.Core F# integration tests</td>
+</tr>
+<tr>
+<td>.\Tests\FSharp</td>
+<td>F# models and tests</td>
+</tr>
+<tr>
+<td>.\Tests\Linq</td>
+<td>Main project for LINQ to DB unit tests</td>
+</tr>
+<tr>
+<td>.\Tests\Model</td>
+<td>Model classes for tests</td>
+</tr>
+<tr>
+<td>.\Tests\Tests.Benchmarks</td>
+<td>Benchmarks</td>
+</tr>
+<tr>
+<td>.\Tests\Tests.PLayground</td>
+<td>Test project for use with linq2db.playground.slnf lite test solution. Used for work on specific test without full solution load</td>
+</tr>
+<tr>
+<td>.\Tests\Tests.T4</td>
+<td>T4 templates test project</td>
+</tr>
+<tr>
+<td>.\Tests\Tests.T4.Nugets</td>
+<td>T4 nugets test project</td>
+</tr>
+<tr>
+<td>.\Tests\VisualBasic</td>
+<td>Visual Basic models and tests support</td>
+</tr>
+</tbody>
+</table>
+<h4 id="solutions">Solutions</h4>
+<ul>
+<li><code>.\linq2db.slnx</code> - full linq2db solution</li>
+<li><code>.\linq2db.playground.slnf</code> - ligthweight linq2db test solution. Used to work on specific test without loading of all payload of full solution</li>
+<li><code>.\linq2db.Benchmarks.slnf</code> - ligthweight linq2db benchmarks solution. Used to work on benchmarks without loading of all payload of full solution</li>
+<li><code>.\Tests\Tests.T4.Nugets\Tests.T4.Nugets.slnx</code> - separate solution for T4 nugets testing</li>
+</ul>
+<h4 id="source-projects">Source projects</h4>
+<p>Custom feature symbols:</p>
+<ul>
+<li><code>SUPPORTS_COMPOSITE_FORMAT</code>: for code that use <code>System.Text.CompositeFormat</code> class</li>
+</ul>
+<p>Custom debugging symbols:</p>
+<ul>
+<li><code>BUGCHECK</code> - enables extra bugchecks in debug and ci test builds</li>
+</ul>
+<h4 id="test-projects">Test projects</h4>
+<p>Tests targets: <code>net462</code>, <code>net8.0</code>, <code>net9.0</code>, <code>net10.0</code>. In general we test 3 configurations: lowest supported .NET Framework, lowest supported .NET version, highest supported .NET version.</p>
+<p>Custom symbols:</p>
+<ul>
+<li><code>AZURE</code> - for Azure Pipelines CI builds</li>
+</ul>
+<h2 id="build">Build</h2>
+<p>You can use solution to build and run tests. Also you can build whole solution or library using the following batch files:</p>
+<ul>
+<li><code>.\Build.cmd</code> - builds all the projects in the solution for Debug, Release and Azure configurations</li>
+<li><code>.\Compile.cmd</code> - builds LinqToDB project for Debug and Release configurations</li>
+<li><code>.\Clean.cmd</code> - cleanups solution projects for Debug, Release and Azure configurations</li>
+<li><code>.\Test.cmd</code> - builds and runs tests with <code>Debug</code> configuration for all supported TFMs and produce HTML report. Parameters supported to change build configuration, logger type and executed TFMs</li>
+</ul>
+<p>Example of running <code>Release</code> build tests for <code>net9.0</code> only with <code>trx</code> as output:</p>
+<pre><code class="lang-cmd">test.cmd Release 0 0 1 0 trx
+</code></pre>
+<h3 id="different-platforms-support">Different platforms support</h3>
+<p>Because we target different TFMs, we use:</p>
+<ul>
+<li>Conditional compilation. See supported defines above</li>
+<li>Implementation of missing runtime functionality (usually copied from <code>dotnet/runtime</code> repository). Should be placed to <code>Source\Shared</code> folder with proper TFM <code>#ifdef</code>s (it will be picked by all projects automatically) and made explicitly internal to avoid conflicts.</li>
+</ul>
+<h2 id="branches">Branches</h2>
+<ul>
+<li><code>master</code> - main development branch, contains code for next release</li>
+<li><code>release</code> - branch with the latest released version</li>
+</ul>
+<h2 id="run-tests">Run tests</h2>
+<p>NUnit3 is used as unit-testing framework. Most of tests are run for all supported databases and written in same pattern:</p>
+<pre><code class="lang-cs">// TestBase - base class for all our tests
+// provides required testing infrastructure
+[TestFixture]
+public class Test: TestBase
+{
+    // DataSourcesAttribute - custom attribute to feed test with enabled database configurations
+    [Test]
+    public void Test([DataSources] string context)
+    {
+        // TestBase.GetDataContext - creates new IDataContext
+        // also supports creation of remote client and server
+        // for remote contexts
+        using var db = GetDataContext(context);
+
+        // AssertQuery method will execute query against both DB and memory-based collections
+        // and check that both return same results
+        AssertQuery(db.Person.Where(_ =&gt; _.Name == &quot;John&quot;));
+    }
+
+}
+</code></pre>
+<h3 id="configure-data-providers-for-tests">Configure data providers for tests</h3>
+<p><code>DataSourcesAttribute</code> generates tests for each enabled data provider. Configuration is taken
+from <code>.\DataProviders.json</code> and <code>.\UserDataProviders.json</code> (used first, if exists).</p>
+<p>Repository already contains pre-configured <code>UserDataProviders.json.template</code> configuration with basic setup for SQLite-based testing and all you need is to rename it to <code>UserDataProviders.json</code>, add connection string for other databases you want to test.
+<code>UserDataProviders.json</code> will be ignored by git, so you can edit it freely.</p>
+<p>Configuration file is used to specify user-specific settings such as connection strings to test databases and
+list of providers to test.</p>
+<p>The <code>[User]DataProviders.json</code> is a regular JSON file:</p>
+<h4 id="userdataprovidersjson-example-with-description">UserDataProviders.json example (with description)</h4>
+<pre><code class="lang-js">{
+    // .net framework 4.6.2 test configuration
+    &quot;NETFX&quot; :
+    {
+        // base configuration to inherit settings from
+        // Inheritance rules:
+        // - DefaultConfiguration, TraceLevel, Providers - use value from base configuration only if it is not defined in current configuration
+        // - Connections - merge current and base connection strings
+        &quot;BasedOn&quot;              : &quot;LocalConnectionStrings&quot;,
+
+        // default provider, used as a source of reference data
+        // LINQ to DB uses SQLite for it and you hardly need to change it
+        &quot;DefaultConfiguration&quot; : &quot;SQLite.MS&quot;,
+
+        // (optional) contains full or relative (from test assembly location) path to test baselines directory.
+        // When path is set and specified directory exists - enables baselines generation for tests.
+        &quot;BaselinesPath&quot;: &quot;c:\\github\\linq2db.baselines&quot;,
+
+        // logging level
+        // Supported values: Off, Error, Warning, Info, Verbose
+        // Default level: Info
+        &quot;TraceLevel&quot;           : &quot;Error&quot;,
+                                
+        // list of database providers, enabled for current test configuration
+        &quot;Providers&quot;            :
+        [
+            &quot;Access.Ace.OleDb&quot;,
+            &quot;SqlCe&quot;,
+            &quot;SQLite.Classic&quot;,
+            &quot;SQLite.MS&quot;,
+            &quot;Northwind.SQLite&quot;,
+            &quot;Northwind.SQLite.MS&quot;,
+            &quot;SqlServer.2014&quot;,
+            &quot;SqlServer.2012&quot;,
+            &quot;SqlServer.2008&quot;,
+            &quot;SqlServer.2005&quot;,
+            &quot;SqlServer.Azure&quot;,
+            &quot;DB2&quot;,
+            &quot;Firebird.5&quot;,
+            &quot;Informix&quot;,
+            &quot;MySql.8.0&quot;,
+            &quot;MariaDB.11&quot;,
+            &quot;Oracle.Native&quot;,
+            &quot;Oracle.Managed&quot;,
+            &quot;PostgreSQL&quot;,
+            &quot;Sybase.Managed&quot;,
+            &quot;SqlServer.Northwind&quot;,
+            &quot;TestNoopProvider&quot;
+        ],
+
+        // list of test skip categories, disabled for current test configuration
+    // to set test skip category, use SkipCategoryAttribute on test method, class or whole assembly
+        &quot;Skip&quot;                 :
+    [
+        &quot;Access.12&quot;
+    ]
+
+    },
+
+    // .net 8.0 test configuration
+    &quot;NET80&quot; :
+    {
+        &quot;BasedOn&quot;              : &quot;LocalConnectionStrings&quot;,
+        &quot;Providers&quot;            :
+        [
+            &quot;SQLite.MS&quot;,
+            &quot;Northwind.SQLite.MS&quot;,
+            &quot;SqlServer.2014&quot;,
+            &quot;SqlServer.2012&quot;,
+            &quot;SqlServer.2008&quot;,
+            &quot;SqlServer.2005&quot;,
+            &quot;SqlServer.Azure&quot;,
+            &quot;Firebird.5&quot;,
+            &quot;MySql.8.0&quot;,
+            &quot;MariaDB.11&quot;,
+            &quot;PostgreSQL&quot;,
+            &quot;SqlServer.Northwind&quot;,
+            &quot;TestNoopProvider&quot;
+        ]
+    },
+
+    // .net 9.0 test configuration
+    &quot;NET90&quot; :
+    {
+        &quot;BasedOn&quot;              : &quot;LocalConnectionStrings&quot;,
+        &quot;Providers&quot;            :
+        [
+            &quot;SQLite.MS&quot;,
+            &quot;Northwind.SQLite.MS&quot;,
+            &quot;SqlServer.2014&quot;,
+            &quot;SqlServer.2012&quot;,
+            &quot;SqlServer.2008&quot;,
+            &quot;SqlServer.2005&quot;,
+            &quot;SqlServer.Azure&quot;,
+            &quot;Firebird.5&quot;,
+            &quot;MySql.8.0&quot;,
+            &quot;MariaDB.11&quot;,
+            &quot;PostgreSQL&quot;,
+            &quot;SqlServer.Northwind&quot;,
+            &quot;TestNoopProvider&quot;
+        ]
+    },
+
+    // .net 10.0 test configuration
+    &quot;NET100&quot; :
+    {
+        &quot;BasedOn&quot;              : &quot;LocalConnectionStrings&quot;,
+        &quot;Providers&quot;            :
+        [
+            &quot;SQLite.MS&quot;,
+            &quot;Northwind.SQLite.MS&quot;,
+            &quot;SqlServer.2014&quot;,
+            &quot;SqlServer.2012&quot;,
+            &quot;SqlServer.2008&quot;,
+            &quot;SqlServer.2005&quot;,
+            &quot;SqlServer.Azure&quot;,
+            &quot;Firebird.5&quot;,
+            &quot;MySql.8.0&quot;,
+            &quot;MariaDB.11&quot;,
+            &quot;PostgreSQL&quot;,
+            &quot;SqlServer.Northwind&quot;,
+            &quot;TestNoopProvider&quot;
+        ]
+    },
+
+    // list of connection strings for all providers
+    &quot;LocalConnectionStrings&quot;:
+    {
+        &quot;BasedOn&quot;           : &quot;CommonConnectionStrings&quot;,
+        &quot;Connections&quot;       :
+        {
+            // override connection string for SqlAzure provider
+            // all other providers will use default inherited connection strings from CommonConnectionStrings configuration
+            &quot;SqlServer.Azure&quot; :
+            {
+                 &quot;Provider&quot;         : &quot;System.Data.SqlClient&quot;,
+                 &quot;ConnectionString&quot; : &quot;Server=tcp:xxxxxxxxx.database.windows.net,1433;Database=TestData;User ID=TestUser@zzzzzzzzz;Password=TestPassword;Trusted_Connection=False;Encrypt=True;&quot;
+            }
+        }
+    }
+}
+</code></pre>
+<p>To define your own configurations <strong>DO NOT EDIT</strong> <code>DataProviders.json</code> - create <code>.\UserDataProviders.json</code> and define needed configurations.</p>
+<p>Tests execution depends on <code>_CreateData.*</code> tests executed first. Those tests recreate test databases and populate them with test data, so if you are going to run one test be sure to run <code>_CreateData</code> before it manually.</p>
+<p>Also - if your test changes database data, be sure to revert those changes (!) to avoid side effects for other tests.</p>
+<h2 id="continuous-integration">Continuous Integration</h2>
+<p>We do run builds and tests with:</p>
+<ul>
+<li><a href="https://dev.azure.com/linq2db/linq2db/_build?definitionId=3">Azure Pipelines</a> <a href="https://github.com/linq2db/linq2db/blob/master/Build/Azure/pipelines/default.yml">pipelines/default.yml</a>.
+It builds solution, generate and publish nugets and runs tests for:
+<ul>
+<li>.NET Framework 4.6.2</li>
+<li>.NET 8 (Windows, Linux and MacOS)</li>
+<li>.NET 9 (Windows, Linux and MacOS)</li>
+<li>.NET 10 (Windows, Linux and MacOS)
+For more details check <a href="https://github.com/linq2db/linq2db/blob/master/Build/Azure/README.md">readme</a></li>
+</ul>
+</li>
+</ul>
+<p>CI builds are done for all branches and PRs.</p>
+<ul>
+<li>Tests run for all branches and PRs except <code>release</code> branch</li>
+<li>Nugets publishing to <a href="https://dev.azure.com/linq2db/linq2db/_packaging?_a=feed&amp;feed=linq2db">Azure feeds</a> enabled only for <code>branch</code></li>
+<li>Nugets publishing to <a href="https://www.nuget.org/profiles/LinqToDB">Nuget.org</a> enabled only for <code>release</code> branch</li>
+</ul>
+<h3 id="publishing-packages">Publishing packages</h3>
+<ul>
+<li><strong>&quot;Nightly&quot; builds</strong> packages are published to <a href="https://dev.azure.com/linq2db/linq2db/_packaging?_a=feed&amp;feed=linq2db">Azure feeds</a> for each successful build of <strong>master</strong> branch.</li>
+<li><strong>Release</strong> packages are published to <a href="https://www.nuget.org/profiles/LinqToDB">Nuget.org</a> for each successful build of <strong>release</strong> branch.</li>
+</ul>
+<h2 id="building-releases">Building releases</h2>
+<ol>
+<li>Update <a href="https://github.com/linq2db/linq2db/wiki/Releases-and-Roadmap">Release Notes</a> and create empty entry for vNext release</li>
+<li>Create PR from <code>master</code> to <code>release</code> branch, in comments add <a href="https://github.com/linq2db/linq2db/wiki/How-can-i-help#testing-how-to">@testers</a> to notify all testers that we are ready to release</li>
+<li>Wait few days for feedback from testers and approval from contributors</li>
+<li>Merge PR</li>
+<li><a href="https://github.com/linq2db/linq2db/releases">Tag release</a> on <code>master</code> branch</li>
+<li>Update versions in <code>master</code> branch (this will lead to publish all next <code>master</code> builds as new version RC):
+<ul>
+<li>in <a href="https://github.com/linq2db/linq2db/blob/master/Directory.Build.props">\Directory.Build.props</a> set <code>Version</code> and <code>EFxVersion</code> properties to next version. Always use next minor version and change it to major only before release, if it should be new major version release</li>
+</ul>
+</li>
+</ol>
+<h2 id="process">Process</h2>
+<p>In general you should follow simple rules:</p>
+<ul>
+<li>Code style should match exising code</li>
+<li>There should be no compilation warnings (will fail CI builds)</li>
+<li>Do not add new features without tests</li>
+<li>Avoid direct pushes to <code>master</code> and <code>release</code> branches</li>
+<li>To fix some issue or implement new feature create new branch and make pull request after you are ready to merge or create pull request as <code>work-in-progress</code> pull request. Merge your PR only after contributors' review.</li>
+<li>bugfix branches must use <code>issue/&lt;issue_id&gt;</code> naming format</li>
+<li>feature branches must use <code>feature/&lt;issue_id_or_feature_name&gt;</code> naming format</li>
+<li>If you do have repository write access, it is recommended to use central repository instead of fork</li>
+<li>Do not add new public classes, properties, methods without XML documentation on them</li>
+<li>Read issues and help users</li>
+<li>Do not EF :)</li>
+</ul>
+<h2 id="other-topics">Other Topics</h2>
+<h3 id="linqpad-testing">LINQPad Testing</h3>
+<p>To test LINQPad nuget you need to build it and add test nuget source to LINQPad, but because LINQPad expects driver to have tags, it cannot be file-based source.</p>
+<ol>
+<li>Install local nuget server using <a href="https://learn.microsoft.com/en-us/nuget/hosting-packages/nuget-server">this guide</a></li>
+<li>Build nugets using command <code>dotnet pack /p:Version=&lt;version&gt;</code></li>
+<li>Push built nugets to your custom nuget server using this command <code>dotnet nuget push .build/nugets/*.nupkg -s https://&lt;your local nuget server addres&gt;/nuget --skip-duplicate</code>. If will produce 406 error for some unsupported nugets - you need to remove them and rerun command</li>
+<li>add your feed (<code>https://&lt;your local nuget server addres&gt;/nuget</code>) to LINQPad</li>
+</ol>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="Issue-reporting.html">Issue reporting</a></li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2026 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

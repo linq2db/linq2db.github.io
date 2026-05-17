@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class StringMemberTranslatorBase | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class StringMemberTranslatorBase | Linq To DB ">
+      
+      
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/linq2db/new/master/apiSpec/new?filename=linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase.md&amp;value=---%0Auid%3A%20linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase">
+
+
+
+  <h1 id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase" class="text-break">
+Class StringMemberTranslatorBase  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Translation/StringMemberTranslatorBase.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Internal.html">Internal</a>.<a class="xref" href="LinqToDB.Internal.DataProvider.html">DataProvider</a>.<a class="xref" href="LinqToDB.Internal.DataProvider.Translation.html">Translation</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class StringMemberTranslatorBase : MemberTranslatorBase, IMemberTranslator</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.MemberTranslatorBase.html">MemberTranslatorBase</a></div>
+      <div><span class="xref">StringMemberTranslatorBase</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="linq2db.LinqToDB.Linq.Translation.IMemberTranslator.html">IMemberTranslator</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Access.Translation.AccessMemberTranslator.AccessStringMemberTranslator.html">AccessMemberTranslator.AccessStringMemberTranslator</a></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.ClickHouse.Translation.ClickHouseMemberTranslator.StringMemberTranslator.html">ClickHouseMemberTranslator.StringMemberTranslator</a></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DB2.Translation.DB2MemberTranslator.StringMemberTranslator.html">DB2MemberTranslator.StringMemberTranslator</a></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DuckDB.Translation.DuckDBMemberTranslator.StringMemberTranslator.html">DuckDBMemberTranslator.StringMemberTranslator</a></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Firebird.Translation.FirebirdMemberTranslator.FirebirdStringMemberTranslator.html">FirebirdMemberTranslator.FirebirdStringMemberTranslator</a></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Informix.Translation.InformixMemberTranslator.StringMemberTranslator.html">InformixMemberTranslator.StringMemberTranslator</a></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.MySql.Translation.MySqlMemberTranslator.MySqlStringMemberTranslator.html">MySqlMemberTranslator.MySqlStringMemberTranslator</a></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Oracle.Translation.OracleMemberTranslator.OracleStringMemberTranslator.html">OracleMemberTranslator.OracleStringMemberTranslator</a></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.PostgreSQL.Translation.PostgreSQLMemberTranslator.StringMemberTranslator.html">PostgreSQLMemberTranslator.StringMemberTranslator</a></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.SQLite.Translation.SQLiteMemberTranslator.StringMemberTranslator.html">SQLiteMemberTranslator.StringMemberTranslator</a></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.SapHana.Translation.SapHanaMemberTranslator.StringMemberTranslator.html">SapHanaMemberTranslator.StringMemberTranslator</a></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.SqlCe.Translation.SqlCeMemberTranslator.SqlCeStringMemberTranslator.html">SqlCeMemberTranslator.SqlCeStringMemberTranslator</a></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.SqlServer.Translation.SqlServerMemberTranslator.SqlServerStringMemberTranslator.html">SqlServerMemberTranslator.SqlServerStringMemberTranslator</a></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Sybase.Translation.SybaseMemberTranslator.SybaseStingMemberTranslator.html">SybaseMemberTranslator.SybaseStingMemberTranslator</a></div>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Ydb.Translation.YdbMemberTranslator.StringMemberTranslator.html">YdbMemberTranslator.StringMemberTranslator</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.MemberTranslatorBase.html#linq2db_LinqToDB_Internal_DataProvider_Translation_MemberTranslatorBase_Registration">MemberTranslatorBase.Registration</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.MemberTranslatorBase.html#linq2db_LinqToDB_Internal_DataProvider_Translation_MemberTranslatorBase_CombinedMemberTranslator">MemberTranslatorBase.CombinedMemberTranslator</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.MemberTranslatorBase.html#linq2db_LinqToDB_Internal_DataProvider_Translation_MemberTranslatorBase_TranslateNoRequiredExpression_LinqToDB_Linq_Translation_ITranslationContext_System_Linq_Expressions_Expression_LinqToDB_Linq_Translation_TranslationFlags_System_Boolean_">MemberTranslatorBase.TranslateNoRequiredExpression(ITranslationContext, Expression, TranslationFlags, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.MemberTranslatorBase.html#linq2db_LinqToDB_Internal_DataProvider_Translation_MemberTranslatorBase_Translate_LinqToDB_Linq_Translation_ITranslationContext_System_Linq_Expressions_Expression_LinqToDB_Linq_Translation_TranslationFlags_">MemberTranslatorBase.Translate(ITranslationContext, Expression, TranslationFlags)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsDistinctFrom__1___0___0_">Sql.IsDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.Sql.html#linq2db_LinqToDB_Sql_IsNotDistinctFrom__1___0___0_">Sql.IsNotDistinctFrom&lt;T&gt;(T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___0___0_">SqlExtensions.In&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0___0___">SqlExtensions.In&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.In&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_In__1___0_System_Linq_IQueryable___0__">SqlExtensions.In&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___0___0_">SqlExtensions.NotIn&lt;T&gt;(T, T, T, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0___0___">SqlExtensions.NotIn&lt;T&gt;(T, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0_System_Collections_Generic_IEnumerable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="linq2db.LinqToDB.SqlExtensions.html#linq2db_LinqToDB_SqlExtensions_NotIn__1___0_System_Linq_IQueryable___0__">SqlExtensions.NotIn&lt;T&gt;(T, IQueryable&lt;T&gt;)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase__ctor_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.#ctor*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase__ctor" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.#ctor">
+  StringMemberTranslatorBase()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Translation/StringMemberTranslatorBase.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringMemberTranslatorBase()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_ConfigureConcat_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.ConfigureConcat*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_ConfigureConcat_LinqToDB_Linq_Translation_AggregateFunctionBuilder_System_Boolean_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.ConfigureConcat(LinqToDB.Linq.Translation.AggregateFunctionBuilder,System.Boolean)">
+  ConfigureConcat(AggregateFunctionBuilder, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Translation/StringMemberTranslatorBase.cs/#L791"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Configures the aggregate-function builder to emit a plain
+<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlConcatExpression.html">SqlConcatExpression</a> with <code>preserveNull: true</code>. Bypasses the
+CONCAT_WS aggregate path; the chain lowers to plain SQL <code>||</code> / <code>+</code>
+on every provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void ConfigureConcat(AggregateFunctionBuilder builder, bool wrapByCoalesce = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.AggregateFunctionBuilder.html">AggregateFunctionBuilder</a></dt>
+    <dd><p>Aggregate-function builder being configured.</p>
+</dd>
+    <dt><code>wrapByCoalesce</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, each value is wrapped in <code>Coalesce(v, '')</code> before the
+concat — matches <code>string.Concat</code> null-as-empty semantics with non-null
+result. Used by <code>string.Concat(items)</code> on emulation providers (except
+Oracle, where <code>Coalesce(v, '')</code> is a no-op due to the empty-string-is-NULL
+identity). When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> (default), values pass through unchanged — the
+strict any-null-→-null semantic for <code>Sql.Concat</code>; nullability is conserved
+(any operand nullable → result nullable).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_ConfigureConcatWs_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.ConfigureConcatWs*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_ConfigureConcatWs_LinqToDB_Linq_Translation_AggregateFunctionBuilder_System_Boolean_System_Boolean_System_Func_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression___LinqToDB_Internal_SqlQuery_ISqlExpression__System_Boolean_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.ConfigureConcatWs(LinqToDB.Linq.Translation.AggregateFunctionBuilder,System.Boolean,System.Boolean,System.Func{LinqToDB.Linq.Translation.ISqlExpressionFactory,LinqToDB.DbDataType,LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression[],LinqToDB.Internal.SqlQuery.ISqlExpression},System.Boolean)">
+  ConfigureConcatWs(AggregateFunctionBuilder, bool, bool, Func&lt;ISqlExpressionFactory, DbDataType, ISqlExpression, ISqlExpression[], ISqlExpression&gt;?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Translation/StringMemberTranslatorBase.cs/#L541"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Configures the aggregate-function builder for providers with native <code>CONCAT_WS</code>
+(or an equivalent multi-argument string aggregate). Used by ClickHouse, MySQL,
+PostgreSQL, SqlServer 2017+, YDB; see <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.html#LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_ConfigureConcatWsEmulation_LinqToDB_Linq_Translation_AggregateFunctionBuilder_System_Boolean_System_Boolean_System_Func_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression__System_Boolean_System_Boolean_">ConfigureConcatWsEmulation(AggregateFunctionBuilder, bool, bool, Func&lt;ISqlExpressionFactory, DbDataType, ISqlExpression, ISqlExpression, ISqlExpression&gt;, bool, bool)</a> for
+providers that emulate <code>CONCAT_WS</code> via <code>SUBSTRING</code> tricks. Used by
+<code>string.Concat</code> / <code>string.Join</code> / <code>Sql.ConcatStrings</code> /
+<code>Sql.ConcatStringsNullable</code>; <code>Sql.Concat</code> bypasses this path and goes
+through <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.html#LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_ConfigureConcat_LinqToDB_Linq_Translation_AggregateFunctionBuilder_System_Boolean_">ConfigureConcat(AggregateFunctionBuilder, bool)</a> instead (any-null-→-null semantic via plain
+<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlConcatExpression.html">SqlConcatExpression</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void ConfigureConcatWs(AggregateFunctionBuilder builder, bool nullValuesAsEmptyString, bool isNullableResult, Func&lt;ISqlExpressionFactory, DbDataType, ISqlExpression, ISqlExpression[], ISqlExpression&gt;? functionFactory = null, bool withoutSeparator = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.AggregateFunctionBuilder.html">AggregateFunctionBuilder</a></dt>
+    <dd><p>Aggregate-function builder being configured.</p>
+</dd>
+    <dt><code>nullValuesAsEmptyString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, individual NULL values are wrapped in <code>COALESCE(v, '')</code> before
+the join — used by <code>string.Concat</code> / <code>string.Join</code> / <code>Sql.ConcatStrings</code>
+to give C# null-as-empty semantics. When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, NULLs are preserved per
+<code class="paramref">isNullableResult</code>.</p>
+</dd>
+    <dt><code>isNullableResult</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the result can be <code>NULL</code> only when ALL inputs are <code>NULL</code>
+(<code>Sql.ConcatStringsNullable</code> semantic — emitted as
+<code>CASE WHEN (v1 IS NULL AND v2 IS NULL …) THEN NULL ELSE CONCAT_WS(...) END</code>).
+When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, the result is always non-null (NULL inputs are coalesced to empty
+by <code class="paramref">nullValuesAsEmptyString</code> or by an outer wrap).</p>
+</dd>
+    <dt><code>functionFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-5">Func</a>&lt;<a class="xref" href="LinqToDB.Linq.Translation.ISqlExpressionFactory.html">ISqlExpressionFactory</a>, <a class="xref" href="LinqToDB.DbDataType.html">DbDataType</a>, <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a>, <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a>[], <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a>&gt;</dt>
+    <dd><p>Optional override of the SQL function emission (e.g. ClickHouse uses <code>arrayStringConcat</code>
+instead of <code>CONCAT_WS</code>). Receives <code>(factory, valueType, separator, items)</code>;
+when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, plain <code>CONCAT_WS(separator, ...items)</code> is emitted.</p>
+</dd>
+    <dt><code>withoutSeparator</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, no separator argument is consumed (string.Concat).
+When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, the first argument is the separator (string.Join / Sql.ConcatStrings).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_ConfigureConcatWsEmulation_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.ConfigureConcatWsEmulation*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_ConfigureConcatWsEmulation_LinqToDB_Linq_Translation_AggregateFunctionBuilder_System_Boolean_System_Boolean_System_Func_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression__System_Boolean_System_Boolean_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.ConfigureConcatWsEmulation(LinqToDB.Linq.Translation.AggregateFunctionBuilder,System.Boolean,System.Boolean,System.Func{LinqToDB.Linq.Translation.ISqlExpressionFactory,LinqToDB.DbDataType,LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression},System.Boolean,System.Boolean)">
+  ConfigureConcatWsEmulation(AggregateFunctionBuilder, bool, bool, Func&lt;ISqlExpressionFactory, DbDataType, ISqlExpression, ISqlExpression, ISqlExpression&gt;, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Translation/StringMemberTranslatorBase.cs/#L661"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Configures the aggregate-function builder for providers without native
+<code>CONCAT_WS</code>; the emulation chains values via SQL <code>||</code> / <code>+</code> and
+strips the leading separator with a <code>SUBSTRING</code> call. Used by Access, DB2,
+Firebird, Informix, Oracle, SapHana, SQLite, SqlCe, Sybase, SqlServer (older).
+Used by <code>string.Concat</code> / <code>string.Join</code> / <code>Sql.ConcatStrings</code> /
+<code>Sql.ConcatStringsNullable</code>; <code>Sql.Concat</code> bypasses this path and goes
+through <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.html#LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_ConfigureConcat_LinqToDB_Linq_Translation_AggregateFunctionBuilder_System_Boolean_">ConfigureConcat(AggregateFunctionBuilder, bool)</a> instead. See <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.html#LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_ConfigureConcatWs_LinqToDB_Linq_Translation_AggregateFunctionBuilder_System_Boolean_System_Boolean_System_Func_LinqToDB_Linq_Translation_ISqlExpressionFactory_LinqToDB_DbDataType_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression___LinqToDB_Internal_SqlQuery_ISqlExpression__System_Boolean_">ConfigureConcatWs(AggregateFunctionBuilder, bool, bool, Func&lt;ISqlExpressionFactory, DbDataType, ISqlExpression, ISqlExpression[], ISqlExpression&gt;, bool)</a>
+for the native path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void ConfigureConcatWsEmulation(AggregateFunctionBuilder builder, bool nullValuesAsEmptyString, bool isNullResult, Func&lt;ISqlExpressionFactory, DbDataType, ISqlExpression, ISqlExpression, ISqlExpression&gt; substringFunc, bool withoutSeparator = false, bool wrapByCoalesce = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.AggregateFunctionBuilder.html">AggregateFunctionBuilder</a></dt>
+    <dd><p>Aggregate-function builder being configured.</p>
+</dd>
+    <dt><code>nullValuesAsEmptyString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, individual NULL values are wrapped in <code>COALESCE(v, '')</code>
+before the chain — used by <code>string.Concat</code> / <code>string.Join</code> /
+<code>Sql.ConcatStrings</code>. When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, NULLs flow through SQL <code>||</code>
+/ <code>+</code> directly; on standards-compliant providers this propagates NULL.</p>
+</dd>
+    <dt><code>isNullResult</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the result can be <code>NULL</code>; no outer <code>COALESCE(..., '')</code>
+is added. When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, the chain is wrapped in a final <code>COALESCE(..., '')</code>.</p>
+</dd>
+    <dt><code>substringFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-5">Func</a>&lt;<a class="xref" href="LinqToDB.Linq.Translation.ISqlExpressionFactory.html">ISqlExpressionFactory</a>, <a class="xref" href="LinqToDB.DbDataType.html">DbDataType</a>, <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a>, <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a>, <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a>&gt;</dt>
+    <dd><p>Builds the <code>SUBSTRING(chain, len(separator) + 1)</code> call to strip the leading
+separator. Provider-specific because the substring function name and offset arity
+vary (<code>SUBSTR</code>, <code>SUBSTRING</code>, <code>STUFF</code>, etc.).</p>
+</dd>
+    <dt><code>withoutSeparator</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, no separator argument is consumed and no <code>SUBSTRING</code> strip is
+needed (string.Concat). When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, the first argument is the separator
+(string.Join / Sql.ConcatStrings).</p>
+</dd>
+    <dt><code>wrapByCoalesce</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Controls the per-operand NULL-skip strategy for the <code>WITH separator</code> path.
+When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> (default), each per-value contribution is wrapped in
+<code>Coalesce(sep || v, '')</code> — relies on <code>NULL || x = NULL</code> to convert a NULL
+operand to an empty contribution. Correct on standards-compliant providers (SQLite,
+SqlServer, Sybase, SqlCe, Informix, Firebird, DB2, SapHana). When
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, each per-value contribution is wrapped in
+<code>CASE WHEN v IS NULL THEN '' ELSE sep || v END</code> instead — the explicit-IS-NULL
+form is required on Oracle, where <code>NULL || x = x</code> means the Coalesce form would
+emit a stray separator for each NULL operand (and the empty-string-is-NULL identity
+makes <code>Coalesce</code> against <code>''</code> a no-op anyway). The CASE form also sidesteps
+ORA-12704 character-set mismatches on mixed VARCHAR/NVARCHAR operands. Affects only
+the per-operand wraps in the <code>IsNullFiltered / isNullResult / !nullValuesAsEmpty</code>
+branch; the other branches keep <code>Coalesce</code> when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> and skip
+it entirely when <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> (their NULL-skip semantics don't depend on
+the wrap shape).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_ConvertOperandToString_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.ConvertOperandToString*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_ConvertOperandToString_System_Linq_Expressions_Expression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.ConvertOperandToString(System.Linq.Expressions.Expression)">
+  ConvertOperandToString(Expression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Translation/StringMemberTranslatorBase.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rewrites a non-string operand to a <code>.ToString()</code> call so it reaches its
+type-specific translator (e.g. <code>GuidMemberTranslator</code>) instead of falling
+through to the default <code>CAST AS VarChar</code> path. No-op for string operands.
+Used by every concat path (binary <code>+</code>, fixed-arity <code>string.Concat</code>,
+<code>Sql.Concat</code> array, and aggregate-over-grouping <code>string.Concat</code> via
+<a class="xref" href="linq2db.LinqToDB.Linq.Translation.AggregateFunctionBuilder.AggregateModeBuilder.html#LinqToDB_Linq_Translation_AggregateFunctionBuilder_AggregateModeBuilder_TransformItems_System_Func_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression__">TransformItems(Func&lt;Expression, Expression&gt;)</a> /
+<a class="xref" href="linq2db.LinqToDB.Linq.Translation.AggregateFunctionBuilder.AggregateModeBuilder.html#LinqToDB_Linq_Translation_AggregateFunctionBuilder_AggregateModeBuilder_TransformValue_System_Func_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression__">TransformValue(Func&lt;Expression, Expression&gt;)</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static Expression ConvertOperandToString(Expression operand)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>operand</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_SetStringJoinResult_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.SetStringJoinResult*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_SetStringJoinResult_LinqToDB_Linq_Translation_AggregateFunctionBuilder_AggregateComposer_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Boolean_LinqToDB_DbDataType_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.SetStringJoinResult(LinqToDB.Linq.Translation.AggregateFunctionBuilder.AggregateComposer,LinqToDB.Internal.SqlQuery.ISqlExpression,System.Boolean,LinqToDB.DbDataType)">
+  SetStringJoinResult(AggregateComposer, ISqlExpression, bool, DbDataType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Translation/StringMemberTranslatorBase.cs/#L846"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the StringJoin aggregate result on <code class="paramref">composer</code>. When the result is
+non-nullable, also registers a lift-time SQL rewriter that wraps the lifted column
+reference with <code>COALESCE(&lt;ref&gt;, '')</code> — so a subquery-projected non-nullable
+StringJoin returns the empty string rather than NULL when the OUTER APPLY produces no
+matching row. The bare aggregate stays in the inner SQL tree during provider validation
+and downstream optimization; the rewriter only fires at OUTER APPLY lift time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static void SetStringJoinResult(AggregateFunctionBuilder.AggregateComposer composer, ISqlExpression aggregateSql, bool isNullableResult, DbDataType emptyValueType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>composer</code> <a class="xref" href="LinqToDB.Linq.Translation.AggregateFunctionBuilder.html">AggregateFunctionBuilder</a>.<a class="xref" href="LinqToDB.Linq.Translation.AggregateFunctionBuilder.AggregateComposer.html">AggregateComposer</a></dt>
+    <dd></dd>
+    <dt><code>aggregateSql</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>isNullableResult</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>emptyValueType</code> <a class="xref" href="linq2db.LinqToDB.DbDataType.html">DbDataType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateLPad_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateLPad*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateLPad_LinqToDB_Linq_Translation_ITranslationContext_System_Linq_Expressions_MethodCallExpression_LinqToDB_Linq_Translation_TranslationFlags_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateLPad(LinqToDB.Linq.Translation.ITranslationContext,System.Linq.Expressions.MethodCallExpression,LinqToDB.Linq.Translation.TranslationFlags,LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  TranslateLPad(ITranslationContext, MethodCallExpression, TranslationFlags, ISqlExpression, ISqlExpression, ISqlExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Translation/StringMemberTranslatorBase.cs/#L879"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISqlExpression? TranslateLPad(ITranslationContext translationContext, MethodCallExpression methodCall, TranslationFlags translationFlags, ISqlExpression value, ISqlExpression padding, ISqlExpression paddingChar)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>translationContext</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.ITranslationContext.html">ITranslationContext</a></dt>
+    <dd></dd>
+    <dt><code>methodCall</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.methodcallexpression">MethodCallExpression</a></dt>
+    <dd></dd>
+    <dt><code>translationFlags</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.TranslationFlags.html">TranslationFlags</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>padding</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>paddingChar</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateLength_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateLength*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateLength_LinqToDB_Linq_Translation_ITranslationContext_LinqToDB_Linq_Translation_TranslationFlags_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateLength(LinqToDB.Linq.Translation.ITranslationContext,LinqToDB.Linq.Translation.TranslationFlags,LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  TranslateLength(ITranslationContext, TranslationFlags, ISqlExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Translation/StringMemberTranslatorBase.cs/#L873"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISqlExpression? TranslateLength(ITranslationContext translationContext, TranslationFlags translationFlags, ISqlExpression value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>translationContext</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.ITranslationContext.html">ITranslationContext</a></dt>
+    <dd></dd>
+    <dt><code>translationFlags</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.TranslationFlags.html">TranslationFlags</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateLike_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateLike*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateLike_LinqToDB_Linq_Translation_ITranslationContext_System_Linq_Expressions_MethodCallExpression_LinqToDB_Linq_Translation_TranslationFlags_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateLike(LinqToDB.Linq.Translation.ITranslationContext,System.Linq.Expressions.MethodCallExpression,LinqToDB.Linq.Translation.TranslationFlags)">
+  TranslateLike(ITranslationContext, MethodCallExpression, TranslationFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Translation/StringMemberTranslatorBase.cs/#L244"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Expression? TranslateLike(ITranslationContext translationContext, MethodCallExpression methodCall, TranslationFlags translationFlags)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>translationContext</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.ITranslationContext.html">ITranslationContext</a></dt>
+    <dd></dd>
+    <dt><code>methodCall</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.methodcallexpression">MethodCallExpression</a></dt>
+    <dd></dd>
+    <dt><code>translationFlags</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.TranslationFlags.html">TranslationFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateOverrideHandler_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateOverrideHandler*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateOverrideHandler_LinqToDB_Linq_Translation_ITranslationContext_System_Linq_Expressions_Expression_LinqToDB_Linq_Translation_TranslationFlags_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateOverrideHandler(LinqToDB.Linq.Translation.ITranslationContext,System.Linq.Expressions.Expression,LinqToDB.Linq.Translation.TranslationFlags)">
+  TranslateOverrideHandler(ITranslationContext, Expression, TranslationFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Translation/StringMemberTranslatorBase.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Catches all string-typed binary <code>Add</code> / <code>AddChecked</code> expressions (<code>a + b</code> where the
+result type is string), regardless of operand types. C# <code>string + obj</code> treats null as
+empty string while SQL <code>||</code> propagates NULL — for each operand we rewrite non-string
+operands to <code>.ToString()</code> calls (so ordinary translation produces a string-typed SQL
+expression / CAST), translate to SQL, and wrap each side with <code>COALESCE(..., '')</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression? TranslateOverrideHandler(ITranslationContext translationContext, Expression memberExpression, TranslationFlags translationFlags)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>translationContext</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.ITranslationContext.html">ITranslationContext</a></dt>
+    <dd></dd>
+    <dt><code>memberExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+    <dt><code>translationFlags</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.TranslationFlags.html">TranslationFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslatePadLeft_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslatePadLeft*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslatePadLeft_LinqToDB_Linq_Translation_ITranslationContext_System_Linq_Expressions_MethodCallExpression_LinqToDB_Linq_Translation_TranslationFlags_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslatePadLeft(LinqToDB.Linq.Translation.ITranslationContext,System.Linq.Expressions.MethodCallExpression,LinqToDB.Linq.Translation.TranslationFlags,LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  TranslatePadLeft(ITranslationContext, MethodCallExpression, TranslationFlags, ISqlExpression, ISqlExpression, ISqlExpression?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Translation/StringMemberTranslatorBase.cs/#L886"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISqlExpression? TranslatePadLeft(ITranslationContext translationContext, MethodCallExpression methodCall, TranslationFlags translationFlags, ISqlExpression value, ISqlExpression padding, ISqlExpression? paddingChar)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>translationContext</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.ITranslationContext.html">ITranslationContext</a></dt>
+    <dd></dd>
+    <dt><code>methodCall</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.methodcallexpression">MethodCallExpression</a></dt>
+    <dd></dd>
+    <dt><code>translationFlags</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.TranslationFlags.html">TranslationFlags</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>padding</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>paddingChar</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateReplace_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateReplace*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateReplace_LinqToDB_Linq_Translation_ITranslationContext_System_Linq_Expressions_MethodCallExpression_LinqToDB_Linq_Translation_TranslationFlags_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateReplace(LinqToDB.Linq.Translation.ITranslationContext,System.Linq.Expressions.MethodCallExpression,LinqToDB.Linq.Translation.TranslationFlags,LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  TranslateReplace(ITranslationContext, MethodCallExpression, TranslationFlags, ISqlExpression, ISqlExpression, ISqlExpression)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Translation/StringMemberTranslatorBase.cs/#L862"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISqlExpression? TranslateReplace(ITranslationContext translationContext, MethodCallExpression methodCall, TranslationFlags translationFlags, ISqlExpression value, ISqlExpression oldValue, ISqlExpression newValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>translationContext</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.ITranslationContext.html">ITranslationContext</a></dt>
+    <dd></dd>
+    <dt><code>methodCall</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.methodcallexpression">MethodCallExpression</a></dt>
+    <dd></dd>
+    <dt><code>translationFlags</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.TranslationFlags.html">TranslationFlags</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>oldValue</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>newValue</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateStringFormat_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateStringFormat*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateStringFormat_LinqToDB_Linq_Translation_ITranslationContext_System_Linq_Expressions_MethodCallExpression_System_String_System_Collections_Generic_IReadOnlyList_LinqToDB_Internal_SqlQuery_ISqlExpression__LinqToDB_Linq_Translation_TranslationFlags_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateStringFormat(LinqToDB.Linq.Translation.ITranslationContext,System.Linq.Expressions.MethodCallExpression,System.String,System.Collections.Generic.IReadOnlyList{LinqToDB.Internal.SqlQuery.ISqlExpression},LinqToDB.Linq.Translation.TranslationFlags)">
+  TranslateStringFormat(ITranslationContext, MethodCallExpression, string, IReadOnlyList&lt;ISqlExpression&gt;, TranslationFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Translation/StringMemberTranslatorBase.cs/#L868"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISqlExpression? TranslateStringFormat(ITranslationContext translationContext, MethodCallExpression methodCall, string format, IReadOnlyList&lt;ISqlExpression&gt; arguments, TranslationFlags translationFlags)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>translationContext</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.ITranslationContext.html">ITranslationContext</a></dt>
+    <dd></dd>
+    <dt><code>methodCall</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.methodcallexpression">MethodCallExpression</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>arguments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>translationFlags</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.TranslationFlags.html">TranslationFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateStringJoin_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateStringJoin*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateStringJoin_LinqToDB_Linq_Translation_ITranslationContext_System_Linq_Expressions_MethodCallExpression_LinqToDB_Linq_Translation_TranslationFlags_System_Boolean_System_Boolean_System_Boolean_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateStringJoin(LinqToDB.Linq.Translation.ITranslationContext,System.Linq.Expressions.MethodCallExpression,LinqToDB.Linq.Translation.TranslationFlags,System.Boolean,System.Boolean,System.Boolean)">
+  TranslateStringJoin(ITranslationContext, MethodCallExpression, TranslationFlags, bool, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Translation/StringMemberTranslatorBase.cs/#L768"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Expression? TranslateStringJoin(ITranslationContext translationContext, MethodCallExpression methodCall, TranslationFlags translationFlags, bool nullValuesAsEmptyString, bool isNullableResult, bool withoutSeparator)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>translationContext</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.ITranslationContext.html">ITranslationContext</a></dt>
+    <dd></dd>
+    <dt><code>methodCall</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.methodcallexpression">MethodCallExpression</a></dt>
+    <dd></dd>
+    <dt><code>translationFlags</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.TranslationFlags.html">TranslationFlags</a></dt>
+    <dd></dd>
+    <dt><code>nullValuesAsEmptyString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isNullableResult</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>withoutSeparator</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateTrimEnd_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateTrimEnd*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateTrimEnd_LinqToDB_Linq_Translation_ITranslationContext_System_Linq_Expressions_MethodCallExpression_LinqToDB_Linq_Translation_TranslationFlags_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateTrimEnd(LinqToDB.Linq.Translation.ITranslationContext,System.Linq.Expressions.MethodCallExpression,LinqToDB.Linq.Translation.TranslationFlags,LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  TranslateTrimEnd(ITranslationContext, MethodCallExpression, TranslationFlags, ISqlExpression, ISqlExpression?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Translation/StringMemberTranslatorBase.cs/#L931"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISqlExpression? TranslateTrimEnd(ITranslationContext translationContext, MethodCallExpression methodCall, TranslationFlags translationFlags, ISqlExpression value, ISqlExpression? trimChars)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>translationContext</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.ITranslationContext.html">ITranslationContext</a></dt>
+    <dd></dd>
+    <dt><code>methodCall</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.methodcallexpression">MethodCallExpression</a></dt>
+    <dd></dd>
+    <dt><code>translationFlags</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.TranslationFlags.html">TranslationFlags</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>trimChars</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateTrimStart_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateTrimStart*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Translation_StringMemberTranslatorBase_TranslateTrimStart_LinqToDB_Linq_Translation_ITranslationContext_System_Linq_Expressions_MethodCallExpression_LinqToDB_Linq_Translation_TranslationFlags_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Translation.StringMemberTranslatorBase.TranslateTrimStart(LinqToDB.Linq.Translation.ITranslationContext,System.Linq.Expressions.MethodCallExpression,LinqToDB.Linq.Translation.TranslationFlags,LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Internal.SqlQuery.ISqlExpression)">
+  TranslateTrimStart(ITranslationContext, MethodCallExpression, TranslationFlags, ISqlExpression, ISqlExpression?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Translation/StringMemberTranslatorBase.cs/#L915"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISqlExpression? TranslateTrimStart(ITranslationContext translationContext, MethodCallExpression methodCall, TranslationFlags translationFlags, ISqlExpression value, ISqlExpression? trimChars)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>translationContext</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.ITranslationContext.html">ITranslationContext</a></dt>
+    <dd></dd>
+    <dt><code>methodCall</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.methodcallexpression">MethodCallExpression</a></dt>
+    <dd></dd>
+    <dt><code>translationFlags</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.TranslationFlags.html">TranslationFlags</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>trimChars</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2026 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

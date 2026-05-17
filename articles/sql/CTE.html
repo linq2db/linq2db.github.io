@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Common Table Expression (CTE) | Linq To DB </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Common Table Expression (CTE) | Linq To DB ">
+      
+      
+      <link rel="icon" href="../../images/icon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/linq2db/docs/blob/master/source/articles/sql/CTE.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/icon.png" alt="Linq To DB">
+            Linq To DB
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CTE">
+<h1 id="common-table-expression-cte">Common Table Expression (CTE)</h1>
+
+<p>To get familiar with CTE, you can check documentation for Transact SQL: <a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql">WITH common_table_expression</a></p>
+<h2 id="when-ctes-are-useful">When CTEs are useful</h2>
+<ul>
+<li>Reusing the same SQL part in complex query</li>
+<li>Recursive table processing</li>
+</ul>
+<h2 id="defining-simple-cte">Defining simple CTE</h2>
+<p>CTE in <code>LINQ To DB</code> implements <code>IQueryable</code> and any <code>IQueryable</code> can be converted to CTE with the extension method <code>AsCte(&quot;optional_name&quot;)</code>.</p>
+<pre><code class="lang-cs">var employeeSubordinatesReport  =
+    from e in db.Employee
+    select new
+    {
+        e.EmployeeID,
+        e.LastName,
+        e.FirstName,
+        NumberOfSubordinates = db.Employee
+            .Where(e2 =&gt; e2.ReportsTo == e.ReportsTo)
+            .Count(),
+        e.ReportsTo
+    };
+
+// define  CTE named EmployeeSubordinatesReport
+// employeeSubordinatesReport sub-query used as CTE body 
+var employeeSubordinatesReportCte = employeeSubordinatesReport
+                                     .AsCte(&quot;EmployeeSubordinatesReport&quot;);
+</code></pre>
+<p>The variable <code>employeeSubordinatesReportCte</code> can now be reused in other parts of linq query.</p>
+<pre><code class="lang-cs">var result =
+    from employee in employeeSubordinatesReportCte
+    from manager in employeeSubordinatesReportCte
+        .LeftJoin(manager =&gt; employee.ReportsTo == manager.EmployeeID)
+    select new
+    {
+        employee.LastName,
+        employee.FirstName,
+        employee.NumberOfSubordinates,
+        ManagerLastName = manager.LastName,
+        ManagerFirstName = manager.FirstName,
+        ManagerNumberOfSubordinates = manager.NumberOfSubordinates
+   };
+</code></pre>
+<p>You are not limited in the number of  CTEs, defined in a query, and they may reference each other. <code>LINQ To DB</code> will put them in the correct order and generate SQL with one limitation - <strong>there should be no circular references between CTEs</strong>.</p>
+<pre><code class="lang-sql">WITH [EmployeeSubordinatesReport]
+(
+    [ReportsTo],
+    [EmployeeID],
+    [LastName],
+    [FirstName],
+    [NumberOfSubordinates]
+)
+AS
+(
+    SELECT
+        [t2].[ReportsTo],
+        [t2].[EmployeeID],
+        [t2].[LastName],
+        [t2].[FirstName],
+        (
+            SELECT
+            Count(*)
+            FROM
+            [Employees] [t1]
+            WHERE
+            [t1].[ReportsTo] IS NULL AND [t2].[ReportsTo] IS NULL OR
+            [t1].[ReportsTo] = [t2].[ReportsTo]
+        ) as [c1]
+    FROM
+      [Employees] [t2]
+)
+SELECT
+    [t3].[LastName] as [LastName1],
+    [t3].[FirstName] as [FirstName1],
+    [t3].[NumberOfSubordinates],
+    [manager].[LastName] as [LastName2],
+    [manager].[FirstName] as [FirstName2],
+    [manager].[NumberOfSubordinates] as [NumberOfSubordinates1]
+FROM
+    [EmployeeSubordinatesReport] [t3]
+        LEFT JOIN [EmployeeSubordinatesReport] [manager]
+            ON [t3].[ReportsTo] = [manager].[EmployeeID]
+</code></pre>
+<h2 id="defining-recursive-cte">Defining recursive CTE</h2>
+<blockquote>
+<p>Recursive CTEs are special because they are allowed to reference themselves! Because of this special ability, you can use recursive CTEs to solve problems other queries cannot. As an example, recursive CTEs are really good at working with hierarchical data such as org charts for bill of materials. (Further reading: <a href="https://www.essentialsql.com/recursive-cte/">Recursive CTEs Explained</a>).</p>
+</blockquote>
+<p>CTEs have limitations that are not handled by <code>LINQ To DB</code>, so you have to be aware of them before start of usage - <a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql#guidelines-for-defining-and-using-recursive-common-table-expressions">Guidelines for Defining and Using Recursive Common Table Expressions</a></p>
+<p>Since in C# language we can not use a variable's reference in its own initialization expression, we have created a function that helps in defining recursive queries: <code>GetCte&lt;TCteProjection&gt;(cte =&gt; ...)</code>. <code>TCteProjection</code> is a required generic parameter that is needed for resolving the type of the lambda parameter.</p>
+<p>The following example shows how to define a CTE to calculate the employee level in the hierarchy:</p>
+<pre><code class="lang-cs">// defining class for representing Recursive CTE
+class EmployeeHierarchyCTE
+{
+    public int EmployeeID;
+    public string LastName;
+    public string FirstName;
+    public int? ReportsTo;
+    public int HierarchyLevel;
+}
+
+using (var db = new NorthwindDB(context))
+{
+    var employeeHierarchyCte = db.GetCte&lt;EmployeeHierarchyCTE&gt;(employeeHierarchy =&gt;
+    {
+        return
+            (
+                from e in db.Employee
+                where e.ReportsTo == null
+                select new EmployeeHierarchyCTE
+                {
+                    EmployeeID = e.EmployeeID,
+                    LastName = e.LastName,
+                    FirstName = e.FirstName,
+                    ReportsTo = e.ReportsTo,
+                    HierarchyLevel = 1
+                }
+            )
+            .Concat
+            (
+                from e in db.Employee
+                from eh in employeeHierarchy
+                    .InnerJoin(eh =&gt; e.ReportsTo == eh.EmployeeID)
+                select new EmployeeHierarchyCTE
+                {
+                    EmployeeID = e.EmployeeID,
+                    LastName = e.LastName,
+                    FirstName = e.FirstName,
+                    ReportsTo = e.ReportsTo,
+                    HierarchyLevel = eh.HierarchyLevel + 1
+                }
+            );
+    });
+
+    var result =
+        from eh in employeeHierarchyCte
+        orderby eh.HierarchyLevel, eh.LastName, eh.FirstName
+        select eh;
+
+    var data = result.ToArray();
+}
+</code></pre>
+<p>Resulting SQL:</p>
+<pre><code class="lang-sql">WITH [employeeHierarchy]
+(
+    [EmployeeID],
+    [LastName],
+    [FirstName],
+    [ReportsTo],
+    [HierarchyLevel]
+)
+AS
+(
+    SELECT
+        [t1].[EmployeeID],
+        [t1].[LastName],
+        [t1].[FirstName],
+        [t1].[ReportsTo],
+        1 as [c1]
+    FROM
+        [Employees] [t1]
+    WHERE
+        [t1].[ReportsTo] IS NULL
+    UNION ALL
+    SELECT
+        [t2].[EmployeeID],
+        [t2].[LastName],
+        [t2].[FirstName],
+        [t2].[ReportsTo],
+        [eh].[HierarchyLevel] + 1 as [c1]
+    FROM
+        [Employees] [t2]
+            INNER JOIN [employeeHierarchy] [eh] ON [t2].[ReportsTo] = [eh].[EmployeeID]
+)
+
+SELECT
+    [t3].[EmployeeID] as [EmployeeID2],
+    [t3].[LastName] as [LastName2],
+    [t3].[FirstName] as [FirstName2],
+    [t3].[ReportsTo] as [ReportsTo2],
+    [t3].[HierarchyLevel]
+FROM
+    [employeeHierarchy] [t3]
+ORDER BY
+    [t3].[HierarchyLevel],
+    [t3].[LastName],
+    [t3].[FirstName]
+</code></pre>
+<h2 id="database-engines-that-support-cte">Database engines that support CTE</h2>
+<table>
+<thead>
+<tr>
+<th>Database Engine</th>
+<th>Minimal version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://clickhouse.com/docs/en/sql-reference/statements/select/with/">ClickHouse</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://www.ibm.com/docs/en/db2-for-zos/11?topic=statement-common-table-expression">IBM DB2</a></td>
+<td>8</td>
+</tr>
+<tr>
+<td><a href="https://firebirdsql.org/refdocs/langrefupd21-select.html#langrefupd21-select-cte">Firebird</a></td>
+<td>2.1</td>
+</tr>
+<tr>
+<td><a href="https://www.ibm.com/docs/en/informix-servers/14.10?topic=statements-statement-common-table-expressions">IBM Informix</a></td>
+<td>14.10</td>
+</tr>
+<tr>
+<td><a href="https://dev.mysql.com/doc/refman/8.0/en/with.html">MySQL</a></td>
+<td>8.0.1</td>
+</tr>
+<tr>
+<td><a href="https://docs.oracle.com/database/121/SQLRF/statements_10002.htm#BABCGAAJ">Oracle</a></td>
+<td>11g Release 2</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/current/queries-with.html">PostgreSQL</a></td>
+<td>8.4</td>
+</tr>
+<tr>
+<td><a href="https://help.sap.com/docs/SAP_HANA_PLATFORM/4fe29514fd584807ac9f2a04f6754767/20fcf24075191014a89e9dc7b8408b26.html#loio20fcf24075191014a89e9dc7b8408b26__with_clause">SAP HANA</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://www.sqlite.org/lang_with.html">SQLite</a></td>
+<td>3.8.3</td>
+</tr>
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql">MS SQL</a></td>
+<td>2008</td>
+</tr>
+</tbody>
+</table>
+<h2 id="known-limitations">Known limitations</h2>
+<ul>
+<li>Oracle and Firebird DML operations that use CTE are not completely implemented.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2011-2026 Linq To DB Team<br>Generated by <strong><a href='https://github.com/dotnet/docfx' target='_blank'>DocFX</a></strong>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
