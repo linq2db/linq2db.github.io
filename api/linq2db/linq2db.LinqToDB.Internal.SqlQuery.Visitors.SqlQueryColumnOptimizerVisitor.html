@@ -89,7 +89,7 @@
 
 
   <h1 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor" class="text-break">
-Class SqlQueryColumnOptimizerVisitor  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class SqlQueryColumnOptimizerVisitor  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -191,7 +191,7 @@ Pass 2: Removes unused columns (modify)</p>
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor__ctor" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.#ctor">
   SqlQueryColumnOptimizerVisitor()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Two-pass visitor that removes unused columns from SelectQuery.
@@ -224,7 +224,7 @@ Pass 2: Removes unused columns (modify)</p>
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_IsOptimized" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.IsOptimized">
   IsOptimized
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -259,7 +259,7 @@ Pass 2: Removes unused columns (modify)</p>
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_Cleanup" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.Cleanup">
   Cleanup()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Resets visitor to initial state.</p>
@@ -284,9 +284,9 @@ Pass 2: Removes unused columns (modify)</p>
 
   <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_OptimizeColumns_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.OptimizeColumns*"></a>
 
-  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_OptimizeColumns_LinqToDB_Internal_SqlQuery_IQueryElement_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.OptimizeColumns(LinqToDB.Internal.SqlQuery.IQueryElement)">
-  OptimizeColumns(IQueryElement)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_OptimizeColumns_LinqToDB_Internal_SqlQuery_IQueryElement_LinqToDB_Mapping_MappingSchema_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.OptimizeColumns(LinqToDB.Internal.SqlQuery.IQueryElement,LinqToDB.Mapping.MappingSchema)">
+  OptimizeColumns(IQueryElement, MappingSchema)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Optimizes column usage in two passes:
@@ -296,12 +296,14 @@ Pass 2: Remove unused columns (modify)</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IQueryElement OptimizeColumns(IQueryElement root)</code></pre>
+    <pre><code class="lang-csharp hljs">public IQueryElement OptimizeColumns(IQueryElement root, MappingSchema mappingSchema)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>root</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+    <dt><code>mappingSchema</code> <a class="xref" href="linq2db.LinqToDB.Mapping.MappingSchema.html">MappingSchema</a></dt>
     <dd></dd>
   </dl>
 
@@ -325,7 +327,7 @@ Pass 2: Remove unused columns (modify)</p>
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_VisitCteClause_LinqToDB_Internal_SqlQuery_CteClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.VisitCteClause(LinqToDB.Internal.SqlQuery.CteClause)">
   VisitCteClause(CteClause)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Visitor of <a class="xref" href="LinqToDB.Internal.SqlQuery.CteClause.html">CteClause</a> definition from <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlWithClause.html">SqlWithClause</a> visitor (owner).
@@ -363,7 +365,7 @@ For visitor of <a class="xref" href="LinqToDB.Internal.SqlQuery.CteClause.html">
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_VisitExistsPredicate_LinqToDB_Internal_SqlQuery_SqlPredicate_Exists_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.VisitExistsPredicate(LinqToDB.Internal.SqlQuery.SqlPredicate.Exists)">
   VisitExistsPredicate(Exists)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L229"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L248"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -399,7 +401,7 @@ For visitor of <a class="xref" href="LinqToDB.Internal.SqlQuery.CteClause.html">
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_VisitSqlColumnExpression_LinqToDB_Internal_SqlQuery_SqlColumn_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.VisitSqlColumnExpression(LinqToDB.Internal.SqlQuery.SqlColumn,LinqToDB.Internal.SqlQuery.ISqlExpression)">
   VisitSqlColumnExpression(SqlColumn, ISqlExpression)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L171"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Visit of column expression from owner table. For column references visitor see <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.Visitors.QueryElementVisitor.html#LinqToDB_Internal_SqlQuery_Visitors_QueryElementVisitor_VisitSqlColumnReference_LinqToDB_Internal_SqlQuery_SqlColumn_">VisitSqlColumnReference(SqlColumn)</a></p>
@@ -438,7 +440,7 @@ For visitor of <a class="xref" href="LinqToDB.Internal.SqlQuery.CteClause.html">
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_VisitSqlColumnReference_LinqToDB_Internal_SqlQuery_SqlColumn_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.VisitSqlColumnReference(LinqToDB.Internal.SqlQuery.SqlColumn)">
   VisitSqlColumnReference(SqlColumn)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L178"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Used to visit columns as references in other expressions.
@@ -472,11 +474,48 @@ Actual visit of table column happens in <a class="xref" href="linq2db.LinqToDB.I
 
 
 
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_VisitSqlCteTableField_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.VisitSqlCteTableField*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_VisitSqlCteTableField_LinqToDB_Internal_SqlQuery_SqlCteTableField_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.VisitSqlCteTableField(LinqToDB.Internal.SqlQuery.SqlCteTableField)">
+  VisitSqlCteTableField(SqlCteTableField)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Visitor for <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCteTableField.html">SqlCteTableField</a> reference.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IQueryElement VisitSqlCteTableField(SqlCteTableField element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlCteTableField.html">SqlCteTableField</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_VisitSqlFieldReference_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.VisitSqlFieldReference*"></a>
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_VisitSqlFieldReference_LinqToDB_Internal_SqlQuery_SqlField_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.VisitSqlFieldReference(LinqToDB.Internal.SqlQuery.SqlField)">
   VisitSqlFieldReference(SqlField)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L186"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L191"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Visitor for <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlField.html">SqlField</a> reference from query expressions.</p>
@@ -513,7 +552,7 @@ Actual visit of table column happens in <a class="xref" href="linq2db.LinqToDB.I
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_VisitSqlFromClause_LinqToDB_Internal_SqlQuery_SqlFromClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.VisitSqlFromClause(LinqToDB.Internal.SqlQuery.SqlFromClause)">
   VisitSqlFromClause(SqlFromClause)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L124"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -549,7 +588,7 @@ Actual visit of table column happens in <a class="xref" href="linq2db.LinqToDB.I
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_VisitSqlGroupByClause_LinqToDB_Internal_SqlQuery_SqlGroupByClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.VisitSqlGroupByClause(LinqToDB.Internal.SqlQuery.SqlGroupByClause)">
   VisitSqlGroupByClause(SqlGroupByClause)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L115"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -585,7 +624,7 @@ Actual visit of table column happens in <a class="xref" href="linq2db.LinqToDB.I
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_VisitSqlInsertOrUpdateStatement_LinqToDB_Internal_SqlQuery_SqlInsertOrUpdateStatement_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.VisitSqlInsertOrUpdateStatement(LinqToDB.Internal.SqlQuery.SqlInsertOrUpdateStatement)">
   VisitSqlInsertOrUpdateStatement(SqlInsertOrUpdateStatement)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L270"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -621,7 +660,7 @@ Actual visit of table column happens in <a class="xref" href="linq2db.LinqToDB.I
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_VisitSqlOrderByClause_LinqToDB_Internal_SqlQuery_SqlOrderByClause_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.VisitSqlOrderByClause(LinqToDB.Internal.SqlQuery.SqlOrderByClause)">
   VisitSqlOrderByClause(SqlOrderByClause)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L96"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -657,7 +696,7 @@ Actual visit of table column happens in <a class="xref" href="linq2db.LinqToDB.I
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_VisitSqlQuery_LinqToDB_Internal_SqlQuery_SelectQuery_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.VisitSqlQuery(LinqToDB.Internal.SqlQuery.SelectQuery)">
   VisitSqlQuery(SelectQuery)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L133"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -693,7 +732,7 @@ Actual visit of table column happens in <a class="xref" href="linq2db.LinqToDB.I
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_VisitSqlSearchCondition_LinqToDB_Internal_SqlQuery_SqlSearchCondition_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.VisitSqlSearchCondition(LinqToDB.Internal.SqlQuery.SqlSearchCondition)">
   VisitSqlSearchCondition(SqlSearchCondition)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L106"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -729,7 +768,7 @@ Actual visit of table column happens in <a class="xref" href="linq2db.LinqToDB.I
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_VisitSqlTableLikeSource_LinqToDB_Internal_SqlQuery_SqlTableLikeSource_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.VisitSqlTableLikeSource(LinqToDB.Internal.SqlQuery.SqlTableLikeSource)">
   VisitSqlTableLikeSource(SqlTableLikeSource)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L214"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L233"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -765,7 +804,7 @@ Actual visit of table column happens in <a class="xref" href="linq2db.LinqToDB.I
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryColumnOptimizerVisitor_VisitSqlUpdateStatement_LinqToDB_Internal_SqlQuery_SqlUpdateStatement_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.Visitors.SqlQueryColumnOptimizerVisitor.VisitSqlUpdateStatement(LinqToDB.Internal.SqlQuery.SqlUpdateStatement)">
   VisitSqlUpdateStatement(SqlUpdateStatement)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L240"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/Visitors/SqlQueryColumnOptimizerVisitor.cs/#L259"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>

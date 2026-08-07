@@ -89,7 +89,7 @@
 
 
   <h1 id="linq2db_LinqToDB_DataProvider_Oracle_OracleOptions" data-uid="linq2db.LinqToDB.DataProvider.Oracle.OracleOptions" class="text-break">
-Class OracleOptions  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleOptions.cs/#L23"><i class="bi bi-code-slash"></i></a>
+Class OracleOptions  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleOptions.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -191,7 +191,7 @@ Class OracleOptions  <a class="header-action link-secondary" title="View source"
 
   <h3 id="linq2db_LinqToDB_DataProvider_Oracle_OracleOptions__ctor" data-uid="linq2db.LinqToDB.DataProvider.Oracle.OracleOptions.#ctor">
   OracleOptions()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleOptions.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleOptions.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -215,16 +215,16 @@ Class OracleOptions  <a class="header-action link-secondary" title="View source"
 
   <a id="linq2db_LinqToDB_DataProvider_Oracle_OracleOptions__ctor_" data-uid="linq2db.LinqToDB.DataProvider.Oracle.OracleOptions.#ctor*"></a>
 
-  <h3 id="linq2db_LinqToDB_DataProvider_Oracle_OracleOptions__ctor_LinqToDB_Data_BulkCopyType_LinqToDB_DataProvider_Oracle_AlternativeBulkCopy_System_Boolean_" data-uid="linq2db.LinqToDB.DataProvider.Oracle.OracleOptions.#ctor(LinqToDB.Data.BulkCopyType,LinqToDB.DataProvider.Oracle.AlternativeBulkCopy,System.Boolean)">
-  OracleOptions(BulkCopyType, AlternativeBulkCopy, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleOptions.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <h3 id="linq2db_LinqToDB_DataProvider_Oracle_OracleOptions__ctor_LinqToDB_Data_BulkCopyType_LinqToDB_DataProvider_Oracle_AlternativeBulkCopy_System_Boolean_System_Nullable_System_Int32__" data-uid="linq2db.LinqToDB.DataProvider.Oracle.OracleOptions.#ctor(LinqToDB.Data.BulkCopyType,LinqToDB.DataProvider.Oracle.AlternativeBulkCopy,System.Boolean,System.Nullable{System.Int32})">
+  OracleOptions(BulkCopyType, AlternativeBulkCopy, bool, int?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleOptions.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public OracleOptions(BulkCopyType BulkCopyType = BulkCopyType.MultipleRows, AlternativeBulkCopy AlternativeBulkCopy = AlternativeBulkCopy.InsertAll, bool DontEscapeLowercaseIdentifiers = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public OracleOptions(BulkCopyType BulkCopyType = BulkCopyType.MultipleRows, AlternativeBulkCopy AlternativeBulkCopy = AlternativeBulkCopy.InsertAll, bool DontEscapeLowercaseIdentifiers = false, int? MaxStringParameterLength = 4000)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -241,6 +241,27 @@ Default value: <a class="xref" href="linq2db.LinqToDB.Data.BulkCopyType.html#Lin
     <dd><p>Gets or sets flag to tell LinqToDB to quote identifiers, if they contain lowercase letters.
 Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
 This flag is added for backward compatibility and not recommended for use with new applications.</p>
+</dd>
+    <dt><code>MaxStringParameterLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>
+Maximum string length threshold, measured in .NET characters, for regular string parameter binding.
+Undefined string parameters with length greater than or equal to this value are bound as NCLOB.
+</p>
+<p>
+The default value is 4000, which corresponds to Oracle's default MAX_STRING_SIZE limit
+for VARCHAR2 values in the common single-byte case.
+</p>
+<p>
+This setting is a user-configurable heuristic and does not perform byte-exact validation
+against the database character set.
+</p>
+<p>
+Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to disable automatic NCLOB inference.
+</p>
+<p>
+See Oracle documentation for VARCHAR2 limits:
+<a href="https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/Data-Types.html">https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/Data-Types.html</a>.
+</p>
 </dd>
   </dl>
 
@@ -263,7 +284,7 @@ This flag is added for backward compatibility and not recommended for use with n
 
   <h3 id="linq2db_LinqToDB_DataProvider_Oracle_OracleOptions_AlternativeBulkCopy" data-uid="linq2db.LinqToDB.DataProvider.Oracle.OracleOptions.AlternativeBulkCopy">
   AlternativeBulkCopy
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleOptions.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleOptions.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Defines type of multi-row INSERT operation to generate for <a class="xref" href="linq2db.LinqToDB.Data.BulkCopyType.html#LinqToDB_Data_BulkCopyType_RowByRow">RowByRow</a> bulk copy mode.</p>
@@ -295,7 +316,7 @@ This flag is added for backward compatibility and not recommended for use with n
 
   <h3 id="linq2db_LinqToDB_DataProvider_Oracle_OracleOptions_DontEscapeLowercaseIdentifiers" data-uid="linq2db.LinqToDB.DataProvider.Oracle.OracleOptions.DontEscapeLowercaseIdentifiers">
   DontEscapeLowercaseIdentifiers
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleOptions.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleOptions.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets flag to tell LinqToDB to quote identifiers, if they contain lowercase letters.
@@ -325,6 +346,56 @@ This flag is added for backward compatibility and not recommended for use with n
 
 
 
+  <a id="linq2db_LinqToDB_DataProvider_Oracle_OracleOptions_MaxStringParameterLength_" data-uid="linq2db.LinqToDB.DataProvider.Oracle.OracleOptions.MaxStringParameterLength*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataProvider_Oracle_OracleOptions_MaxStringParameterLength" data-uid="linq2db.LinqToDB.DataProvider.Oracle.OracleOptions.MaxStringParameterLength">
+  MaxStringParameterLength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleOptions.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>
+Maximum string length threshold, measured in .NET characters, for regular string parameter binding.
+Undefined string parameters with length greater than or equal to this value are bound as NCLOB.
+</p>
+<p>
+The default value is 4000, which corresponds to Oracle's default MAX_STRING_SIZE limit
+for VARCHAR2 values in the common single-byte case.
+</p>
+<p>
+This setting is a user-configurable heuristic and does not perform byte-exact validation
+against the database character set.
+</p>
+<p>
+Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to disable automatic NCLOB inference.
+</p>
+<p>
+See Oracle documentation for VARCHAR2 limits:
+<a href="https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/Data-Types.html">https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/Data-Types.html</a>.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? MaxStringParameterLength { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -333,7 +404,7 @@ This flag is added for backward compatibility and not recommended for use with n
 
   <h3 id="linq2db_LinqToDB_DataProvider_Oracle_OracleOptions_CreateID_LinqToDB_Internal_Common_IdentifierBuilder_" data-uid="linq2db.LinqToDB.DataProvider.Oracle.OracleOptions.CreateID(LinqToDB.Internal.Common.IdentifierBuilder)">
   CreateID(IdentifierBuilder)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleOptions.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleOptions.cs/#L106"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -369,7 +440,7 @@ This flag is added for backward compatibility and not recommended for use with n
 
   <h3 id="linq2db_LinqToDB_DataProvider_Oracle_OracleOptions_Equals_LinqToDB_DataProvider_Oracle_OracleOptions_" data-uid="linq2db.LinqToDB.DataProvider.Oracle.OracleOptions.Equals(LinqToDB.DataProvider.Oracle.OracleOptions)">
   Equals(OracleOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleOptions.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleOptions.cs/#L114"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates whether the current object is equal to another object of the same type.</p>
@@ -408,7 +479,7 @@ This flag is added for backward compatibility and not recommended for use with n
 
   <h3 id="linq2db_LinqToDB_DataProvider_Oracle_OracleOptions_GetHashCode" data-uid="linq2db.LinqToDB.DataProvider.Oracle.OracleOptions.GetHashCode">
   GetHashCode()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleOptions.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Oracle/OracleOptions.cs/#L122"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Serves as the default hash function.</p>

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class FirebirdTools | Linq To DB ">
       
-      
+      <meta name="description" content="Firebird ADO.NET provider registration and  factory helpers.">
       <link rel="icon" href="../../images/icon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="linq2db_LinqToDB_DataProvider_Firebird_FirebirdTools" data-uid="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools" class="text-break">
-Class FirebirdTools  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class FirebirdTools  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Class FirebirdTools  <a class="header-action link-secondary" title="View source"
   <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Firebird ADO.NET provider registration and <a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a> factory helpers.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -131,10 +132,12 @@ Class FirebirdTools  <a class="header-action link-secondary" title="View source"
 
   <h3 id="linq2db_LinqToDB_DataProvider_Firebird_FirebirdTools_AutoDetectProvider" data-uid="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools.AutoDetectProvider">
   AutoDetectProvider
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets whether the Firebird dialect is detected automatically by querying the server engine
+version when it is not specified explicitly.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -166,10 +169,13 @@ Class FirebirdTools  <a class="header-action link-secondary" title="View source"
 
   <h3 id="linq2db_LinqToDB_DataProvider_Firebird_FirebirdTools_ClearAllPools" data-uid="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools.ClearAllPools">
   ClearAllPools()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L110"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Clears every Firebird connection pool process-wide (all connection strings).
+See <a class="xref" href="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools.html#LinqToDB_DataProvider_Firebird_FirebirdTools_ClearPool_System_Data_Common_DbConnection_">ClearPool(DbConnection)</a> / <a class="xref" href="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools.html#LinqToDB_DataProvider_Firebird_FirebirdTools_ClearPool_System_String_">ClearPool(string)</a> for a scoped alternative
+that leaves other databases' pools untouched.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -188,14 +194,86 @@ Class FirebirdTools  <a class="header-action link-secondary" title="View source"
 
 
 
+  <a id="linq2db_LinqToDB_DataProvider_Firebird_FirebirdTools_ClearPool_" data-uid="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools.ClearPool*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataProvider_Firebird_FirebirdTools_ClearPool_System_Data_Common_DbConnection_" data-uid="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools.ClearPool(System.Data.Common.DbConnection)">
+  ClearPool(DbConnection)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears the connection pool associated with the given connection's connection string.
+Unlike <a class="xref" href="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools.html#LinqToDB_DataProvider_Firebird_FirebirdTools_ClearAllPools">ClearAllPools()</a> (which evicts every Firebird pool process-wide), this only
+affects the pool for <code class="paramref">connection</code>'s connection string, leaving connections for
+other databases/servers untouched.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClearPool(DbConnection connection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a></dt>
+    <dd><p>Connection whose connection-string pool should be cleared.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_DataProvider_Firebird_FirebirdTools_ClearPool_" data-uid="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools.ClearPool*"></a>
+
+  <h3 id="linq2db_LinqToDB_DataProvider_Firebird_FirebirdTools_ClearPool_System_String_" data-uid="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools.ClearPool(System.String)">
+  ClearPool(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears the connection pool for the given connection string. Same scoping as
+<a class="xref" href="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools.html#LinqToDB_DataProvider_Firebird_FirebirdTools_ClearPool_System_Data_Common_DbConnection_">ClearPool(DbConnection)</a>, but keyed by the connection string directly (no live
+connection object required).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClearPool(string connectionString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connectionString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Connection string whose pool should be cleared.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="linq2db_LinqToDB_DataProvider_Firebird_FirebirdTools_CreateDataConnection_" data-uid="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools.CreateDataConnection*"></a>
 
   <h3 id="linq2db_LinqToDB_DataProvider_Firebird_FirebirdTools_CreateDataConnection_System_Data_Common_DbConnection_LinqToDB_DataProvider_Firebird_FirebirdVersion_" data-uid="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools.CreateDataConnection(System.Data.Common.DbConnection,LinqToDB.DataProvider.Firebird.FirebirdVersion)">
   CreateDataConnection(DbConnection, FirebirdVersion)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L85"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a> object using provided connection object.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -205,15 +283,18 @@ Class FirebirdTools  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>connection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a></dt>
-    <dd></dd>
+    <dd><p>Connection instance.</p>
+</dd>
     <dt><code>version</code> <a class="xref" href="linq2db.LinqToDB.DataProvider.Firebird.FirebirdVersion.html">FirebirdVersion</a></dt>
-    <dd></dd>
+    <dd><p>Firebird dialect version.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
-    <dd></dd>
+    <dd><p><a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a> instance.</p>
+</dd>
   </dl>
 
 
@@ -230,10 +311,11 @@ Class FirebirdTools  <a class="header-action link-secondary" title="View source"
 
   <h3 id="linq2db_LinqToDB_DataProvider_Firebird_FirebirdTools_CreateDataConnection_System_Data_Common_DbTransaction_LinqToDB_DataProvider_Firebird_FirebirdVersion_" data-uid="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools.CreateDataConnection(System.Data.Common.DbTransaction,LinqToDB.DataProvider.Firebird.FirebirdVersion)">
   CreateDataConnection(DbTransaction, FirebirdVersion)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L97"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a> object using provided transaction object.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -243,15 +325,18 @@ Class FirebirdTools  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>transaction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbtransaction">DbTransaction</a></dt>
-    <dd></dd>
+    <dd><p>Transaction instance.</p>
+</dd>
     <dt><code>version</code> <a class="xref" href="linq2db.LinqToDB.DataProvider.Firebird.FirebirdVersion.html">FirebirdVersion</a></dt>
-    <dd></dd>
+    <dd><p>Firebird dialect version.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
-    <dd></dd>
+    <dd><p><a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a> instance.</p>
+</dd>
   </dl>
 
 
@@ -268,10 +353,11 @@ Class FirebirdTools  <a class="header-action link-secondary" title="View source"
 
   <h3 id="linq2db_LinqToDB_DataProvider_Firebird_FirebirdTools_CreateDataConnection_System_String_LinqToDB_DataProvider_Firebird_FirebirdVersion_" data-uid="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools.CreateDataConnection(System.String,LinqToDB.DataProvider.Firebird.FirebirdVersion)">
   CreateDataConnection(string, FirebirdVersion)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L73"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates <a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a> object using provided Firebird connection string.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -281,15 +367,18 @@ Class FirebirdTools  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>connectionString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Connection string.</p>
+</dd>
     <dt><code>version</code> <a class="xref" href="linq2db.LinqToDB.DataProvider.Firebird.FirebirdVersion.html">FirebirdVersion</a></dt>
-    <dd></dd>
+    <dd><p>Firebird dialect version.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html">DataConnection</a></dt>
-    <dd></dd>
+    <dd><p><a class="xref" href="LinqToDB.Data.DataConnection.html">DataConnection</a> instance.</p>
+</dd>
   </dl>
 
 
@@ -306,10 +395,11 @@ Class FirebirdTools  <a class="header-action link-secondary" title="View source"
 
   <h3 id="linq2db_LinqToDB_DataProvider_Firebird_FirebirdTools_GetDataProvider_LinqToDB_DataProvider_Firebird_FirebirdVersion_System_String_System_Data_Common_DbConnection_System_Data_Common_DbTransaction_" data-uid="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools.GetDataProvider(LinqToDB.DataProvider.Firebird.FirebirdVersion,System.String,System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
   GetDataProvider(FirebirdVersion, string?, DbConnection?, DbTransaction?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the Firebird <a class="xref" href="LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a> for the requested (or auto-detected) dialect version.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -319,19 +409,24 @@ Class FirebirdTools  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>version</code> <a class="xref" href="linq2db.LinqToDB.DataProvider.Firebird.FirebirdVersion.html">FirebirdVersion</a></dt>
-    <dd></dd>
+    <dd><p>Firebird dialect version.</p>
+</dd>
     <dt><code>connectionString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Optional connection string, used for version auto-detection.</p>
+</dd>
     <dt><code>connection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbconnection">DbConnection</a></dt>
-    <dd></dd>
+    <dd><p>Optional connection, used for version auto-detection.</p>
+</dd>
     <dt><code>transaction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.common.dbtransaction">DbTransaction</a></dt>
-    <dd></dd>
+    <dd><p>Optional transaction, used for version auto-detection.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="linq2db.LinqToDB.DataProvider.IDataProvider.html">IDataProvider</a></dt>
-    <dd></dd>
+    <dd><p>Firebird data provider instance.</p>
+</dd>
   </dl>
 
 
@@ -348,10 +443,11 @@ Class FirebirdTools  <a class="header-action link-secondary" title="View source"
 
   <h3 id="linq2db_LinqToDB_DataProvider_Firebird_FirebirdTools_ResolveFirebird_System_Reflection_Assembly_" data-uid="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools.ResolveFirebird(System.Reflection.Assembly)">
   ResolveFirebird(Assembly)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L59"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Registers the specified Firebird ADO.NET client assembly (<code>FirebirdSql.Data.FirebirdClient</code>) for resolution.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -361,7 +457,8 @@ Class FirebirdTools  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>assembly</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a></dt>
-    <dd></dd>
+    <dd><p>The Firebird client assembly.</p>
+</dd>
   </dl>
 
 
@@ -379,10 +476,12 @@ Class FirebirdTools  <a class="header-action link-secondary" title="View source"
 
   <h3 id="linq2db_LinqToDB_DataProvider_Firebird_FirebirdTools_ResolveFirebird_System_String_" data-uid="linq2db.LinqToDB.DataProvider.Firebird.FirebirdTools.ResolveFirebird(System.String)">
   ResolveFirebird(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/DataProvider/Firebird/FirebirdTools.cs/#L49"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Registers an assembly resolver that loads the Firebird ADO.NET client assembly
+(<code>FirebirdSql.Data.FirebirdClient</code>) from the specified path.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -392,7 +491,8 @@ Class FirebirdTools  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Path to the folder or file containing the Firebird client assembly.</p>
+</dd>
   </dl>
 
 

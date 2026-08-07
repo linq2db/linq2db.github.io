@@ -378,6 +378,11 @@ you dispose it. It uses regular tables even if underlying database supports temp
       <dt><a class="xref" href="linq2db.LinqToDB.UpdateOutput-1.html">UpdateOutput&lt;T&gt;</a></dt>
       <dd></dd>
     </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.html">WindowFunctionBuilder</a></dt>
+      <dd><p>Provides SQL window function support via a fluent lambda-based API accessed through <a class="xref" href="linq2db.LinqToDB.Sql.html#LinqToDB_Sql_Window">Window</a>.</p>
+</dd>
+    </dl>
     <h3 id="structs">
 Structs
 </h3>
@@ -582,6 +587,237 @@ Provider-specific options are exposed as extension methods over this interface.<
       <dt><a class="xref" href="linq2db.LinqToDB.Sql.IWindowFunction.html">Sql.IWindowFunction</a></dt>
       <dd></dd>
     </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IAggregateFinal.html">WindowFunctionBuilder.IAggregateFinal</a></dt>
+      <dd><p>Builder for aggregate window functions with an argument: COUNT(expr), SUM, AVG, MIN, MAX.</p>
+<p>Chain: <code>[.Distinct()][.Filter(...)][.PartitionBy(...)][.OrderBy(...)][.RowsBetween|RangeBetween...]</code>, or <code>.UseWindow(...)</code>.</p>
+<p>Optional <code>DISTINCT</code> aggregate modifier, then the standard aggregate clauses (single-shot Distinct). <code>UseWindow</code> applies a reusable window definition (from <code>DefineWindow</code>) and is an alternative to the inline clauses, not combined with them.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IBivariateAggregateFinal.html">WindowFunctionBuilder.IBivariateAggregateFinal</a></dt>
+      <dd><p>Builder for two-argument statistical window aggregates: COVAR_POP/COVAR_SAMP, CORR, REGR_*.</p>
+<p>Chain: <code>[Filter(...)][.PartitionBy(...)][.OrderBy(...)][.RowsBetween|RangeBetween...]</code>, or <code>.UseWindow(...)</code>.</p>
+<p>Supports FILTER, frame specification, and UseWindow. Does NOT support DISTINCT or KEEP — neither is valid on two-argument aggregates.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IBoundaryPart-1.html">WindowFunctionBuilder.IBoundaryPart&lt;TBoundaryDefined&gt;</a></dt>
+      <dd><p>Provides frame boundary options: UNBOUNDED, CURRENT ROW, or a directed value offset.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IDefinedFunction.html">WindowFunctionBuilder.IDefinedFunction</a></dt>
+      <dd><p>Marker interface indicating the window function definition is complete and can be returned from the builder lambda.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IDefinedFunction-1.html">WindowFunctionBuilder.IDefinedFunction&lt;TR&gt;</a></dt>
+      <dd><p>Marker interface indicating the window function definition is complete and can be returned from the builder lambda.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IDefinedRangeFrameFunction.html">WindowFunctionBuilder.IDefinedRangeFrameFunction</a></dt>
+      <dd><p>Provides optional frame exclusion after the frame boundary specification.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IDefinedWindow.html">WindowFunctionBuilder.IDefinedWindow</a></dt>
+      <dd><p>A reusable window definition created by <a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.html#LinqToDB_WindowFunctionBuilder_DefineWindow_LinqToDB_Sql_IWindowFunction_System_Func_LinqToDB_WindowFunctionBuilder_IWindowBuilder_LinqToDB_WindowFunctionBuilder_IDefinedFunction__">DefineWindow(IWindowFunction, Func&lt;IWindowBuilder, IDefinedFunction&gt;)</a>. Pass to <code>UseWindow()</code> to reference it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IDistinctPart-1.html">WindowFunctionBuilder.IDistinctPart&lt;TNext&gt;</a></dt>
+      <dd><p>Provides the <code>DISTINCT</code> aggregate modifier for aggregate window functions (COUNT(expr)/SUM/AVG/MIN/MAX).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IFilterPart-1.html">WindowFunctionBuilder.IFilterPart&lt;TFiltered&gt;</a></dt>
+      <dd><p>Provides the FILTER (WHERE ...) clause for aggregate window functions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IFramePartFunction.html">WindowFunctionBuilder.IFramePartFunction</a></dt>
+      <dd><p>Provides frame type selection: ROWS, RANGE, or GROUPS with BETWEEN syntax.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IFromPart-1.html">WindowFunctionBuilder.IFromPart&lt;TNext&gt;</a></dt>
+      <dd><p>Provides the <code>FROM FIRST</code> / <code>FROM LAST</code> modifier for <code>NTH_VALUE</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IKeepOrderByRequired.html">WindowFunctionBuilder.IKeepOrderByRequired</a></dt>
+      <dd><p>Builder state after KeepFirst/KeepLast — requires mandatory ORDER BY.</p>
+<p>Chain: <code>.OrderBy(...)[.ThenBy(...)][.PartitionBy(...)]</code></p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IKeepPart-1.html">WindowFunctionBuilder.IKeepPart&lt;TKeepOrderBy&gt;</a></dt>
+      <dd><p>Provides KEEP (DENSE_RANK FIRST/LAST) clause for aggregate window functions. Oracle-specific.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IKeepThenByOrPartitionFinal.html">WindowFunctionBuilder.IKeepThenByOrPartitionFinal</a></dt>
+      <dd><p>Builder state after KEEP ORDER BY — allows ThenBy, optional PartitionBy, or completes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.ILeadLagFinal.html">WindowFunctionBuilder.ILeadLagFinal</a></dt>
+      <dd><p>Builder for offset window functions: LEAD, LAG.</p>
+<p>Chain: <code>[.IgnoreNulls()|.RespectNulls()] [UseWindow(wnd)] | [PartitionBy(...)].OrderBy(...)[.ThenBy(...)]</code></p>
+<p>Optional null treatment, then mandatory ORDER BY (via the inherited chain).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IMultipleOrderByPart.html">WindowFunctionBuilder.IMultipleOrderByPart</a></dt>
+      <dd><p>Provides ORDER BY for ordered-set aggregate functions (e.g. PERCENTILE_DISC) that allow multiple ordering columns.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IMultipleThenByPart-1.html">WindowFunctionBuilder.IMultipleThenByPart&lt;TValue&gt;</a></dt>
+      <dd><p>Provides additional ORDER BY columns after the first one in ordered-set aggregates, plus an optional <code>FILTER (WHERE ...)</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.INthValueFinal.html">WindowFunctionBuilder.INthValueFinal</a></dt>
+      <dd><p>Builder for NTH_VALUE. Optional <code>FROM FIRST/LAST</code> then optional <code>IGNORE/RESPECT NULLS</code> (in SQL order), then the window spec.</p>
+<p>Chain: <code>[.FromFirst()|.FromLast()] [.IgnoreNulls()|.RespectNulls()] [UseWindow(wnd)] | [PartitionBy(...)][.OrderBy(...)][.RowsBetween|RangeBetween...]</code></p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.INthValueNullsStep.html">WindowFunctionBuilder.INthValueNullsStep</a></dt>
+      <dd><p>Builder state after <code>FROM FIRST/LAST</code> on NTH_VALUE — allows optional <code>IGNORE/RESPECT NULLS</code>, then the window spec.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.INullTreatmentPart-1.html">WindowFunctionBuilder.INullTreatmentPart&lt;TNext&gt;</a></dt>
+      <dd><p>Provides function-level null treatment (<code>IGNORE NULLS</code> / <code>RESPECT NULLS</code>) for value/offset window functions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IOFilterOPartitionOOrderOFrameFinal.html">WindowFunctionBuilder.IOFilterOPartitionOOrderOFrameFinal</a></dt>
+      <dd><p>Builder for aggregate window functions: SUM, AVG, MIN, MAX.</p>
+<p>Chain: <code>[Filter(...)][.PartitionBy(...)][.OrderBy(...)][.RowsBetween|RangeBetween...]</code>, or <code>.UseWindow(...)</code>.</p>
+<p>Or with KEEP: <code>[.KeepFirst()|.KeepLast()].OrderBy(...)[.ThenBy(...)][.PartitionBy(...)]</code></p>
+<p>All clauses are optional. Supports FILTER, frame specification, UseWindow, and KEEP (Oracle) — UseWindow (a reusable window definition from <code>DefineWindow</code>) and KEEP are alternatives to the inline clauses, not combined with them.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IOFrameFinal.html">WindowFunctionBuilder.IOFrameFinal</a></dt>
+      <dd><p>Terminal state after OrderBy in frame-capable chains: allows frame specification or completes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IOPartitionFinal.html">WindowFunctionBuilder.IOPartitionFinal</a></dt>
+      <dd><p>State providing PartitionBy only, then completes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IOPartitionOOrderOFrameFinal.html">WindowFunctionBuilder.IOPartitionOOrderOFrameFinal</a></dt>
+      <dd><p>State providing PartitionBy, OrderBy, and frame specification.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IOPartitionOOrderOFrameWithWindowFinal.html">WindowFunctionBuilder.IOPartitionOOrderOFrameWithWindowFinal</a></dt>
+      <dd><p>Builder for value window functions: FIRST_VALUE, LAST_VALUE, NTH_VALUE.</p>
+<p>Chain: <code>[PartitionBy(...)][.OrderBy(...)][.RowsBetween|RangeBetween...]</code>, or <code>.UseWindow(...)</code>.</p>
+<p>Supports frame specification and UseWindow (a reusable window definition from <code>DefineWindow</code>, an alternative to the inline clauses). Does NOT support FILTER clause.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IOPartitionROrderFinal.html">WindowFunctionBuilder.IOPartitionROrderFinal</a></dt>
+      <dd><p>Builder for ranking functions: ROW_NUMBER, RANK, DENSE_RANK, PERCENT_RANK, CUME_DIST, NTILE, LEAD, LAG.</p>
+<p>Chain: <code>[UseWindow(wnd)] | [PartitionBy(...)].OrderBy(...)[.ThenBy(...)]</code></p>
+<p>ORDER BY is mandatory. FILTER and frame clauses are not available.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IOThenPartOFrameFinal.html">WindowFunctionBuilder.IOThenPartOFrameFinal</a></dt>
+      <dd><p>State after OrderBy in frame-capable chains: allows ThenBy, frame specification, or completes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IOnlyOrderByPart.html">WindowFunctionBuilder.IOnlyOrderByPart</a></dt>
+      <dd><p>Provides ORDER BY for ordered-set aggregate functions (e.g. PERCENTILE_CONT) that require exactly one ordering column.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IOrderByPart-1.html">WindowFunctionBuilder.IOrderByPart&lt;TThenPart&gt;</a></dt>
+      <dd><p>Provides ORDER BY for the window function.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IOrderOFrameFinal.html">WindowFunctionBuilder.IOrderOFrameFinal</a></dt>
+      <dd><p>State providing OrderBy in frame-capable chains.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IOrderedSetFilter-1.html">WindowFunctionBuilder.IOrderedSetFilter&lt;TValue&gt;</a></dt>
+      <dd><p>Terminal for ordered-set aggregates (PERCENTILE_CONT/DISC): optionally adds <code>FILTER (WHERE ...)</code> or completes the definition.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IOrderedSetWindowMultiOrder.html">WindowFunctionBuilder.IOrderedSetWindowMultiOrder</a></dt>
+      <dd><p>Within-group ORDER BY for a <b>windowed</b> multi-key ordered-set aggregate (<code>Sql.Window.PercentileDisc</code>): the first sort key, then ThenBy/ThenByDesc, then an optional <code>OVER (PARTITION BY ...)</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IOrderedSetWindowPartition-1.html">WindowFunctionBuilder.IOrderedSetWindowPartition&lt;TValue&gt;</a></dt>
+      <dd><p>Optional <code>OVER (PARTITION BY ...)</code> for a windowed single-key ordered-set aggregate, then completes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IOrderedSetWindowSingleOrder.html">WindowFunctionBuilder.IOrderedSetWindowSingleOrder</a></dt>
+      <dd><p>Within-group ORDER BY for a <b>windowed</b> single-key ordered-set aggregate (<code>Sql.Window.PercentileCont</code>): the sort key, then an optional <code>OVER (PARTITION BY ...)</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IOrderedSetWindowThenBy-1.html">WindowFunctionBuilder.IOrderedSetWindowThenBy&lt;TValue&gt;</a></dt>
+      <dd><p>Additional WITHIN GROUP ORDER BY columns for a windowed ordered-set aggregate, plus an optional <code>OVER (PARTITION BY ...)</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IPartitionPart-1.html">WindowFunctionBuilder.IPartitionPart&lt;TPartitioned&gt;</a></dt>
+      <dd><p>Provides the PARTITION BY clause.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IROrderByPartOThenByPartFinal.html">WindowFunctionBuilder.IROrderByPartOThenByPartFinal</a></dt>
+      <dd><p>State requiring OrderBy, then allows ThenBy. Used after PartitionBy in ranking functions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IRangePrecedingPartFunction.html">WindowFunctionBuilder.IRangePrecedingPartFunction</a></dt>
+      <dd><p>Provides the AND separator between start and end frame boundaries.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IThenByPartFinal.html">WindowFunctionBuilder.IThenByPartFinal</a></dt>
+      <dd><p>Terminal state after OrderBy: allows ThenBy or completes the definition.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IThenOrderPart-1.html">WindowFunctionBuilder.IThenOrderPart&lt;TThenPart&gt;</a></dt>
+      <dd><p>Provides additional ORDER BY columns via ThenBy/ThenByDesc.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IUseWindow-1.html">WindowFunctionBuilder.IUseWindow&lt;TWithWindowPart&gt;</a></dt>
+      <dd><p>Provides the ability to reference a predefined window definition.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IValueFinal.html">WindowFunctionBuilder.IValueFinal</a></dt>
+      <dd><p>Builder for value window functions: FIRST_VALUE, LAST_VALUE.</p>
+<p>Chain: <code>[.IgnoreNulls()|.RespectNulls()] [UseWindow(wnd)] | [PartitionBy(...)][.OrderBy(...)][.RowsBetween|RangeBetween...]</code></p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IWindowBuilder.html">WindowFunctionBuilder.IWindowBuilder</a></dt>
+      <dd><p>Builder interface for <a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.html#LinqToDB_WindowFunctionBuilder_DefineWindow_LinqToDB_Sql_IWindowFunction_System_Func_LinqToDB_WindowFunctionBuilder_IWindowBuilder_LinqToDB_WindowFunctionBuilder_IDefinedFunction__">DefineWindow(IWindowFunction, Func&lt;IWindowBuilder, IDefinedFunction&gt;)</a>. Allows specifying PartitionBy, OrderBy, and frame clauses.</p>
+</dd>
+    </dl>
     <h3 id="enums">
 Enums
 </h3>
@@ -598,8 +834,20 @@ support level and could vary for different providers.</p>
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.EagerLoadingStrategy.html">EagerLoadingStrategy</a></dt>
+      <dd><p>Specifies the strategy used to execute eager loading (LoadWith/ThenLoad) preamble queries.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.ExprParameterKind.html">ExprParameterKind</a></dt>
       <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.ImplicitCollectionLoading.html">ImplicitCollectionLoading</a></dt>
+      <dd><p>Controls whether a collection projected without an explicit eager-load request — i.e. without
+<code>LoadWith</code>/<code>ThenLoad</code> or a <code>WithUnionLoadStrategy</code>/<code>WithKeyedLoadStrategy</code>/<code>WithSeparateLoadStrategy</code>
+marker — is allowed. Set via <a class="xref" href="linq2db.LinqToDB.LinqOptions.html#LinqToDB_LinqOptions_ImplicitCollectionLoading">ImplicitCollectionLoading</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.MergeOperationType.html">MergeOperationType</a></dt>
@@ -659,6 +907,13 @@ and Create/Drop Table API behavior when target table exists/not exists.</p>
       <dd><p>Hints for Take
 <a class="xref" href="linq2db.LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_Take__1_System_Linq_IQueryable___0__System_Int32_LinqToDB_TakeHints_">Take&lt;TSource&gt;(IQueryable&lt;TSource&gt;, int, TakeHints)</a>
 <a class="xref" href="linq2db.LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_Take__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func_System_Int32___LinqToDB_TakeHints_">Take&lt;TSource&gt;(IQueryable&lt;TSource&gt;, Expression&lt;Func&lt;int&gt;&gt;, TakeHints)</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.UpsertEmulationPolicy.html">UpsertEmulationPolicy</a></dt>
+      <dd><p>Controls what happens when an <code>Upsert</code> cannot be expressed as a native single-statement upsert
+or <code>MERGE</code> for the target provider and would fall back to an emulated multi-statement
+<code>SELECT → UPDATE → INSERT</code> sequence. See <a class="xref" href="linq2db.LinqToDB.LinqOptions.html#LinqToDB_LinqOptions_UpsertEmulationPolicy">UpsertEmulationPolicy</a>.</p>
 </dd>
     </dl>
     <h3 id="delegates">

@@ -89,7 +89,7 @@
 
 
   <h1 id="linq2db_LinqToDB_Internal_SqlQuery_NullabilityContext" data-uid="linq2db.LinqToDB.Internal.SqlQuery.NullabilityContext" class="text-break">
-Class NullabilityContext  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L12"><i class="bi bi-code-slash"></i></a>
+Class NullabilityContext  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -172,7 +172,7 @@ Class NullabilityContext  <a class="header-action link-secondary" title="View so
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_NullabilityContext__ctor_LinqToDB_Internal_SqlQuery_NullabilityContext_System_Collections_Generic_Dictionary_LinqToDB_Internal_SqlQuery_ISqlExpression_System_Boolean__" data-uid="linq2db.LinqToDB.Internal.SqlQuery.NullabilityContext.#ctor(LinqToDB.Internal.SqlQuery.NullabilityContext,System.Collections.Generic.Dictionary{LinqToDB.Internal.SqlQuery.ISqlExpression,System.Boolean})">
   NullabilityContext(NullabilityContext, Dictionary&lt;ISqlExpression, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -205,7 +205,7 @@ Class NullabilityContext  <a class="header-action link-secondary" title="View so
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_NullabilityContext__ctor_LinqToDB_Internal_SqlQuery_SelectQuery_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.NullabilityContext.#ctor(LinqToDB.Internal.SqlQuery.SelectQuery)">
   NullabilityContext(SelectQuery)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates nullability context for provided query.</p>
@@ -241,7 +241,7 @@ Class NullabilityContext  <a class="header-action link-secondary" title="View so
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_NullabilityContext_IsEmpty" data-uid="linq2db.LinqToDB.Internal.SqlQuery.NullabilityContext.IsEmpty">
   IsEmpty
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L87"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -272,7 +272,7 @@ Class NullabilityContext  <a class="header-action link-secondary" title="View so
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_NullabilityContext_JoinSource" data-uid="linq2db.LinqToDB.Internal.SqlQuery.NullabilityContext.JoinSource">
   JoinSource
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L85"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Current Join table source. Used for excluding source from nullable sources check</p>
@@ -304,10 +304,11 @@ Class NullabilityContext  <a class="header-action link-secondary" title="View so
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_NullabilityContext_NonQuery" data-uid="linq2db.LinqToDB.Internal.SqlQuery.NullabilityContext.NonQuery">
   NonQuery
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Context for non-select queries of places where we don't know select query.</p>
+  <div class="markdown level1 summary"><p>Creates context for non-select queries or places where we don't know select query.
+Always returns a new instance to avoid shared mutable state across threads.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -336,7 +337,7 @@ Class NullabilityContext  <a class="header-action link-secondary" title="View so
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_NullabilityContext_Queries" data-uid="linq2db.LinqToDB.Internal.SqlQuery.NullabilityContext.Queries">
   Queries
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L80"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Current context query.</p>
@@ -372,7 +373,7 @@ Class NullabilityContext  <a class="header-action link-secondary" title="View so
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_NullabilityContext_CanBeNull_LinqToDB_Internal_SqlQuery_ISqlExpression_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.NullabilityContext.CanBeNull(LinqToDB.Internal.SqlQuery.ISqlExpression)">
   CanBeNull(ISqlExpression)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L127"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns wether expression could contain null values or not.</p>
@@ -409,7 +410,7 @@ Class NullabilityContext  <a class="header-action link-secondary" title="View so
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_NullabilityContext_CanBeNullSource_LinqToDB_Internal_SqlQuery_ISqlTableSource_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.NullabilityContext.CanBeNullSource(LinqToDB.Internal.SqlQuery.ISqlTableSource)">
   CanBeNullSource(ISqlTableSource)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L93"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -445,7 +446,7 @@ Class NullabilityContext  <a class="header-action link-secondary" title="View so
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_NullabilityContext_GetContext_LinqToDB_Internal_SqlQuery_SelectQuery_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.NullabilityContext.GetContext(LinqToDB.Internal.SqlQuery.SelectQuery)">
   GetContext(SelectQuery?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates nullability context for provided query or empty context if query is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
@@ -482,7 +483,7 @@ Class NullabilityContext  <a class="header-action link-secondary" title="View so
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_NullabilityContext_WithJoinSource_LinqToDB_Internal_SqlQuery_ISqlTableSource_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.NullabilityContext.WithJoinSource(LinqToDB.Internal.SqlQuery.ISqlTableSource)">
   WithJoinSource(ISqlTableSource?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L54"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -518,7 +519,7 @@ Class NullabilityContext  <a class="header-action link-secondary" title="View so
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_NullabilityContext_WithQuery_LinqToDB_Internal_SqlQuery_SelectQuery_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.NullabilityContext.WithQuery(LinqToDB.Internal.SqlQuery.SelectQuery)">
   WithQuery(SelectQuery)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -554,7 +555,7 @@ Class NullabilityContext  <a class="header-action link-secondary" title="View so
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_NullabilityContext_WithTransformationInfo_LinqToDB_Internal_SqlQuery_Visitors_SqlQueryVisitor_IVisitorTransformationInfo_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.NullabilityContext.WithTransformationInfo(LinqToDB.Internal.SqlQuery.Visitors.SqlQueryVisitor.IVisitorTransformationInfo)">
   WithTransformationInfo(IVisitorTransformationInfo?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/NullabilityContext.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>

@@ -87,6 +87,16 @@
         <article data-uid="contrib">
 <h1 id="contributing-guide">Contributing guide</h1>
 
+<h2 id="cloning-the-claude-agent-instruction-submodule">Cloning: the <code>.claude/</code> agent-instruction submodule</h2>
+<p>AI coding-agent instructions (shared by Claude Code, GitHub Copilot and OpenAI Codex) live in their own repository, <a href="https://github.com/linq2db/agents">linq2db/agents</a>, mounted here as a git submodule at <strong><code>.claude/</code></strong>. Keeping them out of this repo keeps instruction churn out of linq2db's history. The root <code>AGENTS.md</code> and <code>CLAUDE.md</code> are one-screen pointers into it.</p>
+<p>Nothing about building or testing linq2db depends on the submodule — clone it only if you use an AI agent on this codebase:</p>
+<pre><code>git clone --recurse-submodules https://github.com/linq2db/linq2db.git
+git config core.hooksPath .githooks
+</code></pre>
+<p>Already cloned? <code>git submodule update --init</code>, then <code>git -C .claude switch master</code> (init checks out a detached HEAD, and a corpus commit made there would go nowhere useful), then the same <code>core.hooksPath</code> line. Note that a plain <code>git clone</code> leaves <code>.claude/</code> as an <strong>empty directory</strong> and <code>git status</code> still reads clean — an unpopulated submodule is not a deletion — so the only symptom is that your agent loads no instructions.</p>
+<p><strong>Restart your agent after populating the submodule.</strong> Claude Code resolves the <code>CLAUDE.md</code> import set — the always-loaded project instructions — <strong>once, at session start</strong>, and does not re-read it when <code>.claude/</code> appears. A session that was already open while the submodule was empty keeps running with no project instructions however many files land on disk afterwards. Skill discovery <em>may</em> refresh mid-session, but it isn't guaranteed to, so don't rely on either: restart is the only way to be sure the session matches what's on disk.</p>
+<p><code>core.hooksPath .githooks</code> is what keeps the corpus current and safe: <code>post-checkout</code> / <code>post-merge</code> / <code>post-rewrite</code> fast-forward <code>.claude/</code> to the agents repo's tip (skipping any checkout with uncommitted corpus edits), and <code>pre-commit</code> refuses two things that would otherwise slip in unnoticed — a <code>.claude</code> submodule-pointer bump, and edits to the root <code>AGENTS.md</code> / <code>CLAUDE.md</code> pointers. Both are overridable with <code>git commit --no-verify</code> when deliberate.</p>
+<p><strong>Editing the instructions:</strong> commit inside <code>.claude/</code> and push to the agents repo (<code>git -C .claude commit</code>, <code>git -C .claude push</code>). Corpus changes never land on a linq2db branch.</p>
 <h2 id="project-structure">Project structure</h2>
 <h3 id="solution-and-folder-structure">Solution and folder structure</h3>
 <table>
@@ -259,10 +269,10 @@
 <li><code>.\Build.cmd</code> - builds all the projects in the solution for Debug, Release and Azure configurations</li>
 <li><code>.\Compile.cmd</code> - builds LinqToDB project for Debug and Release configurations</li>
 <li><code>.\Clean.cmd</code> - cleanups solution projects for Debug, Release and Azure configurations</li>
-<li><code>.\Test.cmd</code> - builds and runs tests with <code>Debug</code> configuration for all supported TFMs and produce HTML report. Parameters supported to change build configuration, logger type and executed TFMs</li>
+<li><code>.\Test.cmd</code> - builds and runs tests with <code>Debug</code> configuration for all supported TFMs and produces a <code>trx</code> report. Parameters supported to change build configuration and executed TFMs, plus extra arguments forwarded to the test runner</li>
 </ul>
-<p>Example of running <code>Release</code> build tests for <code>net9.0</code> only with <code>trx</code> as output:</p>
-<pre><code class="lang-cmd">test.cmd Release 0 0 1 0 trx
+<p>Example of running <code>Release</code> build tests for <code>net9.0</code> only:</p>
+<pre><code class="lang-cmd">test.cmd Release 0 0 1 0
 </code></pre>
 <h3 id="different-platforms-support">Different platforms support</h3>
 <p>Because we target different TFMs, we use:</p>
@@ -276,7 +286,7 @@
 <li><code>release</code> - branch with the latest released version</li>
 </ul>
 <h2 id="run-tests">Run tests</h2>
-<p>NUnit3 is used as unit-testing framework. Most of tests are run for all supported databases and written in same pattern:</p>
+<p>NUnit3 is used as the unit-testing framework, running on <a href="https://learn.microsoft.com/dotnet/core/testing/microsoft-testing-platform-intro">Microsoft.Testing.Platform</a> (MTP) rather than VSTest. The test projects build as executables, so you run them directly (e.g. <code>linq2db.Tests.exe --filter ...</code>); <code>dotnet test</code> also works. Most of tests are run for all supported databases and written in same pattern:</p>
 <pre><code class="lang-cs">// TestBase - base class for all our tests
 // provides required testing infrastructure
 [TestFixture]

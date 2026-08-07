@@ -132,7 +132,7 @@ Class Tools  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="linq2db_LinqToDB_Internal_Common_Tools_CreateEmptyQuery__1" data-uid="linq2db.LinqToDB.Internal.Common.Tools.CreateEmptyQuery``1">
   CreateEmptyQuery&lt;T&gt;()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/Tools.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/Tools.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -203,11 +203,58 @@ Class Tools  <a class="header-action link-secondary" title="View source" href="h
 
 
 
+  <a id="linq2db_LinqToDB_Internal_Common_Tools_IsProviderAssemblyPresent_" data-uid="linq2db.LinqToDB.Internal.Common.Tools.IsProviderAssemblyPresent*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_Tools_IsProviderAssemblyPresent_System_String_" data-uid="linq2db.LinqToDB.Internal.Common.Tools.IsProviderAssemblyPresent(System.String)">
+  IsProviderAssemblyPresent(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/Tools.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether a provider backend assembly with the given simple name is present — that is,
+it is already loaded, can be loaded via <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly.load#system-reflection-assembly-load(system-string)">Load(string)</a>, or its <code>.dll</code> is
+physically deployed next to the linq2db assembly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsProviderAssemblyPresent(string assemblyName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>assemblyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Simple name of the provider assembly to look for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the assembly is loaded, loadable, or deployed next to linq2db.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="linq2db_LinqToDB_Internal_Common_Tools_IsProviderAssemblyPresent_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>As a side effect this may load <code class="paramref">assemblyName</code> into the current context.
+The file-existence fallback is intentionally disabled under <code>PublishSingleFile</code> deployments
+(where <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly.location">Location</a> is empty) and never probes the current working directory —
+that current-directory fallback was the original single-file detection bug (linq2db#5488).</p>
+</div>
+
+
+
+
   <a id="linq2db_LinqToDB_Internal_Common_Tools_ToDebugDisplay_" data-uid="linq2db.LinqToDB.Internal.Common.Tools.ToDebugDisplay*"></a>
 
   <h3 id="linq2db_LinqToDB_Internal_Common_Tools_ToDebugDisplay_System_String_" data-uid="linq2db.LinqToDB.Internal.Common.Tools.ToDebugDisplay(System.String)">
   ToDebugDisplay(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/Tools.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/Tools.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -243,7 +290,7 @@ Class Tools  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="linq2db_LinqToDB_Internal_Common_Tools_TryLoadAssembly_System_String_System_String_" data-uid="linq2db.LinqToDB.Internal.Common.Tools.TryLoadAssembly(System.String,System.String)">
   TryLoadAssembly(string?, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/Tools.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/Tools.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>

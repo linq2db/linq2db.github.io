@@ -171,7 +171,7 @@ Class AliasesContext  <a class="header-action link-secondary" title="View source
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_GetAliased" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.GetAliased">
   GetAliased()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/AliasesContext.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/AliasesContext.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -198,11 +198,131 @@ Class AliasesContext  <a class="header-action link-secondary" title="View source
 
 
 
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_GetColumnAlias_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.GetColumnAlias*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_GetColumnAlias_LinqToDB_Internal_SqlQuery_SqlColumn_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.GetColumnAlias(LinqToDB.Internal.SqlQuery.SqlColumn)">
+  GetColumnAlias(SqlColumn)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/AliasesContext.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Effective column alias: the finalized alias recorded by the aliasing pass, otherwise derived
+from the column's expression - resolving sub-expression aliases through this context so
+finalized names are honoured (mirrors SqlColumn's own derivation, but context-aware). This
+is the crux of non-mutating aliasing: derivation must read finalized names, not stale nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GetColumnAlias(SqlColumn column)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>column</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlColumn.html">SqlColumn</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_GetFieldName_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.GetFieldName*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_GetFieldName_LinqToDB_Internal_SqlQuery_SqlExpressionBase_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.GetFieldName(LinqToDB.Internal.SqlQuery.SqlExpressionBase)">
+  GetFieldName(SqlExpressionBase)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/AliasesContext.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Effective field physical name: the finalized name recorded by the aliasing pass (for
+derived-table / CTE source fields), otherwise the field's own physical name -
+<a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlField.html#LinqToDB_Internal_SqlQuery_SqlField_PhysicalName">PhysicalName</a> for a table field, the finalized name of its
+definition field for a CTE reference field (<a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlCteTableField.html#LinqToDB_Internal_SqlQuery_SqlCteTableField_CteField">CteField</a>), or
+the delegated <code>Name</code> for a CTE definition field (<a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCteField.html">SqlCteField</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetFieldName(SqlExpressionBase field)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>field</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlExpressionBase.html">SqlExpressionBase</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_GetTableAlias_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.GetTableAlias*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_GetTableAlias_LinqToDB_Internal_SqlQuery_SqlTableSource_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.GetTableAlias(LinqToDB.Internal.SqlQuery.SqlTableSource)">
+  GetTableAlias(SqlTableSource)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/AliasesContext.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Effective table-source alias: the finalized alias recorded by the aliasing pass, otherwise
+derived from the node - resolving a nested table source through this context so finalized
+names are honoured (mirrors SqlTableSource's own derivation, but context-aware).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GetTableAlias(SqlTableSource tableSource)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tableSource</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlTableSource.html">SqlTableSource</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_GetUsedTableAliases_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.GetUsedTableAliases*"></a>
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_GetUsedTableAliases" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.GetUsedTableAliases">
   GetUsedTableAliases()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/AliasesContext.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/AliasesContext.cs/#L124"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -229,47 +349,11 @@ Class AliasesContext  <a class="header-action link-secondary" title="View source
 
 
 
-  <a id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_IsAliased_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.IsAliased*"></a>
-
-  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_IsAliased_LinqToDB_Internal_SqlQuery_IQueryElement_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.IsAliased(LinqToDB.Internal.SqlQuery.IQueryElement)">
-  IsAliased(IQueryElement)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/AliasesContext.cs/#L23"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsAliased(IQueryElement element)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>element</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_RegisterAliased_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.RegisterAliased*"></a>
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_RegisterAliased_LinqToDB_Internal_SqlQuery_IQueryElement_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.RegisterAliased(LinqToDB.Internal.SqlQuery.IQueryElement)">
   RegisterAliased(IQueryElement)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/AliasesContext.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/AliasesContext.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -300,7 +384,7 @@ Class AliasesContext  <a class="header-action link-secondary" title="View source
 
   <h3 id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_RegisterAliased_System_Collections_Generic_IReadOnlyCollection_LinqToDB_Internal_SqlQuery_IQueryElement__" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.RegisterAliased(System.Collections.Generic.IReadOnlyCollection{LinqToDB.Internal.SqlQuery.IQueryElement})">
   RegisterAliased(IReadOnlyCollection&lt;IQueryElement&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/AliasesContext.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/AliasesContext.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -313,6 +397,105 @@ Class AliasesContext  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>elements</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="LinqToDB.Internal.SqlQuery.IQueryElement.html">IQueryElement</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_SetColumnAlias_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.SetColumnAlias*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_SetColumnAlias_LinqToDB_Internal_SqlQuery_SqlColumn_System_String_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.SetColumnAlias(LinqToDB.Internal.SqlQuery.SqlColumn,System.String)">
+  SetColumnAlias(SqlColumn, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/AliasesContext.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetColumnAlias(SqlColumn column, string? alias)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>column</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlColumn.html">SqlColumn</a></dt>
+    <dd></dd>
+    <dt><code>alias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_SetFieldName_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.SetFieldName*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_SetFieldName_LinqToDB_Internal_SqlQuery_SqlExpressionBase_System_String_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.SetFieldName(LinqToDB.Internal.SqlQuery.SqlExpressionBase,System.String)">
+  SetFieldName(SqlExpressionBase, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/AliasesContext.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetFieldName(SqlExpressionBase field, string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>field</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlExpressionBase.html">SqlExpressionBase</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_SetTableAlias_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.SetTableAlias*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_SqlQuery_AliasesContext_SetTableAlias_LinqToDB_Internal_SqlQuery_SqlTableSource_System_String_" data-uid="linq2db.LinqToDB.Internal.SqlQuery.AliasesContext.SetTableAlias(LinqToDB.Internal.SqlQuery.SqlTableSource,System.String)">
+  SetTableAlias(SqlTableSource, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/SqlQuery/AliasesContext.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetTableAlias(SqlTableSource tableSource, string alias)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tableSource</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlTableSource.html">SqlTableSource</a></dt>
+    <dd></dd>
+    <dt><code>alias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 

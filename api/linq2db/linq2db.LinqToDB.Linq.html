@@ -136,6 +136,40 @@ Allows per-member overrides via <a class="xref" href="linq2db.LinqToDB.Linq.IAsQ
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Linq.IEntityInsertSpec-1.html">IEntityInsertSpec&lt;TTarget&gt;</a></dt>
+      <dd><p>Fluent configuration builder for a standalone entity INSERT
+(<code>table.Insert(item, b =&gt; b.Set(…).Ignore(…))</code>). Carries only <code>Set</code> / <code>Ignore</code>;
+the Upsert-only chain methods <code>When</code> / <code>DoNothing</code> live on
+<a class="xref" href="LinqToDB.Linq.IUpsertInsertSpec-1.html">IUpsertInsertSpec&lt;TTarget&gt;</a> and are unreachable from this builder by design.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Linq.IEntityInsertSpec-2.html">IEntityInsertSpec&lt;TTarget, TBuilder&gt;</a></dt>
+      <dd><p>F-bounded base for entity-INSERT-builder fluent chains. Declares the chain methods that
+are common to standalone Insert (<a class="xref" href="LinqToDB.Linq.IEntityInsertSpec-1.html">IEntityInsertSpec&lt;TTarget&gt;</a>) and the
+Upsert INSERT branch (<a class="xref" href="LinqToDB.Linq.IUpsertInsertSpec-1.html">IUpsertInsertSpec&lt;TTarget&gt;</a>); each leaf interface
+substitutes itself as <code class="typeparamref">TBuilder</code> so chain methods return the correct
+concrete builder type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Linq.IEntityUpdateSpec-1.html">IEntityUpdateSpec&lt;TTarget&gt;</a></dt>
+      <dd><p>Fluent configuration builder for a standalone entity UPDATE
+(<code>table.Update(item, b =&gt; b.Set(…).Ignore(…))</code>). Carries only <code>Set</code> / <code>Ignore</code>;
+the Upsert-only chain methods <code>When</code> / <code>DoNothing</code> live on
+<a class="xref" href="LinqToDB.Linq.IUpsertUpdateSpec-1.html">IUpsertUpdateSpec&lt;TTarget&gt;</a> and are unreachable from this builder by design.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Linq.IEntityUpdateSpec-2.html">IEntityUpdateSpec&lt;TTarget, TBuilder&gt;</a></dt>
+      <dd><p>F-bounded base for entity-UPDATE-builder fluent chains. Declares the chain methods that
+are common to standalone Update (<a class="xref" href="LinqToDB.Linq.IEntityUpdateSpec-1.html">IEntityUpdateSpec&lt;TTarget&gt;</a>) and the
+Upsert UPDATE branch (<a class="xref" href="LinqToDB.Linq.IUpsertUpdateSpec-1.html">IUpsertUpdateSpec&lt;TTarget&gt;</a>); each leaf interface
+substitutes itself as <code class="typeparamref">TBuilder</code> so chain methods return the correct
+concrete builder type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Linq.IExpressionInfo.html">IExpressionInfo</a></dt>
       <dd></dd>
     </dl>
@@ -170,6 +204,32 @@ You can add more operations to this type of builder or execute command.</p>
     <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Linq.IUpdatable-1.html">IUpdatable&lt;T&gt;</a></dt>
       <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Linq.IUpsertInsertSpec-1.html">IUpsertInsertSpec&lt;TTarget&gt;</a></dt>
+      <dd><p>Fluent configuration builder for the INSERT branch of an Upsert operation. Inherits
+<code>Set</code> / <code>Ignore</code> from <a class="xref" href="LinqToDB.Linq.IEntityInsertSpec-2.html">IEntityInsertSpec&lt;TTarget, TBuilder&gt;</a>
+(with itself substituted as <code>TBuilder</code>, so chain methods return
+<a class="xref" href="LinqToDB.Linq.IUpsertInsertSpec-1.html">IUpsertInsertSpec&lt;TTarget&gt;</a>) and adds the Upsert-only chain methods
+<a class="xref" href="linq2db.LinqToDB.Linq.IUpsertInsertSpec-1.html#LinqToDB_Linq_IUpsertInsertSpec_1_When_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___">When(Expression&lt;Func&lt;TTarget, bool&gt;&gt;)</a> / <a class="xref" href="linq2db.LinqToDB.Linq.IUpsertInsertSpec-1.html#LinqToDB_Linq_IUpsertInsertSpec_1_DoNothing">DoNothing()</a>, which have no SQL meaning outside MERGE /
+ON CONFLICT.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Linq.IUpsertSpec-1.html">IUpsertSpec&lt;TTarget&gt;</a></dt>
+      <dd><p>Fluent configuration builder for an Upsert (insert-or-update) operation.
+Returned to the caller of an <code>Upsert</code> extension method through a configuration lambda.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Linq.IUpsertUpdateSpec-1.html">IUpsertUpdateSpec&lt;TTarget&gt;</a></dt>
+      <dd><p>Fluent configuration builder for the UPDATE branch of an Upsert operation. Inherits
+<code>Set</code> (3 overloads) / <code>Ignore</code> from
+<a class="xref" href="LinqToDB.Linq.IEntityUpdateSpec-2.html">IEntityUpdateSpec&lt;TTarget, TBuilder&gt;</a> (with itself substituted as
+<code>TBuilder</code>, so chain methods return <a class="xref" href="LinqToDB.Linq.IUpsertUpdateSpec-1.html">IUpsertUpdateSpec&lt;TTarget&gt;</a>) and
+adds the Upsert-only chain methods <a class="xref" href="linq2db.LinqToDB.Linq.IUpsertUpdateSpec-1.html#LinqToDB_Linq_IUpsertUpdateSpec_1_When_System_Linq_Expressions_Expression_System_Func__0__0_System_Boolean___">When(Expression&lt;Func&lt;TTarget, TTarget, bool&gt;&gt;)</a> / <a class="xref" href="linq2db.LinqToDB.Linq.IUpsertUpdateSpec-1.html#LinqToDB_Linq_IUpsertUpdateSpec_1_DoNothing">DoNothing()</a>, which have
+no SQL meaning outside MERGE / ON CONFLICT.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Linq.IValueInsertable-1.html">IValueInsertable&lt;T&gt;</a></dt>

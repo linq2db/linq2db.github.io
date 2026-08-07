@@ -222,7 +222,7 @@ It may change or be removed without further notice.</p>
 
   <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_GroupGuard" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_GroupGuard">
   Error_GroupGuard
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L91"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -230,6 +230,66 @@ It may change or be removed without further notice.</p>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public const string Error_GroupGuard = &quot;You should explicitly specify selected fields for server-side GroupBy() call or add AsEnumerable() call before GroupBy() to perform client-side grouping.\r\nSet Configuration.Linq.GuardGrouping = false to disable this check.\r\nAdditionally this guard exception can be disabled by extension GroupBy(...).DisableGuard().\r\nNOTE! By disabling this guard you accept Eager Loading for grouping query.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_ImplicitEagerLoadingNotAllowed" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_ImplicitEagerLoadingNotAllowed">
+  Error_ImplicitEagerLoadingNotAllowed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_ImplicitEagerLoadingNotAllowed = &quot;Implicit eager loading is not allowed (LinqOptions.ImplicitCollectionLoading = Throw): a collection was projected without an explicit eager-load request. To allow it, request the load explicitly with LoadWith()/ThenLoad(), or opt the whole query in with WithUnionLoadStrategy()/WithKeyedLoadStrategy()/WithSeparateLoadStrategy() — or set ImplicitCollectionLoading = Allow to turn the guard off.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_Internal_UpdateInsertEmitter_CannotEmitUpdatePredicate" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_Internal_UpdateInsertEmitter_CannotEmitUpdatePredicate">
+  Error_Internal_UpdateInsertEmitter_CannotEmitUpdatePredicate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_Internal_UpdateInsertEmitter_CannotEmitUpdatePredicate = &quot;Internal error: BuildInsertOrUpdateQueryAsUpdateInsert cannot emit an UPDATE predicate. Providers with IsInsertOrUpdateWithPredicateSupported=false must route Upsert.Update.When through SetIfExistsUpdateElseInsert (3-query orchestration).&quot;</code></pre>
   </div>
 
 
@@ -710,6 +770,1056 @@ It may change or be removed without further notice.</p>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public const string Error_Take_in_Subquery = &quot;Provider does not support Take value in subquery.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_Upsert_EmulationDisallowed" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_Upsert_EmulationDisallowed">
+  Error_Upsert_EmulationDisallowed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_Upsert_EmulationDisallowed = &quot;Upsert cannot be expressed natively for this provider / configuration and would fall back to an emulated UPDATE+INSERT sequence. LinqOptions.UpsertEmulationPolicy is set to Throw — change the provider, adjust the Upsert configuration, or set it to Allow to permit emulation.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_Upsert_InsertBranch_DoNothing_With_Ops" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_Upsert_InsertBranch_DoNothing_With_Ops">
+  Error_Upsert_InsertBranch_DoNothing_With_Ops
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_Upsert_InsertBranch_DoNothing_With_Ops = &quot;Insert branch configuration is contradictory: DoNothing() cannot be combined with Set/Ignore/When.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_Upsert_MergeLowering_NotSupported" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_Upsert_MergeLowering_NotSupported">
+  Error_Upsert_MergeLowering_NotSupported
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_Upsert_MergeLowering_NotSupported = &quot;Upsert configuration requires MERGE lowering (bulk source, non-PK match, conditional Insert, or SkipInsert), but the current provider does not support the two-branch MERGE shape. Reshape the Upsert call to a single-entity PK match without SkipInsert / Insert.When, or target a MERGE-capable provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_Upsert_MergeWithPredicate_NotSupported" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_Upsert_MergeWithPredicate_NotSupported">
+  Error_Upsert_MergeWithPredicate_NotSupported
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_Upsert_MergeWithPredicate_NotSupported = &quot;Upsert configuration attaches a predicate to an Insert.When / Update.When branch routed through MERGE lowering, but the current provider&#39;s MERGE dialect has no WHEN [NOT] MATCHED AND &lt;cond&gt; or UPDATE … WHERE &lt;cond&gt; form. Remove the .When predicate, or target a provider that supports conditional MERGE branches.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_Upsert_SkipInsert_With_Insert" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_Upsert_SkipInsert_With_Insert">
+  Error_Upsert_SkipInsert_With_Insert
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_Upsert_SkipInsert_With_Insert = &quot;Upsert configuration is contradictory: SkipInsert() cannot be combined with Insert(...).&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_Upsert_SkipUpdate_With_Update" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_Upsert_SkipUpdate_With_Update">
+  Error_Upsert_SkipUpdate_With_Update
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_Upsert_SkipUpdate_With_Update = &quot;Upsert configuration is contradictory: SkipUpdate() cannot be combined with Update(...).&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_Upsert_UpdateBranch_DoNothing_With_Ops" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_Upsert_UpdateBranch_DoNothing_With_Ops">
+  Error_Upsert_UpdateBranch_DoNothing_With_Ops
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_Upsert_UpdateBranch_DoNothing_With_Ops = &quot;Update branch configuration is contradictory: DoNothing() cannot be combined with Set/Ignore/When.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_AggregateDistinct" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_AggregateDistinct">
+  Error_WindowFunction_AggregateDistinct
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_AggregateDistinct = &quot;DISTINCT is not supported in window aggregate functions by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_AggregateWindowFunctions" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_AggregateWindowFunctions">
+  Error_WindowFunction_AggregateWindowFunctions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_AggregateWindowFunctions = &quot;Aggregate window functions are not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_Correlation" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_Correlation">
+  Error_WindowFunction_Correlation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_Correlation = &quot;COVAR/CORR is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_CumeDist" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_CumeDist">
+  Error_WindowFunction_CumeDist
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_CumeDist = &quot;CUME_DIST is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_FirstLastValue" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_FirstLastValue">
+  Error_WindowFunction_FirstLastValue
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_FirstLastValue = &quot;FIRST_VALUE/LAST_VALUE is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_FrameExclude" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_FrameExclude">
+  Error_WindowFunction_FrameExclude
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_FrameExclude = &quot;Frame EXCLUDE clause is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_FrameGroups" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_FrameGroups">
+  Error_WindowFunction_FrameGroups
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_FrameGroups = &quot;GROUPS frame is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_FrameRange" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_FrameRange">
+  Error_WindowFunction_FrameRange
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_FrameRange = &quot;RANGE frame is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_FrameRangeGroupsNullsEmulation" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_FrameRangeGroupsNullsEmulation">
+  Error_WindowFunction_FrameRangeGroupsNullsEmulation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_FrameRangeGroupsNullsEmulation = &quot;A RANGE or GROUPS frame with a value offset requires a single ORDER BY key, but the requested NULLS ordering is emulated with an extra sort key on this provider. Use a non-nullable ORDER BY key, drop the explicit NULLS position, or use a ROWS frame.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_FrameRangeGroupsOrderBy" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_FrameRangeGroupsOrderBy">
+  Error_WindowFunction_FrameRangeGroupsOrderBy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_FrameRangeGroupsOrderBy = &quot;A RANGE or GROUPS frame with a value offset requires exactly one ORDER BY expression.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_FrameRows" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_FrameRows">
+  Error_WindowFunction_FrameRows
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_FrameRows = &quot;ROWS frame is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_HypotheticalSet" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_HypotheticalSet">
+  Error_WindowFunction_HypotheticalSet
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_HypotheticalSet = &quot;Hypothetical-set RANK/DENSE_RANK/PERCENT_RANK/CUME_DIST is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_Keep" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_Keep">
+  Error_WindowFunction_Keep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_Keep = &quot;KEEP clause is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_KeepOrderBy" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_KeepOrderBy">
+  Error_WindowFunction_KeepOrderBy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_KeepOrderBy = &quot;KEEP (DENSE_RANK FIRST/LAST) requires an ORDER BY.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_LeadLag" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_LeadLag">
+  Error_WindowFunction_LeadLag
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_LeadLag = &quot;LEAD/LAG is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_LeadLagDefault" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_LeadLagDefault">
+  Error_WindowFunction_LeadLagDefault
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_LeadLagDefault = &quot;Default value argument for LEAD/LAG is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_LinearRegression" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_LinearRegression">
+  Error_WindowFunction_LinearRegression
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_LinearRegression = &quot;REGR_* is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_Median" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_Median">
+  Error_WindowFunction_Median
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_Median = &quot;MEDIAN is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_NTile" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_NTile">
+  Error_WindowFunction_NTile
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_NTile = &quot;NTILE is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_NotSupported" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_NotSupported">
+  Error_WindowFunction_NotSupported
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_NotSupported = &quot;Window functions are not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_NthValue" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_NthValue">
+  Error_WindowFunction_NthValue
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_NthValue = &quot;NTH_VALUE is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_NthValueFrom" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_NthValueFrom">
+  Error_WindowFunction_NthValueFrom
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_NthValueFrom = &quot;NTH_VALUE FROM LAST is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_NullTreatment" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_NullTreatment">
+  Error_WindowFunction_NullTreatment
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_NullTreatment = &quot;IGNORE NULLS is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_OrderedSetFilter" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_OrderedSetFilter">
+  Error_WindowFunction_OrderedSetFilter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_OrderedSetFilter = &quot;FILTER (WHERE ...) on ordered-set aggregates (PERCENTILE_CONT/PERCENTILE_DISC) is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_PercentRank" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_PercentRank">
+  Error_WindowFunction_PercentRank
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_PercentRank = &quot;PERCENT_RANK is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_PercentileCont" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_PercentileCont">
+  Error_WindowFunction_PercentileCont
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_PercentileCont = &quot;PERCENTILE_CONT is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_PercentileDisc" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_PercentileDisc">
+  Error_WindowFunction_PercentileDisc
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_PercentileDisc = &quot;PERCENTILE_DISC is not supported by current provider.&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="linq2db_LinqToDB_Internal_Common_ErrorHelper_Error_WindowFunction_Variance" data-uid="linq2db.LinqToDB.Internal.Common.ErrorHelper.Error_WindowFunction_Variance">
+  Error_WindowFunction_Variance
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Common/ErrorHelper.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Error_WindowFunction_Variance = &quot;STDDEV/VARIANCE is not supported by current provider.&quot;</code></pre>
   </div>
 
 

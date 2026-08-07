@@ -127,6 +127,7 @@ Class FirebirdMemberTranslator  <a class="header-action link-secondary" title="V
   <dl class="typelist derived">
     <dt>Derived</dt>
     <dd>
+      <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Firebird.Translation.Firebird25MemberTranslator.html">Firebird25MemberTranslator</a></div>
       <div><a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Firebird.Translation.Firebird4MemberTranslator.html">Firebird4MemberTranslator</a></div>
     </dd>
   </dl>
@@ -139,9 +140,6 @@ Class FirebirdMemberTranslator  <a class="header-action link-secondary" title="V
     </div>
     <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.ProviderMemberTranslatorDefault.html#linq2db_LinqToDB_Internal_DataProvider_Translation_ProviderMemberTranslatorDefault_CreateSqlFunctionsMemberTranslator">ProviderMemberTranslatorDefault.CreateSqlFunctionsMemberTranslator()</a>
-    </div>
-    <div>
-      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.ProviderMemberTranslatorDefault.html#linq2db_LinqToDB_Internal_DataProvider_Translation_ProviderMemberTranslatorDefault_CreateWindowFunctionsMemberTranslator">ProviderMemberTranslatorDefault.CreateWindowFunctionsMemberTranslator()</a>
     </div>
     <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.ProviderMemberTranslatorDefault.html#linq2db_LinqToDB_Internal_DataProvider_Translation_ProviderMemberTranslatorDefault_CreateAggregateFunctionsMemberTranslator">ProviderMemberTranslatorDefault.CreateAggregateFunctionsMemberTranslator()</a>
@@ -163,6 +161,9 @@ Class FirebirdMemberTranslator  <a class="header-action link-secondary" title="V
     </div>
     <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.ProviderMemberTranslatorDefault.html#linq2db_LinqToDB_Internal_DataProvider_Translation_ProviderMemberTranslatorDefault_TranslateOverrideHandler_LinqToDB_Linq_Translation_ITranslationContext_System_Linq_Expressions_Expression_LinqToDB_Linq_Translation_TranslationFlags_">ProviderMemberTranslatorDefault.TranslateOverrideHandler(ITranslationContext, Expression, TranslationFlags)</a>
+    </div>
+    <div>
+      <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.ProviderMemberTranslatorDefault.html#linq2db_LinqToDB_Internal_DataProvider_Translation_ProviderMemberTranslatorDefault_TranslateNewGuid7Method_LinqToDB_Linq_Translation_ITranslationContext_LinqToDB_Linq_Translation_TranslationFlags_">ProviderMemberTranslatorDefault.TranslateNewGuid7Method(ITranslationContext, TranslationFlags)</a>
     </div>
     <div>
       <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.Translation.MemberTranslatorBase.html#linq2db_LinqToDB_Internal_DataProvider_Translation_MemberTranslatorBase_Registration">MemberTranslatorBase.Registration</a>
@@ -351,11 +352,93 @@ Class FirebirdMemberTranslator  <a class="header-action link-secondary" title="V
 
 
 
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Firebird_Translation_FirebirdMemberTranslator_CreateWindowFunctionsMemberTranslator_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Firebird.Translation.FirebirdMemberTranslator.CreateWindowFunctionsMemberTranslator*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Firebird_Translation_FirebirdMemberTranslator_CreateWindowFunctionsMemberTranslator" data-uid="linq2db.LinqToDB.Internal.DataProvider.Firebird.Translation.FirebirdMemberTranslator.CreateWindowFunctionsMemberTranslator">
+  CreateWindowFunctionsMemberTranslator()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Firebird/Translation/FirebirdMemberTranslator.cs/#L439"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IMemberTranslator? CreateWindowFunctionsMemberTranslator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Linq.Translation.IMemberTranslator.html">IMemberTranslator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="linq2db_LinqToDB_Internal_DataProvider_Firebird_Translation_FirebirdMemberTranslator_TranslateGuidToString_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Firebird.Translation.FirebirdMemberTranslator.TranslateGuidToString*"></a>
+
+  <h3 id="linq2db_LinqToDB_Internal_DataProvider_Firebird_Translation_FirebirdMemberTranslator_TranslateGuidToString_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Linq_Translation_ISqlExpressionFactory_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Firebird.Translation.FirebirdMemberTranslator.TranslateGuidToString(LinqToDB.Internal.SqlQuery.ISqlExpression,LinqToDB.Linq.Translation.ISqlExpressionFactory)">
+  TranslateGuidToString(ISqlExpression, ISqlExpressionFactory)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Firebird/Translation/FirebirdMemberTranslator.cs/#L396"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds the Firebird <code>Cast(Lower(UUID_TO_CHAR({0})) as VarChar(36))</code> shape for a Guid → string conversion.
+Shared by the <code>Guid.ToString()</code> member translator and the <code>cast(guid as string)</code> path in
+<a class="xref" href="LinqToDB.Internal.DataProvider.Firebird.FirebirdSqlExpressionConvertVisitor.html">FirebirdSqlExpressionConvertVisitor</a> so both emit identical SQL.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ISqlExpression TranslateGuidToString(ISqlExpression guidExpr, ISqlExpressionFactory factory)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>guidExpr</code> <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+    <dt><code>factory</code> <a class="xref" href="linq2db.LinqToDB.Linq.Translation.ISqlExpressionFactory.html">ISqlExpressionFactory</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlExpression.html">ISqlExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="linq2db_LinqToDB_Internal_DataProvider_Firebird_Translation_FirebirdMemberTranslator_TranslateGuidToString_LinqToDB_Internal_SqlQuery_ISqlExpression_LinqToDB_Linq_Translation_ISqlExpressionFactory__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Firebird's native <code>UUID_TO_CHAR</code> returns <code>CHAR(36)</code> — a fixed-width type that pads shorter
+values with trailing spaces. The inner function is typed as <code>CHAR(36)</code> to match that database
+semantic; the outer CAST then forces the result to <code>VARCHAR(36)</code> so a composing
+<code>COALESCE(..., '')</code> doesn't promote the whole expression to <code>CHAR(36)</code> and pad the
+empty-string branch to 36 spaces. Without the explicit CHAR typing on the inner function the optimizer
+(see <code>SqlExpressionOptimizerVisitor.VisitSqlCastExpression</code>) would treat the CAST as a no-op and
+elide it. Matches PostgreSQL / Sybase / SqlServer / MySql / SqlCe / SapHana Guid translators which all
+converge on a <code>VARCHAR(36)</code> result.</p>
+</div>
+
+
+
+
   <a id="linq2db_LinqToDB_Internal_DataProvider_Firebird_Translation_FirebirdMemberTranslator_TranslateNewGuidMethod_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Firebird.Translation.FirebirdMemberTranslator.TranslateNewGuidMethod*"></a>
 
   <h3 id="linq2db_LinqToDB_Internal_DataProvider_Firebird_Translation_FirebirdMemberTranslator_TranslateNewGuidMethod_LinqToDB_Linq_Translation_ITranslationContext_LinqToDB_Linq_Translation_TranslationFlags_" data-uid="linq2db.LinqToDB.Internal.DataProvider.Firebird.Translation.FirebirdMemberTranslator.TranslateNewGuidMethod(LinqToDB.Linq.Translation.ITranslationContext,LinqToDB.Linq.Translation.TranslationFlags)">
   TranslateNewGuidMethod(ITranslationContext, TranslationFlags)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Firebird/Translation/FirebirdMemberTranslator.cs/#L365"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/DataProvider/Firebird/Translation/FirebirdMemberTranslator.cs/#L375"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>

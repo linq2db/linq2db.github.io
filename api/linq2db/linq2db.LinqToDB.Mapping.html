@@ -178,6 +178,13 @@ Default value used for mapping from NULL database value to C# value.</p>
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Mapping.EntityQueryFilter.html">EntityQueryFilter</a></dt>
+      <dd><p>Describes a single named query filter declared on an entity via one of the
+<a class="xref" href="linq2db.LinqToDB.Mapping.EntityMappingBuilder-1.html#LinqToDB_Mapping_EntityMappingBuilder_1_HasQueryFilter_System_String_System_Linq_Expressions_Expression_System_Func__0_LinqToDB_IDataContext_System_Boolean___">HasQueryFilter(string, Expression&lt;Func&lt;TEntity, IDataContext, bool&gt;&gt;)</a>
+overloads (or the keyless equivalents that target the default slot).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Mapping.FluentMappingBuilder.html">FluentMappingBuilder</a></dt>
       <dd><p>Fluent mapping builder.</p>
 </dd>
@@ -286,7 +293,11 @@ Used with <a class="xref" href="LinqToDB.Concurrency.ConcurrencyExtensions.html"
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Mapping.QueryFilterAttribute.html">QueryFilterAttribute</a></dt>
-      <dd><p>Contains reference to filter function defined by <a class="xref" href="linq2db.LinqToDB.Mapping.EntityMappingBuilder-1.html#LinqToDB_Mapping_EntityMappingBuilder_1_HasQueryFilter_System_Linq_Expressions_Expression_System_Func__0_LinqToDB_IDataContext_System_Boolean___">HasQueryFilter(Expression&lt;Func&lt;TEntity, IDataContext, bool&gt;&gt;)</a></p>
+      <dd><p>Contains reference to filter function defined by <a class="xref" href="linq2db.LinqToDB.Mapping.EntityMappingBuilder-1.html#LinqToDB_Mapping_EntityMappingBuilder_1_HasQueryFilter_System_Linq_Expressions_Expression_System_Func__0_LinqToDB_IDataContext_System_Boolean___">HasQueryFilter(Expression&lt;Func&lt;TEntity, IDataContext, bool&gt;&gt;)</a>
+or one of its keyed overloads. Multiple instances of this attribute may be applied to the same entity to declare
+several named filters; at query time the filters are AND-combined unless suppressed by
+<a class="xref" href="linq2db.LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_IgnoreFilters__1_System_Linq_IQueryable___0__System_Type___">IgnoreFilters&lt;TSource&gt;(IQueryable&lt;TSource&gt;, params Type[])</a>
+or its keyed counterparts.</p>
 </dd>
     </dl>
     <dl class="jumplist">

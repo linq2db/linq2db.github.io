@@ -236,8 +236,20 @@ Cross-provider keys are flat. Provider-specific keys, when they appear, belong i
       <dd></dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlCteField.html">SqlCteField</a></dt>
+      <dd><p>Column definition inside a <a class="xref" href="LinqToDB.Internal.SqlQuery.CteClause.html">CteClause</a> (stored in <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.CteClause.html#LinqToDB_Internal_SqlQuery_CteClause_Fields">Fields</a>).
+Represents CTE schema, not a table-bound field reference — runtime references to a CTE's
+columns go through <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCteTableField.html">SqlCteTableField</a> instead.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlCteTable.html">SqlCteTable</a></dt>
       <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlCteTableField.html">SqlCteTableField</a></dt>
+      <dd><p>Field in <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCteTable.html">SqlCteTable</a>. Delegates Name, Type, CanBeNullable to the referenced <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCteField.html">SqlCteField</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlDeleteStatement.html">SqlDeleteStatement</a></dt>
@@ -256,6 +268,10 @@ Cross-provider keys are flat. Provider-specific keys, when they appear, belong i
       <dd></dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlExtendedFunction.html">SqlExtendedFunction</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlExtensions.html">SqlExtensions</a></dt>
       <dd><p>This is internal API and is not intended for use by Linq To DB applications.
 It may change or be removed without further notice.</p>
@@ -266,9 +282,19 @@ It may change or be removed without further notice.</p>
       <dd></dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlFieldBase.html">SqlFieldBase</a></dt>
+      <dd><p>Abstract base class for table-bound SQL field references: <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlField.html">SqlField</a> and <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlCteTableField.html">SqlCteTableField</a>.
+Contains common properties shared by field references that are resolved against an <a class="xref" href="LinqToDB.Internal.SqlQuery.ISqlTableSource.html">ISqlTableSource</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlFragment.html">SqlFragment</a></dt>
       <dd><p>Untyped (doesn't have type of type information should be hidden from Linq To DB) SQL fragment with parameters.</p>
 </dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlFrameClause.html">SqlFrameClause</a></dt>
+      <dd></dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlFromClause.html">SqlFromClause</a></dt>
@@ -327,6 +353,10 @@ It may change or be removed without further notice.</p>
       <dd></dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlKeepClause.html">SqlKeepClause</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlMergeOperationClause.html">SqlMergeOperationClause</a></dt>
       <dd></dd>
     </dl>
@@ -365,6 +395,11 @@ It may change or be removed without further notice.</p>
     <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlParameter.html">SqlParameter</a></dt>
       <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlParameterCastExpression.html">SqlParameterCastExpression</a></dt>
+      <dd><p>Marks one usage of a <a class="xref" href="LinqToDB.Internal.SqlQuery.SqlParameter.html">SqlParameter</a> as needing an explicit type in the generated SQL.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlParameterValue.html">SqlParameterValue</a></dt>
@@ -561,6 +596,10 @@ Interfaces
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlNamedTable.html">ISqlNamedTable</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ISqlPredicate.html">ISqlPredicate</a></dt>
       <dd></dd>
     </dl>
@@ -591,6 +630,13 @@ Enums
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.NullsDefaultOrdering.html">NullsDefaultOrdering</a></dt>
+      <dd><p>Describes how a provider places <code>NULL</code> values in an <code>ORDER BY</code> by default (i.e. when no
+<code>NULLS FIRST</code>/<code>NULLS LAST</code> is specified). Used to elide a requested <a class="xref" href="LinqToDB.Sql.html">Sql.NullsPosition</a>
+when it already matches the provider's natural placement for the item's sort direction.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.ParametersNullabilityType.html">ParametersNullabilityType</a></dt>
       <dd><p>Provides information when function or expression could return null.</p>
 </dd>
@@ -618,6 +664,18 @@ Enums
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlFlags.html">SqlFlags</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlFrameClause.FrameExclusionKind.html">SqlFrameClause.FrameExclusionKind</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlFrameClause.FrameTypeKind.html">SqlFrameClause.FrameTypeKind</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.SqlKeepClause.KeepType.html">SqlKeepClause.KeepType</a></dt>
       <dd></dd>
     </dl>
     <dl class="jumplist">

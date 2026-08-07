@@ -135,6 +135,26 @@ It may change or be removed without further notice.</p>
       <dd></dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Internal.Common.ObjectPool-1.html">ObjectPool&lt;T&gt;</a></dt>
+      <dd><p>Generic implementation of object pooling pattern with predefined pool size limit. The main
+purpose is that limited number of frequently used objects can be kept in the pool for
+further recycling.</p>
+<p>Notes:</p>
+<ol>
+<li><p>it is not the goal to keep all returned objects. Pool is not meant for storage. If there
+is no space in the pool, extra returned objects will be dropped.</p>
+</li>
+<li><p>it is implied that if object was obtained from a pool, the caller will return it back in
+a relatively short time. Keeping checked out objects for long durations is ok, but
+reduces usefulness of pooling. Just new up your own.</p>
+</li>
+</ol>
+<p>Not returning objects to the pool in not detrimental to the pool's work, but is a bad practice.
+Rationale:
+If there is no intent for reusing the object, do not use pool - just use &quot;new&quot;.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Internal.Common.SqlTextWriter.html">SqlTextWriter</a></dt>
       <dd></dd>
     </dl>
@@ -179,6 +199,10 @@ Structs
       <dd><p>Internal infrastructure API.
 Provides functionality for <a class="xref" href="linq2db.LinqToDB.Internal.Common.IConfigurationID.html#LinqToDB_Internal_Common_IConfigurationID_ConfigurationID">ConfigurationID</a> generation.</p>
 </dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="linq2db.LinqToDB.Internal.Common.ObjectPool-1.RentedElement.html">ObjectPool&lt;T&gt;.RentedElement</a></dt>
+      <dd></dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Internal.Common.SqlTextWriter.IndentScope.html">SqlTextWriter.IndentScope</a></dt>

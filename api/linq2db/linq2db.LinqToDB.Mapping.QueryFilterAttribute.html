@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class QueryFilterAttribute | Linq To DB ">
       
-      <meta name="description" content="Contains reference to filter function defined by">
+      <meta name="description" content="Contains reference to filter function defined by  or one of its keyed overloads. Multiple instances of this attribute may be applied to the same entity to declare several named filters; at query time the filters are AND-combined unless suppressed by  or its keyed counterparts.">
       <link rel="icon" href="../../images/icon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="linq2db_LinqToDB_Mapping_QueryFilterAttribute" data-uid="linq2db.LinqToDB.Mapping.QueryFilterAttribute" class="text-break">
-Class QueryFilterAttribute  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Mapping/QueryFilterAttribute.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class QueryFilterAttribute  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Mapping/QueryFilterAttribute.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,11 @@ Class QueryFilterAttribute  <a class="header-action link-secondary" title="View 
   <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Contains reference to filter function defined by <a class="xref" href="linq2db.LinqToDB.Mapping.EntityMappingBuilder-1.html#LinqToDB_Mapping_EntityMappingBuilder_1_HasQueryFilter_System_Linq_Expressions_Expression_System_Func__0_LinqToDB_IDataContext_System_Boolean___">HasQueryFilter(Expression&lt;Func&lt;TEntity, IDataContext, bool&gt;&gt;)</a></p>
+  <div class="markdown summary"><p>Contains reference to filter function defined by <a class="xref" href="linq2db.LinqToDB.Mapping.EntityMappingBuilder-1.html#LinqToDB_Mapping_EntityMappingBuilder_1_HasQueryFilter_System_Linq_Expressions_Expression_System_Func__0_LinqToDB_IDataContext_System_Boolean___">HasQueryFilter(Expression&lt;Func&lt;TEntity, IDataContext, bool&gt;&gt;)</a>
+or one of its keyed overloads. Multiple instances of this attribute may be applied to the same entity to declare
+several named filters; at query time the filters are AND-combined unless suppressed by
+<a class="xref" href="linq2db.LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_IgnoreFilters__1_System_Linq_IQueryable___0__System_Type___">IgnoreFilters&lt;TSource&gt;(IQueryable&lt;TSource&gt;, params Type[])</a>
+or its keyed counterparts.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -299,7 +303,7 @@ public class QueryFilterAttribute : MappingAttribute, _Attribute</code></pre>
 
   <h3 id="linq2db_LinqToDB_Mapping_QueryFilterAttribute_FilterFunc" data-uid="linq2db.LinqToDB.Mapping.QueryFilterAttribute.FilterFunc">
   FilterFunc
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Mapping/QueryFilterAttribute.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Mapping/QueryFilterAttribute.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Filter function of type <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func&lt;T1, T2, TResult&gt;</a>, where</p>
@@ -328,18 +332,57 @@ public class QueryFilterAttribute : MappingAttribute, _Attribute</code></pre>
 
 
 
+  <a id="linq2db_LinqToDB_Mapping_QueryFilterAttribute_FilterKey_" data-uid="linq2db.LinqToDB.Mapping.QueryFilterAttribute.FilterKey*"></a>
+
+  <h3 id="linq2db_LinqToDB_Mapping_QueryFilterAttribute_FilterKey" data-uid="linq2db.LinqToDB.Mapping.QueryFilterAttribute.FilterKey">
+  FilterKey
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Mapping/QueryFilterAttribute.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Filter identifier used to address the filter individually via the keyed
+<a class="xref" href="linq2db.LinqToDB.Mapping.EntityMappingBuilder-1.html#LinqToDB_Mapping_EntityMappingBuilder_1_HasQueryFilter_System_String_System_Linq_Expressions_Expression_System_Func__0_LinqToDB_IDataContext_System_Boolean___">HasQueryFilter(string, Expression&lt;Func&lt;TEntity, IDataContext, bool&gt;&gt;)</a>
+overloads and to selectively disable it via
+<a class="xref" href="linq2db.LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_IgnoreFilters__1_System_Linq_IQueryable___0__System_Collections_Generic_IEnumerable_System_String__System_Type___">IgnoreFilters&lt;TSource&gt;(IQueryable&lt;TSource&gt;, IEnumerable&lt;string&gt;, params Type[])</a>.</p>
+<p>
+A <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or empty value identifies the default (anonymous) filter slot, populated by the
+non-keyed <code>HasQueryFilter</code> overloads.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? FilterKey { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="linq2db_LinqToDB_Mapping_QueryFilterAttribute_FilterLambda_" data-uid="linq2db.LinqToDB.Mapping.QueryFilterAttribute.FilterLambda*"></a>
 
   <h3 id="linq2db_LinqToDB_Mapping_QueryFilterAttribute_FilterLambda" data-uid="linq2db.LinqToDB.Mapping.QueryFilterAttribute.FilterLambda">
   FilterLambda
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Mapping/QueryFilterAttribute.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Mapping/QueryFilterAttribute.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><pre><code>Filter LambdaExpression. 
 </code></pre>
 <pre><code class="lang-csharp">Expression&lt;Func&lt;TEntity, IDataContext, bool&gt;&gt;</code></pre>
 <pre><code>&lt;p&gt;
-For example (e, db) =&gt; e.IsDeleted == false &quot;/&gt;
+For example &lt;code&gt;(e, db) =&gt; e.IsDeleted == false&lt;/code&gt;
 &lt;/p&gt;
 </code></pre>
 </div>
@@ -374,7 +417,7 @@ For example (e, db) =&gt; e.IsDeleted == false &quot;/&gt;
 
   <h3 id="linq2db_LinqToDB_Mapping_QueryFilterAttribute_GetObjectID" data-uid="linq2db.LinqToDB.Mapping.QueryFilterAttribute.GetObjectID">
   GetObjectID()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Mapping/QueryFilterAttribute.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Mapping/QueryFilterAttribute.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns mapping attribute id, based on all attribute options.</p>
