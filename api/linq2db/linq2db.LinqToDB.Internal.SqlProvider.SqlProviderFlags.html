@@ -93,7 +93,7 @@ Class SqlProviderFlags  <a class="header-action link-secondary" title="View sour
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Internal.html">Internal</a>.<a class="xref" href="LinqToDB.Internal.SqlProvider.html">SqlProvider</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="linq2db.LinqToDB.html">LinqToDB</a>.<a class="xref" href="linq2db.LinqToDB.Internal.html">Internal</a>.<a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.html">SqlProvider</a></dd></dl>
   <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
   </div>
 
@@ -194,7 +194,7 @@ FROM table1 outer</code></pre>
 		) sub
 ) AS Sum_Column
 FROM table1 outer</code></pre>
-<p>Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+<p>Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -228,7 +228,7 @@ public bool AcceptsOuterExpressionInAggregate { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates that TAKE/TOP/LIMIT could accept parameter.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -262,7 +262,7 @@ public bool AcceptsTakeAsParameter { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates that TAKE/LIMIT could accept parameter only if also SKIP/OFFSET specified.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -296,7 +296,7 @@ public bool AcceptsTakeAsParameterIfSkip { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the calculation of deep level includes aggregation queries.
-Works in conjunction with <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlProviderFlags.html#LinqToDB_Internal_SqlProvider_SqlProviderFlags_SupportedCorrelatedSubqueriesLevel">SupportedCorrelatedSubqueriesLevel</a>.</p>
+Works in conjunction with <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.SqlProviderFlags.html#linq2db_LinqToDB_Internal_SqlProvider_SqlProviderFlags_SupportedCorrelatedSubqueriesLevel">SupportedCorrelatedSubqueriesLevel</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -330,7 +330,7 @@ public bool CalculateSupportedCorrelatedLevelWithAggregateQueries { get; set; }<
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates that provider could share parameter between statements in multi-statement batch.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -397,7 +397,7 @@ public HashSet&lt;string&gt; CustomFlags { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Used when there is query which needs several additional database requests for completing query (e.g. eager load or client-side GroupBy).
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.isolationlevel#system-data-isolationlevel-repeatableread">RepeatableRead</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.isolationlevel#system-data-isolationlevel-repeatableread">RepeatableRead</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -431,8 +431,8 @@ public IsolationLevel DefaultMultiQueryIsolationLevel { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>The provider's natural placement of <code>NULL</code> values in an <code>ORDER BY</code> (the placement used when no
-<code>NULLS FIRST</code>/<code>NULLS LAST</code> is specified). <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.NullsDefaultOrdering.html#LinqToDB_Internal_SqlQuery_NullsDefaultOrdering_Unknown">Unknown</a> (the default)
-means it is unknown, so a requested <a class="xref" href="LinqToDB.Sql.html">Sql.NullsPosition</a> is always honored (emulated or rendered)
+<code>NULLS FIRST</code>/<code>NULLS LAST</code> is specified). <a class="xref" href="linq2db.LinqToDB.Internal.SqlQuery.NullsDefaultOrdering.html#linq2db_LinqToDB_Internal_SqlQuery_NullsDefaultOrdering_Unknown">Unknown</a> (the default)
+means it is unknown, so a requested <a class="xref" href="linq2db.LinqToDB.Sql.NullsPosition.html">Sql.NullsPosition</a> is always honored (emulated or rendered)
 and never elided. When set, a requested position that already equals the natural placement for the item's
 direction is dropped, avoiding a redundant emulation sort key or <code>NULLS</code> token.</p>
 </div>
@@ -544,7 +544,7 @@ public bool IsAccessBuggyLeftJoinConstantNullability { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Provider supports EXCEPT ALL, INTERSECT ALL set operators. Otherwise they will be emulated.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -578,7 +578,7 @@ public bool IsAllSetOperationsSupported { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates support for OUTER/CROSS APPLY.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -730,7 +730,7 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
 
   <div class="markdown level1 summary"><p>Indicates support of CTE expressions.
 If provider does not support CTE, unsuported exception will be thrown when using CTE.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -802,7 +802,7 @@ public bool IsComplexJoinConditionSupported { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates support for paging clause in correlated subquery.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -837,7 +837,7 @@ public bool IsCorrelatedSubQueryTakeSupported { get; set; }</code></pre>
 
   <div class="markdown level1 summary"><p>Indicates that database supports count subquery as scalar in column.</p>
 <pre><code class="lang-csharp">SELECT (SELECT COUNT(*) FROM some_table) FROM ...</code></pre>
-<p>Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+<p>Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -871,7 +871,7 @@ public bool IsCountSubQuerySupported { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates support for CROSS APPLY supports condition LATERAL JOIN for example.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -905,7 +905,7 @@ public bool IsCrossApplyJoinSupportsCondition { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates support for CROSS JOIN.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -973,7 +973,7 @@ public bool IsCrossJoinSyntaxRequired { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Provider supports SUM/AVG/MIN/MAX(DISTINCT column) function. Otherwise, it will be emulated.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1007,7 +1007,7 @@ public bool IsDerivedTableOrderBySupported { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates support for paging clause in derived table.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1112,7 +1112,7 @@ public bool IsDistinctOnSupported { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Provider supports EXCEPT, INTERSECT set operators. Otherwise it will be emulated.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1179,7 +1179,7 @@ public bool IsExistsPreferableForContains { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates that provider requires explicit output parameter for insert with identity queries to get identity from database.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1223,7 +1223,7 @@ expressions for the same column on the INSERT vs UPDATE branch (typically via
 Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> for SAP HANA — its <code>UPSERT … WITH PRIMARY KEY</code> statement
 uses one VALUES list for both branches.
 </p>
-<p>Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+<p>Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1258,7 +1258,7 @@ public bool IsInsertOrUpdateRequiresAlignedBranches { get; set; }</code></pre>
 
   <div class="markdown level1 summary"><p>Indicates support for single-query insert-or-update operation support.
 Otherwise two separate queries used to emulate operation (update, then insert if nothing found to update).
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1300,7 +1300,7 @@ Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/bui
 cannot carry an UPDATE-branch predicate:
 <ul><li>MySQL / MariaDB — <code>INSERT ... ON DUPLICATE KEY UPDATE</code> has no WHERE clause.</li><li>SAP Sybase ASE — emulated via <code>IF @@ROWCOUNT = 0 INSERT</code>, no UPDATE-branch predicate.</li><li>SQL Server 2005 — pre-MERGE; emulated via <code>IF @@ROWCOUNT = 0 INSERT</code>.</li></ul>
 
-<p>Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+<p>Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1421,7 +1421,7 @@ public bool IsMultiTablesSupportsJoins { get; set; }</code></pre>
 
   <div class="markdown level1 summary"><p>Provider supports Naming Query Blocks</p>
 <pre><code class="lang-csharp">QB_NAME(qb)</code></pre>
-<p>Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+<p>Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1463,7 +1463,7 @@ otherwise nested join replaced with sub-query
 &lt;pre&gt;&lt;code class=&quot;lang-csharp&quot;&gt;A JOIN (SELECT ? FROM B JOIN C ON ?) ON ?&lt;/code&gt;&lt;/pre&gt;
 </code></pre>
 <p>.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1497,7 +1497,7 @@ public bool IsNestedJoinsSupported { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Provider renders <code>NULLS FIRST</code> / <code>NULLS LAST</code> natively in <code>ORDER BY</code> (and window
-<code>OVER (ORDER BY …)</code>). When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> (the default), <a class="xref" href="LinqToDB.Sql.html">Sql.NullsPosition</a>
+<code>OVER (ORDER BY …)</code>). When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> (the default), <a class="xref" href="linq2db.LinqToDB.Sql.NullsPosition.html">Sql.NullsPosition</a>
 is emulated via a <code>CASE WHEN &lt;expr&gt; IS NULL THEN …</code> sort key.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1532,7 +1532,7 @@ public bool IsNullsOrderingSupported { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Provider supports Aggregate function in ORDER BY.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1636,7 +1636,7 @@ public bool IsOrderBySubQuerySupported { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates support for OUTER APPLY supports condition LATERAL JOIN for example.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1715,7 +1715,7 @@ public bool IsOuterJoinSupportsInnerJoin { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates that provider (not database!) uses positional parameters instead of named parameters (parameter values assigned in order they appear in query, not by parameter name).
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1852,7 +1852,7 @@ public bool IsSimpleCoalesceSupported { get; set; }</code></pre>
   <div class="markdown level1 summary"><p>Indicates support for SKIP/OFFSET paging clause (parameter) without TAKE clause.
 Provider could set this flag even if database not support it if emulates missing functionality.
 E.g. : <code>TAKE [MAX_ALLOWED_VALUE] SKIP skip_value </code>
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1886,7 +1886,7 @@ public bool IsSkipSupported { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates support for SKIP/OFFSET paging clause (parameter) only if also TAKE/LIMIT specified.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1921,7 +1921,7 @@ public bool IsSkipSupportedIfTake { get; set; }</code></pre>
 
   <div class="markdown level1 summary"><p>Indicates support for scalar subquery in select list.
 E.g. <code>SELECT (SELECT TOP 1 value FROM some_table) AS MyColumn, ...</code>
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1955,7 +1955,7 @@ public bool IsSubQueryColumnSupported { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates support of <code>ORDER BY</code> clause in sub-queries.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1989,7 +1989,7 @@ public bool IsSubQueryOrderBySupported { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates support for skip clause in column expression subquery.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2023,7 +2023,7 @@ public bool IsSubQuerySkipSupported { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates support for paging clause in subquery.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2157,7 +2157,7 @@ public bool IsSubqueryWithParentReferenceInJoinConditionSupported { get; set; }<
   </h3>
 
   <div class="markdown level1 summary"><p>Provider supports correlated subqueris, which can be easily converted to JOIN.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2194,7 +2194,7 @@ public bool IsSupportedSimpleCorrelatedSubqueries { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates that provider supports JOIN without condition ON 1=1.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2261,7 +2261,7 @@ public bool IsTakeWithInAllAnySomeSubquerySupported { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates support of <code>ORDER BY</code> clause in UNION ALL.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2298,7 +2298,7 @@ public bool IsUnionAllOrderBySupported { get; set; }</code></pre>
 <pre><code class="lang-csharp">UPDATE A
 SET ...
 FROM B</code></pre>
-<p>Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+<p>Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2332,7 +2332,7 @@ public bool IsUpdateFromSupported { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Provider supports SKIP+TAKE limit for UPDATE query.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2366,7 +2366,7 @@ public bool IsUpdateSkipTakeSupported { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Provider supports TAKE limit for UPDATE query.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2404,13 +2404,13 @@ and <code>WHEN NOT MATCHED</code> clauses (either as <code>WHEN MATCHED AND &lt;
 <code>WHEN MATCHED THEN UPDATE SET … WHERE &lt;cond&gt;</code>). When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> and
 an Upsert configuration with <code>Insert(i =&gt; i.When(...))</code> or
 <code>Update(v =&gt; v.When(...))</code> is routed through MERGE lowering,
-<a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> is thrown with a descriptive message.</p>
+<a class="xref" href="linq2db.LinqToDB.LinqToDBException.html">LinqToDBException</a> is thrown with a descriptive message.</p>
 <p>
 Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> for Firebird 2.5 — its MERGE predates Firebird 3 which added
 <code>WHEN [NOT] MATCHED [AND &lt;cond&gt;]</code> syntax, and it has no <code>UPDATE … WHERE</code>
 form inside MERGE either.
 </p>
-<p>Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+<p>Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2447,13 +2447,13 @@ public bool IsUpsertMergeWithPredicateSupported { get; set; }</code></pre>
 emits when <code>Upsert(...)</code> cannot be lowered to the native InsertOrUpdate path — i.e. for
 bulk sources, non-PK match, conditional <code>Insert(i =&gt; i.When(...))</code>, or
 <code>SkipInsert()</code> / <code>SkipUpdate()</code>. When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> and the Upsert
-configuration requires MERGE lowering, <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> is thrown with a
+configuration requires MERGE lowering, <a class="xref" href="linq2db.LinqToDB.LinqToDBException.html">LinqToDBException</a> is thrown with a
 descriptive message.</p>
 <p>
 Set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> for SAP HANA — its <code>MERGE</code> dialect lacks the
 <code>WHEN NOT MATCHED THEN INSERT</code> branch that the ANSI shape requires.
 </p>
-<p>Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+<p>Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2558,7 +2558,7 @@ public int MaxColumnCount { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Specifies limit of number of values in single <code>IN</code> predicate without splitting it into several IN's.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <code>int.MaxValue</code> (basically means there is no limit).</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <code>int.MaxValue</code> (basically means there is no limit).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2593,7 +2593,7 @@ public int MaxInListValuesCount { get; set; }</code></pre>
 
   <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, removed record fields in OUTPUT clause of DELETE statement should be referenced using
 table with special name (e.g. DELETED or OLD). Otherwise fields should be referenced using target table.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2628,7 +2628,7 @@ public bool OutputDeleteUseSpecialTable { get; set; }</code></pre>
 
   <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, added record fields in OUTPUT clause of INSERT statement should be referenced using
 table with special name (e.g. INSERTED or NEW). Otherwise fields should be referenced using target table.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2663,7 +2663,7 @@ public bool OutputInsertUseSpecialTable { get; set; }</code></pre>
 
   <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, OUTPUT clause supports both OLD and NEW data in MERGE statement using tables with special names.
 Otherwise only current record fields (after all changes) available using target table.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2698,7 +2698,7 @@ public bool OutputMergeUseSpecialTables { get; set; }</code></pre>
 
   <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, OUTPUT clause supports both OLD and NEW data in UPDATE statement using tables with special names.
 Otherwise only current record fields (after update) available using target table.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2732,7 +2732,7 @@ public bool OutputUpdateUseSpecialTables { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Provider support Row Constructor <code>(1, 2, 3)</code> in various positions (flags)
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.RowFeature.html#LinqToDB_Internal_SqlProvider_RowFeature_None">None</a>.</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a class="xref" href="linq2db.LinqToDB.Internal.SqlProvider.RowFeature.html#linq2db_LinqToDB_Internal_SqlProvider_RowFeature_None">None</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2868,7 +2868,7 @@ public bool SupportsPredicatesComparison { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates supported TAKE/LIMIT hints.
-Default (set by <a class="xref" href="LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> (none).</p>
+Default (set by <a class="xref" href="linq2db.LinqToDB.Internal.DataProvider.DataProviderBase.html">DataProviderBase</a>): <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> (none).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2883,7 +2883,7 @@ public TakeHints? TakeHintsSupported { get; set; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="LinqToDB.TakeHints.html">TakeHints</a>?</dt>
+    <dt><a class="xref" href="linq2db.LinqToDB.TakeHints.html">TakeHints</a>?</dt>
     <dd></dd>
   </dl>
 

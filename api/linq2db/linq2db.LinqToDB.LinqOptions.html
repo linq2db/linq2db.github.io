@@ -120,7 +120,7 @@ Class LinqOptions  <a class="header-action link-secondary" title="View source" h
     <dd>
       <div><a class="xref" href="linq2db.LinqToDB.Internal.Options.IOptionSet.html">IOptionSet</a></div>
       <div><a class="xref" href="linq2db.LinqToDB.Internal.Common.IConfigurationID.html">IConfigurationID</a></div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LinqToDB.LinqOptions.html">LinqOptions</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="linq2db.LinqToDB.LinqOptions.html">LinqOptions</a>&gt;</div>
     </dd>
   </dl>
 
@@ -277,7 +277,7 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
     <dd><p>Controls behavior of linq2db when there is no updateable fields in Update query:</p>
 <ul>
 <li>if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> - query not executed and Update operation returns 0 as number of affected records;</li>
-<li>if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> - <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown.
+<li>if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> - <a class="xref" href="linq2db.LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown.
 Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</li>
 </ul>
 </dd>
@@ -286,12 +286,12 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
 This option could be useful for issue reporting, when you need to provide reproducible case.
 Test file will be placed to <code>linq2db</code> subfolder of temp folder and exact file path will be logged
 to data connection tracing infrastructure.
-See <a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_TraceSwitch">TraceSwitch</a> for more details.
+See <a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html#linq2db_LinqToDB_Data_DataConnection_TraceSwitch">TraceSwitch</a> for more details.
 Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </dd>
     <dt><code>TraceMapperExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Enables logging of generated mapping expression to data connection tracing infrastructure.
-See <a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_TraceSwitch">TraceSwitch</a> for more details.
+See <a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html#linq2db_LinqToDB_Data_DataConnection_TraceSwitch">TraceSwitch</a> for more details.
 Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </dd>
     <dt><code>ConcatenateOrderBy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
@@ -314,14 +314,14 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
 </dd>
     <dt><code>CompareNulls</code> <a class="xref" href="linq2db.LinqToDB.CompareNulls.html">CompareNulls</a></dt>
     <dd><summary>
-If set to <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeClr">LikeClr</a> nullable fields would be checked for <code>IS NULL</code> in Equal/NotEqual comparisons.
-If set to <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeSql">LikeSql</a> comparisons are compiled straight to equivalent SQL operators,
+If set to <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#linq2db_LinqToDB_CompareNulls_LikeClr">LikeClr</a> nullable fields would be checked for <code>IS NULL</code> in Equal/NotEqual comparisons.
+If set to <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#linq2db_LinqToDB_CompareNulls_LikeSql">LikeSql</a> comparisons are compiled straight to equivalent SQL operators,
 which consider nulls values as not equal.
-<a class="xref" href="linq2db.LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeSqlExceptParameters">LikeSqlExceptParameters</a> is a backward compatible option that works mostly as <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeSql">LikeSql</a>,
+<a class="xref" href="linq2db.LinqToDB.CompareNulls.html#linq2db_LinqToDB_CompareNulls_LikeSqlExceptParameters">LikeSqlExceptParameters</a> is a backward compatible option that works mostly as <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#linq2db_LinqToDB_CompareNulls_LikeSql">LikeSql</a>,
 but sniffs parameters value and changes = into <code>IS NULL</code> when parameters are null.
 Comparisons to literal null are always compiled into <code>IS NULL</code>.
 This affects: Equal, NotEqual, Not Contains
-Default value: <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeClr">LikeClr</a>.
+Default value: <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#linq2db_LinqToDB_CompareNulls_LikeClr">LikeClr</a>.
 </summary>
 <example>
 <pre><code class="lang-csharp">public class MyEntity
@@ -334,7 +334,7 @@ join e2 in db.MyEntity on e1.Value equals e2.Value
 select e1</p>
 <p>var filter = new [] {1, 2, 3};
 db.MyEntity.Where(e =&gt; ! filter.Contains(e.Value))</p></code></pre>
-<p>Would be converted to next queries under <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeClr">LikeClr</a>:</p>
+<p>Would be converted to next queries under <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#linq2db_LinqToDB_CompareNulls_LikeClr">LikeClr</a>:</p>
 <pre><code class="lang-csharp">SELECT Value FROM MyEntity WHERE Value IS NULL OR Value != 10
 
 SELECT e1.Value
@@ -347,7 +347,7 @@ SELECT Value FROM MyEntity WHERE Value IS NULL OR NOT Value IN (1, 2, 3)</code><
     <dt><code>GuardGrouping</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><summary>
 Controls behavior of LINQ query, which ends with GroupBy call.
-- if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> - <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown for such queries;
+- if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> - <a class="xref" href="linq2db.LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown for such queries;
 - if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> - eager loading used.
 Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
 </summary>
@@ -371,7 +371,7 @@ This cache reduces time, required for query parsing but have several side-effect
 <p>Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 <p></p>
 <p>It is not recommended to enable this option as it could lead to severe slowdown. Better approach will be
-to use <a class="xref" href="LinqToDB.Linq.NoLinqCache.html">NoLinqCache</a> scope around queries, that produce severe memory leaks you need to fix.</p>
+to use <a class="xref" href="linq2db.LinqToDB.Linq.NoLinqCache.html">NoLinqCache</a> scope around queries, that produce severe memory leaks you need to fix.</p>
 <p></p>
 <a href="https://github.com/linq2db/linq2db/issues/256">More details</a>.
 </summary>
@@ -395,10 +395,10 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
 Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </dd>
     <dt><code>EnableContextSchemaEdit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, user could add new mappings to context mapping schems (<a class="xref" href="linq2db.LinqToDB.IDataContext.html#LinqToDB_IDataContext_MappingSchema">MappingSchema</a>).
-Otherwise, <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be generated on locked mapping schema edit attempt.
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, user could add new mappings to context mapping schems (<a class="xref" href="linq2db.LinqToDB.IDataContext.html#linq2db_LinqToDB_IDataContext_MappingSchema">MappingSchema</a>).
+Otherwise, <a class="xref" href="linq2db.LinqToDB.LinqToDBException.html">LinqToDBException</a> will be generated on locked mapping schema edit attempt.
 It is not recommended to enable this option as it has performance implications.
-Proper approach is to create single <a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a> instance once, configure mappings for it and use this <a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a> instance for all context instances.
+Proper approach is to create single <a class="xref" href="linq2db.LinqToDB.Mapping.MappingSchema.html">MappingSchema</a> instance once, configure mappings for it and use this <a class="xref" href="linq2db.LinqToDB.Mapping.MappingSchema.html">MappingSchema</a> instance for all context instances.
 Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </dd>
     <dt><code>PreferExistsForScalar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
@@ -413,8 +413,8 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
 mapped members/methods that do not prefer server-side evaluation) are calculated on the client during
 materialization instead of being translated into additional SQL columns. Real database columns,
 already-built subqueries, and expressions that prefer or require server-side evaluation (for example,
-members or methods mapped with <a class="xref" href="linq2db.LinqToDB.Sql.ExpressionAttribute.html#LinqToDB_Sql_ExpressionAttribute_PreferServerSide">PreferServerSide</a> or
-<a class="xref" href="linq2db.LinqToDB.Sql.ExpressionAttribute.html#LinqToDB_Sql_ExpressionAttribute_ServerSideOnly">ServerSideOnly</a>) are still translated to SQL.
+members or methods mapped with <a class="xref" href="linq2db.LinqToDB.Sql.ExpressionAttribute.html#linq2db_LinqToDB_Sql_ExpressionAttribute_PreferServerSide">PreferServerSide</a> or
+<a class="xref" href="linq2db.LinqToDB.Sql.ExpressionAttribute.html#linq2db_LinqToDB_Sql_ExpressionAttribute_ServerSideOnly">ServerSideOnly</a>) are still translated to SQL.
 Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </dd>
     <dt><code>UpsertEmulationPolicy</code> <a class="xref" href="linq2db.LinqToDB.UpsertEmulationPolicy.html">UpsertEmulationPolicy</a></dt>
@@ -422,17 +422,17 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
 or <code>MERGE</code> for the target provider and would fall back to an emulated multi-statement
 <code>SELECT → UPDATE → INSERT</code> sequence (the three statements run as independent commands — wrap the
 call in a transaction if atomicity is required).</p>
-<ul><li><a class="xref" href="linq2db.LinqToDB.UpsertEmulationPolicy.html#LinqToDB_UpsertEmulationPolicy_Allow">Allow</a> (default) — perform the emulated fallback.</li><li><a class="xref" href="linq2db.LinqToDB.UpsertEmulationPolicy.html#LinqToDB_UpsertEmulationPolicy_Throw">Throw</a> — reject it with <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> at build time.</li></ul>
+<ul><li><a class="xref" href="linq2db.LinqToDB.UpsertEmulationPolicy.html#linq2db_LinqToDB_UpsertEmulationPolicy_Allow">Allow</a> (default) — perform the emulated fallback.</li><li><a class="xref" href="linq2db.LinqToDB.UpsertEmulationPolicy.html#linq2db_LinqToDB_UpsertEmulationPolicy_Throw">Throw</a> — reject it with <a class="xref" href="linq2db.LinqToDB.LinqToDBException.html">LinqToDBException</a> at build time.</li></ul>
 </dd>
     <dt><code>DefaultEagerLoadingStrategy</code> <a class="xref" href="linq2db.LinqToDB.EagerLoadingStrategy.html">EagerLoadingStrategy</a></dt>
-    <dd><p>Specifies the default <a class="xref" href="LinqToDB.EagerLoadingStrategy.html">EagerLoadingStrategy</a> used for all LoadWith/ThenLoad eager-loading
+    <dd><p>Specifies the default <a class="xref" href="linq2db.LinqToDB.EagerLoadingStrategy.html">EagerLoadingStrategy</a> used for all LoadWith/ThenLoad eager-loading
 operations when no per-query strategy is set via <code>WithUnionLoadStrategy</code>, <code>WithKeyedLoadStrategy</code>, or <code>WithSeparateLoadStrategy</code>.
-Default value: <a class="xref" href="linq2db.LinqToDB.EagerLoadingStrategy.html#LinqToDB_EagerLoadingStrategy_Default">Default</a>.</p>
+Default value: <a class="xref" href="linq2db.LinqToDB.EagerLoadingStrategy.html#linq2db_LinqToDB_EagerLoadingStrategy_Default">Default</a>.</p>
 </dd>
     <dt><code>ImplicitCollectionLoading</code> <a class="xref" href="linq2db.LinqToDB.ImplicitCollectionLoading.html">ImplicitCollectionLoading</a></dt>
-    <dd><p>With <a class="xref" href="linq2db.LinqToDB.ImplicitCollectionLoading.html#LinqToDB_ImplicitCollectionLoading_Throw">Throw</a>, a query that triggers an implicit eager load — a collection projected
-in a <code>Select</code> without being explicitly requested — throws <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> at
-build time; with <a class="xref" href="linq2db.LinqToDB.ImplicitCollectionLoading.html#LinqToDB_ImplicitCollectionLoading_Allow">Allow</a> (the default) it is loaded as usual.</p>
+    <dd><p>With <a class="xref" href="linq2db.LinqToDB.ImplicitCollectionLoading.html#linq2db_LinqToDB_ImplicitCollectionLoading_Throw">Throw</a>, a query that triggers an implicit eager load — a collection projected
+in a <code>Select</code> without being explicitly requested — throws <a class="xref" href="linq2db.LinqToDB.LinqToDBException.html">LinqToDBException</a> at
+build time; with <a class="xref" href="linq2db.LinqToDB.ImplicitCollectionLoading.html#linq2db_LinqToDB_ImplicitCollectionLoading_Allow">Allow</a> (the default) it is loaded as usual.</p>
 <p>
 The guard is bypassed when the eager load is explicit: <code>LoadWith</code>/<code>ThenLoad</code> allows that
 one collection (other unmarked collections in the same query still throw), while a root
@@ -535,14 +535,14 @@ Default value is 1 hour.</p>
   </h3>
 
   <div class="markdown level1 summary"><summary>
-If set to <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeClr">LikeClr</a> nullable fields would be checked for <code>IS NULL</code> in Equal/NotEqual comparisons.
-If set to <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeSql">LikeSql</a> comparisons are compiled straight to equivalent SQL operators,
+If set to <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#linq2db_LinqToDB_CompareNulls_LikeClr">LikeClr</a> nullable fields would be checked for <code>IS NULL</code> in Equal/NotEqual comparisons.
+If set to <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#linq2db_LinqToDB_CompareNulls_LikeSql">LikeSql</a> comparisons are compiled straight to equivalent SQL operators,
 which consider nulls values as not equal.
-<a class="xref" href="linq2db.LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeSqlExceptParameters">LikeSqlExceptParameters</a> is a backward compatible option that works mostly as <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeSql">LikeSql</a>,
+<a class="xref" href="linq2db.LinqToDB.CompareNulls.html#linq2db_LinqToDB_CompareNulls_LikeSqlExceptParameters">LikeSqlExceptParameters</a> is a backward compatible option that works mostly as <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#linq2db_LinqToDB_CompareNulls_LikeSql">LikeSql</a>,
 but sniffs parameters value and changes = into <code>IS NULL</code> when parameters are null.
 Comparisons to literal null are always compiled into <code>IS NULL</code>.
 This affects: Equal, NotEqual, Not Contains
-Default value: <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeClr">LikeClr</a>.
+Default value: <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#linq2db_LinqToDB_CompareNulls_LikeClr">LikeClr</a>.
 </summary>
 <example>
 <pre><code class="lang-csharp">public class MyEntity
@@ -555,7 +555,7 @@ join e2 in db.MyEntity on e1.Value equals e2.Value
 select e1</p>
 <p>var filter = new [] {1, 2, 3};
 db.MyEntity.Where(e =&gt; ! filter.Contains(e.Value))</p></code></pre>
-<p>Would be converted to next queries under <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#LinqToDB_CompareNulls_LikeClr">LikeClr</a>:</p>
+<p>Would be converted to next queries under <a class="xref" href="linq2db.LinqToDB.CompareNulls.html#linq2db_LinqToDB_CompareNulls_LikeClr">LikeClr</a>:</p>
 <pre><code class="lang-csharp">SELECT Value FROM MyEntity WHERE Value IS NULL OR Value != 10
 
 SELECT e1.Value
@@ -632,7 +632,7 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L364"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets default <a class="xref" href="LinqToDB.LinqOptions.html">LinqOptions</a> instance.</p>
+  <div class="markdown level1 summary"><p>Gets default <a class="xref" href="linq2db.LinqToDB.LinqOptions.html">LinqOptions</a> instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -664,9 +664,9 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L222"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Specifies the default <a class="xref" href="LinqToDB.EagerLoadingStrategy.html">EagerLoadingStrategy</a> used for all LoadWith/ThenLoad eager-loading
+  <div class="markdown level1 summary"><p>Specifies the default <a class="xref" href="linq2db.LinqToDB.EagerLoadingStrategy.html">EagerLoadingStrategy</a> used for all LoadWith/ThenLoad eager-loading
 operations when no per-query strategy is set via <code>WithUnionLoadStrategy</code>, <code>WithKeyedLoadStrategy</code>, or <code>WithSeparateLoadStrategy</code>.
-Default value: <a class="xref" href="linq2db.LinqToDB.EagerLoadingStrategy.html#LinqToDB_EagerLoadingStrategy_Default">Default</a>.</p>
+Default value: <a class="xref" href="linq2db.LinqToDB.EagerLoadingStrategy.html#linq2db_LinqToDB_EagerLoadingStrategy_Default">Default</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -713,7 +713,7 @@ This cache reduces time, required for query parsing but have several side-effect
 <p>Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 <p></p>
 <p>It is not recommended to enable this option as it could lead to severe slowdown. Better approach will be
-to use <a class="xref" href="LinqToDB.Linq.NoLinqCache.html">NoLinqCache</a> scope around queries, that produce severe memory leaks you need to fix.</p>
+to use <a class="xref" href="linq2db.LinqToDB.Linq.NoLinqCache.html">NoLinqCache</a> scope around queries, that produce severe memory leaks you need to fix.</p>
 <p></p>
 <a href="https://github.com/linq2db/linq2db/issues/256">More details</a>.
 </summary>
@@ -748,10 +748,10 @@ to use <a class="xref" href="LinqToDB.Linq.NoLinqCache.html">NoLinqCache</a> sco
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L218"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, user could add new mappings to context mapping schems (<a class="xref" href="linq2db.LinqToDB.IDataContext.html#LinqToDB_IDataContext_MappingSchema">MappingSchema</a>).
-Otherwise, <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be generated on locked mapping schema edit attempt.
+  <div class="markdown level1 summary"><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, user could add new mappings to context mapping schems (<a class="xref" href="linq2db.LinqToDB.IDataContext.html#linq2db_LinqToDB_IDataContext_MappingSchema">MappingSchema</a>).
+Otherwise, <a class="xref" href="linq2db.LinqToDB.LinqToDBException.html">LinqToDBException</a> will be generated on locked mapping schema edit attempt.
 It is not recommended to enable this option as it has performance implications.
-Proper approach is to create single <a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a> instance once, configure mappings for it and use this <a class="xref" href="LinqToDB.Mapping.MappingSchema.html">MappingSchema</a> instance for all context instances.
+Proper approach is to create single <a class="xref" href="linq2db.LinqToDB.Mapping.MappingSchema.html">MappingSchema</a> instance once, configure mappings for it and use this <a class="xref" href="linq2db.LinqToDB.Mapping.MappingSchema.html">MappingSchema</a> instance for all context instances.
 Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -788,7 +788,7 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
 This option could be useful for issue reporting, when you need to provide reproducible case.
 Test file will be placed to <code>linq2db</code> subfolder of temp folder and exact file path will be logged
 to data connection tracing infrastructure.
-See <a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_TraceSwitch">TraceSwitch</a> for more details.
+See <a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html#linq2db_LinqToDB_Data_DataConnection_TraceSwitch">TraceSwitch</a> for more details.
 Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -823,7 +823,7 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
 
   <div class="markdown level1 summary"><summary>
 Controls behavior of LINQ query, which ends with GroupBy call.
-- if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> - <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown for such queries;
+- if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> - <a class="xref" href="linq2db.LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown for such queries;
 - if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> - eager loading used.
 Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
 </summary>
@@ -864,7 +864,7 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
   <div class="markdown level1 summary"><p>Controls behavior of linq2db when there is no updateable fields in Update query:</p>
 <ul>
 <li>if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> - query not executed and Update operation returns 0 as number of affected records;</li>
-<li>if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> - <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown.
+<li>if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> - <a class="xref" href="linq2db.LinqToDB.LinqToDBException.html">LinqToDBException</a> will be thrown.
 Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</li>
 </ul>
 </div>
@@ -898,9 +898,9 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/LinqOptions.cs/#L223"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>With <a class="xref" href="linq2db.LinqToDB.ImplicitCollectionLoading.html#LinqToDB_ImplicitCollectionLoading_Throw">Throw</a>, a query that triggers an implicit eager load — a collection projected
-in a <code>Select</code> without being explicitly requested — throws <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> at
-build time; with <a class="xref" href="linq2db.LinqToDB.ImplicitCollectionLoading.html#LinqToDB_ImplicitCollectionLoading_Allow">Allow</a> (the default) it is loaded as usual.</p>
+  <div class="markdown level1 summary"><p>With <a class="xref" href="linq2db.LinqToDB.ImplicitCollectionLoading.html#linq2db_LinqToDB_ImplicitCollectionLoading_Throw">Throw</a>, a query that triggers an implicit eager load — a collection projected
+in a <code>Select</code> without being explicitly requested — throws <a class="xref" href="linq2db.LinqToDB.LinqToDBException.html">LinqToDBException</a> at
+build time; with <a class="xref" href="linq2db.LinqToDB.ImplicitCollectionLoading.html#linq2db_LinqToDB_ImplicitCollectionLoading_Allow">Allow</a> (the default) it is loaded as usual.</p>
 <p>
 The guard is bypassed when the eager load is explicit: <code>LoadWith</code>/<code>ThenLoad</code> allows that
 one collection (other unmarked collections in the same query still throw), while a root
@@ -1049,8 +1049,8 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
 mapped members/methods that do not prefer server-side evaluation) are calculated on the client during
 materialization instead of being translated into additional SQL columns. Real database columns,
 already-built subqueries, and expressions that prefer or require server-side evaluation (for example,
-members or methods mapped with <a class="xref" href="linq2db.LinqToDB.Sql.ExpressionAttribute.html#LinqToDB_Sql_ExpressionAttribute_PreferServerSide">PreferServerSide</a> or
-<a class="xref" href="linq2db.LinqToDB.Sql.ExpressionAttribute.html#LinqToDB_Sql_ExpressionAttribute_ServerSideOnly">ServerSideOnly</a>) are still translated to SQL.
+members or methods mapped with <a class="xref" href="linq2db.LinqToDB.Sql.ExpressionAttribute.html#linq2db_LinqToDB_Sql_ExpressionAttribute_PreferServerSide">PreferServerSide</a> or
+<a class="xref" href="linq2db.LinqToDB.Sql.ExpressionAttribute.html#linq2db_LinqToDB_Sql_ExpressionAttribute_ServerSideOnly">ServerSideOnly</a>) are still translated to SQL.
 Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1120,7 +1120,7 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
   </h3>
 
   <div class="markdown level1 summary"><p>Enables logging of generated mapping expression to data connection tracing infrastructure.
-See <a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html#LinqToDB_Data_DataConnection_TraceSwitch">TraceSwitch</a> for more details.
+See <a class="xref" href="linq2db.LinqToDB.Data.DataConnection.html#linq2db_LinqToDB_Data_DataConnection_TraceSwitch">TraceSwitch</a> for more details.
 Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1157,7 +1157,7 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
 or <code>MERGE</code> for the target provider and would fall back to an emulated multi-statement
 <code>SELECT → UPDATE → INSERT</code> sequence (the three statements run as independent commands — wrap the
 call in a transaction if atomicity is required).</p>
-<ul><li><a class="xref" href="linq2db.LinqToDB.UpsertEmulationPolicy.html#LinqToDB_UpsertEmulationPolicy_Allow">Allow</a> (default) — perform the emulated fallback.</li><li><a class="xref" href="linq2db.LinqToDB.UpsertEmulationPolicy.html#LinqToDB_UpsertEmulationPolicy_Throw">Throw</a> — reject it with <a class="xref" href="LinqToDB.LinqToDBException.html">LinqToDBException</a> at build time.</li></ul>
+<ul><li><a class="xref" href="linq2db.LinqToDB.UpsertEmulationPolicy.html#linq2db_LinqToDB_UpsertEmulationPolicy_Allow">Allow</a> (default) — perform the emulated fallback.</li><li><a class="xref" href="linq2db.LinqToDB.UpsertEmulationPolicy.html#linq2db_LinqToDB_UpsertEmulationPolicy_Throw">Throw</a> — reject it with <a class="xref" href="linq2db.LinqToDB.LinqToDBException.html">LinqToDBException</a> at build time.</li></ul>
 </div>
   <div class="markdown level1 conceptual"></div>
 

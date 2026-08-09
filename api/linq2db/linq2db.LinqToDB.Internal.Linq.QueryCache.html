@@ -93,13 +93,13 @@ Class QueryCache  <a class="header-action link-secondary" title="View source" hr
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Internal.html">Internal</a>.<a class="xref" href="LinqToDB.Internal.Linq.html">Linq</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="linq2db.LinqToDB.html">LinqToDB</a>.<a class="xref" href="linq2db.LinqToDB.Internal.html">Internal</a>.<a class="xref" href="linq2db.LinqToDB.Internal.Linq.html">Linq</a></dd></dl>
   <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
   </div>
 
   <div class="markdown summary"><p>Global LINQ query cache.
 Buckets queries by a shallow composite key, then verifies candidates inside each bucket
-via <a class="xref" href="linq2db.LinqToDB.Internal.Linq.Query.html#LinqToDB_Internal_Linq_Query_Compare_LinqToDB_IDataContext_LinqToDB_Internal_Linq_IQueryExpressions_LinqToDB_Internal_Linq_IQueryExpressions__">Compare(IDataContext, IQueryExpressions, out IQueryExpressions)</a>.</p>
+via <a class="xref" href="linq2db.LinqToDB.Internal.Linq.Query.html#linq2db_LinqToDB_Internal_Linq_Query_Compare_LinqToDB_IDataContext_LinqToDB_Internal_Linq_IQueryExpressions_LinqToDB_Internal_Linq_IQueryExpressions__">Compare(IDataContext, IQueryExpressions, out IQueryExpressions?)</a>.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -166,7 +166,7 @@ via <a class="xref" href="linq2db.LinqToDB.Internal.Linq.Query.html#LinqToDB_Int
 
   <h2 id="linq2db_LinqToDB_Internal_Linq_QueryCache_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>Lookup is O(1) at the bucket-map level. Inside each bucket, candidates are still verified
-with the original <a class="xref" href="linq2db.LinqToDB.Internal.Linq.Query.html#LinqToDB_Internal_Linq_Query_Compare_LinqToDB_IDataContext_LinqToDB_Internal_Linq_IQueryExpressions_LinqToDB_Internal_Linq_IQueryExpressions__">Compare(IDataContext, IQueryExpressions, out IQueryExpressions)</a> equality check.</p>
+with the original <a class="xref" href="linq2db.LinqToDB.Internal.Linq.Query.html#linq2db_LinqToDB_Internal_Linq_Query_Compare_LinqToDB_IDataContext_LinqToDB_Internal_Linq_IQueryExpressions_LinqToDB_Internal_Linq_IQueryExpressions__">Compare(IDataContext, IQueryExpressions, out IQueryExpressions?)</a> equality check.</p>
 <p>Expiration:</p>
 <ul>
 <li>Each entry stores its own base timeout, captured from the context that created it.</li>
@@ -182,7 +182,7 @@ remove expired entries, and optionally trim the cache to a global capacity.</li>
 <li>Full buckets evict the entry with the earliest expiration deadline, then oldest access time,
 then lowest hit rate.</li>
 <li>The whole cache is also approximately capped by <span class="xref">LinqToDB.Internal.Linq.QueryCache.DefaultMaxEntries</span>, overridable
-through <a class="xref" href="linq2db.LinqToDB.Internal.Linq.QueryCache.html#LinqToDB_Internal_Linq_QueryCache_MaxEntriesOverride">MaxEntriesOverride</a>.</li>
+through <a class="xref" href="linq2db.LinqToDB.Internal.Linq.QueryCache.html#linq2db_LinqToDB_Internal_Linq_QueryCache_MaxEntriesOverride">MaxEntriesOverride</a>.</li>
 </ul>
 <p>Threading:</p>
 <ul>
@@ -204,7 +204,7 @@ through <a class="xref" href="linq2db.LinqToDB.Internal.Linq.QueryCache.html#Lin
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Internal/Linq/QueryCache.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Process-wide default cache used by <a class="xref" href="LinqToDB.Internal.Linq.Query-1.html">Query&lt;T&gt;</a>.</p>
+  <div class="markdown level1 summary"><p>Process-wide default cache used by <a class="xref" href="linq2db.LinqToDB.Internal.Linq.Query-1.html">Query&lt;T&gt;</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -242,8 +242,8 @@ through <a class="xref" href="linq2db.LinqToDB.Internal.Linq.QueryCache.html#Lin
 
   <div class="markdown level1 summary"><p>Per-instance override for the base idle timeout.
 When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, each new entry captures
-<a class="xref" href="linq2db.LinqToDB.LinqOptions.html#LinqToDB_LinqOptions_CacheSlidingExpirationOrDefault">CacheSlidingExpirationOrDefault</a> from the invoking
-<a class="xref" href="LinqToDB.IDataContext.html">IDataContext</a>.</p>
+<a class="xref" href="linq2db.LinqToDB.LinqOptions.html#linq2db_LinqToDB_LinqOptions_CacheSlidingExpirationOrDefault">CacheSlidingExpirationOrDefault</a> from the invoking
+<a class="xref" href="linq2db.LinqToDB.IDataContext.html">IDataContext</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

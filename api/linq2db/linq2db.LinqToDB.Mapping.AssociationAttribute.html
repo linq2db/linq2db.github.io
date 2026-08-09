@@ -93,7 +93,7 @@ Class AssociationAttribute  <a class="header-action link-secondary" title="View 
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Mapping.html">Mapping</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="linq2db.LinqToDB.html">LinqToDB</a>.<a class="xref" href="linq2db.LinqToDB.Mapping.html">Mapping</a></dd></dl>
   <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
   </div>
 
@@ -108,7 +108,7 @@ Also, optionally, you can pass data context object as extra method parameter.</p
 <p>Based on association type - to one or to multiple records - result type should be target record's mapping type or
 <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a> collection.</p>
 <p>By default associations are used only for joins generation in LINQ queries and will have <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> value for loaded
-records. To load data into association, you should explicitly specify it in your query using <a class="xref" href="linq2db.LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_LoadWith__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___">LoadWith&lt;TEntity, TProperty&gt;(IQueryable&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt;)</a> method.</p>
+records. To load data into association, you should explicitly specify it in your query using <a class="xref" href="linq2db.LinqToDB.LinqExtensions.html#linq2db_LinqToDB_LinqExtensions_LoadWith__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___">LoadWith&lt;TEntity, TProperty&gt;(IQueryable&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TProperty?&gt;&gt;)</a> method.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -503,7 +503,7 @@ Otherwise the default value is <a href="https://learn.microsoft.com/dotnet/cshar
   </h3>
 
   <div class="markdown level1 summary"><p>Specifies static property or method without parameters, that returns join predicate expression. This predicate will be used together with
-<a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_ThisKey">ThisKey</a>/<a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_OtherKey">OtherKey</a> join keys, if they are specified.
+<a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#linq2db_LinqToDB_Mapping_AssociationAttribute_ThisKey">ThisKey</a>/<a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#linq2db_LinqToDB_Mapping_AssociationAttribute_OtherKey">OtherKey</a> join keys, if they are specified.
 Predicate expression lambda function takes two parameters: this record and other record and returns boolean result.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -537,8 +537,8 @@ Predicate expression lambda function takes two parameters: this record and other
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets comma-separated list of association key members on another side of association.
-Those keys will be used for join predicate generation and must be compatible with <a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_ThisKey">ThisKey</a> keys.
-You must specify keys it you do not use custom predicate (see <a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_ExpressionPredicate">ExpressionPredicate</a>).</p>
+Those keys will be used for join predicate generation and must be compatible with <a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#linq2db_LinqToDB_Mapping_AssociationAttribute_ThisKey">ThisKey</a> keys.
+You must specify keys it you do not use custom predicate (see <a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#linq2db_LinqToDB_Mapping_AssociationAttribute_ExpressionPredicate">ExpressionPredicate</a>).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -571,7 +571,7 @@ You must specify keys it you do not use custom predicate (see <a class="xref" hr
   </h3>
 
   <div class="markdown level1 summary"><p>Specifies predicate expression. This predicate will be used together with
-<a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_ThisKey">ThisKey</a>/<a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_OtherKey">OtherKey</a> join keys, if they are specified.
+<a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#linq2db_LinqToDB_Mapping_AssociationAttribute_ThisKey">ThisKey</a>/<a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#linq2db_LinqToDB_Mapping_AssociationAttribute_OtherKey">OtherKey</a> join keys, if they are specified.
 Predicate expression lambda function takes two parameters: this record and other record and returns boolean result.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -690,7 +690,7 @@ Result of query method should be lambda which takes two parameters: this record,
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Mapping/AssociationAttribute.cs/#L105"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Specify name of property or field to store association value, loaded using <a class="xref" href="linq2db.LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_LoadWith__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___">LoadWith&lt;TEntity, TProperty&gt;(IQueryable&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt;)</a> method.
+  <div class="markdown level1 summary"><p>Specify name of property or field to store association value, loaded using <a class="xref" href="linq2db.LinqToDB.LinqExtensions.html#linq2db_LinqToDB_LinqExtensions_LoadWith__2_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0___1___">LoadWith&lt;TEntity, TProperty&gt;(IQueryable&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TProperty?&gt;&gt;)</a> method.
 When not specified, current association member will be used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -724,8 +724,8 @@ When not specified, current association member will be used.</p>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets comma-separated list of association key members on this side of association.
-Those keys will be used for join predicate generation and must be compatible with <a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_OtherKey">OtherKey</a> keys.
-You must specify keys it you do not use custom predicate (see <a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_ExpressionPredicate">ExpressionPredicate</a>).</p>
+Those keys will be used for join predicate generation and must be compatible with <a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#linq2db_LinqToDB_Mapping_AssociationAttribute_OtherKey">OtherKey</a> keys.
+You must specify keys it you do not use custom predicate (see <a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#linq2db_LinqToDB_Mapping_AssociationAttribute_ExpressionPredicate">ExpressionPredicate</a>).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -793,7 +793,7 @@ You must specify keys it you do not use custom predicate (see <a class="xref" hr
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Mapping/AssociationAttribute.cs/#L175"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns <a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_OtherKey">OtherKey</a> value as a list of key member names.</p>
+  <div class="markdown level1 summary"><p>Returns <a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#linq2db_LinqToDB_Mapping_AssociationAttribute_OtherKey">OtherKey</a> value as a list of key member names.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -826,7 +826,7 @@ You must specify keys it you do not use custom predicate (see <a class="xref" hr
   <a class="header-action link-secondary" title="View source" href="https://github.com/linq2db/linq2db/blob/master/Source/LinqToDB/Mapping/AssociationAttribute.cs/#L169"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns <a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#LinqToDB_Mapping_AssociationAttribute_ThisKey">ThisKey</a> value as a list of key member names.</p>
+  <div class="markdown level1 summary"><p>Returns <a class="xref" href="linq2db.LinqToDB.Mapping.AssociationAttribute.html#linq2db_LinqToDB_Mapping_AssociationAttribute_ThisKey">ThisKey</a> value as a list of key member names.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

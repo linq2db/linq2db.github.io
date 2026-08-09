@@ -93,13 +93,13 @@ Class ColumnAttribute  <a class="header-action link-secondary" title="View sourc
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Mapping.html">Mapping</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="linq2db.LinqToDB.html">LinqToDB</a>.<a class="xref" href="linq2db.LinqToDB.Mapping.html">Mapping</a></dd></dl>
   <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
   </div>
 
   <div class="markdown summary"><p>Configures mapping of mapping class member to database column.
 Could be applied directly to a property or field or to mapping class/interface.
-In latter case you should specify member name using <a class="xref" href="linq2db.LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_MemberName">MemberName</a> property.</p>
+In latter case you should specify member name using <a class="xref" href="linq2db.LinqToDB.Mapping.ColumnAttribute.html#linq2db_LinqToDB_Mapping_ColumnAttribute_MemberName">MemberName</a> property.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -384,7 +384,7 @@ public class ColumnAttribute : MappingAttribute, _Attribute</code></pre>
     <dd><p>Database column name.</p>
 </dd>
     <dt><code>memberName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Name of mapped member. See <a class="xref" href="linq2db.LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_MemberName">MemberName</a> for more details.</p>
+    <dd><p>Name of mapped member. See <a class="xref" href="linq2db.LinqToDB.Mapping.ColumnAttribute.html#linq2db_LinqToDB_Mapping_ColumnAttribute_MemberName">MemberName</a> for more details.</p>
 </dd>
   </dl>
 
@@ -443,7 +443,7 @@ public class ColumnAttribute : MappingAttribute, _Attribute</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Custom template for column definition in create table SQL expression, generated using
-<a class="xref" href="linq2db.LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_CreateTable__1_LinqToDB_IDataContext_System_String_System_String_System_String_System_String_System_String_LinqToDB_SqlQuery_DefaultNullable_System_String_LinqToDB_TableOptions_">CreateTable&lt;T&gt;(IDataContext, string, string, string, string, string, DefaultNullable, string, TableOptions)</a> methods.
+<a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_CreateTable__1_LinqToDB_IDataContext_System_String_System_String_System_String_System_String_System_String_LinqToDB_SqlQuery_DefaultNullable_System_String_LinqToDB_TableOptions_">CreateTable&lt;T&gt;(IDataContext, string?, string?, string?, string?, string?, DefaultNullable, string?, TableOptions)</a> methods.
 Template accepts following string parameters:</p>
 <ul><li>{0} - column name;</li><li>{1} - column type;</li><li>{2} - NULL specifier;</li><li>{3} - identity specification.</li></ul>
 </div>
@@ -578,7 +578,7 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets whether a column contains a discriminator value for a LINQ to DB inheritance hierarchy.
-<a class="xref" href="LinqToDB.Mapping.InheritanceMappingAttribute.html">InheritanceMappingAttribute</a> for more details.
+<a class="xref" href="linq2db.LinqToDB.Mapping.InheritanceMappingAttribute.html">InheritanceMappingAttribute</a> for more details.
 Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -612,7 +612,7 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets whether a column contains values that the database auto-generates.
-Also see <a class="xref" href="LinqToDB.Mapping.IdentityAttribute.html">IdentityAttribute</a>.</p>
+Also see <a class="xref" href="linq2db.LinqToDB.Mapping.IdentityAttribute.html">IdentityAttribute</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -645,7 +645,7 @@ Also see <a class="xref" href="LinqToDB.Mapping.IdentityAttribute.html">Identity
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets whether this class member represents a column that is part or all of the primary key of the table.
-Also see <a class="xref" href="LinqToDB.Mapping.PrimaryKeyAttribute.html">PrimaryKeyAttribute</a>.</p>
+Also see <a class="xref" href="linq2db.LinqToDB.Mapping.PrimaryKeyAttribute.html">PrimaryKeyAttribute</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -712,7 +712,7 @@ Default value: value, defined for member type in mapping schema.</p>
 
   <div class="markdown level1 summary"><p>Gets or sets the name of mapped member.
 When applied to class or interface, should contain name of property of field.</p>
-<p>If column mapped to a property or field of composite object, <a class="xref" href="linq2db.LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_MemberName">MemberName</a> should contain a path to that
+<p>If column mapped to a property or field of composite object, <a class="xref" href="linq2db.LinqToDB.Mapping.ColumnAttribute.html#linq2db_LinqToDB_Mapping_ColumnAttribute_MemberName">MemberName</a> should contain a path to that
 member using dot as separator.</p>
 <example>
 <pre><code class="lang-csharp">public class Address
@@ -863,7 +863,7 @@ Default value: value, defined for member type in mapping schema.</p>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the Primary Key order.
-See <a class="xref" href="linq2db.LinqToDB.Mapping.PrimaryKeyAttribute.html#LinqToDB_Mapping_PrimaryKeyAttribute_Order">Order</a> for more details.</p>
+See <a class="xref" href="linq2db.LinqToDB.Mapping.PrimaryKeyAttribute.html#linq2db_LinqToDB_Mapping_PrimaryKeyAttribute_Order">Order</a> for more details.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -963,7 +963,7 @@ Default value: <a href="https://learn.microsoft.com/dotnet/csharp/language-refer
 
   <div class="markdown level1 summary"><p>Gets or sets whether a column is insertable.
 This flag will affect only insert operations with implicit columns specification like
-<a class="xref" href="linq2db.LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_Insert__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">Insert&lt;T&gt;(IDataContext, T, string, string, string, string, TableOptions)</a>
+<a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_Insert__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">Insert&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions)</a>
 method and will be ignored when user explicitly specifies value for this column.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -998,7 +998,7 @@ method and will be ignored when user explicitly specifies value for this column.
 
   <div class="markdown level1 summary"><p>Gets or sets whether a column is updatable.
 This flag will affect only update operations with implicit columns specification like
-<a class="xref" href="linq2db.LinqToDB.DataExtensions.html#LinqToDB_DataExtensions_Update__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">Update&lt;T&gt;(IDataContext, T, string, string, string, string, TableOptions)</a>
+<a class="xref" href="linq2db.LinqToDB.DataExtensions.html#linq2db_LinqToDB_DataExtensions_Update__1_LinqToDB_IDataContext___0_System_String_System_String_System_String_System_String_LinqToDB_TableOptions_">Update&lt;T&gt;(IDataContext, T, string?, string?, string?, string?, TableOptions)</a>
 method and will be ignored when user explicitly specifies value for this column.</p>
 </div>
   <div class="markdown level1 conceptual"></div>

@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Namespace LinqToDB.Internal.Expressions | Linq To DB </title>
+      <title>Namespace linq2db.LinqToDB.Internal.Expressions | Linq To DB </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Namespace LinqToDB.Internal.Expressions | Linq To DB ">
+      <meta name="title" content="Namespace linq2db.LinqToDB.Internal.Expressions | Linq To DB ">
       
       
       <link rel="icon" href="../../images/icon.ico">
@@ -86,7 +86,7 @@
 
         <article data-uid="linq2db.LinqToDB.Internal.Expressions">
 
-  <h1 id="linq2db_LinqToDB_Internal_Expressions" data-uid="linq2db.LinqToDB.Internal.Expressions" class="text-break">Namespace LinqToDB.Internal.Expressions</h1>
+  <h1 id="linq2db_LinqToDB_Internal_Expressions" data-uid="linq2db.LinqToDB.Internal.Expressions" class="text-break">Namespace linq2db.LinqToDB.Internal.Expressions</h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="markdown level0 remarks"></div>
@@ -156,12 +156,12 @@ value constants (e.g. booleans, integers).</p>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlAggregateLifterExpression.html">SqlAggregateLifterExpression</a></dt>
-      <dd><p>Wraps a <a class="xref" href="LinqToDB.Internal.Expressions.SqlPlaceholderExpression.html">SqlPlaceholderExpression</a> produced by an aggregate-function
+      <dd><p>Wraps a <a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlPlaceholderExpression.html">SqlPlaceholderExpression</a> produced by an aggregate-function
 translator and carries up to two delegates that customize how the placeholder is
 processed at later phases of query building:</p>
-<ul><li><a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlAggregateLifterExpression.html#LinqToDB_Internal_Expressions_SqlAggregateLifterExpression_MaterializationCheck">MaterializationCheck</a> — invoked at C# materialization
+<ul><li><a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlAggregateLifterExpression.html#linq2db_LinqToDB_Internal_Expressions_SqlAggregateLifterExpression_MaterializationCheck">MaterializationCheck</a> — invoked at C# materialization
   time. Used by non-nullable Min/Max/Avg to wrap the column read with a runtime
-  <code>CheckNullValue</code> call that throws on NULL.</li><li><a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlAggregateLifterExpression.html#LinqToDB_Internal_Expressions_SqlAggregateLifterExpression_SqlRewriter">SqlRewriter</a> — invoked at OUTER APPLY lift time
+  <code>CheckNullValue</code> call that throws on NULL.</li><li><a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlAggregateLifterExpression.html#linq2db_LinqToDB_Internal_Expressions_SqlAggregateLifterExpression_SqlRewriter">SqlRewriter</a> — invoked at OUTER APPLY lift time
   (in <code>AggregateExecuteContext.CreateWeakOuterJoin</code>) after <code>UpdateNesting</code>
   has promoted the inner aggregate to a parent-side column reference, or eagerly
   for grouped aggregates. Used by non-nullable Sum and StringJoin-family aggregates
@@ -171,7 +171,7 @@ processed at later phases of query building:</p>
 <p>At least one of the two delegates is set. Both can be set when an aggregate needs
 runtime null-check AND late SQL coalesce wrapping; in that case, the conceptual order
 is: <code>SqlRewriter</code> runs at lift time, then <code>MaterializationCheck</code> at
-materialization. <a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlAggregateLifterExpression.html#LinqToDB_Internal_Expressions_SqlAggregateLifterExpression_CanReduce">CanReduce</a> returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> — neither delegate is
+materialization. <a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlAggregateLifterExpression.html#linq2db_LinqToDB_Internal_Expressions_SqlAggregateLifterExpression_CanReduce">CanReduce</a> returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> — neither delegate is
 auto-invoked by visitor reduction; consumers explicitly invoke them at the right
 hook point.</p>
 </dd>
@@ -231,7 +231,7 @@ Structs
       <dt><a class="xref" href="linq2db.LinqToDB.Internal.Expressions.WindowFunctionHelpers.WindowFrameSpec.html">WindowFunctionHelpers.WindowFrameSpec</a></dt>
       <dd><p>Describes a converted window frame: <code>ROWS</code>/<code>RANGE</code> plus its start and end boundaries.
 <code class="paramref">StartMember</code>/<code class="paramref">EndMember</code> are the
-<a class="xref" href="LinqToDB.WindowFunctionBuilder.html">WindowFunctionBuilder.IBoundaryPart&lt;TBoundaryDefined&gt;</a> member names — <code>&quot;Unbounded&quot;</code>, <code>&quot;CurrentRow&quot;</code>,
+<a class="xref" href="linq2db.LinqToDB.WindowFunctionBuilder.IBoundaryPart-1.html">WindowFunctionBuilder.IBoundaryPart&lt;TBoundaryDefined&gt;</a> member names — <code>&quot;Unbounded&quot;</code>, <code>&quot;CurrentRow&quot;</code>,
 <code>&quot;ValuePreceding&quot;</code>, or <code>&quot;ValueFollowing&quot;</code>; the matching value is the offset expression for the
 <code>Value*</code> members and <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> otherwise.</p>
 </dd>

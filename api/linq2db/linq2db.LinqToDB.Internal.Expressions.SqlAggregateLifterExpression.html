@@ -93,16 +93,16 @@ Class SqlAggregateLifterExpression  <a class="header-action link-secondary" titl
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="LinqToDB.html">LinqToDB</a>.<a class="xref" href="LinqToDB.Internal.html">Internal</a>.<a class="xref" href="LinqToDB.Internal.Expressions.html">Expressions</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="linq2db.LinqToDB.html">LinqToDB</a>.<a class="xref" href="linq2db.LinqToDB.Internal.html">Internal</a>.<a class="xref" href="linq2db.LinqToDB.Internal.Expressions.html">Expressions</a></dd></dl>
   <dl><dt>Assembly</dt><dd>linq2db.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Wraps a <a class="xref" href="LinqToDB.Internal.Expressions.SqlPlaceholderExpression.html">SqlPlaceholderExpression</a> produced by an aggregate-function
+  <div class="markdown summary"><p>Wraps a <a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlPlaceholderExpression.html">SqlPlaceholderExpression</a> produced by an aggregate-function
 translator and carries up to two delegates that customize how the placeholder is
 processed at later phases of query building:</p>
-<ul><li><a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlAggregateLifterExpression.html#LinqToDB_Internal_Expressions_SqlAggregateLifterExpression_MaterializationCheck">MaterializationCheck</a> — invoked at C# materialization
+<ul><li><a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlAggregateLifterExpression.html#linq2db_LinqToDB_Internal_Expressions_SqlAggregateLifterExpression_MaterializationCheck">MaterializationCheck</a> — invoked at C# materialization
   time. Used by non-nullable Min/Max/Avg to wrap the column read with a runtime
-  <code>CheckNullValue</code> call that throws on NULL.</li><li><a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlAggregateLifterExpression.html#LinqToDB_Internal_Expressions_SqlAggregateLifterExpression_SqlRewriter">SqlRewriter</a> — invoked at OUTER APPLY lift time
+  <code>CheckNullValue</code> call that throws on NULL.</li><li><a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlAggregateLifterExpression.html#linq2db_LinqToDB_Internal_Expressions_SqlAggregateLifterExpression_SqlRewriter">SqlRewriter</a> — invoked at OUTER APPLY lift time
   (in <code>AggregateExecuteContext.CreateWeakOuterJoin</code>) after <code>UpdateNesting</code>
   has promoted the inner aggregate to a parent-side column reference, or eagerly
   for grouped aggregates. Used by non-nullable Sum and StringJoin-family aggregates
@@ -112,7 +112,7 @@ processed at later phases of query building:</p>
 <p>At least one of the two delegates is set. Both can be set when an aggregate needs
 runtime null-check AND late SQL coalesce wrapping; in that case, the conceptual order
 is: <code>SqlRewriter</code> runs at lift time, then <code>MaterializationCheck</code> at
-materialization. <a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlAggregateLifterExpression.html#LinqToDB_Internal_Expressions_SqlAggregateLifterExpression_CanReduce">CanReduce</a> returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> — neither delegate is
+materialization. <a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlAggregateLifterExpression.html#linq2db_LinqToDB_Internal_Expressions_SqlAggregateLifterExpression_CanReduce">CanReduce</a> returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> — neither delegate is
 auto-invoked by visitor reduction; consumers explicitly invoke them at the right
 hook point.</p>
 </div>
@@ -1203,7 +1203,7 @@ hook point.</p>
     <dd></dd>
     <dt><code>materializationCheck</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</dt>
     <dd></dd>
-    <dt><code>sqlRewriter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="LinqToDB.Internal.Expressions.SqlPlaceholderExpression.html">SqlPlaceholderExpression</a>, <a class="xref" href="LinqToDB.Internal.Expressions.SqlPlaceholderExpression.html">SqlPlaceholderExpression</a>&gt;</dt>
+    <dt><code>sqlRewriter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlPlaceholderExpression.html">SqlPlaceholderExpression</a>, <a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlPlaceholderExpression.html">SqlPlaceholderExpression</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -1370,7 +1370,7 @@ hook point.</p>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="LinqToDB.Internal.Expressions.SqlPlaceholderExpression.html">SqlPlaceholderExpression</a>, <a class="xref" href="LinqToDB.Internal.Expressions.SqlPlaceholderExpression.html">SqlPlaceholderExpression</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlPlaceholderExpression.html">SqlPlaceholderExpression</a>, <a class="xref" href="linq2db.LinqToDB.Internal.Expressions.SqlPlaceholderExpression.html">SqlPlaceholderExpression</a>&gt;</dt>
     <dd></dd>
   </dl>
 
